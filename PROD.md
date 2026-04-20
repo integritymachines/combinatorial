@@ -1,11 +1,9 @@
-========================================================
-PROD  (Discrete Manufacturing Systems)
-========================================================
+* PROD  (Discrete Manufacturing Systems) *
 
 Scope:
 Discrete manufacturing systems including job shops, flow lines, assembly lines,
 flexible manufacturing systems (FMS), and mixed-model production.
-Continuous/process manufacturing is explicitly excluded (handled under PROC).
+Continuous/process manufacturing handled under PROC.
 
 The domain covers architectural decisions, planning, execution, and evolution of
 physical production systems with discrete jobs, machines, and resources.
