@@ -4,16 +4,18 @@ Industrial Combinatorial Optimization Domain Research
 v0.4 | October 2026
 
 LEGEND
+
 MACRO DOMAIN : DOMAIN
 DOMAIN -> COVERAGE / OPERATIONAL TERRITORY
 DOMAIN <-> DOMAIN    recurring interface / possible secondary-domain relationship
 
 ONTOLOGY REFERENCE
-000_DOMAIN.md is the single source of truth for Macro Domains, Domains, Industries, Industry Domains, Regime, Structure, and tag semantics.
 
+000_DOMAIN.md is the single source of truth for Macro Domains, Domains, Industries, Industry Domains, Regime, Structure, and tag semantics.
 This document supplies research coverage, interfaces, and boundary reasoning only.
 
 Within this document:
+
 DOMAIN -> X records researched coverage or operational territory, not taxonomic parentage.
 DOMAIN <-> DOMAIN records a recurring interface or possible Secondary-Domain relationship.
 Industry examples are contextual. Industry-Domain relationships are interpreted through Industry Domains as defined in 000_DOMAIN.md.
@@ -21,6 +23,7 @@ Primary-Domain ownership is evaluated at the decision-contract level and does no
 
 
 MACRO DOMAINS : DOMAINS
+
 1. #TRANS : 101. #PROC,  102. #PROD
 2. #DISP  : 201. #LOG,   202. #SCM
 3. #INFRA : 301. #ENER,  302. #CIVIC
@@ -30,10 +33,15 @@ MACRO DOMAINS : DOMAINS
 7. #RES   : 701. #EXTR,  702. #LAND
 
 
+COVERAGE & OPERATIONAL TERRITORIES
+
 1. TRANSFORMATION (#TRANS) : #PROC, #PROD
+
 Transformation = systems that change material or product state.
 
+
 101. #PROC Continuous & Batch Process Manufacturing Systems
+
 #PROC -> Refining
 #PROC -> Petrochemicals
 #PROC -> Specialty chemicals
@@ -69,7 +77,9 @@ Open specialization candidates:
 #PROC -> Pharmaceutical process manufacturing
 #PROC -> Industrial blending systems
 
+
 102. #PROD Discrete Production & Assembly Systems
+
 #PROD -> Automotive manufacturing
 #PROD -> Aerospace manufacturing
 #PROD -> Electronics assembly
@@ -101,15 +111,19 @@ Open specialization candidates:
 #PROD <-> #COMP     semiconductor systems, VLSI implementation interfaces
 
 Open specialization candidates:
+
 #PROD -> Semiconductor manufacturing
 #PROD -> Aerospace production systems
 #PROD -> Electronics manufacturing systems
 
 
 2. DISPLACEMENT (#DISP) : #LOG, #SCM
+
 Displacement = systems that move goods, people, inventory, or service capacity through space or time.
 
+
 201. #LOG Logistics & Transportation Systems
+
 #LOG -> Parcel delivery
 #LOG -> LTL/TL freight
 #LOG -> Maritime shipping
@@ -149,7 +163,9 @@ Open specialization candidates:
 #LOG -> Warehouse operations
 #LOG -> Last-mile delivery systems
 
+
 202. #SCM Supply Chain & Inventory Systems
+
 #SCM -> Consumer supply chains
 #SCM -> Industrial distribution
 #SCM -> Omni-channel retail networks
@@ -188,9 +204,12 @@ Open specialization candidates:
 
 
 3. INFRASTRUCTURE (#INFRA) : #ENER, #CIVIC
+
 Infrastructure = shared physical service substrates and utility systems.
 
+
 301. #ENER Energy & Utility Systems
+
 #ENER -> Power systems
 #ENER -> ISO/RTO operations
 #ENER -> Gas transmission
@@ -226,7 +245,9 @@ Open specialization candidates:
 #ENER -> Distributed energy coordination
 #ENER -> Industrial utility systems
 
+
 302. #CIVIC Civic Infrastructure & Construction Systems
+
 #CIVIC -> Public transit
 #CIVIC -> Municipal waste
 #CIVIC -> Road maintenance
@@ -264,9 +285,12 @@ Open specialization candidates:
 
 
 4. EXCHANGE (#EXCH) : #MKT, #FIN
+
 Exchange = systems that allocate, trade, and exchange goods, services, information, rights, or claims.
 
+
 401. #MKT Market & Commercial Allocation Systems
+
 #MKT -> Revenue management
 #MKT -> Retail assortment
 #MKT -> Ad-tech allocation
@@ -301,7 +325,9 @@ Open specialization candidates:
 #MKT -> Airline/hospitality revenue management
 #MKT -> Combinatorial auction systems
 
+
 402. #FIN Finance, Accounting & Insurance Systems
+
 #FIN -> Treasury systems
 #FIN -> Collateral optimization
 #FIN -> Settlement systems
@@ -340,9 +366,12 @@ Open specialization candidates:
 
 
 5. HUMAN (#HUMAN) : #HR. #HC
+
 Human = systems where human capability or human-critical service feasibility dominates.
 
+
 501. #HC Healthcare & Human-Critical Operational Systems
+
 #HC -> Perioperative systems
 #HC -> Inpatient flow
 #HC -> Emergency medical services
@@ -374,7 +403,9 @@ Open specialization candidates:
 #HC -> EMS systems
 #HC -> Home-health coordination
 
+
 502. #HR Workforce & Organizational Systems
+
 #HR -> Field service
 #HR -> Retail/service staffing
 #HR -> Aviation crew systems
@@ -411,9 +442,12 @@ Open specialization candidates:
 
 
 6. INFORMATION (#INFO) : #COMP, #INTEL
+
 Information = systems where sensing, computation, coordination, or adversarial information dominates.
 
+
 601. #COMP Computational & Digital Systems
+
 #COMP -> Cloud orchestration
 #COMP -> Container scheduling
 #COMP -> Edge computing
@@ -451,7 +485,9 @@ Open specialization candidates:
 #COMP -> Telecom core optimization
 #COMP -> AI infrastructure orchestration
 
-602: #INTEL Intelligence, Defense & Security Systems
+
+602. #INTEL Intelligence, Defense & Security Systems
+
 #INTEL -> Homeland security
 #INTEL -> Border inspection
 #INTEL -> Satellite tasking
@@ -487,9 +523,12 @@ Open specialization candidates:
 
 
 7. RESOURCE (#RES) : #EXTR, #LAND
+
 Resource = systems that extract, harvest, activate, or allocate natural and geospatial assets.
 
+
 701. #EXTR Resource Extraction Systems
+
 #EXTR -> Open-pit mining
 #EXTR -> Underground mining interfaces
 #EXTR -> Mine scheduling
@@ -521,7 +560,9 @@ Open specialization candidates:
 #EXTR -> Prospecting systems
 #EXTR -> Oil and gas field development systems
 
+
 702. #LAND Land-Use, Water Management & Agriculture Systems
+
 #LAND -> Forestry
 #LAND -> Agriculture
 #LAND -> Fisheries
@@ -560,6 +601,7 @@ Open specialization candidates:
 
 
 SCOPED PRIMARY / SECONDARY DOMAIN TAGGING EXAMPLES
+
 Secondary lists are possible material interfaces, not mandatory tags on every instance.
 
 Semiconductor fab scheduling:
@@ -588,6 +630,7 @@ Operating-room scheduling, integrated clinical case/room/time decision:
 
 
 CROSS-CUTTING NONCANONICAL MOTIFS
+
 These motifs recur across many Domains. They are useful search and description terms but do not define Domains or canonical Structure. #dispatch remains a Regime.
 
 Strongly cross-domain:
@@ -615,6 +658,7 @@ Cross-domain industrial motifs:
 
 
 SCOPED BOUNDARY RESOLUTIONS
+
 Industry does not determine Primary Domain. Ownership follows the decision contract.
 
 Examples:
