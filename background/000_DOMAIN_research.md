@@ -3,8 +3,7 @@
 Industrial Combinatorial Optimization Domain Research
 v0.4 | October 2026
 
-Legend
-------
+LEGEND
 MACRO DOMAIN : DOMAIN
 DOMAIN -> COVERAGE / OPERATIONAL TERRITORY
 DOMAIN <-> DOMAIN    recurring interface / possible secondary-domain relationship
