@@ -16,7 +16,7 @@ Distribution and renewable plants: network reinforcement, discrete DER connectio
 Gas and hydrogen utilities: pipelines and compression, expansion/conversion, stationary nomination feasibility, linepack and transient control, valve and station modes. Fuel extraction, procurement and truck movement remain separate contracts.
 District heat/cooling and industrial utilities: utility supply technology configuration, thermal distribution, CHP/boiler/chiller scheduling, electrical and thermal storage, local resilience and multi-carrier balance. The same equipment can support a PROC contract; ownership follows the delivered utility or transformation decision.
 Water: installed distribution pipes, pumps, tanks, isolation/pressure/quality devices, pumping calendars and failure response. Utility-owned drainage/sewer pumping is a scoped operational variant where installed hydraulic service dominates. Catchment/runoff allocation, rights and withdrawal are LAND/EXTR; treatment chemistry is PROC; public works are CIVIC.
-Useful industry context includes ##POWER, ##WIND, ##NUCLEAR, ##OILGAS, ##WATER, ##DISTRICTENERGY, ##DATACENTER, ##CHEMICALS, ##REFINING, ##STEEL and ##REAL ESTATE (descriptive context only; do not compile a tag with a space). This is an open contextual registry, not a new closed axis.
+Useful industry context includes ##POWER, ##WIND, ##NUCLEAR, ##OILGAS, ##WATER, ##DISTRICTENERGY, ##DATACENTER, ##CHEMICALS, ##REFINING, ##STEEL and ##REALESTATE. This is an open contextual registry, not a new closed axis.
 Renewables, batteries, microgrids, virtual power plants, energy hubs and hydrogen are technologies or operating contexts. They do not automatically become separate Problems. An integrated Problem is retained only when the delivered industrial contract adds distinct obligations beyond naming a combination.
 
 OWNERSHIP, IDENTITY AND DISCRETE ADMISSION
@@ -156,7 +156,7 @@ Source support: S42, S16.
 Ontology inference: Primary ENER; Regime #dispatch; Structure #select. Authorizes immediate disconnection to stabilize the operating system.
 Rating inference: Priority High — Emergency shedding is a core safeguard in stressed power systems. Relevance Critical — Better shedding can preserve system stability and critical loads. Hardness High — Discrete block choices and short response times interact with system dynamics.
 Useful comments/descriptors: Continuous load-reduction quantities alone do not establish ICO. ##load-shedding ##frequency-security ##emergency.
-Industrial upstream keys: shedding_policy, commitment, remedial, rotation.
+Industrial upstream keys: shedding_policy, commitment, remedial.
 
 KEY feeder — Distribution Feeder Reconfiguration
 Decision and scope: Choose feeder switch states under load service, radiality, voltage, thermal capacity and switching limits.
@@ -185,8 +185,8 @@ Chosen construction: Selects load actions and places operating cycles or interru
 Constitutive laws and feasibility: Cycle continuity, energy/service obligations and rebound constrain chosen actions.
 Delivered artifact: Selected flexibility actions and their operating/curtailment calendar.
 Template basis: Demand-side load management and service-preserving flexibility | Load-scheduling MILP; rolling control and aggregation/disaggregation.
-Evidence and competing approaches: S27 supports mixed-integer residential service-preference scheduling; S28 supports load-type models. Aggregated convex flexibility (S51) is retained as a noncombinatorial alternative, not fabricated discrete evidence.
-Source support: S27, S28, S51.
+Evidence and competing approaches: S27 directly supports discrete residential load scheduling with service preferences. The load-service/rebound variants are engineering extensions that need instance-specific checks. S51 establishes a convex DER-disaggregation alternative, not additional mixed-integer evidence. S28 remains an unverified discovery lead and is not used for admission or Template population.
+Source support: S27, S51.
 Ontology inference: Primary ENER; Regime #plan + #dispatch; Structure #select + #place. Prepares load adjustments and activates immediate flexibility.
 Rating inference: Priority High — Flexible loads are a recurring source of utility balancing capacity. Relevance High — Better actions can reduce peaks while preserving energy services. Hardness High — Many discrete cycles, rebound and network limits couple customer actions.
 Useful comments/descriptors: Production sequencing remains PROC/PROD; computing workload placement remains COMP. ##demand-response ##load-shifting ##rebound.
@@ -320,12 +320,12 @@ Supplied substrate: Eligible assemblies and histories, fixed core slots, cycle t
 Chosen construction: Maps fuel assemblies to supplied core positions and selects permitted absorber or loading options.
 Constitutive laws and feasibility: Unique assembly-to-slot assignment, neutron/thermal response and allowable symmetry constrain patterns.
 Delivered artifact: Assembly and absorber loading pattern for a specified operating cycle.
-Template basis: In-core fuel management and reload design | Physics-evaluated simulated annealing or genetic search; surrogate-assisted alternatives.
-Evidence and competing approaches: S49 establishes utility/vendor-assisted FORMOSA-P physics-evaluated simulated annealing; S50 documents large combinatorial search and emerging RL. Evidence does not justify replacing established search with RL or a generic NP-complete label.
+Template basis: Physics-based engineering reload design | Physics-evaluated simulated annealing or genetic search; surrogate-assisted alternatives.
+Evidence and competing approaches: S49 establishes utility/vendor-assisted FORMOSA-P and physics-evaluated simulated annealing. S50 reports prevalent engineering-designed patterns and optimization use of SA/GA, while investigating RL. Record that practice/method difference; no strongest-method or generic NP-complete claim follows.
 Source support: S49, S50.
 Ontology inference: Primary ENER; Regime #plan; Structure #map + #select. Commits the fuel arrangement for the next reactor operating cycle.
 Rating inference: Priority Medium — Fuel loading is central to nuclear reactor reload design. Relevance Critical — Better loading patterns affect safe cycle performance and fuel use. Hardness Critical — Large permutations and expensive core-physics evaluations require tailored search.
-Useful comments/descriptors: Fixed core slots are assignment targets; movable geometry would also require #place. ##NUCLEAR ##fuel-loading ##core-physics.
+Useful comments/descriptors: Engineering-designed patterns remain common; optimized search supports reload design. ##NUCLEAR ##fuel-loading ##core-physics.
 Industrial upstream keys: outage.
 
 KEY outage — Utility Asset Outage and Maintenance Scheduling
@@ -555,15 +555,15 @@ Aliases: WFLO; WFCR; integrated wind layout and cable routing.
 Material variants: Candidate-site versus continuous-coordinate layout; offshore and onshore; cable-only design; wake models; substation alternatives.
 Identity and ownership boundary: A within-plant arrangement rather than the system-wide selection of plant projects. Land entitlement and construction execution are LAND/CIVIC interfaces.
 Supplied substrate: Permitted turbine sites or areas, candidate cable corridors, wind data, spacing and cable classes.
-Chosen construction: Selects occupied turbine sites and constructs collection-cable connections.
+Chosen construction: Places turbines in the permitted spatial arrangement, constructs cable connections and selects participating sites or turbines.
 Constitutive laws and feasibility: Spacing, wake interaction and a connected collection system determine admissible layouts.
 Delivered artifact: Occupied turbine sites and cable connections; coordinates when variable.
 Template basis: Wake-aware wind plant and collection-system design | Integrated layout/network MILP or MINLP; quota-Steiner and decomposition methods.
-Evidence and competing approaches: S03 directly establishes joint siting/connectivity on candidate locations. The canonical discrete-site contract uses SELECT+LINK; coordinate PLACE is retained as a scoped variant, not inferred from fixed site coordinates.
+Evidence and competing approaches: S03 establishes joint turbine siting and collection connectivity on candidate locations. PLACE records the actual spatial arrangement in either representation; LINK records collection topology; SELECT records site/turbine membership. Coordinate discretization does not change the industrial Structure.
 Source support: S03.
-Ontology inference: Primary ENER; Regime #design; Structure #select + #link. Commits turbine arrangement and internal electrical connections.
+Ontology inference: Primary ENER; Regime #design; Structure #place + #link + #select. Commits turbine arrangement and internal electrical connections.
 Rating inference: Priority Medium — This decision is central to wind-plant development. Relevance High — Better arrangements can improve energy yield and reduce cable investment. Hardness High — Wake interactions, cable capacity and topology couple turbine choices.
-Useful comments/descriptors: Continuous-coordinate variants also require #place. ##WIND ##wake ##collection-network.
+Useful comments/descriptors: Candidate-site and continuous-coordinate forms share the spatial layout contract. ##WIND ##wake ##collection-network.
 Industrial upstream keys: generation.
 
 ALIASES, INTEGRATIONS, EXCLUSIONS AND OPEN LIMITS
@@ -728,7 +728,7 @@ Support and limits: Author institutional record; discrete load scheduling with s
 
 S28 A comprehensive and modular set of appliance operation MILP models for demand response optimization
 https://www.sciencedirect.com/science/article/pii/S0306261922005189
-Support and limits: Publisher record; shiftable, interruptible and thermostatic load schedules.
+Support and limits: UNVERIFIED DISCOVERY LEAD; publisher full-page retrieval failed. A secondary index provided the modular-load description; it is not used as primary evidence for admission or Template claims.
 
 S29 Study of electric vehicle charging scheduling with renewable energy: Offline and stochastic online optimization
 https://www.sciencedirect.com/science/article/pii/S0377221726000378
