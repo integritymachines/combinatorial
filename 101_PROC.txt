@@ -1,0 +1,279 @@
+PROC Process, Continuous and Batch Process Manufacturing
+v0.1 | Problem layer | 2026-10-06
+Normative: 000_DOMAIN.txt. Evidence: background/101_PROC_research.txt v0.2.
+Dependencies are conditional decision flow. Feedback cycles are retained.
+
+PROC01 Process Network Synthesis.
+DESCRIPTION Selects processing technologies and their material interconnections to meet product and capacity targets under process and capital limits.
+TEMPLATE Process flowsheet and superstructure synthesis | MILP/MINLP superstructure optimization; P-graph structural search.
+REGIME #design | Commits the material-processing topology before operating plans.
+STRUCTURE #link + #select | Constructs material interconnections and selects participating units; material reachability and balance define feasible topology.
+PRIORITY Critical | Defines the process routes and feasible transformations.
+RELEVANCE Critical | Topology determines capital needs and operating capability.
+HARDNESS High | Formal complexity depends on the synthesis model; Technology alternatives, recycles and nonlinear process models interact.
+DEPENDENCIES ∅ → PROC01 → PROC02, PROC03, PROC04, PROC05.
+COMMENTS #TRANS #PROC #design #link #select ##network-design ##process-synthesis.
+
+PROC02 Process Equipment Selection and Capacity Design.
+DESCRIPTION Selects the number, type and available sizes of processing units to meet production requirements under investment and operating limits.
+TEMPLATE Batch-plant capacity design and retrofit | MILP discrete-size reformulation; MINLP design optimization.
+REGIME #design | Commits installed process capacity.
+STRUCTURE #select | Chooses equipment configurations from alternatives; continuous sizing alone is outside the ICO scope.
+PRIORITY High | Installed capacity bounds production in major process industries.
+RELEVANCE Critical | Equipment investment sets long-lived capacity and cost.
+HARDNESS High | Formal complexity depends on the equipment and production model; Discrete capacity choices interact with utilization and nonlinear scale effects.
+DEPENDENCIES PROC01 → PROC02 → PROC06, PROC08, PROC09.
+COMMENTS #TRANS #PROC #design #select ##equipment-sizing ##capacity.
+
+PROC03 Process Buffer and Tank Configuration.
+DESCRIPTION Selects intermediate and product tanks, capacities, locations in the process route and permitted material services.
+TEMPLATE Intermediate-storage and tank-farm design | MILP/MINLP integrated plant and storage design.
+REGIME #design | Commits the physical buffers and permitted storage services.
+STRUCTURE #select + #map | Selects storage configurations and assigns tanks to material services.
+PRIORITY High | Storage capacity controls decoupling between process stages.
+RELEVANCE High | Better buffers reduce blocking and contamination losses.
+HARDNESS High | Formal complexity depends on the design model; Tank capacities, service compatibility and downstream throughput interact.
+DEPENDENCIES PROC01 → PROC03 → PROC06, PROC14.
+COMMENTS #TRANS #PROC #design #select #map ##tank-farm ##intermediate-storage.
+
+PROC04 Process Heat-Recovery Network Synthesis.
+DESCRIPTION Selects heat-exchanger matches and equipment to recover heat between process streams under thermal and investment limits.
+TEMPLATE Heat-integration targeting and exchanger-network design | MILP targeting and match selection; MINLP network synthesis.
+REGIME #design | Commits process heat-recovery connections.
+STRUCTURE #link + #select | Chooses hot-to-cold stream matches and participating exchangers; thermal feasibility constrains the chosen network.
+PRIORITY High | Heat integration recurs in energy-intensive process systems.
+RELEVANCE High | Heat recovery reduces utility demand and operating cost.
+HARDNESS High | Strongly NP-hard for established heat-network synthesis models; Match choices and nonlinear exchanger design require careful formulation or decomposition.
+DEPENDENCIES PROC01 → PROC04 → PROC18.
+COMMENTS Standalone utility-generation design belongs to ENER | #TRANS #PROC #design #link #select ##heat-integration ##heat-exchanger-network.
+
+PROC05 Process Water-Reuse and Treatment Network Synthesis.
+DESCRIPTION Selects treatment technologies and reuse, recycle or discharge connections to satisfy process-water and contaminant limits.
+TEMPLATE Contaminant-based water integration and treatment design | MILP/MINLP superstructure optimization; generalized disjunctive programming.
+REGIME #design | Commits process treatment and reuse pathways.
+STRUCTURE #link + #select | Constructs treatment and reuse connections and selects treatment units; contaminant propagation defines feasible paths.
+PRIORITY Medium | Important where process-water or effluent constraints bind.
+RELEVANCE High | Integration reduces water use, treatment cost and discharge.
+HARDNESS High | Formal complexity depends on the treatment-network model; Technology choices interact with mixing and multiple contaminant balances.
+DEPENDENCIES PROC01 → PROC05 → ∅.
+COMMENTS Scope is industrial process treatment and reuse | #TRANS #PROC #design #link #select ##water-reuse ##wastewater ##process-integration.
+
+PROC06 Process Plant Equipment Layout.
+DESCRIPTION Positions process units and tanks under piping, access, separation and process-hazard limits.
+TEMPLATE Process plant layout and quantitative risk assessment | MILP spatial layout optimization.
+REGIME #design | Commits equipment positions before detailed installation and operation.
+STRUCTURE #place + #map | Positions equipment in physical space and assigns units to floors when applicable; non-overlap and hazard separation constrain placement.
+PRIORITY Medium | Recurring in plant construction and major retrofit.
+RELEVANCE High | Layout affects piping cost, access and process safety.
+HARDNESS High | Formal complexity depends on the layout representation; Spatial choices, piping costs and hazard distances interact.
+DEPENDENCIES PROC02, PROC03 → PROC06 → PROC13.
+COMMENTS Process equipment, piping and hazards define the layout contract | #TRANS #PROC #design #place #map ##layout ##process-safety.
+
+PROC07 Formulated Product Design.
+DESCRIPTION Selects ingredients and their composition to create a product with specified material, performance and manufacturing properties.
+TEMPLATE Formulated-product development and property modelling | Mixed-integer formulation design with empirical or mechanistic property models.
+REGIME #design | Commits a product composition before routine manufacture.
+STRUCTURE #select | Chooses the ingredients included in the formulation; continuous proportions alone do not constitute a separate Structure.
+PRIORITY Medium | Central to formulated chemicals, pharmaceuticals and food products.
+RELEVANCE High | Composition affects performance, cost and manufacturability.
+HARDNESS High | Formal complexity depends on ingredient and property models; Ingredient compatibility and uncertain nonlinear properties limit reliable search.
+DEPENDENCIES ∅ → PROC07 → PROC08.
+COMMENTS #TRANS #PROC #design #select ##formulation ##ingredient-selection.
+
+PROC08 Process Operating Procedure Synthesis.
+DESCRIPTION Selects process actions and their permitted transitions to create a recipe or operating procedure that reaches a required material state safely.
+TEMPLATE Recipe development and operating-procedure synthesis | Logic-based planning combined with STN-based MILP.
+REGIME #design | Defines a reusable procedure before execution.
+STRUCTURE #link + #select | Constructs action transitions and selects required steps; state reachability and safe transition rules define the procedure.
+PRIORITY Medium | Needed for new recipes and complex process transitions.
+RELEVANCE High | Correct procedures determine executable and safe transformations.
+HARDNESS High | Formal complexity depends on the action and state model; Alternative actions and intermediate process states enlarge the procedure space.
+DEPENDENCIES PROC02, PROC07 → PROC08 → PROC10, PROC13.
+COMMENTS #TRANS #PROC #design #link #select ##operating-procedure ##recipe-synthesis.
+
+PROC09 Multi-Site Process Production Planning.
+DESCRIPTION Assigns product-family production to plants and periods under process capabilities, capacity, material and demand limits.
+TEMPLATE Integrated multi-site process planning | Multiperiod MILP and planning-scheduling decomposition.
+REGIME #plan + #allocate | Commits a future production plan and allocates work to process plants.
+STRUCTURE #map + #place | Assigns production to plants and positions commitments in planning periods.
+PRIORITY High | Recurs in process enterprises with multiple plants.
+RELEVANCE High | Process-feasible allocation improves capacity use and service.
+HARDNESS High | Formal complexity depends on the integrated planning model; Site capabilities, material supply and local scheduling feasibility interact.
+DEPENDENCIES PROC02 → PROC09 → PROC10.
+COMMENTS PROC scope requires process feasibility; generic supply-position planning belongs to SCM | #TRANS #PROC #plan #allocate #map #place ##multi-site ##planning-scheduling.
+
+PROC10 Process Production and Lot Planning.
+DESCRIPTION Selects product runs or batches and their quantities in planning periods under process capacity, setup, inventory and demand limits.
+TEMPLATE Capacitated process production planning and lot sizing | Multiperiod MILP; decomposition and MIP heuristics.
+REGIME #plan | Commits future production quantities and run or batch activation.
+STRUCTURE #select + #place | Selects run or batch activations and places production in planning periods.
+PRIORITY Critical | Converts demand into process-feasible production commitments.
+RELEVANCE High | Better plans reduce changeovers, excess stock and lost output.
+HARDNESS High | Formal complexity depends on the capacitated lot-planning variant; Activation, inventory and downstream schedule feasibility interact.
+DEPENDENCIES PROC08, PROC09 → PROC10 → PROC11, PROC12, PROC15, PROC16, PROC21.
+COMMENTS #TRANS #PROC #plan #select #place ##lot-sizing ##production-planning.
+
+PROC11 Feedstock Lot Selection and Blend Planning.
+DESCRIPTION Selects available feedstock lots and their blend allocation to meet existing recipe and quality specifications under material and capacity limits.
+TEMPLATE Quality-constrained material selection and blend planning | MILP blending; MINLP pooling where quality mixing is nonlinear.
+REGIME #plan + #allocate | Prepares blends and allocates material before detailed execution.
+STRUCTURE #select + #map | Selects material lots and assigns their use to planned blends; continuous blend ratios are associated decisions.
+PRIORITY High | Recurs in refining, food and formulated-material production.
+RELEVANCE High | Material choices determine quality, yield and feed cost.
+HARDNESS High | Formal complexity depends on selection and mixing rules; Discrete lot inclusion interacts with quality and material availability.
+DEPENDENCIES PROC10 → PROC11 → PROC14, PROC20.
+COMMENTS #TRANS #PROC #plan #allocate #select #map ##blending ##feedstock ##quality.
+
+PROC12 Process Plant Turnaround Planning and Scheduling.
+DESCRIPTION Selects and schedules plant shutdowns and maintenance work under process isolation, outage, production and resource limits.
+TEMPLATE Process turnaround planning and resource-constrained project scheduling | MILP outage planning; resource-constrained project-scheduling heuristics.
+REGIME #plan | Commits shutdown and overhaul work before execution.
+STRUCTURE #place + #select + #map | Places outage and work intervals, selects shutdown scope and assigns work resources when required.
+PRIORITY High | Major process plants require recurring coordinated shutdowns.
+RELEVANCE Critical | Shutdown decisions affect capacity, reliability and safe restart.
+HARDNESS High | Formal complexity depends on outage and work-scheduling scope; Plant isolation, interacting outages and limited crews constrain schedules.
+DEPENDENCIES PROC10 → PROC12 → PROC15, PROC16.
+COMMENTS #TRANS #PROC #plan #place #select #map ##turnaround ##maintenance ##shutdown.
+
+PROC13 Recipe-to-Equipment and Path Allocation.
+DESCRIPTION Assigns recipe tasks to eligible process units and selects usable material paths under compatibility and concurrent-use limits.
+TEMPLATE Control-recipe generation and plant-structure allocation | Graph-based equipment and path allocation.
+REGIME #allocate | Commits equipment and paths for a specified recipe execution.
+STRUCTURE #map + #link | Assigns tasks to units and selects material-path connections through the installed plant.
+PRIORITY High | Flexible batch plants must resolve recipe-to-plant compatibility.
+RELEVANCE High | Feasible allocations improve flexibility and avoid resource conflicts.
+HARDNESS High | Formal complexity depends on allocation and path constraints; Concurrent recipes compete for compatible units and shared connections.
+DEPENDENCIES PROC06, PROC08 → PROC13 → PROC16, PROC22.
+COMMENTS Fixed recipe allocation is distinct from a complete production timetable | #TRANS #PROC #allocate #map #link ##control-recipe ##equipment-assignment ##path-allocation.
+
+PROC14 Process Tank Allocation and Segregation.
+DESCRIPTION Assigns material lots or products to installed tanks over required occupancy periods under capacity, compatibility and segregation limits.
+TEMPLATE Tank-farm operations and material segregation | MILP integrated tank allocation and production scheduling.
+REGIME #allocate | Commits scarce storage capacity to specific materials.
+STRUCTURE #map + #place | Assigns materials to tanks and reserves occupancy intervals; segregation constrains assignments.
+PRIORITY High | Flexible storage couples production and material handling.
+RELEVANCE High | Correct allocation protects product value and reduces blocking.
+HARDNESS High | Formal complexity depends on occupancy and compatibility constraints; Tank reuse and linked production times create coupled resource conflicts.
+DEPENDENCIES PROC03, PROC11 → PROC14 → PROC16, PROC19, PROC20.
+COMMENTS #TRANS #PROC #allocate #map #place ##tank-assignment ##segregation ##blocking.
+
+PROC15 Continuous Process Campaign and Mode Scheduling.
+DESCRIPTION Schedules product campaigns and operating modes on process units under grade-transition, startup, rate and material limits.
+TEMPLATE Campaign sequencing and operating-mode scheduling | MILP sequencing and mode scheduling; decomposition or matheuristics.
+REGIME #plan | Commits future campaigns and operating-state intervals.
+STRUCTURE #place + #map + #select | Places campaigns in time, assigns them to available trains and selects operating modes.
+PRIORITY Critical | Continuous plants require coordinated grade and operating-state schedules.
+RELEVANCE High | Transition losses and operating-state choices affect throughput and cost.
+HARDNESS High | Formal complexity depends on sequencing and mode constraints; Sequence-dependent transitions, rate changes and parallel trains enlarge the search.
+DEPENDENCIES PROC10, PROC12, PROC18, PROC23 → PROC15 → PROC18, PROC19, PROC23, PROC24, PROC25.
+COMMENTS #TRANS #PROC #plan #place #map #select ##campaign ##grade-transition ##operating-mode.
+
+PROC16 Batch Process Production Scheduling.
+DESCRIPTION Assigns and times batch tasks under recipe, material-balance, equipment, transfer, storage and process-state limits.
+TEMPLATE Multiproduct and multipurpose batch scheduling | STN/RTN MILP in discrete or continuous time; hybrid MILP/CP decomposition.
+REGIME #plan | Commits a future executable batch-production timetable.
+STRUCTURE #place + #map + #select | Places tasks in time, assigns units and selects batch or task activations where required.
+PRIORITY Critical | Batch process plants depend on feasible recipe execution schedules.
+RELEVANCE High | Better schedules improve throughput and delivery performance.
+HARDNESS High | NP-hard for the family that contains job-shop makespan scheduling; Material states, shared resources and storage limits make industrial formulations large.
+DEPENDENCIES PROC10, PROC12, PROC13, PROC14, PROC17, PROC22 → PROC16 → PROC17, PROC21, PROC22, PROC23, PROC24, PROC25.
+COMMENTS STN/RTN and storage policies are representations or variants | #TRANS #PROC #plan #place #map #select ##batch ##stn ##rtn ##storage-policy.
+
+PROC17 Process Cleaning and CIP Scheduling.
+DESCRIPTION Schedules required cleaning tasks and assigns cleaning systems under contamination, cleaning-age and production-access limits.
+TEMPLATE Hygiene changeover and shared CIP-resource scheduling | Published MILP cleaning-production scheduling; simulation-based industrial proposal.
+REGIME #plan | Commits cleaning intervals and resource reservations before production.
+STRUCTURE #place + #map | Places cleaning tasks in time and assigns shared CIP resources; hygiene and access limits constrain placements.
+PRIORITY High | Food, beverage and pharmaceutical plants require repeated cleaning.
+RELEVANCE High | Cleaning schedules protect quality and release production capacity.
+HARDNESS High | Formal complexity depends on shared resources and production coupling; Cleaning systems and production units must be available at the same time.
+DEPENDENCIES PROC16 → PROC17 → PROC16, PROC22.
+COMMENTS #TRANS #PROC #plan #place #map ##cip ##cleaning ##contamination.
+
+PROC18 Process Fouling-Cleaning Optimization.
+DESCRIPTION Selects equipment cleaning actions and their timing under evolving fouling, process performance and operating limits.
+TEMPLATE Fouling management and condition-dependent maintenance | MINLP or mixed-integer optimal-control cleaning optimization.
+REGIME #plan | Commits cleaning actions based on predicted equipment condition.
+STRUCTURE #select + #place | Selects cleaning interventions and places them in time; fouling evolution constrains performance.
+PRIORITY Medium | Important in fouling-prone heat-transfer and separation systems.
+RELEVANCE High | Cleaning choices affect energy use, throughput and equipment availability.
+HARDNESS High | Formal complexity depends on fouling and cleaning dynamics; Nonlinear degradation and uncertain recovery interact with discrete intervention times.
+DEPENDENCIES PROC04, PROC15 → PROC18 → PROC15.
+COMMENTS #TRANS #PROC #plan #select #place ##fouling ##condition-maintenance ##mixed-integer-optimal-control.
+
+PROC19 Refinery Crude Receipt and Charging Scheduling.
+DESCRIPTION Schedules crude receipts, tank use and distillation feeds under settling, material quality, inventory and equipment limits.
+TEMPLATE Refinery crude scheduling and quality tracking | Continuous-time or discrete-time MILP/MINLP crude scheduling.
+REGIME #plan | Commits a refinery feed and charging program.
+STRUCTURE #place + #map | Times crude operations and assigns crude parcels to tanks and charging units.
+PRIORITY Medium | Core scheduling family within petroleum refining.
+RELEVANCE Critical | Feed interruption or infeasible crude quality can limit refinery output.
+HARDNESS High | Formal complexity depends on quality mixing and operation constraints; Tank histories, settling and multiple feed qualities couple the operation sequence.
+DEPENDENCIES PROC14, PROC15 → PROC19 → ∅.
+COMMENTS #TRANS #PROC #plan #place #map ##REFINING ##crude-scheduling ##quality-tracking.
+
+PROC20 Process Blend Execution Scheduling.
+DESCRIPTION Schedules blend batches and assigns source tanks and blending resources under existing specifications, quality and transfer limits.
+TEMPLATE Refinery and bulk-liquid blend-shop scheduling | MILP/MINLP blend scheduling with quality tracking and decomposition.
+REGIME #plan | Commits an executable blend-production program.
+STRUCTURE #place + #map + #select | Places blend activities, assigns sources and equipment, and selects material withdrawals.
+PRIORITY High | Recurs in bulk-liquid and formulated-product manufacture.
+RELEVANCE High | Executable blends reduce quality failures and lost output.
+HARDNESS High | Formal complexity depends on blend and quality-propagation rules; Source histories, nonlinear quality and tank capacities couple blends over time.
+DEPENDENCIES PROC11, PROC14 → PROC20 → PROC23.
+COMMENTS #TRANS #PROC #plan #place #map #select ##blend-scheduling ##quality-tracking.
+
+PROC21 Process Quality Testing and Material-Release Scheduling.
+DESCRIPTION Schedules required analytical tests and qualified material availability under sample readiness, test precedence, instrument and analyst limits.
+TEMPLATE Process quality-testing and material-release coordination | Dual-resource MILP analytical-test scheduling; dynamic heuristics and tabu search.
+REGIME #plan + #allocate | Commits test timings and laboratory resources to support qualified material availability.
+STRUCTURE #place + #map | Places tests in time and assigns instruments and analysts; test and material-release conditions constrain the schedule.
+PRIORITY Medium | Important where analytical lead times constrain process material use.
+RELEVANCE High | Timely qualified material availability prevents blocked production and delayed release.
+HARDNESS High | Formal complexity depends on the test and resource model; Intermittent analyst interventions and instrument occupancies create coupled resource conflicts.
+DEPENDENCIES PROC10, PROC16 → PROC21 → PROC23, PROC24.
+COMMENTS PROC scope requires process-material qualification and held-lot availability; qualification rules are supplied | #TRANS #PROC #plan #allocate #place #map ##quality-testing ##material-release ##dual-resource.
+
+PROC22 In-Plant Process Material Transfer Scheduling.
+DESCRIPTION Times specified material transfers between process stages under shared piping, pumping, receiving-unit and material-state limits.
+TEMPLATE Finite-duration transfer and process-stage synchronization | MILP scheduling with shared transfer resources.
+REGIME #plan | Commits transfer reservations within the production program.
+STRUCTURE #place + #map | Places transfers in time and assigns available transfer resources; concurrent-use and material-state limits constrain them.
+PRIORITY High | Shared transfers couple equipment and storage in networked plants.
+RELEVANCE High | Feasible transfers prevent blocking and invalid production schedules.
+HARDNESS High | Formal complexity depends on transfer and process coupling; Shared connections and simultaneous sender-receiver availability constrain reservations.
+DEPENDENCIES PROC13, PROC16, PROC17 → PROC22 → PROC16.
+COMMENTS #TRANS #PROC #plan #place #map ##transfer ##synchronization ##shared-piping.
+
+PROC23 Bulk Process-to-Packaging Synchronization.
+DESCRIPTION Coordinates bulk process runs with packaging-line assignments and timing under perishability, buffer and rate limits.
+TEMPLATE Integrated bulk preparation and packaging coordination | Two-stage MILP lot-sizing and scheduling with decomposition; simulation-based industrial proposal.
+REGIME #plan | Commits coordinated bulk and packaging production.
+STRUCTURE #place + #map | Places bulk and packaging activities and assigns compatible lines; buffers and material availability constrain synchronization.
+PRIORITY High | Important in food, beverage and pharmaceutical bulk-to-pack operations.
+RELEVANCE High | Coordination reduces blocked bulk output and packaging starvation.
+HARDNESS High | Formal complexity depends on the integrated two-stage model; Different rates, cleaning cycles and finite material buffers couple both stages.
+DEPENDENCIES PROC15, PROC16, PROC20, PROC21 → PROC23 → PROC15.
+COMMENTS PROC scope requires bulk material-state feasibility to dominate; packaging-only decisions belong to PROD | #TRANS #PROC #plan #place #map ##synchronization ##bulk-packaging #PROD.
+
+PROC24 Process Order and Phase Release.
+DESCRIPTION Selects ready process orders or recipe phases for immediate release under material, equipment and completion-status limits.
+TEMPLATE Process shopfloor release and dispatch control | Real-time resource coordination with a feasible dispatch-rule comparator.
+REGIME #dispatch | Authorizes the next process orders or phases from current plant state.
+STRUCTURE #select + #map | Selects activities for release and assigns immediate eligible resources when needed.
+PRIORITY High | Release connects planned process work to execution.
+RELEVANCE High | Release decisions affect blocking, work in progress and service.
+HARDNESS Medium | Formal complexity depends on release-set and resource-allocation scope; Live eligibility and resource conflicts limit the useful decision time.
+DEPENDENCIES PROC15, PROC16, PROC21, PROC25 → PROC24 → PROC25.
+COMMENTS Immediate release does not require revision of an earlier commitment | #TRANS #PROC #dispatch #select #map ##dispatching ##order-release #online #execution.
+
+PROC25 Process Production Schedule Repair.
+DESCRIPTION Revises committed process assignments and timings after disruptions while preserving completed work and limiting unnecessary changes.
+TEMPLATE Reactive process scheduling and schedule repair | MILP reactive rescheduling with fixed unaffected tasks.
+REGIME #adapt | Revises existing commitments after material changes in plant state.
+STRUCTURE #place + #map + #select | Replaces activity times and assignments and selects revised activations where permitted.
+PRIORITY High | Operating plants face breakdowns and changed order or material availability.
+RELEVANCE High | Fast repair protects delivery and limits disruption losses.
+HARDNESS High | NP-hard when unrestricted repair contains the original job-shop scheduling problem; Frozen work and stability objectives restrict rapid recovery.
+DEPENDENCIES PROC15, PROC16, PROC24 → PROC25 → PROC24.
+COMMENTS Existing commitments distinguish repair from initial scheduling | #TRANS #PROC #adapt #place #map #select ##reactive-scheduling ##schedule-stability #online.
