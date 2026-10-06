@@ -1,0 +1,147 @@
+DOMAIN WORKFLOW
+
+Purpose
+Run the domain research and compilation process from a fixed Domain D to a controlled foreground domain file.
+
+Normative input (read only)
+000_DOMAIN.txt
+background/000_DOMAIN_research.txt
+
+Input
+Domain D ∈ {PROC, PROD, LOG, SCM, ENER, CIVIC, COMP, INTEL, MKT, FIN, HC, HR, EXTR, LAND, ...} and industrial domains from 000_DOMAIN_research.txt
+
+Workflow prompts (read only)
+workflow/1_research.txt
+workflow/2_background.txt
+workflow/3_compile.txt
+workflow/4_foreground.txt
+
+Output
+Background: background/<NNN>_<D>_research.txt
+Foreground: <NNN>_<D>.txt
+
+Roles
+1. R Researcher: expand.
+2. B Background Controller: check research.
+3. C Compiler: contract.
+4. F Foreground Controller: check compilation.
+
+Workflow
+Problem layer R → B → C → F
+→  Case layer R → B → C → F
+
+
+Problem layer
+
+1. Research problems (R)
+Input: research.txt with LEVEL=PROBLEM and DOMAIN=D.
+Research the domain territory, candidate problems, boundaries, aliases, variants, dependencies, Template evidence, and supporting sources.
+Output: problem background v#.1.
+
+2. Control problem background (B)
+Input: background.txt with LEVEL=PROBLEM and DOMAIN=D.
+Check coverage, evidence, boundaries, granularity, ownership, dependencies, and Template support.
+Return defects to R until controlled.
+Output: controlled problem background v#.2.
+
+3. Compile problem set (C)
+Input: compile.txt with LEVEL=PROBLEM and DOMAIN=D.
+Compile the controlled background into the foreground format defined by 000_DOMAIN.txt.
+Derive the logical problem sequence from the controlled dependency graph. Minimize backward dependency flow subject to industrial logic and Regime. Assign permanent problem numbers only after ordering.
+Output: numbered problem set in foreground v#.1.
+
+4. Control problem foreground (F)
+Input: foreground.txt with LEVEL=PROBLEM and DOMAIN=D.
+Check faithful contraction, completeness, ordering, numbering, ontology, dependencies, STE, tags, and format against 000_DOMAIN.txt and the controlled background.
+Return representation defects to C. Return substantive evidence defects to R/B.
+Output: controlled numbered problem set in foreground v#.2.
+
+STOP -- Human inspection and explicit go-ahead required before case research.
+
+
+Case layer
+
+5. Research cases (R)
+Input: research.txt with LEVEL=CASE and DOMAIN=D.
+Use the controlled foreground problem set as the fixed parent set.
+For each problem, research industrial cases, SOTA operational best practices, IE and OR Templates, candidate benchmark cases, baselines, implementations, data, results, and reproducibility.
+Output: case background v#.3.
+
+6. Control case background (B)
+Input: background.txt with LEVEL=CASE and DOMAIN=D.
+Check case fidelity, Template evidence, SOTA claims, benchmark relevance, reproducibility, coverage, and competing near-equals.
+Return defects to R until controlled.
+Output: controlled case background v#.4.
+
+7. Compile case set (C)
+Input: compile.txt with LEVEL=CASE and DOMAIN=D.
+Select and describe smallest sufficient starter benchmark set for each problem. Compile it into the foreground format defined by 000_DOMAIN.txt.
+Assign case IDs according to 000_DOMAIN.txt.
+Output: problem and case set in foreground v#.3.
+
+8. Control case foreground (F)
+Input: foreground.txt with LEVEL=CASE and DOMAIN=D.
+Check faithful contraction, problem-to-case fit, Template representation, baseline validity, benchmark usefulness, STE, numbering, references, and format.
+Return representation defects to C. Return substantive evidence defects to R/B.
+Output: controlled problem and case set in foreground v#.4.
+
+STOP -- Human inspection and explicit go-ahead required before stabilization.
+
+
+9. Stabilize
+Input: controlled foreground (v#.4), controlled background (v#.4)
+Persist controlled foreground as v(#+1).0.
+Retain controlled research file in background as support for that stable foreground.
+
+Version rule
+Background and foreground are versioned independently.
+
+Background
+v#.1  problem research
+v#.2  controlled problem research
+v#.3  case research
+v#.4  controlled case research
+
+Foreground
+v#.1  compiled problem set
+v#.2  controlled problem set
+v#.3  compiled problem and case set
+v#.4  controlled problem and case set
+
+v(#+1).0  stable
+
+Odd stage .1, .3 = produced.
+Even stage .2, .4 = independently controlled.
+.0 = stable.
+
+Human revision suffix
+First digit after the point is workflow stage. Additional digits count human revision calls.
+First clean run: v#.1, v#.2, v#.3, v#.4.
+After first human revision call: v#.11, v#.21, v#.31, v#.41.
+After second human revision call: v#.12, v#.22, v#.32, v#.42.
+etc.
+Version labels are workflow codes, not decimal numbers.
+
+Operation rules
+000_DOMAIN.txt is normative.
+Research expands; compilation contracts; control checks.
+R and B work on background file.
+C and F work on foreground file.
+Background is evidentiary and retained in full.
+Foreground is canonical, terse, and version controlled.
+Foreground evidence defects return to R/B.
+Foreground representation defects return to C.
+Do not descend from Problems to Cases before controlled problem foreground and human approval.
+Research establishes dependencies; compilation derives sequence and numbering.
+
+Versioning
+Use version control for all intermediate revisions.
+Controllers do not edit the artifact they check. 
+Control is conducted through the version-control review record.
+Controllers issue findings and proposed corrections. 
+The responsible Researcher or Compiler implements or rebuts them.
+Control repeats through review and correction until PASS. 
+Only then is the artifact promoted to the controlled stage version.
+The version-control review history is the control record.
+Do not persist separate QC documents or inline control appendices.
+Do not create candidate, confirmed, QC, or duplicate release documents.
