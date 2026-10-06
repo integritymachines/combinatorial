@@ -1,0 +1,335 @@
+102_PROD.txt
+Production, Discrete Manufacturing & Assembly
+v0.1 | 6 October 2026 | Problem layer
+Normative Domain: 102 #PROD.
+
+PROD01 Manufacturable Product Configuration.
+DESCRIPTION Select compatible modules and attribute options to issue a valid bill of materials and manufacturing route.
+TEMPLATE Constraint-based manufacturing configuration | Constraint-based product and process optimization with multiple objectives.
+REGIME #design | Issues the manufacturing definition before fabrication and assembly planning.
+STRUCTURE #select + #map | Selects modules and maps attribute choices to product roles.
+PRIORITY Medium | Central to modular and engineer-to-order manufacturing.
+RELEVANCE High | Better compatible choices can prevent invalid builds and costly engineering correction.
+HARDNESS Medium | Formal class depends on the constraint language; compatibility, conditional components, and route effects can create many interacting choices.
+DEPENDENCIES ∅ → PROD01 → PROD07, PROD08, PROD12, PROD13.
+COMMENTS #TRANS #PROD #design #select #map ##configuration ##bill-of-materials.
+
+PROD02 Manufacturing Equipment and Capacity Configuration.
+DESCRIPTION Select equipment types and counts to provide manufacturing capabilities within investment and throughput limits.
+TEMPLATE Production-system capacity design | Capacity MILP/MINLP with throughput analysis or simulation optimization.
+REGIME #design | Commits physical capability and capacity before production planning.
+STRUCTURE #select + #map | Selects equipment and maps it to capability classes.
+PRIORITY Critical | Capability and capacity constrain the rest of the manufacturing stack.
+RELEVANCE Critical | Wrong capability commitments can lock in enterprise-scale cost or lost capacity.
+HARDNESS High | Formal class not established for the full contract; investment choices, capability coverage, and uncertain effective throughput interact.
+DEPENDENCIES ∅ → PROD02 → PROD03, PROD04, PROD05, PROD06, PROD11, PROD12.
+COMMENTS #TRANS #PROD #design #select #map ##capacity ##equipment.
+
+PROD03 Manufacturing Cell Formation.
+DESCRIPTION Group parts and machines into manufacturing cells under capability and workload limits.
+TEMPLATE Group technology and cellular manufacturing | Integer programming or constrained grouping with local search.
+REGIME #design | Establishes production groups before resource allocation and scheduling.
+STRUCTURE #map | Maps parts and machines to cells under supplied capability and workload limits.
+PRIORITY High | Recurring in multi-product cellular manufacturing.
+RELEVANCE High | Better grouping can reduce intercell work and improve utilization.
+HARDNESS High | Formal class not established for the full contract; alternative routes, duplicated equipment, capacity, and multiple grouping criteria interact.
+DEPENDENCIES PROD02 → PROD03 → PROD04, PROD11, PROD15.
+COMMENTS #TRANS #PROD #design #map ##partition ##cellular.
+
+PROD04 Manufacturing Facility Layout.
+DESCRIPTION Place production departments, cells, and equipment within floor-space and access limits.
+TEMPLATE Factory block and equipment layout | Quadratic assignment or geometric MILP with placement search.
+REGIME #design | Commits factory space before physical setup and execution.
+STRUCTURE #place | Places production areas in space; containment, nonoverlap and access constrain positions.
+PRIORITY High | Recurring in factory design and change.
+RELEVANCE High | Better placement can reduce handling effort and release productive space.
+HARDNESS High | Variant-dependent; fixed-site and geometric models differ; unequal areas, aisles, clearances, and coupled spatial choices make large layouts difficult.
+DEPENDENCIES PROD02, PROD03 → PROD04 → PROD17, PROD26.
+COMMENTS #TRANS #PROD #design #place ##layout ##geometry.
+
+PROD05 Production Buffer Capacity Design.
+DESCRIPTION Choose discrete buffer capacities and installation options to limit blocking and starvation within space and cost limits.
+TEMPLATE Production-line decoupling and throughput design | Simulation optimization or sample-based MILP with Benders decomposition.
+REGIME #design | Commits buffer capacity before release and production scheduling.
+STRUCTURE #map + #select | Maps buffer positions to capacity classes and selects installations.
+PRIORITY Medium | Central to buffered flow lines and blocking-sensitive systems.
+RELEVANCE High | Better capacity can improve line throughput and reduce tied-up assets.
+HARDNESS High | Formal class not established for the full contract; stochastic failures and blocking couple the value of capacities across the line.
+DEPENDENCIES PROD02 → PROD05 → PROD26, PROD28.
+COMMENTS #TRANS #PROD #design #map #select ##buffer ##blocking ##starvation.
+
+PROD06 Manufacturing Resource Qualification Configuration.
+DESCRIPTION Choose product-operation permissions to qualify on machines under qualification cost and future capacity requirements.
+TEMPLATE Manufacturing qualification and capacity-flexibility planning | Binary or stochastic programming for qualification configuration.
+REGIME #design + #adapt | Establishes qualified capabilities; adaptation revises them after requirements change.
+STRUCTURE #link + #select | Chooses operation-machine eligibility links and actions that establish them.
+PRIORITY Medium | Central where product-specific machine qualification limits capacity.
+RELEVANCE High | Better qualifications can prevent capacity shortfalls without excessive test effort.
+HARDNESS High | Formal class not established for the full contract; qualification consumes capacity now and changes production flexibility under uncertain future demand.
+DEPENDENCIES PROD02 → PROD06 → PROD15, PROD21, PROD26.
+COMMENTS #TRANS #PROD #design #adapt #link #select ##qualification ##flexibility.
+
+PROD07 Manufacturing Process Plan Selection.
+DESCRIPTION Select fabrication operations, alternatives, and routes that produce required part features on available capabilities.
+TEMPLATE Computer-aided process planning | Plan-selection MILP or graph-based CP; integrated planning and scheduling.
+REGIME #plan | Prepares a feasible fabrication plan before detailed execution.
+STRUCTURE #select + #place | Selects fabrication alternatives and orders operations. Catalogue-plan variants inherit order.
+PRIORITY High | Recurring wherever discrete parts have alternative fabrication routes.
+RELEVANCE High | Better routes can reduce setups, manufacturing cost and lead time.
+HARDNESS High | Variant-dependent; integrated general scheduling inherits NP-hardness; feature requirements, setup feasibility, operation alternatives, and machine availability interact.
+DEPENDENCIES PROD01 → PROD07 → PROD15, PROD16, PROD17, PROD26.
+COMMENTS Fixed-plan variants inherit order | #TRANS #PROD #plan #select #place ##process-planning ##routing.
+
+PROD08 Assembly Sequence Planning.
+DESCRIPTION Choose assembly operations and their order under geometry, accessibility, and product precedence requirements.
+TEMPLATE Design for assembly and assembly process planning | AND/OR-state search or precedence-constrained optimization.
+REGIME #plan | Prepares assembly operations and order before resource scheduling.
+STRUCTURE #place + #select | Orders assembly operations and selects alternatives under accessibility and precedence limits.
+PRIORITY High | Recurring where assembly operations have nontrivial access and precedence.
+RELEVANCE High | Better feasible plans can reduce assembly effort and production failure.
+HARDNESS High | Formal class not established for the full contract; geometric feasibility and many alternative partial assemblies enlarge the search.
+DEPENDENCIES PROD01 → PROD08 → PROD11, PROD17, PROD20, PROD24, PROD26.
+COMMENTS #TRANS #PROD #plan #place #select ##assembly ##accessibility.
+
+PROD09 Selective Disassembly Planning.
+DESCRIPTION Select removal operations and their order to recover required components under accessibility, damage, and cost limits.
+TEMPLATE Design for disassembly and selective recovery planning | AND/OR-state search or precedence-constrained integer optimization.
+REGIME #plan | Prepares removal actions before recovery execution.
+STRUCTURE #select + #place | Selects removal actions and orders them under accessibility and damage limits.
+PRIORITY Medium | Central to selective recovery and repair-access operations.
+RELEVANCE High | Better selective removal can improve recoverable value and reduce damage.
+HARDNESS High | Formal class not established for the full contract; accessibility, damaged cores, destructive alternatives, and recovery targets interact.
+DEPENDENCIES ∅ → PROD09 → PROD14, PROD26.
+COMMENTS #TRANS #PROD #plan #select #place ##disassembly ##recovery.
+
+PROD10 Manufacturing Inspection Plan Design.
+DESCRIPTION Choose inspection stages, technologies, and discrete inspection coverage under outgoing-quality and cost requirements.
+TEMPLATE Quality planning and inspection allocation | Evolutionary inspection-plan search with discrete-event simulation.
+REGIME #design | Establishes inspection coverage and stage assignments before production.
+STRUCTURE #select + #map | Selects inspection actions and maps them to stages or product characteristics.
+PRIORITY Medium | Central where inspection stages and coverage are decision variables.
+RELEVANCE High | Better coverage can reduce defect escape and unnecessary inspection.
+HARDNESS Medium | Formal class not established for the full contract; inspection cost, detection accuracy, capacity, and downstream defect losses must be balanced.
+DEPENDENCIES ∅ → PROD10 → PROD20, PROD26.
+COMMENTS #TRANS #PROD #design #select #map ##inspection ##quality.
+
+PROD11 Assembly Line Balancing.
+DESCRIPTION Assign assembly tasks to ordered workstations under precedence, cycle-time, and station limits.
+TEMPLATE Work measurement and assembly line balancing | Integer programming or CP with exact and heuristic balancing search.
+REGIME #design + #adapt | Establishes task distribution; adaptation rebalances an existing line.
+STRUCTURE #map | Maps tasks to ordered stations under precedence and cycle-time limits.
+PRIORITY High | Recurring across major assembly-line deployments, but not all manufacturing systems.
+RELEVANCE High | Better task distribution can increase line output and reduce overload.
+HARDNESS High | Formal class not established for the full contract; precedence, task eligibility, ergonomic limits, and model-dependent work content interact.
+DEPENDENCIES PROD02, PROD03, PROD08 → PROD11 → PROD24, PROD26, PROD27.
+COMMENTS #TRANS #PROD #design #adapt #map ##line-balancing ##precedence.
+
+PROD12 Production Capacity Allocation Planning.
+DESCRIPTION Allocate product-family output and discrete operating capacity across production resources and periods.
+TEMPLATE Aggregate production and rough-cut capacity planning | Production-capacity MILP with decomposition where needed.
+REGIME #plan + #allocate | Plans future output and allocates discrete operating capacity.
+STRUCTURE #map + #place + #select | Maps output to resources and periods and selects discrete capacity activations.
+PRIORITY High | Recurring across product families and manufacturing resources.
+RELEVANCE High | Better capacity commitments can reduce overload, idle capacity and delivery failure.
+HARDNESS Medium | Variant-dependent; continuous relaxations can be linear programs; discrete capacity choices, product mix, and period coupling can require formulation work.
+DEPENDENCIES PROD01, PROD02 → PROD12 → PROD13, PROD14, PROD15, PROD28.
+COMMENTS #TRANS #PROD #plan #allocate #map #place #select ##capacity ##production-planning.
+
+PROD13 Capacitated Production Lot Sizing.
+DESCRIPTION Choose production lots and periods under setup, bill-of-materials, and manufacturing capacity limits.
+TEMPLATE MRP/MPS with finite-capacity lot sizing | Multi-item or multilevel lot-sizing MILP; decomposition and matheuristics.
+REGIME #plan | Commits lots and production periods before release.
+STRUCTURE #select + #place | Selects production and setup activations and places lots in periods.
+PRIORITY Critical | Lot and setup decisions connect demand to manufacturing output.
+RELEVANCE High | Better lots can reduce setup loss, inventory and missed demand.
+HARDNESS High | Formal class not established for the full contract; many items, shared capacities, setups, and multilevel material timing interact.
+DEPENDENCIES PROD01, PROD12 → PROD13 → PROD18, PROD19, PROD21, PROD22, PROD26, PROD28.
+COMMENTS #TRANS #PROD #plan #select #place ##lot-sizing ##setup ##bill-of-materials.
+
+PROD14 Recovery Production Planning.
+DESCRIPTION Select cores and recovery actions and plan disassembly, reprocessing, and reassembly quantities over periods.
+TEMPLATE Remanufacturing material and capacity planning | Recovery-production MILP; scenario models and decomposition.
+REGIME #plan | Plans recovery quantities and production before core processing.
+STRUCTURE #select + #map + #place | Selects cores and recovery modes, maps recovered parts to requirements, and places production in periods.
+PRIORITY Medium | Central to core-based recovery production.
+RELEVANCE High | Better recovery plans can improve core use and delivery under variable yields.
+HARDNESS High | Formal class not established for the full contract; unknown core condition, divergent yields, and coupled recovery and assembly stages interact.
+DEPENDENCIES PROD09, PROD12 → PROD14 → PROD15, PROD20, PROD26, PROD28.
+COMMENTS #TRANS #PROD #plan #select #map #place ##remanufacturing ##recovery.
+
+PROD15 Manufacturing Workload Allocation.
+DESCRIPTION Assign production requirements to eligible machines or cells within aggregate capability and capacity limits.
+TEMPLATE FMS loading and finite-capacity workload allocation | FMS loading MILP; genetic or neighborhood search at scale.
+REGIME #allocate | Commits manufacturing workloads to eligible resources.
+STRUCTURE #map | Maps manufacturing workload to resources under supplied eligibility and capacity limits.
+PRIORITY High | Recurring where alternative resources share production requirements.
+RELEVANCE High | Better allocation can relieve bottlenecks and reduce idle eligible capacity.
+HARDNESS Medium | Variant-dependent; simple flow subcases are polynomial; capability heterogeneity, indivisible orders, and linked operation loads complicate allocation.
+DEPENDENCIES PROD03, PROD06, PROD07, PROD12, PROD14 → PROD15 → PROD16, PROD21, PROD26.
+COMMENTS #TRANS #PROD #allocate #map ##loading ##assignment.
+
+PROD16 Tool Loading and Change Planning.
+DESCRIPTION Choose tool magazine contents and loading changes that support manufacturing jobs under magazine and availability limits.
+TEMPLATE CNC tool provisioning and change planning | Capacity-constrained tool-loading optimization with sequence search.
+REGIME #plan | Prepares magazine contents and tool changes before jobs execute.
+STRUCTURE #select + #map + #place | Selects tools, maps them to magazines, and orders changes when change timing is chosen.
+PRIORITY Medium | Central to magazine-limited CNC and shared-tool systems.
+RELEVANCE High | Better provisioning can reduce tool changes and job interruptions.
+HARDNESS High | Variant-dependent; fixed-order and joint-order models differ; tool life, magazine capacity, shared tools, and job order interact.
+DEPENDENCIES PROD07, PROD15 → PROD16 → PROD26.
+COMMENTS Fixed-plan variants inherit order | #TRANS #PROD #plan #select #map #place ##tooling ##setup.
+
+PROD17 Fixture and Pallet Setup Planning.
+DESCRIPTION Assign parts to fixture-pallet setups and choose feasible orientations and positions for fabrication or assembly.
+TEMPLATE Machining and assembly setup planning | Setup-configuration optimization over feasible fixture-pallet plans.
+REGIME #plan | Prepares physical setups before fabrication or assembly.
+STRUCTURE #place + #map + #select | Places oriented parts on setups, maps parts to fixtures, and selects configurations.
+PRIORITY Medium | Central to multi-part and alternative-fixture setup planning.
+RELEVANCE Medium | Better physical setups reduce localized setup time and resource loss.
+HARDNESS High | Formal class not established for the full contract; clamping, access, multi-part geometry, and setup consolidation require tailored feasibility models.
+DEPENDENCIES PROD04, PROD07, PROD08 → PROD17 → PROD26.
+COMMENTS #TRANS #PROD #plan #place #map #select ##fixture ##pallet ##setup.
+
+PROD18 Manufacturing Cutting Stock and Nesting.
+DESCRIPTION Choose cutting patterns and place required parts on stock under geometry, material, and cutting-process limits.
+TEMPLATE Cut planning and material-yield optimization | Pattern LP with integer completion; geometric branch and bound or nesting search.
+REGIME #plan | Prepares stock use and cutting arrangements before fabrication.
+STRUCTURE #place + #select | Places parts within stock and selects stock or patterns; containment and nonoverlap govern arrangements.
+PRIORITY High | Recurring across major sheet, panel and bar fabrication sectors.
+RELEVANCE High | Better patterns can reduce material waste and stock consumption.
+HARDNESS High | Formal class not established for the full contract; irregular geometry, material compatibility, cutting stages, and remnants enlarge the search.
+DEPENDENCIES PROD13 → PROD18 → PROD26.
+COMMENTS Fixed-pattern frequency selection is a restricted subproblem | #TRANS #PROD #plan #place #select ##cutting-stock ##nesting ##geometry.
+
+PROD19 Additive Manufacturing Build Planning.
+DESCRIPTION Group parts into builds and choose orientations and build-space positions under machine, quality, and completion requirements.
+TEMPLATE Additive build preparation and production planning | Packing-and-build-scheduling MILP or two-stage metaheuristics.
+REGIME #plan | Prepares grouped and positioned builds before printing.
+STRUCTURE #place + #map + #select | Places oriented parts in build space, maps parts to builds or machines, and selects builds.
+PRIORITY Medium | Central to additive systems that pack parts into shared builds.
+RELEVANCE High | Better builds can improve machine use and reduce completion time.
+HARDNESS High | NP-hard for the cited joint packing-and-build-scheduling model; orientation, packing, support, build height, and machine completion times interact.
+DEPENDENCIES PROD13 → PROD19 → PROD26.
+COMMENTS #TRANS #PROD #plan #place #map #select ##additive-manufacturing ##packing.
+
+PROD20 Selective Component Matching.
+DESCRIPTION Assign measured components to assembled units under tolerance, compatibility, and yield requirements.
+TEMPLATE Selective assembly and tolerance matching | Bipartite matching for pairwise cases; integer assignment for multi-part assembly.
+REGIME #allocate | Commits available components to compatible assembled units.
+STRUCTURE #map + #select | Maps components to assembly roles and selects participating stock when needed.
+PRIORITY Medium | Central to tolerance-sensitive selective assembly.
+RELEVANCE High | Better combinations can increase assembly yield and reduce scrap.
+HARDNESS Medium | Pairwise matching can be polynomial; richer variants differ; multi-part tolerances, scarce components, and coupled quality targets complicate matching.
+DEPENDENCIES PROD08, PROD10, PROD14 → PROD20 → PROD26.
+COMMENTS #TRANS #PROD #allocate #map #select ##matching ##tolerance.
+
+PROD21 Parallel Manufacturing Batch Formation and Scheduling.
+DESCRIPTION Group compatible jobs for simultaneous processing and schedule batches on eligible equipment.
+TEMPLATE Parallel-batch equipment loading and scheduling | Batch-assignment MIP or CP with batching heuristics.
+REGIME #plan | Prepares co-processing groups and batch times before execution.
+STRUCTURE #map + #place | Maps jobs to compatible co-processing groups and places batches in time.
+PRIORITY Medium | Central to equipment that processes chosen groups simultaneously.
+RELEVANCE High | Better groups can improve batch-equipment use and due-date performance.
+HARDNESS High | Formal class not established for the full contract; batch fill, family compatibility, job readiness, and competing completion targets interact.
+DEPENDENCIES PROD06, PROD13, PROD15 → PROD21 → PROD26.
+COMMENTS #TRANS #PROD #plan #map #place ##batching ##compatibility.
+
+PROD22 Production Lot Streaming.
+DESCRIPTION Split production lots into transfer sublots and time their overlapping processing across stages.
+TEMPLATE Transfer-batch and lot-streaming planning | Joint sublot-sizing and scheduling MIP or CP with search.
+REGIME #plan | Plans transfer sublots and overlap before production.
+STRUCTURE #map + #place + #select | Maps units to sublots, selects split configurations, and places overlapping operations in time.
+PRIORITY Medium | Central where transfer sublots enable overlapping production.
+RELEVANCE High | Better transfer lots can reduce cycle time and WIP.
+HARDNESS High | Variant-dependent; general integrated shop scheduling can be NP-hard; sublot sizes, repeated setups, stage overlap, and buffer limits interact.
+DEPENDENCIES PROD13 → PROD22 → PROD26.
+COMMENTS #TRANS #PROD #plan #map #place #select ##lot-streaming ##synchronization.
+
+PROD23 Electronic Assembly Setup and Placement Planning.
+DESCRIPTION Assign component feeders and pickup groups and order mounting operations under placement-machine limits.
+TEMPLATE Surface-mount assembly setup optimization | Feeder-assignment and placement-sequencing optimization with machine-specific search.
+REGIME #plan | Prepares feeder assignments and mounting order before board assembly.
+STRUCTURE #map + #place | Maps components to feeders or pickup groups and orders mounting at supplied board locations.
+PRIORITY Medium | Central to feeder-based electronic assembly.
+RELEVANCE High | Better setup and mounting plans can reduce recurring assembly cycle time.
+HARDNESS High | Formal class depends on the machine model; feeder placement, pickup grouping, head motion, and board sequence interact.
+DEPENDENCIES ∅ → PROD23 → PROD26.
+COMMENTS #TRANS #PROD #plan #map #place ##electronics ##feeder ##setup.
+
+PROD24 Robotic Manufacturing Cell Cycle Planning.
+DESCRIPTION Choose cyclic handling and processing sequences within a manufacturing cell under occupancy and timing limits.
+TEMPLATE Robotic-cell cycle and throughput planning | Cyclic scheduling optimization or dynamic programming for restricted cells.
+REGIME #plan | Prepares repeated cell cycles before production.
+STRUCTURE #place | Places robot and process actions in repeated order and time patterns under occupancy limits.
+PRIORITY Medium | Central to cells with tightly coupled robot and process cycles.
+RELEVANCE High | Better cycles can increase constrained cell throughput.
+HARDNESS High | Cell-model-dependent; restricted models differ; part order, occupancy, and robot timing couple processing and transfer.
+DEPENDENCIES PROD08, PROD11 → PROD24 → PROD26.
+COMMENTS #TRANS #PROD #plan #place ##cyclic ##synchronization ##robotics.
+
+PROD25 Integrated Production and Maintenance Scheduling.
+DESCRIPTION Schedule manufacturing work and selectable maintenance actions under degradation, resource, and delivery limits.
+TEMPLATE Reliability-centered production and maintenance coordination | Joint production-maintenance MILP or CP; scenario and heuristic extensions.
+REGIME #plan | Plans production and maintenance commitments together.
+STRUCTURE #place + #select | Places production and maintenance in time and selects maintenance actions or windows.
+PRIORITY High | Recurring where selected downtime materially affects production.
+RELEVANCE High | Better coordination can reduce breakdown and planned-production losses.
+HARDNESS High | General integrated scheduling is NP-hard when it includes unrestricted shop scheduling; downtime, degradation, production commitments, and scarce maintenance resources interact.
+DEPENDENCIES ∅ → PROD25 → PROD26, PROD28, PROD30.
+COMMENTS #TRANS #PROD #plan #place #select ##maintenance ##availability.
+
+PROD26 Shop Production Scheduling.
+DESCRIPTION Assign manufacturing operations to eligible resources and times under precedence, setups, and capacity limits.
+TEMPLATE Finite-capacity production scheduling | Interval CP/CP-SAT or scheduling MILP; decomposition and local search.
+REGIME #plan | Commits a future operation calendar before execution.
+STRUCTURE #place + #map | Places operations in time and maps flexible operations to resources under precedence and exclusivity limits.
+PRIORITY Critical | Detailed manufacturing calendars are a central factory coordination decision.
+RELEVANCE Critical | Large-factory schedules can affect enterprise output, service and asset use.
+HARDNESS High | NP-hard in the general case; large operation sets, sequence-dependent setups, reentry, and secondary resources require tailored search or decomposition.
+DEPENDENCIES PROD04, PROD05, PROD06, PROD07, PROD08, PROD09, PROD10, PROD11, PROD13, PROD14, PROD15, PROD16, PROD17, PROD18, PROD19, PROD20, PROD21, PROD22, PROD23, PROD24, PROD25, PROD30 → PROD26 → PROD29, PROD30.
+COMMENTS #TRANS #PROD #plan #place #map ##schedule ##precedence ##setup ##reentrant.
+
+PROD27 Mixed-Model Production Sequencing.
+DESCRIPTION Order product units on a production line to limit station overload, option congestion, and supply variation.
+TEMPLATE Mixed-model sequencing and production leveling | Option-ratio car sequencing or mixed-model workload optimization; CP/MILP and local search.
+REGIME #plan | Commits product-stream order before line execution.
+STRUCTURE #place | Places product units in an ordered stream under station-work and option limits.
+PRIORITY High | Recurring in major mixed-product line deployments.
+RELEVANCE High | Better streams can reduce station overload and line stoppage.
+HARDNESS High | Formal class not established for the full contract; option ratios, work overload, changes, and scarce parts create competing sequence requirements.
+DEPENDENCIES PROD11 → PROD27 → PROD29, PROD30.
+COMMENTS #TRANS #PROD #plan #place ##mixed-model ##succession.
+
+PROD28 Production Order Release and WIP Control.
+DESCRIPTION Select production orders and release epochs under workload, WIP, and due-date limits.
+TEMPLATE Workload control, CONWIP, and bottleneck release control | Workload-constrained release selection with rolling optimization or simulated policy comparison.
+REGIME #dispatch + #operate | Makes short-cycle entry decisions and authorizes ongoing production.
+STRUCTURE #select + #place | Selects orders for authorization and places release epochs under workload limits.
+PRIORITY High | Recurring where uncontrolled WIP degrades production flow.
+RELEVANCE High | Better release can reduce excess WIP while avoiding starvation.
+HARDNESS Medium | Formal class depends on the release model; workload estimates, future arrivals, starvation, and due dates require frequent feedback.
+DEPENDENCIES PROD05, PROD12, PROD13, PROD14, PROD25, PROD30 → PROD28 → PROD29, PROD30.
+COMMENTS #TRANS #PROD #dispatch #operate #select #place ##wip ##release ##workload-control.
+
+PROD29 Real-Time Production Dispatching.
+DESCRIPTION Choose the next eligible manufacturing jobs and immediate resource assignments from the observed shop state.
+TEMPLATE MES dispatching and priority-rule control | Priority-rule or rolling local assignment optimization; simulation-based evaluation.
+REGIME #dispatch | Activates eligible work from the current shop state.
+STRUCTURE #select + #map | Selects immediate jobs and maps them to available eligible resources.
+PRIORITY Critical | Every operating shop must choose which eligible work to execute next.
+RELEVANCE High | Better immediate assignments can reduce delay and setup losses.
+HARDNESS Medium | Simple priority rules are polynomial; richer selection models differ; latency, setup effects, stale state, and downstream congestion govern practical difficulty.
+DEPENDENCIES PROD26, PROD27, PROD28, PROD30 → PROD29 → PROD30.
+COMMENTS #TRANS #PROD #dispatch #select #map ##dispatching ##setup.
+
+PROD30 Production Schedule Repair and Rescheduling.
+DESCRIPTION Revise issued manufacturing schedules after disruptions while preserving feasible prior commitments where required.
+TEMPLATE Predictive-reactive scheduling and schedule repair | Repair CP/MILP or neighborhood search with stability penalties.
+REGIME #adapt | Revises issued production commitments after material change.
+STRUCTURE #place + #map + #select | Revises operation times and resource assignments and selects commitments to change.
+PRIORITY High | Recurring where issued manufacturing plans face material disruption.
+RELEVANCE High | Better repairs can reduce disruption losses and commitment churn.
+HARDNESS High | General regeneration includes NP-hard shop scheduling; recovery time, frozen work, resource changes, and schedule stability constrain repair.
+DEPENDENCIES PROD25, PROD26, PROD27, PROD28, PROD29 → PROD30 → PROD26, PROD28, PROD29.
+COMMENTS Feedback dependencies return revised commitments to operations | #TRANS #PROD #adapt #place #map #select ##rescheduling ##stability.
+
