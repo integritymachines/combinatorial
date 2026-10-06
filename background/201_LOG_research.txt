@@ -1,0 +1,1348 @@
+LOG Logistics and Transportation Research
+v0.1 | Problem layer | 2026-10-07
+Normative: 000_DOMAIN.txt v0.4; background/000_DOMAIN_research.txt v0.4.
+Requested outputs: background/201_LOG_research.txt and 201_LOG.txt.
+The user fixes both delivered artifact labels at v0.1. Workflow roles and review outcomes are recorded in commit history; the label does not replace the control record.
+Problem layer only. Case research requires human inspection and explicit go-ahead.
+
+EVIDENCE CONVENTIONS
+Source keys resolve in the source register. Each source states the claim it supports and the retrieval depth. No source is treated as proof of every constraint in a broad industrial contract.
+Candidate scopes, Primary Domain, Regime, Structure, ratings, admission boundaries and dependencies are ontology-based analytical judgments unless a specific literature claim is identified. Template architectures are supported families, not an asserted universal algorithm winner. Adaptations from a source model to a broader decision contract are identified as architectural inferences.
+No published performance result was reproduced. No cases, baselines, final benchmark set or license assertions are compiled here. Publicly available package or paper evidence is only problem-level Template support.
+Formal complexity belongs to the stated model or restriction. A supplied graph, precedence relation, capacity law or auxiliary binary variable does not establish the solver's Structure.
+Candidate keys are temporary mnemonics. They are not permanent Problem IDs or a prescribed foreground sequence.
+
+TERRITORY AND OWNERSHIP
+LOG owns decisions whose defining artifact is a journey, vehicle duty, physical visit, load arrangement, handling plan or execution of movement. A facility or automation decision belongs here when it directly configures that movement/handling system. Public ownership or a digital solver does not by itself move the contract to CIVIC or COMP.
+Industries and operating contexts: parcel/postal; LTL/TL road freight; grocery and retail fulfillment; cold-chain and temperature-controlled transport; industrial/tanker/tramp maritime; liner container shipping; ports and bulk terminals; freight rail and passenger rail; airlines and airport airside; public buses and ferries; ride-hailing and demand-responsive mobility; field-service travel; warehouse fulfillment; automated material handling; drone-assisted delivery. Reverse collections and returns share the movement contracts where recovery-processing or sourcing decisions are not optimized.
+SCM interface: supplies demand, inventory availability, replenishment quantities, stock positions and supply commitments. A transport hub serves movements; a distribution node selected primarily to position stock is SCM. Internal stocked-product handling and empty-asset moves are LOG; deciding target stock or purchasing levels is SCM. Inventory-routing retains distinct replenishment and routing contracts unless an adequately specified integrated contract fixes a dominant owner.
+CIVIC interface: supplies public assets, rights-of-way, infrastructure capacities and work restrictions. Carrier service topology, individual train/flight movements and fleet service execution are LOG. Public infrastructure investment, civic coordination and construction execution are CIVIC. Road-segment route service is LOG when the supplied required work is executed through optimized journeys; choosing civic service obligations is a different contract.
+HR interface: supplies staff availability and legal/skill restrictions. Crew pairing, driver duty design, roster assignment, team formation and workforce capacity belong to HR when these define the decision. Vehicle duties and physical ground-service movement remain LOG. An integrated model does not create two primary owners.
+HC interface: patient acuity, clinical precedence and direct-care feasibility can define HC transport problems, including ambulance relocation. Generic mobility or supplied medical freight routes can remain LOG. Clinical dispatch is not silently absorbed into the generic dispatch card.
+PROC/PROD interface: industrial tanks and machines that define transformation remain PROC/PROD. Transit tanks, cargo handling, warehouse pick movement and transport loading remain LOG. Cutting/nesting for fabricated parts is PROD; geometric cargo packing is LOG. Process blending and bulk physical transfer must not be conflated.
+ENER interface: electricity production, grid balance and charging-network operation belong to ENER. Vehicle journeys can include charge stops as movement constraints. A separately chosen vehicle charging calendar needs a contract-level ownership test.
+COMP interface: digital workload, storage and communication-resource operation are COMP. Robots and digital control systems that execute physical cargo movement remain LOG.
+INTEL interface: adversarial/protective feasibility can transfer the primary contract to INTEL; generic defense freight movement does not automatically do so.
+MKT/FIN interface: cargo offers, fares, pricing, auctions, carrier procurement awards, compensation and financial leasing value are not movement decisions. Supplied accepted demand and physical service commitments are inputs to LOG.
+EXTR/LAND interface: extraction, depletion, basin rights and land allocation are upstream. Mine haulage can be LOG if extraction choices are fixed; tightly constitutive extraction-haulage decisions need their specified dominant contract rather than a keyword rule.
+
+DISCOVERY AND IDENTITY
+Searches began from the normative territory, then independently sampled freight/network design, fleet investments, maritime operations, rail planning/yards, airlines/airports, warehouse design/picking, automated fulfillment, live mobility, road-segment service and cross-domain collisions. Source review dates span classical formal foundations through 2026 primary research and official documentation. Search results were used as seeds, not as a closed problem inventory.
+Discovery rounds: (1) vehicle routing, service networks, warehouse picking and airline planning; (2) port, bulk, rail and airport operational functions; (3) dynamic mobility, crossdock, packing and robotic fulfillment; (4) hub/fleet design, arc service and intermodal forwarding; (5) districting, blocking, maintenance, live passenger control, sortation and internal replenishment; (6) independent checks for truck-drone synchronization, wave release, charging, model complexity and omitted physical movement stages; (7) pairwise aircraft separation with genuine discrete trajectory recovery and fixed-route vehicle platoon grouping/rendezvous.
+Late searches primarily added variants and evidence to existing contracts: truck-drone and tanker routing; reverse collection; railcar empty distribution; gates and taxiing; sorter stations; scattered pod storage; wave versus waveless release. A separate targeted search established dedicated depot charging as an independent vehicle-resource/time commitment, now admitted as CHARGING.
+Coverage is broad practical problem-layer coverage, not a proof of global exhaustion. Autonomous maritime navigation, cargo-specific securing procedures and detailed continuous vehicle-motion control may need later specialized evidence. Continuous control without genuine discrete choices is outside ICO. These residuals do not establish an additional supported general Problem at this stage. Pairwise airborne separation/recovery and fixed-route platoon coordination are admitted after targeted independent discovery; they have outputs absent from aggregate flow management and individual visit routing.
+Merge rule: shared names, algorithms or formulations are insufficient. Merge only scopes with the same independent delivered industrial decision. Preserve explicit integrations through interfaces and multiple required constructions rather than creating a duplicate card for every pair of problems.
+Split tests retained: physical hubs/service topology; fleet acquisition/type assignment/identified rotations; shipment itineraries/load grouping/physical packing/vessel stowage; appointment promises/dock work; initial yard placement/relocation moves; rail blocking/yard shunting/network traffic; warehouse slotting/batching/pick tours/station-pod work/release; request dispatch/live service regulation/disruption repair.
+
+EXCLUSIONS, VARIANTS AND RETURNS
+Crew pairing and driver rostering -> HR. Crew travel connections alone do not justify LOG ownership when employment legality defines feasibility.
+Inventory positioning, supplier selection and replenishment policy -> SCM. Inventory-routing is a coupled ownership test, not an automatically LOG-owned umbrella.
+Distribution-center network design -> SCM when stock availability dominates; transport depot/hub network -> HUB when journeys/transshipment dominate.
+Airline revenue management, cargo pricing, tender award and commercial acceptance -> MKT. Passenger rerouting after an operating disruption can be RECOVERY when physical journey repair is the artifact.
+Ambulance location/dispatch with clinical service conditions -> HC. Generic fleet relocation without those conditions -> EMPTY.
+Security-constrained convoy/defense mission design -> INTEL when adversarial constraints dominate. Defense freight transport with fixed missions -> VRP/SHIPMENT.
+Utility network operation and charging infrastructure electrical feasibility -> ENER; civic charging-site investment can be CIVIC. Route-integrated charge stops -> VRP/ROTATION variants. Independent vehicle-charger/time commitments -> CHARGING when transport duty readiness dominates.
+Traffic signal control, civic mobility policy, highway construction and public-network investment -> CIVIC when shared public-service substrate decisions dominate. Journey timing/path allocation remains a separate LOG contract.
+Warehouse staffing and picker rosters -> HR. Assigning supplied pick work to available stations/resources can be a LOG secondary MAP in the picking schedule.
+Manufacturing lot formation, fabrication cutting/nesting and robotic production cycles -> PROD; LOG handles supplied products without constitutive transformation decisions.
+Forecasting, queueing analysis, travel-time estimation, simulation and machine-learning prediction are supporting analyses. They are not stand-alone ICO decisions without a combinatorial action artifact.
+CVRP, VRPTW, pickup-delivery, dial-a-ride, multi-trip, multi-depot, cold-chain, hazardous-cargo, electric-route and drone-synchronized tours -> VRP variants unless a distinct upstream or downstream output is independently committed.
+Pure TSP, set covering, assignment, flow, bin packing and RCPSP are formal architectures, not automatically independent industrial problem identities.
+Integrated location-routing, inventory-routing, loading-routing, batching-routing and fleet-crew recovery preserve constituent decision contracts and their coupling. Do not promote every integration as an extra generic Problem.
+
+RATINGS AND STRUCTURAL INTERPRETATION
+Ratings are explicit analytical judgments against 000_DOMAIN.txt, not survey popularity counts or quantified ROI. Domain-wide routing, service topology and live request commitment have Critical Priority; rail, maritime, airport and automation-specific functions generally have Medium Priority despite substantial value. Irreversible fleet/hub investments and network-wide disruptions may have Critical Relevance. High applies where repeated movement or handling cost and throughput mechanisms are substantial but domain-wide enterprise impact is not assumed.
+Critical Hardness is reserved for large coupled service-network and multi-resource recovery stacks with strong decomposition needs. High indicates meaningful algorithm/model engineering. Medium retains routine polynomial restrictions and manageable local decisions even where integrated variants are hard. Formal hardness does not determine these ratings by itself.
+SELECT means selecting operating entities/configurations/actions; MAP means assigning objects to supplied or constructed targets; LINK means choosing journey or service succession/connections; PLACE means choosing spatial/temporal/ordered positions. Capacity, balance, connectivity, nonoverlap, collision, precedence, stability and legality are constraints/laws, not additional structures by themselves.
+Primary Structure describes the complete declared artifact. Restricted variants can omit a secondary when its decision is fixed externally. Candidate source methods and operational policies remain alternatives; no source's use of an auxiliary arc/column transfers to Structure automatically.
+Complexity lower-bound inferences used here: general visit routing contains TSP; fleet design with route output contains capacitated routing; consolidation with unconstrained unit activation contains bin packing; physical multi-unit loading contains packing; unrestricted layout with fixed slots contains QAP; complete recovery with frozen work empty contains its routing/scheduling parent. These are stated as restriction arguments, not fabricated source theorems. Polynomial shortest path, bipartite assignment/matching, minimum-cost flow and DAG path cover are reference restrictions. Additional exact class claims require a model-specific source.
+
+CANDIDATE RESEARCH RECORDS
+Candidates are alphabetical by mnemonic for retrieval; the order has no industrial-sequence meaning.
+
+
+AIRCONFLICT â€” Airborne Conflict Resolution and Trajectory Recovery
+Decision contract: Selects aircraft separation maneuvers or discrete recovery times and places trajectory changes under pairwise separation and waypoint-return limits.
+Identity, variants, boundaries and evidence interpretation: Unlike AIRFLOW, this artifact explicitly resolves pairwise aircraft separation rather than aggregate sector-capacity occupancy. Discrete maneuver alternatives or recovery epochs must be genuine chosen actions; binary variables used only to encode continuous trajectory constraints do not establish a combinatorial contract. Pure continuous heading/speed control without such choices is outside this ICO card. The primary Dias-Rey study uses continuous speed and heading but discrete trajectory recovery time, which supplies a defensible admitted version. A separate disjunctive study supports speed, heading and altitude control architectures. Supplied initial trajectories and protected distances define the substrate; selected maneuvers and positioned changes form the artifact. Scheduled flight or path commitments supply targets and return points. Technical separation modeling is distinct from a claim of certified operational control. Safety-based Critical Relevance is an analytical judgment; published numerical solvability is not a deployment claim.
+Ontology inference: primary LOG; Regime #dispatch + #adapt because issues immediate separation actions and revises committed trajectories. Structure #place + #select because places trajectory-change or recovery epochs and selects admissible maneuvers; pairwise separation constrains the trajectories.
+Rating inference: Priority Medium â€” Airborne separation actions are specific to operating flight traffic. Relevance Critical â€” Feasible separation decisions protect physical flight operation. Industrial Hardness High â€” Pairwise conflicts, nonlinear motion and recovery commitments require rapid coordinated search. Formal restriction: No model-specific class is claimed.
+Template basis: IE Air-traffic conflict resolution and trajectory recovery; OR Disjunctive separation MIP/MINLP; iterative avoidance and recovery optimization. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S01, S02. Descriptors: ##aircraft-separation ##trajectory-recovery ##conflict-resolution.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+AIRFLOW â€” Air Traffic Flow and Flight-Path Allocation
+Decision contract: Selects flight paths and departure or sector-entry times under airport, airspace and flight-continuity limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: ATFM, flow management, network ground holding, flight rerouting. The contract allocates individual physical flight movements through given airspace, so primary ownership is LOG. Designing public airspace infrastructure, procuring capacity or setting civic service policy belongs to CIVIC. Tactical continuous flight-control laws without discrete path/slot choices are outside this ICO card. This planning level uses aggregate sector occupancy, not necessarily aircraft-by-aircraft separation proof. RUNWAY handles airport movement sequencing; SURFACE handles taxi conflicts. Forecast airport/sector capacities and flight schedules are supplied. Integer time-space flow models support rerouting and temporal regulation; the source reports solution architectures for large flight networks but does not certify all live traffic-control conditions.
+Ontology inference: primary LOG; Regime #plan + #dispatch because prepares capacity-feasible flight movements and issues short-cycle flow restrictions. Structure #place + #link + #select because places flight progress in time, chooses airspace paths and selects allowed delay or reroute actions.
+Rating inference: Priority Medium â€” Airspace-capacity management constrains large flight networks. Relevance Critical â€” Network flow decisions can propagate delay across many airports and flights. Industrial Hardness High â€” Sector bottlenecks, coupled flight continuity and uncertain capacity create network interactions. Formal restriction: NP-hard for established flight-specific traffic-flow models
+Template basis: IE Network air-traffic flow management and ground holding; OR Time-expanded flight-flow integer optimization; decomposition and rolling flow allocation. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S03, S04, S05. Descriptors: ##air-traffic-flow ##sector-capacity ##ground-holding.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+APPOINTMENT â€” Terminal and Warehouse Visit Appointment Scheduling
+Decision contract: Places external vehicle visits into appointment windows under access, service capacity and carrier availability limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: truck appointment scheduling, vehicle time-slot allocation. A promised access window precedes detailed dock work and may not fix the handling door. CROSSDOCK schedules the actual inbound/outbound processing with freight precedence. A public right-of-way booking or commercial capacity auction can have a CIVIC or MKT contract; this scope is the physical visit calendar at a freight facility. A quota policy without individual assignments is a related aggregate restriction; simple assignment can be routine. The supplier may propose desired windows, but the solver chooses accepted slot commitments. Window categories are supplied targets, not network edges. Literature distinguishes terminal and trucking objectives and supports collaborative optimization, simulation and queueing evaluations. Arrival behavior limits precise predicted improvement claims.
+Ontology inference: primary LOG; Regime #plan + #allocate because commits vehicle access windows and scarce appointment capacity. Structure #place + #map because places vehicle visits in time slots and maps them to access or service classes.
+Rating inference: Priority High â€” Appointment systems coordinate arrivals at congested handling facilities. Relevance High â€” Better appointments can reduce waiting and prevent arrival peaks. Industrial Hardness Medium â€” Uncertain arrivals and downstream yard capacity require capacity-aware slot design. Formal restriction: No model-specific class is claimed.
+Template basis: IE Truck appointment and access-quota planning; OR Slot-allocation MILP; queueing or simulation-supported appointment optimization. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S06, S07. Descriptors: ##appointment ##time-slots ##queueing.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+ARCRP â€” Transport Arc-Service Routing
+Decision contract: Constructs vehicle walks that service required road or network segments under coverage, traversal, capacity and operating-time limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: CARP, rural-postman fleet routing. Waste collection may be node-based, arc-based or mixed; classify by delivered service contract rather than industry alone. ARCRP is distinct from VRP because service is performed along required segments and must separate service traversal from deadheading. Road-maintenance project coordination or public asset service allocation belongs to CIVIC; a supplied set of road segments whose physical service journeys are optimized belongs to LOG. No new domain is implied by a waste or public operator. Supplied road edges are the substrate; chosen walk transitions form LINK. Segment-to-vehicle allocation forms MAP. Exact postman algorithms should remain a restricted baseline, not be generalized to all arc-routing models.
+Ontology inference: primary LOG; Regime #plan because commits coverage journeys before segment-service execution. Structure #link + #map because chooses traversed segment succession and assigns required segment services to vehicle walks.
+Rating inference: Priority Medium â€” Segment-based journeys recur in collection and street-service fleets. Relevance High â€” Better walks can reduce repeated travel and missed segment coverage. Industrial Hardness High â€” Service direction, deadheading and vehicle capacity couple segment coverage. Formal restriction: Chinese-postman subcases are polynomial; general capacitated arc routing is NP-hard
+Template basis: IE Street-service and segment-collection route planning; OR Capacitated arc-routing MILP; route decomposition and neighborhood search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S08, S09, S10. Descriptors: ##arc-routing ##coverage ##deadheading.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+BATCH â€” Warehouse Order Batching
+Decision contract: Groups warehouse orders into pick batches under handling capacity, compatibility and completion requirements.
+Identity, variants, boundaries and evidence interpretation: Aliases: pick-batch formation, order clustering. A batch is a set intended for a common pick tour. WAVE instead controls which orders enter the handling process and when, often across many batches and stations. PICKROUTE constructs the tour for supplied batch demand; joint batching-routing is an integrated contract whose structures are MAP and LINK, not a third universal problem. Sequential waiting, batch assignment and deadlines are material extensions when actually chosen. Product locations and order item sets are supplied and do not imply a graph construction. The 2023 taxonomy separates batching, routing, sequencing, waiting and assigning. Commercial relevance is inferred from repeated travel and completion capacity, not a sourced magnitude of savings. No cases or permanent benchmark set are selected.
+Ontology inference: primary LOG; Regime #plan because prepares groups of orders that will be picked together. Structure #map because maps orders to pick batches; batch capacity and order integrity constrain grouping.
+Rating inference: Priority High â€” Batch formation coordinates common manual picking systems. Relevance High â€” Better batches can reduce duplicated pick travel and missed completion targets. Industrial Hardness High â€” Order combinations depend on route costs, item locations and deadlines. Formal restriction: Established order-batching variants are NP-hard
+Template basis: IE Order clustering and batch-picking planning; OR Capacity-constrained batching MILP; route-aware neighborhood search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S11, S12. Descriptors: ##order-batching ##grouping ##warehouse.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+BERTH â€” Vessel Berth Allocation
+Decision contract: Assigns vessels to berth positions and service times under quay geometry, draft, readiness and handling-capacity limits.
+Identity, variants, boundaries and evidence interpretation: Continuous, discrete and hybrid berths are variants of the same quay-service allocation. Continuous position is PLACE; supplied fixed berths are MAP targets with temporal placement. Berth infrastructure construction belongs to CIVIC; ship service execution belongs to LOG. Vessel arrival and cargo workload are supplied. Selecting cranes is not implied unless the complete integrated contract delivers crane assignments, which belongs with HANDLING. Berth, crane, yard and external truck decisions constrain one another. Surveys support multiple integrated and separate optimization models, so a universal single-method SOTA is inappropriate. This standalone card delivers where and when each vessel receives berth service. Handling schedules can return revised service durations through an explicit feedback edge.
+Ontology inference: primary LOG; Regime #plan + #allocate because commits scarce quay positions and vessel service intervals. Structure #place + #map because places vessels along the quay and in time and maps them to eligible berth areas.
+Rating inference: Priority Medium â€” Berth allocation is central to port-side vessel service. Relevance High â€” Better berth plans can reduce vessel waiting and missed sailing windows. Industrial Hardness High â€” Arrival uncertainty, vessel dimensions and handling capacity interact. Formal restriction: General spatial-temporal allocation includes NP-hard scheduling subcases
+Template basis: IE Berth planning and vessel service coordination; OR Spatial-temporal berth-allocation MILP/CP; robust scheduling and neighborhood search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S13, S14. Descriptors: ##berth-allocation ##spatial-temporal ##port.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+BLOCKING â€” Rail Freight Blocking and Train Makeup
+Decision contract: Selects railcar blocks and assigns cars and blocks to train services under classification, train-length and handling limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: railroad blocking, train makeup, block-to-train assignment. A block is a car group moved together without intermediate reclassification. This is not generic geometric loading. SERVICE chooses offered train services; BLOCKING chooses how traffic is grouped and carried through them; SHUNT executes physical rearrangements in a particular yard. These can be integrated but have independent industrial outputs. The cited model explicitly uses block arcs with yard constraints and a Lagrangian heuristic. Car coupling and succession are LINK only where the block or train connection pattern is chosen; maps alone suffice for a supplied block plan. This card covers the complete blocking-and-makeup contract and therefore retains both constructions.
+Ontology inference: primary LOG; Regime #plan because commits car-grouping and train-load rules before yard execution. Structure #link + #map because chooses block connections between classification points and maps cars or blocks to train services.
+Rating inference: Priority Medium â€” Blocking plans are central to consolidation-based freight rail. Relevance High â€” Better plans can reduce repeated classification and train-capacity losses. Industrial Hardness High â€” Block capacities, car destinations and classification resources couple network decisions. Formal restriction: No model-specific class is claimed.
+Template basis: IE Railroad blocking and train-formation planning; OR Blocking network-design MILP; Lagrangian relaxation and decomposition. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S15, S16. Descriptors: ##rail ##blocking ##train-formation.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+CHARGING â€” Transport Fleet Charging and Refueling Scheduling
+Decision contract: Assigns vehicles to charging or refueling resources and service times under energy needs, equipment capacity and committed-duty limits.
+Identity, variants, boundaries and evidence interpretation: The independent artifact is a vehicle-to-plug or energy-service calendar for supplied duties, not just a route with an optional charging stop. Depot charging can be optimized with all journeys fixed, so it is not covered by VRP. ROTATION supplies return, departure and duty-energy requirements. The chosen energy-service slots return usable vehicle availability. LOG owns the contract when vehicle duty feasibility and resource occupation dominate; ENER owns grid balance, dispatch and electrical-resource operation. Pure continuous charge-rate control with fixed vehicle assignments and times is outside this ICO card. Primary bus work explicitly models spatiotemporal charging scheduling as MILP; a separate hierarchical study integrates charging and operating decisions using decomposition. Refueling uses the same resource-visit scheduling contract when equipment, timing and compatibility are the output; specialized fuel safety remains an input restriction. No universal complexity class or global charging-method dominance is inferred.
+Ontology inference: primary LOG; Regime #plan + #dispatch because commits vehicle energy-service slots or updates them from observed readiness. Structure #place + #map because places charging or refueling visits in time and maps vehicles to compatible service resources.
+Rating inference: Priority High â€” Energy-service availability constrains electrified and fuel-dependent fleet operations. Relevance High â€” Better calendars can preserve vehicle readiness and reduce charging bottlenecks. Industrial Hardness High â€” Duty readiness, limited plugs and nonlinear charging profiles couple energy-service slots. Formal restriction: No model-specific class is claimed.
+Template basis: IE Depot energy-service and vehicle-availability coordination; OR Vehicle-charger scheduling MILP; rolling optimization and integrated duty-charge decomposition. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S17, S18. Descriptors: ##fleet-charging ##refueling ##availability.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+CONSOLIDATE â€” Freight Load Consolidation
+Decision contract: Groups shipments into departures or transport units under capacity, destination, compatibility and delivery limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: trailerload building, transport-unit formation. This artifact is a shipment-to-load grouping and activation decision, with aggregate capacity. LOADING subsequently decides physical orientation and coordinates; STOWAGE decides vessel bay/cell allocation. Commercial cargo acceptance belongs to MKT unless the provided request set and rejection are simply physical infeasibility options of the movement contract. Forwarding paths can be fixed before loads form, while integrated load-and-flow planning iterates with SHIPMENT. Motor-carrier evidence distinguishes flow planning from trailer/container load planning. Weight-only grouping does not require PLACE. Departure times already supplied by the timetable do not create a temporal secondary structure.
+Ontology inference: primary LOG; Regime #plan because prepares compatible transport loads before movement. Structure #map + #select because maps shipments to loads and selects loads or departures to activate.
+Rating inference: Priority High â€” Consolidation defines vehicle fill in multi-shipper transport. Relevance High â€” Better loads can reduce empty capacity and avoid missed departures. Industrial Hardness High â€” Shipment indivisibility, due dates and destination compatibility couple load groups. Formal restriction: NP-hard when the contract includes bin packing
+Template basis: IE LTL load planning and shipment consolidation; OR Capacity-constrained grouping MILP; bin-packing and departure-selection search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S16, S19. Descriptors: ##consolidation ##load-planning ##packing.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+CROSSDOCK â€” Crossdock and Dock Processing Scheduling
+Decision contract: Assigns inbound and outbound vehicles to doors and processing times under cargo-transfer precedence, door capacity and buffer limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: inbound/outbound truck scheduling, dock-door scheduling. Dedicated, mixed-mode and reversible doors are variants. Appointment booking only commits access windows and remains APPOINTMENT. Fixed destination-to-door layout rules can be supplied; if a persistent door allocation is optimized independently, treat it as a slotting/layout specialization rather than another universal problem. The full crossdock artifact is processing assignments and epochs with freight-transfer precedence. Shipment routing and consolidation provide flow and load inputs. Cargo buffering is an execution constraint, not an inventory replenishment policy. The practice-oriented survey warns that simplified models omit real constraints. Keep MILP/CP and neighborhood architectures; do not infer industry deployment from a published test result.
+Ontology inference: primary LOG; Regime #plan because commits door processing order and service times before transfers execute. Structure #place + #map because places vehicle processing in time and maps visits to doors; cargo availability constrains precedence.
+Rating inference: Priority High â€” Dock synchronization governs flow through crossdocks and distribution terminals. Relevance High â€” Better schedules can reduce vehicle dwell and transfer blockage. Industrial Hardness High â€” Truck order, transfer readiness and limited temporary storage interact. Formal restriction: NP-hard for general coupled inbound-outbound scheduling
+Template basis: IE Crossdock truck sequencing and dock coordination; OR Truck-door scheduling MILP/CP; decomposition and neighborhood search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S20, S21. Descriptors: ##crossdock ##dock ##precedence.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+DISPATCH â€” Dynamic Transport Request Dispatch
+Decision contract: Selects arriving transport requests, assigns them to vehicles and updates immediate service journeys under observed capacity, waiting and commitment limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: online vehicle routing, taxi dispatch, on-demand trip assignment. The operating-state commitment distinguishes this card from pre-execution VRP. Single-request matching, pooled trip selection and route insertion are variants. Price offers and customer demand stimulation belong to MKT; supplied transport requests are the input here. Ambulance or patient transport transfers to HC when clinical priority or patient feasibility defines service. Defensive convoy decisions transfer to INTEL when adversarial conditions dominate. Matching alone needs MAP; pooled trips and updated service order require the additional structures shown. Alonso-Mora et al. provide a primary trip/vehicle-assignment architecture with feasibility-generated trips and rebalancing. The approach is a supported reference, not a claim of current universal ride-hailing SOTA.
+Ontology inference: primary LOG; Regime #dispatch because commits immediate service responses from observed vehicle and request state. Structure #map + #select + #link + #place because maps requests to vehicles, selects feasible trips, updates journey succession and places service visits in time.
+Rating inference: Priority Critical â€” Live transport systems must commit vehicles to arriving requests. Relevance High â€” Better dispatch can reduce waiting, rejected requests and unproductive travel. Industrial Hardness High â€” Request arrivals, existing commitments and latency constrain route updates. Formal restriction: Bipartite matching is polynomial; pooled-trip assignment and integrated routing can be NP-hard
+Template basis: IE Demand-responsive dispatch and online request insertion; OR Trip-vehicle assignment MILP; matching, insertion and rolling route search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S22. Descriptors: ##dynamic-dispatch ##ride-sharing ##rolling-horizon.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+DISTRICT â€” Transport Service Territory Design
+Decision contract: Groups service locations into territories under workload, access, continuity and service-consistency requirements.
+Identity, variants, boundaries and evidence interpretation: Aliases: delivery districting, service-zone design. A territory is a persistent grouping supplied to many routes. A one-day grouping determined solely as part of a route is a VRP construction, not another territory card. Sales territories belong to MKT; electoral or administrative districting belongs to CIVIC; land-use zoning belongs to LAND. Contiguity tests a chosen partition but does not mean the solver chooses graph edges. Candidate location adjacencies, travel data and workload estimates are supplied. The artifact is a recurring location-to-territory map, optionally with selected territory centers under an integrated hub contract. Connected MILP and geometric districting are material alternatives. The general review covers many ownership domains; only physical movement service territories are admitted here.
+Ontology inference: primary LOG; Regime #design + #plan because commits recurring service territories or revises them for a future operating plan. Structure #map because maps locations to territories; connectedness and workload balance constrain the partition.
+Rating inference: Priority Medium â€” Stable territories matter in recurring delivery and field-service networks. Relevance High â€” Better territories can reduce persistent workload imbalance and service inconsistency. Industrial Hardness High â€” Balance, compactness and continuity compete at large geographic scale. Formal restriction: No model-specific class is claimed.
+Template basis: IE Delivery and field-service districting; OR Connected partitioning MILP; geometric clustering with feasibility repair. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S23, S24. Descriptors: ##districting ##partition ##connectivity.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+EMPTY â€” Empty Vehicle and Transport-Unit Repositioning
+Decision contract: Assigns empty vehicles or reusable transport units to relocation movements and times under demand, balance and movement-capacity limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: empty-container repositioning, taxi rebalancing, empty railcar distribution. The artifact is a movement plan for reusable assets, not a stock target or procurement policy. Inventory positions and pool-sizing policies can be SCM-owned inputs. Rerouting an already committed customer trip is RECOVERY, whereas moving idle capacity proactively remains EMPTY. Network-flow models give an established simple baseline; asset types, indivisible moves, repositioning path and slot choices make richer versions discrete. If fixed relocation arcs are supplied, LINK is inactive in that restriction. Forecasts are inputs and not separately admitted optimization problems. Rebalancing and DISPATCH have reciprocal information flow; revised availability feeds immediate service matching.
+Ontology inference: primary LOG; Regime #plan + #dispatch because prepares relocation movements or activates them from the current fleet state. Structure #map + #place + #link because maps empty assets to relocation journeys, places moves in time and chooses connected movement paths.
+Rating inference: Priority High â€” Directional demand creates recurring transport-asset imbalances. Relevance High â€” Better relocations can reduce unavailable capacity and empty movement cost. Industrial Hardness Medium â€” Forecast errors, transport capacity and type-specific deficits complicate repositioning. Formal restriction: Single-commodity min-cost flow is polynomial; discrete multimodal and coupled routing variants can be NP-hard
+Template basis: IE Fleet rebalancing and empty-equipment distribution; OR Time-space min-cost flow; stochastic or robust integer rebalancing and rolling optimization. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S25, S22, S26. Descriptors: ##repositioning ##empty-flow ##rebalancing.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+FLEET â€” Transport Fleet Size and Composition
+Decision contract: Selects vehicle counts and types under movement demand, compatibility, availability and investment limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: fleet sizing, heterogeneous fleet composition. Acquisition, leasing and retirement are options of the asset-capacity decision; purely financial leasing valuation belongs to FIN. Road fleets, vessels, locomotives and aircraft are contexts, not separate primary problems. Distinguish installed fleet from assigning the existing fleet to scheduled services. Supplied vehicle technologies, demand scenarios and operational restrictions are inputs. Selected assets are the output; evaluative routes used to test utilization do not automatically add LINK to a design-only contract. When binding routes are also delivered, the integrated contract additionally constructs routes. Published exact and metaheuristic methods coexist. Fleet-wide savings are plausible mechanisms, not quantified claims in this research.
+Ontology inference: primary LOG; Regime #design because commits transport assets and discrete fleet capacity. Structure #select because selects the vehicle instances or count-and-type configurations that form the fleet.
+Rating inference: Priority High â€” Fleet capacity constrains road, air, rail and maritime operators. Relevance Critical â€” Fleet investment and composition determine major capital and operating costs. Industrial Hardness High â€” Asset alternatives and uncertain utilization require route and demand evaluation. Formal restriction: NP-hard when fleet design includes capacitated vehicle routing
+Template basis: IE Fleet capacity and fleet-mix planning; OR Fleet-size-and-mix MILP; route-based column generation and simulation-supported search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S27. Descriptors: ##fleet-size ##fleet-mix ##capacity.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+FLEETASSIGN â€” Transport Fleet Assignment
+Decision contract: Assigns available vehicle types or fleet capacity to scheduled services under demand, compatibility and fleet-balance limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: fleet deployment, equipment-type assignment. Aircraft types to flights and ship types to liner loops are representative. This decision does not acquire the fleet and does not yet define each identified vehicle succession. Assigning named vehicles with continuity is ROTATION. Pure capacity-share LPs have no discrete contract and are excluded from ICO unless indivisible services or type activations matter. Supplied timetable, vehicle classes and capabilities are inputs; delivered service-to-type assignments are the artifact. Time-space models retain balance as a constraint, not an inferred LINK construction. Large type mixes and passenger or cargo spill lead to decomposition; simple transportation models can remain routine.
+Ontology inference: primary LOG; Regime #allocate because commits existing fleet capacity to offered services. Structure #map because maps vehicle types or available capacity to scheduled services.
+Rating inference: Priority High â€” Heterogeneous operators must match existing fleet capability to services. Relevance High â€” Better assignments can reduce capacity mismatch and avoid expensive asset use. Industrial Hardness High â€” Demand, type compatibility and fleet balance interact across service legs. Formal restriction: General airline fleet assignment is NP-hard; restricted single-commodity flow models are polynomial
+Template basis: IE Fleet deployment and service-capacity assignment; OR Time-space fleet-assignment MILP; network-flow relaxations and decomposition. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S28, S29. Descriptors: ##fleet-assignment ##deployment ##heterogeneous.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+GATE â€” Aircraft Gate and Stand Assignment
+Decision contract: Assigns aircraft visits to gates or stands and occupancy intervals under compatibility, separation and passenger-transfer limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: stand assignment, gate scheduling. This output is the aircraft-to-stand occupancy plan, not a public airport investment plan. Flight type, aircraft size and passenger connections define compatibility and value; clinical or security overlays do not change primary ownership unless they define the contract. A simple fixed interval coloring instance may be easy, while transfer penalties and alternative occupation/towing make richer cases difficult. If intervals are fixed inputs, only MAP remains in that restriction. SURFACE chooses conflict-free taxi movements and TURNAROUND coordinates aircraft servicing; neither is merely a different gate-assignment algorithm. The gate survey supports MILP, QAP-style models and scheduling architectures. Delay uncertainty remains material; deterministic academic benchmarks do not establish operational robustness.
+Ontology inference: primary LOG; Regime #allocate + #plan because commits gates and occupancy periods to aircraft visits. Structure #map + #place because maps aircraft visits to gates or stands and places occupation or tow intervals in time.
+Rating inference: Priority Medium â€” Gate and stand capacity constrain airport aircraft visits. Relevance High â€” Better assignments can reduce conflicts, towing and difficult transfers. Industrial Hardness High â€” Compatibility, uncertain delays and transfer connections couple assignments. Formal restriction: General gate assignment contains hard assignment and scheduling variants
+Template basis: IE Airport gate planning and stand allocation; OR Gate-assignment MILP; interval CP and robust assignment search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S30, S31. Descriptors: ##gate-assignment ##airport ##interval.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+GOODSTOPERSON â€” Goods-to-Person Fulfillment Assignment and Sequencing
+Decision contract: Selects pods or racks, assigns orders and visits to pick stations and orders station work under item availability and station limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: order and pod assignment, rack scheduling at pick stations. Distinguish the order/pod/station fulfillment artifact from storage slotting and physical robot trajectories. Robotic, crane-based and shuttle-based goods-to-person architectures are contexts where this output exists. A preallocated fixed pod stream reduces the contract to station sequencing; complete choice requires MAP, SELECT and PLACE. Demand-item relations are supplied, not LINK. Current primary models jointly optimize order assignment, pod choice and sequencing, while industrial work also describes task-specific algorithms. Direct MILP and large-neighborhood decomposition are credible near-equals. No assertion is made that a single published algorithm dominates current deployed fulfillment systems. Robot availability and travel estimates constrain station plans and return feedback.
+Ontology inference: primary LOG; Regime #plan + #operate because prepares or coordinates station work and pod visits for fulfillment. Structure #map + #select + #place because maps orders and pod visits to stations, selects pods and places station work in order or time.
+Rating inference: Priority Medium â€” Station-pod coordination defines goods-to-person fulfillment. Relevance High â€” Better coordination can reduce pod visits and station waiting. Industrial Hardness High â€” Pod overlap, order availability and station capacity couple fulfillment decisions. Formal restriction: No model-specific class is claimed.
+Template basis: IE Parts-to-picker station and pod coordination; OR Order-pod-station MILP; decomposition and large-neighborhood search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S32, S33, S34. Descriptors: ##goods-to-person ##pod-selection ##sequencing.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+HANDLING â€” Cargo Handling Equipment Scheduling
+Decision contract: Assigns cargo lifts, storage-retrieval tasks and transfer work to handling equipment and times under access, interference and service-precedence limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: quay-crane scheduling, yard-crane scheduling, AS/RS task sequencing. Retain a common equipment-task calendar contract while preserving crane noncrossing, shuttle access and storage-retrieval cycle variants. These are not interchangeable benchmarks. Crane availability and target cargo positions are supplied; task assignment and epochs are delivered. Choosing a multi-vehicle collision-free path is ROBOTTRAFFIC, not simply another crane scheduling encoding. Goods-to-person order/pod choice remains GOODSTOPERSON. For bulk terminals, loading equipment and stockyard retrieval belong here when physical handling dominates; blending to achieve a product specification can belong to PROC. Direct MILP/CP and decomposed scheduling are credible architectures, without claiming a universal crane or AS/RS algorithm winner.
+Ontology inference: primary LOG; Regime #plan + #operate because prepares and coordinates equipment work during cargo service. Structure #place + #map because places handling tasks in time and maps them to eligible equipment; interference and precedence constrain execution.
+Rating inference: Priority High â€” Handling-resource schedules control warehouse and terminal service throughput. Relevance High â€” Better schedules can reduce blocked equipment and missed transfer commitments. Industrial Hardness High â€” Interference, synchronized transfers and uncertain task readiness couple resources. Formal restriction: General scheduling variants are NP-hard; restricted single-machine cycles differ
+Template basis: IE Crane, shuttle and storage-retrieval equipment coordination; OR Resource-constrained scheduling MILP/CP; decomposition and rolling search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S35, S13, S14, S36. Descriptors: ##crane-scheduling ##storage-retrieval ##interference.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+HANDSYS â€” Warehouse and Terminal Handling System Configuration
+Decision contract: Selects storage, picking, sorting and transfer technologies and discrete equipment capacities under throughput and compatibility limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: storage-system selection, automation configuration, AS/RS sizing. Equipment count choices are combinatorial; queueing or continuous capacity estimation without discrete decisions is supporting analysis. Manual, shuttle, crane and mobile-robot systems are alternatives. Do not equate a simulator with a solver Template: simulation must evaluate a configuration search or optimization model. Physical unit transport and storage handling define LOG ownership. Manufacturing machines that transform parts belong to PROD; networks that process digital data belong to COMP. This contract chooses technologies and counts; LAYOUT chooses positions after or jointly with them. Designs supply eligibility and capacity to handling schedules. Current reviews document substantial differences among automation architectures; no single technology or formulation is claimed best for all sites.
+Ontology inference: primary LOG; Regime #design because commits physical handling technologies and capacity before operations. Structure #select + #map because selects equipment configurations and assigns handling functions to them.
+Rating inference: Priority High â€” Handling technology constrains warehouse and terminal throughput. Relevance High â€” Better configurations can reduce asset cost and sustained handling losses. Industrial Hardness High â€” Throughput, congestion and equipment interactions require performance evaluation. Formal restriction: No model-specific class is claimed.
+Template basis: IE Material-handling system and warehouse automation design; OR Discrete configuration MILP/MINLP; simulation optimization. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S37, S35. Descriptors: ##material-handling ##automation ##capacity.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+HUB â€” Transport Hub and Depot Network Design
+Decision contract: Selects transport hubs, depots and discrete capacities and assigns traffic areas under access, transfer and investment limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: carrier hub location, depot location, intermodal terminal location. Keep discrete capacity alternatives; continuous building dimensions alone do not define this ICO decision. Variant axes include single or multiple allocation, direct bypass, transfer limits and modal access. A transport depot supplies journeys or transshipment. A distribution center chosen to position inventory belongs to SCM; a public infrastructure investment contract belongs to CIVIC. Location and service topology may be integrated, but operating a new service is not identical to opening a physical facility. Candidate sites, access arcs and demand are supplied; the artifact is the chosen facility set and traffic allocation. Facility investment is a judgment of enterprise relevance, not an estimated benefit. No universally superior hub algorithm is established; decomposition and tailored search remain alternatives to direct MILP.
+Ontology inference: primary LOG; Regime #design because commits transport access points and transfer capacity before service planning. Structure #select + #map because selects facilities and capacity options and maps traffic areas to them.
+Rating inference: Priority High â€” Transport access and transfer facilities constrain carrier networks. Relevance Critical â€” Facility commitments can determine long-lived network cost and service reach. Industrial Hardness High â€” Facility choice, traffic allocation and transfer economies interact. Formal restriction: NP-hard for general discrete hub-location models
+Template basis: IE Carrier hub-and-spoke and depot planning; OR Capacitated hub-location MILP; Benders decomposition and network search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S38, S39. Descriptors: ##hub-location ##depot ##network-design.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+LAYOUT â€” Warehouse and Terminal Layout Design
+Decision contract: Positions storage areas, handling stations and travel aisles under space, access, separation and material-flow limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: aisle design, block layout, terminal yard layout. Fixed-site assignment and free geometric placement are representations of the physical layout contract, not distinct problems. Warehouse size estimation is not admitted on its own. Travel links are chosen only if aisle topology is variable; input travel graphs do not imply LINK. Nonoverlap, turning clearance and access are feasibility laws, not new structures. Do not merge with product slotting: placing a department differs from assigning products to supplied positions. A freight-yard layout belongs to LOG when handling performance defines the contract; public terminal construction execution belongs to CIVIC. Space and equipment decisions often iterate with system configuration. Restricted aisle rules can be simple, while unconstrained facility layout and stochastic congestion need tailored search.
+Ontology inference: primary LOG; Regime #design because commits the physical handling layout before allocation and movement planning. Structure #place + #link because positions areas and stations and chooses aisle connections when these are decision variables.
+Rating inference: Priority High â€” Layouts determine recurring movement distances and usable handling space. Relevance High â€” Better layouts can reduce travel and congestion throughout facility operation. Industrial Hardness High â€” Geometry, access paths and congestion couple layout choices. Formal restriction: NP-hard for the general quadratic-assignment layout subproblem
+Template basis: IE Warehouse and terminal facility layout; OR Spatial layout MILP; quadratic-assignment models for fixed sites; simulation-supported search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S37, S40. Descriptors: ##layout ##aisle ##geometry.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+LOADING â€” Transport Unit Loading and Packing
+Decision contract: Selects transport units and places oriented cargo under containment, nonoverlap, weight, stability and unloading-access limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: three-dimensional container loading, truck packing, air-cargo build-up. Cargo groups may already be fixed by CONSOLIDATE, but unit activation remains part of multi-unit physical packing. Fixed identical items or one-dimensional capacities are restricted cases. Manufacturing cutting and nesting choose material fabrication patterns and belong to PROD. Vessel cells with supplied geometry and ship-wide stability are STOWAGE; rectangular packing does not capture all vessel structural limits. Candidate cargo dimensions and unit interiors are supplied; coordinates and orientations are delivered. Bortfeldt and WÃ¤scher support practical packing constraints; the industrial Atlas Copco study warns that stacking and stability restrictions matter. Do not call a packing algorithm industrially strongest merely because it has a good unconstrained benchmark result.
+Ontology inference: primary LOG; Regime #plan because prepares physical load arrangements before departure. Structure #place + #map + #select because positions oriented cargo, maps it to transport units and selects units when needed.
+Rating inference: Priority High â€” Physical load feasibility constrains freight movements across transport modes. Relevance High â€” Better load arrangements can reduce transport units and handling losses. Industrial Hardness High â€” Geometry, load bearing, weight distribution and unloading order interact. Formal restriction: NP-hard for general bin packing
+Template basis: IE Truck, container and air-cargo load planning; OR Geometric packing MILP/CP; constructive packing and large-neighborhood search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S41, S42. Descriptors: ##container-loading ##geometry ##stability.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+MAINTENANCE â€” Transport Fleet Maintenance Scheduling
+Decision contract: Selects maintenance visits and places vehicles into eligible service facilities and time windows under task, capacity and movement limits.
+Identity, variants, boundaries and evidence interpretation: A stand-alone maintenance contract must deliver task-to-slot or facility commitments, not merely verify a fixed duty maintenance interval. In the latter case maintenance is a ROTATION constraint. Heavy overhaul shop fabrication is PROD; workforce assignment is HR. This LOG scope concerns keeping the transport fleet available and routing it to eligible maintenance sites. Maintenance planning can be distinct when the depot calendar is decided independently of commercial duties. Route-based maintenance evidence supports integrated versions; CP is an architectural alternative for the independent task-slot contract, not a claimed universal maintenance SOTA. Maintenance tasks and facilities are supplied, visit options and the service calendar are chosen. Downtime and movement access explain industrial hardness. Independent calendar evidence: the fleet-maintenance study supplies two multi-objective MILP formulations with workshop resource and airworthiness restrictions; direct MILP is now sourced for the standalone maintenance contract rather than inferred only from maintenance routing.
+Ontology inference: primary LOG; Regime #plan because commits vehicle downtime and maintenance visits before execution. Structure #place + #map + #select because places maintenance visits in time, maps them to facilities and selects permitted task or visit options.
+Rating inference: Priority High â€” Vehicle availability depends on feasible maintenance commitments. Relevance High â€” Better maintenance calendars can preserve service capacity and reduce missed maintenance. Industrial Hardness High â€” Due tasks, facility capacity and vehicle access couple maintenance with service duties. Formal restriction: No model-specific class is claimed.
+Template basis: IE Fleet maintenance and service-availability planning; OR Fleet-maintenance calendar MILP; CP and integration with vehicle-duty column generation. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S43, S44, S45. Descriptors: ##maintenance ##availability ##schedule.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+PICKROUTE â€” Warehouse Picker Routing
+Decision contract: Constructs pick tours through supplied warehouse locations under required picks, access, travel and return conditions.
+Identity, variants, boundaries and evidence interpretation: Aliases: order-picker routing, pick-path planning. This is distinct from public road VRP by its fixed aisle geometry and item-retrieval contract, which admits specialized algorithms and operational policies. It does not decide the order batching unless an integrated contract explicitly adds MAP. Supplied graph edges do not alone imply LINK; chosen successive travel transitions do. Physical collision coordination among many automated vehicles belongs to ROBOTTRAFFIC; a single supplied batch tour stays here. S-shape, return and largest-gap travel policies are operational baselines, whereas dynamic programming can optimize restricted aisle systems. General TSP or routing solvers are stronger architectural alternatives for irregular layouts; specialized polynomial results must not be generalized to arbitrary warehouse geometry.
+Ontology inference: primary LOG; Regime #plan because prepares movement tours for supplied pick work. Structure #link because chooses connected travel succession through required pick positions.
+Rating inference: Priority High â€” Picker travel is a central physical movement in manual fulfillment. Relevance High â€” Better tours can reduce repeated travel within warehouse fulfillment. Industrial Hardness Medium â€” Irregular layouts, access restrictions and multi-picker congestion complicate tours. Formal restriction: Restricted rectangular-aisle tours admit polynomial algorithms; general routing is NP-hard
+Template basis: IE Picker-to-parts travel planning; OR Warehouse-specific dynamic programming; TSP/MILP and route search for general layouts. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S40, S46. Descriptors: ##picker-routing ##warehouse ##path.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+PLATOON â€” Transport Fleet Platoon Formation and Rendezvous Coordination
+Decision contract: Groups compatible vehicles into cooperative platoons and schedules rendezvous, waiting and separation events under fixed journey and arrival limits.
+Identity, variants, boundaries and evidence interpretation: The stand-alone artifact is cooperative travel membership and synchronized meeting/departure events for provided journeys; it can be optimized while individual routes stay fixed. Therefore it is not merely another VRP algorithm. Joint route-platoon planning is an integrated VRP/PLATOON contract, not a third general problem. Virtual vehicle grouping is MAP; supplied road edges do not imply LINK. Choosing leader-follower adjacencies would add LINK in a more specific contract, but group membership alone does not require it. Military convoy protection belongs to INTEL when adversarial feasibility dominates. Driver rest constraints are supplied HR inputs. Primary fixed-route fleet coordination supports dynamic programming; itinerary coordination supports mixed-integer convex and DP alternatives. Low Priority and Medium Relevance reflect specialized commercial applicability and localized energy leverage, without claiming broad deployment or a measured universal fuel benefit.
+Ontology inference: primary LOG; Regime #plan + #dispatch because commits cooperative vehicle groups and meeting times before or during journeys. Structure #map + #place because maps vehicles to cooperative travel groups and places rendezvous and separation events in time.
+Rating inference: Priority Low â€” Cooperative platoon operation remains specific to equipped transport fleets. Relevance Medium â€” Better coordination can reduce fleet energy use within equipped networks. Industrial Hardness High â€” Overlapping journeys, arrival windows and incompatible waiting choices couple group formation. Formal restriction: No model-specific class is claimed.
+Template basis: IE Truck platoon and synchronized fleet-group coordination; OR Platoon-coordination MILP or mixed-integer convex optimization; dynamic programming and decomposition. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S47, S48, S49. Descriptors: ##platooning ##rendezvous ##synchronization.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+RAILTRAFFIC â€” Rail Movement Path Allocation and Traffic Scheduling
+Decision contract: Assigns trains to track paths, platforms and movement times under headway, route-conflict and service-priority limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: train routing/scheduling, platforming, track-path allocation. TIMETABLE supplies the service calendar; this contract resolves actual physical track/platform paths and movement conflicts. Detailed timetabling can jointly solve both; retain the interface rather than create two copies of an identical artifact. SHUNT handles composition, parking and coupling inside yards, whereas RAILTRAFFIC moves already formed trains through shared infrastructure. Infrastructure expansion is CIVIC; movement execution on that infrastructure is LOG. Supplied track network and conflict matrices are constraints. Chosen paths are LINK; supplied train service connections are not. Primary rail tutorials and recent decomposition reviews support alternative-graph, time-space and MILP architectures. Human signal authorization procedures are operational context; an optimizer schedule is not a signaling safety certificate.
+Ontology inference: primary LOG; Regime #plan + #dispatch because prepares resource-resolved train movements or issues them from current traffic state. Structure #place + #link + #map because places movements in time, chooses connected track paths and maps trains to platforms or track resources.
+Rating inference: Priority Medium â€” Shared-track rail operations require conflict-free train movements. Relevance Critical â€” Network movement choices can affect throughput and propagate widespread delays. Industrial Hardness High â€” Headways, junction conflicts and network delay propagation require tailored decomposition. Formal restriction: NP-hard for established real-time train scheduling and routing models
+Template basis: IE Infrastructure-resolved rail scheduling and dispatching; OR Disjunctive or alternative-graph scheduling MILP/CP; decomposition and rolling dispatch. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S50, S51, S52, S53. Descriptors: ##rail ##train-dispatching ##headway.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+RECOVERY â€” Transport Plan Repair and Disruption Recovery
+Decision contract: Revises issued transport services, vehicle duties and shipment or passenger journeys after disruption under frozen commitments and recovery limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: airline recovery, transport rerouting after disruption, vessel rescheduling, timetable repair. The changed prior commitment defines ADAPT; normal admission of a new request remains DISPATCH. Repair of only a gate or crane calendar is a specialization rather than a duplicate recovery problem. Integrated airline recovery couples aircraft and passenger movement with crew legality. Crew pairing/rostering has HR ownership and remains an external or secondary coupled contract; ticket-price compensation and commercial claims are MKT/FIN. The repair artifact can change service activation, vehicle assignment, paths and times, hence all four structures may be necessary. Primary disruption reviews support separated and integrated models and caution about real-time integration. Network-wide recovery hardness is an industrial judgment, not a statement that every local repair is formally hard.
+Ontology inference: primary LOG; Regime #adapt because revises prior transport commitments after material disruption. Structure #select + #map + #link + #place because selects changed commitments, reassigns resources, reconnects journeys and revises their times.
+Rating inference: Priority High â€” Transport plans face recurring vehicle, facility and network disruptions. Relevance Critical â€” Large disruptions can propagate losses across an entire transport network. Industrial Hardness Critical â€” Frozen work, multiple resources and connected passenger or freight commitments require rapid coordinated repair. Formal restriction: General recovery includes NP-hard routing and scheduling subproblems
+Template basis: IE Transport disruption management and integrated recovery; OR Repair MILP/CP; recovery network flow, decomposition and large-neighborhood search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S54, S55, S51. Descriptors: ##recovery ##rescheduling ##stability.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+REHANDLE â€” Stack Relocation and Premarshalling
+Decision contract: Selects and orders cargo relocation moves to expose required units or prepare a feasible retrieval order under stack-access and space limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: block relocation, container reshuffling, premarshalling. Initial cargo allocation remains YARDSTORE. Reactive relocation exposes the next target; premarshalling prepares a target stack order before retrieval. These differ in commitment and supplied target order but share the physical rearrangement contract, so retain variants rather than two general cards. Stack top-access is a constitutive law; it is not evidence that arbitrary source graph edges are chosen. The state-transition plan is represented here primarily as ordered spatial placements. Crane-resource timing belongs to HANDLING when added. Manufacturing slab movements tightly constitutive of a transformation schedule can be PROC; transit container stacks remain LOG. Exact search and look-ahead heuristics are material alternatives. Model assumptions about permitted moves must be preserved during later benchmark work.
+Ontology inference: primary LOG; Regime #plan + #dispatch because prepares retrieval access or selects immediate relocations from an observed stack state. Structure #place + #select because orders relocation moves, determines destination stack positions and selects which units to move.
+Rating inference: Priority Medium â€” Stack-access conflicts recur in dense storage yards. Relevance High â€” Better relocations can reduce repeated lifts and retrieval delay. Industrial Hardness High â€” Temporary-space limits and uncertain retrieval order create coupled move sequences. Formal restriction: Established block-relocation variants are NP-hard
+Template basis: IE Container rehandling and stack premarshalling; OR State-space branch and bound or A*; relocation MILP and look-ahead search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S56, S57, S58. Descriptors: ##relocation ##premarshalling ##stacking.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+REPLENISH â€” Warehouse Internal Replenishment Move Scheduling
+Decision contract: Selects and schedules stocked-product transfers from reserve storage to pick locations under access, handling capacity and pick-readiness limits.
+Identity, variants, boundaries and evidence interpretation: This LOG scope decides physical moves of stock that is already available, not procurement, desired inventory position, reorder points or supply-network allocation. Those inputs belong to SCM. SLOTTING decides forward-area contents and positions; REPLENISH executes transfers that keep those positions serviceable. PICKROUTE, GOODSTOPERSON and HANDLING consume move completion times; product availability feedback determines new urgent tasks. Fixed-quantity moves with variable equipment and epochs define the stand-alone contract. Choosing quantities may be a logistics handling option when pallet or shelf moves are indivisible, but inventory-policy decisions must remain explicit at the interface. The synchronization paper supports integrated picking/replenishment modeling. Resource scheduling and rolling move-selection are architectural inferences for execution variants, without an unsupported exact complexity class.
+Ontology inference: primary LOG; Regime #operate + #dispatch because coordinates internal transfer execution and activates immediate replenishment work. Structure #place + #map + #select because places transfer tasks in time, maps them to handling resources and selects feasible moves.
+Rating inference: Priority High â€” Pick areas require timely internal stock movements. Relevance High â€” Better transfers can reduce pick starvation and aisle interference. Industrial Hardness Medium â€” Transfer readiness, pick urgency and shared equipment require frequent coordination. Formal restriction: No model-specific class is claimed.
+Template basis: IE Reserve-to-forward physical replenishment coordination; OR Picking-replenishment MILP; resource scheduling and rolling task optimization. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S59, S60. Descriptors: ##internal-replenishment ##synchronization ##handling.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+ROBOTTRAFFIC â€” Automated Handling Fleet Task and Path Coordination
+Decision contract: Assigns transfer tasks to mobile handling vehicles and constructs collision-free paths and times under access, occupancy and task-precedence limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: AGV routing, mobile-robot coordination, MAPD. Material movement defines LOG even though digital algorithms implement the decisions; computer workload placement belongs to COMP. A robot fleet for product fabrication may instead be PROD when cell transformation feasibility dominates. GOODSTOPERSON supplies pod tasks, HANDLING supplies transfer work and this contract constructs executing task assignments and trajectories. Fixed-goal MAPF is a restriction with no chosen task map; full task coordination adds MAP. Lifelong pickup/delivery and rolling collision resolution provide credible distinct approaches. MAPF simulations do not automatically include payloads, acceleration, real vehicle dimensions or charging. The public large-warehouse study establishes a solver architecture and scaling evidence for its model, not a universal industrial safety or performance guarantee.
+Ontology inference: primary LOG; Regime #operate + #dispatch because coordinates ongoing vehicle motion and assigns arriving transfer work. Structure #link + #place + #map because chooses vehicle paths, places movements in time and maps transfer tasks to vehicles under collision and access laws.
+Rating inference: Priority Medium â€” Automated warehouses and terminals require coordinated handling-fleet movement. Relevance High â€” Better coordination can reduce vehicle blockage and handling delay. Industrial Hardness High â€” Dense occupancy and continuously arriving tasks create coupled path conflicts. Formal restriction: Optimal multi-agent path planning is NP-hard for established objectives
+Template basis: IE AGV and mobile-robot traffic coordination; OR Multi-agent pickup-delivery and path finding; conflict-based search, prioritized planning and rolling collision resolution. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S61, S62, S63. Descriptors: ##multi-agent-path-finding ##agv ##collision-avoidance.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+ROTATION â€” Transport Vehicle Rotation Planning
+Decision contract: Connects scheduled service legs into feasible duties for identified vehicles under location, turnaround and availability limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: aircraft routing, tail assignment, bus blocking, rolling-stock circulation. The transport services are supplied; the chosen inter-leg vehicle transitions define the rotation. In maritime literature a ship voyage sequence may instead construct visits directly and then belongs to VRP; scheduled-leg rotations stay here. Delivered vehicle duties differ from choosing the service type in FLEETASSIGN. Duty-time legality for named employees and crew pairings belong to HR, even when coupled to rotations. Aircraft maintenance routing is an integrated rotation-and-maintenance model; do not automatically create a third synonym problem. Fixed event times require no added PLACE. Flexible-time integrated rotations may add temporal construction.
+Ontology inference: primary LOG; Regime #plan because prepares feasible vehicle duties before service execution. Structure #link + #map because chooses successor connections between service legs and maps duties to vehicles.
+Rating inference: Priority High â€” Scheduled services require continuous vehicle duties. Relevance High â€” Better rotations can reduce deadheading, fleet need and propagated delay. Industrial Hardness High â€” Vehicle continuity, turnarounds and maintenance eligibility restrict duty combinations. Formal restriction: Simple path cover is polynomial; maintenance and resource-constrained duty variants can be NP-hard
+Template basis: IE Vehicle blocking, tail assignment and rolling-stock circulation; OR Path-cover or route-set MILP; column generation and constrained-path pricing. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S64, S28, S43. Descriptors: ##rotation ##vehicle-blocking ##succession.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+RUNWAY â€” Runway Movement Sequencing and Scheduling
+Decision contract: Assigns aircraft arrivals and departures to runways and movement times under separation, readiness and runway-use limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: aircraft landing problem, takeoff scheduling, arrival/departure scheduling. A landing-only benchmark is a restriction, not a full mixed-airport operational case. Aircraft type-dependent separation is a constitutive law, while runway eligibility and estimated arrival windows are supplied. The output is movement order, timing and runway assignment. Gates do not share these movement-separation conditions. Public infrastructure investment and runway construction belong to CIVIC; individual movement sequencing is LOG. The static aircraft landing paper supplies single/multiple runway MILP architecture. Integrated taxi/runway studies establish feedback: achievable surface arrivals affect runway slots, and runway assignments constrain taxi paths. No claim is made that a static optimal sequence remains operationally feasible under all updated traffic states.
+Ontology inference: primary LOG; Regime #plan + #dispatch because prepares or issues runway movement order and times. Structure #place + #map because places movements in order and time and maps them to eligible runways under separation laws.
+Rating inference: Priority Medium â€” Runway movement conflicts define airport throughput limits. Relevance High â€” Better sequences can reduce waiting and runway-capacity losses. Industrial Hardness High â€” Sequence-dependent separation, mixed traffic and changing readiness constrain movement order. Formal restriction: General aircraft landing is NP-hard; a fixed-sequence single-runway restriction is polynomial
+Template basis: IE Arrival-departure sequencing and runway coordination; OR Aircraft-landing and mixed-movement MILP; constrained sequence search and dynamic programming. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S65, S66, S67, S68. Descriptors: ##runway ##separation ##sequencing.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+SERVICE â€” Transport Service Network Design
+Decision contract: Selects transport services, stop or port-call connections and service frequencies under movement demand and operating-capacity limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: line planning, liner service design, LTL service design. Road, rail, liner shipping and airline service offerings instantiate the same operating-network decision where physical movements dominate. Infrastructure construction is not a chosen carrier service; pricing and commercial assortment belong to MKT. Frequencies represented by count choices are discrete service activation, whereas detailed departure epochs belong to TIMETABLE. Supplied physical roads, rails and ports are the substrate; the solver constructs the operational connection pattern. Fixed-charge flow models and route/service selection are alternative architectures. Liner review distinguishes integrated models from two-stage service/flow approaches. Network-scale coupling justifies Critical industrial hardness for the full service-and-resource problem, not for every small fixed network.
+Ontology inference: primary LOG; Regime #plan because commits the future operated service network on available infrastructure. Structure #link + #select because constructs service connections and selects operated services or frequency configurations.
+Rating inference: Priority Critical â€” Service topology defines how carriers move traffic through their networks. Relevance Critical â€” Better service networks can change fleet use, transfer cost and service reach. Industrial Hardness Critical â€” Service choices, traffic flows and resource circulation require decomposition at network scale. Formal restriction: NP-hard for general fixed-charge service-network design
+Template basis: IE Carrier service-network and line planning; OR Fixed-charge multicommodity network-design MILP; decomposition and service-selection search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S69, S70. Descriptors: ##service-network ##line-planning ##consolidation.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+SHIPMENT â€” Shipment Itinerary and Modal Assignment
+Decision contract: Assigns shipments to transport legs, modes and transfer connections under capacity, compatibility and delivery limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: multimodal routing, container routing, freight-path selection. The service network is supplied; the solver chooses shipment paths through it. Selecting the carrier service network itself belongs to SERVICE. Shipment-by-shipment shortest paths are a useful polynomial reference; capacity-coupled unsplittable freight requires integer architecture. A candidate complete itinerary can be selected rather than reconstructed, but the industrial output remains an origin-to-destination transport chain. Sourcing and replenishment quantity decisions belong to SCM; carrier contract pricing and bid awards belong to MKT. An integrated forwarding contract can couple those upstream inputs, but this card retains physical itinerary ownership. Crossdock flows and terminal loads consume the itinerary decisions.
+Ontology inference: primary LOG; Regime #plan + #allocate because prepares shipment journeys and commits capacity on available transport services. Structure #link + #map because chooses connected shipment itineraries and maps shipments to their transport legs.
+Rating inference: Priority High â€” Forwarders and multimodal carriers must connect origin-to-destination journeys. Relevance High â€” Better itineraries can reduce transfer losses and delivery failure. Industrial Hardness Medium â€” Transfer timing and scarce shared capacity couple otherwise simple paths. Formal restriction: Uncoupled shortest paths are polynomial; indivisible capacitated path assignments can be NP-hard
+Template basis: IE Intermodal freight forwarding and transport-chain planning; OR Time-dependent path and multicommodity-flow optimization; integer path assignment. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S71, S19. Descriptors: ##intermodal ##shipment-routing ##path.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+SHUNT â€” Rail Yard Shunting and Train-Unit Arrangement
+Decision contract: Assigns rail vehicles to tracks and orders coupling, uncoupling, parking and transfer moves under access, composition and departure limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: train marshalling, train-unit shunting, depot parking. Distinguish the network-level block and train makeup commitment from its yard execution: BLOCKING supplies groups and target departures, while SHUNT creates accessible physical train arrangements. Passenger-unit matching, cleaning and parking are variants; staff rostering belongs to HR. Supplied tracks form the substrate and do not imply constructed network topology. The output includes track/time arrangement and chosen couplings; if target couplings are fixed, LINK is inactive in that restriction. CP, MILP, column generation and constructive heuristics have been compared in the primary train-unit study. Freight-yard and passenger-depot resource rules differ, so benchmark fidelity is more important than shared problem terminology.
+Ontology inference: primary LOG; Regime #plan + #operate because prepares or orchestrates physical yard movements that form required departures. Structure #place + #map + #link because places yard moves in order and time, maps vehicles to tracks and chooses train-unit couplings.
+Rating inference: Priority Medium â€” Rail yards and depots require feasible physical train arrangements. Relevance High â€” Better shunting can reduce yard blockage and missed train departures. Industrial Hardness High â€” Track access, unit composition and move conflicts constrain rearrangement. Formal restriction: Integrated shunting with service scheduling contains NP-hard subproblems
+Template basis: IE Freight classification and train-unit shunting; OR Track-and-movement MILP/CP; column generation and shunting search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S72, S73, S74. Descriptors: ##shunting ##rail ##coupling.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+SLOTTING â€” Warehouse Product Slotting and Forward-Area Allocation
+Decision contract: Assigns products to storage or pick locations and selects forward-area contents under space, compatibility, access and handling-work limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: SKU slotting, product-to-pod allocation, forward-reserve allocation. Distinguish supplied physical locations from LAYOUT decisions and supplied inventory from SCM stocking policy. Choosing what quantity to purchase or hold network-wide is SCM. Allocating stocked products and space within a warehouse for physical handling is LOG. Static location assignment, scattered storage and dynamic reslotting are variants. Supplied aisle geometry and product correlations do not construct LINK. Product maps and discrete forward-area selection are the artifact; continuous space allocation alone is not enough for ICO. Replenishment-effort tradeoffs justify retaining near-equal class-based practice and integer optimization. Primary RMFS work confirms that distributed product-to-pod allocation can differ materially from simple clustering.
+Ontology inference: primary LOG; Regime #allocate + #plan because commits product storage locations and prepares pick-area contents. Structure #map + #select because maps products to supplied locations and selects forward-area contents or space options.
+Rating inference: Priority High â€” Product positions determine repeated warehouse pick and replenishment work. Relevance High â€” Better slotting can reduce recurring travel and internal replenishment effort. Industrial Hardness High â€” Space, affinity, pick frequency and replenishment work compete. Formal restriction: Simple linear assignment is polynomial; capacity and correlated-product allocation can be NP-hard
+Template basis: IE Storage-location and forward-reserve allocation; OR Storage-assignment MILP; class-based policies, integer allocation and neighborhood search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S40, S75, S76. Descriptors: ##slotting ##forward-reserve ##storage-assignment.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+SORTING â€” Parcel and Baggage Sortation Allocation and Scheduling
+Decision contract: Assigns destinations or handling flows to sortation resources and schedules input work under conveyor, outfeed and connection limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: chute assignment, sorter input sequencing, baggage handling resource scheduling. The integrated artifact is a flow-to-sortation-resource map and an induction/service calendar. A parcel customer destination is supplied and is not a sourcing decision. Truck door scheduling with freight precedence remains CROSSDOCK; sorter-specific resource assignment and finite conveyor circulation define this contract. Robot path conflicts are ROBOTTRAFFIC when separately optimized. Primary papers cover outfeed assignment, inbound-unit sequencing and robotic loading-station assignment; they support distinct implementation variants, not a common benchmark equivalence. Workload forecasts and travel times are supplied. Greedy rules and exact scheduling models can be near-equal on particular settings; claimed universal method superiority would require case evidence.
+Ontology inference: primary LOG; Regime #plan + #operate because prepares sortation assignments and coordinates input work during operation. Structure #map + #place because maps flows to outfeeds or stations and places induction and collection work in time.
+Rating inference: Priority Medium â€” Dedicated sortation resources are central to parcel and baggage hubs. Relevance High â€” Better assignments can reduce recirculation, overloaded outfeeds and missed connections. Industrial Hardness High â€” Conveyor travel, changing destinations and finite outfeed capacity interact. Formal restriction: No model-specific class is claimed.
+Template basis: IE Sorter induction, chute and baggage-build coordination; OR Chute-assignment and induction-scheduling MILP; dynamic load balancing and simulation-supported search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S77, S78, S79. Descriptors: ##sortation ##baggage ##conveyor.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+STOWAGE â€” Container Vessel Stowage Planning
+Decision contract: Assigns containers to vessel bays and cells under stability, structural load, segregation, access and port-call requirements.
+Identity, variants, boundaries and evidence interpretation: Do not split master bay planning and slot planning merely because a solver uses two stages; these jointly deliver a vessel stowage artifact. They can be investigated as restricted subcontracts later. General geometric loading is LOADING, while vessel hydrostatics, stack-strength limits, hatch access and port succession materially define this distinct industrial decision. Supplied vessel cells are targets; MAP assigns containers. PLACE identifies stack level and physical position, even where a cell index represents that position. Container attributes and port calls are inputs, not constructed edges. The primary survey explicitly cautions about oversimplified industrial applicability and separates single/multiport and master/slot methods. Public benchmark existence does not imply representativeness; benchmark selection remains case-layer work.
+Ontology inference: primary LOG; Regime #plan because commits shipboard cargo positions before loading and sailing. Structure #map + #place because maps containers to bays and cells and determines their stack positions under vessel stability and access laws.
+Rating inference: Priority Medium â€” Stowage is central to cellular container shipping. Relevance High â€” Better plans can reduce restows and preserve safe usable vessel capacity. Industrial Hardness High â€” Whole-vessel stability and sequential port access couple bay and slot choices. Formal restriction: NP-hard for established container-stowage models
+Template basis: IE Master bay planning and detailed vessel slot planning; OR Hierarchical master-planning MILP and slot CP; decomposition and matheuristics. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S80, S81. Descriptors: ##stowage ##bay-planning ##stability.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+SURFACE â€” Airport Surface Movement Routing and Scheduling
+Decision contract: Constructs taxi or towing paths and movement times under aircraft readiness, taxiway occupancy and runway or stand access limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: taxi routing, surface traffic planning, towing path scheduling. Supplied airport graph connectivity is not an output structure. Chosen path edges define LINK and chosen movement epochs define PLACE. Tow-vehicle duty assignment can be integrated with TURNAROUND or FLEETASSIGN but is not automatically an extra primary problem. Electrical charging infrastructure belongs to ENER/CIVIC by its contract; transport-vehicle availability remains LOG. Airport surface movements have aircraft separation, runway crossings and gate-release conditions distinct from warehouse robot traffic. Keep this industrial problem separate even when both use conflict-free graph paths. The Roling model explicitly coordinates taxi routes and schedules and adapts to perturbations. Integrated runway/surface studies retain feedback rather than asserting a fixed sequential one-pass solution.
+Ontology inference: primary LOG; Regime #plan + #dispatch because prepares or issues near-term airport surface movements. Structure #link + #place because chooses surface path succession and places aircraft or towing movements in time under occupancy and separation laws.
+Rating inference: Priority Medium â€” Busy airports require feasible surface movement plans. Relevance High â€” Better paths and timings can reduce taxi conflicts and missed movement slots. Industrial Hardness High â€” Shared taxiways and uncertain aircraft readiness couple movement plans. Formal restriction: Uncoupled paths are polynomial; coupled movement scheduling can be NP-hard
+Template basis: IE Airport surface traffic deconfliction; OR Conflict-free taxi-routing MILP; rolling spatial-temporal scheduling. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S66, S82. Descriptors: ##taxi-routing ##airport ##conflict-free.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+TIMETABLE â€” Transport Service Timetabling
+Decision contract: Places service departures, arrivals and transfers in time under journey, connection and infrastructure-capacity limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: schedule development, periodic timetable, departure coordination. Scope includes supplied service routes and variable event times; selection of the offered service network remains SERVICE. A detailed rail timetable can contain track-path choices, but the canonical separation here is a service event calendar versus a resource-resolved movement plan in RAILTRAFFIC. A pure timetable has supplied precedence and connectivity; those input relations do not produce LINK. Public transport service timing belongs to LOG when journeys dominate, even when the operator is public. Infrastructure rights or civic service policy may be external constraints. Periodic event-activity, aperiodic time-space and decomposed models are near-equals for different operating systems. High hardness reflects coupling rather than horizon alone.
+Ontology inference: primary LOG; Regime #plan because commits the future service calendar and connections. Structure #place because places service events in time; running times, headways and transfer synchronization constrain placement.
+Rating inference: Priority High â€” Scheduled passenger and freight networks need coordinated service times. Relevance High â€” Better timetables can reduce missed connections and capacity conflicts. Industrial Hardness High â€” Transfer synchronization and shared capacity couple events across the network. Formal restriction: Periodic event scheduling is NP-hard in general
+Template basis: IE Transport timetable and transfer coordination; OR Event-activity or time-space MILP; periodic timetabling and decomposition. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S64, S50, S83, S84. Descriptors: ##timetable ##periodic ##synchronization.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+TRANSITCONTROL â€” Real-Time Passenger Service Regulation
+Decision contract: Selects holding, stop-skipping, short-turning or interlining actions and revises immediate service times under headway, transfer and passenger limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: headway control, bus holding, real-time transfer synchronization. This contract regulates an existing passenger service rather than assign a new customer trip. DISPATCH is request-to-vehicle commitment; TRANSITCONTROL changes stops, departure timing or vehicle-line continuity in the current service. Pure continuous speed or holding control with no combinatorial action is outside the ICO scope. LINK is active when short turns, rerouting or interlining alter service continuation; a holding-only restriction has PLACE. Fare pricing and passenger rights are MKT/FIN inputs, not movement outputs. Transit infrastructure policy is CIVIC, while control of physical passenger journeys is LOG. Surveys retain multiple at-stop and network-level measures; compare policies and optimized interventions on faithful cases before any SOTA assertion.
+Ontology inference: primary LOG; Regime #dispatch + #operate because issues short-cycle service actions during ongoing passenger transport. Structure #select + #place + #link because selects control actions, places departures or holds in time and changes service connections when required.
+Rating inference: Priority Medium â€” Passenger networks require live regulation when scheduled service drifts. Relevance High â€” Better regulation can reduce bunching and missed transfers. Industrial Hardness Medium â€” Passenger arrivals, uncertain travel and competing headway and transfer targets require feedback. Formal restriction: No model-specific class is claimed.
+Template basis: IE Headway regulation and transfer-protection control; OR Rolling control MILP and model predictive control; policy and simulation comparison. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S85, S86. Descriptors: ##holding ##short-turning ##transfer-protection.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+TURNAROUND â€” Aircraft Turnaround and Ground-Service Scheduling
+Decision contract: Assigns ground-service vehicles and equipment and schedules aircraft service tasks under task precedence, travel and departure limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: ground-service scheduling, GSE routing. Unlike a generic independent service tour, this contract coordinates several vehicle or equipment fleets around one aircraft departure with inter-task precedence. Baggage transport is a specialization when vehicle travel dominates; sorter resources remain SORTING. Clinical care belongs to HC; workforce capacity, team formation and rostering belong to HR when human conditions dominate. Ground crew availability can be an external input here. GATE supplies stand positions and service intervals. TURNAROUND supplies ready-to-taxi estimates and requested towing movements to SURFACE. Task precedence is supplied, not a LINK construction; mobile fleet travel succession is chosen. RCPSP and multi-fleet routing are established architectures, with stochastic/robust extensions where arrival state matters.
+Ontology inference: primary LOG; Regime #plan + #operate because prepares or coordinates physical aircraft servicing before departure. Structure #place + #map + #link because places service tasks in time, maps them to ground resources and chooses travel succession for mobile resources.
+Rating inference: Priority Medium â€” Aircraft departures depend on coordinated ground-service completion. Relevance High â€” Better coordination can reduce turnaround delays and unused support capacity. Industrial Hardness High â€” Multiple service fleets, precedence and short departure windows require coordinated search. Formal restriction: General integrated models include NP-hard resource-constrained scheduling and routing
+Template basis: IE Aircraft turnaround and ground-support coordination; OR Resource-constrained project scheduling and multi-fleet routing MILP; decomposition and rolling search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S87, S88, S31. Descriptors: ##turnaround ##ground-handling ##synchronization.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+VRP â€” Vehicle Visit Routing and Scheduling
+Decision contract: Constructs vehicle journeys and visit times under service demand, capacity, pickup-delivery, access and operating-time limits.
+Identity, variants, boundaries and evidence interpretation: Aliases: VRPTW, pickup-and-delivery routing, dial-a-ride, technician travel routing, industrial/tramp ship scheduling. Mandatory versus optional visits, split delivery, cold chain, energy limits, multi-trip and multidepot are variants. Truck-drone and rendezvous variants add coupled paths and timing but do not become a new problem merely by vehicle technology. The full planning artifact contains vehicle journeys and visit times; fixed-order scheduling is a restriction. Arc service belongs to ARCRP; routing on a fixed offered freight network belongs to SHIPMENT. Field-service labor skill and crew legality are HR inputs; clinical transport feasibility can transfer primary ownership to HC. Template families are near-equals by variant. PyVRP provides a reproducible route solver, but the current development documentation uses iterated local search while the published package paper describes HGS; pin method and release in later case work.
+Ontology inference: primary LOG; Regime #plan because commits future vehicle journeys and service visits. Structure #link + #map + #place because chooses travel succession, assigns visits to vehicles and places visits in time under capacity and pickup-delivery laws.
+Rating inference: Priority Critical â€” Vehicle visit plans are central to transport and delivery operations. Relevance Critical â€” Large routing improvements can affect fleet use and network-wide service cost. Industrial Hardness High â€” Time windows, heterogeneous fleets, coupled pickups and synchronized vehicles enlarge route search. Formal restriction: NP-hard; includes the traveling-salesperson problem
+Template basis: IE Delivery, collection and service-route planning; OR Route-set branch-price-and-cut; MILP/CP; large-neighborhood, genetic or iterated local search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S89, S90, S91, S92, S93, S94. Descriptors: ##routing ##pickup-delivery ##time-windows ##synchronization.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+WAVE â€” Warehouse Work Release and Wave Control
+Decision contract: Selects warehouse orders and release times under fulfillment workload, downstream space and shipment-completion limits.
+Identity, variants, boundaries and evidence interpretation: Wave release does not automatically mean that every released order shares one pick tour. BATCH chooses co-picking groups; WAVE commits entry to the execution system. The published wave/waveless comparison explicitly uses a predictive model and simulation; that evidence supports policy benchmarking rather than an invented universal MILP SOTA. Microsoft documentation independently confirms operational wave creation, processing and release as separate actions in warehouse systems. Releasing production orders to manufacturing is PROD, while releasing stocked fulfillment orders to physical handling is LOG. Order demand and backlog are supplied. Selected orders and activation times are the artifact. Forecasting alone is not ICO; a release policy is included here when it makes combinatorial order admission decisions.
+Ontology inference: primary LOG; Regime #dispatch + #operate because authorizes short-cycle entry of orders into ongoing warehouse work. Structure #select + #place because selects orders to release and places their entry epochs under downstream workload limits.
+Rating inference: Priority High â€” Release control governs how warehouse demand becomes executable work. Relevance High â€” Better release can reduce congestion and missed shipment cutoffs. Industrial Hardness Medium â€” Stale state and coupled downstream buffers require feedback-based decisions. Formal restriction: No model-specific class is claimed.
+Template basis: IE Wave and waveless workload release; OR State-based release policies; queueing and simulation optimization; rolling selection models. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S95, S96. Descriptors: ##wave-release ##waveless ##workload-control.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+YARDSTORE â€” Terminal Yard Storage Assignment
+Decision contract: Assigns cargo or transport units to yard blocks and storage positions under space, compatibility, access and departure requirements.
+Identity, variants, boundaries and evidence interpretation: Aliases: yard slotting, yard block allocation, container stacking assignment. Scope is temporary transit storage used to execute physical transfer. Holding levels and stock allocation across supply nodes belong to SCM. Tank assignments at bulk terminals belong to LOG when receipt, transit storage and shipment dominate; process tanks that constrain transformation belong to PROC. Yard arrival/departure data and physical layout are supplied. The delivered artifact is a storage map with positional allocation. REHANDLE chooses moves to repair an existing blocked arrangement; it does not duplicate initial placement. Warehouse products assigned repeatedly to pick locations belong to SLOTTING. Yard assignment and handling equipment schedules interact, with service uncertainty and rehandles retained as operational evidence rather than promised savings.
+Ontology inference: primary LOG; Regime #allocate because commits available yard positions to arriving or planned cargo. Structure #map + #place because maps cargo to yard areas and positions it within stacks or storage space.
+Rating inference: Priority High â€” Temporary storage and access constrain freight-terminal throughput. Relevance High â€” Better positions can reduce yard congestion and repeated handling. Industrial Hardness High â€” Departure order, space and handling-resource access interact. Formal restriction: No model-specific class is claimed.
+Template basis: IE Terminal yard-space allocation and stacking policy; OR Yard-assignment MILP; dynamic stacking and neighborhood search. These are defensible architectural references; scope-specific method dominance remains case-layer work.
+Evidence: S97, S36. Descriptors: ##yard ##storage-assignment ##stacking.
+Admission: retain the declared independent physical-movement or handling decision; restricted and integrated versions remain variants as stated.
+
+
+DEPENDENCY INTERPRETATION
+Every edge below is an analytical industrial-flow inference tied to the declared scopes, not a mathematical reduction. The primary sources support the operating pipeline or coupled decisions; they do not prescribe this ontology's exact graph. Edges are conditional: a site need not deploy every Problem. The graph records direct decision artifacts used as inputs, not every possible common datum.
+F = first-pass commitment flow. R = operational feedback or re-planning return. Both enter foreground dependencies. A supplied legacy system can provide an input without solving its upstream Problem anew.
+Known cycles: rotation/maintenance; berth/handling; station-pod planning/robot traffic; replenishment/pick readiness; release/sortation and dynamic batching; runway/surface; empty repositioning/dispatch; recovery returns to issued plans. These represent coupled or rolling workflows, not errors to erase.
+Compilation can topologically order F edges, then retain R edges as intentional backward returns. Cyclic dependencies do not admit a full topological order. The compiler must explain the first-pass/feedback convention and avoid claiming an exact global minimum-backward-edge result.
+
+R AIRCONFLICT -> AIRFLOW: Resolved trajectory deviations revise estimated sector entry and exit times.
+
+F AIRCONFLICT -> RECOVERY: Issued trajectory changes and recovery targets become revised transport commitments.
+
+F AIRFLOW -> AIRCONFLICT: Admitted flight paths and sector entry slots supply planned trajectory targets.
+
+F AIRFLOW -> RECOVERY: Flight flow slots bound airport movement windows and recovery options.
+
+F AIRFLOW -> RUNWAY: Flight flow slots bound airport movement windows and recovery options.
+
+F APPOINTMENT -> CROSSDOCK: Booked arrivals bound terminal processing, storage intake and handling readiness.
+
+F APPOINTMENT -> HANDLING: Booked arrivals bound terminal processing, storage intake and handling readiness.
+
+F APPOINTMENT -> YARDSTORE: Booked arrivals bound terminal processing, storage intake and handling readiness.
+
+F ARCRP -> DISPATCH: Planned segment-service walks supply immediate service commitments when live updates are used.
+
+F BATCH -> PICKROUTE: Planned pick groups supply tour demand and work-release units where batches are formed before authorization.
+
+F BATCH -> WAVE: Planned pick groups supply tour demand and work-release units where batches are formed before authorization.
+
+F BERTH -> HANDLING: Vessel positions and service windows bound cargo work and yard flow.
+
+F BERTH -> YARDSTORE: Vessel positions and service windows bound cargo work and yard flow.
+
+F BLOCKING -> CONSOLIDATE: Rail block and train assignments supply freight-path, load and physical formation commitments.
+
+F BLOCKING -> SHIPMENT: Rail block and train assignments supply freight-path, load and physical formation commitments.
+
+F BLOCKING -> SHUNT: Rail block and train assignments supply freight-path, load and physical formation commitments.
+
+R CHARGING -> DISPATCH: Energy-service completion revises feasible vehicle duty and relocation availability.
+
+R CHARGING -> EMPTY: Energy-service completion revises feasible vehicle duty and relocation availability.
+
+R CHARGING -> ROTATION: Energy-service completion revises feasible vehicle duty and relocation availability.
+
+F CONSOLIDATE -> CROSSDOCK: Chosen loads supply vehicle demand, transfer batches and destination flows.
+
+F CONSOLIDATE -> LOADING: Chosen loads supply vehicle demand, transfer batches and destination flows.
+
+F CONSOLIDATE -> SORTING: Chosen loads supply vehicle demand, transfer batches and destination flows.
+
+F CONSOLIDATE -> VRP: Chosen loads supply vehicle demand, transfer batches and destination flows.
+
+F CROSSDOCK -> HANDLING: Door calendars and transfer availability supply internal work readiness.
+
+F CROSSDOCK -> SORTING: Door calendars and transfer availability supply internal work readiness.
+
+R DISPATCH -> EMPTY: Issued trips change idle-asset positions and relocation need.
+
+F DISPATCH -> RECOVERY: Issued immediate trips become commitments to repair after disruption.
+
+F DISTRICT -> ARCRP: Persistent territories restrict the visits or segments assigned to service fleets.
+
+F DISTRICT -> DISPATCH: Persistent territories restrict the visits or segments assigned to service fleets.
+
+F DISTRICT -> VRP: Persistent territories restrict the visits or segments assigned to service fleets.
+
+F EMPTY -> DISPATCH: Asset relocations supply future or revised service availability.
+
+F EMPTY -> RECOVERY: Asset relocations supply future or revised service availability.
+
+F FLEET -> CHARGING: Selected vehicle types supply charging/refueling compatibility and energy requirements.
+
+F FLEET -> EMPTY: Selected fleet capacity and vehicle capabilities bound feasible assignments and movement plans.
+
+F FLEET -> FLEETASSIGN: Selected fleet capacity and vehicle capabilities bound feasible assignments and movement plans.
+
+F FLEET -> VRP: Selected fleet capacity and vehicle capabilities bound feasible assignments and movement plans.
+
+F FLEETASSIGN -> EMPTY: Assigned equipment capabilities and deployment capacities constrain duties and relocations.
+
+F FLEETASSIGN -> ROTATION: Assigned equipment capabilities and deployment capacities constrain duties and relocations.
+
+F FLEETASSIGN -> VRP: Assigned equipment capabilities and deployment capacities constrain duties and relocations.
+
+F GATE -> SURFACE: Aircraft stand locations and occupation windows define service and taxi access.
+
+F GATE -> TURNAROUND: Aircraft stand locations and occupation windows define service and taxi access.
+
+F GOODSTOPERSON -> REPLENISH: Chosen pod/station visits supply robot tasks and depleted-pod replenishment needs.
+
+F GOODSTOPERSON -> ROBOTTRAFFIC: Chosen pod/station visits supply robot tasks and depleted-pod replenishment needs.
+
+R HANDLING -> BERTH: Feasible handling completion times revise berth service windows.
+
+F HANDSYS -> GOODSTOPERSON: Chosen handling technologies and counts supply resource eligibility and capacity.
+
+F HANDSYS -> HANDLING: Chosen handling technologies and counts supply resource eligibility and capacity.
+
+F HANDSYS -> LAYOUT: Chosen handling technologies and counts supply resource eligibility and capacity.
+
+F HANDSYS -> ROBOTTRAFFIC: Chosen handling technologies and counts supply resource eligibility and capacity.
+
+F HANDSYS -> SORTING: Chosen handling technologies and counts supply resource eligibility and capacity.
+
+F HUB -> DISTRICT: Opened movement facilities and access territories constrain downstream physical and service plans.
+
+F HUB -> LAYOUT: Opened movement facilities and access territories constrain downstream physical and service plans.
+
+F HUB -> SERVICE: Opened movement facilities and access territories constrain downstream physical and service plans.
+
+F LAYOUT -> CROSSDOCK: Facility geometry and physical access constrain storage, doors and travel.
+
+F LAYOUT -> PICKROUTE: Facility geometry and physical access constrain storage, doors and travel.
+
+F LAYOUT -> ROBOTTRAFFIC: Facility geometry and physical access constrain storage, doors and travel.
+
+F LAYOUT -> SLOTTING: Facility geometry and physical access constrain storage, doors and travel.
+
+F LAYOUT -> YARDSTORE: Facility geometry and physical access constrain storage, doors and travel.
+
+R MAINTENANCE -> ROTATION: Chosen maintenance windows revise feasible vehicle duties.
+
+F PLATOON -> DISPATCH: Cooperative travel groups and rendezvous windows constrain immediate vehicle availability.
+
+R PLATOON -> VRP: Feasible platoon meetings can revise travel timing or route options in integrated planning.
+
+F RAILTRAFFIC -> RECOVERY: Issued movement plans and updated conflicts supply disrupted rail commitments.
+
+R RECOVERY -> BERTH: Repaired commitments replace or constrain subsequent plan and execution updates.
+
+R RECOVERY -> DISPATCH: Repaired commitments replace or constrain subsequent plan and execution updates.
+
+R RECOVERY -> EMPTY: Repaired commitments replace or constrain subsequent plan and execution updates.
+
+R RECOVERY -> GATE: Repaired commitments replace or constrain subsequent plan and execution updates.
+
+R RECOVERY -> ROTATION: Repaired commitments replace or constrain subsequent plan and execution updates.
+
+R RECOVERY -> SHIPMENT: Repaired commitments replace or constrain subsequent plan and execution updates.
+
+R RECOVERY -> TIMETABLE: Repaired commitments replace or constrain subsequent plan and execution updates.
+
+R RECOVERY -> TRANSITCONTROL: Repaired commitments replace or constrain subsequent plan and execution updates.
+
+R RECOVERY -> VRP: Repaired commitments replace or constrain subsequent plan and execution updates.
+
+F REHANDLE -> HANDLING: Chosen relocations supply ordered cargo moves to handling equipment.
+
+R REPLENISH -> GOODSTOPERSON: Transfer completion updates stocked pick or pod readiness.
+
+R REPLENISH -> PICKROUTE: Transfer completion updates stocked pick or pod readiness.
+
+R ROBOTTRAFFIC -> GOODSTOPERSON: Feasible robot arrival times revise station readiness.
+
+F ROTATION -> CHARGING: Vehicle duties supply return/departure times and energy-service readiness requirements.
+
+F ROTATION -> MAINTENANCE: Vehicle duties supply location, availability and turnaround requirements.
+
+F ROTATION -> RECOVERY: Vehicle duties supply location, availability and turnaround requirements.
+
+F ROTATION -> SHUNT: Vehicle duties supply location, availability and turnaround requirements.
+
+F ROTATION -> TURNAROUND: Vehicle duties supply location, availability and turnaround requirements.
+
+F RUNWAY -> SURFACE: Movement slots constrain taxi path completion and timing.
+
+F SERVICE -> BLOCKING: Selected services supply event, capacity, freight-path and train-service options.
+
+F SERVICE -> FLEETASSIGN: Selected services supply event, capacity, freight-path and train-service options.
+
+F SERVICE -> SHIPMENT: Selected services supply event, capacity, freight-path and train-service options.
+
+F SERVICE -> TIMETABLE: Selected services supply event, capacity, freight-path and train-service options.
+
+F SHIPMENT -> CONSOLIDATE: Freight itineraries supply unit, port, transfer and departure requirements.
+
+F SHIPMENT -> CROSSDOCK: Freight itineraries supply unit, port, transfer and departure requirements.
+
+F SHIPMENT -> LOADING: Freight itineraries supply unit, port, transfer and departure requirements.
+
+F SHIPMENT -> STOWAGE: Freight itineraries supply unit, port, transfer and departure requirements.
+
+F SHIPMENT -> YARDSTORE: Freight itineraries supply unit, port, transfer and departure requirements.
+
+F SHUNT -> RAILTRAFFIC: Formed and released train units supply actual train readiness for shared-track movement.
+
+F SLOTTING -> BATCH: Product positions and forward-area contents supply pick and replenishment locations.
+
+F SLOTTING -> GOODSTOPERSON: Product positions and forward-area contents supply pick and replenishment locations.
+
+F SLOTTING -> PICKROUTE: Product positions and forward-area contents supply pick and replenishment locations.
+
+F SLOTTING -> REPLENISH: Product positions and forward-area contents supply pick and replenishment locations.
+
+R SORTING -> WAVE: Outfeed occupancy and sorter workload constrain further order release.
+
+F STOWAGE -> HANDLING: Chosen vessel positions and port access requirements supply loading/unloading work.
+
+R SURFACE -> RUNWAY: Achievable surface arrival times revise movement sequences.
+
+F TIMETABLE -> AIRFLOW: Service events supply movement, arrival and connection commitments.
+
+F TIMETABLE -> BERTH: Service events supply movement, arrival and connection commitments.
+
+F TIMETABLE -> GATE: Service events supply movement, arrival and connection commitments.
+
+F TIMETABLE -> RAILTRAFFIC: Service events supply movement, arrival and connection commitments.
+
+F TIMETABLE -> ROTATION: Service events supply movement, arrival and connection commitments.
+
+F TIMETABLE -> SHIPMENT: Service events supply movement, arrival and connection commitments.
+
+F TIMETABLE -> TRANSITCONTROL: Service events supply movement, arrival and connection commitments.
+
+F TRANSITCONTROL -> RECOVERY: Issued service-regulation actions constrain subsequent disruption repair.
+
+F TURNAROUND -> RECOVERY: Ground-service completion supplies aircraft movement readiness and disrupted departure commitments.
+
+F TURNAROUND -> RUNWAY: Ground-service completion supplies aircraft movement readiness and disrupted departure commitments.
+
+F TURNAROUND -> SURFACE: Ground-service completion supplies aircraft movement readiness and disrupted departure commitments.
+
+F VRP -> APPOINTMENT: Planned visits supply arrival windows, unloading order and existing service commitments.
+
+F VRP -> DISPATCH: Planned visits supply arrival windows, unloading order and existing service commitments.
+
+F VRP -> LOADING: Planned visits supply arrival windows, unloading order and existing service commitments.
+
+F VRP -> PLATOON: Supplied vehicle journeys and arrival windows constrain cooperative fleet meeting events.
+
+F VRP -> RECOVERY: Planned visits supply arrival windows, unloading order and existing service commitments.
+
+R WAVE -> BATCH: Released orders supply active demand to dynamically formed fulfillment work.
+
+R WAVE -> GOODSTOPERSON: Released orders supply active demand to dynamically formed fulfillment work.
+
+R WAVE -> REPLENISH: Released orders supply active demand to dynamically formed fulfillment work.
+
+R WAVE -> SORTING: Released orders supply active demand to dynamically formed fulfillment work.
+
+F YARDSTORE -> HANDLING: Stored positions determine access conflicts and handling task locations.
+
+F YARDSTORE -> REHANDLE: Stored positions determine access conflicts and handling task locations.
+
+
+TEMPLATE AND EVIDENCE LIMITS
+The problem layer establishes defensible IE/OR architectures. It does not rank all current algorithms across all industrial variants. Classic exact models, decomposition, specialized dynamic programming, constructive policies and modern neighborhood search are retained where their operating conditions differ materially.
+Direct MILP/CP is a model architecture, not a claim that a commercial solver routinely proves optimality at full industrial scale. A source's benchmark or simulation supports that stated model, not every constraint in the proposed industrial scope. Published methods, deployed practices and public implementations remain distinguishable: wave release has official operational documentation and simulation-based policy evidence; vehicle routing has public solver evidence with release-dependent algorithms; robotic paths have strong simulation evidence; stowage has explicit industrial-representativeness limitations.
+Known uncertainty remains about the strongest broadly reproducible method for full handling-system design, integrated fleet maintenance, sortation, internal replenishment and multi-resource recovery. Credible architectures exist, so these are not forced unsupported admissions. Method dominance, benchmark adequacy, licenses and reference results require separate case-layer research.
+No ontology changes are proposed here. The known absence of a normative Case card schema does not block the requested Problem layer and is not resolved by inventing a local schema.
+
+SOURCE REGISTER
+All URLs were retrieved or identified through the named primary publication or official source during this run. Retrieval statements distinguish accessible text from indexed abstracts; a failed full-text open does not count as reading the paper.
+
+
+S01 Dias and Rey, Aircraft Conflict Resolution with Trajectory Recovery Using Mixed-Integer Programming
+URL https://arxiv.org/abs/2203.11990
+Support Uses continuous speed/heading control and discrete recovery time; supports a genuine discrete temporal decision in trajectory recovery.
+Access Author abstract retrieved and inspected; continuous/discrete distinction checked explicitly.
+
+
+S02 Disjunctive linear separation conditions and mixed-integer formulations for aircraft conflict resolution
+URL https://www.sciencedirect.com/science/article/pii/S0377221721002897
+Support Supports pairwise aircraft separation MIP with speed, heading and altitude control.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S03 Bertsimas and Stock Patterson (1998), The Air Traffic Flow Management Problem with Enroute Capacities
+URL https://pubsonline.informs.org/doi/10.1287/opre.46.3.406
+Support Supports airport/airspace capacity and flight movement regulation; includes complexity analysis.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S04 Bertsimas, Lulli and Odoni (2011), An Integer Optimization Approach to Large-Scale Air Traffic Flow Management
+URL https://pubsonline.informs.org/doi/10.1287/opre.1100.0899
+Support Supports ground/air holding, rerouting and speed control in a flight-by-flight integer flow model.
+Access Publisher abstract retrieved and inspected.
+
+
+S05 Stock Patterson (1997), Dynamic Flow Management Problems in Air Transportation
+URL https://ntrs.nasa.gov/citations/19980000402
+Support Author technical report explicitly establishes NP-hardness of its flight-specific traffic-flow management problem.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S06 Truck Appointment Scheduling: A Review of Models and Algorithms (2025)
+URL https://researchers.uss.cl/en/publications/truck-appointment-scheduling-a-review-of-models-and-algorithms/
+Support Supports external-truck time slots and quota/capacity planning.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S07 Collaborative truck scheduling and appointments for trucking companies and container terminals
+URL https://www.sciencedirect.com/science/article/pii/S0191261516000151
+Support Supports a carrier-terminal appointment interface with endogenous arrival congestion.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S08 Corberan and Prins (2010), Recent results on Arc Routing Problems: An annotated bibliography
+URL https://onlinelibrary.wiley.com/doi/10.1002/net.20347
+Support Defines segment-service routing and distinguishes postman and capacitated/multivehicle settings.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S09 Waste collection routing: a survey on problems and methods
+URL https://link.springer.com/article/10.1007/s10100-023-00892-y
+Support Waste journeys can be node, arc or mixed routing; industry alone does not fix structure.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S10 A guided local search heuristic for the capacitated arc routing problem
+URL https://www.sciencedirect.com/science/article/abs/pii/S037722170200334X
+Support Primary CARP method paper identifies capacity-constrained segment routing and cites the model-specific Golden-Wong hardness result.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S11 Pardo et al. (2023), Order batching problems: Taxonomy and literature review
+URL https://oa.upm.es/85977/
+Support Separates batching, routing, sequencing, waiting and assigning tasks in order picking.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S12 Order Picking Problem: A Model for the Joint Optimisation of Order Batching, Batch Assignment Sequencing, and Picking Routing
+URL https://www.mdpi.com/2305-6290/7/3/61
+Support Supports integrated batching, resource assignment, sequencing and routing as coupled outputs.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S13 A survey of berth allocation and quay crane scheduling problems in container terminals
+URL https://www.sciencedirect.com/science/article/pii/S0377221709003579
+Support Separates berth position/time allocation and crane work under equipment/layout constraints.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S14 Berth Allocation and Quay Crane Scheduling in Port Operations: A Systematic Review (2025)
+URL https://www.mdpi.com/2077-1312/13/7/1339
+Support Supports recent berth/crane architectures and remaining integration limitations.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S15 Barnhart, Jin and Vance (2000), Railroad Blocking: A Network Design Application
+URL https://pubsonline.informs.org/doi/abs/10.1287/opre.48.4.603.12416
+Support Models blocking with network degree/flow constraints and Lagrangian decomposition.
+Access Publisher abstract retrieved and inspected.
+
+
+S16 Bakir, Erera and Savelsbergh (2021), Motor Carrier Service Network Design
+URL https://research.rug.nl/en/publications/motor-carrier-service-network-design/
+Support Distinguishes freight flow planning from shipment consolidation into trailerloads or containerloads.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S17 A Position Allocation Approach to the Scheduling of Battery-Electric Bus Charging (2024)
+URL https://arxiv.org/abs/2405.11365
+Support Supports independent vehicle charging assignment and temporal occupation under supplied route schedules, modeled as MILP.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S18 Integrated Charging Scheduling and Operational Control for an Electric Bus Network (2023)
+URL https://arxiv.org/abs/2309.00523
+Support Supports integrated charging/operation MILP and Lagrangian decomposition.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S19 Intermediate Facilities in Freight Transportation Planning: A Survey (2016)
+URL https://research.vu.nl/en/publications/intermediate-facilities-in-freight-transportation-planning-a-surv/
+Support Distinguishes vehicle routing, transshipment and service-network design around intermediate facilities.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S20 Boysen and Fliedner (2010), Cross dock scheduling: Classification, literature review and research agenda
+URL https://www.sciencedirect.com/science/article/pii/S0305048309000772
+Support Supports inbound/outbound truck-door processing schedules and setting-dependent models.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S21 Cross-docking operations: Current research versus industry practice
+URL https://www.sciencedirect.com/science/article/pii/S0305048315001991
+Support Supports caution about operational constraints omitted from academic crossdock models.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S22 Alonso-Mora et al. (2017), On-demand high-capacity ride-sharing via dynamic trip-vehicle assignment
+URL https://dspace.mit.edu/entities/publication/74fadcc0-7237-4d8d-8d08-869b75274805
+Support Supports feasibility-generated pooled trips, integer trip-vehicle assignment and rebalancing.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S23 Sixty years of research on districting problems: Models, algorithms, and applications
+URL https://pure.uai.cl/en/publications/sixty-years-of-research-on-districting-problems-models-algorithms/
+Support Supports service and distribution districting alongside other ownership domains.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S24 Simultaneous node and link districting in transportation networks: Model, algorithms and railway application
+URL https://www.sciencedirect.com/science/article/pii/S0377221720308894
+Support Supports connected transport-area partitioning and mathematical programming with geographic criteria.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S25 Repositioning and Optimal Re-Allocation of Empty Containers: A Review of Methods, Models, and Applications (2022)
+URL https://www.mdpi.com/2071-1050/14/11/6655
+Support Supports physical empty-equipment repositioning across a carrier network.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S26 A hierarchical control framework for vehicle repositioning in ride-hailing systems
+URL https://www.sciencedirect.com/science/article/pii/S0968090X24002389
+Support Supports hierarchical movement control for idle ride-hailing vehicles.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S27 Hoff et al. (2010), Industrial aspects and literature survey: Fleet composition and routing
+URL https://www.sintef.no/en/publications/publication/0198cc57d655-f11de43f-c423-4e94-a86f-d83a15e1e926/
+Support Supports road and maritime fleet-size-and-mix design and its interaction with vehicle routes.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S28 Airline scheduling optimization: literature review and a discussion of modelling methodologies (2023)
+URL https://academic.oup.com/iti/article/doi/10.1093/iti/liad026/7459776
+Support Separates schedule design, fleet assignment, aircraft routing and crew scheduling; discusses time-space, route and integrated architectures.
+Access Full publication retrieved; scheduling decomposition and integration passages inspected.
+
+
+S29 Container liner fleet deployment: A systematic overview
+URL https://research.polyu.edu.hk/en/publications/container-liner-fleet-deployment-a-systematic-overview/
+Support Supports fleet deployment coupling with routing, empty equipment and ship operating characteristics.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S30 Bouras et al. (2014), The Airport Gate Assignment Problem: A Survey
+URL https://pmc.ncbi.nlm.nih.gov/articles/PMC4258332/
+Support Supports aircraft compatibility, interval occupancy, transfer objectives and multiple formulation families.
+Access Full publication retrieved; constraints and formulations inspected.
+
+
+S31 Dahanayaka, Prak and Mes (2026), From gate to runway: A systematic review of airport ground operations optimization
+URL https://research.utwente.nl/en/publications/from-gate-to-runway-a-systematic-review-of-airport-ground-operati/
+Support Separates gate, turnaround, baggage, workforce, taxi and support-equipment functions.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S32 Optimization models for scheduling operations in robotic mobile fulfillment systems
+URL https://www.sciencedirect.com/science/article/abs/pii/S0307904X22003122
+Support Supports order-to-station assignment, pod selection, sequencing and robot scheduling.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S33 Joint optimization of order sequencing and rack scheduling in the robotic mobile fulfilment system
+URL https://www.sciencedirect.com/science/article/pii/S0305054821002185
+Support Supports station order/rack sequencing MILP and a two-stage approach.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S34 Algorithm for Robotic Picking in Amazon Fulfillment Centers Enables Humans and Robots to Work Together Effectively
+URL https://doi.org/10.1287/INTE.2022.1143
+Support Primary industrial evidence distinguishes robotic picking requirements from simplified station models.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S35 Azadeh, de Koster and Roy, Robotized and Automated Warehouse Systems: Review and Recent Developments
+URL https://pubsonline.informs.org/doi/10.1287/trsc.2018.0873
+Support Distinguishes automated storage/retrieval, shuttle and mobile-robot systems, and design versus operations decisions.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S36 A review of bulk terminal operations: Status, trends, and future outlook (2025)
+URL https://www.sciencedirect.com/science/article/pii/S0305054825002278
+Support Supports bulk-terminal seaside and yardside handling, including tank allocation and integrated operations.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S37 Gu, Goetschalckx and McGinnis (2010), Research on warehouse design and performance evaluation: A comprehensive review
+URL https://www.sciencedirect.com/science/article/abs/pii/S0377221709005219
+Support Distinguishes warehouse structure, size, department layout, equipment selection and operational strategy.
+Access Publisher abstract and indexed publication excerpt retrieved; direct full-text retrieval unavailable.
+
+
+S38 Models and methods for logistics hub location: A review towards transportation networks design (2016)
+URL https://www.scielo.br/j/pope/a/G8vhYvyFDB8gLxYX4KmVZXw/
+Support Supports discrete logistics hub location and allocation; includes alternative exact and heuristic architectures.
+Access Full publication retrieved; hub decision scope and method discussion inspected.
+
+
+S39 Hub Location, Routing, and Route Dimensioning: Strategic and Tactical Intermodal Transportation Hub Network Design
+URL https://pubsonline.informs.org/doi/abs/10.1287/trsc.2021.1070
+Support Supports joint hub location, routing and route dimensioning as distinct but coupled transport commitments.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S40 de Koster, Le-Duc and Roodbergen (2007), Design and control of warehouse order picking: A literature review
+URL https://repub.eur.nl/pub/11877
+Support Establishes layout, storage assignment, zoning, batching and picker routing as interacting warehouse decisions.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S41 Bortfeldt and Wascher (2013), Constraints in container loading: A state-of-the-art review
+URL https://www.sciencedirect.com/science/article/pii/S037722171200937X
+Support Supports geometric loading with containment, nonoverlap and practical cargo constraints.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S42 Automating the planning of container loading for Atlas Copco: Coping with real-life stacking and stability constraints
+URL https://www.sciencedirect.com/science/article/abs/pii/S0377221719306368
+Support Primary industrial loading study supports explicit stacking and stability treatment.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S43 Wen et al. (2022), A column generation approach for operational flight scheduling and aircraft maintenance routing
+URL https://ira.lib.polyu.edu.hk/handle/10397/107536
+Support Supports maintenance-routing integration and column-generation architecture; does not alone establish a universal standalone maintenance solver.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S44 Maximizing robustness of aircraft routing with heterogeneous maintenance tasks
+URL https://research.polyu.edu.hk/en/publications/maximizing-robustness-of-aircraft-routing-with-heterogeneous-main/
+Support Supports robust aircraft maintenance routing and accelerated column generation.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S45 An optimisation framework for airline fleet maintenance scheduling with tail assignment considerations
+URL https://www.sciencedirect.com/science/article/pii/S0191261519302000
+Support Supports independent fleet-maintenance calendars with workshop resources and individual airworthiness limits using multi-objective MILP.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S46 Ratliff and Rosenthal (1983), Order-Picking in a Rectangular Warehouse: A Solvable Case of the Traveling Salesman Problem
+URL https://pubsonline.informs.org/doi/10.1287/opre.31.3.507
+Support Provides a specialized exact routing architecture for rectangular end-crossover aisle geometry.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S47 Bhoopalam, Agatz and Zuidwijk (2017 report; 2018 article), Planning of truck platoons: A literature review and directions for future research
+URL https://repub.eur.nl/pub/100329
+Support Separates platoon formation/schedule planning from technology and continuous vehicle following.
+Access Institutional author record and abstract retrieved and inspected.
+
+
+S48 Bai et al. (2023), Large-Scale Multi-Fleet Platoon Coordination: A Dynamic Programming Approach
+URL https://arxiv.org/abs/2307.11867
+Support Supports fixed-route cooperative fleet coordination through waiting-time decisions and dynamic programming.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S49 Itinerary planning for cooperative truck platooning (2021)
+URL https://www.sciencedirect.com/science/article/pii/S0191261521001661
+Support Supports synchronized vehicle itineraries with mixed-integer convex, dynamic-programming and restricted approximation approaches.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S50 A tutorial on fundamental model structures for railway timetable optimization (2012)
+URL https://www.sciencedirect.com/science/article/pii/S1876735412000049
+Support Distinguishes periodic/aperiodic timetables and models with different explicit infrastructure detail.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S51 A review of principles and methods to decompose large-scale railway scheduling problems (2023)
+URL https://www.sciencedirect.com/science/article/pii/S2192437623000043
+Support Distinguishes timetabling and rescheduling and supports network decomposition.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S52 Cordeau, Toth and Vigo (1998), A Survey of Optimization Models for Train Routing and Scheduling
+URL https://pubsonline.informs.org/doi/10.1287/trsc.32.4.380
+Support Separates train routing/scheduling, railcar management and locomotive/car assignment.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S53 Sama et al. (2016), Lower and upper bound algorithms for the real-time train scheduling and routing problem in a railway network
+URL https://research.tudelft.nl/en/publications/lower-and-upper-bound-algorithms-for-the-real-time-train-scheduli/
+Support Primary publication states hardness of its real-time train routing/scheduling model and supports tailored bounds and heuristics.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S54 Airline Disruption Management: A Review of Models and Solution Methods
+URL https://doi.org/10.1016/j.eng.2020.08.021
+Support Distinguishes aircraft, crew and passenger recovery and integrated disruption architectures.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S55 The aircraft recovery problem: A systematic literature review
+URL https://doi.org/10.1016/j.ejtl.2023.100117
+Support Supports aircraft recovery, constrained turnaround integration and real-time recovery tradeoffs.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S56 Lehnfeld and Knust (2014), Loading, unloading and premarshalling of stacks in storage areas: Survey and classification
+URL https://www.sciencedirect.com/science/article/pii/S0377221714002252
+Support Separates initial loading, retrieval and preparation of stacked arrangements.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S57 A survey of optimization methods for Block Relocation and PreMarshalling Problems
+URL https://www.sciencedirect.com/science/article/pii/S0360835222005381
+Support Supports exact and heuristic approaches for relocation and premarshalling variants.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S58 Caserta, Schwarze and Voss (2012), A mathematical formulation and complexity considerations for the blocks relocation problem
+URL https://www.sciencedirect.com/science/article/abs/pii/S0377221711011337
+Support Primary work proves block-relocation NP-hardness, including a special case, and presents a mathematical formulation.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S59 Picking-replenishment synchronization for robotic forward-reserve warehouses
+URL https://www.sciencedirect.com/science/article/abs/pii/S1366554520307845
+Support Supports joint physical replenishment and picking optimization with a programming model.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S60 Scheduling of Order-picking with Replenishment
+URL https://www.sice.jp/ia-j/papers/07IA029.pdf
+Support Supports scheduling replenishment alongside picking in reserve/forward storage systems.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S61 Li et al. (2021), Lifelong Multi-Agent Path Finding in Large-Scale Warehouses
+URL https://ojs.aaai.org/index.php/AAAI/article/view/17344
+Support Supports rolling collision resolution for constantly arriving warehouse goals; evaluated in simulation.
+Access Publisher abstract retrieved and inspected.
+
+
+S62 Ma et al. (2017), Lifelong Multi-Agent Path Finding for Online Pickup and Delivery Tasks
+URL https://arxiv.org/abs/1705.10868
+Support Supports joint online task allocation and collision-free pickup/delivery trajectories.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S63 Yu and LaValle (2013), Structure and Intractability of Optimal Multi-Robot Path Planning on Graphs
+URL https://ojs.aaai.org/index.php/AAAI/article/view/8541
+Support Proves hardness of established optimal multi-robot path objectives.
+Access Publisher abstract retrieved and inspected.
+
+
+S64 Correia Duarte et al. (2025), 50 years of OR in railway timetabling and rolling stock planning
+URL https://pure.eur.nl/en/publications/50-years-of-or-in-railway-timetabling-and-rolling-stock-planning/
+Support Separates timetable commitments and rolling-stock circulation in railway planning.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S65 Beasley et al. (2000), Scheduling Aircraft Landings: The Static Case
+URL https://v-lib-bura1.brunel.ac.uk/handle/2438/4769
+Support Supports landing windows, sequence-dependent separation and single/multiple runway MILP.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S66 Optimization of Taxiway Routing and Runway Scheduling
+URL https://research-information.bris.ac.uk/en/publications/optimization-of-taxiway-routing-and-runway-scheduling/
+Support Supports coupled runway schedule and surface route MILP.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S67 A novel mixed-integer programming approach for the aircraft landing problem (2022)
+URL https://www.frontiersin.org/journals/future-transportation/articles/10.3389/ffutr.2022.968957/full
+Support Primary landing-model work states general aircraft landing NP-hardness and supplies a MIP architecture.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S68 Aircraft Landing Problem: Efficient Algorithm for a Given Landing Sequence
+URL https://arxiv.org/abs/1311.2880
+Support Primary author manuscript supplies a polynomial timing algorithm for its fixed feasible sequence, single-runway restriction.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S69 Crainic (2024), Service Network Design for Consolidation-based Transportation: The Fundamentals
+URL https://www.cirrelt.ca/documentstravail/cirrelt-2024-30.pdf
+Support Physical networks differ from service networks; tactical service-network models connect service choices, consolidation and traffic flows.
+Access Full author report retrieved; model definitions and planning scope inspected.
+
+
+S70 Liner shipping network design (2020)
+URL https://orbit.dtu.dk/en/publications/liner-shipping-network-design/
+Support Supports integrated MIP and two-stage service/flow architectures, plus candidate-service selection.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S71 Multimodal freight transportation planning: A literature review (2014)
+URL https://www.sciencedirect.com/science/article/pii/S0377221713005638
+Support Supports modal/transport-leg planning and transshipment coupling in intermodal freight.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S72 Wagenaar, Haahr and Lusby (2017), Optimization methods for the train unit shunting problem
+URL https://research.tilburguniversity.edu/en/publications/optimization-methods-for-the-train-unit-shunting-problem/
+Support Supports matching units to services/tracks and compares CP, MILP, column generation and heuristics.
+Access Author institutional abstract retrieved and inspected.
+
+
+S73 Deleplanque et al. (2022), Train management in freight shunting yards: Formalisation and literature review
+URL https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/itr2.12216
+Support Supports physical freight-yard operations, train arrangement and multiple optimization architectures.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S74 A Local Search Algorithm for Train Unit Shunting with Service Scheduling
+URL https://pubsonline.informs.org/doi/pdf/10.1287/trsc.2021.1090
+Support Integrated matching, parking and service scheduling combines hard subproblems; supports partial-order local search.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S75 The discrete forward-reserve problem: Allocating space, selecting products, and area sizing in forward order picking
+URL https://www.sciencedirect.com/science/article/pii/S0377221713001963
+Support Supports product selection, discrete space assignment and internal replenishment tradeoffs.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S76 Improving order picking efficiency through storage assignment optimization in robotic mobile fulfillment systems
+URL https://doi.org/10.1016/j.ejor.2024.02.025
+Support Supports scattered product-to-pod storage assignment and integrated binary integer optimization.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S77 Optimal assignment of airport baggage unloading zones to outgoing flights
+URL https://www.sciencedirect.com/science/article/pii/S1366554515302039
+Support Supports deterministic and stochastic baggage chute assignment.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S78 Haneyah, Schutten and Fikse (2013), Improving the performance of sorter systems by scheduling inbound containers
+URL https://research.utwente.nl/en/publications/improving-the-performance-of-sorter-systems-by-scheduling-inbound/
+Support Supports sorter input scheduling with travel times for parcel and baggage systems.
+Access Institutional author abstract retrieved and inspected.
+
+
+S79 Assignment of parcels to loading stations in robotic sorting systems
+URL https://www.sciencedirect.com/science/article/pii/S1366554522001971
+Support Supports parcel-station assignment using integer programming and heuristics.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S80 van Twiller et al. (2023 preprint), Literature Survey on the Container Stowage Planning Problem
+URL https://arxiv.org/abs/2307.07573
+Support Separates master/slot and single/multiport stowage, discusses NP-hardness and incomplete industrial constraint representation.
+Access Full author manuscript retrieved; definition and solution-family sections inspected.
+
+
+S81 Matheuristics for slot planning of container vessel bays
+URL https://www.sciencedirect.com/science/article/pii/S0377221719307994
+Support Supports slot-plan optimization conditional on a supplied master plan.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S82 Roling and Visser (2008), Optimal Airport Surface Traffic Planning Using Mixed-Integer Linear Programming
+URL https://onlinelibrary.wiley.com/doi/10.1155/2008/732828
+Support Supports taxi path/time deconfliction; demonstrated on a hypothetical airport, not an industrial deployment.
+Access Full publication retrieved; decision model and demonstration limitations inspected.
+
+
+S83 Liu, Cats and Gkiotsalitis (2021), A review of public transport transfer coordination at the tactical planning phase
+URL https://research.tudelft.nl/en/publications/a-review-of-public-transport-transfer-coordination-at-the-tactica/
+Support Supports coordinated transfers and integration with vehicle scheduling and demand assignment.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S84 Serafini and Ukovich (1989), A Mathematical Model for Periodic Scheduling Problems
+URL https://epubs.siam.org/doi/10.1137/0402049
+Support Establishes NP-completeness of periodic event scheduling feasibility.
+Access Publisher abstract retrieved and inspected.
+
+
+S85 Gkiotsalitis and Cats (2021), At-stop control measures in public transport: Literature review and research agenda
+URL https://research.utwente.nl/en/publications/at-stop-control-measures-in-public-transport-literature-review-an/
+Support Supports holding, dynamic dispatch and stop-skipping control of existing service.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S86 Gkiotsalitis, Cats and Liu, A review of public transport transfer synchronisation at the real-time control phase
+URL https://research.tudelft.nl/en/publications/a-review-of-public-transport-transfer-synchronisation-at-the-real/
+Support Supports short-turning, interlining, rerouting, holding and transfer-oriented interventions.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S87 A bi-objective approach for scheduling ground-handling vehicles in airports
+URL https://www.sciencedirect.com/science/article/pii/S0305054815002968
+Support Supports ground-handling vehicle scheduling and integrated turnaround-resource coordination.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S88 Optimising airport ground handling operations considering multi-skilled resources (2026)
+URL https://www.sciencedirect.com/science/article/pii/S2590198226002927
+Support Supports RCPSP-based turnaround coordination with resource and spatial movement interactions.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S89 Vidal, Laporte and Matl (2020; preprint 2019), A concise guide to existing and emerging vehicle routing problem variants
+URL https://arxiv.org/abs/1906.06750
+Support Supports vehicle-routing variant consolidation, refined requests and integration with tactical commitments.
+Access Full author manuscript retrieved; problem-attribute classification inspected.
+
+
+S90 PyVRP stable documentation (0.14.0 at retrieval)
+URL https://pyvrp.readthedocs.io/en/stable/index.html
+Support Documents supported routing attributes. Development and stable versions need separate pins.
+Access Official documentation retrieved and inspected.
+
+
+S91 PyVRP: A High-Performance VRP Solver Package
+URL https://pubsonline.informs.org/doi/10.1287/ijoc.2023.0055
+Support Published reference describes hybrid genetic search as a reproducible package approach.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S92 Approaches to the truck-drone routing problem: A systematic review
+URL https://doi.org/10.1016/j.swevo.2024.101825
+Support Treats truck-drone coordination as routing with coupled route and operating constraints.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S93 PyVRP development README at retrieval
+URL https://github.com/PyVRP/PyVRP
+Support Development README describes iterated local search, unlike the original HGS paper. Do not conflate versions.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S94 Christiansen et al. (2013), Ship routing and scheduling in the new millennium
+URL https://www.sintef.no/en/publications/publication/991846/
+Support Supports industrial/tramp versus liner shipping distinctions and ship visit-routing models.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S95 Gallien and Weber (2010), To Wave or Not to Wave? Order Release Policies for Warehouses with an Automated Sorter
+URL https://pubsonline.informs.org/doi/10.1287/msom.1100.0291
+Support Supports state-based release control, predictive modeling and simulation policy comparison.
+Access Publisher abstract retrieved and inspected.
+
+
+S96 Microsoft Dynamics 365, Wave creation and processing
+URL https://learn.microsoft.com/en-us/dynamics365/supply-chain/warehousing/wave-processing
+Support Official operational documentation distinguishes wave creation, processing and release.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
+
+
+S97 Carlo, Vis and Roodbergen, Storage yard operations in container terminals: Literature overview, trends, and research directions
+URL https://www.sciencedirect.com/science/article/pii/S0377221713008771
+Support Supports terminal yard allocation and stacking, coupled to transport and vessel loading.
+Access Primary publication abstract or author/institutional record retrieved; full text not required for the stated support.
