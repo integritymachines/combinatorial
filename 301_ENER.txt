@@ -205,15 +205,15 @@ DEPENDENCIES ENER07, ENER11, ENER13 → ENER18 → ENER30.
 COMMENTS Tank levels and pump speeds are feasibility quantities, not separate Structures | #INFRA #ENER #plan #operate #select #place ##pump-scheduling ##tank-balance ##hydraulics.
 
 ENER19 Rotational Utility Load-Shedding Scheduling.
-DESCRIPTION Assign planned power interruptions to service zones and periods under supply shortage, fairness, critical-load and switching limits.
+DESCRIPTION Select planned power interruptions and their times for supplied service zones under shortage, fairness, critical-load and switching limits.
 TEMPLATE Rotating-outage and shortage-service planning | Zone-period integer scheduling; bilinear reformulation and rolling optimization.
 REGIME #plan + #allocate | Plans interruptions and allocates scarce service across zones.
-STRUCTURE #map + #place | Maps service zones to outage groups and places interruption intervals in time.
+STRUCTURE #place + #select | Places interruption events in time and selects discrete interruption-count or duration configurations.
 PRIORITY Medium | Rotating service plans are recurring under sustained supply shortage.
 RELEVANCE High | Better interruptions can preserve critical service and distribute shortage costs.
 HARDNESS High | Fairness, outage duration and changing shortages couple zones and periods.
 DEPENDENCIES ENER04, ENER11, ENER13, ENER16, ENER17 → ENER19 → ∅.
-COMMENTS Planned rationing differs from immediate frequency emergency shedding | #INFRA #ENER #plan #allocate #map #place ##rotating-outage ##rationing ##fairness.
+COMMENTS Planned rationing differs from immediate frequency emergency shedding | #INFRA #ENER #plan #allocate #place #select ##rotating-outage ##rationing ##fairness.
 
 ENER20 Customer Phase Assignment and Rebalancing.
 DESCRIPTION Assign low-voltage customer connections to phases under imbalance, voltage, neutral-current and switching limits.
