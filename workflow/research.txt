@@ -6,14 +6,16 @@ Researcher (R): expand.
 Input
 LEVEL ∈ {PROBLEM, CASE}
 DOMAIN = D
-000_DOMAIN.md
+DOMAIN code = NNN
+000_DOMAIN.txt
+background/000_DOMAIN_research.txt
 Existing foreground and relevant background.
 
 Output
-background/<NNN>_<D>_research.md
+background/<NNN>_<D>_research.txt
 
 Rules
-000_DOMAIN.md is normative.
+000_DOMAIN.txt is normative.
 Research facts, alternatives, boundaries, dependencies, evidence, and uncertainty. Do not compile the foreground.
 Maximize coverage and evidentiary value; minimize prose.
 Prefer primary literature, authoritative reviews, established benchmark repositories, official datasets, standards, and credible industrial sources.
