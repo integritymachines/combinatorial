@@ -1,0 +1,544 @@
+LOG Logistics and Transportation
+v0.1 | Problem layer | 2026-10-07
+Normative: 000_DOMAIN.txt. Evidence: background/201_LOG_research.txt v0.1.
+Dependencies are conditional decision flow. First-pass flow sets sequence; operational feedback returns are retained.
+
+
+LOG01 Transport Hub and Depot Network Design.
+DESCRIPTION Selects transport hubs, depots and discrete capacities and assigns traffic areas under access, transfer and investment limits.
+TEMPLATE Carrier hub-and-spoke and depot planning | Capacitated hub-location MILP; Benders decomposition and network search.
+REGIME #design | Commits transport access points and transfer capacity before service planning.
+STRUCTURE #select + #map | Selects facilities and capacity options and maps traffic areas to them.
+PRIORITY High | Transport access and transfer facilities constrain carrier networks.
+RELEVANCE Critical | Facility commitments can determine long-lived network cost and service reach.
+HARDNESS High | NP-hard for general discrete hub-location models; Facility choice, traffic allocation and transfer economies interact.
+DEPENDENCIES ∅ → LOG01 → LOG04, LOG05, LOG06.
+COMMENTS Inventory-positioning networks belong to SCM | #DISP #LOG #design #select #map ##hub-location ##depot ##network-design.
+
+
+LOG02 Transport Fleet Size and Composition.
+DESCRIPTION Selects vehicle counts and types under movement demand, compatibility, availability and investment limits.
+TEMPLATE Fleet capacity and fleet-mix planning | Fleet-size-and-mix MILP; route-based column generation and simulation-supported search.
+REGIME #design | Commits transport assets and discrete fleet capacity.
+STRUCTURE #select | Selects the vehicle instances or count-and-type configurations that form the fleet.
+PRIORITY High | Fleet capacity constrains road, air, rail and maritime operators.
+RELEVANCE Critical | Fleet investment and composition determine major capital and operating costs.
+HARDNESS High | NP-hard when fleet design includes capacitated vehicle routing; Asset alternatives and uncertain utilization require route and demand evaluation.
+DEPENDENCIES ∅ → LOG02 → LOG08, LOG11, LOG15, LOG20.
+COMMENTS #DISP #LOG #design #select ##fleet-size ##fleet-mix ##capacity.
+
+
+LOG03 Warehouse and Terminal Handling System Configuration.
+DESCRIPTION Selects storage, picking, sorting and transfer technologies and discrete equipment capacities under throughput and compatibility limits.
+TEMPLATE Material-handling system and warehouse automation design | Discrete configuration MILP/MINLP; simulation optimization.
+REGIME #design | Commits physical handling technologies and capacity before operations.
+STRUCTURE #select + #map | Selects equipment configurations and assigns handling functions to them.
+PRIORITY High | Handling technology constrains warehouse and terminal throughput.
+RELEVANCE High | Better configurations can reduce asset cost and sustained handling losses.
+HARDNESS High | Throughput, congestion and equipment interactions require performance evaluation.
+DEPENDENCIES ∅ → LOG03 → LOG04, LOG28, LOG32, LOG34, LOG42.
+COMMENTS #DISP #LOG #design #select #map ##material-handling ##automation ##capacity.
+
+
+LOG04 Warehouse and Terminal Layout Design.
+DESCRIPTION Positions storage areas, handling stations and travel aisles under space, access, separation and material-flow limits.
+TEMPLATE Warehouse and terminal facility layout | Spatial layout MILP; quadratic-assignment models for fixed sites; simulation-supported search.
+REGIME #design | Commits the physical handling layout before allocation and movement planning.
+STRUCTURE #place + #link | Positions areas and stations and chooses aisle connections when these are decision variables.
+PRIORITY High | Layouts determine recurring movement distances and usable handling space.
+RELEVANCE High | Better layouts can reduce travel and congestion throughout facility operation.
+HARDNESS High | NP-hard for the general quadratic-assignment layout subproblem; Geometry, access paths and congestion couple layout choices.
+DEPENDENCIES LOG01, LOG03 → LOG04 → LOG24, LOG25, LOG29, LOG31, LOG42.
+COMMENTS #DISP #LOG #design #place #link ##layout ##aisle ##geometry.
+
+
+LOG05 Transport Service Territory Design.
+DESCRIPTION Groups service locations into territories under workload, access, continuity and service-consistency requirements.
+TEMPLATE Delivery and field-service districting | Connected partitioning MILP; geometric clustering with feasibility repair.
+REGIME #design + #plan | Commits recurring service territories or revises them for a future operating plan.
+STRUCTURE #map | Maps locations to territories; connectedness and workload balance constrain the partition.
+PRIORITY Medium | Stable territories matter in recurring delivery and field-service networks.
+RELEVANCE High | Better territories can reduce persistent workload imbalance and service inconsistency.
+HARDNESS High | Balance, compactness and continuity compete at large geographic scale.
+DEPENDENCIES LOG01 → LOG05 → LOG15, LOG16, LOG43.
+COMMENTS #DISP #LOG #design #plan #map ##districting ##partition ##connectivity.
+
+
+LOG06 Transport Service Network Design.
+DESCRIPTION Selects transport services, stop or port-call connections and service frequencies under movement demand and operating-capacity limits.
+TEMPLATE Carrier service-network and line planning | Fixed-charge multicommodity network-design MILP; decomposition and service-selection search.
+REGIME #plan | Commits the future operated service network on available infrastructure.
+STRUCTURE #link + #select | Constructs service connections and selects operated services or frequency configurations.
+PRIORITY Critical | Service topology defines how carriers move traffic through their networks.
+RELEVANCE Critical | Better service networks can change fleet use, transfer cost and service reach.
+HARDNESS Critical | NP-hard for general fixed-charge service-network design; Service choices, traffic flows and resource circulation require decomposition at network scale.
+DEPENDENCIES LOG01 → LOG06 → LOG07, LOG08, LOG12, LOG13.
+COMMENTS #DISP #LOG #plan #link #select ##service-network ##line-planning ##consolidation.
+
+
+LOG07 Transport Service Timetabling.
+DESCRIPTION Places service departures, arrivals and transfers in time under journey, connection and infrastructure-capacity limits.
+TEMPLATE Transport timetable and transfer coordination | Event-activity or time-space MILP; periodic timetabling and decomposition.
+REGIME #plan | Commits the future service calendar and connections.
+STRUCTURE #place | Places service events in time; running times, headways and transfer synchronization constrain placement.
+PRIORITY High | Scheduled passenger and freight networks need coordinated service times.
+RELEVANCE High | Better timetables can reduce missed connections and capacity conflicts.
+HARDNESS High | Periodic event scheduling is NP-hard in general; Transfer synchronization and shared capacity couple events across the network.
+DEPENDENCIES LOG06, LOG45 → LOG07 → LOG09, LOG13, LOG22, LOG23, LOG37, LOG41, LOG44.
+COMMENTS #DISP #LOG #plan #place ##timetable ##periodic ##synchronization.
+
+
+LOG08 Transport Fleet Assignment.
+DESCRIPTION Assigns available vehicle types or fleet capacity to scheduled services under demand, compatibility and fleet-balance limits.
+TEMPLATE Fleet deployment and service-capacity assignment | Time-space fleet-assignment MILP; network-flow relaxations and decomposition.
+REGIME #allocate | Commits existing fleet capacity to offered services.
+STRUCTURE #map | Maps vehicle types or available capacity to scheduled services.
+PRIORITY High | Heterogeneous operators must match existing fleet capability to services.
+RELEVANCE High | Better assignments can reduce capacity mismatch and avoid expensive asset use.
+HARDNESS High | General airline fleet assignment is NP-hard; restricted single-commodity flow models are polynomial; Demand, type compatibility and fleet balance interact across service legs.
+DEPENDENCIES LOG02, LOG06 → LOG08 → LOG09, LOG15, LOG20.
+COMMENTS #DISP #LOG #allocate #map ##fleet-assignment ##deployment ##heterogeneous.
+
+
+LOG09 Transport Vehicle Rotation Planning.
+DESCRIPTION Connects scheduled service legs into feasible duties for identified vehicles under location, turnaround and availability limits.
+TEMPLATE Vehicle blocking, tail assignment and rolling-stock circulation | Path-cover or route-set MILP; column generation and constrained-path pricing.
+REGIME #plan | Prepares feasible vehicle duties before service execution.
+STRUCTURE #link + #map | Chooses successor connections between service legs and maps duties to vehicles.
+PRIORITY High | Scheduled services require continuous vehicle duties.
+RELEVANCE High | Better rotations can reduce deadheading, fleet need and propagated delay.
+HARDNESS High | Simple path cover is polynomial; maintenance and resource-constrained duty variants can be NP-hard; Vehicle continuity, turnarounds and maintenance eligibility restrict duty combinations.
+DEPENDENCIES LOG07, LOG08, LOG10, LOG11, LOG45 → LOG09 → LOG10, LOG11, LOG27, LOG36, LOG45.
+COMMENTS #DISP #LOG #plan #link #map ##rotation ##vehicle-blocking ##succession.
+
+
+LOG10 Transport Fleet Maintenance Scheduling.
+DESCRIPTION Selects maintenance visits and places vehicles into eligible service facilities and time windows under task, capacity and movement limits.
+TEMPLATE Fleet maintenance and service-availability planning | Fleet-maintenance calendar MILP; CP and integration with vehicle-duty column generation.
+REGIME #plan | Commits vehicle downtime and maintenance visits before execution.
+STRUCTURE #place + #map + #select | Places maintenance visits in time, maps them to facilities and selects permitted task or visit options.
+PRIORITY High | Vehicle availability depends on feasible maintenance commitments.
+RELEVANCE High | Better maintenance calendars can preserve service capacity and reduce missed maintenance.
+HARDNESS High | Due tasks, facility capacity and vehicle access couple maintenance with service duties.
+DEPENDENCIES LOG09 → LOG10 → LOG09.
+COMMENTS #DISP #LOG #plan #place #map #select ##maintenance ##availability ##schedule.
+
+
+LOG11 Transport Fleet Charging and Refueling Scheduling.
+DESCRIPTION Assigns vehicles to charging or refueling resources and service times under energy needs, equipment capacity and committed-duty limits.
+TEMPLATE Depot energy-service and vehicle-availability coordination | Vehicle-charger scheduling MILP; rolling optimization and integrated duty-charge decomposition.
+REGIME #plan + #dispatch | Commits vehicle energy-service slots or updates them from observed readiness.
+STRUCTURE #place + #map | Places charging or refueling visits in time and maps vehicles to compatible service resources.
+PRIORITY High | Energy-service availability constrains electrified and fuel-dependent fleet operations.
+RELEVANCE High | Better calendars can preserve vehicle readiness and reduce charging bottlenecks.
+HARDNESS High | Duty readiness, limited plugs and nonlinear charging profiles couple energy-service slots.
+DEPENDENCIES LOG02, LOG09 → LOG11 → LOG09, LOG20, LOG43.
+COMMENTS Electrical network operation belongs to ENER | #DISP #LOG #plan #dispatch #place #map ##fleet-charging ##refueling ##availability.
+
+
+LOG12 Rail Freight Blocking and Train Makeup.
+DESCRIPTION Selects railcar blocks and assigns cars and blocks to train services under classification, train-length and handling limits.
+TEMPLATE Railroad blocking and train-formation planning | Blocking network-design MILP; Lagrangian relaxation and decomposition.
+REGIME #plan | Commits car-grouping and train-load rules before yard execution.
+STRUCTURE #link + #map | Chooses block connections between classification points and maps cars or blocks to train services.
+PRIORITY Medium | Blocking plans are central to consolidation-based freight rail.
+RELEVANCE High | Better plans can reduce repeated classification and train-capacity losses.
+HARDNESS High | Block capacities, car destinations and classification resources couple network decisions.
+DEPENDENCIES LOG06 → LOG12 → LOG13, LOG14, LOG27.
+COMMENTS #DISP #LOG #plan #link #map ##rail ##blocking ##train-formation.
+
+
+LOG13 Shipment Itinerary and Modal Assignment.
+DESCRIPTION Assigns shipments to transport legs, modes and transfer connections under capacity, compatibility and delivery limits.
+TEMPLATE Intermodal freight forwarding and transport-chain planning | Time-dependent path and multicommodity-flow optimization; integer path assignment.
+REGIME #plan + #allocate | Prepares shipment journeys and commits capacity on available transport services.
+STRUCTURE #link + #map | Chooses connected shipment itineraries and maps shipments to their transport legs.
+PRIORITY High | Forwarders and multimodal carriers must connect origin-to-destination journeys.
+RELEVANCE High | Better itineraries can reduce transfer losses and delivery failure.
+HARDNESS Medium | Uncoupled shortest paths are polynomial; indivisible capacitated path assignments can be NP-hard; Transfer timing and scarce shared capacity couple otherwise simple paths.
+DEPENDENCIES LOG06, LOG07, LOG12, LOG45 → LOG13 → LOG14, LOG18, LOG19, LOG24, LOG25.
+COMMENTS #DISP #LOG #plan #allocate #link #map ##intermodal ##shipment-routing ##path.
+
+
+LOG14 Freight Load Consolidation.
+DESCRIPTION Groups shipments into departures or transport units under capacity, destination, compatibility and delivery limits.
+TEMPLATE LTL load planning and shipment consolidation | Capacity-constrained grouping MILP; bin-packing and departure-selection search.
+REGIME #plan | Prepares compatible transport loads before movement.
+STRUCTURE #map + #select | Maps shipments to loads and selects loads or departures to activate.
+PRIORITY High | Consolidation defines vehicle fill in multi-shipper transport.
+RELEVANCE High | Better loads can reduce empty capacity and avoid missed departures.
+HARDNESS High | NP-hard when the contract includes bin packing; Shipment indivisibility, due dates and destination compatibility couple load groups.
+DEPENDENCIES LOG12, LOG13 → LOG14 → LOG15, LOG18, LOG24, LOG34.
+COMMENTS #DISP #LOG #plan #map #select ##consolidation ##load-planning ##packing.
+
+
+LOG15 Vehicle Visit Routing and Scheduling.
+DESCRIPTION Constructs vehicle journeys and visit times under service demand, capacity, pickup-delivery, access and operating-time limits.
+TEMPLATE Delivery, collection and service-route planning | Route-set branch-price-and-cut; MILP/CP; large-neighborhood, genetic or iterated local search.
+REGIME #plan | Commits future vehicle journeys and service visits.
+STRUCTURE #link + #map + #place | Chooses travel succession, assigns visits to vehicles and places visits in time under capacity and pickup-delivery laws.
+PRIORITY Critical | Vehicle visit plans are central to transport and delivery operations.
+RELEVANCE Critical | Large routing improvements can affect fleet use and network-wide service cost.
+HARDNESS High | NP-hard; includes the traveling-salesperson problem; Time windows, heterogeneous fleets, coupled pickups and synchronized vehicles enlarge route search.
+DEPENDENCIES LOG02, LOG05, LOG08, LOG14, LOG17, LOG45 → LOG15 → LOG17, LOG18, LOG21, LOG43, LOG45.
+COMMENTS #DISP #LOG #plan #link #map #place ##routing ##pickup-delivery ##time-windows ##synchronization.
+
+
+LOG16 Transport Arc-Service Routing.
+DESCRIPTION Constructs vehicle walks that service required road or network segments under coverage, traversal, capacity and operating-time limits.
+TEMPLATE Street-service and segment-collection route planning | Capacitated arc-routing MILP; route decomposition and neighborhood search.
+REGIME #plan | Commits coverage journeys before segment-service execution.
+STRUCTURE #link + #map | Chooses traversed segment succession and assigns required segment services to vehicle walks.
+PRIORITY Medium | Segment-based journeys recur in collection and street-service fleets.
+RELEVANCE High | Better walks can reduce repeated travel and missed segment coverage.
+HARDNESS High | Chinese-postman subcases are polynomial; general capacitated arc routing is NP-hard; Service direction, deadheading and vehicle capacity couple segment coverage.
+DEPENDENCIES LOG05 → LOG16 → LOG43.
+COMMENTS #DISP #LOG #plan #link #map ##arc-routing ##coverage ##deadheading.
+
+
+LOG17 Transport Fleet Platoon Formation and Rendezvous Coordination.
+DESCRIPTION Groups compatible vehicles into cooperative platoons and schedules rendezvous, waiting and separation events under fixed journey and arrival limits.
+TEMPLATE Truck platoon and synchronized fleet-group coordination | Platoon-coordination MILP or mixed-integer convex optimization; dynamic programming and decomposition.
+REGIME #plan + #dispatch | Commits cooperative vehicle groups and meeting times before or during journeys.
+STRUCTURE #map + #place | Maps vehicles to cooperative travel groups and places rendezvous and separation events in time.
+PRIORITY Low | Cooperative platoon operation remains specific to equipped transport fleets.
+RELEVANCE Medium | Better coordination can reduce fleet energy use within equipped networks.
+HARDNESS High | Overlapping journeys, arrival windows and incompatible waiting choices couple group formation.
+DEPENDENCIES LOG15 → LOG17 → LOG15, LOG43.
+COMMENTS #DISP #LOG #plan #dispatch #map #place ##platooning ##rendezvous ##synchronization.
+
+
+LOG18 Transport Unit Loading and Packing.
+DESCRIPTION Selects transport units and places oriented cargo under containment, nonoverlap, weight, stability and unloading-access limits.
+TEMPLATE Truck, container and air-cargo load planning | Geometric packing MILP/CP; constructive packing and large-neighborhood search.
+REGIME #plan | Prepares physical load arrangements before departure.
+STRUCTURE #place + #map + #select | Positions oriented cargo, maps it to transport units and selects units when needed.
+PRIORITY High | Physical load feasibility constrains freight movements across transport modes.
+RELEVANCE High | Better load arrangements can reduce transport units and handling losses.
+HARDNESS High | NP-hard for general bin packing; Geometry, load bearing, weight distribution and unloading order interact.
+DEPENDENCIES LOG13, LOG14, LOG15 → LOG18 → ∅.
+COMMENTS #DISP #LOG #plan #place #map #select ##container-loading ##geometry ##stability.
+
+
+LOG19 Container Vessel Stowage Planning.
+DESCRIPTION Assigns containers to vessel bays and cells under stability, structural load, segregation, access and port-call requirements.
+TEMPLATE Master bay planning and detailed vessel slot planning | Hierarchical master-planning MILP and slot CP; decomposition and matheuristics.
+REGIME #plan | Commits shipboard cargo positions before loading and sailing.
+STRUCTURE #map + #place | Maps containers to bays and cells and determines their stack positions under vessel stability and access laws.
+PRIORITY Medium | Stowage is central to cellular container shipping.
+RELEVANCE High | Better plans can reduce restows and preserve safe usable vessel capacity.
+HARDNESS High | NP-hard for established container-stowage models; Whole-vessel stability and sequential port access couple bay and slot choices.
+DEPENDENCIES LOG13 → LOG19 → LOG28.
+COMMENTS #DISP #LOG #plan #map #place ##stowage ##bay-planning ##stability.
+
+
+LOG20 Empty Vehicle and Transport-Unit Repositioning.
+DESCRIPTION Assigns empty vehicles or reusable transport units to relocation movements and times under demand, balance and movement-capacity limits.
+TEMPLATE Fleet rebalancing and empty-equipment distribution | Time-space min-cost flow; stochastic or robust integer rebalancing and rolling optimization.
+REGIME #plan + #dispatch | Prepares relocation movements or activates them from the current fleet state.
+STRUCTURE #map + #place + #link | Maps empty assets to relocation journeys, places moves in time and chooses connected movement paths.
+PRIORITY High | Directional demand creates recurring transport-asset imbalances.
+RELEVANCE High | Better relocations can reduce unavailable capacity and empty movement cost.
+HARDNESS Medium | Single-commodity min-cost flow is polynomial; discrete multimodal and coupled routing variants can be NP-hard; Forecast errors, transport capacity and type-specific deficits complicate repositioning.
+DEPENDENCIES LOG02, LOG08, LOG11, LOG43, LOG45 → LOG20 → LOG43, LOG45.
+COMMENTS #DISP #LOG #plan #dispatch #map #place #link ##repositioning ##empty-flow ##rebalancing.
+
+
+LOG21 Terminal and Warehouse Visit Appointment Scheduling.
+DESCRIPTION Places external vehicle visits into appointment windows under access, service capacity and carrier availability limits.
+TEMPLATE Truck appointment and access-quota planning | Slot-allocation MILP; queueing or simulation-supported appointment optimization.
+REGIME #plan + #allocate | Commits vehicle access windows and scarce appointment capacity.
+STRUCTURE #place + #map | Places vehicle visits in time slots and maps them to access or service classes.
+PRIORITY High | Appointment systems coordinate arrivals at congested handling facilities.
+RELEVANCE High | Better appointments can reduce waiting and prevent arrival peaks.
+HARDNESS Medium | Uncertain arrivals and downstream yard capacity require capacity-aware slot design.
+DEPENDENCIES LOG15 → LOG21 → LOG24, LOG25, LOG28.
+COMMENTS #DISP #LOG #plan #allocate #place #map ##appointment ##time-slots ##queueing.
+
+
+LOG22 Vessel Berth Allocation.
+DESCRIPTION Assigns vessels to berth positions and service times under quay geometry, draft, readiness and handling-capacity limits.
+TEMPLATE Berth planning and vessel service coordination | Spatial-temporal berth-allocation MILP/CP; robust scheduling and neighborhood search.
+REGIME #plan + #allocate | Commits scarce quay positions and vessel service intervals.
+STRUCTURE #place + #map | Places vessels along the quay and in time and maps them to eligible berth areas.
+PRIORITY Medium | Berth allocation is central to port-side vessel service.
+RELEVANCE High | Better berth plans can reduce vessel waiting and missed sailing windows.
+HARDNESS High | General spatial-temporal allocation includes NP-hard scheduling subcases; Arrival uncertainty, vessel dimensions and handling capacity interact.
+DEPENDENCIES LOG07, LOG28, LOG45 → LOG22 → LOG25, LOG28.
+COMMENTS #DISP #LOG #plan #allocate #place #map ##berth-allocation ##spatial-temporal ##port.
+
+
+LOG23 Aircraft Gate and Stand Assignment.
+DESCRIPTION Assigns aircraft visits to gates or stands and occupancy intervals under compatibility, separation and passenger-transfer limits.
+TEMPLATE Airport gate planning and stand allocation | Gate-assignment MILP; interval CP and robust assignment search.
+REGIME #allocate + #plan | Commits gates and occupancy periods to aircraft visits.
+STRUCTURE #map + #place | Maps aircraft visits to gates or stands and places occupation or tow intervals in time.
+PRIORITY Medium | Gate and stand capacity constrain airport aircraft visits.
+RELEVANCE High | Better assignments can reduce conflicts, towing and difficult transfers.
+HARDNESS High | General gate assignment contains hard assignment and scheduling variants; Compatibility, uncertain delays and transfer connections couple assignments.
+DEPENDENCIES LOG07, LOG45 → LOG23 → LOG36, LOG39.
+COMMENTS #DISP #LOG #allocate #plan #map #place ##gate-assignment ##airport ##interval.
+
+
+LOG24 Crossdock and Dock Processing Scheduling.
+DESCRIPTION Assigns inbound and outbound vehicles to doors and processing times under cargo-transfer precedence, door capacity and buffer limits.
+TEMPLATE Crossdock truck sequencing and dock coordination | Truck-door scheduling MILP/CP; decomposition and neighborhood search.
+REGIME #plan | Commits door processing order and service times before transfers execute.
+STRUCTURE #place + #map | Places vehicle processing in time and maps visits to doors; cargo availability constrains precedence.
+PRIORITY High | Dock synchronization governs flow through crossdocks and distribution terminals.
+RELEVANCE High | Better schedules can reduce vehicle dwell and transfer blockage.
+HARDNESS High | NP-hard for general coupled inbound-outbound scheduling; Truck order, transfer readiness and limited temporary storage interact.
+DEPENDENCIES LOG04, LOG13, LOG14, LOG21 → LOG24 → LOG28, LOG34.
+COMMENTS #DISP #LOG #plan #place #map ##crossdock ##dock ##precedence.
+
+
+LOG25 Terminal Yard Storage Assignment.
+DESCRIPTION Assigns cargo or transport units to yard blocks and storage positions under space, compatibility, access and departure requirements.
+TEMPLATE Terminal yard-space allocation and stacking policy | Yard-assignment MILP; dynamic stacking and neighborhood search.
+REGIME #allocate | Commits available yard positions to arriving or planned cargo.
+STRUCTURE #map + #place | Maps cargo to yard areas and positions it within stacks or storage space.
+PRIORITY High | Temporary storage and access constrain freight-terminal throughput.
+RELEVANCE High | Better positions can reduce yard congestion and repeated handling.
+HARDNESS High | Departure order, space and handling-resource access interact.
+DEPENDENCIES LOG04, LOG13, LOG21, LOG22 → LOG25 → LOG26, LOG28.
+COMMENTS #DISP #LOG #allocate #map #place ##yard ##storage-assignment ##stacking.
+
+
+LOG26 Stack Relocation and Premarshalling.
+DESCRIPTION Selects and orders cargo relocation moves to expose required units or prepare a feasible retrieval order under stack-access and space limits.
+TEMPLATE Container rehandling and stack premarshalling | State-space branch and bound or A*; relocation MILP and look-ahead search.
+REGIME #plan + #dispatch | Prepares retrieval access or selects immediate relocations from an observed stack state.
+STRUCTURE #place + #select | Orders relocation moves, determines destination stack positions and selects which units to move.
+PRIORITY Medium | Stack-access conflicts recur in dense storage yards.
+RELEVANCE High | Better relocations can reduce repeated lifts and retrieval delay.
+HARDNESS High | Established block-relocation variants are NP-hard; Temporary-space limits and uncertain retrieval order create coupled move sequences.
+DEPENDENCIES LOG25 → LOG26 → LOG28.
+COMMENTS #DISP #LOG #plan #dispatch #place #select ##relocation ##premarshalling ##stacking.
+
+
+LOG27 Rail Yard Shunting and Train-Unit Arrangement.
+DESCRIPTION Assigns rail vehicles to tracks and orders coupling, uncoupling, parking and transfer moves under access, composition and departure limits.
+TEMPLATE Freight classification and train-unit shunting | Track-and-movement MILP/CP; column generation and shunting search.
+REGIME #plan + #operate | Prepares or orchestrates physical yard movements that form required departures.
+STRUCTURE #place + #map + #link | Places yard moves in order and time, maps vehicles to tracks and chooses train-unit couplings.
+PRIORITY Medium | Rail yards and depots require feasible physical train arrangements.
+RELEVANCE High | Better shunting can reduce yard blockage and missed train departures.
+HARDNESS High | Integrated shunting with service scheduling contains NP-hard subproblems; Track access, unit composition and move conflicts constrain rearrangement.
+DEPENDENCIES LOG09, LOG12 → LOG27 → LOG41.
+COMMENTS #DISP #LOG #plan #operate #place #map #link ##shunting ##rail ##coupling.
+
+
+LOG28 Cargo Handling Equipment Scheduling.
+DESCRIPTION Assigns cargo lifts, storage-retrieval tasks and transfer work to handling equipment and times under access, interference and service-precedence limits.
+TEMPLATE Crane, shuttle and storage-retrieval equipment coordination | Resource-constrained scheduling MILP/CP; decomposition and rolling search.
+REGIME #plan + #operate | Prepares and coordinates equipment work during cargo service.
+STRUCTURE #place + #map | Places handling tasks in time and maps them to eligible equipment; interference and precedence constrain execution.
+PRIORITY High | Handling-resource schedules control warehouse and terminal service throughput.
+RELEVANCE High | Better schedules can reduce blocked equipment and missed transfer commitments.
+HARDNESS High | General scheduling variants are NP-hard; restricted single-machine cycles differ; Interference, synchronized transfers and uncertain task readiness couple resources.
+DEPENDENCIES LOG03, LOG19, LOG21, LOG22, LOG24, LOG25, LOG26 → LOG28 → LOG22.
+COMMENTS #DISP #LOG #plan #operate #place #map ##crane-scheduling ##storage-retrieval ##interference.
+
+
+LOG29 Warehouse Product Slotting and Forward-Area Allocation.
+DESCRIPTION Assigns products to storage or pick locations and selects forward-area contents under space, compatibility, access and handling-work limits.
+TEMPLATE Storage-location and forward-reserve allocation | Storage-assignment MILP; class-based policies, integer allocation and neighborhood search.
+REGIME #allocate + #plan | Commits product storage locations and prepares pick-area contents.
+STRUCTURE #map + #select | Maps products to supplied locations and selects forward-area contents or space options.
+PRIORITY High | Product positions determine repeated warehouse pick and replenishment work.
+RELEVANCE High | Better slotting can reduce recurring travel and internal replenishment effort.
+HARDNESS High | Simple linear assignment is polynomial; capacity and correlated-product allocation can be NP-hard; Space, affinity, pick frequency and replenishment work compete.
+DEPENDENCIES LOG04 → LOG29 → LOG30, LOG31, LOG32, LOG33.
+COMMENTS #DISP #LOG #allocate #plan #map #select ##slotting ##forward-reserve ##storage-assignment.
+
+
+LOG30 Warehouse Order Batching.
+DESCRIPTION Groups warehouse orders into pick batches under handling capacity, compatibility and completion requirements.
+TEMPLATE Order clustering and batch-picking planning | Capacity-constrained batching MILP; route-aware neighborhood search.
+REGIME #plan | Prepares groups of orders that will be picked together.
+STRUCTURE #map | Maps orders to pick batches; batch capacity and order integrity constrain grouping.
+PRIORITY High | Batch formation coordinates common manual picking systems.
+RELEVANCE High | Better batches can reduce duplicated pick travel and missed completion targets.
+HARDNESS High | Established order-batching variants are NP-hard; Order combinations depend on route costs, item locations and deadlines.
+DEPENDENCIES LOG29, LOG35 → LOG30 → LOG31, LOG35.
+COMMENTS #DISP #LOG #plan #map ##order-batching ##grouping ##warehouse.
+
+
+LOG31 Warehouse Picker Routing.
+DESCRIPTION Constructs pick tours through supplied warehouse locations under required picks, access, travel and return conditions.
+TEMPLATE Picker-to-parts travel planning | Warehouse-specific dynamic programming; TSP/MILP and route search for general layouts.
+REGIME #plan | Prepares movement tours for supplied pick work.
+STRUCTURE #link | Chooses connected travel succession through required pick positions.
+PRIORITY High | Picker travel is a central physical movement in manual fulfillment.
+RELEVANCE High | Better tours can reduce repeated travel within warehouse fulfillment.
+HARDNESS Medium | Restricted rectangular-aisle tours admit polynomial algorithms; general routing is NP-hard; Irregular layouts, access restrictions and multi-picker congestion complicate tours.
+DEPENDENCIES LOG04, LOG29, LOG30, LOG33 → LOG31 → ∅.
+COMMENTS #DISP #LOG #plan #link ##picker-routing ##warehouse ##path.
+
+
+LOG32 Goods-to-Person Fulfillment Assignment and Sequencing.
+DESCRIPTION Selects pods or racks, assigns orders and visits to pick stations and orders station work under item availability and station limits.
+TEMPLATE Parts-to-picker station and pod coordination | Order-pod-station MILP; decomposition and large-neighborhood search.
+REGIME #plan + #operate | Prepares or coordinates station work and pod visits for fulfillment.
+STRUCTURE #map + #select + #place | Maps orders and pod visits to stations, selects pods and places station work in order or time.
+PRIORITY Medium | Station-pod coordination defines goods-to-person fulfillment.
+RELEVANCE High | Better coordination can reduce pod visits and station waiting.
+HARDNESS High | Pod overlap, order availability and station capacity couple fulfillment decisions.
+DEPENDENCIES LOG03, LOG29, LOG33, LOG35, LOG42 → LOG32 → LOG33, LOG42.
+COMMENTS #DISP #LOG #plan #operate #map #select #place ##goods-to-person ##pod-selection ##sequencing.
+
+
+LOG33 Warehouse Internal Replenishment Move Scheduling.
+DESCRIPTION Selects and schedules stocked-product transfers from reserve storage to pick locations under access, handling capacity and pick-readiness limits.
+TEMPLATE Reserve-to-forward physical replenishment coordination | Picking-replenishment MILP; resource scheduling and rolling task optimization.
+REGIME #operate + #dispatch | Coordinates internal transfer execution and activates immediate replenishment work.
+STRUCTURE #place + #map + #select | Places transfer tasks in time, maps them to handling resources and selects feasible moves.
+PRIORITY High | Pick areas require timely internal stock movements.
+RELEVANCE High | Better transfers can reduce pick starvation and aisle interference.
+HARDNESS Medium | Transfer readiness, pick urgency and shared equipment require frequent coordination.
+DEPENDENCIES LOG29, LOG32, LOG35 → LOG33 → LOG31, LOG32.
+COMMENTS Scope is movement of available stock; replenishment policy belongs to SCM | #DISP #LOG #operate #dispatch #place #map #select ##internal-replenishment ##synchronization ##handling.
+
+
+LOG34 Parcel and Baggage Sortation Allocation and Scheduling.
+DESCRIPTION Assigns destinations or handling flows to sortation resources and schedules input work under conveyor, outfeed and connection limits.
+TEMPLATE Sorter induction, chute and baggage-build coordination | Chute-assignment and induction-scheduling MILP; dynamic load balancing and simulation-supported search.
+REGIME #plan + #operate | Prepares sortation assignments and coordinates input work during operation.
+STRUCTURE #map + #place | Maps flows to outfeeds or stations and places induction and collection work in time.
+PRIORITY Medium | Dedicated sortation resources are central to parcel and baggage hubs.
+RELEVANCE High | Better assignments can reduce recirculation, overloaded outfeeds and missed connections.
+HARDNESS High | Conveyor travel, changing destinations and finite outfeed capacity interact.
+DEPENDENCIES LOG03, LOG14, LOG24, LOG35 → LOG34 → LOG35.
+COMMENTS #DISP #LOG #plan #operate #map #place ##sortation ##baggage ##conveyor.
+
+
+LOG35 Warehouse Work Release and Wave Control.
+DESCRIPTION Selects warehouse orders and release times under fulfillment workload, downstream space and shipment-completion limits.
+TEMPLATE Wave and waveless workload release | State-based release policies; queueing and simulation optimization; rolling selection models.
+REGIME #dispatch + #operate | Authorizes short-cycle entry of orders into ongoing warehouse work.
+STRUCTURE #select + #place | Selects orders to release and places their entry epochs under downstream workload limits.
+PRIORITY High | Release control governs how warehouse demand becomes executable work.
+RELEVANCE High | Better release can reduce congestion and missed shipment cutoffs.
+HARDNESS Medium | Stale state and coupled downstream buffers require feedback-based decisions.
+DEPENDENCIES LOG30, LOG34 → LOG35 → LOG30, LOG32, LOG33, LOG34.
+COMMENTS #DISP #LOG #dispatch #operate #select #place ##wave-release ##waveless ##workload-control.
+
+
+LOG36 Aircraft Turnaround and Ground-Service Scheduling.
+DESCRIPTION Assigns ground-service vehicles and equipment and schedules aircraft service tasks under task precedence, travel and departure limits.
+TEMPLATE Aircraft turnaround and ground-support coordination | Resource-constrained project scheduling and multi-fleet routing MILP; decomposition and rolling search.
+REGIME #plan + #operate | Prepares or coordinates physical aircraft servicing before departure.
+STRUCTURE #place + #map + #link | Places service tasks in time, maps them to ground resources and chooses travel succession for mobile resources.
+PRIORITY Medium | Aircraft departures depend on coordinated ground-service completion.
+RELEVANCE High | Better coordination can reduce turnaround delays and unused support capacity.
+HARDNESS High | General integrated models include NP-hard resource-constrained scheduling and routing; Multiple service fleets, precedence and short departure windows require coordinated search.
+DEPENDENCIES LOG09, LOG23 → LOG36 → LOG38, LOG39, LOG45.
+COMMENTS #DISP #LOG #plan #operate #place #map #link ##turnaround ##ground-handling ##synchronization.
+
+
+LOG37 Air Traffic Flow and Flight-Path Allocation.
+DESCRIPTION Selects flight paths and departure or sector-entry times under airport, airspace and flight-continuity limits.
+TEMPLATE Network air-traffic flow management and ground holding | Time-expanded flight-flow integer optimization; decomposition and rolling flow allocation.
+REGIME #plan + #dispatch | Prepares capacity-feasible flight movements and issues short-cycle flow restrictions.
+STRUCTURE #place + #link + #select | Places flight progress in time, chooses airspace paths and selects allowed delay or reroute actions.
+PRIORITY Medium | Airspace-capacity management constrains large flight networks.
+RELEVANCE Critical | Network flow decisions can propagate delay across many airports and flights.
+HARDNESS High | NP-hard for established flight-specific traffic-flow models; Sector bottlenecks, coupled flight continuity and uncertain capacity create network interactions.
+DEPENDENCIES LOG07, LOG40 → LOG37 → LOG38, LOG40, LOG45.
+COMMENTS #DISP #LOG #plan #dispatch #place #link #select ##air-traffic-flow ##sector-capacity ##ground-holding.
+
+
+LOG38 Runway Movement Sequencing and Scheduling.
+DESCRIPTION Assigns aircraft arrivals and departures to runways and movement times under separation, readiness and runway-use limits.
+TEMPLATE Arrival-departure sequencing and runway coordination | Aircraft-landing and mixed-movement MILP; constrained sequence search and dynamic programming.
+REGIME #plan + #dispatch | Prepares or issues runway movement order and times.
+STRUCTURE #place + #map | Places movements in order and time and maps them to eligible runways under separation laws.
+PRIORITY Medium | Runway movement conflicts define airport throughput limits.
+RELEVANCE High | Better sequences can reduce waiting and runway-capacity losses.
+HARDNESS High | General aircraft landing is NP-hard; a fixed-sequence single-runway restriction is polynomial; Sequence-dependent separation, mixed traffic and changing readiness constrain movement order.
+DEPENDENCIES LOG36, LOG37, LOG39 → LOG38 → LOG39.
+COMMENTS #DISP #LOG #plan #dispatch #place #map ##runway ##separation ##sequencing.
+
+
+LOG39 Airport Surface Movement Routing and Scheduling.
+DESCRIPTION Constructs taxi or towing paths and movement times under aircraft readiness, taxiway occupancy and runway or stand access limits.
+TEMPLATE Airport surface traffic deconfliction | Conflict-free taxi-routing MILP; rolling spatial-temporal scheduling.
+REGIME #plan + #dispatch | Prepares or issues near-term airport surface movements.
+STRUCTURE #link + #place | Chooses surface path succession and places aircraft or towing movements in time under occupancy and separation laws.
+PRIORITY Medium | Busy airports require feasible surface movement plans.
+RELEVANCE High | Better paths and timings can reduce taxi conflicts and missed movement slots.
+HARDNESS High | Uncoupled paths are polynomial; coupled movement scheduling can be NP-hard; Shared taxiways and uncertain aircraft readiness couple movement plans.
+DEPENDENCIES LOG23, LOG36, LOG38 → LOG39 → LOG38.
+COMMENTS #DISP #LOG #plan #dispatch #link #place ##taxi-routing ##airport ##conflict-free.
+
+
+LOG40 Airborne Conflict Resolution and Trajectory Recovery.
+DESCRIPTION Selects aircraft separation maneuvers or discrete recovery times and places trajectory changes under pairwise separation and waypoint-return limits.
+TEMPLATE Air-traffic conflict resolution and trajectory recovery | Disjunctive separation MIP/MINLP; iterative avoidance and recovery optimization.
+REGIME #dispatch + #adapt | Issues immediate separation actions and revises committed trajectories.
+STRUCTURE #place + #select | Places trajectory-change or recovery epochs and selects admissible maneuvers; pairwise separation constrains the trajectories.
+PRIORITY Medium | Airborne separation actions are specific to operating flight traffic.
+RELEVANCE Critical | Feasible separation decisions protect physical flight operation.
+HARDNESS High | Pairwise conflicts, nonlinear motion and recovery commitments require rapid coordinated search.
+DEPENDENCIES LOG37 → LOG40 → LOG37, LOG45.
+COMMENTS Requires genuine discrete maneuver or recovery-time choices | #DISP #LOG #dispatch #adapt #place #select ##aircraft-separation ##trajectory-recovery ##conflict-resolution.
+
+
+LOG41 Rail Movement Path Allocation and Traffic Scheduling.
+DESCRIPTION Assigns trains to track paths, platforms and movement times under headway, route-conflict and service-priority limits.
+TEMPLATE Infrastructure-resolved rail scheduling and dispatching | Disjunctive or alternative-graph scheduling MILP/CP; decomposition and rolling dispatch.
+REGIME #plan + #dispatch | Prepares resource-resolved train movements or issues them from current traffic state.
+STRUCTURE #place + #link + #map | Places movements in time, chooses connected track paths and maps trains to platforms or track resources.
+PRIORITY Medium | Shared-track rail operations require conflict-free train movements.
+RELEVANCE Critical | Network movement choices can affect throughput and propagate widespread delays.
+HARDNESS High | NP-hard for established real-time train scheduling and routing models; Headways, junction conflicts and network delay propagation require tailored decomposition.
+DEPENDENCIES LOG07, LOG27 → LOG41 → LOG45.
+COMMENTS #DISP #LOG #plan #dispatch #place #link #map ##rail ##train-dispatching ##headway.
+
+
+LOG42 Automated Handling Fleet Task and Path Coordination.
+DESCRIPTION Assigns transfer tasks to mobile handling vehicles and constructs collision-free paths and times under access, occupancy and task-precedence limits.
+TEMPLATE AGV and mobile-robot traffic coordination | Multi-agent pickup-delivery and path finding; conflict-based search, prioritized planning and rolling collision resolution.
+REGIME #operate + #dispatch | Coordinates ongoing vehicle motion and assigns arriving transfer work.
+STRUCTURE #link + #place + #map | Chooses vehicle paths, places movements in time and maps transfer tasks to vehicles under collision and access laws.
+PRIORITY Medium | Automated warehouses and terminals require coordinated handling-fleet movement.
+RELEVANCE High | Better coordination can reduce vehicle blockage and handling delay.
+HARDNESS High | Optimal multi-agent path planning is NP-hard for established objectives; Dense occupancy and continuously arriving tasks create coupled path conflicts.
+DEPENDENCIES LOG03, LOG04, LOG32 → LOG42 → LOG32.
+COMMENTS #DISP #LOG #operate #dispatch #link #place #map ##multi-agent-path-finding ##agv ##collision-avoidance.
+
+
+LOG43 Dynamic Transport Request Dispatch.
+DESCRIPTION Selects arriving transport requests, assigns them to vehicles and updates immediate service journeys under observed capacity, waiting and commitment limits.
+TEMPLATE Demand-responsive dispatch and online request insertion | Trip-vehicle assignment MILP; matching, insertion and rolling route search.
+REGIME #dispatch | Commits immediate service responses from observed vehicle and request state.
+STRUCTURE #map + #select + #link + #place | Maps requests to vehicles, selects feasible trips, updates journey succession and places service visits in time.
+PRIORITY Critical | Live transport systems must commit vehicles to arriving requests.
+RELEVANCE High | Better dispatch can reduce waiting, rejected requests and unproductive travel.
+HARDNESS High | Bipartite matching is polynomial; pooled-trip assignment and integrated routing can be NP-hard; Request arrivals, existing commitments and latency constrain route updates.
+DEPENDENCIES LOG05, LOG11, LOG15, LOG16, LOG17, LOG20, LOG45 → LOG43 → LOG20, LOG45.
+COMMENTS Clinical dispatch belongs to HC when patient conditions define service | #DISP #LOG #dispatch #map #select #link #place ##dynamic-dispatch ##ride-sharing ##rolling-horizon.
+
+
+LOG44 Real-Time Passenger Service Regulation.
+DESCRIPTION Selects holding, stop-skipping, short-turning or interlining actions and revises immediate service times under headway, transfer and passenger limits.
+TEMPLATE Headway regulation and transfer-protection control | Rolling control MILP and model predictive control; policy and simulation comparison.
+REGIME #dispatch + #operate | Issues short-cycle service actions during ongoing passenger transport.
+STRUCTURE #select + #place + #link | Selects control actions, places departures or holds in time and changes service connections when required.
+PRIORITY Medium | Passenger networks require live regulation when scheduled service drifts.
+RELEVANCE High | Better regulation can reduce bunching and missed transfers.
+HARDNESS Medium | Passenger arrivals, uncertain travel and competing headway and transfer targets require feedback.
+DEPENDENCIES LOG07, LOG45 → LOG44 → LOG45.
+COMMENTS #DISP #LOG #dispatch #operate #select #place #link ##holding ##short-turning ##transfer-protection.
+
+
+LOG45 Transport Plan Repair and Disruption Recovery.
+DESCRIPTION Revises issued transport services, vehicle duties and shipment or passenger journeys after disruption under frozen commitments and recovery limits.
+TEMPLATE Transport disruption management and integrated recovery | Repair MILP/CP; recovery network flow, decomposition and large-neighborhood search.
+REGIME #adapt | Revises prior transport commitments after material disruption.
+STRUCTURE #select + #map + #link + #place | Selects changed commitments, reassigns resources, reconnects journeys and revises their times.
+PRIORITY High | Transport plans face recurring vehicle, facility and network disruptions.
+RELEVANCE Critical | Large disruptions can propagate losses across an entire transport network.
+HARDNESS Critical | General recovery includes NP-hard routing and scheduling subproblems; Frozen work, multiple resources and connected passenger or freight commitments require rapid coordinated repair.
+DEPENDENCIES LOG09, LOG15, LOG20, LOG36, LOG37, LOG40, LOG41, LOG43, LOG44 → LOG45 → LOG07, LOG09, LOG13, LOG15, LOG20, LOG22, LOG23, LOG43, LOG44.
+COMMENTS Crew rostering and legality remain coupled HR inputs | #DISP #LOG #adapt #select #map #link #place ##recovery ##rescheduling ##stability.
