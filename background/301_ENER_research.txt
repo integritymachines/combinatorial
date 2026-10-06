@@ -380,18 +380,18 @@ Useful comments/descriptors: This card requires coordinated action choice beyond
 Industrial upstream keys: commitment, hydro, storage, flex, trans_switch, feeder, voltage.
 
 KEY rotation — Rotational Utility Load-Shedding Scheduling
-Decision and scope: Assign planned power interruptions to service zones and periods under supply shortage, fairness, critical-load and switching limits.
+Decision and scope: Select planned power interruptions and their times for supplied service zones under shortage, fairness, critical-load and switching limits.
 Aliases: Rotational load shedding; rolling blackout schedule; planned interruption scheduling.
-Material variants: Zone/group allocation; fair burden; protected loads; switching budgets; rolling updates.
+Material variants: Supplied zones or zone groups; fair burden; protected loads; switching budgets; rolling updates. Independent group construction is not established.
 Identity and ownership boundary: Physical planned utility service under sustained scarcity. Tariff design is MKT. Immediate protective shedding responds to a disturbance and has different frequency-response feasibility.
 Supplied substrate: Supply shortfall forecasts, service zones, critical-load exemptions, permitted groups and interruption limits.
-Chosen construction: Maps service zones to outage groups and places interruption intervals in time.
+Chosen construction: Places interruption events in time and selects discrete interruption-count or duration configurations.
 Constitutive laws and feasibility: Adequate shed quantity, zone eligibility, interruption duration and fairness constrain assigned outages.
-Delivered artifact: Zone/group interruption calendar and service allocation.
+Delivered artifact: Zone interruption calendar with selected event counts and durations.
 Template basis: Rotating-outage and shortage-service planning | Zone-period integer scheduling; bilinear reformulation and rolling optimization.
-Evidence and competing approaches: S41 directly formulates rotational zone outage numbers/durations as integer optimization. Fairness is a supplied physical service obligation, not a new Regime or Structure.
+Evidence and competing approaches: S41 supports discrete interruption numbers/durations and actual calendars for supplied service zones. PLACE records the calendar; SELECT records discrete interruption configurations. No independent zone-to-group construction is established, so MAP is removed from the canonical scope.
 Source support: S41.
-Ontology inference: Primary ENER; Regime #plan + #allocate; Structure #map + #place. Plans interruptions and allocates scarce service across zones.
+Ontology inference: Primary ENER; Regime #plan + #allocate; Structure #place + #select. Plans interruptions and allocates scarce service across zones.
 Rating inference: Priority Medium — Rotating service plans are recurring under sustained supply shortage. Relevance High — Better interruptions can preserve critical service and distribute shortage costs. Hardness High — Fairness, outage duration and changing shortages couple zones and periods.
 Useful comments/descriptors: Planned rationing differs from immediate frequency emergency shedding. ##rotating-outage ##rationing ##fairness.
 Industrial upstream keys: distribution, outage, commitment, storage, flex.
