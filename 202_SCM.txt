@@ -1,0 +1,268 @@
+202_SCM.txt
+Supply Chain & Inventory
+v0.1 | 7 October 2026 | Problem layer
+Normative Domain: 202 #SCM.
+
+SCM01 Supply Network Facility and Capacity Design.
+DESCRIPTION Select stocking and supply facilities, discrete capacities and service-area assignments under investment, supply and delivery limits.
+TEMPLATE Supply footprint and capacitated facility location | Facility-location MILP; Benders decomposition and network search.
+REGIME #design | Commits the supply footprint and capacity before downstream supply planning.
+STRUCTURE #select + #map | Selects facilities and capacity options and maps demand regions to them.
+PRIORITY Critical | The supply footprint constrains most substantial multi-site deployments.
+RELEVANCE Critical | Better sites and capacities can change enterprise-scale cost and service.
+HARDNESS High | NP-hard for general discrete facility location; Facility choices, supply assignments and uncertain demand interact.
+DEPENDENCIES ∅ → SCM01 → SCM03, SCM04, SCM05, SCM08.
+COMMENTS Carrier hub design belongs to LOG | #DISP #SCM #design #select #map ##network-design ##facility-location ##capacity.
+
+SCM02 Supplier Portfolio and Backup Supply Configuration.
+DESCRIPTION Select approved suppliers and discrete supply commitments to cover material needs under capability, concentration and disruption limits.
+TEMPLATE Strategic sourcing and supply-risk diversification | Portfolio MILP or stochastic MIP with backup-capacity decisions.
+REGIME #design | Establishes active and backup supply options before orders are allocated.
+STRUCTURE #select + #map | Selects suppliers and commitment options and maps material families to sources.
+PRIORITY High | Supplier portfolios recur across major buying organizations.
+RELEVANCE Critical | Supply failures and source commitments can affect the whole enterprise.
+HARDNESS High | NP-hard for minimum-cost discrete coverage variants; Coverage, concentration and correlated disruptions couple supplier choices.
+DEPENDENCIES ∅ → SCM02 → SCM08, SCM09, SCM13, SCM23.
+COMMENTS Commercial terms and bid clearing remain a MKT interface | #DISP #SCM #design #select #map ##supplier-selection ##dual-sourcing ##resilience.
+
+SCM03 Supply Chain Decoupling and Postponement Configuration.
+DESCRIPTION Assign products and supply stages to forecast-driven or order-driven stocking modes under service, lead-time and capability limits.
+TEMPLATE Customer-order decoupling and postponement design | Two-stage stochastic MILP; scenario comparison.
+REGIME #design | Establishes stock commitment modes before product-specific supply plans.
+STRUCTURE #map | Maps products and supply stages to forecast-driven or order-driven roles.
+PRIORITY Medium | Decoupling choices are central to mixed stock and order-driven supply.
+RELEVANCE High | Better modes can reduce stock exposure without losing response speed.
+HARDNESS High | Demand uncertainty and downstream customization lead times couple mode choices.
+DEPENDENCIES SCM01 → SCM03 → SCM05, SCM08.
+COMMENTS #DISP #SCM #design #map ##postponement ##decoupling ##make-to-order.
+
+SCM04 Repair Supply Support Configuration.
+DESCRIPTION Assign failed-component types to repair or discard at support echelons and select support resources under restoration-service and cost limits.
+TEMPLATE Level of repair analysis | LORA integer programming; joint iteration with spare-stock optimization.
+REGIME #design | Establishes restoration supply roles and support capability before replenishment.
+STRUCTURE #map + #select | Maps component types to repair or discard roles and support echelons and selects required support resources.
+PRIORITY Medium | Repair support configuration is central to repairable asset supply systems.
+RELEVANCE High | Better support can reduce downtime and life-cycle supply cost.
+HARDNESS High | Shared support resources and repairable component hierarchies couple design choices.
+DEPENDENCIES SCM01 → SCM04 → SCM05, SCM06, SCM12, SCM20.
+COMMENTS Technical repair execution remains a PROD interface | #DISP #SCM #design #map #select ##level-of-repair ##repairable ##support-network.
+
+SCM05 Item-Location Stocking Coverage.
+DESCRIPTION Select item-location pairs to stock under supply eligibility, service coverage, space and investment limits.
+TEMPLATE Stocking and destocking with service coverage | Binary coverage optimization; joint location-inventory MIP.
+REGIME #design + #adapt | Establishes stocking coverage; adaptation changes existing stock entitlements.
+STRUCTURE #select | Selects the item-location stock positions that are maintained.
+PRIORITY High | Stocked-location choices recur across distribution and spare-parts networks.
+RELEVANCE High | Better coverage can reduce idle stock and improve local availability.
+HARDNESS High | Many item-site choices interact with shared space and service targets.
+DEPENDENCIES SCM01, SCM03, SCM04 → SCM05 → SCM06, SCM15.
+COMMENTS Commercial assortment belongs to MKT; physical slotting belongs to LOG | #DISP #SCM #design #adapt #select ##stocking ##coverage ##stocked-location.
+
+SCM06 Multi-Echelon Inventory Buffer Optimization.
+DESCRIPTION Assign discrete stock targets and service-time choices across supply echelons to meet service requirements within inventory and capacity limits.
+TEMPLATE Multi-echelon service and inventory positioning | Guaranteed-service optimization or stochastic-service models; METRIC-family allocation for repairables.
+REGIME #plan | Sets future stock and service targets before replenishment commitments.
+STRUCTURE #map + #select | Maps stock and service settings to nodes and selects active buffers when required.
+PRIORITY Critical | Inventory positioning is central to substantial supply networks.
+RELEVANCE Critical | Better buffers can release working capital while preserving service.
+HARDNESS High | Service dependencies, shared capacity and uncertain lead times couple node targets.
+DEPENDENCIES SCM04, SCM05 → SCM06 → SCM07, SCM08, SCM12, SCM13.
+COMMENTS Requires discrete stock, buffer activation or service choices | #DISP #SCM #plan #map #select ##multi-echelon ##inventory-positioning ##service-level.
+
+SCM07 Inventory Replenishment Policy Configuration.
+DESCRIPTION Assign discrete reorder rules, thresholds and review frequencies to item-locations under service and ordering-capacity limits.
+TEMPLATE Reorder-point, min-max and periodic-review policy design | Discrete policy optimization; stochastic dynamic programming and simulation comparison.
+REGIME #plan | Commits reusable reorder settings before individual supply orders.
+STRUCTURE #map | Maps item-locations to discrete reorder and review settings.
+PRIORITY Critical | Reorder rules govern recurring replenishment in most stocking systems.
+RELEVANCE High | Better settings can reduce stockouts and avoid unnecessary orders.
+HARDNESS Medium | Discrete settings and uncertain demand require model calibration and policy comparison.
+DEPENDENCIES SCM06 → SCM07 → SCM10, SCM11, SCM15, SCM22.
+COMMENTS Requires discrete policy settings or coupled reorder choices | #DISP #SCM #plan #map ##inventory-policy ##reorder-point ##periodic-review.
+
+SCM08 Integrated Supply and Operations Planning.
+DESCRIPTION Plan discrete supply commitments across procurement, production sources, inventory and distribution periods under demand and shared capacity limits.
+TEMPLATE Supply-constrained S&OP and integrated business planning | Supply-chain MILP; hierarchical decomposition and rolling optimization.
+REGIME #plan | Prepares a consistent future supply plan across the network.
+STRUCTURE #map + #place + #select | Maps requirements to sources, places supply in periods and selects discrete activations.
+PRIORITY Critical | Integrated supply balance connects the major SCM planning decisions.
+RELEVANCE Critical | A feasible network plan can change enterprise output, inventory and service.
+HARDNESS Critical | Many items, supply stages and frozen commitments require decomposition and rolling planning.
+DEPENDENCIES SCM01, SCM02, SCM03, SCM06, SCM24 → SCM08 → SCM09, SCM11, SCM12, SCM14, SCM24.
+COMMENTS Detailed production feasibility remains a PROC or PROD interface | #DISP #SCM #plan #map #place #select ##integrated-planning ##material-balance ##rolling-horizon.
+
+SCM09 Supplier Order Allocation.
+DESCRIPTION Assign material requirements and discrete purchase quantities to active suppliers under eligibility, capacity, delivery and discount limits.
+TEMPLATE Multi-source procurement and order splitting | Order-allocation MILP with MOQ and discount constraints.
+REGIME #allocate | Commits material requirements to available supply sources.
+STRUCTURE #map + #select | Maps requirements to suppliers and selects discrete purchase or discount configurations.
+PRIORITY High | Order splitting recurs across multi-source buying organizations.
+RELEVANCE High | Better allocations can reduce purchase cost and supply shortfalls.
+HARDNESS Medium | Polynomial for divisible linear allocation; discrete discount and activation variants can be NP-hard; Capacity, delivery, discounts and item coupling require careful formulations.
+DEPENDENCIES SCM02, SCM08, SCM24 → SCM09 → SCM10, SCM24.
+COMMENTS Commercial terms are supplied | #DISP #SCM #allocate #map #select ##order-allocation ##procurement ##quantity-discounts.
+
+SCM10 Purchase Replenishment Lot Planning.
+DESCRIPTION Choose purchase lots and order periods under demand, lead-time, pack-size, storage and ordering limits.
+TEMPLATE Procurement lot sizing and coordinated replenishment | Dynamic programming for uncapacitated single-item lots; MILP for coupled and joint orders.
+REGIME #plan | Commits future purchase lots and order periods.
+STRUCTURE #select + #place | Selects purchase events and places lots in order or receipt periods.
+PRIORITY Critical | Purchase lot plans connect future demand to supply orders.
+RELEVANCE High | Better lots can reduce stock, ordering cost and missed demand.
+HARDNESS High | Polynomial for single-item uncapacitated dynamic lots; NP-hard for general discrete-time joint replenishment; Joint charges, storage, discounts and many items couple order periods.
+DEPENDENCIES SCM07, SCM09, SCM24 → SCM10 → SCM11, SCM22.
+COMMENTS Production lot sizing belongs to PROC or PROD | #DISP #SCM #plan #select #place ##lot-sizing ##joint-replenishment ##purchase-planning.
+
+SCM11 Distribution Requirements and Deployment Planning.
+DESCRIPTION Assign replenishment supply to destination stockpoints and receipt periods under network, availability and storage limits.
+TEMPLATE DRP and push-pull stock deployment | Time-expanded distribution MILP; prioritized deployment and robust planning.
+REGIME #plan + #allocate | Prepares stock replenishment plans and allocates supply to destinations.
+STRUCTURE #map + #place | Maps replenishment lots to stockpoints and places receipts in periods.
+PRIORITY High | Deployment planning recurs across multi-echelon distribution systems.
+RELEVANCE High | Better deployment can reduce regional stockouts and excess stock.
+HARDNESS High | Shared supply, pack sizes, storage and uncertain demand couple destinations.
+DEPENDENCIES SCM07, SCM08, SCM10, SCM24 → SCM11 → SCM14, SCM16, SCM21, SCM22, SCM24.
+COMMENTS Physical shipment execution belongs to LOG | #DISP #SCM #plan #allocate #map #place ##drp ##deployment ##multi-echelon.
+
+SCM12 Repairable Stock Repair-or-Buy Provisioning.
+DESCRIPTION Choose repairable cores, repair requests and purchases to restore serviceable inventory under demand, yield and supply-capacity limits.
+TEMPLATE Repairable inventory replenishment and buy-repair control | Stochastic dynamic programming; repair-buy inventory MIP.
+REGIME #plan + #operate | Plans restoration supply and issues requests during stock operation.
+STRUCTURE #select + #map + #place | Selects cores and supply actions, maps them to sources and places requests in periods.
+PRIORITY Medium | Buy-repair choices are central to repairable supply pools.
+RELEVANCE High | Better provisioning can reduce downtime and new-part procurement.
+HARDNESS High | Random failures, core returns and repair losses couple stock states.
+DEPENDENCIES SCM04, SCM06, SCM08, SCM20 → SCM12 → SCM13.
+COMMENTS Technical recovery execution remains a PROD interface | #DISP #SCM #plan #operate #select #map #place ##repairable ##repair-buy ##closed-loop-supply.
+
+SCM13 End-of-Life Supply Provisioning.
+DESCRIPTION Choose final purchases and eligible replacement supply actions to cover service demand after permanent source withdrawal.
+TEMPLATE Last-time buy and end-of-life service planning | Finite-horizon stochastic inventory optimization with repair and replacement options.
+REGIME #plan + #adapt | Commits terminal supply and revises provisioning after source withdrawal.
+STRUCTURE #select + #map | Selects terminal purchase lots and replacement supply actions and maps them to remaining service requirements.
+PRIORITY Medium | Terminal provisioning is central when long-lived products outlast component supply.
+RELEVANCE High | Better final supply can avoid stranded stock and service failure.
+HARDNESS High | Long demand tails, repair yield and irreversible final purchases create uncertainty.
+DEPENDENCIES SCM02, SCM06, SCM12 → SCM13 → SCM16, SCM20.
+COMMENTS Permanent source withdrawal defines this contract | #DISP #SCM #plan #adapt #select #map ##last-time-buy ##obsolescence ##service-parts.
+
+SCM14 Supply Reservation and Protection Allocation.
+DESCRIPTION Assign discrete supply entitlements to demand classes, customers or regions before individual order confirmation.
+TEMPLATE Supply protection and product allocation | Quota and reservation integer optimization with priority rules.
+REGIME #allocate | Reserves supply for demand classes before individual orders consume it.
+STRUCTURE #map | Maps supply entitlements to demand classes and protection periods.
+PRIORITY High | Protection allocation recurs when demand classes compete for shared supply.
+RELEVANCE High | Better entitlements can prevent early orders from consuming all supply.
+HARDNESS Medium | Changing availability and nested protection rules complicate allocations.
+DEPENDENCIES SCM08, SCM11, SCM24 → SCM14 → SCM16, SCM17.
+COMMENTS Requires discrete or coupled supply entitlements | #DISP #SCM #allocate #map ##supply-protection ##reservation ##quota.
+
+SCM15 Inventory Count Selection.
+DESCRIPTION Select item-location inventory counts under record-accuracy targets and available counting capacity.
+TEMPLATE Stratified and risk-based inventory cycle counting | Sampling-allocation optimization; constrained count selection.
+REGIME #plan + #dispatch | Prepares count selections or activates immediate counts from observed risk.
+STRUCTURE #select | Selects item-location count tasks to perform.
+PRIORITY Medium | Counting is a recurring support decision for inventory record accuracy.
+RELEVANCE Medium | Better counts can reduce phantom-stock failures and unnecessary verification.
+HARDNESS Medium | Risk estimates and limited count capacity affect task selection.
+DEPENDENCIES SCM05, SCM07 → SCM15 → SCM16, SCM22.
+COMMENTS Operational stock verification defines ownership | #DISP #SCM #plan #dispatch #select ##cycle-counting ##record-accuracy ##verification.
+
+SCM16 Supply-Constrained Order Promising.
+DESCRIPTION Assign feasible supply sources and confirmation dates to order requirements under available stock, planned receipts and prior commitments.
+TEMPLATE ATP/CTP and backorder reconfirmation | Batch order-promising MIP; availability and priority-based confirmation rules.
+REGIME #dispatch + #adapt | Issues supply-feasible order confirmations and revises existing confirmations.
+STRUCTURE #map + #place | Maps requirements to supply sources and places confirmed fulfillment dates in time.
+PRIORITY Critical | Order promising connects supply availability to customer commitments.
+RELEVANCE High | Better promises can reduce missed dates and overcommitment.
+HARDNESS High | Shared supply, alternative sources and frozen confirmations interact.
+DEPENDENCIES SCM11, SCM13, SCM14, SCM15, SCM24 → SCM16 → SCM17, SCM18, SCM23, SCM24.
+COMMENTS Commercial offer acceptance remains a MKT interface | #DISP #SCM #dispatch #adapt #map #place ##atp ##ctp ##order-promising.
+
+SCM17 Shortage Inventory Allocation and Rationing.
+DESCRIPTION Assign scarce stock and receipts to specific demand requirements under priorities, complete-order rules and supply protection.
+TEMPLATE Priority, fair-share and critical-level stock rationing | Allocation MILP; stochastic rationing policies.
+REGIME #allocate + #dispatch | Commits scarce supply to requirements, including immediate shortage responses.
+STRUCTURE #map + #select | Maps stock to requirements and selects complete requirements to serve.
+PRIORITY Critical | Scarce-supply allocation is central when demand exceeds immediate availability.
+RELEVANCE High | Better allocations can reduce costly service failure.
+HARDNESS High | Polynomial for simple divisible allocations; indivisible capacity allocation can be NP-hard; Order completeness, priorities and future demand compete for the same stock.
+DEPENDENCIES SCM14, SCM16 → SCM17 → SCM18, SCM21.
+COMMENTS Clinical triage belongs to HC when patient conditions define service | #DISP #SCM #allocate #dispatch #map #select ##shortage ##rationing ##fair-share.
+
+SCM18 Order Fulfillment Source Allocation.
+DESCRIPTION Assign confirmed order lines to stocked fulfillment sites or approved substitute items under inventory, capacity and delivery requirements.
+TEMPLATE Omnichannel order sourcing and stock pooling | Order-source allocation MILP; online assignment and rolling optimization.
+REGIME #allocate + #dispatch | Commits stock sources to confirmed orders or arriving fulfillment work.
+STRUCTURE #map | Maps order lines to fulfillment sites and eligible product alternatives.
+PRIORITY High | Source allocation recurs across multi-site and omnichannel fulfillment.
+RELEVANCE High | Better assignments can reduce split deliveries and stock imbalances.
+HARDNESS High | Polynomial for uncoupled flow allocation; indivisible capacity assignments can be NP-hard; Many lines, site capacities and shared inventories couple assignments.
+DEPENDENCIES SCM16, SCM17 → SCM18 → SCM19, SCM21.
+COMMENTS Includes approved substitutions; physical picking and routing belong to LOG | #DISP #SCM #allocate #dispatch #map ##omnichannel ##order-sourcing ##substitution.
+
+SCM19 Inventory Lot-to-Demand Assignment.
+DESCRIPTION Assign available inventory lots to order requirements under remaining shelf life, quality, reservation and same-lot conditions.
+TEMPLATE FEFO and homogeneous-lot inventory reservation | Eligibility-based allocation MILP; matching or flow for divisible restrictions.
+REGIME #allocate + #dispatch | Commits eligible inventory lots to current demand requirements.
+STRUCTURE #map | Maps stock lots to requirements under shelf-life, quality and same-lot conditions.
+PRIORITY Medium | Lot assignment is central where stock eligibility varies by batch.
+RELEVANCE High | Better assignments can reduce expiry loss and invalid fulfillment.
+HARDNESS Medium | Polynomial for divisible flow restrictions; indivisible lot allocation can be NP-hard; Customer shelf-life and same-lot conditions compete for eligible stock.
+DEPENDENCIES SCM18 → SCM19 → SCM20.
+COMMENTS Quality-release state is supplied; physical picking belongs to LOG | #DISP #SCM #allocate #dispatch #map ##lot-allocation ##shelf-life ##traceability.
+
+SCM20 Returned and Excess Inventory Disposition.
+DESCRIPTION Assign returned or excess inventory to retention, approved recovery supply, redistribution or disposal under condition, demand and capacity limits.
+TEMPLATE Return triage and excess-stock control | Inventory-disposition MDP; constrained action-assignment MIP.
+REGIME #operate | Commits ongoing stock to retention, recovery, redistribution or disposal.
+STRUCTURE #map | Maps stock units or lots to retention, recovery, redistribution or disposal actions.
+PRIORITY Medium | Disposition recurs in returned, repairable and obsolete stock systems.
+RELEVANCE High | Better actions can recover supply value and reduce stranded inventory.
+HARDNESS High | Uncertain recovery yield and future stock need couple action choices.
+DEPENDENCIES SCM04, SCM13, SCM19 → SCM20 → SCM12, SCM22, SCM24.
+COMMENTS Technical recovery and resale pricing remain external interfaces | #DISP #SCM #operate #map ##returns ##disposition ##excess-inventory.
+
+SCM21 Lateral Inventory Transshipment.
+DESCRIPTION Select stock transfers and destination quantities between existing stockpoints under local protection, lead-time and transfer limits.
+TEMPLATE Inventory balancing and lateral pooling | Transfer-allocation MILP; stochastic transshipment policies.
+REGIME #operate + #dispatch | Balances operating stock and activates immediate redistribution.
+STRUCTURE #map + #select | Maps transfer lots to destinations and selects feasible stock transfers.
+PRIORITY High | Stock rebalancing recurs across multi-site distribution and service networks.
+RELEVANCE High | Better transfers can prevent local stockouts without new procurement.
+HARDNESS High | Donor protection, uncertain demand and transfer delay couple destinations.
+DEPENDENCIES SCM11, SCM17, SCM18 → SCM21 → SCM22, SCM24.
+COMMENTS Physical transfer execution belongs to LOG | #DISP #SCM #operate #dispatch #map #select ##transshipment ##inventory-balancing ##pooling.
+
+SCM22 State-Based Replenishment Order Release.
+DESCRIPTION Select immediate purchase or transfer requests and discrete replenishment quantities from observed stock and pipeline state.
+TEMPLATE State-based min-max and reorder control | Reorder policies; stochastic dynamic programming and rolling replenishment optimization.
+REGIME #dispatch | Authorizes immediate replenishment from observed stock and pipeline state.
+STRUCTURE #select | Selects replenishment requests and discrete lot quantities for immediate release.
+PRIORITY Critical | Release decisions turn inventory policy into actual supply orders.
+RELEVANCE High | Better release can reduce shortages and excess replenishment.
+HARDNESS Medium | Live stock errors, pipeline updates and order limits require feedback.
+DEPENDENCIES SCM07, SCM10, SCM11, SCM15, SCM20, SCM21 → SCM22 → SCM23.
+COMMENTS Physical stock movement and production work release remain downstream | #DISP #SCM #dispatch #select #closedloop ##replenishment ##inventory-control.
+
+SCM23 Supply Expediting and Emergency Procurement.
+DESCRIPTION Select emergency supply or acceleration actions for threatened requirements under premium cost, availability and commitment limits.
+TEMPLATE Dual sourcing and inventory-driven expediting | Stochastic dual-source control; threshold policies and rolling action MIP.
+REGIME #dispatch + #adapt | Activates urgent supply actions and revises threatened supply commitments.
+STRUCTURE #select + #map | Selects emergency supply actions and maps them to threatened requirements.
+PRIORITY High | Emergency supply actions recur when ordinary replenishment misses demand.
+RELEVANCE High | Better actions can avoid downtime without excessive premiums.
+HARDNESS High | Uncertain receipts, several sources and existing commitments interact.
+DEPENDENCIES SCM02, SCM16, SCM22 → SCM23 → SCM24.
+COMMENTS Requires discrete rescue actions; transport execution belongs to LOG | #DISP #SCM #dispatch #adapt #select #map ##expediting ##emergency-sourcing ##dual-sourcing.
+
+SCM24 Supply Plan Disruption Recovery.
+DESCRIPTION Revise issued supply, sourcing and stock commitments after disruption under frozen orders, service obligations and recovery limits.
+TEMPLATE Supply disruption management and plan-stability control | Recovery MILP or stochastic MIP; rolling repair and decomposition.
+REGIME #adapt | Revises issued supply commitments after material disruption.
+STRUCTURE #select + #map + #place | Selects commitment changes, maps supply to revised sources and places revised receipts in time.
+PRIORITY High | Supply commitments must be revised after material disruptions.
+RELEVANCE Critical | Recovery quality can limit enterprise-wide shortages and lost output.
+HARDNESS Critical | Frozen orders, correlated shortages and short response windows couple repairs.
+DEPENDENCIES SCM08, SCM09, SCM11, SCM16, SCM20, SCM21, SCM23 → SCM24 → SCM08, SCM09, SCM10, SCM11, SCM14, SCM16.
+COMMENTS Transport and production schedule repair remain external interfaces | #DISP #SCM #adapt #select #map #place ##recovery ##replanning ##stability.
