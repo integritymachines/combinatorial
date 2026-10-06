@@ -1,0 +1,263 @@
+*Industrial Combinatorial Optimization* 
+v0.4 Oct 2026
+
+- Canonical ontology for industrial combinatorial optimization (ICO) systems.
+- Aims at near-exhaustive, minimally overlapping classification of commercially relevant combinatorial optimization systems.
+- Domains provide the canonical ordering axis; Industries provide an open cross-classification axis.
+
+**Ontology**
+
+1. Macro Domain     Closed grouping of Domains.
+2. Domain           Closed canonical ordering axis; where the decision lives.
+3. Industry         Open context axis; where the decision is instantiated.
+4. Industry Domain  Problem family at one Industry × Primary Domain intersection.
+5. Regime           Commitment stage of the decision.
+6. Structure        Combinatorial construction performed by the solver.
+7. Parameters       Operational and execution qualifiers.
+8. Descriptors      Open refinements.
+9. Problem          Stand-alone industrial combinatorial decision.
+
+**Macro Domains & Domains**
+
+1. #TRANS   Transformation: systems that change material or product state.
+   ├ #PROC  Process, Continuous & Batch Process Manufacturing
+   └ #PROD  Production, Discrete Manufacturing & Assembly
+
+2. #DISP    Displacement: systems that move goods, people, inventory, or service capacity through space or time.
+   ├ #LOG   Logistics & Transportation
+   └ #SCM   Supply Chain & Inventory
+
+3. #INFRA   Infrastructure: systems that provide shared physical service substrates and utilities.
+   ├ #ENER  Energy & Utility
+   └ #CIVIC Civic & Infrastructure
+
+4. #INFO    Information: systems where sensing, computation, coordination, or adversarial data processing dominates.
+   ├ #COMP  Computational & Digital Infrastructure
+   └ #INTEL Defense, Intelligence & Security
+
+5. #EXCH    Exchange: systems that orchestrate competing, contingent, and collusive claims across entities.
+   ├ #MKT   Market & Commercial Allocation
+   └ #FIN   Finance, Accounting, Insurance
+
+6. #HUMAN   Human: systems where human capability or human-centric activity dominates.
+   ├ #HC    Healthcare & Human-Critical Operational
+   └ #HR    Workforce & Organizational
+
+7. #RES     Resource: systems that extract, harvest, or allocate natural or geospatial resources.
+   ├ #EXTR  Resource Extraction
+   └ #LAND  Land Use
+
+- Every adequately specified Problem has exactly one Primary Domain.
+- Secondary Domains are optional and record material operational coupling.
+- Macro Domains group Domains and do not own Problems.
+
+A Problem belongs to:
+- #PROC when process units, recipes, material states, or transformation feasibility dominate. 
+- #PROD when manufactured products, components, fabrication, or assembly feasibility dominate. 
+- #LOG when journeys, vehicles, visits, handling, or physical movement execution dominate. 
+- #SCM when sourcing, availability, inventory, replenishment, or supply-position decisions dominate. 
+- #ENER when physical utility production, distribution, balance, or network operation dominate. 
+- #CIVIC when shared civic assets, public-service coordination, public works, or construction execution dominate. 
+- #COMP when computation, communication, sensing, storage, or digital-resource operation dominate. 
+- #INTEL when adversarial, protective, security, denial, or strategic-response conditions dominate. 
+- #MKT when commercial opportunities, offers, bids, rights, assortment, pricing, or market allocation dominate. 
+- #FIN when financial positions, claims, liquidity, settlement, reconciliation, or insurance-risk decisions dominate. 
+- #HC when clinical, patient, or direct-care conditions materially define feasibility or service.
+- #HR when workforce capacity, skills, staffing, or coordinated organizational human activity dominate. 
+- #EXTR when prospecting, extraction, depletion, wells, blocks, or nonrenewable resource activation dominate.
+- #LAND when land, geospatial assets, renewable resources, water rights, basins, or land-use allocation dominate. 
+
+- Primary Domain follows the industrial decision contract.
+- It does not change merely because Industry, Regime, Structure, representation, encoding, or solver formulation changes.
+- Interfaces record recurring operational coupling between Domains without changing Primary Domain.
+
+**Industries**
+
+- Industries form an open top-level classification axis alongside Domains.
+- An Industry may intersect any number of Domains.
+- Industry membership and naming are maintained in background research.
+
+**Industry Domains**
+
+- An Industry Domain lies at the intersection of exactly one Industry and exactly one Primary Domain.
+- Secondary Domains are optional.
+- Every Problem within an Industry Domain has the same Primary Domain.
+- A Problem with another Primary Domain belongs to another Industry Domain.
+- Domain remains the canonical ordering principle.
+
+**Regime**
+
+#design    Configure system structure or capacity before downstream commitment.
+#plan      Prepare future plans, schedules, campaigns, or policies.
+#allocate  Assign scarce resources, opportunities, or obligations.
+#operate   Orchestrate ongoing activities and immediate execution.
+#dispatch  Make short-cycle activation, release, prioritization, relocation, or local-repair decisions under evolving state.
+#adapt     Revise prior commitments in response to material change or disruption.
+
+- Regime is determined by the type of commitment, not horizon alone.
+
+**Structure**
+
+#select  Choose which candidate entities, configurations, or actions are included.
+#map     Assign entities to targets, roles, classes, groups, or resources.
+#link    Choose relations, adjacencies, transitions, or interconnections.
+#place   Position entities or activities in a structured spatial, temporal, metric, or ordered space.
+
+- Structure describes the combinatorial construction performed by the solver.
+- Do not infer Structure from supplied relations, formulation artifacts, feasibility conditions, objectives, or solver encoding.
+- A Problem has one Primary Structure and may have Secondary Structures required to construct the complete solution.
+
+**Parameters**
+
+#strategic  Strategic decision context.
+#tactical   Tactical decision context.
+#execution  Execution-stage decision context.
+#realtime   Decision must be produced under real-time latency.
+#rolling    Decision is repeatedly recomputed over an advancing horizon.
+#offline    Decision is computed without live execution-state updates.
+#online     Decision uses live or arriving execution-state information.
+#openloop   Decision is issued without feedback-driven revision.
+#closedloop Decision is revised using observed feedback.
+
+**Descriptors**
+
+Descriptors are open tags that refine industrial structure, mathematical form, structural laws, decomposition patterns, or established search terminology.
+
+Examples:
+##graph ##metric ##route ##tree ##partition ##schedule ##connectivity ##succession
+##precedence ##synchronization ##lot-sizing ##crew-pairing ##blending ##stn ##rtn
+##service-chaining ##inventory-positioning ##rolling-horizon ##coverage ##setup
+##network ##routing ##assignment
+
+**Priority**
+
+How central is this problem to the Domain's optimization stack.
+ 1.  Critical   Domain-defining problem encountered by most substantial deployments.
+                eg Operating-room scheduling (#HC), vehicle routing (#LOG), campaign scheduling (#PROC)
+ 2.  High       Common problem across multiple major subdomains but not universally present.
+                eg Vaccination allocation (#HC), blend optimization (#PROC), yard management (#LOG)
+ 3.  Medium     Important recurring problem restricted to particular subdomains or operating modes.
+                eg Organ allocation (#HC), refinery turnaround scheduling (#PROC)
+ 4.  Low        Peripheral, niche, or highly specialized problem.
+                eg Newspaper delivery routing (#LOG)
+
+**Relevance**
+
+How much economic, operational, or societal value is created by materially improving this problem.
+ 1.  Critical   Improvement produces strategic, life-critical, or enterprise-scale impact.
+                eg ICU allocation during surges (#HC), inventory positioning (#SCM), unit commitment (#ENER)
+ 2.  High       Improvement produces substantial recurring operational value.
+                eg Operating-room scheduling (#HC), warehouse slotting (#LOG), supplier allocation (#SCM)
+ 3.  Medium     Improvement produces localized or departmental value.
+                eg Diagnostic equipment scheduling (#HC), cross-dock scheduling (#LOG)
+ 4.  Low        Improvement produces limited operational leverage.
+                eg Small-facility visitor parking allocation (#CIVIC)
+
+**Hardness**
+
+How difficult is this problem to solve well at industrial scale using current methods.
+ 1.  Critical   State-of-the-art deployments rely heavily on decomposition, heuristics, aggregation, rolling horizons, or human intervention.
+                eg Hospital-wide patient-flow optimization (#HC), integrated supply-chain planning (#SCM), large combinatorial auction clearing (#MKT)
+ 2.  High       Industrial instances regularly require custom algorithms, decomposition, or substantial solver engineering.
+                eg Operating-room scheduling (#HC), VRP variants (#LOG), refinery scheduling (#PROC)
+ 3.  Medium     Commercial solvers routinely produce high-quality solutions, but formulation and scaling remain important.
+                eg Generic workforce rostering (#HR), capacitated facility location (#SCM), cloud resource placement (#COMP)
+ 4.  Low        Routinely solved exactly or near-exactly using standard methods at industrial scale.
+                eg Standard assignment, bipartite matching, min-cost flow
+
+**Tags**
+
+- '#' prefix   closed tag.
+- '##' prefix  open tag.
+- ALL CAPS     top-level entity tag.
+- lowercase    subordinate controlled value or open refinement.
+
+Closed top-level tags:
+- Macro Domain  #TRANS #DISP #INFRA #INFO #EXCH #HUMAN #RES
+- Domain        #PROC #PROD | #LOG #SCM | #ENER #CIVIC | #COMP #INTEL | #MKT #FIN | #HC #HR | #EXTR #LAND
+
+Open top-level tags:
+- Industry      ##ALLCAPS
+
+Closed subordinate tags:
+- Regime        #design #plan #allocate #operate #dispatch #adapt
+- Structure     #select #map #link #place
+- Parameters    #strategic #tactical #execution #realtime #rolling #offline #online #openloop #closedloop
+
+Open subordinate tags:
+- Descriptors   ##lowercase
+
+----
+
+*PROBLEM CARD*
+
+Problem card = compact, structured record of a stand-alone ICO Problem.
+
+- Controlled technical English for all explanatory fields, following ASD-STE100 principles.
+- Use short declarative sentences, active voice, one term for one concept, only necessary synonyms, and simple sentence structure.
+- Approved industrial, mathematical, and optimization terms are permitted as controlled ICO terminology.
+- Formal identifiers, taxonomy values, tags, equations, complexity classes, and dependency notation are defined separately.
+- Avoid information-free repetition across fields.
+
+FORMAT
+
+<ID> <PROBLEM SHORTHAND>.
+DESCRIPTION <STE explainer>.
+- Concise statement of what the Problem decides and the principal industrial conditions that define it.
+- Do not describe solver choice here.
+
+TEMPLATE <IE> | <OR>.
+- Use the best established and defensible benchmark approach available.
+- IE = established industrial-engineering framing, practice, or model class.
+- OR = established formal optimization architecture, formulation family, or solution-method family.
+- Record material differences among established industrial practice, strongest published method, and publicly reproducible benchmark when relevant.
+
+REGIME <PRIMARY> [+ <SECONDARY> ...] | <STE explainer>.
+- Primary required.
+- Secondaries optional.
+- Canonical Regime values: #design #plan #allocate #operate #dispatch #adapt.
+- Explain why the Problem belongs primarily at the stated commitment stage or stages.
+- Do not infer Regime only from planning horizon; use the type of commitment being made.
+
+STRUCTURE <PRIMARY> [+ <SECONDARY> ...] | <STE explainer>.
+- Primary required.
+- Secondaries optional.
+- Canonical Structure values: #select #map #link #place.
+- Primary = combinatorial construction that most strongly defines the completed solution.
+- Secondaries = additional constructions required to produce the complete solution.
+- Explain what the solver constructs and identify important constitutive structural laws when needed.
+- Do not infer Structure from supplied relations, formulation artifacts, feasibility conditions, objectives, or solver encoding.
+
+PRIORITY <Critical | High | Medium | Low> | <STE centrality explainer>.
+
+RELEVANCE <Critical | High | Medium | Low> | <STE value explainer>.
+
+HARDNESS <Critical | High | Medium | Low> | <Formal computational complexity>; <STE industrial explainer>.
+- Separate formal computational complexity from industrial solution difficulty.
+- Use terms such as NP-hard only when supported.
+- Explain what makes industrial-scale instances difficult with current methods.
+- Do not infer Hardness from NP-hardness alone.
+
+DEPENDENCIES <UPSTREAM IDs> → <THIS ID> → <DOWNSTREAM IDs>.
+- Use "∅" when no dependency is specified.
+- List only meaningful Problem-level dependencies.
+- Dependencies = industrial decision sequence or information dependency, not mathematical reduction.
+
+COMMENTS <Optional STE explainer> | <Closed tags>, <Optional open tags>.
+- Only for useful information that does not belong naturally in another field.
+- Repeat Macro Domain, Domain, Regime, and Structure tags first.
+- Other tags must add information rather than duplicate dedicated fields.
+- Prefer extensible ## tags for Industry, industrial specialization, mathematical form, structural laws, decomposition patterns, or established search terms.
+
+EXAMPLE
+
+PROC01 Process Network Synthesis & Topology Design. 
+DESCRIPTION Selects and connects processing units, pipelines, headers, and storage to meet capacity and product-slate targets under capital constraints. 
+TEMPLATE Process network synthesis / plant superstructure design | MILP/MINLP network design and decomposition. 
+REGIME #design | Defines plant topology and capacity before detailed planning and operations. 
+STRUCTURE #link + #select | Constructs the process topology and selects the units that participate; connectivity and flow topology are constitutive laws. 
+PRIORITY Critical | Defines the physical structure that constrains major refinery and bulk-chemical operations.  
+RELEVANCE Critical | Better designs can materially change capital cost, capacity, flexibility, and future operating limits.
+HARDNESS High | NP-hard; generalizes fixed-charge network design and facility location; industrial instances can require decomposition because topology, capacity, and process constraints interact. 
+DEPENDENCIES ∅ → PROC01 → PROC02, PROC03, PROC06. 
+COMMENTS Long-term structural decisions constrain later physical operations | #TRANS #PROC #design #link #select ##network-design ##piping. 
