@@ -20,52 +20,52 @@ v0.4 Oct 2026
 **Macro Domains & Domains**
 
 1. #TRANS   Transformation: systems that change material or product state.
-   ├ #PROC  Process, Continuous & Batch Process Manufacturing
-   └ #PROD  Production, Discrete Manufacturing & Assembly
+   ├ 101. #PROC  Process, Continuous & Batch Process Manufacturing
+   └ 102. #PROD  Production, Discrete Manufacturing & Assembly
 
 2. #DISP    Displacement: systems that move goods, people, inventory, or service capacity through space or time.
-   ├ #LOG   Logistics & Transportation
-   └ #SCM   Supply Chain & Inventory
+   ├ 201. #LOG   Logistics & Transportation
+   └ 202. #SCM   Supply Chain & Inventory
 
 3. #INFRA   Infrastructure: systems that provide shared physical service substrates and utilities.
-   ├ #ENER  Energy & Utility
-   └ #CIVIC Civic & Infrastructure
+   ├ 301. #ENER  Energy & Utility
+   └ 302. #CIVIC Civic & Infrastructure
 
 4. #INFO    Information: systems where sensing, computation, coordination, or adversarial data processing dominates.
-   ├ #COMP  Computational & Digital Infrastructure
-   └ #INTEL Defense, Intelligence & Security
+   ├ 401. #COMP  Computational & Digital Infrastructure
+   └ 402. #INTEL Defense, Intelligence & Security
 
 5. #EXCH    Exchange: systems that orchestrate competing, contingent, and collusive claims across entities.
-   ├ #MKT   Market & Commercial Allocation
-   └ #FIN   Finance, Accounting, Insurance
+   ├ 501. #MKT   Market & Commercial Allocation
+   └ 502. #FIN   Finance, Accounting, Insurance
 
 6. #HUMAN   Human: systems where human capability or human-centric activity dominates.
-   ├ #HC    Healthcare & Human-Critical Operational
-   └ #HR    Workforce & Organizational
+   ├ 601. #HC    Healthcare & Human-Critical Operational
+   └ 602. #HR    Workforce & Organizational
 
 7. #RES     Resource: systems that extract, harvest, or allocate natural or geospatial resources.
-   ├ #EXTR  Resource Extraction
-   └ #LAND  Land Use
+   ├ 701. #EXTR  Resource Extraction
+   └ 702. #LAND  Land Use
 
 - Every adequately specified Problem has exactly one Primary Domain.
 - Secondary Domains are optional and record material operational coupling.
 - Macro Domains group Domains and do not own Problems.
 
 A Problem belongs to:
-- #PROC when process units, recipes, material states, or transformation feasibility dominate. 
-- #PROD when manufactured products, components, fabrication, or assembly feasibility dominate. 
-- #LOG when journeys, vehicles, visits, handling, or physical movement execution dominate. 
-- #SCM when sourcing, availability, inventory, replenishment, or supply-position decisions dominate. 
-- #ENER when physical utility production, distribution, balance, or network operation dominate. 
-- #CIVIC when shared civic assets, public-service coordination, public works, or construction execution dominate. 
-- #COMP when computation, communication, sensing, storage, or digital-resource operation dominate. 
-- #INTEL when adversarial, protective, security, denial, or strategic-response conditions dominate. 
-- #MKT when commercial opportunities, offers, bids, rights, assortment, pricing, or market allocation dominate. 
-- #FIN when financial positions, claims, liquidity, settlement, reconciliation, or insurance-risk decisions dominate. 
-- #HC when clinical, patient, or direct-care conditions materially define feasibility or service.
-- #HR when workforce capacity, skills, staffing, or coordinated organizational human activity dominate. 
-- #EXTR when prospecting, extraction, depletion, wells, blocks, or nonrenewable resource activation dominate.
-- #LAND when land, geospatial assets, renewable resources, water rights, basins, or land-use allocation dominate. 
+101. #PROC when process units, recipes, material states, or transformation feasibility dominate. 
+102. #PROD when manufactured products, components, fabrication, or assembly feasibility dominate. 
+201. #LOG when journeys, vehicles, visits, handling, or physical movement execution dominate. 
+202. #SCM when sourcing, availability, inventory, replenishment, or supply-position decisions dominate. 
+301. #ENER when physical utility production, distribution, balance, or network operation dominate. 
+302. #CIVIC when shared civic assets, public-service coordination, public works, or construction execution dominate. 
+401. #COMP when computation, communication, sensing, storage, or digital-resource operation dominate. 
+402. #INTEL when adversarial, protective, security, denial, or strategic-response conditions dominate. 
+501. #MKT when commercial opportunities, offers, bids, rights, assortment, pricing, or market allocation dominate. 
+502. #FIN when financial positions, claims, liquidity, settlement, reconciliation, or insurance-risk decisions dominate. 
+601. #HC when clinical, patient, or direct-care conditions materially define feasibility or service.
+602. #HR when workforce capacity, skills, staffing, or coordinated organizational human activity dominate. 
+701. #EXTR when prospecting, extraction, depletion, wells, blocks, or nonrenewable resource activation dominate.
+702. #LAND when land, geospatial assets, renewable resources, water rights, basins, or land-use allocation dominate. 
 
 - Primary Domain follows the industrial decision contract.
 - It does not change merely because Industry, Regime, Structure, representation, encoding, or solver formulation changes.
