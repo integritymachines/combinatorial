@@ -1,0 +1,119 @@
+RESEARCH
+
+Role
+Researcher (R): expand.
+
+Input
+LEVEL ∈ {PROBLEM, CASE}
+DOMAIN = D
+000_DOMAIN.md
+Existing foreground and relevant background.
+
+Output
+background/<NNN>_<D>_research.md
+
+Rules
+000_DOMAIN.md is normative.
+Research facts, alternatives, boundaries, dependencies, evidence, and uncertainty. Do not compile the foreground.
+Maximize coverage and evidentiary value; minimize prose.
+Prefer primary literature, authoritative reviews, established benchmark repositories, official datasets, standards, and credible industrial sources.
+Trace material claims to sources. Distinguish evidence from inference.
+Do not force agreement where sources differ.
+Classify the industrial decision, not its formulation.
+For structural checks, distinguish supplied structure, chosen construction, delivered solution, constitutive laws, feasibility conditions, objectives, and auxiliary variables.
+Record apparent ontology defects; do not modify the ontology.
+
+LEVEL=PROBLEM
+
+Purpose
+Establish a controlled knowledge base from which the canonical problem set can be compiled.
+
+Tasks
+1. Map the domain territory.
+Identify principal industries, applications, operating systems, interfaces, exclusions, and ownership boundaries.
+
+2. Discover candidate problems.
+Search broadly by industry, operating function, Regime, IE literature, OR literature, benchmark tradition, and established terminology.
+Target near-exhaustive practical coverage of commercially material ICO decisions.
+Treat existing lists as discovery seeds, not limits.
+
+3. Resolve problem identity.
+For each candidate, record:
+- decision and scope;
+- aliases;
+- variants;
+- distinction from neighboring problems;
+- Domain ownership and material interfaces;
+- candidate Regime and Structure;
+- Priority, Relevance, Hardness evidence;
+- useful descriptors;
+- Template evidence.
+
+Merge only clear synonyms. Preserve uncertain merges, splits, exclusions, and integrated-problem questions for control.
+
+4. Establish dependencies.
+Record meaningful directed problem dependencies: which decisions feed, constrain, consume, or revise which others.
+Research establishes the dependency graph; compilation derives sequence and numbering.
+Record cycles and uncertain directions explicitly.
+
+5. Establish Templates.
+For each credible problem, identify the best established IE and OR approaches.
+Record all material near-equals where no single approach dominates.
+Distinguish established industrial practice, published state of the art, and reproducible benchmark practice when they differ.
+If no credible Template can be established after adequate research, flag the candidate for exclusion or further investigation.
+
+6. Assess coverage.
+Continue independent searching until new results are mainly aliases, narrow variants, low-materiality niches, or problems owned elsewhere.
+Record known gaps and unresolved boundary questions.
+
+Problem-level output must support:
+- admission or exclusion of each candidate;
+- dependency control;
+- canonical description and classification;
+- Template population;
+- later case research.
+
+Do not assign permanent problem numbers or final sequence.
+
+LEVEL=CASE
+
+Purpose
+For each controlled foreground problem, establish the industrial cases, current best practices, and benchmark candidates needed for case compilation.
+
+Parent set
+Use the controlled foreground problem set as fixed input. Do not add, merge, remove, or rename parent problems. If case research reveals a parent-set defect, flag it for return to the Problem layer.
+
+Tasks
+1. Research industrial cases.
+Find representative real or realistic applications of the problem across relevant industries and operating contexts.
+
+2. Research best practice.
+Identify current SOTA or strongest established operational, IE, and OR approaches.
+Test the foreground Template against current evidence.
+Record material competing or near-equal approaches.
+
+3. Research benchmark candidates.
+Prefer public, reproducible cases that instantiate the problem and its Template and can support a meaningful baseline and later uplift calculation.
+For each candidate record:
+- source;
+- case or dataset;
+- industrial analogue;
+- scale;
+- objective and principal constraints;
+- method or implementation used as baseline;
+- reported reference result when defensible;
+- reproducibility;
+- access or license constraints;
+- limitations.
+
+4. Filter evidentially.
+Reject cases that are toy-only, weakly matched, inaccessible, non-reproducible, or unsupported unless their limitation is itself useful evidence.
+If no adequate public benchmark exists, record a benchmark gap.
+
+5. Assess sufficiency.
+Research enough candidates to let compilation select a small, strong starter set for every problem.
+Do not assign final case IDs or select the canonical starter set.
+
+Finish
+Write the research background densely and clearly enough for independent Background Control and later compilation.
+Do not imitate the final foreground merely for convenience.
