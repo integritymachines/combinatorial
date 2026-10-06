@@ -1,0 +1,775 @@
+PROC PROCESS, CONTINUOUS AND BATCH PROCESS MANUFACTURING
+Problem research v0.1 | 2026-10-06
+
+SCOPE AND EVIDENCE DISCIPLINE
+
+LEVEL=PROBLEM; DOMAIN=PROC; DOMAIN code=101.
+Normative inputs: 000_DOMAIN.txt and background/000_DOMAIN_research.txt at repository commit 6529de0ddb39b1d5c106b40fa441294eb23bbdae. Workflow prompts: workflow/0_workflow.txt through workflow/4_foreground.txt at that commit. PROC.md and PROD.md are excluded by user instruction and supply no admission, numbering, rating or dependency evidence. No previous 101_PROC foreground or background exists at that input commit.
+
+PROC owns decisions whose contract is defined by process units, recipes, material states or transformation feasibility. Include commercially material discrete choices and mixed discrete/continuous decisions. Exclude purely continuous control, simulation alone, parameter fitting alone, fixed-choice LP blending and feasibility verification with no chosen construction.
+
+This is Problem research. Sources establish decision identity and defensible Template families. They are not selected Cases. No dataset, baseline score, license, implementation reproducibility or universal SOTA ranking is asserted. Publicly indexed paper existence does not establish runnable code or public instance data. Source access is labelled in the register; some publishers blocked full-page retrieval. Their indexed abstracts/extracts support only the stated problem and method claims. Stronger claims are withheld.
+
+Evidence means the cited source describes the relevant decision/method or reports the stated result. Domain ownership, identity partition, Regime, Structure, ratings and decision-flow edges are explicit researcher inferences from that evidence and the normative definitions. No source is credited with this ontology. Ratings are qualitative judgments, not measured prevalence, ROI or solver-runtime statistics. Formal complexity is asserted only for a specified model with a cited basis; MILP or MINLP syntax alone proves no hardness class.
+
+TERRITORY AND OWNERSHIP
+
+Refining/petrochemicals: network/equipment/storage design; heat and water integration; feedstock/quality selection; crude charging; product blending; turnaround; transfer and reactive scheduling. Supplier contracting is SCM; tanker journeys and external distribution pipelines are LOG; utility generation/commitment is ENER.
+Specialty chemicals/polymers: formulation, recipe/procedure development, flexible batch and continuous campaigns, grade changes, equipment/path allocation, cleaning and repair. A polymer grade is a state/quality variant, not a new Domain or Structure.
+Pharmaceuticals/bioprocessing/fermentation: product composition, validated procedures, multipurpose equipment, batch/state schedules, finite/zero-wait storage, contamination-compatible cleaning and release. Clinical care is HC. Packaging-only sequencing is PROD. Microbial host or technology selection is a formulation/process-design variant, not a separate canonical Problem without a distinct contract.
+Food/beverage: ingredient/intermediate selection, lot activation, shared tanks, CIP, shelf-life/quality constraints and bulk-to-pack synchronization. Commercial assortment and pricing are MKT. Secondary PROD coupling is material in integrated bulk/pack decisions.
+Pulp/paper: digester/material balance and paper-machine grade schedules fit production/campaign/repair families (S39). Trim cutting and converting decisions without process transformation feasibility belong elsewhere, normally PROD.
+Cement/minerals: raw blend and grinding/kiln/mill production activation and grade schedules fit blending/production/continuous families; electricity tariff effects do not transfer process ownership to ENER (S40). Extraction/block destination decisions are EXTR.
+Industrial gases: air-separation technology and equipment, discrete process modes, production/storage and real-time configuration are PROC (S12,S21,S38). Installed utility compressor networks can be ENER where utility service, rather than process-product manufacture, defines the contract.
+Glass: furnace/melt process decisions are PROC; mold/cavity and discrete container-forming decisions are PROD. Integrated glass studies demonstrate this boundary (S42); industry labels alone cannot resolve the primary decision.
+Steel process side: charge/material formulation, steelmaking/refining/casting synchronization and thermal/wait limits fit batch/continuous families where molten material states define feasibility (S41). Part fabrication/assembly belongs to PROD; by-product fuel distribution or utility balance alone is ENER.
+Industrial effluent/recovery: process treatment technology and material transformations are network/water design and batch/mode scheduling (S06,S44). Basin rights are LAND, withdrawal/depletion is EXTR, utility distribution is ENER, and civic service construction/maintenance is CIVIC.
+
+DISCOVERY AND SATURATION
+
+Searches performed 2026-10-06. Search lenses covered design, plan, allocate, operate/dispatch and adapt; IE process integration, recipe/control generation, industrial production workflows and OR modelling; network, scheduling, blending and maintenance traditions; each principal industry above. Searches used candidate decision terms, not a fixed pre-existing Problem list.
+Round A: process scheduling/planning; network/heat/water synthesis; refinery crude/blend/tank operations; steel/cement/glass/pulp/gas operations. Result: continuous and batch schedule families plus specialized refinery material contracts.
+Round B: discrete equipment and storage design; recipe and procedure synthesis; safe plant layout; CIP and temporal cleaning. Result: distinguish structural design, physical layout, recipe actions, resource reservations and cleaning.
+Round C: reactive/real-time scheduling; turnaround and condition/fouling cleaning; startup/shutdown procedures; industrial effluent synthesis. Result: adaptation and immediate release are different commitment contracts; fouling-dependent intervention is distinct from mandatory hygiene.
+Round D: formulated-product and ingredient selection; food intermediate blending; in-plant transfer synchronization; P-graph process synthesis. Result: product-formulation design is distinct from applying existing specifications to available lots; transfer duration is not negligible in networked plants.
+Round F (control countersearch): off-spec/rework and process-quality testing. Generic rework results did not establish another distinct PROC family. Primary analytical-test models and industrial manufacturing/QC integration did establish a scoped quality-testing/material-release contract (S45-S47). Integrated formulation/filling evidence (S48) strengthens the bulk-to-pack family without adding a new Problem.
+Round E: glass furnace/forming boundary; concurrent path/equipment allocation; control recipe generation; CIP shared-resource bottlenecks. Result: glass forming is not automatically PROC; a stand-alone recipe-allocation contract has explicit primary literature (S17,S18).
+Complexity cross-check: HENS (S05) and job-shop scheduling (S43). Do not transfer their claims to unrelated models or to a supplied graph.
+Later targeted hits mainly refine already identified contracts: ASU load changes, cement product switches, paper grades, no-wait storage, transfer duration, recipe flexibility and cleaning-age limits. These are variants or coupled instances, rather than additional independent families. Search saturation here supports a broad first controlled Problem set, not a theorem of exhaustive coverage or a count of all industrial deployments.
+
+ADMISSION AND IDENTITY RULES APPLIED
+
+Integrated contracts are retained only where their delivered decision crosses a meaningful industrial boundary: process-specific multi-site planning, crude-quality feed programs, and bulk-to-pack synchronization. A model containing two decisions does not automatically create another family. Batch/continuous scheduling remains the generic production timetable; tank, equipment/path, cleaning and transfer contracts can be scoped independently when their required inputs are fixed.
+Production quantity planning and lot/run activation are one integrated family. Campaign, grade-transition and parallel-continuous-train scheduling are one timeline family. STN/RTN, zero-wait, no-intermediate/finite storage and hybrid MILP/CP are representations, policies or methods within batch scheduling. Mandatory cleaning calendar and active CIP reservations are one cleaning family. These decisions are not multiplied by time horizon, solver or mathematical encoding.
+Process flowsheet, heat-recovery and water-treatment networks remain separate stand-alone contracts because they choose different engineering entities and can be optimized from supplied plant streams without reselecting the material-conversion flowsheet. Joint synthesis is an integrated instance, not an additional family. Storage configuration and equipment capacity have different objects; actual tank occupancy is an allocation contract downstream of design.
+
+DEFERRED OR EXCLUDED CANDIDATES
+
+Standalone utility/cogeneration design and boiler/chiller unit commitment: ENER. Keep utility capacity and tariffs as PROC feasibility/input conditions and a material interface.
+Operator shifts, skill rosters and generic crew planning: HR. Process-task schedules may consume crew capacity; staffing a chemical plant does not alone transfer workforce ownership.
+Supplier selection, purchasing contracts, generic distribution network/inventory optimization: SCM. Keep recipe/material-quality lot choices in blend planning when transformation dominates.
+Ship arrival sequencing, external pipeline routing and terminal-only tank movements: LOG. Keep supplied receipt windows and transport capacities at PROC interfaces.
+Standalone plant construction and generic project execution: CIVIC. Keep process topology, equipment placement and isolation-constrained turnarounds in PROC according to contract.
+Sensor placement, generic laboratory instrument queues and digital automation resources: COMP where sensing or digital-resource operation defines feasibility. Process analytical tests tied to material qualification and held-lot availability have a narrower PROC contract; quality-testing scheduling is admitted using S45-S47. This ownership is conditional on the promised material-release service, not on the laboratory being located in a process company.
+Continuous setpoint optimization/MPC, kinetic parameter estimation, continuous recipe trajectories with no chosen steps, and fixed-choice linear blends: outside ICO.
+Batch genealogy recording, traceability, contamination checking, validation and safety verification alone: constraints, descriptors or information systems, not a chosen ICO construction. Genealogy/state restrictions can refine batch, tank and material-allocation decisions.
+Off-spec rework, salvage and release/disposition optimization: plausible process contracts, but dedicated material-scope and Template evidence remains insufficient after the present searches. Discrete reprocessing paths can fit procedure/network and batch scheduling; no extra family is admitted until a distinct recurring contract is evidenced.
+Product assortment, price and bid selection: MKT, even when the commercial product is a chemical.
+Capacity expansion, retrofit, stochastic/robust planning, cyclic scheduling, energy-aware schedules, fermentation residence time and batch heat integration: variants of supported families, not independent admissions.
+
+STRUCTURAL AND TEMPLATE CHECKS
+
+Supplied recipes, plant graphs, eligibility relations and demand are substrate. Only selected equipment/materials/actions, assigned roles/resources, chosen connections/transitions and placed activity/spatial positions contribute Structure. A successor binary can encode temporal order without requiring link in addition to place. Continuous quantities and quality balances are associated decisions/conditions, not additional canonical Structures. Auxiliary big-M, event-point, GDP or inventory variables do not determine Structure.
+Templates below retain credible industrial framings and demonstrated formal architectures. Engineering judgment/operator workflows, published models and public reproducible benchmarks are different evidence levels. Evidence for quality testing adds published dual-resource MILP and dynamic/tabu heuristics; a vendor integration announcement supplies operational coupling without establishing a complete-factory baseline. No source supports one universally best method across every variant; explicit near-equals are kept where their modelling trade-off is material. Template existence is sufficient at this layer; later Case research must establish actual public data, implementation and baseline evidence.
+
+RATING BASIS
+
+Priority: Critical for domain-defining process topology, production commitments and production timetables; High for recurring capacity, material, cleaning, outage and execution contracts; Medium for specialized design/maintenance/refinery families. Relevance: Critical where the decision determines long-lived plant capacity, whole-site outage losses or refinery feed continuity; otherwise High for substantial recurring material, service, safety or energy value. No unsupported percentage, monetary magnitude or universal prevalence is asserted.
+Hardness: generally High where evidence describes interacting discrete choices, nonlinear quality/state models or industrial decomposition/heuristics. Medium for immediate release, where a feasible rule baseline is established and the permitted search scope may be limited. These are qualitative industrial assessments with the card-specific mechanism below, not deductions from NP-hardness. Restricted polynomial or trivial instances do not receive the full-family complexity claim.
+
+DEPENDENCY INTERPRETATION
+
+Every listed edge is conditional industrial/information flow, not a claim that every plant runs every family or that distinct Problems must be solved sequentially. Joint solves replace selected edges with simultaneous commitments. Edges are inferred by matching the cited industrial output of one contract to the input of another. The cited paper need not use these candidate keys. External interfaces are described above; no fictitious ENER/HR/SCM Problem IDs are introduced.
+Default production-to-cleaning, production-to-transfer and bulk-to-pack edges express the first demand for detailed resource reservations. Reverse edges retain cleaning/transfer/buffer feedback. Continuous-to-fouling and fouling-to-continuous form a condition/capacity loop. Dispatch-to-repair conveys completed/in-progress commitments; repair-to-dispatch supplies the next revised release program. These cycles cannot be made acyclic without dropping material industrial feedback.
+Design can also be iterated against downstream schedules, and multi-site plans can consume local feasibility envelopes. No universal direction is forced for those joint-design/planning refinements. The quality-testing → packaging edge applies only where tests qualify bulk material before filling; post-pack final-product testing is a different timing variant and this edge is not imposed there. The explicit graph supplies a default commitment flow and the identified recurring feedback, sufficient to derive a canonical sequence without claiming a universal industrial algorithm.
+
+CANDIDATE allocation — Recipe-to-Equipment and Path Allocation
+Decision: Assigns recipe tasks to eligible process units and selects usable material paths under compatibility and concurrent-use limits.
+Inputs: Fixed recipe tasks, installed plant graph, eligible units and concurrent reservations.
+Delivered artifact: Recipe-to-unit assignments and selected feasible material paths.
+Identity/boundary: Aliases: recipe-unit assignment, control-recipe equipment assignment, path/equipment allocation. Kept distinct only when assignment/path reservation is delivered without a full activity timetable. When timing is jointly chosen it is an integrated batch-scheduling instance.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #allocate | Commits equipment and paths for a specified recipe execution.
+Structure inference: #map + #link | Assigns tasks to units and selects material-path connections through the installed plant.
+IE Template: Control-recipe generation and plant-structure allocation.
+OR Template: Graph-based equipment and path allocation.
+Evidence: S17 directly defines concurrent path/equipment allocation. S18 supports control-recipe generation. ADMIT the stand-alone allocation contract with fixed recipe tasks and no complete timetable. Use graph-based equipment/path allocation as the directly evidenced OR Template. Do not infer a best mixed-integer allocation method from scheduling formulations.
+References: S17, S18.
+Priority inference: High | Flexible batch plants must resolve recipe-to-plant compatibility.
+Relevance inference: High | Feasible allocations improve flexibility and avoid resource conflicts.
+Hardness inference: High | Formal complexity depends on allocation and path constraints; Concurrent recipes compete for compatible units and shared connections.
+Descriptors/parameters: ##control-recipe ##equipment-assignment ##path-allocation
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE batch — Batch Process Production Scheduling
+Decision: Assigns and times batch tasks under recipe, material-balance, equipment, transfer, storage and process-state limits.
+Inputs: Recipes, production requirements, initial material state, installed units and availability.
+Delivered artifact: Unit-assigned batch-task timetable and feasible material-state progression.
+Identity/boundary: Aliases: multipurpose batch scheduling, multiproduct batch scheduling, network/sequential batch scheduling. STN/RTN are representations. Zero-wait, finite/no intermediate storage, parallel stages, splitting and recycling are variants. Fermentation, API manufacture and molten-process sequences fit when transformation feasibility dominates.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan | Commits a future executable batch-production timetable.
+Structure inference: #place + #map + #select | Places tasks in time, assigns units and selects batch or task activations where required.
+IE Template: Multiproduct and multipurpose batch scheduling.
+OR Template: STN/RTN MILP in discrete or continuous time; hybrid MILP/CP decomposition.
+Evidence: S22 supports simultaneous batching and scheduling. S23 supports STN and MILP/CP; S24 supports storage-policy variants. For the scoped hardness inference, fix quantities and routes, provide unlimited storage and give each unit capacity one: ordinary job-shop scheduling remains (S43). No inference that all restricted variants are NP-hard.
+References: S22, S23, S24, S43.
+Priority inference: Critical | Batch process plants depend on feasible recipe execution schedules.
+Relevance inference: High | Better schedules improve throughput and delivery performance.
+Hardness inference: High | NP-hard for the family that contains job-shop makespan scheduling; Material states, shared resources and storage limits make industrial formulations large.
+Descriptors/parameters: ##batch ##stn ##rtn ##storage-policy
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE blendplan — Feedstock Lot Selection and Blend Planning
+Decision: Selects available feedstock lots and their blend allocation to meet existing recipe and quality specifications under material and capacity limits.
+Inputs: Available material lots, certified recipes, quality measurements and production targets.
+Delivered artifact: Selected lots and allocations to planned process blends.
+Identity/boundary: Aliases: raw-material lot selection, intermediate product selection, pooling-based blend planning. Supplier contract and sourcing decisions belong to SCM; available-lot quality decisions remain PROC. New product formulation has a separate design contract. Fixed-choice linear blending is outside ICO.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan + #allocate | Prepares blends and allocates material before detailed execution.
+Structure inference: #select + #map | Selects material lots and assigns their use to planned blends; continuous blend ratios are associated decisions.
+IE Template: Quality-constrained material selection and blend planning.
+OR Template: MILP blending; MINLP pooling where quality mixing is nonlinear.
+Evidence: S08 supports lot selection for an existing pharmaceutical product. S14 directly supports intermediate selection and end-product blend recipes in production. Nonlinear pooling is retained only where quality propagation requires it; a linear model is preferable when physically valid.
+References: S08, S14.
+Priority inference: High | Recurs in refining, food and formulated-material production.
+Relevance inference: High | Material choices determine quality, yield and feed cost.
+Hardness inference: High | Formal complexity depends on selection and mixing rules; Discrete lot inclusion interacts with quality and material availability.
+Descriptors/parameters: ##blending ##feedstock ##quality
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE blends — Process Blend Execution Scheduling
+Decision: Schedules blend batches and assigns source tanks and blending resources under existing specifications, quality and transfer limits.
+Inputs: Existing product specifications, selected or available material lots, tank reservations and equipment calendars.
+Delivered artifact: Timed blend activities and source/equipment assignments.
+Identity/boundary: Aliases: short-term blending scheduling, blend-shop operations. Distinct from blend planning when the output includes equipment occupations and timed withdrawals. Distinct from crude scheduling when specified products, rather than distillation feeds, are the deliverable. Pure continuous fixed-source ratios are excluded.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan | Commits an executable blend-production program.
+Structure inference: #place + #map + #select | Places blend activities, assigns sources and equipment, and selects material withdrawals.
+IE Template: Refinery and bulk-liquid blend-shop scheduling.
+OR Template: MILP/MINLP blend scheduling with quality tracking and decomposition.
+Evidence: S31 supports refinery blend-shop scheduling and scaling limitations. S08 supports process-specific lot selection for manufacture. Mixed-integer linear approximations and nonlinear quality models are material alternatives; neither establishes a universal public reproducible baseline.
+References: S31, S08.
+Priority inference: High | Recurs in bulk-liquid and formulated-product manufacture.
+Relevance inference: High | Executable blends reduce quality failures and lost output.
+Hardness inference: High | Formal complexity depends on blend and quality-propagation rules; Source histories, nonlinear quality and tank capacities couple blends over time.
+Descriptors/parameters: ##blend-scheduling ##quality-tracking
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE cip — Process Cleaning and CIP Scheduling
+Decision: Schedules required cleaning tasks and assigns cleaning systems under contamination, cleaning-age and production-access limits.
+Inputs: Cleaning requirements, hygiene limits, production windows and installed CIP systems.
+Delivered artifact: Cleaning timetable and CIP-resource assignments.
+Identity/boundary: Aliases: CIP scheduling, sanitation scheduling, cleaning calendars. One family covers interval limits and active shared-resource schedules; a calendar is an output abstraction, not another problem. Excludes choosing continuous cleaning-fluid settings. Plant-fixed circuits do not imply Structure link.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan | Commits cleaning intervals and resource reservations before production.
+Structure inference: #place + #map | Places cleaning tasks in time and assigns shared CIP resources; hygiene and access limits constrain placements.
+IE Template: Hygiene changeover and shared CIP-resource scheduling.
+OR Template: MILP cleaning-production scheduling; simulation-optimization.
+Evidence: S13 supports mandatory cleaning within a MIP production schedule. S25 documents operator-led CIP scheduling. S26 describes shared CIP bottlenecks and a simulation-based industrial proposal. The latter is an implementation alternative, not independently proven superiority over the published MIP.
+References: S13, S25, S26.
+Priority inference: High | Food, beverage and pharmaceutical plants require repeated cleaning.
+Relevance inference: High | Cleaning schedules protect quality and release production capacity.
+Hardness inference: High | Formal complexity depends on shared resources and production coupling; Cleaning systems and production units must be available at the same time.
+Descriptors/parameters: ##cip ##cleaning ##contamination
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE continuous — Continuous Process Campaign and Mode Scheduling
+Decision: Schedules product campaigns and operating modes on process units under grade-transition, startup, rate and material limits.
+Inputs: Production quantities, unit capabilities, transition rules, operating modes and available calendars.
+Delivered artifact: Train-specific campaign and operating-mode timeline.
+Identity/boundary: Aliases: campaign scheduling, grade-change sequencing, parallel-train scheduling, ASU mode scheduling. These are variants of a continuous-unit production timeline, not separate families. Thermal process state and output quality justify PROC; standalone boilers or grid unit commitment remain ENER.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan | Commits future campaigns and operating-state intervals.
+Structure inference: #place + #map + #select | Places campaigns in time, assigns them to available trains and selects operating modes.
+IE Template: Campaign sequencing and operating-mode scheduling.
+OR Template: MILP sequencing and mode scheduling; decomposition or matheuristics.
+Evidence: S20 supports continuous-family switchovers and parallel processes. S21 supports discrete air-separation modes. S38 supports implemented real-time integration. Continuous dynamic control alone is excluded; selected modes and campaign placements provide the combinatorial output.
+References: S20, S21, S38.
+Priority inference: Critical | Continuous plants require coordinated grade and operating-state schedules.
+Relevance inference: High | Transition losses and operating-state choices affect throughput and cost.
+Hardness inference: High | Formal complexity depends on sequencing and mode constraints; Sequence-dependent transitions, rate changes and parallel trains enlarge the search.
+Descriptors/parameters: ##campaign ##grade-transition ##operating-mode
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE crude — Refinery Crude Receipt and Charging Scheduling
+Decision: Schedules crude receipts, tank use and distillation feeds under settling, material quality, inventory and equipment limits.
+Inputs: Receipt availability, crude properties, tanks, distillation demands and chosen production modes.
+Delivered artifact: Timed crude receipt, tank-use and distillation-feed program.
+Identity/boundary: Aliases: crude oil scheduling, CDU charging schedule, refinery unloading/charging integration. Distinct specialized contract contains crude quality and distillation feasibility; it is not generic unloading transport. Excludes ocean-voyage scheduling and terminal-only movement, owned by LOG. Discrete source selection is optional rather than forced in every instance.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan | Commits a refinery feed and charging program.
+Structure inference: #place + #map | Times crude operations and assigns crude parcels to tanks and charging units.
+IE Template: Refinery crude scheduling and quality tracking.
+OR Template: Continuous-time or discrete-time MILP/MINLP crude scheduling.
+Evidence: S29 supports integrated receipt/tank/CDU MILP. S30 supports nontrivial tank outlets and multiquality tracking. Simplified linear models and physical MINLP mixing are retained; a linear approximation must respect its applicability limits.
+References: S29, S30.
+Priority inference: Medium | Core scheduling family within petroleum refining.
+Relevance inference: Critical | Feed interruption or infeasible crude quality can limit refinery output.
+Hardness inference: High | Formal complexity depends on quality mixing and operation constraints; Tank histories, settling and multiple feed qualities couple the operation sequence.
+Descriptors/parameters: ##REFINING ##crude-scheduling ##quality-tracking
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE dispatch — Process Order and Phase Release
+Decision: Selects ready process orders or recipe phases for immediate release under material, equipment and completion-status limits.
+Inputs: Approved production program, observed readiness, material/equipment availability and phase status.
+Delivered artifact: Selected immediate releases and applicable resource assignments.
+Identity/boundary: Aliases: batch release, phase dispatch, process-order activation. Distinct from constructing a full future schedule and from repairing prior commitments after disruption. Trivial release of one uniquely eligible task is not a material ICO instance. Online decisions do not imply adapt without revised prior commitments.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #dispatch | Authorizes the next process orders or phases from current plant state.
+Structure inference: #select + #map | Selects activities for release and assigns immediate eligible resources when needed.
+IE Template: Process shopfloor release and dispatch control.
+OR Template: Feasible dispatch-rule baseline; short-horizon resource-allocation optimization.
+Evidence: S34 directly supports whole-order and phase-level release, including completion validation. S35 supports real-time allocation and a conventional dispatch comparator. A short-horizon MIP is a formulation option inferred from the allocation contract, not asserted as a published winning release method.
+References: S34, S35.
+Priority inference: High | Release connects planned process work to execution.
+Relevance inference: High | Release decisions affect blocking, work in progress and service.
+Hardness inference: Medium | Formal complexity depends on release-set and resource-allocation scope; Live eligibility and resource conflicts limit the useful decision time.
+Descriptors/parameters: ##dispatching ##order-release #online #execution
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE equipment — Process Equipment Selection and Capacity Design
+Decision: Selects the number, type and available sizes of processing units to meet production requirements under investment and operating limits.
+Inputs: Admitted process routes, production targets, equipment alternatives and capital budget.
+Delivered artifact: Installed unit portfolio and discrete capacity configuration.
+Identity/boundary: Aliases: discrete equipment sizing, parallel-unit selection, capacity expansion. Modular process skids and retrofit units are variants. Excludes stand-alone utility generation and buffer-tank design; those contracts differ.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #design | Commits installed process capacity.
+Structure inference: #select | Chooses equipment configurations from alternatives; continuous sizing alone is outside the ICO scope.
+IE Template: Batch-plant capacity design and retrofit.
+OR Template: MILP discrete-size reformulation; MINLP design optimization.
+Evidence: S02 supports catalogue sizing and a MILP alternative. S03 supports parallel-unit counts. Feasibility-based engineering sizing supplies candidates; the selected combination is the ICO output.
+References: S02, S03.
+Priority inference: High | Installed capacity bounds production in major process industries.
+Relevance inference: Critical | Equipment investment sets long-lived capacity and cost.
+Hardness inference: High | Formal complexity depends on the equipment and production model; Discrete capacity choices interact with utilization and nonlinear scale effects.
+Descriptors/parameters: ##equipment-sizing ##capacity
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE formulation — Formulated Product Design
+Decision: Selects ingredients and their composition to create a product with specified material, performance and manufacturing properties.
+Inputs: Candidate ingredients, target physical properties and manufacturing constraints.
+Delivered artifact: Selected ingredient set and product formulation.
+Identity/boundary: Aliases: ingredient selection, formulation optimization, formulated chemical product design. Excludes price/assortment decisions and purely continuous mixing. Differs from feedstock blending: this establishes the product formulation; blending applies existing specifications to available material lots.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #design | Commits a product composition before routine manufacture.
+Structure inference: #select | Chooses the ingredients included in the formulation; continuous proportions alone do not constitute a separate Structure.
+IE Template: Formulated-product development and property modelling.
+OR Template: Mixed-integer formulation design with empirical or mechanistic property models.
+Evidence: S08 explicitly distinguishes development and production-lot selection applications. S09 supports ingredient inclusion and amounts. Consumer properties can define targets without changing the physical transformation decision to MKT.
+References: S08, S09.
+Priority inference: Medium | Central to formulated chemicals, pharmaceuticals and food products.
+Relevance inference: High | Composition affects performance, cost and manufacturability.
+Hardness inference: High | Formal complexity depends on ingredient and property models; Ingredient compatibility and uncertain nonlinear properties limit reliable search.
+Descriptors/parameters: ##formulation ##ingredient-selection
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE fouling — Process Fouling-Cleaning Optimization
+Decision: Selects equipment cleaning actions and their timing under evolving fouling, process performance and operating limits.
+Inputs: Process heat network, fouling estimates, permissible outages and cleaning alternatives.
+Delivered artifact: Selected cleaning interventions and condition-dependent timetable.
+Identity/boundary: Aliases: heat-exchanger cleaning optimization, fouling maintenance scheduling. Distinct from mandatory hygiene cleaning: here intervention necessity and benefit depend on endogenous performance degradation. Distinct from full turnarounds: units may be cleaned during continuing production. Fixed mandatory actions reduce to ordinary maintenance scheduling.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan | Commits cleaning actions based on predicted equipment condition.
+Structure inference: #select + #place | Selects cleaning interventions and places them in time; fouling evolution constrains performance.
+IE Template: Fouling management and condition-dependent maintenance.
+OR Template: MINLP or mixed-integer optimal-control cleaning optimization.
+Evidence: S27 supports MIOCP with uncertain fouling; S28 supports period-based multistart MINLP and plant-derived models. Both are retained as defensible alternatives. Utility consumption is an effect of process fouling, not an automatic transfer of ownership to ENER.
+References: S27, S28.
+Priority inference: Medium | Important in fouling-prone heat-transfer and separation systems.
+Relevance inference: High | Cleaning choices affect energy use, throughput and equipment availability.
+Hardness inference: High | Formal complexity depends on fouling and cleaning dynamics; Nonlinear degradation and uncertain recovery interact with discrete intervention times.
+Descriptors/parameters: ##fouling ##condition-maintenance ##mixed-integer-optimal-control
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE heat — Process Heat-Recovery Network Synthesis
+Decision: Selects heat-exchanger matches and equipment to recover heat between process streams under thermal and investment limits.
+Inputs: Process hot/cold streams, temperature bounds, exchanger alternatives and utility prices.
+Delivered artifact: Selected heat-recovery matches and exchanger network.
+Identity/boundary: Aliases: HENS, heat exchanger network design, heat-integration retrofit. Batch heat integration is a variant. Excludes utility plant topology, boiler commitment and electricity balancing, which are ENER. A fixed-network heat-load calculation is continuous and excluded.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #design | Commits process heat-recovery connections.
+Structure inference: #link + #select | Chooses hot-to-cold stream matches and participating exchangers; thermal feasibility constrains the chosen network.
+IE Template: Heat-integration targeting and exchanger-network design.
+OR Template: MILP targeting and match selection; MINLP network synthesis.
+Evidence: S04 supports MILP targeting and joint synthesis. S05 provides the formal complexity claim. Pinch targeting is a defensible engineering framing; detailed superstructure optimization retains equipment trade-offs. Neither is declared universally superior.
+References: S04, S05.
+Priority inference: High | Heat integration recurs in energy-intensive process systems.
+Relevance inference: High | Heat recovery reduces utility demand and operating cost.
+Hardness inference: High | Strongly NP-hard for established heat-network synthesis models; Match choices and nonlinear exchanger design require careful formulation or decomposition.
+Descriptors/parameters: ##heat-integration ##heat-exchanger-network
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE layout — Process Plant Equipment Layout
+Decision: Positions process units and tanks under piping, access, separation and process-hazard limits.
+Inputs: Selected units, tank configurations, site envelope and engineering separation rules.
+Delivered artifact: Equipment coordinates and applicable floor assignments.
+Identity/boundary: Aliases: plant layout, safe process layout, multi-floor equipment positioning. Equal-size or single-floor layouts are variants. Excludes regional land-use and construction execution; PROC ownership requires process equipment, piping and transformation hazards to define feasibility.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #design | Commits equipment positions before detailed installation and operation.
+Structure inference: #place + #map | Positions equipment in physical space and assigns units to floors when applicable; non-overlap and hazard separation constrain placement.
+IE Template: Process plant layout and quantitative risk assessment.
+OR Template: MILP/MINLP spatial layout optimization.
+Evidence: S07 directly supports safe multi-floor layout with MILP. Secondary map is required only where floor assignment is part of the output. Piping lengths are cost/feasibility data; they do not by themselves make Structure link.
+References: S07.
+Priority inference: Medium | Recurring in plant construction and major retrofit.
+Relevance inference: High | Layout affects piping cost, access and process safety.
+Hardness inference: High | Formal complexity depends on the layout representation; Spatial choices, piping costs and hazard distances interact.
+Descriptors/parameters: ##layout ##process-safety
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE multisite — Multi-Site Process Production Planning
+Decision: Assigns product-family production to plants and periods under process capabilities, capacity, material and demand limits.
+Inputs: Process configurations, plant capacities, demand and local feasible production envelopes.
+Delivered artifact: Product-to-plant-period production commitments.
+Identity/boundary: Aliases: multi-plant production allocation, process-network production planning. PROC admission requires process recipes and transformation feasibility to be inside the decision contract. Generic distribution, sourcing and supply-position planning belongs to SCM.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan + #allocate | Commits a future production plan and allocates work to process plants.
+Structure inference: #map + #place | Assigns production to plants and positions commitments in planning periods.
+IE Template: Integrated multi-site process planning.
+OR Template: Multiperiod MILP and planning-scheduling decomposition.
+Evidence: S11 directly supports process-specific multi-site planning/scheduling. The ownership test is normative inference, not the source author taxonomy. Independent local plans can supply feasibility cuts or envelopes instead of mandatory single-pass sequencing.
+References: S11.
+Priority inference: High | Recurs in process enterprises with multiple plants.
+Relevance inference: High | Process-feasible allocation improves capacity use and service.
+Hardness inference: High | Formal complexity depends on the integrated planning model; Site capabilities, material supply and local scheduling feasibility interact.
+Descriptors/parameters: ##multi-site ##planning-scheduling
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE network — Process Network Synthesis
+Decision: Selects processing technologies and their material interconnections to meet product and capacity targets under process and capital limits.
+Inputs: Candidate technologies, feeds, products, capacities and process models.
+Delivered artifact: Selected processing flowsheet and material connections.
+Identity/boundary: Aliases: process synthesis, flowsheet synthesis, separation-network synthesis. Includes new design and retrofit. Excludes fixed-topology continuous parameter tuning; exchanger matches and water-reuse subnetworks have separate stand-alone contracts.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #design | Commits the material-processing topology before operating plans.
+Structure inference: #link + #select | Constructs material interconnections and selects participating units; material reachability and balance define feasible topology.
+IE Template: Process flowsheet and superstructure synthesis.
+OR Template: MILP/MINLP superstructure optimization; P-graph structural search.
+Evidence: S01 directly establishes network identity. P-graph and mixed-integer superstructure optimization are material alternative architectures. Process-source reachability is a constitutive law; the supplied maximal graph is not itself a chosen solution.
+References: S01.
+Priority inference: Critical | Defines the process routes and feasible transformations.
+Relevance inference: Critical | Topology determines capital needs and operating capability.
+Hardness inference: High | Formal complexity depends on the synthesis model; Technology alternatives, recycles and nonlinear process models interact.
+Descriptors/parameters: ##network-design ##process-synthesis
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE packaging — Bulk Process-to-Packaging Synchronization
+Decision: Coordinates bulk process runs with packaging-line assignments and timing under perishability, buffer and rate limits.
+Inputs: Bulk production requirements, packaging orders, process buffers, cleaning limits and compatible lines.
+Delivered artifact: Coordinated bulk and packaging timetable and line assignments.
+Identity/boundary: Aliases: two-stage beverage scheduling, bulk-to-filling coordination. PROC ownership requires bulk material state, hygiene or process feasibility to dominate the integrated contract; packaging-only or discrete product formation decisions belong to PROD. This is an integrated family, not a generic flow-shop synonym.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan | Commits coordinated bulk and packaging production.
+Structure inference: #place + #map | Places bulk and packaging activities and assigns compatible lines; buffers and material availability constrain synchronization.
+IE Template: Integrated bulk preparation and packaging coordination.
+OR Template: Two-stage MILP lot-sizing and scheduling; decomposition or simulation-optimization.
+Evidence: S13 and S26 support bulk/pack interaction with cleaning and transfer. S33 supports intermediate/final synchronization. S48 directly supports industrial agrochemical formulation/filling and intermediate buffers. MIP/decomposition and simulation proposals are distinguished; no reproducible Case or result is selected.
+References: S13, S26, S33, S48.
+Priority inference: High | Important in food, beverage and pharmaceutical bulk-to-pack operations.
+Relevance inference: High | Coordination reduces blocked bulk output and packaging starvation.
+Hardness inference: High | Formal complexity depends on the integrated two-stage model; Different rates, cleaning cycles and finite material buffers couple both stages.
+Descriptors/parameters: ##synchronization ##bulk-packaging #PROD
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE procedure — Process Operating Procedure Synthesis
+Decision: Selects process actions and their permitted transitions to create a recipe or operating procedure that reaches a required material state safely.
+Inputs: Material-state goal, permissible actions, equipment capabilities and safety interlocks.
+Delivered artifact: Selected actions and executable state-transition procedure.
+Identity/boundary: Aliases: operating procedure synthesis, recipe-structure design. Startup, shutdown and product-transition procedure design are variants where actions are chosen. Scheduling an already fixed recipe is different. Merely documenting or validating a supplied recipe is not ICO.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #design | Defines a reusable procedure before execution.
+Structure inference: #link + #select | Constructs action transitions and selects required steps; state reachability and safe transition rules define the procedure.
+IE Template: Recipe development and operating-procedure synthesis.
+OR Template: Logic-based planning combined with STN-based MILP.
+Evidence: S10 establishes STN subgoals and MILP procedure generation. The engineering practice is validated recipe development; automated synthesis is a published template, not claimed universal practice. Constitutive transition rules differ from an already supplied recipe graph.
+References: S10.
+Priority inference: Medium | Needed for new recipes and complex process transitions.
+Relevance inference: High | Correct procedures determine executable and safe transformations.
+Hardness inference: High | Formal complexity depends on the action and state model; Alternative actions and intermediate process states enlarge the procedure space.
+Descriptors/parameters: ##operating-procedure ##recipe-synthesis
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE production — Process Production and Lot Planning
+Decision: Selects product runs or batches and their quantities in planning periods under process capacity, setup, inventory and demand limits.
+Inputs: Demand, recipes, feasible capacities, setup costs and existing material stocks.
+Delivered artifact: Selected runs or batches and period production quantities.
+Identity/boundary: Aliases: process lot sizing, run-length planning, production planning. Batch sizes and continuous run lengths are variants. They are retained in one family because activation, quantities and periods are the same integrated planning contract. A purely continuous fixed-mode plan is excluded.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan | Commits future production quantities and run or batch activation.
+Structure inference: #select + #place | Selects run or batch activations and places production in planning periods.
+IE Template: Capacitated process production planning and lot sizing.
+OR Template: Multiperiod MILP; decomposition and MIP heuristics.
+Evidence: S12 supports industrial-gas MILP planning; S13 supports process lot sizing and temporal cleanings; S39 demonstrates integrated-mill planning with matheuristics. Exact methods and decomposition are retained; a single universal SOTA method is not established.
+References: S12, S13, S39.
+Priority inference: Critical | Converts demand into process-feasible production commitments.
+Relevance inference: High | Better plans reduce changeovers, excess stock and lost output.
+Hardness inference: High | Formal complexity depends on the capacitated lot-planning variant; Activation, inventory and downstream schedule feasibility interact.
+Descriptors/parameters: ##lot-sizing ##production-planning
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE quality — Process Quality Testing and Material-Release Scheduling
+Decision: Schedules required analytical tests and qualified material availability under sample readiness, test precedence, instrument and analyst limits.
+Inputs: Required material tests, sample readiness, qualification/hold rules and laboratory resource availability.
+Delivered artifact: Test/resource timetable and conditional qualified-material availability dates.
+Identity/boundary: Aliases: manufacturing QC scheduling, analytical-test scheduling for process material release. PROC ownership is limited to a contract defined by process sample chemistry, material qualification and held-lot availability. Generic sensing/instrument queues are COMP and standalone workforce rosters are HR. Actual pass/fail qualification and safety authorization remain supplied requirements; the optimizer cannot waive them.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan + #allocate | Commits test timings and laboratory resources to support qualified material availability.
+Structure inference: #place + #map | Places tests in time and assigns instruments and analysts; test and material-release conditions constrain the schedule.
+IE Template: Process quality-testing and material-release coordination.
+OR Template: Dual-resource MILP analytical-test scheduling; dynamic heuristics and tabu search.
+Evidence: S45 and S47 directly support analytical-test MILP and resource coupling. S46 supports manufacturing/QC-release integration. Combining test schedules with material availability is an industrial-contract inference, not a claim that the primary lab papers optimize a complete factory. Dynamic heuristics, tabu search and MILP are material method alternatives with instance-dependent performance.
+References: S45, S46, S47.
+Priority inference: Medium | Important where analytical lead times constrain process material use.
+Relevance inference: High | Timely qualified material availability prevents blocked production and delayed release.
+Hardness inference: High | Formal complexity depends on the test and resource model; Intermittent analyst interventions and instrument occupancies create coupled resource conflicts.
+Descriptors/parameters: ##quality-testing ##material-release ##dual-resource
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE repair — Process Production Schedule Repair
+Decision: Revises committed process assignments and timings after disruptions while preserving completed work and limiting unnecessary changes.
+Inputs: Committed timetable, completed/in-progress work and changed plant/order/material state.
+Delivered artifact: Revised feasible commitments and retained unaffected work.
+Identity/boundary: Aliases: reactive scheduling, rescheduling, rolling repair. Covers batch, continuous and hybrid process systems. Rolling recomputation is not automatically adapt; the contract must revise commitments because conditions changed. Local next-action choice remains dispatch unless it repairs a prior commitment.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #adapt | Revises existing commitments after material changes in plant state.
+Structure inference: #place + #map + #select | Replaces activity times and assignments and selects revised activations where permitted.
+IE Template: Reactive process scheduling and schedule repair.
+OR Template: MILP reactive rescheduling with fixed unaffected tasks.
+Evidence: S36 supports breakdown/rush-order MILP with stability considerations. S37 supports fixing unaffected tasks in an industrial batch plant. S43 supports the restricted hardness basis: allowing all unstarted tasks to move recovers the original job-shop problem. Fast local repair can be easier.
+References: S36, S37, S43.
+Priority inference: High | Operating plants face breakdowns and changed order or material availability.
+Relevance inference: High | Fast repair protects delivery and limits disruption losses.
+Hardness inference: High | NP-hard when unrestricted repair contains the original job-shop scheduling problem; Frozen work and stability objectives restrict rapid recovery.
+Descriptors/parameters: ##reactive-scheduling ##schedule-stability #online
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE storage — Process Buffer and Tank Configuration
+Decision: Selects intermediate and product tanks, capacities, locations in the process route and permitted material services.
+Inputs: Process routes, material compatibility, storage alternatives and capacity targets.
+Delivered artifact: Buffer portfolio, process-stage locations and service assignments.
+Identity/boundary: Aliases: intermediate-storage design, tank-farm configuration. Includes dedicated and shared tanks, storage policy choice and retrofit. Does not allocate actual material batches to installed tanks. Physical site layout remains a separate positioning decision.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #design | Commits the physical buffers and permitted storage services.
+Structure inference: #select + #map | Selects storage configurations and assigns tanks to material services.
+IE Template: Intermediate-storage and tank-farm design.
+OR Template: MILP/MINLP integrated plant and storage design.
+Evidence: S03 establishes tank inclusion and allocation in design. S24 supports alternative intermediate-storage policies. Selecting no-wait versus finite storage changes the design contract; enforcing an already specified policy is a scheduling variant.
+References: S03, S24.
+Priority inference: High | Storage capacity controls decoupling between process stages.
+Relevance inference: High | Better buffers reduce blocking and contamination losses.
+Hardness inference: High | Formal complexity depends on the design model; Tank capacities, service compatibility and downstream throughput interact.
+Descriptors/parameters: ##tank-farm ##intermediate-storage
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE tanks — Process Tank Allocation and Segregation
+Decision: Assigns material lots or products to installed tanks over required occupancy periods under capacity, compatibility and segregation limits.
+Inputs: Installed tank portfolio, material lots, compatibility and required availability windows.
+Delivered artifact: Tank-to-material reservations and occupancy intervals.
+Identity/boundary: Aliases: tank assignment, intermediate inventory segregation, tank occupancy allocation. Differs from storage design because the tank portfolio is fixed. Storing identical commodities in a generic distribution depot without transformation constraints belongs to LOG/SCM according to contract.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #allocate | Commits scarce storage capacity to specific materials.
+Structure inference: #map + #place | Assigns materials to tanks and reserves occupancy intervals; segregation constrains assignments.
+IE Template: Tank-farm operations and material segregation.
+OR Template: MILP time-indexed or continuous-time tank allocation.
+Evidence: S19 directly supports dedicated tank assignment and line-blocking effects. S24 supports storage constraints in batch scheduling. Integrated timing can be jointly solved, but a tank-reservation subproblem is independently meaningful when production windows are inputs.
+References: S19, S24.
+Priority inference: High | Flexible storage couples production and material handling.
+Relevance inference: High | Correct allocation protects product value and reduces blocking.
+Hardness inference: High | Formal complexity depends on occupancy and compatibility constraints; Tank reuse and linked production times create coupled resource conflicts.
+Descriptors/parameters: ##tank-assignment ##segregation ##blocking
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE transfer — In-Plant Process Material Transfer Scheduling
+Decision: Times specified material transfers between process stages under shared piping, pumping, receiving-unit and material-state limits.
+Inputs: Specified transfer tasks, selected paths, material-state availability and shared-resource capacities.
+Delivered artifact: Timed transfer-resource reservations between production stages.
+Identity/boundary: Aliases: material-transfer synchronization, header/pump scheduling. Paths may be supplied by recipe-to-equipment allocation; choosing them jointly creates an integrated extension. This card does not infer link from installed piping. Generic long-distance product pipeline transport remains LOG.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan | Commits transfer reservations within the production program.
+Structure inference: #place + #map | Places transfers in time and assigns available transfer resources; concurrent-use and material-state limits constrain them.
+IE Template: Finite-duration transfer and process-stage synchronization.
+OR Template: MILP scheduling with shared transfer resources.
+Evidence: S32 establishes finite transfer times and synchronization with shared units, tanks and recycles. S17 provides upstream path-allocation context. Stand-alone scheduling admission is limited to a transfer-reservation contract with process production states as conditions.
+References: S32, S17.
+Priority inference: High | Shared transfers couple equipment and storage in networked plants.
+Relevance inference: High | Feasible transfers prevent blocking and invalid production schedules.
+Hardness inference: High | Formal complexity depends on transfer and process coupling; Shared connections and simultaneous sender-receiver availability constrain reservations.
+Descriptors/parameters: ##transfer ##synchronization ##shared-piping
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE turnaround — Process Plant Turnaround Planning and Scheduling
+Decision: Selects and schedules plant shutdowns and maintenance work under process isolation, outage, production and resource limits.
+Inputs: Plant maintenance requirements, process isolation rules, demand commitments and resource capacity.
+Delivered artifact: Chosen shutdown scope, outage windows and executable work schedule.
+Identity/boundary: Aliases: shutdown scheduling, TAM, overhaul campaign planning. Long-term outage windows and detailed work plans are levels of the same shutdown contract. Generic staff rosters remain HR; construction projects remain CIVIC. Process outage and material/isolation constraints justify PROC ownership.
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #plan | Commits shutdown and overhaul work before execution.
+Structure inference: #place + #select + #map | Places outage and work intervals, selects shutdown scope and assigns work resources when required.
+IE Template: Process turnaround planning and resource-constrained project scheduling.
+OR Template: MILP outage planning; resource-constrained project-scheduling heuristics.
+Evidence: S15 supports long-term integrated site shutdown planning. S16 supports industrial work scheduling and compares heuristics to MIP. These are material near-equals at different levels; neither a generic RCPSP benchmark nor a refinery-wide MILP alone represents the whole family.
+References: S15, S16.
+Priority inference: High | Major process plants require recurring coordinated shutdowns.
+Relevance inference: Critical | Shutdown decisions affect capacity, reliability and safe restart.
+Hardness inference: High | Formal complexity depends on outage and work-scheduling scope; Plant isolation, interacting outages and limited crews constrain schedules.
+Descriptors/parameters: ##turnaround ##maintenance ##shutdown
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+CANDIDATE water — Process Water-Reuse and Treatment Network Synthesis
+Decision: Selects treatment technologies and reuse, recycle or discharge connections to satisfy process-water and contaminant limits.
+Inputs: Process water demands, contaminant loads, treatment alternatives and discharge specifications.
+Delivered artifact: Treatment portfolio and reuse/recycle/discharge topology.
+Identity/boundary: Aliases: wastewater network synthesis, regeneration-reuse design, zero-liquid-discharge configuration. Includes industrial treatment processes and retrofit. Excludes basin rights (LAND), withdrawal/depletion (EXTR), installed utility distribution (ENER), and civic maintenance (CIVIC).
+Ownership inference: Primary #PROC under the stated transformation/process contract. Territory exclusions and material interfaces above apply.
+Regime inference: #design | Commits process treatment and reuse pathways.
+Structure inference: #link + #select | Constructs treatment and reuse connections and selects treatment units; contaminant propagation defines feasible paths.
+IE Template: Contaminant-based water integration and treatment design.
+OR Template: MILP/MINLP superstructure optimization; generalized disjunctive programming.
+Evidence: S06 demonstrates discrete treatment and recycle/discharge selection. S44 supplies GDP/MINLP alternatives with variable influent. Treatment operation can use batch/mode scheduling below; it is not automatically a separate problem merely because the material is wastewater.
+References: S06, S44.
+Priority inference: Medium | Important where process-water or effluent constraints bind.
+Relevance inference: High | Integration reduces water use, treatment cost and discharge.
+Hardness inference: High | Formal complexity depends on the treatment-network model; Technology choices interact with mixing and multiple contaminant balances.
+Descriptors/parameters: ##water-reuse ##wastewater ##process-integration
+Admission: ADMIT under this stated decision contract; aliases/variants are not additional Problems.
+
+DEPENDENCY GRAPH — UNNUMBERED RESEARCH KEYS
+
+network → equipment | Inference: Selected technology/routes constrain feasible unit portfolios. Basis: S01 S02.
+network → storage | Inference: Material routes specify buffer-stage options. Basis: S01 S03.
+network → heat | Inference: Process streams define heat-recovery opportunities. Basis: S04.
+network → water | Inference: Process water demands and effluents define reuse/treatment options. Basis: S06.
+equipment → layout | Inference: Installed equipment dimensions constrain spatial arrangement. Basis: S07.
+storage → layout | Inference: Tank portfolio adds objects and separation conditions to layout. Basis: S03 S07.
+equipment → procedure | Inference: Unit capabilities constrain executable process actions. Basis: S10.
+formulation → procedure | Inference: Product composition supplies the material target for its recipe. Basis: S08 S10.
+equipment → multisite | Inference: Site unit capacities constrain production assignment. Basis: S11.
+multisite → production | Inference: Site production commitments supply local demand targets. Basis: S11.
+procedure → production | Inference: Recipes determine processing needs and batch/run feasibility. Basis: S22.
+production → blendplan | Inference: Production targets determine required material blends. Basis: S14.
+production → turnaround | Inference: Demand and production commitments constrain acceptable outages. Basis: S15.
+procedure → allocation | Inference: Chosen recipe tasks are mapped to actual eligible plant units. Basis: S17 S18.
+layout → allocation | Inference: Installed plant connections constrain usable recipe paths. Basis: S17.
+storage → tanks | Inference: Installed tanks and service rules bound material reservations. Basis: S19.
+blendplan → tanks | Inference: Material/blend allocation supplies segregation and occupancy demand. Basis: S14 S19.
+production → continuous | Inference: Production commitments supply campaign/run requirements. Basis: S20.
+turnaround → continuous | Inference: Outage reservations constrain process-unit calendars. Basis: S15.
+production → batch | Inference: Production quantities supply batch demands. Basis: S22.
+allocation → batch | Inference: Reserved units and paths constrain task scheduling when allocation is fixed upstream. Basis: S17 S23.
+turnaround → batch | Inference: Shutdown reservations remove processing capacity. Basis: S15.
+tanks → batch | Inference: Reserved material-storage capacity constrains feasible task timing. Basis: S24.
+batch → cip | Inference: Production timetable supplies cleaning demand and access windows. Basis: S13 S26.
+continuous → fouling | Inference: Run schedule supplies throughput and thermal duty for condition evolution. Basis: S27 S28.
+heat → fouling | Inference: Heat-recovery network defines the equipment and connected cleaning effects. Basis: S27.
+continuous → crude | Inference: Refinery operating program specifies CDU feed needs. Basis: S29 S30.
+tanks → crude | Inference: Available tank reservations constrain receipt and charging operations. Basis: S29.
+blendplan → blends | Inference: Planned material/specification choices feed detailed blend execution. Basis: S31.
+tanks → blends | Inference: Tank segregation and reservations constrain source availability. Basis: S31.
+batch → transfer | Inference: Process task times specify sender and receiver availability. Basis: S32.
+allocation → transfer | Inference: Selected paths restrict the transfer resources available. Basis: S17 S32.
+cip → transfer | Inference: Cleaning reservations constrain reuse of units and shared connections. Basis: S26 S32.
+continuous → packaging | Inference: Bulk output timing supplies packaging material availability. Basis: S13 S33.
+batch → packaging | Inference: Batch completions supply bulk lots to downstream filling/packaging. Basis: S13 S26.
+blends → packaging | Inference: Completed formulated bulk products supply downstream packaging. Basis: S13 S33.
+continuous → dispatch | Inference: Approved continuous production commitments guide release. Basis: S35 S38.
+batch → dispatch | Inference: Approved batch timetable guides order/phase release. Basis: S34 S35.
+continuous → repair | Inference: Current operating program becomes the commitment set to revise. Basis: S38 S36.
+batch → repair | Inference: Current batch timetable becomes the commitment set to revise. Basis: S36 S37.
+dispatch → repair | Inference: Observed releases/completions freeze executed or in-progress tasks in repair. Basis: S34 S37.
+cip → batch | Inference: Reserved cleaning times constrain a revised feasible batch timetable. Basis: S13 S26.
+fouling → continuous | Inference: Cleaning outages or degraded capacity constrain revised campaigns/modes. Basis: S27 S28.
+transfer → batch | Inference: Finite transfer reservations constrain a revised feasible task timetable. Basis: S32.
+packaging → continuous | Inference: Downstream buffer/line limits constrain revised bulk-run timing. Basis: S13 S33.
+repair → dispatch | Inference: Revised commitments supply subsequent release decisions. Basis: S34 S36.
+batch → quality | Inference: Batch/task completions supply samples and held-material availability for required tests. Basis: S45 S46.
+production → quality | Inference: Production commitments determine process-material testing demand and due dates. Basis: S46.
+quality → packaging | Inference: Required tests constrain bulk-material availability before packaging when qualification precedes filling. Basis: S46.
+quality → dispatch | Inference: Completed required tests/qualification are eligibility inputs for held process phases or orders. Basis: S34 S46.
+
+SOURCE REGISTER
+Read/indexed on 2026-10-06. No source access label implies benchmark reproducibility.
+
+S01 Process Network Synthesis: Problem Definition.
+https://www.p-graph.org/publ/Proc_Netw_Synth_Probl_Def.pdf
+Access and supported scope: Primary paper, author-hosted PDF; process units and materials define alternative feasible process networks. No claim that superstructure generation itself is NP-hard.
+
+S02 Mixed-integer linear programming reformulations for batch process design with discrete equipment sizes.
+https://pubs.acs.org/doi/10.1021/ie00005a012
+Access and supported scope: Primary paper, publisher search extract; discrete catalogue sizes and MILP reformulation support equipment design.
+
+S03 A multiperiod model for production planning and design in a multiproduct batch environment.
+https://www.sciencedirect.com/science/article/pii/S0895717709000193
+Access and supported scope: Primary paper, publisher abstract extract; parallel units, intermediate tank allocation and sizes are explicit design outputs.
+
+S04 Simultaneous Process and Heat Exchanger Network Synthesis Using a Discrete Temperature Grid.
+https://pubs.acs.org/doi/10.1021/acs.iecr.8b04083
+Access and supported scope: Primary paper, publisher abstract extract; MILP utility targeting and heat-network synthesis can accompany process synthesis.
+
+S05 Computational complexity of heat exchanger network synthesis.
+https://experts.illinois.edu/en/publications/computational-complexity-of-heat-exchanger-network-synthesis/
+Access and supported scope: Primary research record, full abstract read; Furman and Sahinidis (2001) prove strong NP-hardness, including minimum-match restrictions.
+
+S06 The Optimization-Based Design and Synthesis of Water Network for Water Management in an Industrial Process: Refinery Effluent Treatment Plant.
+https://www.cetjournal.it/index.php/cet/article/view/CET1439023
+Access and supported scope: Primary paper, full abstract read; selects treatment alternatives and recycle/discharge schemes using MILP/MINLP. Design and retrofit both occur.
+
+S07 An MILP model for safe multi-floor process plant layout using the domino hazard index.
+https://discovery.ucl.ac.uk/id/eprint/10120746/
+Access and supported scope: Primary research record, full abstract read; equipment layout, piping, protection and hazard separation in a multi-floor MILP.
+
+S08 Optimal Selection of Raw Materials for Pharmaceutical Drug Product Design and Manufacture using Mixed Integer Nonlinear Programming and Multivariate Latent Variable Regression Models.
+https://pubs.acs.org/doi/10.1021/ie3031828
+Access and supported scope: Primary paper, publisher abstract extract; distinguishes new product formulation from selection of existing raw-material lots for manufacture.
+
+S09 Design of formulated products integrating heuristic knowledge and consumer assessment.
+https://aiche.onlinelibrary.wiley.com/doi/abs/10.1002/aic.17117
+Access and supported scope: Primary paper, publisher abstract extract; mixed-integer ingredient selection and amounts with property and heuristic rules.
+
+S10 A combined MILP and logic-based approach to the synthesis of operating procedures for batch plants.
+https://www.tandfonline.com/doi/abs/10.1080/00986449208936019
+Access and supported scope: Primary paper, publisher abstract extract; STN subgoals and MILP generate operating procedures. This supports procedure synthesis, not a claim of widespread automated deployment.
+
+S11 A multiscale decomposition method for the optimal planning and scheduling of multi-site continuous multiproduct plants.
+https://www.sciencedirect.com/science/article/abs/pii/S0009250911001837
+Access and supported scope: Primary paper, publisher extract; integrated multi-site process planning and scheduling with multiscale decomposition.
+
+S12 Multiperiod model for the optimal production planning in the industrial gases sector.
+https://www.research-collection.ethz.ch/entities/publication/07840b5c-1f72-4bc8-b429-10ed01e2a3bc
+Access and supported scope: Primary research record, abstract extract; multiperiod MILP for cryogenic separation and multiple gas/liquid products.
+
+S13 Formulation and MIP-heuristics for the lot sizing and scheduling problem with temporal cleanings.
+https://www.sciencedirect.com/science/article/pii/S009813542030380X
+Access and supported scope: Primary paper, publisher abstract extract; beverage lot sizing, two-stage synchronization and mandatory temporal cleanings; MIP and MIP heuristics.
+
+S14 Intermediate product selection and blending in the food processing industry.
+https://portal.fis.tum.de/en/publications/intermediate-product-selection-and-blending-in-the-food-processin/
+Access and supported scope: Primary research record, full abstract read; selects intermediates and recipes under production/storage capacity, with a MILP and real-life data.
+
+S15 Long-term turnaround planning for integrated chemical sites.
+https://www.sciencedirect.com/science/article/pii/S0098135414002452
+Access and supported scope: Primary paper, publisher abstract extract; periodic chemical-plant shutdown plans and MILP site optimization.
+
+S16 Decision Support and Optimization in Shutdown and Turnaround Scheduling.
+https://pubsonline.informs.org/doi/10.1287/ijoc.1100.0393
+Access and supported scope: Primary paper, publisher abstract read; plant shutdown work scheduling, industrial instances and heuristic methods compared with MIP.
+
+S17 Path and equipment allocation for multiple, concurrent processes on networked process plant units.
+https://www.sciencedirect.com/science/article/abs/pii/0098135495002243
+Access and supported scope: Primary paper, publisher abstract extract; explicitly defines path/equipment allocation for concurrent batch processes as a graph problem.
+
+S18 Plant Structure Based Equipment Assignment in Control Recipe Generation Considering Conflicts with Other Batches.
+https://skoge.folk.ntnu.no/prost/proceedings/escape15/papers/PO-050.pdf
+Access and supported scope: Primary conference paper, full text read during control; connectivity-based assignment and conflict checking with simple delay/reassignment. Demonstrates feasible control-recipe generation, not a globally optimal allocation baseline.
+
+S19 A Mixed-Integer Linear Programming Model for Optimizing the Scheduling and Assignment of Tank Farm Operations.
+https://pubs.acs.org/doi/10.1021/ie202217v
+Access and supported scope: Primary paper, publisher abstract extract; dedicated tank assignment and continuous line scheduling minimize blocking.
+
+S20 Production planning and scheduling of parallel continuous processes with product families.
+https://collaborate.princeton.edu/en/publications/production-planning-and-scheduling-of-parallel-continuous-process/
+Access and supported scope: Primary research record, abstract extract; MIP with product-family and sequence-dependent switchovers on parallel processes.
+
+S21 Optimal scheduling of multiple sets of air separation units with frequent load-change operation.
+https://www.sciencedirect.com/science/article/pii/S1383586616313247
+Access and supported scope: Primary paper, publisher abstract extract; operating modes from industrial data and MILP unit scheduling.
+
+S22 Mixed-integer programming models for simultaneous batching and scheduling in multipurpose batch plants.
+https://www.sciencedirect.com/science/article/abs/pii/S0098135417302880
+Access and supported scope: Primary paper, publisher abstract extract; batch numbers, sizes and processing stages share units and resources.
+
+S23 A Hybrid MILP/CP Decomposition Approach for the Continuous Time Scheduling of Multipurpose Batch Plants.
+https://www.sciencedirect.com/science/article/abs/pii/S0098135404001103
+Access and supported scope: Primary paper, publisher abstract extract; STN-based scheduling with hybrid MIP/constraint programming and documented scaling limitations.
+
+S24 Optimal Scheduling of Multiproduct Batch Processes for Various Intermediate Storage Policies.
+https://pubs.acs.org/doi/10.1021/ie9601817
+Access and supported scope: Primary paper, publisher abstract extract; alternative storage policies, nonzero transfer/setup times and MINLP.
+
+S25 Human factors in dairy industry process control for energy reduction.
+https://www.sciencedirect.com/science/article/pii/S0959652617321194
+Access and supported scope: Primary observational study, publisher abstract extract; operators sequence recipes, schedule CIP and respond to process problems at two dairy sites.
+
+S26 Scheduling production of packaged dairy products in existing production plants by simulation.
+https://patents.google.com/patent/US20210365880A1/en
+Access and supported scope: Primary industrial patent, indexed text; shared cleaning-unit access is an explicit scheduling bottleneck. A patent demonstrates a proposed implementation, not independent performance superiority.
+
+S27 Optimisation of heat exchanger network cleaning schedules: Incorporating uncertainty in fouling and cleaning model parameters.
+https://www.repository.cam.ac.uk/items/d8abc058-6c40-4824-9da3-1e6fbb7a19b1
+Access and supported scope: Primary research record, abstract read; mixed-integer optimal control cleaning schedules and uncertain fouling parameters.
+
+S28 Mitigation of Fouling in Refinery Heat Exchanger Networks by Optimal Management of Cleaning.
+https://pubs.acs.org/doi/abs/10.1021/ef010052p
+Access and supported scope: Primary paper, publisher abstract extract; cleaning decisions, period discretization, multistart MINLP and plant-derived fouling models.
+
+S29 Refinery scheduling of crude oil unloading with tank inventory management.
+https://www.sciencedirect.com/science/article/pii/S0098135413001105
+Access and supported scope: Primary paper, publisher abstract extract; MILP refinery receipts, storage/charging tanks and CDU feed schedules.
+
+S30 Dealing with Multiple Tank Outflows and In-Line Blending in Continuous-Time Crude Oil Scheduling Problems.
+https://pubs.acs.org/doi/10.1021/acs.iecr.8b03749
+Access and supported scope: Primary paper, publisher abstract extract; battery-limit crude parcels, settling, multiquality tracking and CDU inputs.
+
+S31 Blend Scheduling Solutions in Petroleum Refineries towards Automated Decision-Making in Industrial-like Blend-Shops.
+https://www.mdpi.com/2227-9717/12/3/561
+Access and supported scope: Primary modelling paper, indexed abstract/body extracts; blend scheduling, quality constraints and tank aggregation/depooling limitations.
+
+S32 Material Transfer Operations in Batch Scheduling. A Critical Modeling Issue.
+https://pubs.acs.org/doi/10.1021/ie800075u
+Access and supported scope: Primary paper, publisher abstract extract; finite transfer durations and synchronization matter with shared units, storage, recycles and bidirectional flow.
+
+S33 Synchronizing Operations in Multiproduct Batch Facilities Producing Semifinished and Final Products.
+https://pubs.acs.org/doi/10.1021/acs.iecr.0c00607
+Access and supported scope: Primary paper, publisher abstract extract; precedence-based MILP for integrated intermediate/final-product facilities.
+
+S34 Releasing Process Orders.
+https://learning.sap.com/courses/exploring-business-processes-in-sap-s4-hana-process-shopfloor-control/releasing-process-orders_c6816737-8f8e-48f5-86fb-6b11b0133bde
+Access and supported scope: Official industrial workflow, page read; release whole orders or individual phases, with supervisor validation and collective selection. This is operational existence evidence, not an optimization superiority claim.
+
+S35 Real-time control/scheduling for multi-purpose batch plants.
+https://www.sciencedirect.com/science/article/abs/pii/S0360835201000559
+Access and supported scope: Primary paper, publisher abstract extract; real-time batch resource coordination is compared with a conventional dispatch rule.
+
+S36 A new approach for efficient rescheduling of multiproduct batch plants.
+https://www.researchwithrutgers.org/en/publications/a-new-approach-for-efficient-rescheduling-of-multiproduct-batch-p/
+Access and supported scope: Primary research record, full abstract read; breakdown/rush-order repair, continuous-time MILP and deviation from original schedules.
+
+S37 Production Scheduling of a Large-Scale Industrial Batch Plant. II. Reactive Scheduling.
+https://pubs.acs.org/doi/abs/10.1021/ie0600590
+Access and supported scope: Primary paper, publisher abstract extract; industrial reactive MILP fixes unaffected tasks and modifies the nominal model.
+
+S38 Integrated real-time production scheduling of a multiple cryogenic air separation unit and compressor plant.
+https://eprints.ncl.ac.uk/237705
+Access and supported scope: Primary research record, abstract read; two-stage MILP real-time operational target/configuration coordination. No trial saving is transferred to other plants.
+
+S39 A hybrid VNS approach for the short-term production planning and scheduling: A case study in the pulp and paper industry.
+https://repositorio.inesctec.pt/handle/123456789/5693
+Access and supported scope: Primary research record, abstract read; integrated-mill MIP, VNS setup search and digester-speed/flow optimization.
+
+S40 Multi-product batch scheduling for cement mills under time-of-use electricity tariffs.
+https://www.sciencedirect.com/science/article/pii/S0305054826002819
+Access and supported scope: Primary paper, publisher abstract extract; cement mill product switches, batches and electricity tariffs in MIP scheduling.
+
+S41 An Integrated System for Production Scheduling in Steelmaking and Casting Plants.
+https://ieeexplore.ieee.org/document/7286865/
+Access and supported scope: Primary paper, publisher abstract extract; MILP scheduling integrated steelmaking/casting and industrial applications.
+
+S42 Glass container production scheduling through hybrid multi-population based evolutionary algorithm.
+https://www.sciencedirect.com/science/article/abs/pii/S1568494612001913
+Access and supported scope: Primary paper, publisher abstract extract; continuous furnace feeds discrete molding. Supports a PROC/PROD boundary, not automatic PROC ownership of molding.
+
+S43 The Complexity of Flowshop and Jobshop Scheduling.
+https://experts.arizona.edu/en/publications/complexity-of-flowshop-and-jobshop-scheduling/
+Access and supported scope: Primary research record, full abstract read; Garey, Johnson and Sethi (1976), NP-complete makespan decision for job shops with at least two machines. This is a restricted-model result.
+
+S44 Optimal Synthesis and Operation of Wastewater Treatment Process with Dynamic Influent.
+https://pubs.acs.org/doi/10.1021/acs.iecr.7b01805
+Access and supported scope: Primary paper, publisher abstract extract; treatment process selection and multiperiod operation using GDP/MINLP.
+
+S45 Minimizing total completion time in large-sized pharmaceutical quality control scheduling.
+https://link.springer.com/article/10.1007/s10732-023-09509-8
+Access and supported scope: Primary paper, publisher abstract and indexed full-text sections; analytical-test dual-resource MILP, dynamic heuristic and tabu-search comparison on real-sized lab instances. Method rankings remain within the reported instance scope.
+
+S46 Emerson Expands Life Sciences Scheduling Software to Optimize Quality Control Lab Testing.
+https://www.emerson.com/en/corporate/news/2026/emerson-expands-life-sciences-scheduling-software
+Access and supported scope: Official industrial announcement, indexed extract; integrates QC lab scheduling and manufacturing to support timely material/batch release. Existence/operational coupling evidence; no algorithm details or independently reproduced uplift.
+
+S47 Dual Resource Constrained Scheduling for Quality Control Laboratories.
+https://www.sciencedirect.com/science/article/pii/S2405896319313795
+Access and supported scope: Primary IFAC paper, publisher abstract extract; analytical tests occupy instruments and analysts at distinct intervention times, modelled by a dual-resource flexible-job-shop MILP.
+
+S48 A time-bucket MILP formulation for optimal lot-sizing and scheduling of real-world chemical batch plants.
+https://ris.utwente.nl/ws/portalfiles/portal/322903352/1-s2.0-S0098135423002119-main.pdf
+Access and supported scope: Primary paper, author-repository indexed PDF extract; industrial agrochemical formulation and filling with intermediate buffer tanks; time-bucket MILP. Supports integrated bulk-to-filling scope beyond beverages.
+
+KNOWN LIMITS
+No independent global SOTA ranking, measured prevalence study, complete industrial census, public benchmark validation or formal complexity proof for every full industrial scope was obtained. Their absence is recorded rather than filled by assertion. The supported set covers the principal normative PROC territories with source-backed Template existence and explicit ownership/exclusion reasoning. Case selection and stabilization await human approval.
