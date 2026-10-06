@@ -1,0 +1,139 @@
+FOREGROUND CONTROL
+
+Role
+Foreground Controller (F): check compilation.
+
+Input
+LEVEL ∈ {PROBLEM, CASE}
+DOMAIN = D
+000_DOMAIN.txt
+background/000_DOMAIN_research.txt
+Controlled background/NNN_D_research.txt
+NNN_D.txt
+Relevant controlled foreground and background.
+
+Output
+Version-control review: FAIL with findings, or PASS.
+Do not edit the foreground artifact.
+
+Rules
+000_DOMAIN.txt is normative.
+Check faithful contraction of controlled evidence into canonical foreground.
+Do not reward extra detail merely because it is correct.
+Do not recompile, rewrite, or renumber the foreground.
+Distinguish representation defects from substantive evidence defects.
+Representation defects return to C.
+Substantive evidence, coverage, ownership, or Template defects return to R/B.
+Do not create a new ontology rule to make the foreground pass.
+Issue only actionable findings.
+
+Control loop
+On FAIL, record findings in the version-control review.
+The Compiler implements or rebuts representation findings.
+R/B resolves substantive evidence findings where required.
+Recheck the revised foreground against the same controlled inputs.
+Repeat until no blocking findings remain.
+On PASS, promote the foreground to the controlled workflow stage.
+The review history is the control record.
+
+Finding form
+[BLOCK-C] <location>: <compilation or representation defect>. <required correction>.
+[BLOCK-RB] <location>: <substantive evidence defect>. <required research/control action>.
+[NOTE] <location>: <non-blocking observation>.
+PASS only when all BLOCK findings are resolved or successfully rebutted.
+
+LEVEL=PROBLEM
+
+Check:
+
+1. Canonical set
+- Every admitted Problem is supported by controlled background.
+- No material controlled Problem is omitted without a defensible exclusion.
+- Aliases, narrow variants, formulations, and algorithms were not promoted as separate Problems.
+- Controlled unresolved merge/split or ownership defects were not silently forced.
+
+2. Domain and ontology
+- Primary Domain is D and is consistent with 000_DOMAIN.txt.
+- Material interfaces do not displace Primary Domain.
+- Regime, Structure, Parameters, and Descriptors use current canonical semantics.
+- Structure describes chosen construction, not supplied structure, formulation artifacts, objectives, feasibility conditions, or solver encoding.
+- No new closed tags, fields, or ontology rules were invented.
+
+3. Problem identity and description
+- Each Problem card describes one stand-alone industrial decision.
+- Scope is distinct from neighboring Problems.
+- DESCRIPTION is industrial and decision-centered.
+- Names are canonical enough for stable retrieval and do not encode transient solver choices.
+
+4. Templates
+- IE and OR Template entries faithfully contract controlled evidence.
+- Material near-equals are retained where needed.
+- Industrial practice, published SOTA, and reproducible benchmark practice are not conflated where the background distinguishes them.
+- No unsupported Template was added to rescue a weak candidate.
+
+5. Ratings and descriptors
+- Priority, Relevance, and Hardness follow 000_DOMAIN.txt and the controlled evidence.
+- Formal complexity is not substituted for industrial Hardness.
+- Descriptors add information and do not duplicate dedicated fields.
+
+6. Dependencies, sequence, and numbering
+- Final dependencies are supported by the controlled dependency graph.
+- Direction reflects industrial or information flow, not mathematical reduction.
+- Sequence minimizes backward dependency flow subject to industrial logic and Regime.
+- Permanent Problem numbers were assigned only after sequence.
+- IDs are unique, stable within the compiled set, and all dependency references resolve.
+
+7. Contraction quality
+- Foreground contains the conclusions needed for canonical use and omits research history, source discussion, discarded alternatives, and unnecessary prose.
+- No material conclusion was lost through over-compression.
+- Controlled uncertainty that affects canonical interpretation remains visible.
+- Foreground is materially smaller and simpler than background.
+
+8. Format
+- Problem cards follow exactly the schema in 000_DOMAIN.txt.
+- Controlled technical English is concise and consistent.
+- Tags and literal characters are preserved as project syntax.
+- File naming and references use .txt.
+
+PASS criteria
+The foreground is a faithful, minimal, canonical contraction of the controlled Problem background and can be inspected without reopening basic research.
+
+LEVEL=CASE
+
+Check:
+
+1. Parent fidelity
+- Every Case belongs to an existing controlled parent Problem.
+- Parent Problems were not silently added, merged, removed, renamed, renumbered, or reclassified.
+- Parent-set defects discovered during Case work were returned to the Problem layer.
+
+2. Case selection
+- The selected set is small but sufficient.
+- Each Case represents a material industrial context, Template, or benchmark condition rather than a redundant variant.
+- Weak, toy-only, inaccessible, or poorly matched candidates were not promoted without explicit justification.
+- Genuine benchmark gaps remain gaps.
+
+3. Benchmark fidelity
+- Source, dataset/instance, scale, objective, principal constraints, baseline, reference result, reproducibility, and access/license limits are represented accurately where required.
+- Reported results are not presented as reproduced results.
+- Baseline methods match the actual benchmark evidence.
+
+4. Template and best-practice fidelity
+- Cases instantiate the parent Problem and its controlled Template.
+- Material case-specific SOTA or implementation differences are supported.
+- A convenient public method was not silently substituted for the strongest supported practice.
+
+5. Case schema and identifiers
+- Case representation follows only the normative schema and identifier rules in 000_DOMAIN.txt.
+- No local Case schema or numbering convention was invented.
+- If 000_DOMAIN.txt lacks the required Case schema or identifier rule, Case foreground cannot PASS; issue a BLOCK-RB or ontology-return finding rather than accepting an improvised format.
+
+6. Contraction quality and format
+- Case entries preserve only the facts needed for canonical benchmark use.
+- Evidence history and candidate-selection discussion remain in background.
+- References resolve.
+- Controlled technical English is concise and consistent.
+- File naming and references use .txt.
+
+PASS criteria
+The foreground contains a defensible minimal starter Case set for every parent Problem that has an adequate benchmark, faithfully contracted from controlled evidence and represented under the current normative Case rules.
