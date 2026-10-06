@@ -1,0 +1,724 @@
+background/202_SCM_research.txt
+Supply Chain & Inventory — Problem Research
+v0.1 | 7 October 2026 | Problem layer
+Domain 202 #SCM within #DISP.
+
+NORMATIVE INPUT AND SCOPE
+
+000_DOMAIN.txt v0.4 is normative. background/000_DOMAIN_research.txt v0.4 supplies territory and interfaces. workflow/0_workflow.txt and workflow/1_research.txt through workflow/4_foreground.txt define R → B → C → F at LEVEL=PROBLEM. Existing 101_PROC.txt, 102_PROD.txt and 201_LOG.txt were read for ownership and granularity. No previous 202_SCM.txt or background/202_SCM_research.txt exists on main at intake. No .md artifact was used as an input.
+The requested release label is v0.1 for both files; role-stage changes are recorded by version-control history. Temporary research keys below are mnemonic identities, not permanent problem numbers or a prescribed final sequence. No cases are selected or numbered.
+
+TERRITORY AND INDUSTRY CONTEXT
+
+Consumer goods and retail: stocking coverage, buffers, coordinated purchasing, seasonal buys, shelf-life allocation, shortage protection and omnichannel sourcing.
+Industrial distribution and global procurement: supplier portfolios, discounts/MOQ, internal-versus-external source allocation, time-phased purchasing, deployment, expediting and disruption recovery.
+Capital goods and aftersales: multi-echelon repairable stock, level of repair, service availability, repair/buy provisioning, supersession and final buys. Technical repairs and technician routing remain interfaces.
+Chemicals, food and pharmaceutical supply: availability by quality state, expiry and customer eligibility; bulk supply planning and sourcing. Plant blends, transformation lots, quality release and production schedules remain PROC.
+Automotive, aerospace, electronics and discrete manufacturing supply: component readiness, discrete source capacity, BOM-constrained supply balance and promise feasibility. Factory capability, production loads and job sequencing remain PROD.
+Reusable assets and circular supply: serviceable/unserviceable pools, incoming returns, stock disposition, repair versus replacement and replenishment. Empty movement units used to execute transport remain LOG20; collection and recovery production remain separate contracts.
+Energy, construction, extraction, agriculture, public supply and health-related industries instantiate SCM when sourcing/stock availability defines the decision. Physical utility balance is ENER; public asset coordination is CIVIC; resource extraction is EXTR; land/water rights and harvest commitments are LAND; clinical feasibility is HC; adversarial mission feasibility is INTEL. Industry does not decide Primary Domain.
+Useful open industry examples: ##RETAIL, ##CONSUMERGOODS, ##INDUSTRIALDISTRIBUTION, ##AUTOMOTIVE, ##AEROSPACE, ##ELECTRONICS, ##PHARMA, ##CHEMICALS, ##FOOD, ##CAPITALGOODS. They are contextual examples, not a closed industry register.
+
+OWNERSHIP TESTS AND ADMISSION RULES
+
+The delivered decision contract controls ownership. SCM delivers stockholding/supply configuration, inventory targets, supply assignments, replenishment orders, feasible supply promises or their repair. Cost terms and a formulation name do not determine Domain.
+SCM versus LOG: stock availability/source/quantity is SCM; vehicles, trips, physical visits, handling order and warehouse travel are LOG. Transport costs/lead times may constrain SCM without transferring ownership. Internal stock policy is SCM; physical reserve-to-pick moves are LOG33. Item stocking entitlement is SCM; product-to-pick-face storage placement is LOG29.
+SCM versus PROC/PROD: external and network supply commitments are SCM; transformation feasibility, production lots, factory loads and operation sequences are PROC/PROD. Repairable availability is SCM when repair capability is supplied. Technical repair/disassembly and recovery production are PROD. An integrated contract must identify its dominant delivered decision rather than acquire several Primary Domains.
+SCM versus MKT/FIN: stock-feasible promises, fixed demand entitlements and stock-source allocation are SCM; offers, pricing, assortment, negotiated exchange and bid clearing are MKT. Working capital can constrain SCM; liquidity/financial claims remain FIN. Operational inventory verification is SCM; purely financial audit assurance is FIN.
+Inventory-routing is an interface, not automatically a separate SCM Problem. If the complete artifact is vehicle journeys with delivery quantities, LOG15 owns the routing-led contract with SCM coupling. If the artifact is replenishment lots on supplied transport capacity, purchase/deployment owns it in SCM. A genuinely different dominant integrated contract requires renewed ownership assessment, not a duplicate card by name.
+Every admitted ICO instance needs a genuine discrete decision: site/supplier/stock-position choice, categorical support or policy role, integer stock/lot, indivisible allocation, discrete source/date, count task, or recovery action. Pure continuous EOQ, aggregate LP, fixed-rule availability lookup and scalar safety-stock formula are valid techniques but not independent combinatorial problems.
+Regime follows the commitment: footprint and available supply modes are design; target policies and future supply commitments are plan; entitlements and requirement assignments are allocate; stock-state disposition and redistribution are operate; immediate release/promises are dispatch; revision of prior commitments is adapt. Long horizon does not force design. Short horizon does not force dispatch.
+Structure follows output: SELECT chooses actions/entities; MAP assigns stock, requirements or modes; PLACE chooses actual periods/epochs; LINK is used only if the industrial solution chooses connection topology. Supplied BOM, support tree, sourcing graph, substitution chain, road network and stock genealogy are not LINK evidence. Binary variables alone are not SELECT evidence; stock at a fixed site is not geometric PLACE evidence.
+
+EVIDENCE AND RATING CONVENTIONS
+
+Source claims are separated from ontology, dependency and rating inferences. Ratings below are qualitative industrial judgments using the normative scales, not source-reported statistics. Complexity is stated only for supported restrictions or transparent reductions, never inferred from MILP or a problem name. Missing full-contract classifications are not repeated as empty foreground boilerplate.
+Template entries identify established IE framing and defensible OR architecture. No claim of a uniquely strongest 2026 method is made from old foundational papers, vendor functionality or accessible examples. Material alternatives are retained: guaranteed/stochastic service; exact models/heuristic commercial policies; DP/MIP; hierarchical/joint supply planning. Later case research must resolve actual baseline, SOTA and reproducibility for each instance.
+Sources were retrieved on 7 October 2026 Europe/Berlin. Indexed publisher abstracts/excerpts can establish decision scope and Template existence; they do not establish detailed theorem assumptions, source code availability, licensing or reproduced results. Failed full-page retrieval is disclosed in the ledger. No future 26D product release was used as established practice. No numeric performance claim is imported into the foreground.
+
+CANDIDATE IDENTITIES, ALTERNATIVES AND DECISION EVIDENCE
+
+KEY buffer — Multi-Echelon Inventory Buffer Optimization
+Decision and delivered scope: Assign discrete stock targets and service-time choices across supply echelons to meet service requirements within inventory and capacity limits.
+Aliases: Inventory positioning; safety-stock allocation; base-stock allocation; service-parts stock sizing.
+Material variants: Guaranteed-service versus stochastic-service models; repairable stock under METRIC/VARI-METRIC; discrete service times; location-inventory integration.
+Identity and ownership boundary: Sizes buffers on a defined or jointly selected stocking system. It does not select commercial assortment, locate warehouse pick faces or sequence production jobs. Repairable demand is a material modeling variant, not a new domain problem.
+Supplied substrate: Supply/support network, stocking entitlement, lead times, uncertainty, availability targets and allowed stock/service settings.
+Chosen construction: Maps stock and service-time configurations to supply nodes and selects active buffers where that choice remains open.
+Constitutive laws and feasibility: Material conservation, lead-time exposure and echelon service coupling define feasible configurations. Choosing a node stock level is MAP, not geometric PLACE.
+Delivered artifact: Integer stock targets and node service guarantees or evaluated availability levels.
+Template basis: Multi-echelon service and inventory positioning | Guaranteed-service optimization or stochastic-service models; METRIC-family allocation for repairables.
+Evidence and competing approaches: S09 supports the guaranteed-service tree case only. S10 supports approximate repairable stock evaluation; S07 distinguishes these stocks from LORA. Neither dominates all systems. Pure continuous safety-stock formulas are not admitted ICO instances; discrete target units, stocking activation or service options must be present.
+Source support: S09, S10, S07.
+Ontology inference: Primary SCM; Regime #plan; Structure #map + #select.
+Rating inference: Priority Critical — Inventory positioning is central to substantial supply networks. Relevance Critical — Better buffers can release working capital while preserving service. Hardness High — Service dependencies, shared capacity and uncertain lead times couple node targets.
+Useful descriptors: ##multi-echelon ##inventory-positioning ##service-level.
+Industrial upstream keys: coverage, repair_support. Dependency interpretation is defined below.
+
+KEY counting — Inventory Count Selection
+Decision and delivered scope: Select item-location inventory counts under record-accuracy targets and available counting capacity.
+Aliases: Cycle count optimization; inventory verification selection; risk-based cycle counting.
+Material variants: Fixed-period count programs; dynamic count priorities; discrepancy risk; discrete count tasks; availability verification before promising.
+Identity and ownership boundary: Owns verification of physical stock availability. Financial assurance alone belongs to FIN; worker shift and skill rostering belong to HR; picker travel or count-tour routing is LOG. Predicting discrepancies alone is not ICO.
+Supplied substrate: Inventory records, discrepancy history, accuracy targets, count effort, access eligibility and available count capacity.
+Chosen construction: Selects item-location count tasks to perform.
+Constitutive laws and feasibility: Discrete count effort, access eligibility and accuracy coverage constrain the selected observations. Count epochs, employee routes and staffing are external inputs.
+Delivered artifact: Chosen inventory counts; corrected availability is subsequent observed information.
+Template basis: Stratified and risk-based inventory cycle counting | Sampling-allocation optimization; constrained count selection.
+Evidence and competing approaches: S33 supports optimized count effort subject to accuracy. S34 supports state-informed task prioritization. Restrict the admitted contract to selection of discrete count tasks; temporal scheduling is not established as its benchmark Template. Fixed-period program selection and immediate count activation explain the two Regimes. Statistical estimation and continuous effort allocation alone are not ICO.
+Source support: S33, S34.
+Ontology inference: Primary SCM; Regime #plan + #dispatch; Structure #select.
+Rating inference: Priority Medium — Counting is a recurring support decision for inventory record accuracy. Relevance Medium — Better counts can reduce phantom-stock failures and unnecessary verification. Hardness Medium — Risk estimates and limited count capacity affect task selection.
+Useful descriptors: ##cycle-counting ##record-accuracy ##verification.
+Industrial upstream keys: coverage, policy. Dependency interpretation is defined below.
+
+KEY coverage — Item-Location Stocking Coverage
+Decision and delivered scope: Select item-location pairs to stock under supply eligibility, service coverage, space and investment limits.
+Aliases: Stocking/destocking; SKU-location ranging; spare-parts stocking coverage.
+Material variants: Consumables, repairables, shared or dedicated pools, stock/nonstock stability periods, omnichannel stock entitlement.
+Identity and ownership boundary: Selects where an already defined product is held, not which products are offered to customers. Commercial assortment is MKT. Warehouse slotting is LOG29. Quantity targets and safety-stock placement belong to buffer optimization.
+Supplied substrate: Product catalogue, active sites, service catchments, space limits and permitted supply/support modes.
+Chosen construction: Selects the item-location stock positions that are maintained.
+Constitutive laws and feasibility: Stocking coverage must meet supplied service and eligibility rules; simultaneous quantity decisions can be integrated but are not required to define coverage.
+Delivered artifact: Stocked/nonstocked item-location set.
+Template basis: Stocking and destocking with service coverage | Binary coverage optimization; joint location-inventory MIP.
+Evidence and competing approaches: S08 establishes location-product stock/nonstock decisions with rule-table practice. S39 and S40 directly establish joint location/stock MIP and decomposition under service constraints. Binary item-location coverage is the narrowed architectural inference; joint zero/positive stock choices can combine it with sizing. This does not assert that a vendor stocking service implements a global optimizer. Exact nonlinear service models and linearized or relaxed stock-location models are material alternatives.
+Source support: S08, S39, S40.
+Ontology inference: Primary SCM; Regime #design + #adapt; Structure #select.
+Rating inference: Priority High — Stocked-location choices recur across distribution and spare-parts networks. Relevance High — Better coverage can reduce idle stock and improve local availability. Hardness High — Many item-site choices interact with shared space and service targets.
+Useful descriptors: ##stocking ##coverage ##stocked-location.
+Industrial upstream keys: network, postponement, repair_support. Dependency interpretation is defined below.
+
+KEY disposition — Returned and Excess Inventory Disposition
+Decision and delivered scope: Assign returned or excess inventory to retention, approved recovery supply, redistribution or disposal under condition, demand and capacity limits.
+Aliases: Returns disposition; excess stock disposal; recoverable-stock disposition; inventory liquidation assignment.
+Material variants: Reusable goods; serviceable/unserviceable states; conditional recovery yield; fixed resale/disposal outlets; obsolete stock.
+Identity and ownership boundary: Owns supply-state and stock-retention actions. Technical recovery operations are PROD14; collection and transport are LOG. Endogenous resale pricing, customer return offers and auction clearing belong to MKT; statutory waste treatment may belong to CIVIC/PROC.
+Supplied substrate: Known or probabilistic stock condition, excess/return quantities, eligible actions, recovery capacities, future demand and fixed outlet values.
+Chosen construction: Maps stock units or lots to retention, recovery, redistribution or disposal actions.
+Constitutive laws and feasibility: Condition eligibility, stock-state conservation, recovery capacity and disposition deadlines constrain assignments.
+Delivered artifact: Disposition assignments and stock quantities retained or released to recovery/outlets.
+Template basis: Return triage and excess-stock control | Inventory-disposition MDP; constrained action-assignment MIP.
+Evidence and competing approaches: S32 establishes arrival disposal versus retained/recovered inventory and serviceable-stock disposal. The narrowed decision excludes production execution; MDP and scenario action assignment are conditional alternatives. An unconstrained single-lot cost comparison is a simple subcase.
+Source support: S32, S18.
+Ontology inference: Primary SCM; Regime #operate; Structure #map.
+Rating inference: Priority Medium — Disposition recurs in returned, repairable and obsolete stock systems. Relevance High — Better actions can recover supply value and reduce stranded inventory. Hardness High — Uncertain recovery yield and future stock need couple action choices.
+Useful descriptors: ##returns ##disposition ##excess-inventory.
+Industrial upstream keys: repair_support, last_buy, lot_assignment. Dependency interpretation is defined below.
+
+KEY distribution — Distribution Requirements and Deployment Planning
+Decision and delivered scope: Assign replenishment supply to destination stockpoints and receipt periods under network, availability and storage limits.
+Aliases: DRP; distribution replenishment planning; time-phased deployment; inventory deployment.
+Material variants: Push/pull; omnichannel stores and centers; discrete transfer lots; scheduled upstream receipts; supplied lane capacities.
+Identity and ownership boundary: Plans stock supply through the distribution hierarchy; lateral redistribution of existing stock is transshipment. Vehicle journeys, physical loading and internal transfer scheduling are LOG. Fixed pack multiples or source assignments provide combinatorial content.
+Supplied substrate: Supply network, requirements, upstream receipts, stock targets, storage, calendars and transfer lot sizes.
+Chosen construction: Maps replenishment lots to destination stockpoints and places receipts in periods.
+Constitutive laws and feasibility: Echelon inventory balances, lead-time offsets and supply bounds define feasible deployment. The distribution hierarchy is supplied; physical service routes are not constructed.
+Delivered artifact: Destination-specific replenishment quantities and receipt plan.
+Template basis: DRP and push-pull stock deployment | Time-expanded distribution MILP; prioritized deployment and robust planning.
+Evidence and competing approaches: S16 establishes DRP practice; S28 establishes priority-based push/pull deployment. S17 provides robust replenishment evidence for warehouse/store networks. MILP is the architecture for discrete lots on the same material-balance system, not a claim that every DRP run solves an MIP.
+Source support: S16, S17, S28.
+Ontology inference: Primary SCM; Regime #plan + #allocate; Structure #map + #place.
+Rating inference: Priority High — Deployment planning recurs across multi-echelon distribution systems. Relevance High — Better deployment can reduce regional stockouts and excess stock. Hardness High — Shared supply, pack sizes, storage and uncertain demand couple destinations.
+Useful descriptors: ##drp ##deployment ##multi-echelon.
+Industrial upstream keys: integrated, purchase, policy. Dependency interpretation is defined below.
+
+KEY expedite — Supply Expediting and Emergency Procurement
+Decision and delivered scope: Select emergency supply or acceleration actions for threatened requirements under premium cost, availability and commitment limits.
+Aliases: Emergency procurement; purchase-order expediting; regular/emergency sourcing; supply exception actions.
+Material variants: Expedite thresholds; fast/slow supply; fixed action packages; upstream order tracking; discrete premium-capacity slots.
+Identity and ownership boundary: Activates faster inventory availability while preserving the supply contract. LOG chooses shipment journeys; PROC/PROD revise execution schedules. Structural backup capacity is configured beforehand. Continuous-only quantity control is outside ICO.
+Supplied substrate: Threatened requirements, stock/pipeline state, existing orders, available emergency actions, promised dates and premium budgets.
+Chosen construction: Selects emergency supply actions and maps them to threatened requirements.
+Constitutive laws and feasibility: Available fast-source capacity, order commitments and premium budgets limit rescue actions. Routes and technical acceleration feasibility are supplied.
+Delivered artifact: Selected emergency orders or acceleration requests and affected requirements.
+Template basis: Dual sourcing and inventory-driven expediting | Stochastic dual-source control; threshold policies and rolling action MIP.
+Evidence and competing approaches: S31 supports inventory-driven thresholds and availability targets. S30 offers a published neural controller and author-linked software; it is a competing method, not established industrial dominance. Multi-item constrained action MIP is a model-family extension, not a benchmark result.
+Source support: S31, S30.
+Ontology inference: Primary SCM; Regime #dispatch + #adapt; Structure #select + #map.
+Rating inference: Priority High — Emergency supply actions recur when ordinary replenishment misses demand. Relevance High — Better actions can avoid downtime without excessive premiums. Hardness High — Uncertain receipts, several sources and existing commitments interact.
+Useful descriptors: ##expediting ##emergency-sourcing ##dual-sourcing.
+Industrial upstream keys: supplier, release, promising. Dependency interpretation is defined below.
+
+KEY fulfillment — Order Fulfillment Source Allocation
+Decision and delivered scope: Assign confirmed order lines to stocked fulfillment sites or approved substitute items under inventory, capacity and delivery requirements.
+Aliases: Order sourcing; omnichannel fulfillment; ship-from-store allocation; fulfillment-center assignment.
+Material variants: Multi-line orders; split limits; store/warehouse/drop-ship sources; supplied substitution chains; complete-kit availability.
+Identity and ownership boundary: Allocates existing or confirmed requirements to stock sources. Promise generation is upstream. Picking station/pod assignment is LOG32, warehouse batching is LOG30, and vehicle routing is LOG15. Demand substitution is a material variant, not a separate card.
+Supplied substrate: Confirmed orders, eligible stocks/sites/substitutes, site capacities, service deadlines and split costs.
+Chosen construction: Maps order lines to fulfillment sites and eligible product alternatives.
+Constitutive laws and feasibility: Stock conservation, source eligibility, complete-order and split limits constrain assignments. Delivery routes and technical compatibility are inputs.
+Delivered artifact: Order-line fulfillment source and item assignments.
+Template basis: Omnichannel order sourcing and stock pooling | Order-source allocation MILP; online assignment and rolling optimization.
+Evidence and competing approaches: S25 identifies order transfer versus inventory transfer. S26 supports joint inventory/fulfillment decisions. S37 supports approved substitute choices. A general indivisible order-to-site assignment contains generalized assignment (inference); simple divisible network-flow restrictions are polynomial.
+Source support: S25, S26, S37.
+Ontology inference: Primary SCM; Regime #allocate + #dispatch; Structure #map.
+Rating inference: Priority High — Source allocation recurs across multi-site and omnichannel fulfillment. Relevance High — Better assignments can reduce split deliveries and stock imbalances. Hardness High — Many lines, site capacities and shared inventories couple assignments.
+Formal complexity scope: Polynomial for uncoupled flow allocation; indivisible capacity assignments can be NP-hard.
+Useful descriptors: ##omnichannel ##order-sourcing ##substitution.
+Industrial upstream keys: promising, shortage. Dependency interpretation is defined below.
+
+KEY integrated — Integrated Supply and Operations Planning
+Decision and delivered scope: Plan discrete supply commitments across procurement, production sources, inventory and distribution periods under demand and shared capacity limits.
+Aliases: Supply-constrained S&OP; IBP supply optimization; integrated production-distribution planning; master supply planning.
+Material variants: Deterministic, scenario, rolling and hierarchical planning; discrete capacity activation; supply-path choice; aggregate material conversion.
+Identity and ownership boundary: Owns the cross-network supply balance. Factory resource loading, transformation recipes and detailed scheduling belong to PROC/PROD. S&OP meetings and continuous-only business forecasts are not stand-alone ICO problems.
+Supplied substrate: Demand scenarios, supply network, component requirements, source/production capacity envelopes, buffers and commercial commitments.
+Chosen construction: Maps supply requirements to sources, places commitments in periods and selects discrete supply activations.
+Constitutive laws and feasibility: Material and inventory balances, component availability and period capacities constrain commitments. A BOM or network is supplied, not LINK by default.
+Delivered artifact: Consistent time-phased procurement, source output, inventory and distribution commitments.
+Template basis: Supply-constrained S&OP and integrated business planning | Supply-chain MILP; hierarchical decomposition and rolling optimization.
+Evidence and competing approaches: S12 reports IBM decomposition around BOM and supply paths. S13 documents MILP and finite heuristic as material alternatives. S36 supports integrated MIP with plan stability. Published practice does not prove that one commercial optimizer dominates. Discrete activations or assignments are required; a pure aggregate LP is only a restricted subcase.
+Source support: S12, S13, S36.
+Ontology inference: Primary SCM; Regime #plan; Structure #map + #place + #select.
+Rating inference: Priority Critical — Integrated supply balance connects the major SCM planning decisions. Relevance Critical — A feasible network plan can change enterprise output, inventory and service. Hardness Critical — Many items, supply stages and frozen commitments require decomposition and rolling planning.
+Useful descriptors: ##integrated-planning ##material-balance ##rolling-horizon.
+Industrial upstream keys: network, supplier, postponement, buffer. Dependency interpretation is defined below.
+
+KEY last_buy — End-of-Life Supply Provisioning
+Decision and delivered scope: Choose final purchases and eligible replacement supply actions to cover service demand after permanent source withdrawal.
+Aliases: Last-time buy; lifetime buy; life-of-type buy; end-of-life service-parts provisioning.
+Material variants: Bridge buys; fixed substitute options; remaining warranty/service commitments; repair and aftermarket supply; integer packages.
+Identity and ownership boundary: Permanent loss of replenishment and terminal service liability distinguish this from recurring lot sizing or an ordinary seasonal buy. Redesigning a product is PROD; it may enter as a supplied substitute option.
+Supplied substrate: Source withdrawal date, installed-base/service-life demand, current stock, repair alternatives and remaining service obligations.
+Chosen construction: Selects terminal purchase lots and replacement supply actions and maps them to remaining service requirements.
+Constitutive laws and feasibility: Last-order deadlines, remaining service life and finite recovery options constrain terminal provisioning.
+Delivered artifact: Final procurement quantity and remaining-life supply policy.
+Template basis: Last-time buy and end-of-life service planning | Finite-horizon stochastic inventory optimization with repair and replacement options.
+Evidence and competing approaches: S19 and S20 establish final buys after production ends and repair-policy trade-offs. Integer units, packages or replacement-mode decisions are required for ICO admission. A single unconstrained continuous quantile calculation is not sufficient.
+Source support: S19, S20.
+Ontology inference: Primary SCM; Regime #plan + #adapt; Structure #select + #map.
+Rating inference: Priority Medium — Terminal provisioning is central when long-lived products outlast component supply. Relevance High — Better final supply can avoid stranded stock and service failure. Hardness High — Long demand tails, repair yield and irreversible final purchases create uncertainty.
+Useful descriptors: ##last-time-buy ##obsolescence ##service-parts.
+Industrial upstream keys: supplier, buffer, repair_buy. Dependency interpretation is defined below.
+
+KEY lot_assignment — Inventory Lot-to-Demand Assignment
+Decision and delivered scope: Assign available inventory lots to order requirements under remaining shelf life, quality, reservation and same-lot conditions.
+Aliases: Batch allocation; shelf-life-aware stock assignment; FEFO allocation; homogeneous-lot reservation.
+Material variants: Food/pharma/raw materials; blocked lots; customer sellable days; homogeneous shade/grade; supplied expiry and release state.
+Identity and ownership boundary: Chooses stock genealogy and eligibility for demand. Physical pick paths are LOG; blending/charging and quality release are PROC11/PROC19/PROC21; clinical matching belongs to HC when patient conditions define feasibility. It is not a mere FEFO sort when orders compete for eligible lots.
+Supplied substrate: Available lots and quantities, release/quality states, expiry, customer attributes, demand dates and same-lot requirements.
+Chosen construction: Maps inventory lots to demand requirements under lot eligibility and order completeness.
+Constitutive laws and feasibility: Shelf-life, attributes, reservations and whole-lot or same-lot conditions constrain assignments. Supplied batch lineage does not imply LINK.
+Delivered artifact: Demand-lot reservations with quantity and eligibility traceability.
+Template basis: FEFO and homogeneous-lot inventory reservation | Eligibility-based allocation MILP; matching or flow for divisible restrictions.
+Evidence and competing approaches: S27 directly establishes batch, quality-state, expiration and sellable-day constraints. Constrained assignment MILP is the formal architecture for coupled requests; FEFO is a defensible industrial baseline. Whole-lot assignment can encode partition/bin allocation (inference), whereas divisible flow does not.
+Source support: S27.
+Ontology inference: Primary SCM; Regime #allocate + #dispatch; Structure #map.
+Rating inference: Priority Medium — Lot assignment is central where stock eligibility varies by batch. Relevance High — Better assignments can reduce expiry loss and invalid fulfillment. Hardness Medium — Customer shelf-life and same-lot conditions compete for eligible stock.
+Formal complexity scope: Polynomial for divisible flow restrictions; indivisible lot allocation can be NP-hard.
+Useful descriptors: ##lot-allocation ##shelf-life ##traceability.
+Industrial upstream keys: fulfillment. Dependency interpretation is defined below.
+
+KEY network — Supply Network Facility and Capacity Design
+Decision and delivered scope: Select stocking and supply facilities, discrete capacities and service-area assignments under investment, supply and delivery limits.
+Aliases: Distribution network design; stockholding facility location; supply footprint design.
+Material variants: Forward, reverse and closed-loop networks; capacitated sites; scenario-based disruption protection; candidate-site or continuous-location variants.
+Identity and ownership boundary: Owns the stockholding/supply footprint. Carrier hubs are LOG01; process topology is PROC01. Physical factory capabilities remain PROD02. Integrated location-inventory models couple this decision to buffer design rather than create another problem.
+Supplied substrate: Candidate sites, admissible capacities, demand regions, lead times, approved supply arcs and transformation capability envelopes.
+Chosen construction: Selects facilities and capacity options and maps demand regions to them.
+Constitutive laws and feasibility: Service coverage, capacity and material balance constrain assignments. A supplied road graph does not imply LINK. Explicitly chosen supply-connection topology adds LINK only in that variant.
+Delivered artifact: Facility/capacity portfolio and supply-area assignments; flow quantities support feasibility.
+Template basis: Supply footprint and capacitated facility location | Facility-location MILP; Benders decomposition and network search.
+Evidence and competing approaches: S01 establishes a public warehouse-opening MILP. S02 establishes closed-loop facility/flow integration and Benders plus tabu search. Neither supplies a universal SOTA ranking. Complexity inference: unit demands with admissible service sets and sufficiently large capacities contain set cover.
+Source support: S01, S02.
+Ontology inference: Primary SCM; Regime #design; Structure #select + #map.
+Rating inference: Priority Critical — The supply footprint constrains most substantial multi-site deployments. Relevance Critical — Better sites and capacities can change enterprise-scale cost and service. Hardness High — Facility choices, supply assignments and uncertain demand interact.
+Formal complexity scope: NP-hard for general discrete facility location.
+Useful descriptors: ##network-design ##facility-location ##capacity.
+Industrial upstream keys: none specified. Dependency interpretation is defined below.
+
+KEY policy — Inventory Replenishment Policy Configuration
+Decision and delivered scope: Assign discrete reorder rules, thresholds and review frequencies to item-locations under service and ordering-capacity limits.
+Aliases: Inventory policy optimization; reorder parameter tuning; periodic review configuration; frequency optimization.
+Material variants: s,S; R,S; r,Q; min-max; intermittent demand; VMI/consignment governance; allowed order multiples and discrete review periods.
+Identity and ownership boundary: Commits reusable trigger rules before specific orders. Buffer stock targets may feed these rules. Time-phased purchase lots are an open-loop plan; current-state order release applies or overrides the rules.
+Supplied substrate: Eligible policies, target buffers, demand and lead-time models, review calendars, pack sizes and order constraints.
+Chosen construction: Maps item-locations to policy types and discrete threshold or review-frequency settings.
+Constitutive laws and feasibility: Settings must meet service and shared review/order workload limits. Continuous-only parameter estimation and ABC classification alone are excluded.
+Delivered artifact: Item-location reorder and review policy settings.
+Template basis: Reorder-point, min-max and periodic-review policy design | Discrete policy optimization; stochastic dynamic programming and simulation comparison.
+Evidence and competing approaches: S11 directly establishes discrete frequency MIP. S29 establishes deployed min-max rules with lots and limits. DP and simulation evaluate stochastic policies; they are near-equal architectures under different state assumptions. Scalar continuous EOQ is outside ICO.
+Source support: S11, S29.
+Ontology inference: Primary SCM; Regime #plan; Structure #map.
+Rating inference: Priority Critical — Reorder rules govern recurring replenishment in most stocking systems. Relevance High — Better settings can reduce stockouts and avoid unnecessary orders. Hardness Medium — Discrete settings and uncertain demand require model calibration and policy comparison.
+Useful descriptors: ##inventory-policy ##reorder-point ##periodic-review.
+Industrial upstream keys: buffer. Dependency interpretation is defined below.
+
+KEY postponement — Supply Chain Decoupling and Postponement Configuration
+Decision and delivered scope: Assign products and supply stages to forecast-driven or order-driven stocking modes under service, lead-time and capability limits.
+Aliases: Customer order decoupling point; postponement strategy; MTS/MTO stocking strategy.
+Material variants: Form/logistics postponement; product-specific modes; fixed eligible transformation stages; joint footprint models.
+Identity and ownership boundary: Chooses when stock becomes product/customer specific. Buffer sizing assumes these roles. Process synthesis, manufacturing route construction and new technology feasibility remain PROC/PROD inputs.
+Supplied substrate: Supply stages, allowed product states, transformation lead times, demand uncertainty and eligible commitment modes.
+Chosen construction: Maps products and supply stages to forecast-driven or order-driven roles.
+Constitutive laws and feasibility: The chosen decoupling roles must meet response-time and stock-state requirements. Stage order is supplied, not a newly chosen production sequence.
+Delivered artifact: Product-stage commitment modes and decoupling choices.
+Template basis: Customer-order decoupling and postponement design | Two-stage stochastic MILP; scenario comparison.
+Evidence and competing approaches: S06 supports discrete postponement strategy and activity choices under uncertain demand. The admitted contract narrows the integrated model to supply commitment modes; operation re-sequencing is not mandatory. Modes are categorical, which establishes combinatorial content even if all flow amounts are continuous.
+Source support: S06.
+Ontology inference: Primary SCM; Regime #design; Structure #map.
+Rating inference: Priority Medium — Decoupling choices are central to mixed stock and order-driven supply. Relevance High — Better modes can reduce stock exposure without losing response speed. Hardness High — Demand uncertainty and downstream customization lead times couple mode choices.
+Useful descriptors: ##postponement ##decoupling ##make-to-order.
+Industrial upstream keys: network. Dependency interpretation is defined below.
+
+KEY promising — Supply-Constrained Order Promising
+Decision and delivered scope: Assign feasible supply sources and confirmation dates to order requirements under available stock, planned receipts and prior commitments.
+Aliases: ATP; CTP; batch advanced ATP; availability confirmation; backorder reconfirmation.
+Material variants: MTS/MTO; approved substitutes; partial confirmation; promise reallocation; production-capability checks supplied by PROC/PROD.
+Identity and ownership boundary: Issues a feasible supply promise. Commercial order acceptance or revenue offer design is MKT when commercial opportunity selection dominates. Manufacturing scheduling is not owned here. Reconfirmation is the adaptive variant of the same promise contract.
+Supplied substrate: Order requirements, protected supply, stock records, receipts, source alternatives, component/capacity envelopes and frozen confirmations.
+Chosen construction: Maps requirements to supply sources and places confirmed fulfillment dates in time.
+Constitutive laws and feasibility: No double commitment of supply; component readiness, source lead times and protected entitlements constrain promises. Substitution eligibility is supplied, not LINK.
+Delivered artifact: Supply-feasible confirmed quantities, sources and dates, or explicit unconfirmed requirements.
+Template basis: ATP/CTP and backorder reconfirmation | Batch order-promising MIP; availability and priority-based confirmation rules.
+Evidence and competing approaches: S23 establishes batch ATP MIP; S21 establishes industrial availability checks and reconfirmation; S37 establishes supplied substitution and component/capacity CTP. A deterministic single-order availability lookup alone is not ICO. Competing assignments or discrete source/date alternatives are required.
+Source support: S23, S21, S37.
+Ontology inference: Primary SCM; Regime #dispatch + #adapt; Structure #map + #place.
+Rating inference: Priority Critical — Order promising connects supply availability to customer commitments. Relevance High — Better promises can reduce missed dates and overcommitment. Hardness High — Shared supply, alternative sources and frozen confirmations interact.
+Useful descriptors: ##atp ##ctp ##order-promising.
+Industrial upstream keys: distribution, protection, counting, last_buy. Dependency interpretation is defined below.
+
+KEY protection — Supply Reservation and Protection Allocation
+Decision and delivered scope: Assign discrete supply entitlements to demand classes, customers or regions before individual order confirmation.
+Aliases: Product allocation quotas; supply protection; channel allocation; reserve inventory allocation.
+Material variants: Quantity-based or percentage rules with discrete units; multilevel customer/channel hierarchy; protected horizons; permitted borrowing.
+Identity and ownership boundary: Reserves availability for classes before specific orders compete. Shortage allocation assigns scarce stock to actual requirements. Market segmentation and pricing are MKT inputs; this contract enforces feasible stock entitlements.
+Supplied substrate: Supply plans, fixed class priorities, contractual service requirements, quota hierarchy and availability periods.
+Chosen construction: Maps discrete supply entitlements to demand classes and protection periods.
+Constitutive laws and feasibility: Entitlements cannot overconsume supply; borrowing and protected shares constrain access. Supplied class hierarchy does not imply LINK.
+Delivered artifact: Time-phased protected supply quantities by class or region.
+Template basis: Supply protection and product allocation | Quota and reservation integer optimization with priority rules.
+Evidence and competing approaches: S22 documents quantity/percentage allocation and adjustment in industrial systems. Integer quota optimization is an architecture consistent with the stock conservation contract, not an observed commercial implementation claim. Static percentages without discrete coupled choices are outside ICO.
+Source support: S22.
+Ontology inference: Primary SCM; Regime #allocate; Structure #map.
+Rating inference: Priority High — Protection allocation recurs when demand classes compete for shared supply. Relevance High — Better entitlements can prevent early orders from consuming all supply. Hardness Medium — Changing availability and nested protection rules complicate allocations.
+Useful descriptors: ##supply-protection ##reservation ##quota.
+Industrial upstream keys: integrated, distribution. Dependency interpretation is defined below.
+
+KEY purchase — Purchase Replenishment Lot Planning
+Decision and delivered scope: Choose purchase lots and order periods under demand, lead-time, pack-size, storage and ordering limits.
+Aliases: Procurement lot sizing; dynamic purchase lot sizing; replenishment scheduling; joint replenishment.
+Material variants: Single/multi-item; shared ordering charges; discounts; seasonal initial buys; perishability; budget limits; planned supplier call-offs.
+Identity and ownership boundary: Chooses dated purchases rather than factory production runs. PROC10/PROD13 own transformation lot sizing. Joint replenishment adds shared order events to this family; it does not require a separate canonical identity.
+Supplied substrate: Source allocations, demand sequence, pipeline orders, calendars, pack multiples, purchase capacity and inventory rules.
+Chosen construction: Selects purchase order events and places lots in order or receipt periods.
+Constitutive laws and feasibility: Inventory balance, lead-time offsets, capacity and lot multiples constrain lots. Shared charges coordinate item orders; shipments are executed by LOG.
+Delivered artifact: Time-phased purchase lot and call-off plan.
+Template basis: Procurement lot sizing and coordinated replenishment | Dynamic programming for uncapacitated single-item lots; MILP for coupled and joint orders.
+Evidence and competing approaches: S14 supports the polynomial restriction. S15 explicitly supports hard joint replenishment and bounded heuristic alternatives. Seasonal newsvendor buying is retained as a variant where discrete quantities or shared constraints exist. Current observed-state release is handled separately.
+Source support: S14, S15.
+Ontology inference: Primary SCM; Regime #plan; Structure #select + #place.
+Rating inference: Priority Critical — Purchase lot plans connect future demand to supply orders. Relevance High — Better lots can reduce stock, ordering cost and missed demand. Hardness High — Joint charges, storage, discounts and many items couple order periods.
+Formal complexity scope: Polynomial for single-item uncapacitated dynamic lots; NP-hard for general discrete-time joint replenishment.
+Useful descriptors: ##lot-sizing ##joint-replenishment ##purchase-planning.
+Industrial upstream keys: policy, sourcing. Dependency interpretation is defined below.
+
+KEY recovery — Supply Plan Disruption Recovery
+Decision and delivered scope: Revise issued supply, sourcing and stock commitments after disruption under frozen orders, service obligations and recovery limits.
+Aliases: Supply-chain replanning; supply recovery; disruption response; supply-plan repair.
+Material variants: Supplier outage; lost stock; lead-time shocks; backup activation; alternate sources; frozen portions; replacement supply modes.
+Identity and ownership boundary: Repairs an existing cross-network supply plan. Routine replenishment release is not automatically recovery. Order-only reconfirmation stays with promising. Vehicle/itinerary recovery is LOG45; manufacturing schedule repair is PROC25/PROD30.
+Supplied substrate: Committed supply plan, changed source/stock availability, frozen orders, backup options, service liabilities and recovery budgets.
+Chosen construction: Selects commitment changes, maps supply to revised sources and places revised receipts in time.
+Constitutive laws and feasibility: Frozen work, material balances and allowable recovery actions constrain revisions; supplied network topology does not imply LINK.
+Delivered artifact: Repaired supply commitments and explicit residual service shortfalls.
+Template basis: Supply disruption management and plan-stability control | Recovery MILP or stochastic MIP; rolling repair and decomposition.
+Evidence and competing approaches: S35 supports supply/recovery portfolios coupled to stock scheduling. S36 establishes plan-change penalties and rolling integrated MIP. These support the architecture but do not prove a single SOTA recovery method. Recovery returns revised inputs to earlier planning tasks; these are explicit feedback edges.
+Source support: S35, S36.
+Ontology inference: Primary SCM; Regime #adapt; Structure #select + #map + #place.
+Rating inference: Priority High — Supply commitments must be revised after material disruptions. Relevance Critical — Recovery quality can limit enterprise-wide shortages and lost output. Hardness Critical — Frozen orders, correlated shortages and short response windows couple repairs.
+Useful descriptors: ##recovery ##replanning ##stability.
+Industrial upstream keys: integrated, sourcing, distribution, promising, transshipment, expedite, disposition. Dependency interpretation is defined below.
+
+KEY release — State-Based Replenishment Order Release
+Decision and delivered scope: Select immediate purchase or transfer requests and discrete replenishment quantities from observed stock and pipeline state.
+Aliases: Dynamic replenishment control; reorder execution; min-max order release; live store replenishment.
+Material variants: Periodic/current-state review; inventory multiples; VMI; short shelf life; live source availability; bounded replenishment budgets.
+Identity and ownership boundary: Issues stock replenishment authorizations from current state. Purchase planning fixes a future lot schedule; LOG33 moves available stock internally; PROD28/PROC24 authorize transformation work. The stock decision is SCM even when LOG implements a transfer.
+Supplied substrate: Observed stock, outstanding orders, policy settings, demand updates, approved sources, packs and immediate order limits.
+Chosen construction: Selects replenishment requests and discrete lot quantities for immediate release.
+Constitutive laws and feasibility: Pipeline netting, permitted order multiples, available supply and storage limit release actions. At a fixed decision epoch PLACE is not required.
+Delivered artifact: Immediate stock replenishment requests and quantities.
+Template basis: State-based min-max and reorder control | Reorder policies; stochastic dynamic programming and rolling replenishment optimization.
+Evidence and competing approaches: S29 explicitly distinguishes suggestion, request and downstream orchestration. S17 supports feedback-sensitive replenishment comparisons; S30 supports state-based multisource control. Closed-form independent min-max calculations may be simple; shared constraints or indivisible request choices define the admitted ICO instances.
+Source support: S29, S17, S30.
+Ontology inference: Primary SCM; Regime #dispatch; Structure #select.
+Rating inference: Priority Critical — Release decisions turn inventory policy into actual supply orders. Relevance High — Better release can reduce shortages and excess replenishment. Hardness Medium — Live stock errors, pipeline updates and order limits require feedback.
+Useful descriptors: ##replenishment ##inventory-control ##closed-loop.
+Industrial upstream keys: policy, purchase, distribution, counting, transshipment. Dependency interpretation is defined below.
+
+KEY repair_buy — Repairable Stock Repair-or-Buy Provisioning
+Decision and delivered scope: Choose repairable cores, repair requests and purchases to restore serviceable inventory under demand, yield and supply-capacity limits.
+Aliases: Repair-versus-buy inventory control; repairable replenishment; recovered-versus-new sourcing.
+Material variants: Warranty returns; repair loss; multi-indenture cores; cyclic pools; discrete repair batches and new-order lots.
+Identity and ownership boundary: Chooses restoration supply sources for stock availability. Detailed disassembly, processing, repair-job sequences and technical feasibility remain PROD09/PROD14/PROD26 or the asset domain. Support roles are configured before provisioning.
+Supplied substrate: Serviceable/unserviceable stocks, eligible repair sources, yields, failure demand, lead times and fixed repair capability limits.
+Chosen construction: Selects cores and buy-or-repair actions, maps them to supply sources and places replenishment requests in periods.
+Constitutive laws and feasibility: Core availability, stock-state transitions, yields and replenishment lead times constrain supply actions. Supplied recovery processes are not newly synthesized.
+Delivered artifact: Buy and repair replenishment requests and predicted serviceable stock.
+Template basis: Repairable inventory replenishment and buy-repair control | Stochastic dynamic programming; repair-buy inventory MIP.
+Evidence and competing approaches: S18 establishes inventory purchase/repair actions and stochastic decision models. S19 supports coupling with final buys. Time-phased MIP is a defensible deterministic/scenario architecture; DP retains state uncertainty. Restoration supply is the ownership test, not the word repair.
+Source support: S18, S19.
+Ontology inference: Primary SCM; Regime #plan + #operate; Structure #select + #map + #place.
+Rating inference: Priority Medium — Buy-repair choices are central to repairable supply pools. Relevance High — Better provisioning can reduce downtime and new-part procurement. Hardness High — Random failures, core returns and repair losses couple stock states.
+Useful descriptors: ##repairable ##repair-buy ##closed-loop-supply.
+Industrial upstream keys: repair_support, buffer, integrated. Dependency interpretation is defined below.
+
+KEY repair_support — Repair Supply Support Configuration
+Decision and delivered scope: Assign failed-component types to repair or discard at support echelons and select support resources under restoration-service and cost limits.
+Aliases: Level of repair analysis; LORA; repair/discard support design.
+Material variants: Multi-echelon, multi-indenture systems; shared support resources; joint LORA and spare-stock design.
+Identity and ownership boundary: Configures the restoration supply system before individual repair/buy actions. Technical repair procedures, repair-job sequencing and manufacturing recovery remain PROD; clinical feasibility may shift ownership to HC. Component repairability is supplied.
+Supplied substrate: Component indenture and repairability, support sites, resource requirements, failure rates, replenishment and repair lead times.
+Chosen construction: Maps component types to repair or discard roles and support echelons and selects required support resources.
+Constitutive laws and feasibility: Selected repair roles require suitable support resources; parent/subcomponent support must be feasible. The supplied indenture tree is not constructed by LINK.
+Delivered artifact: Repair/discard roles, support location assignments and resource portfolio.
+Template basis: Level of repair analysis | LORA integer programming; joint iteration with spare-stock optimization.
+Evidence and competing approaches: S07 explicitly separates LORA from stock sizing and reports integer models and iterative joint optimization. It supplies the required Template. Repair-support ownership here is an ontology inference from the restoration-supply contract, not a claim that all maintenance belongs to SCM.
+Source support: S07.
+Ontology inference: Primary SCM; Regime #design; Structure #map + #select.
+Rating inference: Priority Medium — Repair support configuration is central to repairable asset supply systems. Relevance High — Better support can reduce downtime and life-cycle supply cost. Hardness High — Shared support resources and repairable component hierarchies couple design choices.
+Useful descriptors: ##level-of-repair ##repairable ##support-network.
+Industrial upstream keys: network. Dependency interpretation is defined below.
+
+KEY shortage — Shortage Inventory Allocation and Rationing
+Decision and delivered scope: Assign scarce stock and receipts to specific demand requirements under priorities, complete-order rules and supply protection.
+Aliases: Fair-share allocation; shortage rationing; scarce-material allocation; backorder supply assignment.
+Material variants: Critical/noncritical classes; indivisible orders or kits; minimum allocations; priority/fairness policies; time to next receipt.
+Identity and ownership boundary: Chooses who receives scarce supply now. Quotas protect future classes; promising issues dates; warehouse wave release is LOG35. Clinical triage or military mission feasibility can change primary ownership to HC/INTEL.
+Supplied substrate: Competing requirements, on-hand/arriving supply, quotas, priorities, lot/order indivisibilities and service penalties.
+Chosen construction: Maps available stock to demand requirements and selects requirements to serve when partial service is restricted.
+Constitutive laws and feasibility: Conservation, protection and order completeness define feasible allocations. Pure divisible one-product priority sorting may be simple.
+Delivered artifact: Requirement-level stock allocations, deferred quantities and retained reserves.
+Template basis: Priority, fair-share and critical-level stock rationing | Allocation MILP; stochastic rationing policies.
+Evidence and competing approaches: S24 supports dynamic critical-level protection. S28 supplies deployed fair-share allocation. Integer complete-order allocation contains knapsack (industrial inference); this does not classify all fair-share calculations as hard. Retain rule baselines and optimized allocations as different practices.
+Source support: S24, S28.
+Ontology inference: Primary SCM; Regime #allocate + #dispatch; Structure #map + #select.
+Rating inference: Priority Critical — Scarce-supply allocation is central when demand exceeds immediate availability. Relevance High — Better allocations can reduce costly service failure. Hardness High — Order completeness, priorities and future demand compete for the same stock.
+Formal complexity scope: Polynomial for simple divisible allocations; indivisible capacity allocation can be NP-hard.
+Useful descriptors: ##shortage ##rationing ##fair-share.
+Industrial upstream keys: protection, promising. Dependency interpretation is defined below.
+
+KEY sourcing — Supplier Order Allocation
+Decision and delivered scope: Assign material requirements and discrete purchase quantities to active suppliers under eligibility, capacity, delivery and discount limits.
+Aliases: Order splitting; source allocation; procurement allocation; supplier quantity allocation.
+Material variants: Multiple products/tiers; MOQ; order multiples; quantity discounts; internal source versus buy when capability is fixed; fixed sustainable-sourcing requirements.
+Identity and ownership boundary: Allocates actual requirements to available sources; long-term supplier activation is portfolio design. Purchase timing is replenishment planning. Bid selection with endogenous exchange rules belongs to MKT.
+Supplied substrate: Active approved sources, requirements, quoted schedules, availability, quality limits and committed capacity.
+Chosen construction: Maps requirements to suppliers and selects discrete purchase or discount configurations.
+Constitutive laws and feasibility: Eligibility, source capacities and discount thresholds constrain assignments. Price schedules are inputs, not optimized offers.
+Delivered artifact: Supplier-item order quantities and selected purchase configurations.
+Template basis: Multi-source procurement and order splitting | Order-allocation MILP with MOQ and discount constraints.
+Evidence and competing approaches: S03 directly provides allocation MILP with discounts. S04 establishes industrial-scale multi-tier assignments but includes bidding; its exchange mechanism is excluded here. Complexity inference: binary all-or-nothing order packages and a budget contain knapsack; divisible linear sourcing does not.
+Source support: S03, S04.
+Ontology inference: Primary SCM; Regime #allocate; Structure #map + #select.
+Rating inference: Priority High — Order splitting recurs across multi-source buying organizations. Relevance High — Better allocations can reduce purchase cost and supply shortfalls. Hardness Medium — Capacity, delivery, discounts and item coupling require careful formulations.
+Formal complexity scope: Polynomial for divisible linear allocation; discrete discount and activation variants can be NP-hard.
+Useful descriptors: ##order-allocation ##procurement ##quantity-discounts.
+Industrial upstream keys: supplier, integrated. Dependency interpretation is defined below.
+
+KEY supplier — Supplier Portfolio and Backup Supply Configuration
+Decision and delivered scope: Select approved suppliers and discrete supply commitments to cover material needs under capability, concentration and disruption limits.
+Aliases: Strategic sourcing; supplier base selection; dual-source design; backup supplier selection.
+Material variants: Single/multiple sourcing, tiers, MOQ, committed capacity blocks, diversification and contingent supply. Fixed contract terms are inputs.
+Identity and ownership boundary: Establishes which supply options exist before order allocation. Sourcing quantities to active suppliers are a separate allocation. Supplier scoring alone is an input preparation task. Auction clearing or endogenous commercial terms belong to MKT.
+Supplied substrate: Approved supplier-item eligibility, qualification status, fixed offers, disruption scenarios and discrete commitment alternatives.
+Chosen construction: Selects suppliers and commitment options and maps material families to supply sources.
+Constitutive laws and feasibility: Coverage, allowed concentration and commitments define feasible portfolios. Supplied supplier tiers and eligibility do not themselves require LINK.
+Delivered artifact: Approved active portfolio, backup commitments and material coverage.
+Template basis: Strategic sourcing and supply-risk diversification | Portfolio MILP or stochastic MIP with backup-capacity decisions.
+Evidence and competing approaches: S04 distinguishes configuration from order assignment. S05 supports reserved backup supply under disruption and MOQ. MIP is defensible where suppliers or capacity packages are discrete; continuous-only contract optimization is excluded. Complexity inference: arbitrary supplier coverage with fixed activation costs contains set cover.
+Source support: S04, S05.
+Ontology inference: Primary SCM; Regime #design; Structure #select + #map.
+Rating inference: Priority High — Supplier portfolios recur across major buying organizations. Relevance Critical — Supply failures and source commitments can affect the whole enterprise. Hardness High — Coverage, concentration and correlated disruptions couple supplier choices.
+Formal complexity scope: NP-hard for minimum-cost discrete coverage variants.
+Useful descriptors: ##supplier-selection ##dual-sourcing ##resilience.
+Industrial upstream keys: none specified. Dependency interpretation is defined below.
+
+KEY transshipment — Lateral Inventory Transshipment
+Decision and delivered scope: Select stock transfers and destination quantities between existing stockpoints under local protection, lead-time and transfer limits.
+Aliases: Inventory balancing; stock rebalancing; lateral transfers; stock pooling recourse.
+Material variants: Reactive/proactive; preventive/emergency; pack-size or whole-lot transfers; multiple classes; omnichannel balancing.
+Identity and ownership boundary: Redistributes already held stock outside the normal replenishment hierarchy. Shipment itinerary, vehicles and internal moves remain LOG. Transferring an order to another source is fulfillment allocation, not the same action as transferring stock.
+Supplied substrate: Stockpoint inventories, shortages, hold-back requirements, admissible transfer pairs, lead times and transfer capacity/cost.
+Chosen construction: Selects transfer lots and maps them to destination stockpoints.
+Constitutive laws and feasibility: Donor protection, destination need and transfer lead times constrain redistribution. Eligible lanes are supplied; selected transfers do not require route construction.
+Delivered artifact: Chosen stock transfers and recipient allocations.
+Template basis: Inventory balancing and lateral pooling | Transfer-allocation MILP; stochastic transshipment policies.
+Evidence and competing approaches: S28 supplies deployed lateral-balancing practice. S38 supports demand-class hold-back policies. S25 distinguishes order reassignment and stock transfer. Pure divisible static balancing may be min-cost flow; discrete lots, fixed transfer charges or state-dependent decisions justify ICO admission.
+Source support: S28, S38, S25.
+Ontology inference: Primary SCM; Regime #operate + #dispatch; Structure #map + #select.
+Rating inference: Priority High — Stock rebalancing recurs across multi-site distribution and service networks. Relevance High — Better transfers can prevent local stockouts without new procurement. Hardness High — Donor protection, uncertain demand and transfer delay couple destinations.
+Useful descriptors: ##transshipment ##inventory-balancing ##pooling.
+Industrial upstream keys: distribution, shortage, fulfillment. Dependency interpretation is defined below.
+
+DEPENDENCY RESEARCH — UNNUMBERED GRAPH
+
+Edges below are meaningful decision/information feeds for the stated decomposition. They are not prerequisites for every deployment, mathematical reductions, precedence constraints inside a model, or assertions that all tasks run once in this order. Fixed upstream decisions may be external inputs. Joint optimization can collapse an edge without erasing the distinct delivered decisions.
+
+coverage → buffer
+repair_support → buffer
+coverage → counting
+policy → counting
+network → coverage
+postponement → coverage
+repair_support → coverage
+repair_support → disposition
+last_buy → disposition
+lot_assignment → disposition
+integrated → distribution
+purchase → distribution
+policy → distribution
+supplier → expedite
+release → expedite
+promising → expedite
+promising → fulfillment
+shortage → fulfillment
+network → integrated
+supplier → integrated
+postponement → integrated
+buffer → integrated
+supplier → last_buy
+buffer → last_buy
+repair_buy → last_buy
+fulfillment → lot_assignment
+buffer → policy
+network → postponement
+distribution → promising
+protection → promising
+counting → promising
+last_buy → promising
+integrated → protection
+distribution → protection
+policy → purchase
+sourcing → purchase
+integrated → recovery
+sourcing → recovery
+distribution → recovery
+promising → recovery
+transshipment → recovery
+expedite → recovery
+disposition → recovery
+policy → release
+purchase → release
+distribution → release
+counting → release
+transshipment → release
+repair_support → repair_buy
+buffer → repair_buy
+integrated → repair_buy
+network → repair_support
+protection → shortage
+promising → shortage
+supplier → sourcing
+integrated → sourcing
+distribution → transshipment
+shortage → transshipment
+fulfillment → transshipment
+
+Edge grounds: network establishes stocking sites and decoupling options [S01,S06,S08]; supplier configuration bounds order sources and emergency options [S04,S05]; LORA establishes repair options and replenishment lead times for stocks and repair/buy [S07,S18]; stocked positions and buffer targets constrain reorder policies [S08,S09,S11,S29]; cross-network supply balance allocates requirements to sources, purchasing and deployment [S12,S13,S16,S36]; purchase receipts feed distribution plans [S16]; quotas and observed stock constrain promising and shortage allocations [S21,S22,S23,S24]; order source assignment fixes the stockpoints for detailed lot matching [S25,S27]; shortage and fulfillment expose stock imbalances for transfer decisions [S25,S28,S38]; policies plus observed state authorize replenishment [S29]; threatened promises and replenishment expose expedite needs [S30,S31]; return/excess disposition changes future serviceable stock [S18,S32]; issued supply commitments are the baseline of recovery [S35,S36]. The particular card-level decomposition and edge choices are industrial inferences from these facts.
+
+Additional feedback edges retained:
+disposition → repair_buy : retained cores/recoverable stock alter subsequent repair provisioning [S18,S32].
+disposition → release : retained or disposed stock changes the next replenishment state [S29,S32].
+recovery → integrated : revised availability and frozen commitments require a new network supply balance [S35,S36].
+recovery → sourcing : replacement sourcing changes order assignments [S35].
+recovery → purchase : repaired purchases replace prior dated commitments [S35,S36].
+recovery → distribution : recovery changes scheduled supply at stockpoints [S35,S36].
+recovery → protection : changed availability can invalidate existing entitlements [S22,S35].
+recovery → promising : changed receipts require feasible reconfirmation [S21,S35].
+
+Explicit cycles: repair_buy → last_buy → disposition → repair_buy is a life-cycle stock/restoration loop; integrated → distribution → promising → recovery → integrated is the supply/promise recovery loop; sourcing, distribution and promising have direct recovery-return cycles. These are successive decisions or coupled models, not a contradiction in one-pass chronology.
+Counting → promising and counting → release refer to the corrected stock information produced after selected counts are performed [S33,S34]. Counting-task selection itself does not create measured balances. Its plan can occur before execution; repeated observed-state counts are feedback.
+Promise-driven demand updates may feed integrated planning in some workflows [S23,S36]. The edge is conditional and omitted from the canonical graph to avoid implying that every confirmed order requires a whole-network replan. Buffer/support and buffer/policy joint iteration are likewise modeled as integration options rather than mandatory reverse dependencies.
+External feeds: PROC09/PROC10 and PROD12/PROD13 supply production availability to integrated planning; PROC21 supplies released stock to lot assignment; PROD14 supplies recovery capability to repair_buy/disposition; LOG13/LOG15/LOG33 supply feasible movement lead times and consume deployment/transfer requests. MKT supplies demand, fixed priorities, catalogue and commercial terms; FIN supplies working-capital limits. These are interfaces, not reciprocal foreign-card ID dependencies added without review of those domains.
+
+MERGES, EXCLUSIONS AND INTEGRATED-CONTRACT DISPOSITIONS
+
+Multi-echelon inventory, strategic safety stock, service-level optimization and spare-parts stock sizing share the buffer identity when the output is stock targets. Guaranteed-service versus METRIC is a material Template/assumption distinction, not a reason for duplicate IDs.
+Stocking coverage is separate: its output is stock/nonstock entitlement. Warehouse physical slotting and market assortment are excluded to LOG/MKT. Product catalogue additions are not disguised as stock decisions.
+Supplier selection, diversification and backup reservations merge into supplier portfolio. Single/multiple sourcing and sustainability constraints are variants. Multi-criteria scoring without discrete portfolio selection is preparatory analysis. Order allocation remains separate because it commits actual requirements against available sources.
+Joint replenishment, seasonal first buys, cash-constrained replenishment, fixed MOQ and pack-size planning stay within purchase or policy according to the output. No separate card is created for a discount, shelf-life parameter, supplier count, or solver formulation.
+Permanent end-of-life withdrawal is retained separately because future resupply is removed and final service liability must be covered. It is not only a short or long horizon.
+Returns, excess and obsolete-stock retention/disposal merge into disposition where supplied condition and recovery modes define feasibility. Detailed disassembly/rework/remanufacturing execution remains PROD. Recovery-network facility choices are a network variant.
+LORA is retained separately from both stock sizing and live repair/buy provisioning. It changes support roles/capabilities; repair_buy chooses restoration requests on that support system. Purely technical maintenance procedure design is excluded.
+Product substitution, supersession and complete-kit support are integrated fulfillment/promising variants; supplied compatibility chains do not justify another Problem. Engineering product redesign remains PROD.
+ATP/CTP and adaptive backorder reconfirmation merge as supply-constrained promising. Market-led order acceptance, dynamic pricing, promotion and assortment are excluded to MKT. Stock rationing remains separate from promise dates and pre-order class entitlements.
+DRP/deployment and lateral transshipment remain separate: normal hierarchical replenishment from receipts versus redistribution of stock already held. Pull/push modes are variants. Inventory-routing, transport mode choice, empty containers, physical picking, freight consolidation and truck loading are LOG-led when movement is the complete solution.
+VMI, consignment, vendor ownership and omnichannel are governance/context descriptors. They do not create new canonical Problems without a different decision artifact. Reusable transport-item purchasing/stock policies instantiate inventory families; repositioning transport units is LOG20.
+Forecasting, demand sensing, ABC/XYZ segmentation, stock visibility, anomaly detection, traceability recording, supplier scoring and reporting are data/analysis inputs unless they contain a stand-alone discrete operational decision. Count selection is admitted; prediction alone is not.
+Aggregate unconstrained S&OP LP, continuous EOQ, continuous stock-formula tuning, a predetermined FEFO list and fixed-source deterministic ATP checks lack a necessary combinatorial decision. They can be baselines/restricted components without becoming separate ICO cards.
+Supply resilience is integrated into supplier/network design before commitments and recovery after disruptions. A generic resilience score or scenario analysis does not warrant a stand-alone card. Generic recovery does not duplicate normal stock control or order-only reconfirmation.
+Shelf space/display choice and customer-directed stockouts are boundary-sensitive: physical handling/access is LOG; commercial exposure/assortment is MKT; replenishment stock availability is SCM. No new shelf-space SCM card is admitted from terminology alone.
+
+COVERAGE ASSESSMENT AND REMAINING EVIDENCE LIMITS
+
+Search families covered network/facility design; supplier portfolios/discounts/MOQ/backup capacity; decoupling; stock coverage; guaranteed/stochastic multi-echelon and repairable models; discrete inventory policies; supply-constrained IBP and production-distribution integration; procurement/joint lots; DRP/deployment; ATP/CTP/protection/rationing; omnichannel fulfillment/transshipment; expiry and same-lot assignment; repair/buy and permanent withdrawal; returns/disposal; cycle counting; and disruption recovery.
+Industry checks covered retail/FMCG, manufacturing components, bulk process supply, pharma/food, capital goods/repairables, industrial distribution, electronics warranty, and reusable/closed-loop stock. Regime checks covered design through adaptation. Method/benchmark checks crossed vendor practice, primary models, author manuscripts, exact restrictions, heuristics and a public solver example.
+Later discovery searches added LORA as a distinct support configuration; validated operational counting; and distinguished inventory lot assignment from FEFO sorting. Follow-on hits mainly repeated these identities, coupled them, introduced demand/lead-time/discount variants, or concerned movement, production or commercial decisions owned elsewhere. This is a bounded practical coverage assessment, not proof of exhaustive literature enumeration.
+No blocking identity or Template-existence gap remains for the admitted set under the explicit narrowed contracts. Numeric enterprise prevalence, universal SOTA rankings and formal complexity of every full industrial contract are not established. Ratings remain reviewable engineering judgments. Sparse publisher access limits some detailed assumptions; all such access grades are disclosed.
+Boundary-sensitive LORA, lot assignment, supply promising and disposition require rechecking at case level if repair execution, clinical feasibility, commercial exchange or physical handling becomes dominant. No case identifiers, benchmark selection, license assumptions or reproduced baseline results are supplied here.
+
+SOURCE LEDGER
+
+S01 Gurobi, Facility Location Example Problem and facility.py. Official model and implementation.
+https://docs.gurobi.com/projects/examples/en/current/examples/python/facility.html
+Support and access: Warehouse opening and demand assignment MILP; teaching implementation, not an industrial performance reference.
+
+S02 Easwaran and Uster (2009), Capacitated Closed-Loop Supply Chain Network Design, Transportation Science 43:301-320.
+https://doi.org/10.1287/trsc.1090.0267
+Support and access: Publisher abstract inspected. Integrated forward/reverse location and flow MILP; tabu search and strengthened Benders decomposition. Results were not reproduced.
+
+S03 Decision making of sourcing and order allocation with price discounts (2010). Research article.
+https://www.sciencedirect.com/science/article/abs/pii/S0278612510000385
+Support and access: Publisher search excerpt inspected; full page retrieval failed. Multiobjective supplier selection/order allocation MILP with demand, capacity and discount constraints.
+
+S04 Real-time large-scale supplier order assignments across two-tiers of a supply chain with penalty and dual-sourcing (2022), author manuscript.
+https://arxiv.org/abs/2210.11953
+Support and access: Author manuscript inspected. Separates supplier configuration from order allocation; integrated multi-tier MIP and industrial deployment. Auction setting is not transferred wholesale to SCM ownership.
+
+S05 Backup sourcing with capacity reservation under uncertain disruption risk and minimum order quantity (2017). Research article.
+https://www.sciencedirect.com/science/article/pii/S0360835216304272
+Support and access: Publisher excerpt inspected. Capacity reservation and contingent backup supply under disruption and MOQ. Continuous reservation alone is not evidence of a combinatorial contract.
+
+S06 A two-stage stochastic programming approach for identifying optimal postponement strategies in supply chains with uncertain demand. Research article.
+https://www.sciencedirect.com/science/article/pii/S0305048318301646
+Support and access: Publisher excerpt inspected; full page retrieval failed. Discrete postponement strategy and postponed activities in integrated stochastic MILP. Manufacturing technology choice is outside the narrowed SCM contract.
+
+S07 Basten, van der Heijden, Schutten and Kutanoglu (2012 online; 2015 volume), Joint level of repair analysis and spare parts stocking.
+https://doi.org/10.1007/s10479-012-1188-0
+Support and access: Full open article inspected. LORA repair/discard, location and support-resource decisions; integer optimization; iteration with VARI-METRIC. Supports a repair-support configuration decision distinct from stock sizing.
+
+S08 SAP, Making Stocking and Destocking Decisions. Official process documentation.
+https://help.sap.com/saphelp_snc70/helpdata/EN/47/a9b649666b2fe1e10000000a42189d/content.htm
+Support and access: Full documentation inspected. Location-product stocking indicators, decision tables and stability periods. Evidence for practice, not a claim of globally optimal stock coverage.
+
+S09 Graves and Willems (2000), Optimizing Strategic Safety Stock Placement in Supply Chains, MSOM 2:68-83.
+https://doi.org/10.1287/msom.2.1.68.23267
+Support and access: Publisher abstract inspected. Guaranteed-service assumptions: bounded demand, periodic base stock and stage service guarantees; tree-network algorithm and reported Kodak application. Not universal stochastic inventory optimality.
+
+S10 Sherbrooke (1968), METRIC; Sherbrooke (1986), VARI-METRIC.
+https://doi.org/10.1287/opre.16.1.122
+Support and access: Primary publication records and S07 inspected; VARI-METRIC: https://doi.org/10.1287/opre.34.2.311 . Repairable multi-echelon stock evaluation and approximate allocation; general inventory systems need other assumptions.
+
+S11 Favaretto, Pesenti and Ukovich (2001), Discrete frequency models for inventory management: an introduction.
+https://www.sciencedirect.com/science/article/abs/pii/S0925527300001456
+Support and access: Publisher excerpt and author-institution record inspected. Discrete admissible replenishment frequencies, MIP and staggering. Establishes an explicitly combinatorial inventory-policy family.
+
+S12 IBM Blends Heuristics and Optimization to Plan Its Semiconductor Supply Chain (2013), Interfaces.
+https://doi.org/10.1287/inte.1120.0642
+Support and access: Publisher excerpt inspected. BOM and supply-path decomposition in semiconductor supply planning. Reported industrial use, not a public reproduced baseline.
+
+S13 SAP, Analyzing the Planning Algorithms for time-series optimizer. Official training.
+https://learning.sap.com/courses/discovering-response-supply-for-sap-ibp-time-series-planning/analyzing-the-planning-algorithms-for-time-series-optimizer_d1b76d45-b022-42ec-83f3-96ff855103bf
+Support and access: Full lesson inspected. Supply MILP and finite heuristic differ; rough-cut planning, detailed production sequencing and deployment may be separate steps. Commercial practice evidence, not comparative SOTA proof.
+
+S14 Wagelmans, van Hoesel and Kolen (1992), Economic Lot Sizing, Operations Research 40:S145-S156.
+https://doi.org/10.1287/opre.40.1.S145
+Support and access: Publisher abstract inspected. Polynomial single-item uncapacitated dynamic lot sizing; linear-time Wagner-Whitin case. Does not classify arbitrary constrained procurement models.
+
+S15 Joneja (1990), The Joint Replenishment Problem: New Heuristics and Worst Case Performance Bounds.
+https://doi.org/10.1287/opre.38.4.711
+Support and access: Publisher abstract inspected. Discrete-time nonstationary joint replenishment with joint ordering cost is NP-complete in decision form; optimization is NP-hard. Bounds and heuristic evidence.
+
+S16 SAP, Distribution Requirements Planning. Official documentation.
+https://help.sap.com/saphelp_scm700_ehp01/helpdata/en/4d/9e3757c2e11162e10000000a42189b/content.htm
+Support and access: Official indexed text inspected. Time-phased replenishment through a bill of distribution, including packaging rounding. DRP is an IE planning framework, not inherently an optimization algorithm.
+
+S17 Harsha et al., IBM Research (2022), Inventory Management in Omnichannel Supply Chains.
+https://research.ibm.com/publications/inventory-management-in-omnichannel-supply-chains
+Support and access: Full talk abstract inspected. Multi-period warehouse/store replenishment under uncertain walk-in and online demand; robust heuristic and real-data simulation. No public dataset or SOTA dominance inferred.
+
+S18 Single-item repairable inventory system with stochastic new and warranty demands (2020), Transportation Research E 142:102035.
+https://www.sciencedirect.com/science/article/pii/S1366554520306864
+Support and access: Publisher excerpt and author-institution publication record inspected. Purchase, repair and scrap inventory actions with priorities and repair losses. Full paper not retrieved.
+
+S19 Last time buy and repair decisions for spare parts (2015), EJOR 244:498-510.
+https://www.sciencedirect.com/science/article/pii/S037722171500082X
+Support and access: Publisher excerpt inspected; full page retrieval failed. Final buy quantity and time-dependent repair policy; approximations and heuristics. Permanent cessation, not an ordinary forecast season.
+
+S20 Pourakbar, Frenk and Dekker (2012), End-of-Life Inventory Decisions for Consumer Electronics Service Parts.
+https://journals.sagepub.com/doi/10.1111/j.1937-5956.2012.01340.x
+Support and access: Publisher abstract inspected. Final service-life stock decisions and repair-policy alternatives after production ends. Life-cycle and warranty endpoints define the contract.
+
+S21 SAP, Using Advanced Available-To-Promise in SAP S/4HANA. Official training.
+https://learning.sap.com/courses/functions-innovations-in-sap-s-4hana-sales/using-advanced-available-to-promise-aatp-in-sap-s-4hana_ef38afd2-4730-433f-854a-613b8e4afec5
+Support and access: Full lesson inspected. Availability confirmations, backorder rechecking, alternative plants/materials and release allocation are distinct operating functions. Rule-based practice does not establish global optimality.
+
+S22 Oracle, Order Management 22D release documentation, supply allocation.
+https://www.oracle.com/webfolder/technetwork/tutorials/tutorial/cloud/r13/wn/om/releases/22D/22D-order-mgmt-wn.htm
+Support and access: Official indexed text inspected. Quantity or percentage protection by allocation hierarchy; quantity-based adjustments. Supply rights are operational inputs; price formation is not this contract.
+
+S23 Chen, Zhao and Ball (2002), A Model for Batch Advanced Available-to-Promise.
+https://doi.org/10.1111/j.1937-5956.2002.tb00470.x
+Support and access: Publisher abstract inspected. MIP supports promising and fulfillment for orders accumulated in a batching interval; method-family evidence, not a universal best method.
+
+S24 Dynamic inventory rationing strategies for inventory systems with two demand classes, Poisson demand and backordering (2008).
+https://www.sciencedirect.com/science/article/pii/S0377221707005589
+Support and access: Publisher excerpt inspected. State-dependent critical levels compared with static rationing; priority and replenishment timing affect protection decisions.
+
+S25 Fulfillment source allocation, inventory transshipment, and customer order transfer in e-tailing (2015), Transportation Research E 79:128-144.
+https://www.sciencedirect.com/science/article/pii/S136655451500085X
+Support and access: Publisher excerpt and author-institution record inspected. Order-to-center assignment and stock transfers are separately chosen; joint models are legitimate, not aliases.
+
+S26 Govindarajan et al. (2021), Joint inventory and fulfillment decisions for omnichannel retail networks.
+https://doi.org/10.1002/nav.21969
+Support and access: Publisher abstract inspected. Physical stores and online centers; local stock and online-order fulfillment choices. Supports joint planning while preserving separate decisions.
+
+S27 Microsoft, Reserve the same batch for a sales order. Official documentation, updated 13 November 2024.
+https://learn.microsoft.com/en-us/dynamics365/supply-chain/sales-marketing/reserve-same-batch-sales-order
+Support and access: Full article inspected. Same-batch, attributes, blocked disposition, expiration and customer sellable-day eligibility. Rules are industrial baseline; coupled optimization is a model-family extension.
+
+S28 SAP, Outlining Capabilities of Aftersales Service Parts Planning. Official training.
+https://learning.sap.com/courses/describing-sap-for-automotive-supply-chain-and-manufacturing/outlining-capabilities-of-aftersales-service-parts-planning_daec2da6-d35a-407d-abdb-c22102bab6d6
+Support and access: Full lesson inspected. Push/pull deployment and lateral balancing within eligible areas. Transfer execution is a downstream LOG contract.
+
+S29 Oracle, Min-Max Planning. Official Inventory Management documentation, 26C.
+https://docs.oracle.com/en/cloud/saas/supply-chain-and-manufacturing/26c/famml/min-max-planning.html
+Support and access: Full documentation inspected. Stock position triggers requisition or transfer requests with order multiples and limits; downstream orchestration creates supply orders. Not unconstrained continuous EOQ optimization.
+
+S30 Bottcher, Asikis and Fragkos (2023), Control of Dual-Sourcing Inventory Systems Using Recurrent Neural Networks.
+https://doi.org/10.1287/ijoc.2022.0136
+Support and access: Publisher abstract inspected. Neural control for regular/emergency inventory sourcing; software repository is stated by authors: https://github.com/INFORMSJoC/2022.0136 . No code run or result reproduction performed.
+
+S31 Expediting in Two-Echelon Spare Parts Inventory Systems (2020 online), MSOM.
+https://doi.org/10.1287/msom.2020.0888
+Support and access: Publisher abstract inspected. Stock and expedite thresholds under availability and expediting constraints. Supports inventory-driven expediting rather than transport routing.
+
+S32 Optimal control of a production-inventory system with product returns and two disposal options (2017), EJOR.
+https://www.sciencedirect.com/science/article/pii/S0377221717302229
+Support and access: Publisher excerpt inspected. Return disposition and serviceable-inventory disposal via continuous-time MDP. Technical remanufacturing execution is outside SCM scope.
+
+S33 Tayi (1985), Optimal inventory cycle counting, Omega 13:535-539.
+https://researchconnect.suny.edu/en/publications/optimal-inventory-cycle-counting/
+Support and access: Author-institution abstract inspected. Stratified-sampling optimization minimizes count effort subject to record-accuracy requirements; does not establish a general constrained count-scheduling complexity result.
+
+S34 Oracle, Intelligent Cycle Counting. Official Warehouse Management documentation, 26B.
+https://docs.oracle.com/en/cloud/saas/warehouse-management/26b/owaig/intelligent-cycle-counting.html
+Support and access: Full documentation inspected. Predicted inaccuracy prioritizes items to count. Selection evidence, not a demonstrated globally optimal schedule.
+
+S35 Supply Chain Disruption Management: Using Stochastic Mixed Integer Programming (2020), Springer.
+https://doi.org/10.1007/978-3-030-44814-1
+Support and access: Publisher description inspected. Supply-portfolio selection, recovery portfolios and production/inventory scheduling; confirms coupled recovery architecture.
+
+S36 Kanyalkar and Adil (2011), Integrated planning in a multi-site procurement, production and distribution system under rolling schedule.
+https://doi.org/10.1504/IJSOM.2011.040706
+Support and access: Publisher abstract inspected. Integrated MIP with plan-change penalties, safety-stock deviations, capacity and storage limits. Study reports generated industrial-size instances, not our reproduced results.
+
+S37 Oracle, Global Order Promising Implementation and User Guide, E-Business Suite 12.2.
+https://docs.oracle.com/cd/E26401_01/doc.122/e48770/T474179T474186.htm
+Support and access: Full relevant sections inspected. Supplied substitution chains and CTP checks against components and capacity. Compatibility links are inputs, not newly constructed solution topology.
+
+S38 Optimal lateral transshipment policies for a two location inventory problem with multiple demand classes (2019).
+https://www.sciencedirect.com/science/article/pii/S037722171830568X
+Support and access: Publisher excerpt inspected. Hold-back levels protect demand classes before transfers. Policy assumptions and transfer timing must be retained in later benchmarks.
+
+S39 Candas and Kutanoglu (2020), Integrated location and inventory planning in service parts logistics with customer-based service levels, EJOR 285:279-295.
+https://doi.org/10.1016/j.ejor.2020.01.058
+Support and access: Primary publisher abstract/highlights inspected during control. Joint location and stock integer models, linearized formulations and Lagrangian relaxation; supports integrated stock-location optimization.
+
+S40 Wheatley, Gzara and Jewkes (2015), Logic-based Benders decomposition for an inventory-location problem with service constraints, Omega 55:10-23.
+https://doi.org/10.1016/j.omega.2015.02.001
+Support and access: Primary publisher abstract inspected during control. Location master and inventory subproblem with stochastic time-based service; exact logic-based Benders for that model. Full text and results not reproduced.
+
