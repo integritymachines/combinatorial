@@ -1,4 +1,4 @@
-000_DOMAIN_research.md
+000_DOMAIN_research.txt
 
 Industrial Combinatorial Optimization Domain Research
 v0.4 | October 2026
@@ -11,14 +11,14 @@ DOMAIN <-> DOMAIN    recurring interface / possible secondary-domain relationshi
 
 ONTOLOGY REFERENCE
 
-000_DOMAIN.md is the single source of truth for Macro Domains, Domains, Industries, Industry Domains, Regime, Structure, and tag semantics.
+000_DOMAIN.txt is the single source of truth for Macro Domains, Domains, Industries, Industry Domains, Regime, Structure, and tag semantics.
 This document supplies research coverage, interfaces, and boundary reasoning only.
 
 Within this document:
 
 DOMAIN -> X records researched coverage or operational territory, not taxonomic parentage.
 DOMAIN <-> DOMAIN records a recurring interface or possible Secondary-Domain relationship.
-Industry examples are contextual. Industry-Domain relationships are interpreted through Industry Domains as defined in 000_DOMAIN.md.
+Industry examples are contextual. Industry-Domain relationships are interpreted through Industry Domains as defined in 000_DOMAIN.txt.
 Primary-Domain ownership is evaluated at the decision-contract level and does not change merely because representation, formulation, Regime, or Structure changes.
 
 
