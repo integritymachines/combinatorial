@@ -8,7 +8,7 @@ Normative input (read only)
 background/000_DOMAIN_research.txt
 
 Input
-Domain D ∈ {PROC, PROD, LOG, SCM, ENER, CIVIC, COMP, INTEL, MKT, FIN, HC, HR, EXTR, LAND, ...} and industrial domains from 000_DOMAIN_research.txt
+Domain D ∈ {PROC, PROD, LOG, SCM, ENER, CIVIC, COMP, INTEL, MKT, FIN, HC, HR, EXTR, LAND, ...} and industry domains from 000_DOMAIN_research.txt
 
 Workflow prompts (read only)
 workflow/1_research.txt
