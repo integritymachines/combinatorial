@@ -446,7 +446,7 @@ Open specialization candidates:
 #FIN -> Clearinghouse operations
 
 
-6. HUMAN (#HUMAN) : #HR. #HC
+6. HUMAN (#HUMAN) : #HC. #HR
 
 Human = systems where human capability or human-critical service feasibility dominates.
 
