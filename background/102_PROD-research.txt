@@ -1,0 +1,799 @@
+102_PROD_research.txt
+Production, Discrete Manufacturing & Assembly — Problem research
+v0.1 | 6 October 2026 | LEVEL=PROBLEM | DOMAIN=PROD
+
+BASIS AND SCOPE
+Normative: 000_DOMAIN.txt v0.4; background/000_DOMAIN_research.txt v0.4.
+Workflow: workflow/0_workflow.txt through workflow/4_foreground.txt, read from main commit 6529de0ddb39b1d5c106b40fa441294eb23bbdae.
+PROD.md was excluded and was not read. No existing PROD foreground or background was supplied at the requested output paths.
+Normative Domain code: 102 #PROD.
+Research keys below are provisional names, not permanent Problem IDs. Compilation derives order and assigns IDs only after background control.
+Cases, datasets, baseline results, licenses, and reproducibility are not selected or certified at this stage.
+
+EVIDENCE DISCIPLINE
+Source facts are the limited observations recorded in the source register. Contract definitions, candidate classifications, qualitative ratings, exclusions, and dependency directions are analytical inferences unless explicitly identified as source facts.
+Published model evidence supports Template existence. It does not establish widespread industrial adoption, current global SOTA, or solver dominance. Official software evidence supports an operational function, not performance leadership.
+Some publication pages could not be opened. Their primary-publication search-index abstracts were inspected. Those records support only the stated abstract-level facts; algorithm details, exact guarantees, datasets, and performance are not inferred from them.
+Templates are defensible established approach families. Material near-equals are retained. Public CP-SAT is a reproducible architecture reference; neither proprietary APS internals nor a universal best solver are claimed.
+Priority measures centrality across the domain; Relevance measures the conditional value of improvement; Hardness measures practical industrial effort. All ratings are reasoned judgments, not measured deployment-frequency statistics or estimated monetary returns.
+Complexity is variant-specific. General NP-hard labels are limited to contracts containing the general scheduling models supported by S29. No whole-family complexity theorem is invented for the other parents.
+
+TERRITORY
+Physical contract: select or configure manufacturable products and production capabilities; plan fabrication, assembly, and recovery; allocate manufacturing resources; and control execution of discrete workpieces.
+Automotive and appliances: configuration, line balancing, mixed-model streams, tool and fixture setups, tolerance matching, production-maintenance integration.
+Aerospace and defense manufacturing: feature routes, scarce capabilities, multiresource shops, fixtures, discrete-part batches, assembly and rework. Security context alone does not transfer ordinary production to INTEL.
+Electronics and contract manufacturing: feeder setups, placement execution, family changeovers, flexible loading and shops, test-system design.
+Semiconductor fabs and back-end: qualification, reentry, batching, reticles and secondary resources, constrained dwell time, robotic cluster cycles, release and dispatch. Wafer identity and fabrication feasibility define PROD; generic computation is COMP.
+Industrial equipment and engineer-to-order systems: manufacturable configuration, machining routes, cellular production, spatial layout and large assemblies.
+Shipbuilding: cutting/nesting, block process plans, fixed-position and spatial assembly scheduling. Hull-block manufacturing is PROD; public construction execution is CIVIC.
+Additive systems: orientation, build grouping and placement, machine scheduling, post-processing as shop operations. Chemistry control alone remains PROC or a non-ICO process model.
+Battery pack assembly and packaging: component matching, assembly routes, line balances and unit sequences. Cell chemistry and recipe transformation remain PROC.
+Furniture, sheet metal, clothing and footwear: cutting/nesting, assembly and shop plans. Their industry labels do not create additional Domain classes.
+Remanufacturing: core selection, physical recovery, disassembly, reprocessing and reassembly. Collection, transport and return-network positioning remain LOG/SCM.
+
+BOUNDARIES AND INTERFACES
+PROC: primary ownership follows whether recipe/material-state transformation or discrete component/fabrication/assembly feasibility defines the contract. A furnace processing identifiable parts can be PROD; a reactor recipe can be PROC.
+SCM: demand, purchased materials, external capacity offers and component availability feed PROD. Supplier selection, replenishment and supply-position decisions remain SCM. Production lot activations are PROD even when inventories couple them.
+LOG: transport and warehouse kit delivery feed production. A handling action belongs in a PROD robotic-cycle decision only when cell occupancy and manufacturing synchronization define the delivered artifact.
+HR: personnel skills and staffing can constrain a production plan. Standalone employee rosters remain HR. Coupled task-to-station balances remain PROD where manufacturing work content defines feasibility.
+ENER: utility prices, power limits and service availability are production inputs. Utility-system commitment and network dispatch remain ENER.
+COMP: MES computation and circuit physical design are COMP where digital-resource or information feasibility dominates. Semiconductor fabrication and component mounting remain PROD.
+CIVIC/LAND: manufacturing site-building and land-use decisions are external. Locating production departments within an existing factory belongs to PROD.
+MKT: product offers, prices, assortment, and commercial order acceptance are external. Choosing a physically realizable BOM and manufacturing route belongs to PROD.
+
+DISCOVERY AND IDENTITY
+Searches covered system design, group technology, factory layout, line balancing, product configuration, machining and assembly process planning, capacity and lot planning, machine eligibility, tooling, fixture setups, cutting, additive manufacturing, tolerance matching, inspection, batch processors, lot streaming, robotics, maintenance, release, dispatch and disruption repair.
+Discovery was based on the normative territory and independent literature searches, not PROD.md or a previous numbered list. The 30 keys preserve industrial decisions rather than one card per algorithm or scheduling notation.
+Shop topology variants are merged into SHOP. The following additional artifacts justify separate parents: BATCH chooses co-processing groups; STREAM chooses transfer sublots; BUILD chooses build-space arrangements; ROBOT chooses repeated manufacturing cycles; MIXED orders the product stream. They can be integrated with SHOP without becoming synonyms.
+An integrated model does not automatically justify an additional Problem. PROCESS+SHOP, CELL+LAYOUT, LOT+SHOP, BUILD+SHOP, and production+energy coupling retain their constituent contracts. MAINT is admitted because maintenance actions are themselves chosen and determine available production capacity.
+LOAD produces resource workload commitments; SHOP produces operation calendars. QUAL constructs capability permissions before LOAD or SHOP consumes them. A fixed eligibility matrix belongs in the downstream input and does not create a qualification decision.
+Known evidence limits: universal method leadership and deployment prevalence are not established. Detailed fixture geometry, product-specific inspection risk, stochastic recovery yields, and live-control latency require case-level evidence later. These limits do not prevent identifying the parent decisions and established Template families.
+
+KEY SHOP — Shop Production Scheduling
+DECISION CONTRACT Assign manufacturing operations to eligible resources and times under precedence, setups, and capacity limits.
+SEARCH ALIASES Job-shop scheduling; flexible job-shop scheduling; machine scheduling.
+VARIANTS Flow shop, hybrid flow shop, parallel machines, open shop, reentrant fab, assembly shop, no-wait, blocking, spatial block assembly, secondary resources.
+IDENTITY AND BOUNDARY Fixed routes and supplied precedences do not create a network-design problem. Vehicle delivery is LOG; supplied worker eligibility does not make this a standalone HR roster.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #place; secondary #map. Places operations in time and maps flexible operations to resources. Fixed routings are inputs. Machine exclusivity, supplied precedence, and assembly synchronization define feasible schedules. Spatial variants also place blocks on the shop floor.
+TEMPLATE EVIDENCE IE: Finite-capacity production scheduling. OR: Interval CP/CP-SAT or scheduling MILP; decomposition and local search. [S21, S29, S34, S35]
+MATERIAL ALTERNATIVES CP handles rich resource calendars; MILP supports tight integrated cost models; shifting-bottleneck and neighborhood search remain useful at scale. S21 is publicly implementable, not a claim of industrial dominance.
+RATING INFERENCE Priority Critical: Detailed manufacturing calendars are a central factory coordination decision. Relevance Critical: Large-factory schedules can affect enterprise output, service and asset use. Hardness High: Large operation sets, sequence-dependent setups, reentry, and secondary resources require tailored search or decomposition.
+COMPLEXITY SCOPE NP-hard in the general case [S29]. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS DISPATCH RESCHEDULE. The issued calendar feeds immediate dispatch and is the prior commitment that repair revises.
+REFINEMENTS ##schedule ##precedence ##setup ##reentrant.
+LIMITS AND UNCERTAINTY An established formulation family is supported. No publicly established universal strongest solver exists across these variants.
+
+KEY CELL — Manufacturing Cell Formation
+DECISION CONTRACT Group parts and machines into manufacturing cells under capability and workload limits.
+SEARCH ALIASES Machine-part grouping; part-family and machine-cell formation.
+VARIANTS Alternative routing, duplicated machines, virtual cells, dynamic cells, worker capability constraints.
+IDENTITY AND BOUNDARY This groups manufacturing capabilities. It does not place the cells spatially or schedule individual operations.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #design. Establishes a production structure, capability or definition before downstream execution.
+CONSTRUCTION INFERENCE Primary #map. Maps machines and part families to groups. Capability incidence is supplied; the grouping is chosen. Intercell moves are an objective or constraint, not a chosen transport route.
+TEMPLATE EVIDENCE IE: Group technology and cellular manufacturing. OR: Integer programming or constrained grouping with local search. [S02]
+MATERIAL ALTERNATIVES Similarity-based grouping is an established seed or baseline. Integrated cell-and-layout models combine CELL and LAYOUT rather than create a third parent.
+RATING INFERENCE Priority High: Recurring in multi-product cellular manufacturing. Relevance High: Better grouping can reduce intercell work and improve utilization. Hardness High: Alternative routes, duplicated equipment, capacity, and multiple grouping criteria interact.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS LAYOUT BALANCE LOAD. Cell membership feeds spatial layout, task distribution and cell workload allocation.
+REFINEMENTS ##partition ##cellular.
+LIMITS AND UNCERTAINTY The grouping literature supports the contract. Detailed comparative performance of current implementations needs later case work.
+
+KEY EQUIP — Manufacturing Equipment and Capacity Configuration
+DECISION CONTRACT Select equipment types and counts to provide manufacturing capabilities within investment and throughput limits.
+SEARCH ALIASES Machine selection; production-system capacity design.
+VARIANTS Dedicated lines, flexible systems, automated stations, capacity expansion, parallel equipment.
+IDENTITY AND BOUNDARY Select physical production capacity. Supply-network site location belongs to SCM; building construction execution belongs to CIVIC.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #design. Establishes a production structure, capability or definition before downstream execution.
+CONSTRUCTION INFERENCE Primary #select; secondary #map. Selects equipment instances and maps them to capability or type classes. Fixed production stages do not imply chosen links.
+TEMPLATE EVIDENCE IE: Production-system capacity design. OR: Mixed-integer capacity design with throughput analysis. [S01, S04]
+MATERIAL ALTERNATIVES MILP for linear capacity approximations; MINLP or simulation optimization for interacting reliability and throughput. No single model fits all lines.
+RATING INFERENCE Priority Critical: Capability and capacity constrain the rest of the manufacturing stack. Relevance Critical: Wrong capability commitments can lock in enterprise-scale cost or lost capacity. Hardness High: Investment choices, capability coverage, and uncertain effective throughput interact.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS CELL LAYOUT BUFFER BALANCE QUAL AGG. Selected machines constrain grouping, layout, buffers, balances, qualifications and available aggregate capacity.
+REFINEMENTS ##capacity ##equipment.
+LIMITS AND UNCERTAINTY Forecasts and station-time estimates remain supplied inputs. The research does not optimize machine physics or claim an exact stochastic factory model.
+
+KEY LAYOUT — Manufacturing Facility Layout
+DECISION CONTRACT Place production departments, cells, and equipment within floor-space and access limits.
+SEARCH ALIASES Plant layout; block layout; unequal-area facility layout.
+VARIANTS Fixed sites, unequal areas, multiple floors, cell layout, dynamic layout, aisle and safety clearances.
+IDENTITY AND BOUNDARY Layout of manufacturing assets belongs to PROD. Warehouse storage layout belongs to LOG; public site planning belongs to CIVIC or LAND.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #design. Establishes a production structure, capability or definition before downstream execution.
+CONSTRUCTION INFERENCE Primary #place. Places manufacturing areas in space. Nonoverlap, containment, and access constrain the positions; flows supplied for distance costs do not constitute chosen links.
+TEMPLATE EVIDENCE IE: Factory block and equipment layout. OR: Quadratic assignment or geometric MILP with placement search. [S03]
+MATERIAL ALTERNATIVES QAP applies to fixed discrete sites. Geometric MILP and MIP-based heuristics address unequal areas; these are material alternatives, not interchangeable encodings of every instance.
+RATING INFERENCE Priority High: Recurring in factory design and change. Relevance High: Better placement can reduce handling effort and release productive space. Hardness High: Unequal areas, aisles, clearances, and coupled spatial choices make large layouts difficult.
+COMPLEXITY SCOPE Variant-dependent; fixed-site and geometric models differ. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS FIXTURE SHOP. Chosen floor space constrains physical setups and spatial shop schedules.
+REFINEMENTS ##layout ##geometry.
+LIMITS AND UNCERTAINTY Transport paths may be separately designed in LOG. Continuous-only coordinate adjustment without discrete choices is outside this ICO parent.
+
+KEY BUFFER — Production Buffer Capacity Design
+DECISION CONTRACT Choose discrete buffer capacities and installation options to limit blocking and starvation within space and cost limits.
+SEARCH ALIASES Buffer allocation; intermediate buffer sizing.
+VARIANTS Unreliable lines, assembly networks, closed lines, finite pallet populations, sample-based throughput.
+IDENTITY AND BOUNDARY Capacity design differs from controlling live WIP or replenishing inventory. SCM owns supply-position buffers when manufacturing throughput is not the defining contract.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #design. Establishes a production structure, capability or definition before downstream execution.
+CONSTRUCTION INFERENCE Primary #map; secondary #select. Maps buffer positions to discrete capacity classes and selects optional installations. Supplied stage adjacency is not chosen topology.
+TEMPLATE EVIDENCE IE: Production-line decoupling and throughput design. OR: Simulation optimization or sample-based MILP with Benders decomposition. [S04]
+MATERIAL ALTERNATIVES Analytical decomposition approximates throughput; simulation captures operating detail. S04 exactness concerns a sample-based model only.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better capacity can improve line throughput and reduce tied-up assets. Hardness High: Stochastic failures and blocking couple the value of capacities across the line.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS RELEASE SHOP. Available buffers constrain release limits and feasible blocking or overlap schedules.
+REFINEMENTS ##buffer ##blocking ##starvation.
+LIMITS AND UNCERTAINTY Admission requires discrete capacities or installation choices. Pure continuous queueing parameter calibration is excluded.
+
+KEY BALANCE — Assembly Line Balancing
+DECISION CONTRACT Assign assembly tasks to ordered workstations under precedence, cycle-time, and station limits.
+SEARCH ALIASES SALBP; generalized assembly line balancing; line rebalance.
+VARIANTS Mixed models, U-shaped lines, parallel stations, robotic tasks, two-sided lines, ergonomic constraints.
+IDENTITY AND BOUNDARY The task-to-station balance differs from product-stream sequencing and from selecting assembly operations. Pure employee rostering belongs to HR.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #design; secondary #adapt. Establishes a production structure, capability or definition before downstream execution.
+CONSTRUCTION INFERENCE Primary #map. Maps tasks to stations. Station order and task precedences are supplied; mapping is the defining construction. Rebalancing revises an existing assignment.
+TEMPLATE EVIDENCE IE: Work measurement and assembly line balancing. OR: Integer programming or CP with exact and heuristic balancing search. [S05]
+MATERIAL ALTERNATIVES Simple line-balancing algorithms are credible for restricted models. Rich mixed-model and resource variants may require CP, MILP, or specialized search.
+RATING INFERENCE Priority High: Recurring across major assembly-line deployments, but not all manufacturing systems. Relevance High: Better task distribution can increase line output and reduce overload. Hardness High: Precedence, task eligibility, ergonomic limits, and model-dependent work content interact.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS MIXED ROBOT SHOP. Station task assignments feed product-stream workloads, cell cycles and detailed line schedules.
+REFINEMENTS ##line-balancing ##precedence.
+LIMITS AND UNCERTAINTY The balancing parent does not absorb detailed shop calendars. Evidence does not justify a universal current best method across generalized variants.
+
+KEY QUAL — Manufacturing Resource Qualification Configuration
+DECISION CONTRACT Choose product-operation permissions to qualify on machines under qualification cost and future capacity requirements.
+SEARCH ALIASES Product-machine qualification; recipe-machine qualification.
+VARIANTS Fab front-end and back-end, qualification expiry, uncertain demand, random available capacity.
+IDENTITY AND BOUNDARY Production capability permissions belong to PROD; personnel certification and staffing belong to HR. Batch chemistry feasibility remains PROC when it defines the industrial contract.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #design; secondary #adapt. Establishes a production structure, capability or definition before downstream execution.
+CONSTRUCTION INFERENCE Primary #link; secondary #select. Chooses eligibility relations between operations or product families and machines. Selects qualification actions that establish those relations. The supplied potential-eligibility graph differs from the chosen qualified graph.
+TEMPLATE EVIDENCE IE: Manufacturing qualification and capacity-flexibility planning. OR: Binary or stochastic programming for qualification configuration. [S06]
+MATERIAL ALTERNATIVES Deterministic workload balancing and scenario-based qualification models are material alternatives. Qualification is not the daily assignment of work to already qualified tools.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better qualifications can prevent capacity shortfalls without excessive test effort. Hardness High: Qualification consumes capacity now and changes production flexibility under uncertain future demand.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS LOAD SHOP BATCH. Qualified permission edges constrain workload allocation, shop eligibility and batch equipment eligibility.
+REFINEMENTS ##qualification ##flexibility.
+LIMITS AND UNCERTAINTY The result is a capability relation. Qualification maintenance and expiry are variants; they do not justify a new closed ontology class.
+
+KEY CONFIG — Manufacturable Product Configuration
+DECISION CONTRACT Select compatible modules and attribute options to issue a valid bill of materials and manufacturing route.
+SEARCH ALIASES Constraint-based product configuration; configurable BOM.
+VARIANTS Engineer-to-order equipment, configurable appliances, modular products, conditional route operations.
+IDENTITY AND BOUNDARY The deliverable is a manufacturable definition under physical compatibility. Offer assortment, price, and customer choice remain MKT. CAD shape optimization without discrete options is outside this ICO scope.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #design. Establishes a production structure, capability or definition before downstream execution.
+CONSTRUCTION INFERENCE Primary #select; secondary #map. Selects modules and maps attribute choices to defined roles. Supplied BOM relations do not imply a chosen network unless the contract explicitly chooses new assembly relations.
+TEMPLATE EVIDENCE IE: Constraint-based manufacturing configuration. OR: Constraint-based product and process optimization with multiple objectives. [S31, S37]
+MATERIAL ALTERNATIVES S31 supplies the operational BOM and route representation; S37 supplies constraint-based multi-objective optimization. Supplier-offer optimization remains MKT when commercial choice defines the output.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better compatible choices can prevent invalid builds and costly engineering correction. Hardness Medium: Compatibility, conditional components, and route effects can create many interacting choices.
+COMPLEXITY SCOPE Constraint-language-dependent; no blanket complexity claim. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS PROCESS ASSEMBLY AGG LOT. Issued BOM and route requirements feed fabrication plans, assembly plans and production requirements.
+REFINEMENTS ##configuration ##bill-of-materials.
+LIMITS AND UNCERTAINTY This parent is restricted to optimizing discrete manufacturable alternatives. Market-facing configuration and non-optimizing validation are excluded.
+
+KEY PROCESS — Manufacturing Process Plan Selection
+DECISION CONTRACT Select fabrication operations, alternatives, and routes that produce required part features on available capabilities.
+SEARCH ALIASES CAPP; manufacturing route selection; process planning.
+VARIANTS Machining setup choices, alternative equipment technologies, alternative routes, integrated process planning and scheduling.
+IDENTITY AND BOUNDARY Fabrication of discrete parts belongs to PROD. Chemical recipe transformation dominated by material state belongs to PROC. Supplied process plans do not themselves constitute chosen links.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #select; secondary #place. Selects operations or admissible process alternatives and places selected operations in a feasible order. If a full plan is selected from a catalogue, order is inherited rather than independently constructed.
+TEMPLATE EVIDENCE IE: Computer-aided process planning. OR: Plan-selection MILP or graph-based CP; integrated planning and scheduling. [S07, S38, S34]
+MATERIAL ALTERNATIVES Standalone plan selection permits downstream scheduling; integrated CP/MILP jointly chooses plans and calendars. These remain related contracts rather than an extra algorithm-named parent.
+RATING INFERENCE Priority High: Recurring wherever discrete parts have alternative fabrication routes. Relevance High: Better routes can reduce setups, manufacturing cost and lead time. Hardness High: Feature requirements, setup feasibility, operation alternatives, and machine availability interact.
+COMPLEXITY SCOPE Variant-dependent; integrated general scheduling inherits NP-hardness [S29]. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS FIXTURE TOOL LOAD SHOP. Admissible fabrication plans define setups, required tools, resource workloads and operation calendars.
+REFINEMENTS ##process-planning ##routing.
+LIMITS AND UNCERTAINTY The conditional #place applies when ordering is a decision. The foreground explicitly preserves this limitation; it does not infer order from every selected prebuilt plan.
+
+KEY ASSEMBLY — Assembly Sequence Planning
+DECISION CONTRACT Choose assembly operations and their order under geometry, accessibility, and product precedence requirements.
+SEARCH ALIASES Assembly planning; assembly operation sequencing.
+VARIANTS Parallel subassemblies, alternative mating operations, tool access, robot feasibility.
+IDENTITY AND BOUNDARY This establishes how a product can be assembled. Line balancing distributes given tasks; shop scheduling dates and resources them.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #place; secondary #select. Places assembly operations in a feasible order and selects alternative operations where required. Geometric interference and accessibility are feasibility conditions; supplied product relations are not chosen links.
+TEMPLATE EVIDENCE IE: Design for assembly and assembly process planning. OR: AND/OR-state search or precedence-constrained optimization. [S08]
+MATERIAL ALTERNATIVES Graph or state search represents feasible alternatives. MILP or CP can optimize a discretized candidate plan; their comparative strength depends on geometric preprocessing.
+RATING INFERENCE Priority High: Recurring where assembly operations have nontrivial access and precedence. Relevance High: Better feasible plans can reduce assembly effort and production failure. Hardness High: Geometric feasibility and many alternative partial assemblies enlarge the search.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS BALANCE FIXTURE MATCH SHOP ROBOT. Admissible assembly operations constrain balancing, setups, component mating, scheduling and robot cycles.
+REFINEMENTS ##assembly ##accessibility.
+LIMITS AND UNCERTAINTY CAD-derived feasibility must be credible. No continuous motion planner or collision-free path benchmark is asserted here.
+
+KEY DISASSEMBLY — Selective Disassembly Planning
+DECISION CONTRACT Select removal operations and their order to recover required components under accessibility, damage, and cost limits.
+SEARCH ALIASES Disassembly sequence planning; selective teardown.
+VARIANTS Full teardown, selective recovery, destructive operations, product uncertainty, repair access.
+IDENTITY AND BOUNDARY Physical removal and recoverability define PROD. Reverse collection and transport belong to LOG or SCM; asset maintenance in another primary domain remains there.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #select; secondary #place. Selects removal actions and places them in a feasible sequence. Targets need not require full teardown. Supplied component relations and accessibility constrain the sequence.
+TEMPLATE EVIDENCE IE: Design for disassembly and selective recovery planning. OR: AND/OR-state search or precedence-constrained integer optimization. [S09, S13]
+MATERIAL ALTERNATIVES Complete disassembly and selective target recovery differ materially; uncertainty and destructive options can require scenario or adaptive search.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better selective removal can improve recoverable value and reduce damage. Hardness High: Accessibility, damaged cores, destructive alternatives, and recovery targets interact.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS RECOVERY SHOP. Removal feasibility defines recoverable actions and detailed recovery-shop operations.
+REFINEMENTS ##disassembly ##recovery.
+LIMITS AND UNCERTAINTY Do not treat disassembly as simply reversed assembly. Recovery quantities and inventory planning remain RECOVERY, not this operation-level plan.
+
+KEY INSPECT — Manufacturing Inspection Plan Design
+DECISION CONTRACT Choose inspection stages, technologies, and discrete inspection coverage under outgoing-quality and cost requirements.
+SEARCH ALIASES Inspection allocation; inspection station placement; inspection strategy design.
+VARIANTS Multistage inspection, sampling, destructive tests, imperfect detection, inspection capacity.
+IDENTITY AND BOUNDARY This chooses what inspection system to use. Scheduling already specified test operations is SHOP; statistical estimation alone is not ICO.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #design. Establishes a production structure, capability or definition before downstream execution.
+CONSTRUCTION INFERENCE Primary #select; secondary #map. Selects inspection actions or technologies and maps them to production stages or characteristics. Defect propagation is supplied behavior; it does not create a chosen link structure.
+TEMPLATE EVIDENCE IE: Quality planning and inspection allocation. OR: Evolutionary inspection-plan search with discrete-event simulation. [S10]
+MATERIAL ALTERNATIVES S10 directly supports evolutionary simulation optimization for inspection location, type and coverage. Continuous inspection limits may accompany discrete choices. A generic integer-programming formulation and universal leadership are not certified from this source.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better coverage can reduce defect escape and unnecessary inspection. Hardness Medium: Inspection cost, detection accuracy, capacity, and downstream defect losses must be balanced.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS MATCH SHOP. Chosen tests and quality criteria constrain matching requirements and scheduled inspection operations.
+REFINEMENTS ##inspection ##quality.
+LIMITS AND UNCERTAINTY Quality value depends on the product and risk. No universal defect rate, license, reproducibility, or best-SOTA claim is made.
+
+KEY AGG — Production Capacity Allocation Planning
+DECISION CONTRACT Allocate product-family output and discrete operating capacity across production resources and periods.
+SEARCH ALIASES Aggregate production planning; rough-cut capacity planning; production loading.
+VARIANTS Multiple sites with fixed manufacturing assets, shift activation, overtime blocks, capacity reservations.
+IDENTITY AND BOUNDARY Factory transformation feasibility defines PROD. Sourcing, purchasing, network location, and supply-position decisions belong to SCM; standalone workforce shifts belong to HR.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan; secondary #allocate. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #map; secondary #place #select. Maps family production to resources and periods, and selects discrete capacity activations. Material balance and demand are supplied constraints.
+TEMPLATE EVIDENCE IE: Aggregate production and rough-cut capacity planning. OR: Production-capacity MILP with decomposition where needed. [S11]
+MATERIAL ALTERNATIVES An LP is sufficient for continuous-only aggregate plans, which are excluded here. MILP supports discrete shifts, line activations, or allocation choices.
+RATING INFERENCE Priority High: Recurring across product families and manufacturing resources. Relevance High: Better capacity commitments can reduce overload, idle capacity and delivery failure. Hardness Medium: Discrete capacity choices, product mix, and period coupling can require formulation work.
+COMPLEXITY SCOPE Variant-dependent; continuous relaxations can be linear programs. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS LOAD LOT RECOVERY RELEASE. Capacity and output commitments feed workload allocations, lots, recovery plans and release targets.
+REFINEMENTS ##capacity ##production-planning.
+LIMITS AND UNCERTAINTY ICO admission depends on discrete choices. Multi-site ownership follows the manufacturing contract, not merely use of a supply-chain model.
+
+KEY LOT — Capacitated Production Lot Sizing
+DECISION CONTRACT Choose production lots and periods under setup, bill-of-materials, and manufacturing capacity limits.
+SEARCH ALIASES Capacitated lot sizing; multilevel lot sizing; master production scheduling.
+VARIANTS Multi-item, multilevel, linked lot sizes, backlogs, sequence-dependent setups, integrated lot sizing and scheduling.
+IDENTITY AND BOUNDARY Manufacturing setup activation defines PROD. Purchased-item replenishment without manufacturing decisions belongs to SCM. Transfer sublots within an existing lot belong to STREAM.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #select; secondary #place. Selects production or setup activations and places lots in periods. Quantities refine those chosen activations; BOM structure is supplied.
+TEMPLATE EVIDENCE IE: MRP/MPS with finite-capacity lot sizing. OR: Multi-item or multilevel lot-sizing MILP; decomposition and matheuristics. [S12]
+MATERIAL ALTERNATIVES Time-bucket MIP and small-bucket integrated scheduling models are alternatives. No universal time discretization is prescribed.
+RATING INFERENCE Priority Critical: Lot and setup decisions connect demand to manufacturing output. Relevance High: Better lots can reduce setup loss, inventory and missed demand. Hardness High: Many items, shared capacities, setups, and multilevel material timing interact.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS CUT BUILD BATCH STREAM SHOP RELEASE. Planned lots define cutting, build, batch and transfer requirements, and scheduled and released orders.
+REFINEMENTS ##lot-sizing ##setup ##bill-of-materials.
+LIMITS AND UNCERTAINTY Inventory couples manufacturing lots but does not automatically make SCM the primary owner. The foreground will not split variants by formulation.
+
+KEY RECOVERY — Recovery Production Planning
+DECISION CONTRACT Select cores and recovery actions and plan disassembly, reprocessing, and reassembly quantities over periods.
+SEARCH ALIASES Remanufacturing production planning; disassembly lot sizing.
+VARIANTS Stochastic core condition, parts recovery yield, reuse versus reprocess, new-part substitution, original-component traceability.
+IDENTITY AND BOUNDARY The plan realizes recovered products and components. Return collection, reverse-network design, and procurement belong to neighboring domains.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #select; secondary #map #place. Selects cores and recovery modes, maps recovered parts to product requirements, and places production in periods. Physical recovery yields and product relations are supplied.
+TEMPLATE EVIDENCE IE: Remanufacturing material and capacity planning. OR: Recovery-production MILP; scenario models and decomposition. [S13, S33]
+MATERIAL ALTERNATIVES LOT is a forward-production neighbor, not a synonym: core choice and divergent recovery yields change the feasible production contract. Detailed component identity remains an operational constraint.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better recovery plans can improve core use and delivery under variable yields. Hardness High: Unknown core condition, divergent yields, and coupled recovery and assembly stages interact.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS LOAD MATCH SHOP RELEASE. Core and recovered-part requirements feed resource loads, assembly requirements and released orders.
+REFINEMENTS ##remanufacturing ##recovery.
+LIMITS AND UNCERTAINTY Closed-loop supply-chain planning is not admitted as a duplicate. Provenance-preserving component reunion is not automatically tolerance-based matching.
+
+KEY LOAD — Manufacturing Workload Allocation
+DECISION CONTRACT Assign production requirements to eligible machines or cells within aggregate capability and capacity limits.
+SEARCH ALIASES Machine loading; operation allocation; capacity loading.
+VARIANTS Flexible manufacturing systems, alternative machines, resource dedication, workload balancing.
+IDENTITY AND BOUNDARY The result reserves or distributes manufacturing workload without a full operation calendar. SHOP constructs detailed dates and sequence; QUAL creates the eligible relation itself.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #allocate. Commits scarce manufacturing resources or components to requirements.
+CONSTRUCTION INFERENCE Primary #map. Maps operation or product workload to resources. Eligibility is supplied. It does not choose a physical interconnection or a detailed time schedule.
+TEMPLATE EVIDENCE IE: FMS loading and finite-capacity workload allocation. OR: FMS loading MILP; genetic or neighborhood search at scale. [S36, S06]
+MATERIAL ALTERNATIVES Simple divisible-load models may be LP or flow problems. Discrete job assignment, dedication, or linked lots provide the ICO core.
+RATING INFERENCE Priority High: Recurring where alternative resources share production requirements. Relevance High: Better allocation can relieve bottlenecks and reduce idle eligible capacity. Hardness Medium: Capability heterogeneity, indivisible orders, and linked operation loads complicate allocation.
+COMPLEXITY SCOPE Variant-dependent; simple flow subcases are polynomial. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS TOOL BATCH SHOP. Reserved manufacturing workload constrains tool plans, co-processing batches and shop assignments.
+REFINEMENTS ##loading ##assignment.
+LIMITS AND UNCERTAINTY Direct FMS loading evidence establishes formulation and search-method existence. It does not establish universal solver superiority. Detailed calendars remain SHOP.
+
+KEY TOOL — Tool Loading and Change Planning
+DECISION CONTRACT Choose tool magazine contents and loading changes that support manufacturing jobs under magazine and availability limits.
+SEARCH ALIASES Tool loading; tool switching; tool management.
+VARIANTS Tool life, unequal slot sizes, turret indexing, shared tool pools, joint job sequencing.
+IDENTITY AND BOUNDARY Choosing tool availability or magazine plans differs from scheduling all operations with a fixed tool calendar. Purchasing and replenishing spare tools alone belong to SCM.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #select; secondary #map #place. Selects tools, maps them to machines or magazines, and places changes in job order when changes are optimized. A fixed-order loading subproblem can omit independently chosen placement.
+TEMPLATE EVIDENCE IE: CNC tool provisioning and change planning. OR: Capacity-constrained tool-loading optimization with sequence search. [S14]
+MATERIAL ALTERNATIVES Fixed-order replacement and joint job-order optimization have different difficulty. Keep-tool-needed-soonest is a restricted baseline, not a universal solution to rich tooling.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better provisioning can reduce tool changes and job interruptions. Hardness High: Tool life, magazine capacity, shared tools, and job order interact.
+COMPLEXITY SCOPE Variant-dependent; fixed-order and joint-order models differ [S14]. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS SHOP. Magazine contents and change epochs constrain feasible manufacturing operations.
+REFINEMENTS ##tooling ##setup.
+LIMITS AND UNCERTAINTY Tool-position indexing is retained as a variant. Do not add #link merely because a formulation encodes job-successor arcs.
+
+KEY FIXTURE — Fixture and Pallet Setup Planning
+DECISION CONTRACT Assign parts to fixture-pallet setups and choose feasible orientations and positions for fabrication or assembly.
+SEARCH ALIASES Pallet loading; multi-part setup planning; fixture configuration.
+VARIANTS Multiple parts per pallet, alternative fixtures, clamping access, common setups, reusable pallet populations.
+IDENTITY AND BOUNDARY Physical setup selection and geometry define PROD. Moving pallets is LOG; scheduling fixed fixture availability is a SHOP resource variant.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #place; secondary #map #select. Places parts and orientations on setup substrates, maps parts to fixtures, and selects needed setup configurations. Clearance and clamping access constrain construction.
+TEMPLATE EVIDENCE IE: Machining and assembly setup planning. OR: Setup-configuration optimization over feasible fixture-pallet plans. [S15]
+MATERIAL ALTERNATIVES S15 supports a configuration-optimization approach using STEP-NC data. Geometric feasibility is required; a generic MIP formulation is not certified from the inspected abstract.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance Medium: Better physical setups reduce localized setup time and resource loss. Hardness High: Clamping, access, multi-part geometry, and setup consolidation require tailored feasibility models.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS SHOP. Chosen fixture-pallet setups constrain executable fabrication or assembly work.
+REFINEMENTS ##fixture ##pallet ##setup.
+LIMITS AND UNCERTAINTY This parent requires genuine setup decisions. A pallet-fixture calendar constraint alone does not justify a separate card.
+
+KEY CUT — Manufacturing Cutting Stock and Nesting
+DECISION CONTRACT Choose cutting patterns and place required parts on stock under geometry, material, and cutting-process limits.
+SEARCH ALIASES Cutting stock; irregular nesting; trim-loss optimization.
+VARIANTS One-dimensional bars, rectangular panels, irregular sheets, guillotine cuts, reusable remnants, grain and rotation.
+IDENTITY AND BOUNDARY The transformation of stock into parts defines PROD. Loading finished items into transport containers belongs to LOG; blend or process chemistry remains PROC.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #place; secondary #select. Places part geometries within stock and selects stock or patterns. Nonoverlap and containment are constitutive laws. A pattern-frequency-only representation inherits placements from candidate patterns.
+TEMPLATE EVIDENCE IE: Cut planning and material-yield optimization. OR: Pattern LP with integer completion; geometric branch and bound or nesting search. [S16, S30, S39]
+MATERIAL ALTERNATIVES S39 establishes a pattern-master LP architecture. Final production requires integer counts. S16 supports geometric branch and bound; practical nesting heuristics are material alternatives. S30 establishes industrial software functionality without solver ranking.
+RATING INFERENCE Priority High: Recurring across major sheet, panel and bar fabrication sectors. Relevance High: Better patterns can reduce material waste and stock consumption. Hardness High: Irregular geometry, material compatibility, cutting stages, and remnants enlarge the search.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS SHOP. Cut patterns define fabrication tasks and material quantities for downstream calendars.
+REFINEMENTS ##cutting-stock ##nesting ##geometry.
+LIMITS AND UNCERTAINTY Patterns do not specify the full factory schedule. This parent excludes blending and logistics packing despite shared mathematical terminology.
+
+KEY BUILD — Additive Manufacturing Build Planning
+DECISION CONTRACT Group parts into builds and choose orientations and build-space positions under machine, quality, and completion requirements.
+SEARCH ALIASES AM build planning; build packing; print-job nesting.
+VARIANTS Powder-bed 2D packing, stacked 3D packing, support constraints, multiple machines, combined packing and scheduling.
+IDENTITY AND BOUNDARY The build is a manufacturing artifact. Pure continuous topology design is outside the combinatorial contract; scheduling prepacked builds is SHOP.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #place; secondary #map #select. Places oriented parts in build space, maps parts to builds or machines, and selects builds. Nonoverlap, containment, and build compatibility define construction.
+TEMPLATE EVIDENCE IE: Additive build preparation and production planning. OR: Packing-and-build-scheduling MILP or two-stage metaheuristics. [S17, S40]
+MATERIAL ALTERNATIVES S17 supports sequential orientation-packing-scheduling. S40 provides a joint MILP and two-stage heuristic/metaheuristic approaches. No universal performance ranking is inferred.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better builds can improve machine use and reduce completion time. Hardness High: Orientation, packing, support, build height, and machine completion times interact.
+COMPLEXITY SCOPE NP-hard for the cited joint packing-and-build-scheduling model [S40]. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS SHOP. Packed builds define machine jobs and build durations for downstream scheduling.
+REFINEMENTS ##additive-manufacturing ##packing.
+LIMITS AND UNCERTAINTY Thermal and continuous process tuning are inputs or neighboring non-ICO problems. This parent is not a renamed generic bin-packing formulation.
+
+KEY MATCH — Selective Component Matching
+DECISION CONTRACT Assign measured components to assembled units under tolerance, compatibility, and yield requirements.
+SEARCH ALIASES Selective assembly; tolerance matching; adaptive assembly.
+VARIANTS Pair matching, multi-component mating, bin selection, adjustable fitting, scarce components.
+IDENTITY AND BOUNDARY Physical fit and final product quality define PROD. Picking supplied kits is LOG; requiring original components to reunite is a scheduling constraint rather than a selected fit match.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #allocate. Commits scarce manufacturing resources or components to requirements.
+CONSTRUCTION INFERENCE Primary #map; secondary #select. Maps components to assembly roles or units and selects participating components when stock exceeds needs. Measured compatibility is supplied, not a solver-constructed physical relation.
+TEMPLATE EVIDENCE IE: Selective assembly and tolerance matching. OR: Bipartite matching for pairwise cases; integer assignment for multi-part assembly. [S18, S33]
+MATERIAL ALTERNATIVES Pairwise separable matching can be solved efficiently. Multi-part, adaptive, and scarce-component cases may require richer integer search; no universal hardness claim is made.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better combinations can increase assembly yield and reduce scrap. Hardness Medium: Multi-part tolerances, scarce components, and coupled quality targets complicate matching.
+COMPLEXITY SCOPE Pairwise matching can be polynomial; richer variants differ. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS SHOP. Assigned component combinations define the units available for scheduled assembly.
+REFINEMENTS ##matching ##tolerance.
+LIMITS AND UNCERTAINTY Eligibility edges do not require #link if the completed artifact is component-to-unit assignment. Rework disposition remains a PROCESS or RECOVERY variant.
+
+KEY BATCH — Parallel Manufacturing Batch Formation and Scheduling
+DECISION CONTRACT Group compatible jobs for simultaneous processing and schedule batches on eligible equipment.
+SEARCH ALIASES Parallel batch scheduling; p-batch scheduling.
+VARIANTS Fab furnaces, burn-in, ovens treating discrete parts, incompatible families, unequal sizes, release dates.
+IDENTITY AND BOUNDARY The batch comprises discrete workpieces. Batch chemistry dominated by recipes or material states belongs to PROC. Ordinary serial setup families remain SHOP unless co-processing groups are chosen.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #map; secondary #place. Maps jobs to simultaneous-processing groups and places batches in time. Capacity and compatibility define feasible groups. Supplied family labels do not equal chosen batches.
+TEMPLATE EVIDENCE IE: Parallel-batch equipment loading and scheduling. OR: Batch-assignment MIP or CP with batching heuristics. [S19, S06]
+MATERIAL ALTERNATIVES Exact models and decomposition support restricted versus large variants. Choosing batches adds an output artifact beyond merely resequencing fixed jobs.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better groups can improve batch-equipment use and due-date performance. Hardness High: Batch fill, family compatibility, job readiness, and competing completion targets interact.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS SHOP. Chosen groups and batch times constrain their integration into the wider shop calendar.
+REFINEMENTS ##batching ##compatibility.
+LIMITS AND UNCERTAINTY If batches are already fixed, detailed equipment scheduling is SHOP. Chemistry-driven recipe batch scheduling is excluded.
+
+KEY STREAM — Production Lot Streaming
+DECISION CONTRACT Split production lots into transfer sublots and time their overlapping processing across stages.
+SEARCH ALIASES Lot splitting for transfer; sublot scheduling; lot streaming.
+VARIANTS Equal or unequal sublots, consistent or variable transfer sizes, flow-shop or job-shop overlap.
+IDENTITY AND BOUNDARY This splits an existing manufacturing lot for overlap. LOT chooses production replenishment lots; LOG governs external shipment consolidation.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #map; secondary #place #select. Maps units to transfer sublots, selects a discrete split configuration, and places sublot processing in time. Supplied stage order constrains overlap.
+TEMPLATE EVIDENCE IE: Transfer-batch and lot-streaming planning. OR: Joint sublot-sizing and scheduling MIP or CP with search. [S20, S29]
+MATERIAL ALTERNATIVES Fixed sublot count and continuous-size models may have simpler subproblems. The admitted ICO contract includes discrete split, sequence, or resource decisions.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better transfer lots can reduce cycle time and WIP. Hardness High: Sublot sizes, repeated setups, stage overlap, and buffer limits interact.
+COMPLEXITY SCOPE Variant-dependent; general integrated shop scheduling can be NP-hard [S29]. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS SHOP. Chosen transfer sublots and overlaps constrain the wider production calendar.
+REFINEMENTS ##lot-streaming ##synchronization.
+LIMITS AND UNCERTAINTY Do not split one card per machine topology or sublot-size convention. Pure continuous splitting without combinatorial decisions is excluded.
+
+KEY MIXED — Mixed-Model Production Sequencing
+DECISION CONTRACT Order product units on a production line to limit station overload, option congestion, and supply variation.
+SEARCH ALIASES Car sequencing; mixed-model sequencing; production leveling.
+VARIANTS Option ratios, model-dependent work content, color changes, heijunka, fixed product mix.
+IDENTITY AND BOUNDARY The result orders products through a manufacturing line. BALANCE assigns tasks to stations; market demand and distribution routes remain external inputs.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #place. Places product units in an ordered stream. Option-ratio and station-work constraints govern order; they do not imply a chosen transport route.
+TEMPLATE EVIDENCE IE: Mixed-model sequencing and production leveling. OR: Constraint or integer sequencing optimization; local search. [S22]
+MATERIAL ALTERNATIVES Car-sequencing option ratios and mixed-model workload models are material near-equals, not synonyms at the model level. Neither universally dominates.
+RATING INFERENCE Priority High: Recurring in major mixed-product line deployments. Relevance High: Better streams can reduce station overload and line stoppage. Hardness High: Option ratios, work overload, changes, and scarce parts create competing sequence requirements.
+COMPLEXITY SCOPE Variant-dependent; no family-wide complexity class asserted. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS DISPATCH RESCHEDULE. The product stream provides sequence commitments to dispatch and repair.
+REFINEMENTS ##mixed-model ##succession.
+LIMITS AND UNCERTAINTY Paint chemistry and process campaigns are PROC when transformation feasibility dominates. A discrete unit sequence alone does not decide paint recipes.
+
+KEY PCB — Electronic Assembly Setup and Placement Planning
+DECISION CONTRACT Assign component feeders and pickup groups and order mounting operations under placement-machine limits.
+SEARCH ALIASES PCB feeder assignment; component placement sequencing; pick-and-place optimization.
+VARIANTS Collect-and-place heads, simultaneous pickup, board families, feeder changeovers, multiple machines.
+IDENTITY AND BOUNDARY This is manufacturing execution setup, not VLSI design routing in COMP. Generic feeder inventory replenishment is SCM or LOG.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #map; secondary #place. Maps component types to feeders or pickup groups and places mounting operations in sequence. Board pad coordinates are supplied, not newly designed circuit positions.
+TEMPLATE EVIDENCE IE: Surface-mount assembly setup optimization. OR: Feeder-assignment and placement-sequencing optimization with machine-specific search. [S23]
+MATERIAL ALTERNATIVES Assignment and route-like sequencing models require architecture-specific pickup constraints. S23 demonstrates this coupling; it does not establish a single universal TSP template.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better setup and mounting plans can reduce recurring assembly cycle time. Hardness High: Feeder placement, pickup grouping, head motion, and board sequence interact.
+COMPLEXITY SCOPE Machine-model-dependent; no blanket complexity claim. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS SHOP. Chosen feeder and mounting plans define electronic assembly machine jobs for shop scheduling.
+REFINEMENTS ##electronics ##feeder ##setup.
+LIMITS AND UNCERTAINTY Physical component placement here means ordering execution at supplied board locations. Circuit topology and silicon physical design remain COMP.
+
+KEY ROBOT — Robotic Manufacturing Cell Cycle Planning
+DECISION CONTRACT Choose cyclic handling and processing sequences within a manufacturing cell under occupancy and timing limits.
+SEARCH ALIASES Robotic cell scheduling; cyclic robot scheduling; cluster-tool cycle scheduling.
+VARIANTS Multiple part types, bufferless cells, residence limits, single or multiple arms, hoist-like process transfer.
+IDENTITY AND BOUNDARY The cycle is defined by processing synchronization and manufacturing throughput. Independent vehicle movement is LOG; generic robot software computation is COMP.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #place. Places robot moves and processing actions in a repeated feasible order and time pattern. Repetition, occupancy, and processing windows define the cycle. Encoding successor arcs does not add #link.
+TEMPLATE EVIDENCE IE: Robotic-cell cycle and throughput planning. OR: Cyclic scheduling optimization or dynamic programming for restricted cells. [S24]
+MATERIAL ALTERNATIVES Restricted cell structures admit specialized algorithms. Rich part mixes and resource interactions can require integer or combinatorial search; no blanket NP-hard label is justified.
+RATING INFERENCE Priority Medium: Important in the operating modes identified above, but not required by every substantial factory deployment. Relevance High: Better cycles can increase constrained cell throughput. Hardness High: Part order, occupancy, and robot timing couple processing and transfer.
+COMPLEXITY SCOPE Cell-model-dependent; restricted models differ. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS SHOP. Chosen cyclic capacity and timing constrain integration with the wider shop calendar.
+REFINEMENTS ##cyclic ##synchronization ##robotics.
+LIMITS AND UNCERTAINTY Continuous collision-free trajectory planning alone is not admitted. Process-side hoist chemistry belongs to PROC where it defines feasibility.
+
+KEY MAINT — Integrated Production and Maintenance Scheduling
+DECISION CONTRACT Schedule manufacturing work and selectable maintenance actions under degradation, resource, and delivery limits.
+SEARCH ALIASES Joint production-maintenance scheduling; preventive-maintenance integration.
+VARIANTS Age-dependent maintenance, fixed versus flexible windows, opportunistic shutdowns, multiresource maintenance.
+IDENTITY AND BOUNDARY Production-asset availability defines PROD. A supplied fixed downtime calendar is just a SHOP input. Workforce rostering or generic maintenance of another domain asset remains with its owner.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #plan. Prepares a future manufacturing plan before its execution.
+CONSTRUCTION INFERENCE Primary #place; secondary #select. Places production and maintenance in time and selects maintenance actions or windows when optional. Degradation and recovery laws constrain these choices.
+TEMPLATE EVIDENCE IE: Reliability-centered production and maintenance coordination. OR: Joint production-maintenance MILP or CP; scenario and heuristic extensions. [S25, S29]
+MATERIAL ALTERNATIVES S25 provides industrial-data MILP evidence. Fixed calendars, stochastic degradation, and policy design are materially different scopes.
+RATING INFERENCE Priority High: Recurring where selected downtime materially affects production. Relevance High: Better coordination can reduce breakdown and planned-production losses. Hardness High: Downtime, degradation, production commitments, and scarce maintenance resources interact.
+COMPLEXITY SCOPE General integrated scheduling is NP-hard when it includes unrestricted shop scheduling [S29]. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS SHOP RELEASE RESCHEDULE. Selected downtime and maintenance windows constrain calendars, release and disruption repair.
+REFINEMENTS ##maintenance ##availability.
+LIMITS AND UNCERTAINTY Admit only when maintenance decisions are endogenous. A maintenance label on a fixed scheduling constraint does not create a new parent.
+
+KEY RELEASE — Production Order Release and WIP Control
+DECISION CONTRACT Select production orders and release epochs under workload, WIP, and due-date limits.
+SEARCH ALIASES Order review and release; workload control; CONWIP release.
+VARIANTS Pre-shop pools, continuous or periodic release, work-centre authorization, bottleneck protection, card limits.
+IDENTITY AND BOUNDARY The decision admits work to production or authorizes a stage. LOT establishes planned lots; DISPATCH selects work already authorized at a resource. SCM replenishment signals can be inputs.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #dispatch; secondary #operate. Makes short-cycle entry or work-centre authorization decisions from current workload.
+CONSTRUCTION INFERENCE Primary #select; secondary #place. Selects orders for authorization and places their releases in time. Supplied routes estimate induced workload; routes are not constructed.
+TEMPLATE EVIDENCE IE: Workload control, CONWIP, and bottleneck release control. OR: Workload-constrained release selection with rolling optimization or simulated policy comparison. [S26, S27]
+MATERIAL ALTERNATIVES Operational rule systems are established IE baselines. Optimization-based selection is an OR extension; no superiority over calibrated release rules is asserted.
+RATING INFERENCE Priority High: Recurring where uncontrolled WIP degrades production flow. Relevance High: Better release can reduce excess WIP while avoiding starvation. Hardness Medium: Workload estimates, future arrivals, starvation, and due dates require frequent feedback.
+COMPLEXITY SCOPE Policy- and model-dependent; no blanket complexity claim. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS DISPATCH RESCHEDULE. Authorized work feeds dispatch; authorization commitments and WIP state constrain repair.
+REFINEMENTS ##wip ##release ##workload-control.
+LIMITS AND UNCERTAINTY Only discrete admission and authorization belong here. Continuous tuning of WIP limits without discrete choice is outside the ICO parent.
+
+KEY DISPATCH — Real-Time Production Dispatching
+DECISION CONTRACT Choose the next eligible manufacturing jobs and immediate resource assignments from the observed shop state.
+SEARCH ALIASES Shop-floor dispatching; next-job selection; local production control.
+VARIANTS Bottleneck dispatch, fab tools, setup-aware selection, parallel machines, local queue resequencing.
+IDENTITY AND BOUNDARY This activates authorized production work. RELEASE admits work; RESCHEDULE revises an issued schedule. Material transport dispatch belongs to LOG.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #dispatch. Activates the next eligible work under the current shop state.
+CONSTRUCTION INFERENCE Primary #select; secondary #map. Selects immediate jobs and maps them to available eligible resources. Local next-action choices do not constitute a full future shop schedule.
+TEMPLATE EVIDENCE IE: MES dispatching and priority-rule control. OR: Priority-rule or rolling local assignment optimization; simulation-based evaluation. [S27, S32]
+MATERIAL ALTERNATIVES Established rules and constrained local optimization are material alternatives. S32 confirms industrial functionality, not a public algorithmic performance ranking.
+RATING INFERENCE Priority Critical: Every operating shop must choose which eligible work to execute next. Relevance High: Better immediate assignments can reduce delay and setup losses. Hardness Medium: Latency, setup effects, stale state, and downstream congestion govern practical difficulty.
+COMPLEXITY SCOPE Simple priority rules are polynomial; richer selection models differ. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS RESCHEDULE. Executed and immediately committed actions become fixed state for later repair.
+REFINEMENTS ##dispatching ##setup.
+LIMITS AND UNCERTAINTY Do not infer NP-hardness from calling the operation dispatching. Global learning-based or rolling-horizon schedulers require case-specific evidence.
+
+KEY RESCHEDULE — Production Schedule Repair and Rescheduling
+DECISION CONTRACT Revise issued manufacturing schedules after disruptions while preserving feasible prior commitments where required.
+SEARCH ALIASES Reactive scheduling; schedule repair; production rescheduling.
+VARIANTS Breakdowns, rush orders, delayed materials, partial repair, complete regeneration, schedule stability.
+IDENTITY AND BOUNDARY An existing commitment and change event distinguish this contract from initial SHOP planning and immediate DISPATCH. Disruption source does not change primary ownership.
+OWNERSHIP INFERENCE PROD is primary because discrete manufacturing, fabrication or assembly defines this contract. Relevant interfaces follow the boundary above; no Industry label changes that primary ownership.
+COMMITMENT INFERENCE Primary #adapt. Revises prior manufacturing commitments after material change.
+CONSTRUCTION INFERENCE Primary #place; secondary #map #select. Replaces temporal placements and resource assignments for affected work, and selects which commitments to revise. Completed actions remain fixed. Stability is an objective or constraint, not another Structure.
+TEMPLATE EVIDENCE IE: Predictive-reactive scheduling and schedule repair. OR: Repair CP/MILP or neighborhood search with stability penalties. [S28, S29]
+MATERIAL ALTERNATIVES Partial repair and full regeneration are alternatives. Event-driven and periodic triggers are policy choices; none establishes a universal fastest or best repair.
+RATING INFERENCE Priority High: Recurring where issued manufacturing plans face material disruption. Relevance High: Better repairs can reduce disruption losses and commitment churn. Hardness High: Recovery time, frozen work, resource changes, and schedule stability constrain repair.
+COMPLEXITY SCOPE General regeneration includes NP-hard shop scheduling [S29]. Practical Hardness is not deduced from this label.
+INFORMATION OUTPUTS SHOP RELEASE DISPATCH. Repaired commitments replace affected calendars, release instructions and immediate priorities.
+REFINEMENTS ##rescheduling ##stability.
+LIMITS AND UNCERTAINTY The backward dependencies are explicit feedback cycles. Case work must distinguish reported repair performance from reproduced performance.
+
+EXCLUSIONS, MERGES, AND RESERVED QUESTIONS
+Flexible job shop, hybrid flow shop, reentrant fab, tool-constrained shop, assembly shop and spatial block scheduling: SHOP variants. Different feasible calendars do not by themselves establish new parent decisions.
+Setup sequencing and changeover minimization: SHOP or MIXED variants when the chosen artifact is an ordinary production order. TOOL and PCB retain separate physical setup choices when those choices are endogenous.
+Machine-fixture-pallet calendar scheduling: SHOP variant. FIXTURE is admitted only for choosing physical setups and part placements.
+Product-family formation: CELL when it establishes production groups, or TOOL/PCB setup-family variants when used for setup planning. No generic algorithm-named clustering card.
+WIP threshold calibration, continuous aggregate planning, continuous buffer tuning, statistical quality estimation and continuous motion optimization: excluded when there is no combinatorial decision. Discrete policy selection or activation can instantiate an admitted parent.
+Industrial engineering methods such as lean, Kanban, CONWIP, MRP, digital twins, simulation, CP, MILP, reinforcement learning and genetic algorithms: practices or methods, not separate Problems.
+Order acceptance, pricing, quoting and customer order promising: MKT when the delivered decision is a commercial commitment. Internal finite-capacity feasibility is a SHOP/AGG input to that decision; do not duplicate the full commercial contract here.
+Supplier choice, make-or-buy procurement and supply-network design: SCM when sourcing defines the output. Allocation across already available manufacturing resources remains AGG/LOAD.
+Warehouse slotting, line-side material routing, kit picking, AGV delivery and external packing: LOG. Constraints from these activities can couple to PROD without changing ownership.
+Standalone workforce assignment and rosters: HR. Production task and machine assignments remain PROD when physical manufacturing feasibility dominates.
+Generic plant energy optimization: ENER or continuous process engineering unless discrete manufacturing actions are the defining choices.
+CAD topology design and purely continuous tolerance optimization: not admitted as ICO. CONFIG covers discrete manufacturable module choices; MATCH covers discrete physical component combinations.
+Inspection/test scheduling with fixed tests: SHOP. Inspection-system selection and stage assignment are INSPECT. Choosing repair routes is PROCESS or RECOVERY; scheduling rework is SHOP/RESCHEDULE. No unsupported generic quality-disposition parent is forced.
+Original-component reunion during remanufacturing: RECOVERY/SHOP traceability variant. Tolerance-based selective assembly is MATCH.
+Construction crews and public project scheduling: CIVIC/HR according to the decision contract. Assembly of manufactured ship blocks and factory equipment remains PROD.
+Semiconductor wafer fabrication: PROD. VLSI netlist, placement and wiring decisions: COMP when information/circuit design feasibility dominates.
+Physical assembly network synthesis could require #link if assembly relations are genuinely chosen. Current admitted ASSEMBLY uses supplied product relations and chosen operations/order; no unsupported graph-design parent is introduced.
+
+SEARCH COVERAGE AND STOP RULE
+Initial broad discovery was followed by targeted searches on missed operational functions: qualification, selective matching, inspection allocation, remanufacturing, fixture-pallet setup, PCB pickup architecture, cyclic robotic cells, configuration, and shipbuilding spatial scheduling.
+Later targeted results added CONFIG and enriched SHOP with spatial assembly rather than adding a new spatial-scheduling parent. Results for fixture-constrained scheduling, remanufacturing matching, ship-block planning and tool indexing were absorbed as variants or integration evidence after checking their delivered decisions.
+Stop basis: all named manufacturing territories in 000_DOMAIN_research.txt now map to admitted parents or explicit boundary/exclusion decisions. The latest searches mainly produced aliases, model variants, methods and cross-domain interfaces. This is a bounded practical coverage assessment, not a proof of exhaustive discovery or a quantitative saturation statistic.
+No unresolved material ownership or parent-identity split is silently decided. Broader robot motion, product shape design, quality economics and supply-network integration remain restricted or excluded as specified above. They can return for Problem-layer review if case evidence establishes a distinct commercially material ICO contract.
+
+DEPENDENCY SEMANTICS AND GRAPH
+Edges below are inferred industrial/information contracts supported by the candidate scopes, not mathematical reductions or a claim that every factory executes every edge.
+Each candidate's outgoing keys record the immediate meaningful constraints or information it supplies. Independent decisions need no artificial dependency. An edge remains conditional on that activity existing in the deployment.
+Design edges pass equipment, group, space, buffer, task-balance or eligibility commitments to later planning. Process-plan edges pass admissible operations and setups. Aggregate and lot edges pass workload, quantities and due requirements. Operational edges pass authorized work, immediate actions and revised commitments.
+Cycles: SHOP -> RESCHEDULE -> SHOP; RELEASE -> RESCHEDULE -> RELEASE; DISPATCH -> RESCHEDULE -> DISPATCH. They represent repair after observed change, not backwards initial design. SHOP, MIXED, MAINT and RELEASE can feed DISPATCH/RESCHEDULE. Compilation must retain feedback rather than invent a DAG.
+PROCESS and SHOP can be jointly optimized, as can LOT and SHOP. Those integration possibilities are not mandatory reverse dependency edges: a revised plan can be handled through RESCHEDULE or a new planning iteration. CAPACITY, CELL, LAYOUT, BALANCE and BUFFER also co-design in some deployments; the chosen one-way graph records a conventional commitment interface rather than asserting a universal one-pass engineering sequence.
+Direct edges are used for ordering; transitive reachability is not duplicated in every card. Evidence and inference are sufficient to select a sequence with design before planning, allocation before detailed calendars where possible, and adaptation last. Provisional keys are translated only in foreground compilation.
+
+PROVISIONAL DIRECTED EDGES
+AGG -> LOAD, LOT, RECOVERY, RELEASE
+ASSEMBLY -> BALANCE, FIXTURE, MATCH, SHOP, ROBOT
+BALANCE -> MIXED, ROBOT, SHOP
+BATCH -> SHOP
+BUFFER -> RELEASE, SHOP
+BUILD -> SHOP
+CELL -> LAYOUT, BALANCE, LOAD
+CONFIG -> PROCESS, ASSEMBLY, AGG, LOT
+CUT -> SHOP
+DISASSEMBLY -> RECOVERY, SHOP
+DISPATCH -> RESCHEDULE
+EQUIP -> CELL, LAYOUT, BUFFER, BALANCE, QUAL, AGG
+FIXTURE -> SHOP
+INSPECT -> MATCH, SHOP
+LAYOUT -> FIXTURE, SHOP
+LOAD -> TOOL, BATCH, SHOP
+LOT -> CUT, BUILD, BATCH, STREAM, SHOP, RELEASE
+MAINT -> SHOP, RELEASE, RESCHEDULE
+MATCH -> SHOP
+MIXED -> DISPATCH, RESCHEDULE
+PCB -> SHOP
+PROCESS -> FIXTURE, TOOL, LOAD, SHOP
+QUAL -> LOAD, SHOP, BATCH
+RECOVERY -> LOAD, MATCH, SHOP, RELEASE
+RELEASE -> DISPATCH, RESCHEDULE
+RESCHEDULE -> SHOP, RELEASE, DISPATCH
+ROBOT -> SHOP
+SHOP -> DISPATCH, RESCHEDULE
+STREAM -> SHOP
+TOOL -> SHOP
+
+SOURCE REGISTER
+Access checked 6 October 2026. Source statements below delimit the evidence used above. No benchmark results were reproduced.
+
+S01 Gutiérrez and Sahinidis, A branch-and-bound approach for machine selection in just-in-time manufacturing systems.
+https://experts.illinois.edu/en/publications/a-branch-and-bound-approach-for-machine-selection-in-just-in-time/
+INSPECTED Institutional abstract.
+SUPPORTED FACT Select machine counts by stage under investment, production, and imbalance costs. The study uses mixed-integer nonlinear optimization and branch and bound.
+
+S02 Models for machine-part grouping in cellular manufacturing.
+https://www.tandfonline.com/doi/abs/10.1080/00207549608904991
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Machine-part grouping has mathematical programming models. The source supports a distinct grouping decision; it does not establish universal superiority over heuristic grouping.
+
+S03 A graph-pair representation and MIP-model-based heuristic for the unequal-area facility layout problem.
+https://www.sciencedirect.com/science/article/pii/S0377221711010058
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Arrange unequal-area departments within a building under area and shape restrictions. A MIP-based heuristic provides formal-method evidence.
+
+S04 Buffer allocation problem in production flow lines: A new Benders-decomposition-based exact solution approach.
+https://re.public.polimi.it/handle/11311/1202935
+INSPECTED Author institutional abstract.
+SUPPORTED FACT A sample-based buffer-allocation MILP combines simulation-generated Benders cuts with optimization. Exactness is attached to the sample-based model, not all stochastic factory models.
+
+S05 Scholl and Becker, State-of-the-art exact and heuristic solution procedures for simple assembly line balancing.
+https://www.sciencedirect.com/science/article/abs/pii/S0377221704004795
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Assign each task to a station under precedence and additional restrictions. Exact and heuristic approaches coexist; the simple problem is not all generalized line balancing.
+
+S06 Stochastic optimization of product-machine qualification in a semiconductor back-end facility.
+https://www.tandfonline.com/doi/full/10.1080/0740817X.2014.964887
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Product-specific machine qualification consumes present resources and changes future eligible capacity. A stochastic optimization model balances qualification cost and backorder exposure.
+
+S07 A graph-based constraint programming approach for the integrated process planning and scheduling problem.
+https://www.sciencedirect.com/science/article/pii/S0305054821000745
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Predetermined alternative process plans feed integrated process planning and scheduling. Constraint programming selects plans and allocates manufacturing resources.
+
+S08 Sanderson and collaborators, Assembly Sequence Planning.
+https://onlinelibrary.wiley.com/doi/10.1609/aimag.v11i1.824
+INSPECTED Publisher article text.
+SUPPORTED FACT Assembly feasibility depends on geometry, relations, and operations. AND/OR representations support search over assembly alternatives.
+
+S09 Disassembly Sequence Planning: A Survey.
+https://www.ieee-jas.com/article/doi/10.1109/JAS.2020.1003515
+INSPECTED Publisher search-index abstract; page fetch timed out.
+SUPPORTED FACT Disassembly models include graphs, AND/OR graphs, Petri nets, and matrices. Mathematical programming and optimization support sequence selection.
+
+S10 An Evolutionary Algorithm and discrete event simulation for optimizing inspection strategies for multi-stage processes.
+https://www.sciencedirect.com/science/article/pii/S0377221705007265
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Jointly choose inspection location, type, and inspection limits to minimize inspection cost subject to required output quality. Simulation and evolutionary search are method evidence.
+
+S11 Mixed integer linear programming formulation for flexibility instruments in capacity planning problems.
+https://www.sciencedirect.com/science/article/abs/pii/S0360835216301164
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT An electronics-manufacturer aggregate planning application uses MILP for capacity flexibility, including shift decisions. Workforce aggregation does not itself make the production contract a staffing contract.
+
+S12 Mathematical models for capacitated multi-level production planning problems with linked lot sizes.
+https://www.tandfonline.com/doi/abs/10.1080/00207543.2010.535043
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Multi-level capacitated lot sizing has multiple mixed-integer programming formulations. Linked lot sizes provide a material multistage coupling.
+
+S13 Doh and Lee, Generic production planning model for remanufacturing systems.
+https://journals.sagepub.com/doi/10.1243/09544054JEM1543
+INSPECTED Publisher abstract.
+SUPPORTED FACT Remanufacturing coordinates disassembly, reprocessing, and reassembly over discrete planning periods. Recovery production has physical decisions beyond reverse distribution.
+
+S14 Crama, Kolen, Oerlemans and Spieksma, Minimizing the number of tool switches on a flexible machine.
+https://research.tue.nl/en/publications/minimizing-the-number-of-tool-switches-on-a-flexible-machine/
+INSPECTED Author institutional abstract.
+SUPPORTED FACT Jobs require subsets of tools in a capacity-limited magazine. Joint job sequencing and tool switching has complexity and algorithmic analysis; restricted fixed-order tool replacement is a different subproblem.
+
+S15 STEP-NC compliant approach for setup planning problem on multiple fixture pallets.
+https://re.public.polimi.it/handle/11311/855362
+INSPECTED Author institutional search-index abstract; full-page access blocked.
+SUPPORTED FACT Setup planning can mount multiple parts on the same pallet and determine subsequent fixture-pallet configurations. This supports a geometric setup decision distinct from resource calendar scheduling.
+
+S16 A branch & bound algorithm for cutting and packing irregularly shaped pieces.
+https://www.sciencedirect.com/science/article/pii/S0925527313001692
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Nesting places nonoverlapping irregular pieces on stock with rotation restrictions. Branch and bound is an exact-method reference for a defined nesting model.
+
+S17 Production Planning for Mass Customization in Additive Manufacturing: Build Orientation Determination, 2D Packing, and Scheduling.
+https://par.nsf.gov/biblio/10071641-production-planning-mass-customization-additive-manufacturing-build-orientation-determination-packing-scheduling
+INSPECTED Primary-publication repository search-index abstract; page unavailable.
+SUPPORTED FACT The proposed planning pipeline determines orientation, packs parts in the machine workspace, and schedules builds. It supports an integrated build-planning contract.
+
+S18 Lanza, Haefner and Kraemer, Optimization of selective assembly and adaptive manufacturing by means of cyber-physical system based matching.
+https://www.sciencedirect.com/science/article/pii/S0007850615001316
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT A matching approach supports selective and adaptive assembly and is demonstrated for automotive electric drives. Matching is a physical assembly decision, not a logistics kit-delivery decision.
+
+S19 Fowler and Mönch, A survey of scheduling with parallel batch processing.
+https://www.sciencedirect.com/science/article/pii/S037722172100518X
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Parallel batching occurs in semiconductor, aircraft, and shoe manufacturing. The group processed together is an additional chosen artifact, not merely an ordinary machine sequence.
+
+S20 A review of lot streaming.
+https://www.tandfonline.com/doi/abs/10.1080/00207543.2013.774506
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Lot streaming splits a production lot into transfer sublots and overlaps their processing. It applies across several shop configurations.
+
+S21 Google OR-Tools, The Job Shop Problem.
+https://developers.google.com/optimization/scheduling/job_shop
+INSPECTED Official implementation and documentation.
+SUPPORTED FACT The implementation models start times, precedence, and machine exclusivity with CP-SAT. This establishes a reproducible formal template, not commercial performance leadership.
+
+S22 Car sequencing versus mixed-model sequencing: A computational study.
+https://www.sciencedirect.com/science/article/abs/pii/S0377221714000149
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Car sequencing and mixed-model sequencing address station overload through different models. They are material near-equals inside one product-stream sequencing family.
+
+S23 Tsuchiya and collaborators, Scheduling Optimization of Component Mounting in Printed Circuit Board Assembly by Prioritizing Simultaneous Pickup.
+https://www.robot.t.u-tokyo.ac.jp/~yamashita/paper/B/B046Final.pdf
+INSPECTED Author-hosted full paper.
+SUPPORTED FACT The paper distinguishes feeder location, mounting sequence, and simultaneous pickup. Machine architecture matters; a plain traveling-salesman model is an incomplete universal template.
+
+S24 Dawande, Pinedo and Sriskandarajah, Multiple Part-Type Production in Robotic Cells: Equivalence of Two Real-World Models.
+https://pubsonline.informs.org/doi/10.1287/msom.1070.0208
+INSPECTED Publisher abstract.
+SUPPORTED FACT Choose cyclic robot moves and part order to improve long-run production throughput. The industrial contract couples handling and processing inside a manufacturing cell.
+
+S25 A mixed-integer linear programming model for integrated production and preventive maintenance scheduling in the capital goods industry.
+https://www.tandfonline.com/doi/abs/10.1080/00207543.2018.1459923
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT A MILP jointly schedules production and preventive maintenance and is tested on collaborating-company data. This differs from scheduling against fixed downtime calendars.
+
+S26 Thürer and collaborators, Concerning Workload Control and Order Release: The Pre-Shop Pool Sequencing Decision.
+https://journals.sagepub.com/doi/10.1111/poms.12304
+INSPECTED Publisher abstract.
+SUPPORTED FACT Workload-control release regulates WIP and due-date performance. Pre-shop pool sequencing affects the release mechanism; ConWIP and drum-buffer-rope are related practices.
+
+S27 Non-hierarchical work-in-progress control in manufacturing.
+https://doi.org/10.1016/j.ijpe.2022.108768
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Distinguish entry to the factory, authorization at a work centre, and selection of the next order at a work centre. This supports separate release and dispatch contracts.
+
+S28 Vieira, Herrmann and Lin, Rescheduling Manufacturing Systems: A Framework of Strategies, Policies, and Methods.
+https://isr.umd.edu/Labs/CIM/projects/jos-cover.html
+INSPECTED Author institutional abstract.
+SUPPORTED FACT Unexpected events can invalidate schedules. The framework separates rescheduling strategies, policies, and methods, supporting repair of prior commitments.
+
+S29 Garey, Johnson and Sethi, The Complexity of Flowshop and Jobshop Scheduling.
+https://pubsonline.informs.org/doi/10.1287/moor.1.2.117
+INSPECTED Publisher abstract.
+SUPPORTED FACT General job-shop makespan scheduling and applicable flow-shop variants have hardness results. The statement does not make every single-machine or restricted flow-shop problem NP-hard.
+
+S30 Fraunhofer SCAI, AutoPanelSizer.
+https://www.scai.fraunhofer.de/en/business-research-areas/optimization/products/autopanelsizer.html
+INSPECTED Official industrial software description.
+SUPPORTED FACT Industrial cutting layouts must respect saw processing stages and practical constraints. The product supports operational relevance; its public description does not disclose or rank its solver.
+
+S31 Microsoft Dynamics 365, Product configuration models overview.
+https://learn.microsoft.com/en-us/dynamics365/supply-chain/pim/product-configuration-models
+INSPECTED Official implementation documentation.
+SUPPORTED FACT Constraint-based models include attributes, conditional BOM lines, and route operations. This supports configuration of a realizable manufacturing definition.
+
+S32 Siemens, Opcenter Execution Semiconductor.
+https://www.siemens.com/en-us/products/opcenter/execution/semiconductor/
+INSPECTED Official industrial software search-index description.
+SUPPORTED FACT The semiconductor MES includes real-time production dispatching. This establishes an industrial deployment function, not a best-solver claim.
+
+S33 Scheduling algorithms for job-shop-type remanufacturing systems with component matching requirement.
+https://www.sciencedirect.com/science/article/pii/S036083521830192X
+INSPECTED Publisher abstract.
+SUPPORTED FACT A recovery shop can require original components to be reunited at reassembly. This is a traceability constraint, distinct from choosing tolerance-compatible component matches.
+
+S34 An Integrated Process Planning and Scheduling System for Block Assembly in Shipbuilding.
+https://www.sciencedirect.com/science/article/pii/S0007850607628650
+INSPECTED Publisher search-index abstract.
+SUPPORTED FACT The system integrates block process planning and scheduling, with revision across alternative assembly shops. Shipbuilding is evidence for existing planning and scheduling families.
+
+S35 Block spatial scheduling modelling and application in shipbuilding.
+https://www.tandfonline.com/doi/abs/10.1080/00207543.2011.588629
+INSPECTED Publisher search-index abstract.
+SUPPORTED FACT Large assembly blocks occupy working areas. Spatial scheduling is a material shop-scheduling variant when floor occupancy couples placement and time.
+
+S36 Optimum loading of machines in a flexible manufacturing system using a mixed-integer linear mathematical programming model and genetic algorithm.
+https://www.sciencedirect.com/science/article/abs/pii/S0360835211003196
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT The FMS loading study proposes a mixed-integer linear model and a genetic algorithm for job selection and operation allocation. This directly supports a standalone loading Template.
+
+S37 Optimisation of the concurrent product and process configuration: an approach to reduce computation time with an experimental evaluation.
+https://www.tandfonline.com/doi/abs/10.1080/00207543.2019.1598598
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT Concurrent product and associated production-process configuration is formulated as a constraint satisfaction problem with multiple optimization objectives. This supports an optimization layer beyond simple configuration validation.
+
+S38 More MILP models for integrated process planning and scheduling.
+https://www.tandfonline.com/doi/abs/10.1080/00207543.2016.1140917
+INSPECTED Publisher search-index abstract; full-page access blocked.
+SUPPORTED FACT The study develops MILP models for integrated process planning and scheduling in a flexible job-shop manufacturing system. This directly supports the MILP alternative to graph-based CP.
+
+S39 Gilmore and Gomory, A Linear Programming Approach to the Cutting-Stock Problem.
+https://pubsonline.informs.org/doi/10.1287/opre.9.6.849
+INSPECTED Publisher search-index abstract.
+SUPPORTED FACT The classical cutting-stock approach optimizes pattern use with linear programming. It supports the pattern-master architecture; an industrial plan must satisfy integer production counts.
+
+S40 Two-stage meta-heuristic for part-packing and build-scheduling problem in parallel additive manufacturing.
+https://www.sciencedirect.com/science/article/abs/pii/S1568494623001503
+INSPECTED Publisher search-index abstract and indexed method sections; full-page access blocked.
+SUPPORTED FACT The model chooses part grouping, placement and rotation, then build allocation and sequence. The paper supplies a MILP and two-stage heuristic/metaheuristic methods, and identifies its joint model as NP-hard.
+
