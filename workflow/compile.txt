@@ -1,0 +1,125 @@
+COMPILE
+
+Role
+Compiler (C): contract.
+
+Input
+LEVEL ∈ {PROBLEM, CASE}
+DOMAIN = D
+DOMAIN code = NNN
+000_DOMAIN.txt
+background/000_DOMAIN_research.txt
+Controlled background/NNN_D_research.txt
+Existing foreground and relevant controlled background.
+
+Output
+NNN_D.txt
+
+Rules
+000_DOMAIN.txt is normative.
+Compile only from controlled background and normative ontology.
+Do not perform new research or silently resolve evidentiary gaps.
+Contract aggressively: persist conclusions, not research history.
+Foreground must be canonical, terse, internally consistent, and sufficient for downstream use.
+Classify the industrial decision, not its formulation.
+Preserve material uncertainty only when it affects the canonical foreground; otherwise leave evidence and alternatives in background.
+Do not introduce new ontology classes, fields, tag meanings, numbering rules, or case schemas.
+If compilation requires a normative rule that 000_DOMAIN.txt does not define, stop and report the gap instead of inventing one.
+
+LEVEL=PROBLEM
+
+Purpose
+Compile the controlled domain research into the canonical numbered Problem set.
+
+Tasks
+1. Decide the Problem set.
+Admit distinct, commercially material ICO decisions supported by the controlled background.
+Exclude aliases, narrow parameter variants, formulations, algorithms, weakly supported candidates, and decisions owned by another Domain.
+Merge only controlled synonyms.
+Do not hide unresolved material merge/split or ownership defects; return them to R/B.
+
+2. Choose canonical identity.
+For each admitted Problem, choose the clearest established shorthand and scope.
+Write the DESCRIPTION as the industrial decision and its defining conditions, not as a solver formulation.
+
+3. Compile ontology fields.
+Assign Primary and Secondary Regime and Structure only from controlled evidence and 000_DOMAIN.txt.
+Use Primary Domain D; record material Secondary Domains only where the foreground format requires them or they add necessary information.
+Use Parameters and Descriptors only when supported and useful.
+Do not infer Structure from supplied relations, formulation artifacts, objectives, feasibility severity, or solver encoding.
+
+4. Compile Templates.
+Choose the best established defensible IE and OR benchmark approaches from the controlled evidence.
+Retain material near-equals only where no single approach dominates or where industrial practice, published SOTA, and reproducible benchmark practice materially differ.
+Do not invent a Template to preserve a candidate.
+
+5. Compile ratings.
+Assign Priority, Relevance, and Hardness from the controlled evidence using the scales in 000_DOMAIN.txt.
+Do not infer Hardness from NP-hardness alone.
+Do not upgrade weak evidence for completeness.
+
+6. Derive sequence and numbering.
+Use the controlled dependency graph to derive the logical Problem sequence.
+Minimize backward dependency flow subject to industrial logic and Regime.
+Resolve ties by stable industrial logic, not alphabetical convenience.
+Assign permanent Problem numbers only after the sequence is fixed.
+Rewrite dependencies using final Problem IDs.
+Do not treat mathematical reduction as an industrial dependency.
+
+7. Write Problem cards.
+Use exactly the foreground Problem-card schema and tag semantics in 000_DOMAIN.txt.
+Use controlled technical English.
+Remove duplicated explanation and evidence that belongs only in background.
+Do not compile Cases at this level.
+
+Finish
+Output the complete numbered foreground Problem set for D in NNN_D.txt.
+Do not modify controlled background.
+
+LEVEL=CASE
+
+Purpose
+Compile controlled case research into the smallest sufficient canonical starter set for each controlled foreground Problem.
+
+Parent set
+The controlled foreground Problem set is fixed.
+Do not add, merge, remove, rename, renumber, or reclassify parent Problems.
+If the controlled case background exposes a parent-set defect, stop that item and return it to R/B and the Problem layer.
+
+Tasks
+1. Select starter Cases.
+For each Problem, select the smallest set of strong Cases needed to represent materially different industrial contexts, Templates, or benchmark conditions.
+Prefer public, reproducible, operationally meaningful Cases.
+Do not select a Case merely because data are available.
+
+2. Preserve Problem fit.
+Each Case must instantiate the parent Problem's industrial decision.
+Do not use a nearby benchmark that only shares terminology or formulation.
+
+3. Compile benchmark basis.
+For each selected Case, preserve the minimum facts needed to reproduce and interpret it:
+- source;
+- dataset or instance;
+- industrial analogue where useful;
+- scale;
+- objective and principal constraints;
+- baseline method or implementation;
+- defensible reference result where available;
+- reproducibility and material access/license limitations.
+
+4. Represent best practice.
+Use the controlled evidence to reflect the strongest established operational, IE, and OR practice relevant to the Case.
+Do not silently replace the parent Template with a case-specific method.
+Record a material case-specific deviation only when supported.
+
+5. Handle benchmark gaps.
+If no adequate public benchmark exists, state the benchmark gap tersely.
+Do not fabricate a surrogate canonical Case.
+
+6. Apply normative Case schema.
+Use only Case fields, identifiers, and numbering rules defined by 000_DOMAIN.txt.
+If 000_DOMAIN.txt does not define the required Case representation or identifier rule, stop Case compilation and report the normative gap. Do not invent a schema.
+
+Finish
+Output the foreground Problem-and-Case set in NNN_D.txt.
+Do not modify controlled background.
