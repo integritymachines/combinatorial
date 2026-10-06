@@ -27,9 +27,9 @@ MACRO DOMAINS : DOMAINS
 1. #TRANS : 101. #PROC,  102. #PROD
 2. #DISP  : 201. #LOG,   202. #SCM
 3. #INFRA : 301. #ENER,  302. #CIVIC
-4. #EXCH  : 401. #MKT,   402. #FIN
-5. #HUMAN : 501. #HC,    502. #HR
-6. #INFO  : 601. #COMP,  602. #INTEL
+4. #INFO  : 401. #COMP,  402. #INTEL
+5. #EXCH  : 501. #MKT,   502. #FIN
+6. #HUMAN : 601. #HC,    602. #HR
 7. #RES   : 701. #EXTR,  702. #LAND
 
 
@@ -284,169 +284,12 @@ Open specialization candidates:
 #CIVIC -> Construction planning systems
 
 
-4. EXCHANGE (#EXCH) : #MKT, #FIN
-
-Exchange = systems that allocate, trade, and exchange goods, services, information, rights, or claims.
-
-
-401. #MKT Market & Commercial Allocation Systems
-
-#MKT -> Revenue management
-#MKT -> Retail assortment
-#MKT -> Ad-tech allocation
-#MKT -> Procurement auctions
-#MKT -> Marketplace ranking systems
-#MKT -> Dynamic offer systems
-#MKT -> Promotions optimization
-#MKT -> Yield management
-#MKT -> Media scheduling
-#MKT -> Capacity allocation markets
-
-#MKT -> Assortment optimization
-#MKT -> Ad allocation
-#MKT -> Winner determination
-#MKT -> Dynamic availability control
-#MKT -> Auction clearing
-#MKT -> Slot allocation
-#MKT -> Promotion optimization
-#MKT -> Matching markets
-#MKT -> Bid pacing
-#MKT -> Contract allocation
-
-#MKT <-> #LOG       airline seat inventory, service windows
-#MKT <-> #SCM       inventory-constrained retail, availability
-#MKT <-> #FIN       financial exchanges
-#MKT <-> #HR        labor marketplaces
-#MKT <-> #COMP      cloud pricing, ad-tech infrastructure
-#MKT <-> #LAND      real-estate commercial allocation and tenant mix
-
-Open specialization candidates:
-#MKT -> Ad-tech systems
-#MKT -> Airline/hospitality revenue management
-#MKT -> Combinatorial auction systems
-
-
-402. #FIN Finance, Accounting & Insurance Systems
-
-#FIN -> Treasury systems
-#FIN -> Collateral optimization
-#FIN -> Settlement systems
-#FIN -> Clearing systems
-#FIN -> Corporate cash management
-#FIN -> Portfolio optimization with discreteness
-#FIN -> CCP operations
-#FIN -> Liquidity management
-#FIN -> Funding allocation
-#FIN -> Securities lending
-#FIN -> Financial reconciliation systems
-#FIN -> Insurance risk and contract systems
-
-#FIN -> Collateral allocation
-#FIN -> Settlement queue optimization
-#FIN -> Cash pooling
-#FIN -> Funding optimization
-#FIN -> Netting optimization
-#FIN -> Liquidity allocation
-#FIN -> Portfolio cardinality optimization
-#FIN -> Treasury transfer optimization
-#FIN -> Transaction matching and reconciliation
-#FIN -> Insurance classification and transition-rule design
-
-#FIN <-> #SCM       commodity trading logistics, working capital
-#FIN <-> #LOG       commodity movement and delivery settlement
-#FIN <-> #LAND      real-estate finance
-#FIN <-> #MKT       market auctions and exchanges
-#FIN <-> #ENER      power trading
-#FIN <-> #COMP      crypto and digital settlement infrastructure
-
-Open specialization candidates:
-#FIN -> Post-trade optimization
-#FIN -> Treasury optimization systems
-#FIN -> Clearinghouse operations
-
-
-5. HUMAN (#HUMAN) : #HR. #HC
-
-Human = systems where human capability or human-critical service feasibility dominates.
-
-
-501. #HC Healthcare & Human-Critical Operational Systems
-
-#HC -> Perioperative systems
-#HC -> Inpatient flow
-#HC -> Emergency medical services
-#HC -> Home healthcare
-#HC -> Ambulatory scheduling
-#HC -> Blood logistics
-#HC -> ICU capacity management
-#HC -> Oncology scheduling
-#HC -> Dialysis systems
-#HC -> Disaster medical response
-
-#HC -> OR scheduling
-#HC -> Bed management
-#HC -> Ambulance relocation
-#HC -> Appointment scheduling
-#HC -> Care pathway coordination
-#HC -> Home-health routing
-#HC -> Staff-patient synchronization
-#HC -> Admission control
-
-#HC <-> #HR         generic rostering, clinical staffing
-#HC <-> #SCM        medical supply chains
-#HC <-> #LOG        ambulance routing, patient transport
-#HC <-> #CIVIC      public health infrastructure
-#HC <-> #INTEL      military medicine and disaster response
-
-Open specialization candidates:
-#HC -> Hospital operations
-#HC -> EMS systems
-#HC -> Home-health coordination
-
-
-502. #HR Workforce & Organizational Systems
-
-#HR -> Field service
-#HR -> Retail/service staffing
-#HR -> Aviation crew systems
-#HR -> Utilities field crews
-#HR -> Technician routing
-#HR -> Call-center workforce management
-#HR -> Contractor coordination
-#HR -> Gig-workforce systems
-#HR -> Education scheduling systems
-#HR -> Sports and event scheduling systems
-
-#HR -> Rostering
-#HR -> Crew pairing
-#HR -> Technician routing
-#HR -> Shift generation
-#HR -> Fairness optimization
-#HR -> Skill matching
-#HR -> Overtime control
-#HR -> Break scheduling
-#HR -> Student sectioning and course timetabling
-#HR -> Fixture, time, and venue scheduling
-
-#HR <-> #HC         clinical staffing
-#HR <-> #LOG        driver routing, crew legality
-#HR <-> #MKT        labor marketplaces
-#HR <-> #COMP       workforce platforms, digital work queues
-#HR <-> #CIVIC      public-service staffing
-#HR <-> #INTEL      intelligence staffing
-
-Open specialization candidates:
-#HR -> Airline crew systems
-#HR -> Field-service systems
-#HR -> Workforce marketplaces
-
-
-6. INFORMATION (#INFO) : #COMP, #INTEL
+4. INFORMATION (#INFO) : #COMP, #INTEL
 
 Information = systems where sensing, computation, coordination, or adversarial information dominates.
 
 
-601. #COMP Computational & Digital Systems
+401. #COMP Computational & Digital Systems
 
 #COMP -> Cloud orchestration
 #COMP -> Container scheduling
@@ -486,7 +329,7 @@ Open specialization candidates:
 #COMP -> AI infrastructure orchestration
 
 
-602. #INTEL Intelligence, Defense & Security Systems
+402. #INTEL Intelligence, Defense & Security Systems
 
 #INTEL -> Homeland security
 #INTEL -> Border inspection
@@ -520,6 +363,163 @@ Open specialization candidates:
 #INTEL -> Satellite operations
 #INTEL -> Security-game systems
 #INTEL -> ISR coordination systems
+
+
+5. EXCHANGE (#EXCH) : #MKT, #FIN
+
+Exchange = systems that allocate, trade, and exchange goods, services, information, rights, or claims.
+
+
+501. #MKT Market & Commercial Allocation Systems
+
+#MKT -> Revenue management
+#MKT -> Retail assortment
+#MKT -> Ad-tech allocation
+#MKT -> Procurement auctions
+#MKT -> Marketplace ranking systems
+#MKT -> Dynamic offer systems
+#MKT -> Promotions optimization
+#MKT -> Yield management
+#MKT -> Media scheduling
+#MKT -> Capacity allocation markets
+
+#MKT -> Assortment optimization
+#MKT -> Ad allocation
+#MKT -> Winner determination
+#MKT -> Dynamic availability control
+#MKT -> Auction clearing
+#MKT -> Slot allocation
+#MKT -> Promotion optimization
+#MKT -> Matching markets
+#MKT -> Bid pacing
+#MKT -> Contract allocation
+
+#MKT <-> #LOG       airline seat inventory, service windows
+#MKT <-> #SCM       inventory-constrained retail, availability
+#MKT <-> #FIN       financial exchanges
+#MKT <-> #HR        labor marketplaces
+#MKT <-> #COMP      cloud pricing, ad-tech infrastructure
+#MKT <-> #LAND      real-estate commercial allocation and tenant mix
+
+Open specialization candidates:
+#MKT -> Ad-tech systems
+#MKT -> Airline/hospitality revenue management
+#MKT -> Combinatorial auction systems
+
+
+502. #FIN Finance, Accounting & Insurance Systems
+
+#FIN -> Treasury systems
+#FIN -> Collateral optimization
+#FIN -> Settlement systems
+#FIN -> Clearing systems
+#FIN -> Corporate cash management
+#FIN -> Portfolio optimization with discreteness
+#FIN -> CCP operations
+#FIN -> Liquidity management
+#FIN -> Funding allocation
+#FIN -> Securities lending
+#FIN -> Financial reconciliation systems
+#FIN -> Insurance risk and contract systems
+
+#FIN -> Collateral allocation
+#FIN -> Settlement queue optimization
+#FIN -> Cash pooling
+#FIN -> Funding optimization
+#FIN -> Netting optimization
+#FIN -> Liquidity allocation
+#FIN -> Portfolio cardinality optimization
+#FIN -> Treasury transfer optimization
+#FIN -> Transaction matching and reconciliation
+#FIN -> Insurance classification and transition-rule design
+
+#FIN <-> #SCM       commodity trading logistics, working capital
+#FIN <-> #LOG       commodity movement and delivery settlement
+#FIN <-> #LAND      real-estate finance
+#FIN <-> #MKT       market auctions and exchanges
+#FIN <-> #ENER      power trading
+#FIN <-> #COMP      crypto and digital settlement infrastructure
+
+Open specialization candidates:
+#FIN -> Post-trade optimization
+#FIN -> Treasury optimization systems
+#FIN -> Clearinghouse operations
+
+
+6. HUMAN (#HUMAN) : #HR. #HC
+
+Human = systems where human capability or human-critical service feasibility dominates.
+
+
+601. #HC Healthcare & Human-Critical Operational Systems
+
+#HC -> Perioperative systems
+#HC -> Inpatient flow
+#HC -> Emergency medical services
+#HC -> Home healthcare
+#HC -> Ambulatory scheduling
+#HC -> Blood logistics
+#HC -> ICU capacity management
+#HC -> Oncology scheduling
+#HC -> Dialysis systems
+#HC -> Disaster medical response
+
+#HC -> OR scheduling
+#HC -> Bed management
+#HC -> Ambulance relocation
+#HC -> Appointment scheduling
+#HC -> Care pathway coordination
+#HC -> Home-health routing
+#HC -> Staff-patient synchronization
+#HC -> Admission control
+
+#HC <-> #HR         generic rostering, clinical staffing
+#HC <-> #SCM        medical supply chains
+#HC <-> #LOG        ambulance routing, patient transport
+#HC <-> #CIVIC      public health infrastructure
+#HC <-> #INTEL      military medicine and disaster response
+
+Open specialization candidates:
+#HC -> Hospital operations
+#HC -> EMS systems
+#HC -> Home-health coordination
+
+
+602. #HR Workforce & Organizational Systems
+
+#HR -> Field service
+#HR -> Retail/service staffing
+#HR -> Aviation crew systems
+#HR -> Utilities field crews
+#HR -> Technician routing
+#HR -> Call-center workforce management
+#HR -> Contractor coordination
+#HR -> Gig-workforce systems
+#HR -> Education scheduling systems
+#HR -> Sports and event scheduling systems
+
+#HR -> Rostering
+#HR -> Crew pairing
+#HR -> Technician routing
+#HR -> Shift generation
+#HR -> Fairness optimization
+#HR -> Skill matching
+#HR -> Overtime control
+#HR -> Break scheduling
+#HR -> Student sectioning and course timetabling
+#HR -> Fixture, time, and venue scheduling
+
+#HR <-> #HC         clinical staffing
+#HR <-> #LOG        driver routing, crew legality
+#HR <-> #MKT        labor marketplaces
+#HR <-> #COMP       workforce platforms, digital work queues
+#HR <-> #CIVIC      public-service staffing
+#HR <-> #INTEL      intelligence staffing
+
+Open specialization candidates:
+#HR -> Airline crew systems
+#HR -> Field-service systems
+#HR -> Workforce marketplaces
 
 
 7. RESOURCE (#RES) : #EXTR, #LAND
