@@ -1,0 +1,334 @@
+COMP Computational and Digital Infrastructure
+v0.1 | Problem layer | 2026-10-07
+Normative: 000_DOMAIN.txt v0.4. Evidence: background/401_COMP_research.txt v0.1.
+
+COMP covers discrete decisions that configure and operate computation, communication, storage and civilian sensing. The set spans digital capacity, executable program plans, resource commitments, live execution and service-preserving change. Industry does not determine ownership: semiconductor physical design belongs to PROD; utility supply to ENER; commercial rights to MKT; adversarial security and ISR to INTEL.
+
+Dependencies are conditional industrial decision flow. The sequence follows first-pass commitments and retains five feedback returns. A host assignment is #map; a time or spectrum interval is #place. Pure continuous control is outside these cards unless it forms part of a discrete decision.
+
+Templates identify defensible established approaches, not a universal performance ranking. Ratings apply to each stated scope. Cases await human approval.
+
+COMP01 Compute and Storage Capacity Configuration.
+DESCRIPTION Selects digital-resource sites, server or storage configurations and discrete capacities under demand, latency, resilience and facility limits.
+TEMPLATE Workload-based capacity sizing and edge deployment | Capacitated location-allocation MILP; scenario evaluation and clustering heuristics.
+REGIME #design | Commits deployable digital capacity before service allocation.
+STRUCTURE #select + #map | Selects capacity configurations and maps demand regions to resource pools.
+PRIORITY High | Capacity configuration constrains cloud, edge and storage deployments.
+RELEVANCE Critical | Capacity choices determine major infrastructure cost and service reach.
+HARDNESS High | NP-hard for discrete capacitated location-allocation variants; Demand uncertainty, resource compatibility and failure domains couple investment choices.
+DEPENDENCIES ∅ → COMP01 → COMP11, COMP12, COMP14, COMP17.
+COMMENTS Facility and utility limits are inputs; their engineering designs belong to CIVIC and ENER. | #INFO #COMP #design #select #map ##CLOUD ##DATACENTER ##edge-computing ##capacity.
+
+
+COMP02 Communication Network Topology and Capacity Design.
+DESCRIPTION Selects communication equipment and discrete link capacities and connects nodes to meet traffic and survivability requirements.
+TEMPLATE Multilayer telecommunications network dimensioning | Fixed-charge network-design MILP; branch-and-cut and decomposition.
+REGIME #design | Commits the communication substrate before traffic is routed.
+STRUCTURE #link + #select | Constructs interconnections and selects equipment and capacity modules.
+PRIORITY High | Network design constrains telecom and data-center communication.
+RELEVANCE Critical | Topology and capacity determine long-lived cost, reach and resilience.
+HARDNESS High | NP-hard for fixed-charge capacitated network design; Capacity modules, alternative routes and failure scenarios interact.
+DEPENDENCIES ∅ → COMP02 → COMP05, COMP13, COMP19, COMP23.
+COMMENTS Physical civil works are outside this communication-resource contract. | #INFO #COMP #design #link #select ##TELECOM ##DATACENTER ##network-design ##survivability.
+
+
+COMP03 Civilian Sensing Network Configuration.
+DESCRIPTION Selects sensor sites and instrument configurations to meet observation coverage or information-quality targets under cost and deployment limits.
+TEMPLATE Monitoring-network design and experimental design | Budgeted coverage or information-gain optimization; greedy submodular search and integer programming.
+REGIME #design | Commits sensing capability before observations are scheduled.
+STRUCTURE #select | Selects candidate site and instrument configurations; site coordinates are supplied.
+PRIORITY Medium | Recurs in environmental, industrial and scientific monitoring systems.
+RELEVANCE High | Sensor choices determine information quality and deployment cost.
+HARDNESS High | NP-hard for budgeted maximum-coverage variants; Spatial correlation and communication limits complicate useful sensor selection.
+DEPENDENCIES ∅ → COMP03 → COMP20.
+COMMENTS Submodular guarantees apply only when the chosen information objective satisfies their assumptions. | #INFO #COMP #design #select ##sensing ##coverage ##experimental-design.
+
+
+COMP04 Database Physical Design.
+DESCRIPTION Selects indexes, materialized views and data-partition configurations under query workload, storage and update-cost limits.
+TEMPLATE Workload-driven database tuning and optimizer what-if analysis | Cost-based configuration search; integer selection models and local improvement.
+REGIME #design | Configures persistent access structures before query execution.
+STRUCTURE #select | Selects physical-design alternatives from candidate access and partition configurations.
+PRIORITY Medium | Physical tuning recurs in database and analytical platforms.
+RELEVANCE High | Access structures materially affect database latency, throughput and storage.
+HARDNESS High | NP-hard for budgeted interacting index-selection variants; Design interactions and costly optimizer estimates restrict exhaustive search.
+DEPENDENCIES ∅ → COMP04 → COMP15.
+COMMENTS Physical data placement on hosts is a separate decision from access-structure selection. | #INFO #COMP #design #select ##database ##index-selection ##materialized-view.
+
+
+COMP05 Radio Frequency and Channel Assignment.
+DESCRIPTION Assigns radio transmitters or links to allowed channels under interference, separation and equipment constraints.
+TEMPLATE Frequency planning and channel reuse | Graph or list coloring; constraint programming, integer programming and local search.
+REGIME #plan | Prepares a reusable channel plan before individual transmissions.
+STRUCTURE #map | Maps transmitters or links to channel labels; interference relations are supplied.
+PRIORITY Medium | Channel planning is central to radio deployments but absent from many compute systems.
+RELEVANCE High | Channel reuse controls communication quality and usable spectrum.
+HARDNESS High | NP-hard through graph-coloring variants; Dense interference and frequency-separation constraints require specialized search.
+DEPENDENCIES COMP02 → COMP05 → COMP24.
+COMMENTS Channel assignment does not allocate commercial spectrum rights. | #INFO #COMP #plan #map ##TELECOM ##frequency-assignment ##coloring.
+
+
+COMP06 Compiler Instruction Selection.
+DESCRIPTION Selects target-machine instruction patterns that implement a program representation under semantic and processor constraints.
+TEMPLATE Target-specific pattern matching and instruction covering | Tree dynamic programming; DAG-covering integer programming and near-optimal heuristics.
+REGIME #plan | Chooses the machine operations before register assignment and execution scheduling.
+STRUCTURE #select + #map | Selects instruction patterns and maps program operations to their covering patterns.
+PRIORITY Medium | Instruction selection recurs in compiler back ends across computing platforms.
+RELEVANCE High | Instruction choices affect executable speed, code size and target support.
+HARDNESS High | General DAG instruction selection is NP-hard; tree restrictions admit dynamic programming; Shared expressions and machine-specific patterns interact under tight compilation budgets.
+DEPENDENCIES ∅ → COMP06 → COMP07, COMP08.
+COMMENTS Instruction selection precedes the separately scoped issue-order and register decisions. | #INFO #COMP #plan #select #map ##compiler ##instruction-selection ##covering.
+
+
+COMP07 Compiler Instruction Scheduling.
+DESCRIPTION Orders machine instructions and assigns issue cycles under data dependencies, processor latency and execution-unit limits.
+TEMPLATE Target-aware compiler scheduling and software pipelining | List scheduling; resource-constrained scheduling and integrated constraint programming.
+REGIME #plan | Prepares machine-code execution order before instructions run.
+STRUCTURE #place | Positions instructions in execution order and issue cycles; program dependencies are supplied.
+PRIORITY Medium | Instruction scheduling recurs in optimizing compiler back ends.
+RELEVANCE High | Scheduling controls instruction-level parallelism and execution stalls.
+HARDNESS High | NP-hard for general resource-constrained precedence scheduling; Register pressure, target details and short compilation budgets couple choices.
+DEPENDENCIES COMP06, COMP08 → COMP07 → COMP08.
+COMMENTS Supplied data dependencies do not make this a #link problem. | #INFO #COMP #plan #place ##compiler ##instruction-scheduling ##precedence.
+
+
+COMP08 Compiler Register Allocation.
+DESCRIPTION Assigns program values to processor registers or spill storage under live-range interference, register-class and instruction constraints.
+TEMPLATE Compiler register assignment with spilling and live-range splitting | Graph-coloring and greedy allocation; integrated constraint programming.
+REGIME #allocate | Commits scarce processor registers to program values before machine-code execution.
+STRUCTURE #map + #select | Maps values to storage resources and selects spill or split actions.
+PRIORITY Medium | Register allocation recurs in optimizing compilers and runtime compilation.
+RELEVANCE High | Allocation affects code speed, memory traffic and code size.
+HARDNESS High | NP-hard for general interference-graph coloring; Register classes, spill transformations and compile-time budgets restrict exact optimization.
+DEPENDENCIES COMP06, COMP07 → COMP08 → COMP07.
+COMMENTS Register allocation and instruction scheduling may be solved jointly. | #INFO #COMP #allocate #map #select ##compiler ##register-allocation ##coloring.
+
+
+COMP09 Tensor Kernel Implementation Configuration.
+DESCRIPTION Chooses tiling, loop-order, fusion and hardware-mapping configurations for tensor computations under semantic, memory and target constraints.
+TEMPLATE Tensor program autotuning and hardware-aware kernel generation | Hierarchical discrete configuration search; cost-model-guided evolutionary search and measurement.
+REGIME #plan | Prepares an executable kernel implementation before workload execution.
+STRUCTURE #select + #map + #place | Selects transformations, maps computation to hardware resources and orders loop execution.
+PRIORITY Medium | Kernel configuration recurs in AI compilers and high-performance numerical libraries.
+RELEVANCE High | Kernel choices materially affect hardware utilization and inference or training cost.
+HARDNESS High | Exhaustive search grows as the product of discrete configuration counts; Interacting transformations and expensive hardware measurements limit exploration.
+DEPENDENCIES ∅ → COMP09 → COMP10.
+COMMENTS A kernel schedule is an implementation artifact, distinct from a cluster job schedule. | #INFO #COMP #plan #select #map #place ##AI ##HPC ##tensor-program ##autotuning.
+
+
+COMP10 Parallel Execution Plan Construction.
+DESCRIPTION Partitions computational operators and tensors and assigns them to device groups under memory, communication and execution constraints.
+TEMPLATE Distributed-program partitioning and model-parallel execution planning | Hierarchical dynamic programming and integer sharding optimization; profiled configuration search.
+REGIME #plan | Prepares a distributed execution plan before a job receives its execution schedule.
+STRUCTURE #map + #select | Maps operators or tensor partitions to device groups and selects parallelization configurations.
+PRIORITY High | Parallel execution planning recurs in large-scale analytics and AI systems.
+RELEVANCE Critical | Plan quality determines whether large workloads fit and use expensive accelerators effectively.
+HARDNESS High | NP-hard for balanced graph-partitioning variants; Memory, communication and heterogeneous device performance produce interacting choices.
+DEPENDENCIES COMP09, COMP12 → COMP10 → COMP12.
+COMMENTS The operator graph is supplied; this card does not infer #link from that graph. | #INFO #COMP #plan #map #select ##AI ##HPC ##partition ##model-parallelism.
+
+
+COMP11 Digital Service Admission.
+DESCRIPTION Selects service or job requests to accept under available digital capacity, service guarantees and existing commitments.
+TEMPLATE Capacity-backed admission control and reservation acceptance | Multidimensional knapsack or robust binary programming; online acceptance heuristics.
+REGIME #allocate + #dispatch | Commits capacity to accepted requests; online arrivals can require immediate acceptance.
+STRUCTURE #select | Chooses the accepted request set; feasibility checks account for downstream resource use.
+PRIORITY High | Admission control protects constrained compute and communication services.
+RELEVANCE High | Acceptance decisions balance utilization against service failures.
+HARDNESS High | NP-hard for multidimensional capacity-constrained acceptance; Uncertain demand and nonrevocable promises make online decisions difficult.
+DEPENDENCIES COMP01 → COMP11 → COMP12, COMP13.
+COMMENTS Pricing and auction mechanisms belong to MKT; this card accepts technically supportable service commitments. | #INFO #COMP #allocate #dispatch #select ##CLOUD ##TELECOM ##admission-control ##knapsack.
+
+
+COMP12 Cluster Job Scheduling and Reservations.
+DESCRIPTION Schedules accepted jobs on compute resources under durations, deadlines, dependencies, gang requirements and reservation commitments.
+TEMPLATE Batch-queue scheduling, backfilling and heterogeneous accelerator scheduling | Resource-constrained scheduling MILP; rolling rescheduling and throughput-aware allocation with round scheduling.
+REGIME #plan + #operate | Reserves resource-time capacity and orchestrates the resulting execution schedule.
+STRUCTURE #place + #map | Positions job execution in time and assigns compute resources; gang tasks require synchronized capacity.
+PRIORITY Critical | Job scheduling is central to shared batch, HPC and AI compute platforms.
+RELEVANCE Critical | Scheduling determines costly resource utilization and completion performance.
+HARDNESS High | NP-hard for parallel-machine and resource-constrained scheduling variants; Heterogeneity, duration errors and gang placement require specialized scheduling.
+DEPENDENCIES COMP01, COMP10, COMP11 → COMP12 → COMP10, COMP18.
+COMMENTS GPU allocation is included when it produces a resource-time execution schedule. | #INFO #COMP #plan #operate #place #map ##HPC ##AI ##CLOUD ##schedule ##gang-scheduling.
+
+
+COMP13 Virtual Service Placement and Embedding.
+DESCRIPTION Assigns service components to hosts and routes their communication through an installed network under capacity, latency and service-chain requirements.
+TEMPLATE Network-function virtualization and distributed-service deployment | Joint placement-routing MILP; decomposition and service-aware heuristics.
+REGIME #allocate | Commits host and network resources to a deployable service.
+STRUCTURE #map + #link | Maps components to hosts and constructs substrate paths between them; required service order is supplied.
+PRIORITY High | Embedding recurs in telecom cores, edge platforms and distributed applications.
+RELEVANCE High | Placement and path choices control latency and shared-resource efficiency.
+HARDNESS High | NP-hard for capacitated virtual-network embedding variants; Host packing and routing constraints interact across many services.
+DEPENDENCIES COMP02, COMP11 → COMP13 → COMP23.
+COMMENTS The required service graph is input; substrate routes are chosen. | #INFO #COMP #allocate #map #link ##TELECOM ##CLOUD ##service-chaining ##embedding.
+
+
+COMP14 Durable Data and Replica Placement.
+DESCRIPTION Assigns data shards, replicas or erasure-coded fragments to storage nodes under capacity, locality and failure-domain separation requirements.
+TEMPLATE Distributed storage partition and replication management | Capacitated assignment and partitioning; topology-aware hashing and locality-driven search.
+REGIME #allocate | Commits storage locations for durable data.
+STRUCTURE #map | Maps shards and redundant copies to storage nodes while separating required failure domains.
+PRIORITY High | Data placement is central to distributed storage and databases.
+RELEVANCE Critical | Placement affects data availability, access cost and recovery load.
+HARDNESS High | NP-hard for capacitated partitioning and placement variants; Skewed accesses, redundancy and rebalance cost couple many assignments.
+DEPENDENCIES COMP01 → COMP14 → COMP15, COMP27.
+COMMENTS Cache contents may be evicted; durable placement must preserve the specified redundancy contract. | #INFO #COMP #allocate #map ##storage ##replication ##partition ##failure-domains.
+
+
+COMP15 Database Query Plan Construction.
+DESCRIPTION Chooses join structure, access paths and physical operators for a query under semantic equivalence and execution-resource limits.
+TEMPLATE Cost-based database query optimization | Dynamic programming and memoized plan search; MILP for restricted join-order models.
+REGIME #plan | Commits an executable query plan before the query runs.
+STRUCTURE #link + #select | Constructs operator connections and selects access methods and physical operators.
+PRIORITY Medium | Query-plan construction is central to relational database engines.
+RELEVANCE High | Poor plans can sharply increase query latency and resource use.
+HARDNESS High | NP-hard for general join-order optimization models; Plan alternatives grow rapidly and cardinality estimates can misrank plans.
+DEPENDENCIES COMP04, COMP14 → COMP15 → ∅.
+COMMENTS The selected operator graph is the solution; the logical query is an input. | #INFO #COMP #plan #link #select ##database ##query-optimization ##join-ordering.
+
+
+COMP16 Cache Content Placement and Replication.
+DESCRIPTION Selects cache objects or content classes and assigns copies to cache nodes under storage, freshness, bandwidth and latency limits.
+TEMPLATE CDN provisioning and cache replacement | Budgeted content placement and capacitated assignment; popularity-aware and adaptive caching heuristics.
+REGIME #allocate + #dispatch | Allocates cache capacity and updates contents as requests arrive.
+STRUCTURE #select + #map | Selects retained content and maps copies or content classes to cache nodes.
+PRIORITY High | Caching is common in CDNs, edge platforms and data-intensive services.
+RELEVANCE High | Cache decisions reduce origin traffic and request latency.
+HARDNESS High | NP-hard for networked budgeted content-placement variants; Popularity shifts, object sizes and cross-cache duplication complicate coordinated placement.
+DEPENDENCIES ∅ → COMP16 → COMP25.
+COMMENTS Freshness and recoverability distinguish caches from durable replica stores. | #INFO #COMP #allocate #dispatch #select #map ##CDN ##cache-placement ##replication.
+
+
+COMP17 Digital Service and Node Autoscaling.
+DESCRIPTION Selects service replica counts, resource configurations and active nodes under changing demand, startup delays and service constraints.
+TEMPLATE Feedback autoscaling and capacity right-sizing | Discrete dynamic optimization and model-predictive control; threshold policies with feasibility checks.
+REGIME #dispatch + #adapt | Activates or removes capacity and revises prior resource commitments from observed load.
+STRUCTURE #select | Selects active instances and discrete capacity configurations.
+PRIORITY High | Elastic capacity management is common in cloud and edge services.
+RELEVANCE High | Right-sizing balances service performance against recurring capacity cost.
+HARDNESS Medium | Restricted right-sizing models admit polynomial algorithms; Forecast error, startup costs and interactions between controllers limit deployment quality.
+DEPENDENCIES COMP01, COMP18 → COMP17 → COMP18.
+COMMENTS Energy prices are inputs; utility production and grid dispatch belong to ENER. | #INFO #COMP #dispatch #adapt #select #online #closedloop ##CLOUD ##autoscaling ##right-sizing.
+
+
+COMP18 Workload Placement and Compute Offloading.
+DESCRIPTION Assigns runnable workloads to eligible hosts or execution tiers under resource capacity, affinity, locality and service limits.
+TEMPLATE Cluster scheduler filtering and scoring; edge offloading | Vector packing and generalized-assignment models; min-cost-flow restrictions and placement heuristics.
+REGIME #dispatch + #allocate | Binds runnable work to execution resources as capacity becomes available.
+STRUCTURE #map | Maps workloads to hosts or tiers; supplied topology and affinity constrain assignments.
+PRIORITY Critical | Workload placement is central to shared compute platforms.
+RELEVANCE Critical | Placement controls utilization, service latency and resource waste.
+HARDNESS Medium | NP-hard for vector packing variants; min-cost-flow restrictions are polynomial; Many standard instances are tractable with established methods; dense affinity requires more engineering.
+DEPENDENCIES COMP12, COMP17 → COMP18 → COMP17, COMP25, COMP27.
+COMMENTS Host assignment is #map; temporal reservation is a separate construction. | #INFO #COMP #dispatch #allocate #map ##CLOUD ##DATACENTER ##edge-computing ##assignment.
+
+
+COMP19 Optical Lightpath and Spectrum Provisioning.
+DESCRIPTION Routes optical connections and assigns wavelengths or contiguous spectrum intervals under continuity, nonoverlap and transmission-reach limits.
+TEMPLATE Optical connection provisioning and spectrum management | Routing-and-spectrum ILP; path or configuration column generation and spectrum heuristics.
+REGIME #allocate | Commits optical paths and spectrum to connection demands.
+STRUCTURE #link + #place | Constructs lightpaths and positions their spectral intervals; continuity and contiguity constrain the result.
+PRIORITY Medium | Optical provisioning is central to optical transport networks.
+RELEVANCE High | Spectrum use and feasible paths determine network throughput and blocking.
+HARDNESS High | NP-hard for general routing-and-spectrum allocation; Path alternatives, spectral fragmentation and physical reach couple choices.
+DEPENDENCIES COMP02 → COMP19 → COMP23.
+COMMENTS Connection restoration and spectrum defragmentation are variants of this provisioning contract. | #INFO #COMP #allocate #link #place ##TELECOM ##optical-network ##routing ##spectrum.
+
+
+COMP20 Civilian Observation Scheduling.
+DESCRIPTION Selects observation requests and schedules instruments under visibility, pointing, duration, cadence and resource constraints.
+TEMPLATE Scientific and Earth-observation mission planning | Time-window scheduling MILP; rolling replanning and schedule repair.
+REGIME #plan + #adapt | Commits observation windows and revises them after weather or resource changes.
+STRUCTURE #place + #select + #map | Positions accepted observations in time, selects requests and assigns instruments.
+PRIORITY Medium | Observation scheduling recurs in scientific and civilian sensing systems.
+RELEVANCE High | Schedules determine which scarce observation opportunities produce usable data.
+HARDNESS High | NP-hard for general optional resource-constrained window scheduling; Visibility, slew transitions and uncertain conditions couple requests.
+DEPENDENCIES COMP03, COMP21 → COMP20 → COMP21.
+COMMENTS Adversarial observation and ISR missions belong to INTEL. | #INFO #COMP #plan #adapt #place #select #map ##AEROSPACE ##sensing ##observation ##time-windows.
+
+
+COMP21 Space Communication Contact Scheduling.
+DESCRIPTION Assigns space communication sessions to ground or relay resources and schedules contacts under visibility, compatibility, data-volume and buffer limits.
+TEMPLATE Ground-network contact allocation and mission-data delivery planning | Time-window and cumulative-resource MILP; decomposition and schedule repair.
+REGIME #plan + #adapt | Reserves communication contacts and repairs commitments after change.
+STRUCTURE #place + #map | Positions contact sessions in time and maps them to antennas or relays.
+PRIORITY Medium | Contact scheduling is essential in satellite and space-science operations.
+RELEVANCE High | Contact use determines data delivery and onboard storage availability.
+HARDNESS High | NP-hard for general multi-resource contact scheduling; Overlapping windows, antenna conflicts and stored-data balances couple missions.
+DEPENDENCIES COMP20 → COMP21 → COMP20.
+COMMENTS Available downlink capacity can force revision of the observation schedule. | #INFO #COMP #plan #adapt #place #map ##AEROSPACE ##TELECOM ##contact-scheduling ##time-windows.
+
+
+COMP22 Digital Infrastructure Maintenance and Update Scheduling.
+DESCRIPTION Groups and schedules digital-resource maintenance or update actions under residual service capacity, redundancy, precedence and rollback requirements.
+TEMPLATE Rolling upgrades, maintenance waves and risk-aware change planning | Constrained batch and precedence scheduling; risk-evaluated search and staged repair.
+REGIME #plan + #adapt | Plans outages or update waves and revises them as execution reveals system state.
+STRUCTURE #place + #map | Positions actions in an ordered schedule and groups resources into update waves.
+PRIORITY High | Maintenance and updates recur across managed digital infrastructure.
+RELEVANCE Critical | Poor change sequencing can interrupt large shared services.
+HARDNESS High | NP-hard for general precedence and resource-constrained maintenance scheduling; Intermediate-state availability and traffic uncertainty require system-specific evaluation.
+DEPENDENCIES COMP27 → COMP22 → COMP23, COMP27.
+COMMENTS A disruption budget constrains an update plan; it is not a complete scheduling method. | #INFO #COMP #plan #adapt #place #map ##DATACENTER ##TELECOM ##maintenance ##rolling-upgrade.
+
+
+COMP23 Packet Traffic Engineering.
+DESCRIPTION Chooses packet-demand routes or forwarding configurations under link capacities, service policies and failure conditions.
+TEMPLATE WAN traffic engineering and software-defined routing | Unsplittable or path-constrained multicommodity-flow optimization; LP relaxations and routing heuristics.
+REGIME #operate + #adapt | Controls traffic on the installed network and revises routing after change.
+STRUCTURE #link | Constructs demand paths or forwarding relations; flow conservation constrains valid routing.
+PRIORITY Critical | Traffic routing is central to communication infrastructure.
+RELEVANCE Critical | Routing controls congestion, service continuity and expensive network use.
+HARDNESS High | NP-hard for unsplittable multicommodity routing; splittable fixed-path flow is an LP; Policy, path-count and update constraints make industrial routing harder than continuous allocation.
+DEPENDENCIES COMP02, COMP13, COMP19, COMP22 → COMP23 → COMP26.
+COMMENTS Continuous bandwidth allocation alone falls outside the discrete routing scope. | #INFO #COMP #operate #adapt #link ##TELECOM ##DATACENTER ##routing ##multicommodity-flow.
+
+
+COMP24 Radio Transmission Scheduling.
+DESCRIPTION Assigns users or transmissions to time-frequency resource blocks and serving radios under interference, channel quality and service requirements.
+TEMPLATE Radio access scheduling and channel-aware resource allocation | Integer resource-block allocation; matching restrictions and fast scheduling heuristics.
+REGIME #dispatch | Issues short-cycle transmission grants from current network state.
+STRUCTURE #map + #place | Maps users to serving resources and positions transmissions in the time-frequency grid.
+PRIORITY Medium | Transmission scheduling is central to cellular and wireless access systems.
+RELEVANCE High | Grant decisions determine spectral efficiency and user service.
+HARDNESS High | NP-hard for interference-coupled allocation variants; simple matching restrictions are polynomial; Rapidly varying channels and short deadlines constrain search.
+DEPENDENCIES COMP05 → COMP24 → ∅.
+COMMENTS Pure continuous power control is outside this card. | #INFO #COMP #dispatch #map #place #realtime ##TELECOM ##radio-resource-allocation ##interference.
+
+
+COMP25 Online Request Routing and Batch Dispatch.
+DESCRIPTION Assigns incoming requests to service instances and forms ordered execution batches under queue, compatibility, memory and latency limits.
+TEMPLATE Latency-aware serving, load balancing and dynamic batching | Online assignment and batch scheduling; deadline-aware and interference-aware heuristics.
+REGIME #dispatch | Routes requests and releases executable batches from live queues.
+STRUCTURE #map + #place | Maps requests to instances or batches and orders batch execution.
+PRIORITY High | Online serving is common across web, database and AI platforms.
+RELEVANCE Critical | Dispatch quality determines user-facing latency and service throughput.
+HARDNESS High | NP-hard for general batch scheduling with deadlines; Short latency budgets, variable requests and interference restrict optimization.
+DEPENDENCIES COMP16, COMP18 → COMP25 → ∅.
+COMMENTS Service-instance choice differs from routing the resulting packets. | #INFO #COMP #dispatch #map #place #realtime ##AI ##CLOUD ##serving ##batching.
+
+
+COMP26 Data Transfer and Coflow Scheduling.
+DESCRIPTION Orders and schedules data transfers under shared communication capacity, release times, completion dependencies and deadlines.
+TEMPLATE Application-aware transfer coordination and coflow scheduling | Concurrent open-shop and network scheduling; LP-based bounds and size-aware or nonclairvoyant heuristics.
+REGIME #operate | Coordinates active application transfers against shared network capacity.
+STRUCTURE #place | Positions transfer service in time or priority order; coflow membership is supplied.
+PRIORITY High | Transfer scheduling recurs in analytics, replication and distributed compute.
+RELEVANCE High | Transfer completion can govern entire application completion time.
+HARDNESS High | NP-hard for general coflow completion-time scheduling; Shared bottlenecks and uncertain transfer sizes require online heuristics.
+DEPENDENCIES COMP23 → COMP26 → COMP27.
+COMMENTS Known-size and nonclairvoyant scheduling require different baselines. | #INFO #COMP #operate #place ##DATACENTER ##coflow ##schedule.
+
+
+COMP27 Live Workload and Data Migration Scheduling.
+DESCRIPTION Selects and schedules moves from existing to target digital-resource placements under transient capacity, bandwidth and service-continuity limits.
+TEMPLATE Live migration, consolidation and storage rebalancing | Conflict-graph selection and resource-constrained migration scheduling; concurrency-aware heuristics.
+REGIME #adapt | Changes an existing allocation while maintaining ongoing service.
+STRUCTURE #place + #select | Positions migration actions in time and selects compatible concurrent moves; target placements are supplied.
+PRIORITY High | Migration supports elastic, maintained and rebalanced digital systems.
+RELEVANCE High | Migration quality limits disruption and stranded resource capacity.
+HARDNESS High | NP-hard for conflict-constrained migration selection variants; Temporary duplicate capacity, dirty state and shared links constrain safe concurrency.
+DEPENDENCIES COMP14, COMP18, COMP22, COMP26 → COMP27 → COMP22.
+COMMENTS This card assumes target placements are supplied; integrated target selection adds #map. | #INFO #COMP #adapt #place #select ##CLOUD ##storage ##migration ##transient-capacity.
+
+
