@@ -1,0 +1,836 @@
+background/301_ENER_research.txt
+Energy & Utility — Problem Research
+v0.1 | 7 October 2026 | Problem layer
+Domain 301 #ENER within #INFRA.
+
+INTRODUCTION AND NORMATIVE INPUT
+
+ENER covers decisions that configure or operate physical utility supply. Electricity, gas, heat, cooling and installed water systems share a service obligation: deliver a feasible utility state through assets whose availability, connection or mode can be chosen. The domain includes design, future operating commitments, resource assignments, live control and physical recovery. Industry membership alone does not establish ownership.
+000_DOMAIN.txt v0.4 is normative. background/000_DOMAIN_research.txt v0.4 supplies coverage and interfaces. workflow/0_workflow.txt and workflow/1_research.txt through workflow/4_foreground.txt govern LEVEL=PROBLEM. Existing 101_PROC.txt, 102_PROD.txt, 201_LOG.txt and 202_SCM.txt were read for boundary collisions. No prior ENER artifact exists on main at intake de4c186f965fcada4f6cc357a413ff479055aa60. No .md file was used as input.
+Both requested release labels remain v0.1. Research, correction, compilation and controller findings are distinguished in version-control history. These labels do not claim independent v0.2 promotion. Research keys below are temporary mnemonic identities, not permanent numbers or a final sequence. No cases, baseline results or benchmark IDs are selected.
+
+TERRITORY, INDUSTRIES AND OPERATING SYSTEMS
+
+Bulk electricity: vertically integrated utilities, ISO/RTO physical operations, generation/storage investment, transmission expansion, outage calendars, thermal commitment, hydro, nuclear reload, topology control, voltage/security actions, shedding, islanding and restart.
+Distribution and renewable plants: network reinforcement, discrete DER connections, wind layout/collection systems, phase assignments, installed switch/tap/shunt controls, flexible loads, charging service and feeder restoration.
+Gas and hydrogen utilities: pipelines and compression, expansion/conversion, stationary nomination feasibility, linepack and transient control, valve and station modes. Fuel extraction, procurement and truck movement remain separate contracts.
+District heat/cooling and industrial utilities: utility supply technology configuration, thermal distribution, CHP/boiler/chiller scheduling, electrical and thermal storage, local resilience and multi-carrier balance. The same equipment can support a PROC contract; ownership follows the delivered utility or transformation decision.
+Water: installed distribution pipes, pumps, tanks, isolation/pressure/quality devices, pumping calendars and failure response. Utility-owned drainage/sewer pumping is a scoped operational variant where installed hydraulic service dominates. Catchment/runoff allocation, rights and withdrawal are LAND/EXTR; treatment chemistry is PROC; public works are CIVIC.
+Useful industry context includes ##POWER, ##WIND, ##NUCLEAR, ##OILGAS, ##WATER, ##DISTRICTENERGY, ##DATACENTER, ##CHEMICALS, ##REFINING, ##STEEL and ##REALESTATE. This is an open contextual registry, not a new closed axis.
+Renewables, batteries, microgrids, virtual power plants, energy hubs and hydrogen are technologies or operating contexts. They do not automatically become separate Problems. An integrated Problem is retained only when the delivered industrial contract adds distinct obligations beyond naming a combination.
+
+OWNERSHIP, IDENTITY AND DISCRETE ADMISSION
+
+ENER versus PROC: standalone utility supply/production, physical balance and utility distribution are ENER. Process reaction, recipe, material quality, treatment/reuse and hot-to-cold process-stream synthesis are PROC. The current PROC04 explicitly assigns standalone utility-generation design to ENER. Utility quantities supplied to a process schedule do not transfer ownership.
+ENER versus PROD/COMP: utility service schedules with supplied production/computation obligations are ENER. Product-operation sequencing, machine assignment, server placement and compute work scheduling remain PROD/COMP even when power is a severe constraint.
+ENER versus LOG/SCM: charging-station energy service on supplied arrivals is ENER; LOG11 owns charging/refueling integrated with transport duties. Pipeline utility pressure and delivery are ENER; vehicle journeys are LOG. Physical fuel balance may constrain ENER, while purchasing and supply-position commitments remain SCM.
+ENER versus MKT/FIN: physical commitment, dispatch, balance and grid-feasible physical clearing belong to ENER when those obligations define the contract. Mechanism design, bids/offers and rights belong to MKT; hedges, settlements and financial exposure belong to FIN. A supplied tariff or bid is an objective input, not evidence for reclassification.
+ENER versus CIVIC/LAND/EXTR/HR/INTEL: installed utility operation is ENER; construction/public asset work is CIVIC; basin/land/right allocation is LAND; extraction/withdrawal/depletion is EXTR; standalone crews are HR; adversarial defense/interdiction is INTEL. Land and water restrictions may be supplied utility feasibility conditions.
+Admit genuine project/equipment choice, discrete capacity, loading/phase/port assignment, mode transition, selected active connection, interruption block, partition or physical recovery action. Exclude forecasting, simulation, estimation, unconstrained arithmetic and pure continuous dispatch/control as standalone ICO Problems. Nonconvexity alone does not imply combinatorial construction. Binary solver encodings alone do not prove SELECT.
+Distinguish reusable policy configuration from event action; investment from use of installed assets; normal service from fault recovery; power restart from ordinary generator commitment; system-level projects from within-plant layout. Preserve technology variants rather than proliferating source/formulation-specific cards.
+
+STRUCTURE, RATINGS AND TEMPLATE EVIDENCE
+
+Each record separates supplied substrate, chosen construction, constitutive laws and delivered artifact. Given networks, reservoir cascades, core slot geometry, customer profiles and weather scenarios do not by themselves establish LINK or PLACE. Actual active network connections are LINK; role/configuration assignment is MAP; actual time or spatial arrangement is PLACE; membership/actions/projects are SELECT.
+Regime follows the committed artifact rather than horizon: assets and protective rules are design; operation/outage calendars are plan; service or connection assignments are allocate; ongoing utility coordination is operate; immediate activation is dispatch; interrupted-service recovery and material commitment revision are adapt.
+Priority/Relevance/Hardness below are explicit ontology judgments from the decision scope and stated industrial burdens, not source-reported rankings or measured uplifts. Formal complexity is supplied only for supported restrictions: general UC and DC-OTS. No empty full-contract complexity disclaimer is repeated in foreground.
+Templates identify established engineering framing and a defensible optimization family. They are not assertions of a uniquely strongest 2026 solver. Retain material alternatives: linearized screen versus nonlinear validation; exact model versus relaxation; physics-evaluated search versus learned assistance; deterministic versus scenario planning; hierarchy versus joint co-optimization. Public examples do not establish commercial deployment share, detailed license terms or reproducibility.
+Evidence was retrieved on 7 October 2026 Europe/Berlin. Sources comprise author papers/repositories, publisher abstracts, official models and institutional records. Full articles/abstracts were inspected selectively for disputed identity, construction and template points. Indexed evidence can establish scope/template existence; it does not prove unretrieved theorem assumptions or performance. Full-page access failed for the EVCS publisher page and is disclosed in S29. No reported numerical result was reproduced.
+
+CANDIDATE IDENTITIES AND EVIDENCE
+
+KEY black_capacity — Black-Start Capability Allocation
+Decision and scope: Select generators or local resources for black-start capability under investment, startup support and restoration-feasibility limits.
+Aliases: BSA; black-start resource placement; restoration capability planning.
+Material variants: Equipment upgrades; contracted supplied capabilities; microgrids; restoration-coupled investment; contingency scenarios.
+Identity and ownership boundary: Chooses physically available black-start capability. Commercial auction winner selection is MKT. Actual generator startup and line energization are restoration.
+Supplied substrate: Candidate generators/resources, startup requirements, grid and investment limits.
+Chosen construction: Selects candidate resources to equip or retain for black start.
+Constitutive laws and feasibility: Each restoration component needs suitable energized support; candidate selection is constrained by reachable restoration plans.
+Delivered artifact: Selected physically available black-start resources.
+Template basis: Black-start readiness and capability placement | Restoration-coupled allocation MILP; flow and cut formulations.
+Evidence and competing approaches: S15 establishes optimal black-start allocation with grid restoration considerations. SELECT records the actual capability portfolio; auxiliary island variables do not imply that the delivered design is a partition.
+Source support: S15.
+Ontology inference: Primary ENER; Regime #design; Structure #select. Commits restoration capability before a blackout.
+Rating inference: Priority Medium — Black-start readiness is central to blackout recovery planning. Relevance Critical — Better capability can reduce the duration of widespread outages. Hardness High — Selected resources must support feasible energization across several outage conditions.
+Useful comments/descriptors: Service procurement terms belong to MKT; restoration execution is downstream. ##black-start ##readiness ##resilience.
+Industrial upstream keys: generation, transmission, local_design.
+
+KEY bulk_restore — Bulk-Power Black-Start Restoration
+Decision and scope: Schedule source startups, cranking paths, line energization, island growth and load pickup to rebuild power supply after blackout.
+Aliases: PSR; system restart; generator startup sequencing; black-start restoration.
+Material variants: Conventional/microgrid black-start sources; uncertain availability; island growth/synchronization; renewable-supported restart.
+Identity and ownership boundary: Whole-system blackout recovery rather than local feeder service routing or commercial procurement of black-start contracts. Energized-startup support distinguishes it from ordinary UC.
+Supplied substrate: Dead/energized network state, black-start sources, generator startup profiles, available paths and restoration rules.
+Chosen construction: Places restoration actions in sequence, constructs energization paths and selects sources and load pickup.
+Constitutive laws and feasibility: Cranking supply, safe energization, source-supported islands, voltage/frequency security and synchronization constrain sequence.
+Delivered artifact: System restart plan with source startup, energization paths and load pickup sequence.
+Template basis: Power-system restart and energization planning | Restoration/startup MILP; rolling look-ahead optimization and dynamic validation.
+Evidence and competing approaches: S45 supports coordinated black/non-black generator recovery; S46 supports look-ahead restoration with microgrids. Steady-state optimization requires independent dynamic/execution validation.
+Source support: S45, S46.
+Ontology inference: Primary ENER; Regime #adapt + #dispatch; Structure #place + #link + #select. Rebuilds interrupted system supply and authorizes restoration actions.
+Rating inference: Priority Medium — Bulk restart is a specialized but essential blackout-recovery decision. Relevance Critical — Better startup and energization can shorten widespread outages. Hardness Critical — Cranking power, dynamic security and uncertain source readiness couple long action sequences.
+Useful comments/descriptors: Installed black-start capability is supplied by upstream design. ##black-start ##restoration ##energization.
+Industrial upstream keys: black_capacity, commitment, hydro, storage, islanding, distribution_restore.
+
+KEY charging — Grid-Constrained Charging Session Scheduling
+Decision and scope: Assign charging sessions to compatible ports and times under energy targets, connection limits, deadlines and station power limits.
+Aliases: EVCS scheduling; station charging allocation; charger-session scheduling.
+Material variants: Heterogeneous ports; variable charge rates; queued/online sessions; supplied PV; V2G modes.
+Identity and ownership boundary: Accepted energy-service requests and station/grid feasibility dominate. Vehicle duties, journey continuity and depot movement commitments remain LOG11. Pricing, admission through commercial offers and congestion charging are MKT interfaces.
+Supplied substrate: Accepted sessions, energy/deadline requirements, supplied arrivals, port compatibility and grid power limit.
+Chosen construction: Maps sessions to charging ports and places service intervals in time.
+Constitutive laws and feasibility: Port exclusivity, delivered energy and grid balance constrain assignments and service times.
+Delivered artifact: Session-to-port assignments, charging intervals and feasible power trajectories.
+Template basis: Charging-station energy service and port scheduling | Session-assignment MILP; online assignment and rolling power optimization.
+Evidence and competing approaches: S29 directly supports queues, assignments and power scheduling as MILP/online decisions. Full-page access failed; use the indexed publisher abstract only for scope and template existence.
+Source support: S29.
+Ontology inference: Primary ENER; Regime #allocate + #dispatch; Structure #map + #place. Commits station ports and immediate charging service to accepted sessions.
+Rating inference: Priority Medium — Charging coordination is central to constrained multi-port stations. Relevance High — Better schedules can serve more charging requests within grid limits. Hardness High — Port compatibility, session deadlines and nonlinear charging profiles interact.
+Useful comments/descriptors: Transport-duty-led fleet charging belongs to LOG11. ##ev-charging ##charger-assignment ##grid-limit.
+Industrial upstream keys: distribution, local_design, storage.
+
+KEY commitment — Security-Constrained Power Unit Commitment
+Decision and scope: Select generator operating states and startup times to meet electricity demand and reserves under unit, network and contingency limits.
+Aliases: UC; SCUC; thermal commitment; fast-start commitment; reliability unit commitment.
+Material variants: Deterministic/stochastic/robust; reserve/ramping co-optimization; day-ahead and short-cycle activation; fixed-versus-variable topology.
+Identity and ownership boundary: Power-unit availability and balance dominate, including grid-feasible clearing with supplied bids. Pure bid acceptance/mechanism design is MKT. Continuous dispatch with fixed states is not a separate admitted ICO problem.
+Supplied substrate: Available generating units, demand forecasts, initial states, unit limits, reserve needs and grid constraints.
+Chosen construction: Selects online generators and startup actions and places operating transitions in time.
+Constitutive laws and feasibility: Minimum up/down times, transitions, ramps, power balance and security constrain selected operating intervals.
+Delivered artifact: Unit-state/startup schedule and its feasible physical dispatch.
+Template basis: SCUC and generation availability coordination | Tight commitment MILP; decomposition and rolling stochastic or robust extensions.
+Evidence and competing approaches: S20 supplies the operational commitment scope and test tradition; S21 supports general UC NP-hardness. Physical reserve constraints are retained as an integrated variant, not automatically promoted to another card.
+Source support: S20, S21.
+Ontology inference: Primary ENER; Regime #plan + #dispatch; Structure #select + #place. Commits future generator availability and activates short-cycle starts when required.
+Rating inference: Priority Critical — Unit commitment is central to substantial power-system operation. Relevance Critical — Better commitment can improve adequacy and reduce system operating cost. Hardness High — NP-hard in general; Intertemporal unit limits, reserves and contingency constraints require strong formulations.
+Useful comments/descriptors: Includes physical energy-reserve co-optimization; commercial bid rules remain MKT. ##scuc ##unit-commitment ##reserve.
+Industrial upstream keys: generation, transmission, outage, nuclear.
+
+KEY distribution — Power Distribution Reinforcement and Connection Design
+Decision and scope: Select feeder, substation, control-device and distributed-resource investments and customer connections under service, voltage and capacity limits.
+Aliases: DSEP; distribution expansion; DER connection planning; reactive-device allocation.
+Material variants: Wires/non-wires; new/replacement equipment; discrete connection admission; radial/meshed design; voltage-control investment.
+Identity and ownership boundary: Selects installed assets and connection topology. Phase reassignment and use of already installed switches/taps are separate operating/configuration contracts.
+Supplied substrate: Feeders, load forecasts, connection requests, candidate assets and service standards.
+Chosen construction: Selects assets, constructs feeder connections and maps connection requests to supply points.
+Constitutive laws and feasibility: Voltage, thermal capacity, radiality where required and connection eligibility constrain design.
+Delivered artifact: Reinforcement/DER/control-device portfolio and connection assignments.
+Template basis: Distribution reinforcement and hosting-capacity planning | Expansion MILP/MISOCP; scenario planning and matheuristics.
+Evidence and competing approaches: S05 establishes conic expansion with distributed generation/storage and conventional investments. Hosting-capacity allocation is admitted only when it chooses discrete connections or equipment; continuous limits alone are not a separate ICO card.
+Source support: S05.
+Ontology inference: Primary ENER; Regime #design; Structure #select + #link + #map. Commits distribution assets and feasible service connections.
+Rating inference: Priority High — Distribution investment recurs across electricity utilities. Relevance Critical — Better reinforcement can support electrification and reduce service failures. Hardness High — Unbalanced power flows, many local investments and uncertain demand interact.
+Useful comments/descriptors: Includes discrete capacitor, regulator, switch and DER siting options. ##distribution-planning ##hosting-capacity ##non-wire-alternatives.
+Industrial upstream keys: generation, transmission.
+
+KEY distribution_restore — Distribution Service Restoration
+Decision and scope: Select load pickup, source connections and switching sequences to restore interrupted feeder service under fault isolation, voltage and capacity limits.
+Aliases: FLISR optimization; distribution restoration; feeder re-energization.
+Material variants: DG/microgrid support; radial/temporary-meshed operation; staged pickup; cold-load pickup; repaired/unrepaired segments.
+Identity and ownership boundary: Delivered artifact restores distribution supply around isolated faults. Repair task ordering and workforce routes are separate. Bottom-up feeder black start is included when distribution service remains the parent contract.
+Supplied substrate: Fault locations, isolated network state, available sources, repaired segments, critical loads and switch capability.
+Chosen construction: Constructs restored feeder connections, selects served load blocks and places pickup actions in sequence.
+Constitutive laws and feasibility: Fault isolation, source-supported connectivity, voltage/thermal limits and safe pickup constrain restored service.
+Delivered artifact: Restored feeder topology, served-load set and switching/pickup sequence.
+Template basis: Fault isolation and feeder service restoration | Restoration MILP/MISOCP; sequential pickup with power-flow validation.
+Evidence and competing approaches: S44 supports load and switching restoration MISOCP. S36 supplies the distinction from normal reconfiguration. Sequence is included only when restoration actions are timed/ordered; a static topology restriction omits PLACE.
+Source support: S44, S36.
+Ontology inference: Primary ENER; Regime #adapt + #dispatch; Structure #link + #select + #place. Restores interrupted utility commitments and authorizes re-energization actions.
+Rating inference: Priority High — Feeder service recovery recurs after distribution faults. Relevance Critical — Better restoration can reduce outage duration and critical-service loss. Hardness High — Fault isolation, pickup effects and uncertain DER capability couple restoration steps.
+Useful comments/descriptors: Crew travel and physical repair remain HR/LOG/CIVIC interfaces. ##service-restoration ##fault-isolation ##load-pickup.
+Industrial upstream keys: distribution, local_design, black_capacity, feeder, voltage, emergency, islanding.
+
+KEY emergency — Emergency Discrete Load Shedding
+Decision and scope: Select load blocks for immediate disconnection under frequency, voltage, network and critical-service limits.
+Aliases: UFLS event selection; emergency block disconnection; emergency load-shed allocation.
+Material variants: Under-frequency/under-voltage; priority blocks; islanded systems; AC-aware response; immediate corrective selection.
+Identity and ownership boundary: Actual event action, distinct from configuring reusable UFLS rules or planning rotating outages. If network switching creates intentional islands, that partition contract is islanding.
+Supplied substrate: Observed disturbance/state, eligible blocks, protection scheme, dynamic models and critical-load restrictions.
+Chosen construction: Selects the load blocks to disconnect.
+Constitutive laws and feasibility: Frequency/voltage security and critical-service eligibility constrain disconnected blocks.
+Delivered artifact: Immediate shed block set and resulting stabilization action.
+Template basis: Emergency demand disconnection and system stabilization | Block-shedding MILP/MINLP with dynamic-response validation.
+Evidence and competing approaches: S42 supports AC-aware frequency-response shedding; S16 supports the policy context. Automated fixed-rule execution without choosing among blocks is not itself a new optimization instance.
+Source support: S42, S16.
+Ontology inference: Primary ENER; Regime #dispatch; Structure #select. Authorizes immediate disconnection to stabilize the operating system.
+Rating inference: Priority High — Emergency shedding is a core safeguard in stressed power systems. Relevance Critical — Better shedding can preserve system stability and critical loads. Hardness High — Discrete block choices and short response times interact with system dynamics.
+Useful comments/descriptors: Continuous load-reduction quantities alone do not establish ICO. ##load-shedding ##frequency-security ##emergency.
+Industrial upstream keys: shedding_policy, commitment, remedial.
+
+KEY feeder — Distribution Feeder Reconfiguration
+Decision and scope: Choose feeder switch states under load service, radiality, voltage, thermal capacity and switching limits.
+Aliases: DNR; distribution network reconfiguration; feeder switching.
+Material variants: Loss/voltage/thermal control; unbalanced feeders; DG-aware; operation budgets; topology and reactive controls.
+Identity and ownership boundary: Normal utility service on installed feeders. A fault-recovery contract maximizes restoration of disconnected service and requires explicit isolation and re-energization conditions.
+Supplied substrate: Installed feeder graph, controllable switches, served loads, DER and operational limits.
+Chosen construction: Constructs the active feeder connections under required radiality and service laws.
+Constitutive laws and feasibility: Required radiality, supply connectivity and power-flow feasibility constrain active edges.
+Delivered artifact: Normal-service active feeder topology.
+Template basis: Normal-service feeder topology control | Reconfiguration MILP/MISOCP; topology search with unbalanced power-flow checks.
+Evidence and competing approaches: S36 directly distinguishes normal reconfiguration from restoration, with different formulations/objectives. Difference is the delivered service state and event contract, not merely optimizer choice.
+Source support: S36.
+Ontology inference: Primary ENER; Regime #operate + #dispatch; Structure #link. Reconfigures supplied distribution assets during utility operation.
+Rating inference: Priority High — Feeder topology control recurs in actively operated distribution systems. Relevance High — Better configurations can reduce losses and relieve local overloads. Hardness High — Radiality, unbalanced flows and many switch combinations interact.
+Useful comments/descriptors: Fault service restoration uses the separate outage-recovery contract. ##feeder-reconfiguration ##radiality ##switching.
+Industrial upstream keys: distribution, phase, outage, commitment.
+
+KEY flex — Utility Flexible-Load Scheduling
+Decision and scope: Select and time eligible load shifts, interruptions and operating cycles under energy-service, comfort, rebound and network limits.
+Aliases: Demand response scheduling; appliance scheduling; thermostatic load management; discrete VPP load dispatch.
+Material variants: Shiftable/interruptible loads; HVAC service bounds; discrete aggregation; online call activation; network-aware schedules.
+Identity and ownership boundary: A utility-service-led load adjustment with supplied productive/compute obligations. Price mechanism design is MKT. Merely optimizing continuous nodal demand does not establish ICO.
+Supplied substrate: Eligible load cycles/actions, comfort/service limits, network state and required flexibility.
+Chosen construction: Selects load actions and places operating cycles or interruptions in time.
+Constitutive laws and feasibility: Cycle continuity, energy/service obligations and rebound constrain chosen actions.
+Delivered artifact: Selected flexibility actions and their operating/curtailment calendar.
+Template basis: Demand-side load management and service-preserving flexibility | Load-scheduling MILP; rolling control and aggregation/disaggregation.
+Evidence and competing approaches: S27 directly supports discrete residential load scheduling with service preferences. The load-service/rebound variants are engineering extensions that need instance-specific checks. S51 establishes a convex DER-disaggregation alternative, not additional mixed-integer evidence. S28 remains an unverified discovery lead and is not used for admission or Template population.
+Source support: S27, S51.
+Ontology inference: Primary ENER; Regime #plan + #dispatch; Structure #select + #place. Prepares load adjustments and activates immediate flexibility.
+Rating inference: Priority High — Flexible loads are a recurring source of utility balancing capacity. Relevance High — Better actions can reduce peaks while preserving energy services. Hardness High — Many discrete cycles, rebound and network limits couple customer actions.
+Useful comments/descriptors: Production sequencing remains PROC/PROD; computing workload placement remains COMP. ##demand-response ##load-shifting ##rebound.
+Industrial upstream keys: distribution, local_design, commitment.
+
+KEY gas_design — Gas and Hydrogen Network Expansion and Conversion
+Decision and scope: Choose pipeline and station additions, capacity options and conversion phases under gas-delivery, pressure, compatibility and investment limits.
+Aliases: Gas expansion planning; hydrogen backbone design; pipeline repurposing.
+Material variants: Steady/transient validation; new-build/retrofit; gas/hydrogen transition; compressor expansion; joint electricity-gas planning.
+Identity and ownership boundary: Owns installed utility network delivery, not extraction wells, commodity procurement or truck routes. Conversion timing is a design/plan variant rather than a new domain problem.
+Supplied substrate: Existing pipes/stations, candidate additions, nominations, allowed carriers and conversion options.
+Chosen construction: Constructs pipeline connections, selects equipment and places conversion or installation phases in time.
+Constitutive laws and feasibility: Pressure loss, compression, delivery and material compatibility constrain selected connections.
+Delivered artifact: Gas/hydrogen network, equipment capacities and conversion sequence.
+Template basis: Gas-network expansion and phased hydrogen conversion | Network-design MINLP/MISOCP; stochastic MIP and progressive hedging with physics checks.
+Evidence and competing approaches: S06 supports pressure-aware robust expansion; S07 supports phased stochastic carrier conversion. Their models have different fidelity: the phased network-flow abstraction cannot certify detailed hydraulic feasibility.
+Source support: S06, S07.
+Ontology inference: Primary ENER; Regime #design + #plan; Structure #link + #select + #place. Commits network capacity and plans staged carrier conversion.
+Rating inference: Priority High — Network development constrains gas and hydrogen utility supply. Relevance Critical — Better development can preserve delivery and avoid stranded investment. Hardness High — Pressure feasibility, carrier compatibility and uncertain transition demand interact.
+Useful comments/descriptors: Transport abstractions require separate gas-physics validation. ##gas-network ##hydrogen ##conversion.
+Industrial upstream keys: ∅.
+
+KEY gas_operation — Gas Network Mode and Compressor Scheduling
+Decision and scope: Choose valve, compressor and station configurations and their switching times to satisfy gas deliveries under pressure, capacity and transition limits.
+Aliases: Optimal gas flow with modes; compressor configuration; transient gas control; station switching.
+Material variants: Stationary/transient; linepack; combined controls; compressor bypass; hydrogen-compatible operating modes.
+Identity and ownership boundary: Physical pipeline utility delivery dominates. Market nominations are supplied; extraction, commodity sourcing and molecular treatment remain other domains. Continuous pressure/flow optimization without modes is outside the admitted scope.
+Supplied substrate: Network, nominations, current pressure/linepack, allowed station configurations and transition limits.
+Chosen construction: Maps equipment to operating modes, chooses active valve connections and places switching transitions in time.
+Constitutive laws and feasibility: Pressure-flow relations, compressor capability, valve connectivity and gas-state propagation constrain modes.
+Delivered artifact: Network/station mode assignments and switching schedule with feasible gas flows.
+Template basis: Nomination feasibility and gas-network control | Gas-control MINLP; MIP-based heuristics with transient hydraulic validation.
+Evidence and competing approaches: S30 supports transient combinatorial controls and repeated MIPs/MINLPs; S31 identifies compressor configurations and exactly-one combined control groups. Stationary GasLib evidence is not generalized into a transient benchmark claim.
+Source support: S30, S31.
+Ontology inference: Primary ENER; Regime #operate + #dispatch; Structure #map + #link + #place. Coordinates operating gas delivery and authorizes immediate configuration changes.
+Rating inference: Priority High — Compressor and valve control is central to gas-network operation. Relevance Critical — Better configurations can preserve delivery and reduce compression energy. Hardness Critical — Discrete station configurations and transient nonlinear gas states require tailored methods.
+Useful comments/descriptors: GasLib supports stationary configurations; transient control needs additional validation. ##gas-control ##compressor ##linepack.
+Industrial upstream keys: gas_design, outage, multi_operation.
+
+KEY generation — Power Generation and Storage Capacity Expansion
+Decision and scope: Select generation and storage projects, discrete capacities and commissioning periods under demand, adequacy, network and investment limits.
+Aliases: Generation expansion; resource planning; generation-storage expansion.
+Material variants: Greenfield and replacement projects; renewables; storage duration blocks; retirement; scenario planning; joint transmission expansion.
+Identity and ownership boundary: Selects system-level supply projects. Internal wind-plant layout is a separate design contract. Continuous aggregate capacity allocation alone is outside ICO.
+Supplied substrate: Candidate projects, supplied sites, demand scenarios, retirement options and investment limits.
+Chosen construction: Selects projects and capacity options and places commissioning in planning periods.
+Constitutive laws and feasibility: Adequacy and utility balance constrain investment feasibility; geography and technology catalogues are supplied.
+Delivered artifact: Selected asset projects, capacity options and commissioning periods.
+Template basis: Resource adequacy and capacity expansion | Investment MILP; stochastic planning and Benders decomposition.
+Evidence and competing approaches: S01 establishes discrete integrated investment and decomposition; S02 supplies broader resource-planning context. Separate generation and network cards represent separable delivered contracts; joint planning is an integrated variant.
+Source support: S01, S02.
+Ontology inference: Primary ENER; Regime #design; Structure #select + #place. Commits supply assets and capacity before operating plans.
+Rating inference: Priority Critical — Supply capacity constrains substantial power systems. Relevance Critical — Better assets can change long-lived system cost and adequacy. Hardness High — Discrete investments, weather scenarios and operating feasibility couple many periods.
+Useful comments/descriptors: Requires discrete projects or capacity blocks; financial asset portfolios belong to FIN. ##capacity-expansion ##resource-adequacy ##storage.
+Industrial upstream keys: ∅.
+
+KEY hydro — Hydro and Pumped-Storage Unit Scheduling
+Decision and scope: Select turbine and pump modes and operating periods under reservoir state, water routing, head, startup and electricity-service limits.
+Aliases: Hydro unit commitment; short-term hydro scheduling; reversible-unit scheduling.
+Material variants: Cascades; multi-reservoir head; pump/generate exclusivity; reserve delivery; water-value and rolling operation.
+Identity and ownership boundary: Power utility production uses supplied water rights/environmental bounds. LAND owns basin/rights allocation; EXTR owns withdrawal/extraction. Hydro identity adds real reservoir/head and reversible-mode feasibility rather than a new solver formulation.
+Supplied substrate: Reservoir states, cascade routing, unit modes, water values, inflows, rights and electricity-service requirements.
+Chosen construction: Selects turbine or pumping actions and places their transitions in time.
+Constitutive laws and feasibility: Water balance, head, routing delays and mode transitions couple unit actions.
+Delivered artifact: Hydro/pump state calendar with feasible releases and electricity output.
+Template basis: Hydropower water-value and unit scheduling | SHOP-style MIP with nonlinear refinement; stochastic water-value inputs.
+Evidence and competing approaches: S22 directly supports reversible unit objects and commitment constraints; S23 supports online MIP refinement. Stochastic water-value estimation is an input, not itself a combinatorial problem.
+Source support: S22, S23.
+Ontology inference: Primary ENER; Regime #plan + #operate; Structure #select + #place. Prepares unit schedules and coordinates ongoing hydro operation.
+Rating inference: Priority Medium — Hydro scheduling is central to substantial hydropower systems. Relevance Critical — Better schedules can improve firm supply and use stored water efficiently. Hardness High — Reservoir coupling, travel delays and head-dependent unit performance interact.
+Useful comments/descriptors: Basin rights are supplied; pure continuous reservoir release is outside ICO. ##hydropower ##pumped-storage ##reservoir.
+Industrial upstream keys: generation, outage, commitment.
+
+KEY islanding — Controlled Power-System Islanding
+Decision and scope: Partition the operating grid into feasible energized islands under generator coherence, connectivity, balance and critical-service limits.
+Aliases: ICI; intentional controlled islanding; coherent island partitioning.
+Material variants: Bulk grids; networked microgrids; critical loads; coherent groups; planned/emergency separation.
+Identity and ownership boundary: Produces multiple supported operating components by deliberate separation. Normal transmission switching need not create islands; restoration energizes previously dead service rather than containing a live disturbance.
+Supplied substrate: Current grid, generation/load states, coherent groups, switchable lines and stability/service requirements.
+Chosen construction: Maps buses to islands and chooses retained or opened interconnections.
+Constitutive laws and feasibility: Each delivered island must be connected, adequately supported and physically operable.
+Delivered artifact: Bus-to-island partition and boundary switch actions.
+Template basis: Intentional island formation and disturbance containment | Graph-partition MILP with flow/cut constraints; power-flow and dynamic validation.
+Evidence and competing approaches: S43 establishes intentional islanding and energized-generator restrictions using alternative flow/cut formulations. The constitutive partition/connectivity is the chosen construction; power-flow variables are feasibility quantities.
+Source support: S43.
+Ontology inference: Primary ENER; Regime #dispatch + #adapt; Structure #map + #link. Authorizes separation and revises connected-grid operation after material risk.
+Rating inference: Priority Medium — Controlled separation is a specialized safeguard for severe disturbances. Relevance Critical — Better islands can limit cascading outages and preserve local service. Hardness High — Connectivity, coherent generators and island power balance interact.
+Useful comments/descriptors: Topology and balance checks do not replace transient stability validation. ##controlled-islanding ##partition ##connectivity.
+Industrial upstream keys: black_capacity, shedding_policy, remedial, emergency.
+
+KEY local_design — Local Multi-Utility Supply System Configuration
+Decision and scope: Select local generation, conversion and storage technologies and assign them to supply locations under electricity, heat, cooling and resilience requirements.
+Aliases: DER portfolio design; energy-hub design; CHP utility configuration; multi-energy microgrid design.
+Material variants: Campus/industrial/building systems; CHP and chillers; batteries/thermal storage; islandable supply; discrete size options.
+Identity and ownership boundary: Local conversion/storage portfolio rather than regional adequacy or district pipe routing. Supplied circuit/heat interfaces are not LINK; an independently chosen supply topology is a separate scoped network-design extension.
+Supplied substrate: Utility demand profiles, candidate technologies and locations, tariffs, fuel availability and resilience requirements.
+Chosen construction: Selects technologies and discrete capacities and maps them to permitted supply locations.
+Constitutive laws and feasibility: Carrier conversion, operating compatibility and utility balance constrain the chosen supply fleet.
+Delivered artifact: Installed technology/capacity portfolio and site-role assignments.
+Template basis: Campus, industrial-utility and microgrid supply configuration | DER-CAM or REopt-style technology-selection MILP; network-aware extensions.
+Evidence and competing approaches: S12 and S13 directly support multi-energy equipment and placement; S14 supplies a public screening architecture. Screening and detailed network/contingency validation are different fidelities, not interchangeable SOTA claims.
+Source support: S12, S13, S14.
+Ontology inference: Primary ENER; Regime #design; Structure #select + #map. Commits the installed local utility technology portfolio.
+Rating inference: Priority High — Local supply configuration recurs across campuses and industrial utilities. Relevance High — Better supply systems can reduce energy cost and improve outage endurance. Hardness High — Carrier coupling, operating scenarios and technology alternatives interact.
+Useful comments/descriptors: Utility supply defines ownership; process heat recovery remains PROC. ##microgrid ##multi-energy ##technology-selection.
+Industrial upstream keys: ∅.
+
+KEY multi_operation — Multi-Utility Generation and Conversion Scheduling
+Decision and scope: Select boiler, turbine, chiller, heat-pump and conversion modes and periods to meet coupled electricity, heat and cooling requirements.
+Aliases: Energy hub scheduling; boiler/turbine scheduling; district-energy unit commitment; utility dispatch with modes.
+Material variants: Steam/electricity/cooling; thermal storage; utility power-to-gas; district heating; installed hydrogen utility supply.
+Identity and ownership boundary: Delivered artifact supplies utilities. Hydrogen/ammonia product manufacture with reaction/quality-led feasibility belongs to PROC. Continuous thermal setpoint control alone is outside ICO.
+Supplied substrate: Installed utility fleet, carrier demands, supplied pipes/headers, conversion modes and fuel limits.
+Chosen construction: Selects operating units and conversion modes and places their transitions in time.
+Constitutive laws and feasibility: Carrier conservation, conversion compatibility and thermal/hydraulic limits constrain modes.
+Delivered artifact: Multi-carrier utility equipment schedule and balanced outputs.
+Template basis: CHP, district-energy and industrial-utility balance | Multi-carrier commitment MILP/MINLP; hierarchical and rolling optimization.
+Evidence and competing approaches: S24 supports CHP/storage/cooling schedule coordination; S25 establishes mixed-integer coupled-carrier physics. A network diagram alone does not imply LINK; supplied headers remain substrate.
+Source support: S24, S25.
+Ontology inference: Primary ENER; Regime #plan + #operate; Structure #select + #place. Commits utility equipment modes and coordinates ongoing carrier supply.
+Rating inference: Priority High — Coupled utility scheduling recurs in district and industrial energy systems. Relevance High — Better carrier coordination can reduce fuel use and supply shortfalls. Hardness High — Conversion efficiencies, temperatures, storage and startup conditions couple carriers.
+Useful comments/descriptors: Process-unit schedules remain PROC when material transformation defines feasibility. ##multi-energy ##chp ##district-energy.
+Industrial upstream keys: thermal_design, local_design, gas_design, outage, commitment.
+
+KEY nuclear — Nuclear Fuel Loading Pattern Optimization
+Decision and scope: Assign eligible fuel assemblies and absorber options to reactor-core positions under burnup, power-peaking, reactivity and cycle requirements.
+Aliases: Reload pattern optimization; in-core fuel management; core loading design.
+Material variants: Fresh/burned assemblies; burnable absorbers; symmetry restrictions; enrichment options; reactor-specific physics.
+Identity and ownership boundary: Utility reactor fuel configuration rather than purchasing fuel inventory, fabrication or timing the refueling outage. Disposal/canister packing is not silently included.
+Supplied substrate: Eligible assemblies and histories, fixed core slots, cycle targets and safety constraints.
+Chosen construction: Maps fuel assemblies to supplied core positions and selects permitted absorber or loading options.
+Constitutive laws and feasibility: Unique assembly-to-slot assignment, neutron/thermal response and allowable symmetry constrain patterns.
+Delivered artifact: Assembly and absorber loading pattern for a specified operating cycle.
+Template basis: Physics-based engineering reload design | Physics-evaluated simulated annealing or genetic search; surrogate-assisted alternatives.
+Evidence and competing approaches: S49 establishes utility/vendor-assisted FORMOSA-P and physics-evaluated simulated annealing. S50 reports prevalent engineering-designed patterns and optimization use of SA/GA, while investigating RL. Record that practice/method difference; no strongest-method or generic NP-complete claim follows.
+Source support: S49, S50.
+Ontology inference: Primary ENER; Regime #plan; Structure #map + #select. Commits the fuel arrangement for the next reactor operating cycle.
+Rating inference: Priority Medium — Fuel loading is central to nuclear reactor reload design. Relevance Critical — Better loading patterns affect safe cycle performance and fuel use. Hardness Critical — Large permutations and expensive core-physics evaluations require tailored search.
+Useful comments/descriptors: Engineering-designed patterns remain common; optimized search supports reload design. ##NUCLEAR ##fuel-loading ##core-physics.
+Industrial upstream keys: outage.
+
+KEY outage — Utility Asset Outage and Maintenance Scheduling
+Decision and scope: Select utility maintenance outages and their time windows under asset condition, service adequacy, network security and work-capacity limits.
+Aliases: Generator maintenance scheduling; coordinated generation/transmission outage scheduling; utility shutdown planning.
+Material variants: Generators and network assets; condition-based interventions; resource/calendar limits; planned plant shutdowns; utility-specific hydraulic checks.
+Identity and ownership boundary: Delivered artifact is a utility-feasible unavailability calendar. Crew staffing, technical repair procedure and construction task execution remain separate. Nuclear refueling windows are here; fuel loading patterns are separate.
+Supplied substrate: Installed assets, condition forecasts, required work, outage durations, work capacity and utility demand.
+Chosen construction: Places outage intervals in time and selects permitted tasks or windows.
+Constitutive laws and feasibility: Non-overlap and utility security/adequacy during outages define feasible calendars.
+Delivered artifact: Selected outage work and asset-unavailability intervals.
+Template basis: Reliability-centered outage coordination | Outage-calendar MILP; condition-based stochastic MIP and commitment decomposition.
+Evidence and competing approaches: S18 supports coordinated outage and UC calendars; S19 supports condition-based maintenance tied to operations. Extension to other utilities is an architectural inference with carrier-specific feasibility, not evidence that an electrical test system benchmarks every utility.
+Source support: S18, S19.
+Ontology inference: Primary ENER; Regime #plan; Structure #place + #select. Commits future asset unavailability before utility operations.
+Rating inference: Priority High — Planned asset unavailability recurs across utility networks. Relevance Critical — Better outages can preserve utility supply and reduce failure risk. Hardness High — Shared work windows, asset condition and network adequacy couple outages.
+Useful comments/descriptors: Generic crew rostering belongs to HR; public-works execution belongs to CIVIC. ##outage-scheduling ##maintenance ##availability.
+Industrial upstream keys: generation, transmission, distribution, gas_design, thermal_design, water_design, local_design.
+
+KEY phase — Customer Phase Assignment and Rebalancing
+Decision and scope: Assign low-voltage customer connections to phases under imbalance, voltage, neutral-current and switching limits.
+Aliases: Phase swapping; phase reconfiguration; phase load balancing.
+Material variants: Static reassignment; remotely switched assignments; PV-aware scenarios; limits on changed connections.
+Identity and ownership boundary: Maps terminals to phase roles on supplied conductors. It does not by itself choose a new feeder graph; connection construction remains distribution design.
+Supplied substrate: Customer loads/DER, existing phases, permissible reassignment points and change budgets.
+Chosen construction: Maps customer connections to electrical phases.
+Constitutive laws and feasibility: Phase exclusivity, neutral current and three-phase power-flow relations constrain mappings.
+Delivered artifact: Customer-to-phase assignments and authorized reassignments.
+Template basis: Phase balancing and connection reassignment | Phase-assignment MINLP or MIQP; constrained search and power-flow evaluation.
+Evidence and competing approaches: S17 supports static discrete phase reassignment with MINLP/MIQP and GA alternatives. Static planning is not #plan merely because computation precedes the assignment commitment.
+Source support: S17.
+Ontology inference: Primary ENER; Regime #allocate + #operate; Structure #map. Assigns electrical connection roles and revises them during network operation.
+Rating inference: Priority Medium — Phase balancing recurs in low-voltage networks with uneven loads and DER. Relevance High — Better assignments can improve voltage and reduce losses. Hardness High — Unbalanced power flows and uncertain customer profiles couple assignments.
+Useful comments/descriptors: Customer-to-phase mapping differs from feeder topology. ##phase-balancing ##unbalanced ##connection-assignment.
+Industrial upstream keys: distribution.
+
+KEY remedial — Grid Security Remedial Action Selection
+Decision and scope: Select coordinated discrete physical actions to remove contingency or operating violations under response, action-budget and service limits.
+Aliases: Corrective security action selection; congestion relief with discrete actions; remedial-action optimization.
+Material variants: Switching/fast starts/taps/curtailment packages; preventive/corrective policies; supplied contingencies; action count limits.
+Identity and ownership boundary: Integrated security-driven action portfolio rather than a duplicate name for line switching, VVO or UC alone. Pure continuous SCED/SCOPF is excluded; individual action types retain their component cards.
+Supplied substrate: Current operating commitments, contingencies, admissible discrete actions, response times and network model.
+Chosen construction: Selects action packages and maps them to operating or contingency conditions.
+Constitutive laws and feasibility: Post-contingency physical feasibility, action compatibility and response limits define admissible packages.
+Delivered artifact: Security action package or condition-to-action policy for immediate operation.
+Template basis: Preventive and corrective security management | Discrete-action SCOPF/MINLP; contingency screening and decomposition.
+Evidence and competing approaches: S39 supports an integrated nonlinear-discrete security architecture; S40 supports overstressed-grid remedial actions. Selecting contingencies for solver screening is computational work, not the industrial SELECT recorded here.
+Source support: S39, S40.
+Ontology inference: Primary ENER; Regime #dispatch + #adapt; Structure #select + #map. Authorizes immediate security actions and revises threatened operating commitments.
+Rating inference: Priority High — Security action coordination recurs in stressed power-system operation. Relevance Critical — Better actions can prevent large service losses and cascading violations. Hardness Critical — Many contingencies, discrete controls and nonlinear security checks require tailored computation.
+Useful comments/descriptors: This card requires coordinated action choice beyond pure continuous redispatch. ##scopf ##remedial-action ##contingency.
+Industrial upstream keys: commitment, hydro, storage, flex, trans_switch, feeder, voltage.
+
+KEY rotation — Rotational Utility Load-Shedding Scheduling
+Decision and scope: Select planned power interruptions and their times for supplied service zones under shortage, fairness, critical-load and switching limits.
+Aliases: Rotational load shedding; rolling blackout schedule; planned interruption scheduling.
+Material variants: Supplied zones or zone groups; fair burden; protected loads; switching budgets; rolling updates. Independent group construction is not established.
+Identity and ownership boundary: Physical planned utility service under sustained scarcity. Tariff design is MKT. Immediate protective shedding responds to a disturbance and has different frequency-response feasibility.
+Supplied substrate: Supply shortfall forecasts, service zones, critical-load exemptions, permitted groups and interruption limits.
+Chosen construction: Places interruption events in time and selects discrete interruption-count or duration configurations.
+Constitutive laws and feasibility: Adequate shed quantity, zone eligibility, interruption duration and fairness constrain assigned outages.
+Delivered artifact: Zone interruption calendar with selected event counts and durations.
+Template basis: Rotating-outage and shortage-service planning | Zone-period integer scheduling; bilinear reformulation and rolling optimization.
+Evidence and competing approaches: S41 supports discrete interruption numbers/durations and actual calendars for supplied service zones. PLACE records the calendar; SELECT records discrete interruption configurations. No independent zone-to-group construction is established, so MAP is removed from the canonical scope.
+Source support: S41.
+Ontology inference: Primary ENER; Regime #plan + #allocate; Structure #place + #select. Plans interruptions and allocates scarce service across zones.
+Rating inference: Priority Medium — Rotating service plans are recurring under sustained supply shortage. Relevance High — Better interruptions can preserve critical service and distribute shortage costs. Hardness High — Fairness, outage duration and changing shortages couple zones and periods.
+Useful comments/descriptors: Planned rationing differs from immediate frequency emergency shedding. ##rotating-outage ##rationing ##fairness.
+Industrial upstream keys: distribution, outage, commitment, storage, flex.
+
+KEY shedding_policy — Under-Frequency Load-Shedding Scheme Configuration
+Decision and scope: Assign load blocks to frequency thresholds and shedding stages under disturbance, protection and service-loss limits.
+Aliases: UFLS setting optimization; shedding-stage design.
+Material variants: Discrete thresholds/stages; location priorities; frequency-response scenarios; AC-aware design.
+Identity and ownership boundary: A reusable physical protection policy. Live emergency shedding chooses actual blocks during a disturbance. Generic relay electronics manufacture/configuration is outside this contract.
+Supplied substrate: Available load blocks, admissible protection settings, disturbance scenarios and response models.
+Chosen construction: Maps load blocks to thresholds and stages and selects participating blocks.
+Constitutive laws and feasibility: Frequency security and stage-response dynamics constrain the assigned scheme.
+Delivered artifact: Load-block membership and threshold/stage settings.
+Template basis: UFLS protection-stage design | Dynamic-response MILP; scenario-based setting optimization and simulation validation.
+Evidence and competing approaches: S16 directly establishes MILP setpoint/location optimization; settings remain genuine policy decisions rather than mere binary solver encodings.
+Source support: S16.
+Ontology inference: Primary ENER; Regime #design; Structure #map + #select. Commits protective shedding rules before disturbances occur.
+Rating inference: Priority Medium — Protective shedding schemes support major power-system emergency control. Relevance Critical — Better settings can limit cascading failure and unnecessary disconnection. Hardness High — Frequency dynamics, uncertain disturbances and location choices couple protection settings.
+Useful comments/descriptors: Configuration is distinct from executing an observed shedding event. ##ufls ##protection ##frequency.
+Industrial upstream keys: generation, transmission, distribution, black_capacity.
+
+KEY storage — Electrical Storage Operating-Mode Scheduling
+Decision and scope: Choose charging, discharging and idle intervals for installed storage under state-of-charge, power, degradation and utility-service limits.
+Aliases: Battery dispatch; charge/discharge scheduling; storage service stacking.
+Material variants: Battery fleets; blocks of ancillary capability; cycling limits; degradation; rolling operation.
+Identity and ownership boundary: Installed electrical-storage utility operation. Financial arbitrage exposure is FIN and market offer design is MKT. Hydro reservoir/pump feasibility stays with hydro scheduling.
+Supplied substrate: Storage states, allowed modes, power/energy bounds, degradation model and physical service obligations.
+Chosen construction: Maps storage intervals to operating modes and places mode transitions in time.
+Constitutive laws and feasibility: Energy-state propagation, charge/discharge exclusivity and service deliverability constrain mode choices.
+Delivered artifact: Storage operating modes and transition calendar with feasible power schedule.
+Template basis: Storage energy management and service stacking | Mode-constrained storage MILP; rolling optimization and degradation-aware extensions.
+Evidence and competing approaches: S26 documents exclusive charge/discharge states. The discrete scope is conditional: when economics/physics yield an exact continuous formulation, no combinatorial claim is imposed merely to retain the card.
+Source support: S26.
+Ontology inference: Primary ENER; Regime #plan + #operate; Structure #map + #place. Commits storage mode intervals and coordinates ongoing utility support.
+Rating inference: Priority High — Storage coordination recurs in systems with substantial batteries or storage fleets. Relevance High — Better modes can improve flexibility and reduce peak supply cost. Hardness Medium — Energy state, service obligations and uncertain prices couple operating periods.
+Useful comments/descriptors: Admit only genuine mode or discrete-action choices; exact continuous relaxations remain subcases. ##storage-dispatch ##state-of-charge ##mode-exclusivity.
+Industrial upstream keys: generation, local_design, outage, commitment.
+
+KEY thermal_design — District Heating and Cooling Network Design
+Decision and scope: Choose thermal-utility pipe connections, discrete sizes and supply connections under heat demand, temperature, pressure and investment limits.
+Aliases: DHN design; district cooling design; pipe routing/sizing.
+Material variants: Heating/cooling; primary/secondary networks; expansion; temperature regimes; source connection choices.
+Identity and ownership boundary: Shared utility distribution rather than process-stream heat integration. User connection offers/prices are MKT; construction work is CIVIC.
+Supplied substrate: Street/corridor candidates, utility loads, source interfaces, pipe catalogues and temperature standards.
+Chosen construction: Constructs pipe connections and selects discrete pipe and supply options.
+Constitutive laws and feasibility: Heat delivery, temperature loss and pressure conditions constrain connected distribution.
+Delivered artifact: Thermal pipe topology, catalogue sizes and supply connections.
+Template basis: District thermal-network routing and sizing | Network-design MILP with nonlinear evaluation; MINLP and topology search.
+Evidence and competing approaches: S08 supports MILP followed by nonlinear design evaluation; S09 supports cooling network MIP/heuristics. Neither establishes that linearized thermal constraints are universally exact.
+Source support: S08, S09.
+Ontology inference: Primary ENER; Regime #design; Structure #link + #select. Commits shared heating or cooling distribution infrastructure.
+Rating inference: Priority Medium — Thermal-network design is central to district-energy deployments. Relevance High — Better pipes and connections can reduce capital cost and thermal losses. Hardness High — Network topology, heat losses and hydraulic conditions interact.
+Useful comments/descriptors: Process-stream heat-exchanger synthesis remains PROC04. ##district-heating ##district-cooling ##thermal-network.
+Industrial upstream keys: ∅.
+
+KEY trans_switch — Operational Transmission Switching
+Decision and scope: Choose which installed transmission lines remain connected under power balance, security, switching and service limits.
+Aliases: OTS; DC-OTS; topology optimization; line switching.
+Material variants: Preventive/corrective; DC/AC; connected-grid restrictions; operation budgets; joint UC/switching.
+Identity and ownership boundary: Selects active relationships on installed infrastructure. Supplied grid edges alone would not be LINK; the solved active graph is the delivered construction. Island formation and blackout restart are separate contracts.
+Supplied substrate: Installed lines, switchable subset, present generation/load states and security limits.
+Chosen construction: Chooses the active transmission connections in the operating network.
+Constitutive laws and feasibility: Power-flow laws, connectivity requirements and switching eligibility constrain active connections.
+Delivered artifact: Active line topology and feasible operating point.
+Template basis: Congestion-oriented network topology control | DC switching MILP with tight bounds; AC validation and topology heuristics.
+Evidence and competing approaches: S34 establishes topology MILP and bound tightening; S35 supports general DC-OTS NP-hardness and conditional heuristic assistance. DC feasibility is not an AC/dynamic safety certificate.
+Source support: S34, S35.
+Ontology inference: Primary ENER; Regime #operate + #dispatch; Structure #link. Changes installed grid connectivity during power operation.
+Rating inference: Priority High — Topology control is a recurring flexibility option in bulk-power networks. Relevance High — Better connections can reduce congestion and preserve service. Hardness High — General DC optimal transmission switching is NP-hard; Line-state choices and loop flows require strong bounds and security checks.
+Useful comments/descriptors: New line construction belongs to transmission expansion. ##ots ##transmission-switching ##congestion.
+Industrial upstream keys: transmission, outage, commitment.
+
+KEY transmission — Power Transmission Expansion
+Decision and scope: Choose new or reinforced transmission connections, discrete equipment and commissioning periods under power-transfer, contingency and investment limits.
+Aliases: TNEP; grid reinforcement; transmission investment planning.
+Material variants: AC/DC; FACTS; staged additions; integrated generation-storage expansion; deterministic/robust/stochastic models.
+Identity and ownership boundary: New capacity and physical network design; installed-line switching is operational topology. Civil works scheduling is CIVIC.
+Supplied substrate: Existing grid, candidate corridors/equipment, generation scenarios and investment limits.
+Chosen construction: Constructs transmission connections, selects equipment options and places additions in planning periods.
+Constitutive laws and feasibility: Kirchhoff power-flow and contingency constraints distinguish this from unconstrained transport-network design.
+Delivered artifact: Built/reinforced connections, device options and installation phases.
+Template basis: Security-constrained transmission expansion | Network investment MILP/MINLP; conic relaxations and Benders decomposition.
+Evidence and competing approaches: S04 establishes discrete line/device investment; S01 establishes integrated supply/network planning. AC-feasible evaluation and DC screening are alternatives with different physics fidelity.
+Source support: S04, S01.
+Ontology inference: Primary ENER; Regime #design; Structure #link + #select + #place. Commits the future bulk-power network.
+Rating inference: Priority Critical — Bulk-power transfer capability constrains major power systems. Relevance Critical — Better expansion can improve adequacy and access to low-cost supply. Hardness High — Contingencies, loop flows and discrete capacity additions interact.
+Useful comments/descriptors: Operational switching changes installed connections and has a separate contract. ##transmission-expansion ##contingency ##network-design.
+Industrial upstream keys: generation.
+
+KEY voltage — Discrete Voltage and Reactive-Power Control
+Decision and scope: Assign tap, capacitor and other discrete reactive-device settings under voltage, reactive-power, switching and network limits.
+Aliases: VVO; voltage/VAR control; discrete tap/shunt optimization.
+Material variants: Transmission/distribution; taps/shunts; switching limits; chronological control; unbalanced networks.
+Identity and ownership boundary: Settings on installed devices differ from selecting where to install devices. Continuous reactive-power OPF remains a valid noncombinatorial restriction; fixed network connectivity is not LINK.
+Supplied substrate: Installed device settings, present network state, allowed discrete positions and voltage/VAR bounds.
+Chosen construction: Maps installed devices to permitted discrete operating settings.
+Constitutive laws and feasibility: Voltage/reactive-power balance, power flow and switching wear constrain settings.
+Delivered artifact: Tap/shunt/device-setting assignments and feasible voltage state.
+Template basis: Volt-VAR optimization and coordinated voltage control | VVO MILP/MISOCP or mixed-integer AC optimization; validated control search.
+Evidence and competing approaches: S37 supports unbalanced feeder MILP control; S38 supports transmission discrete taps/shunts. Their operating domains differ, so a single feeder linearization is not asserted as universally best.
+Source support: S37, S38.
+Ontology inference: Primary ENER; Regime #operate + #dispatch; Structure #map. Coordinates installed device settings and authorizes short-cycle voltage actions.
+Rating inference: Priority High — Voltage coordination is central to actively controlled power networks. Relevance High — Better settings can reduce losses and prevent voltage violations. Hardness High — Discrete settings, three-phase flows and reactive limits interact.
+Useful comments/descriptors: Device investment is upstream; continuous inverter setpoints alone are outside ICO. ##volt-var ##tap-changing ##reactive-power.
+Industrial upstream keys: distribution, transmission, phase, commitment, trans_switch, feeder.
+
+KEY water_design — Water Utility Network and Control-Asset Design
+Decision and scope: Choose water distribution pipes, discrete sizes, pumps, tanks and control-device locations under demand, pressure, quality and investment limits.
+Aliases: WDN design; pipe sizing; valve/booster placement; water supply network configuration.
+Material variants: Fixed-topology sizing and optional topology; isolation/pressure valves; chlorine boosters; storage; replacement; quality-aware design.
+Identity and ownership boundary: Installed distribution and utility-service feasibility define ENER. Chemical treatment/reuse process synthesis is PROC05. This card is not a generic municipal capital-portfolio decision.
+Supplied substrate: Demand nodes, candidate pipes/assets, allowed catalogue sizes, water-quality and pressure limits.
+Chosen construction: Selects asset options, constructs variable pipe connections and maps control devices to network locations.
+Constitutive laws and feasibility: Mass balance, energy/pressure relations and service-quality propagation constrain asset choices.
+Delivered artifact: Equipment/pipe catalogue assignments, installed device locations and chosen connections.
+Template basis: Hydraulic network sizing and service-reliability design | Water-network MICP/MINLP; simulation-supported discrete design search.
+Evidence and competing approaches: S10 establishes a water-design mixed-integer convex model within its assumptions; S53 supports valve/booster placement MINLP. S11 supplies evaluation physics. Fixed-topology sizing does not construct LINK; it is a scoped SELECT/MAP variant.
+Source support: S10, S53, S11.
+Ontology inference: Primary ENER; Regime #design; Structure #select + #link + #map. Commits installed water-distribution assets and control capability.
+Rating inference: Priority Medium — Network design is central to water-distribution systems. Relevance Critical — Better assets can improve reliable water service and reduce losses. Hardness High — Discrete equipment, nonlinear hydraulics and quality propagation interact.
+Useful comments/descriptors: Basin rights belong to LAND; extraction belongs to EXTR; construction belongs to CIVIC. ##WATER ##network-design ##hydraulics.
+Industrial upstream keys: ∅.
+
+KEY water_operation — Water Pumping and Tank Operation Scheduling
+Decision and scope: Select pump states and operating intervals to meet water delivery under tank balance, pressure, energy, starts and equipment limits.
+Aliases: Optimal water flow with pump status; pump scheduling; reservoir/tank utility operation.
+Material variants: Fixed/variable-speed pumps; day-ahead/rolling; water quality; supplied source withdrawal; sewer/drainage pumping where installed utility operation dominates.
+Identity and ownership boundary: Installed utility distribution/collection rather than basin allocation, extraction or chemical treatment. SWMM is a simulator for drainage variants and does not itself provide an optimization template.
+Supplied substrate: Installed network, initial tank levels, water demand, allowed pump modes, tariffs and delivery limits.
+Chosen construction: Selects operating pumps and places starts, stops and run intervals in time.
+Constitutive laws and feasibility: Mass balance, hydraulic energy relations, pressure bounds and allowed transitions constrain pump intervals.
+Delivered artifact: Pump state/start calendar and feasible tank/flow trajectory.
+Template basis: Water-utility pumping and storage operation | Pump-scheduling MINLP; strengthened MILP relaxations and nonlinear hydraulic validation.
+Evidence and competing approaches: S32 supports pump MINLP and strengthened relaxations; S33 supports variable-speed MILP with nonlinear simulation. S52 supports installed drainage model scope only; its mere presence does not validate a sewer optimization baseline.
+Source support: S32, S33, S52.
+Ontology inference: Primary ENER; Regime #plan + #operate; Structure #select + #place. Commits pumping calendars and coordinates ongoing water delivery.
+Rating inference: Priority Medium — Pumping schedules are central to pumped water utility systems. Relevance High — Better pumping can preserve pressure and reduce energy cost. Hardness High — Tank-state coupling and nonlinear hydraulics interact with pump starts and speeds.
+Useful comments/descriptors: Tank levels and pump speeds are feasibility quantities, not separate Structures. ##pump-scheduling ##tank-balance ##hydraulics.
+Industrial upstream keys: water_design, outage, commitment.
+
+KEY water_restore — Water Utility Failure Isolation and Service Recovery
+Decision and scope: Select valve isolation, bypass and supply interventions to restore water service after failure under pressure, quality and intervention limits.
+Aliases: Burst response; water network reconfiguration after failure; valve isolation/response optimization.
+Material variants: Pipe/equipment failures; temporary bypass; valve choices; quality limits; pressure-driven service evaluation.
+Identity and ownership boundary: A physically operable recovery configuration rather than selecting repair projects or allocating basin rights. Interruption/pressure quantities are feasibility and service metrics, not structural choices.
+Supplied substrate: Failed components, present supply state, installed valves, candidate bypasses and intervention resources.
+Chosen construction: Chooses active valve and bypass connections and selects recovery actions.
+Constitutive laws and feasibility: Damaged-section isolation, pressure/quality feasibility and intervention compatibility constrain connections.
+Delivered artifact: Isolation/recovery configuration and authorized intervention set.
+Template basis: Hydraulic failure containment and operational recovery | Discrete intervention search or MIP with pressure-driven hydraulic evaluation.
+Evidence and competing approaches: S47 supports valve, pressure and bypass interventions with hydraulic evaluation; S48 supports operational response and failure recovery. Continuous pressure tuning is supporting optimization; discrete valve/bypass/action decisions establish ICO.
+Source support: S47, S48.
+Ontology inference: Primary ENER; Regime #adapt + #dispatch; Structure #link + #select. Revises interrupted supply and authorizes immediate recovery interventions.
+Rating inference: Priority Medium — Failure isolation and recovery recur in water-distribution operation. Relevance Critical — Better recovery can preserve essential water supply and contain failure impacts. Hardness High — Isolation segments, hydraulic pressure and limited interventions couple recovery options.
+Useful comments/descriptors: Pipe repair and crew scheduling remain CIVIC/HR interfaces. ##WATER ##failure-isolation ##hydraulic-recovery.
+Industrial upstream keys: water_design, water_operation.
+
+KEY wind — Wind Farm Layout and Collection Network Design
+Decision and scope: Select turbine sites and collection-cable connections under wake interactions, spacing, cable capacity and site limits.
+Aliases: WFLO; WFCR; integrated wind layout and cable routing.
+Material variants: Candidate-site versus continuous-coordinate layout; offshore and onshore; cable-only design; wake models; substation alternatives.
+Identity and ownership boundary: A within-plant arrangement rather than the system-wide selection of plant projects. Land entitlement and construction execution are LAND/CIVIC interfaces.
+Supplied substrate: Permitted turbine sites or areas, candidate cable corridors, wind data, spacing and cable classes.
+Chosen construction: Places turbines in the permitted spatial arrangement, constructs cable connections and selects participating sites or turbines.
+Constitutive laws and feasibility: Spacing, wake interaction and a connected collection system determine admissible layouts.
+Delivered artifact: Occupied turbine sites and cable connections; coordinates when variable.
+Template basis: Wake-aware wind plant and collection-system design | Integrated layout/network MILP or MINLP; quota-Steiner and decomposition methods.
+Evidence and competing approaches: S03 establishes joint turbine siting and collection connectivity on candidate locations. PLACE records the actual spatial arrangement in either representation; LINK records collection topology; SELECT records site/turbine membership. Coordinate discretization does not change the industrial Structure.
+Source support: S03.
+Ontology inference: Primary ENER; Regime #design; Structure #place + #link + #select. Commits turbine arrangement and internal electrical connections.
+Rating inference: Priority Medium — This decision is central to wind-plant development. Relevance High — Better arrangements can improve energy yield and reduce cable investment. Hardness High — Wake interactions, cable capacity and topology couple turbine choices.
+Useful comments/descriptors: Candidate-site and continuous-coordinate forms share the spatial layout contract. ##WIND ##wake ##collection-network.
+Industrial upstream keys: generation.
+
+ALIASES, INTEGRATIONS, EXCLUSIONS AND OPEN LIMITS
+
+UC/SCUC/fast-start and energy-reserve co-optimization: retain commitment. Separate reserve allocation requires genuine discrete provider/action assignments; ordinary divisible headroom allocation is continuous. No separate reserve card is invented from a constraint inside UC.
+SCED/ACOPF/continuous congestion redispatch: exclude standalone continuous restrictions; retain genuine discrete-action security coordination as remedial. Nonconvex AC physics alone does not change this admission.
+VPP/DER/microgrid orchestration: technology context, not a separate industrial identity. Portfolio configuration maps to local_design; unit availability to commitment; battery modes to storage; load actions to flex; installed network controls to feeder/voltage/remedial. S51 shows that physical DER disaggregation can be convex. A distinct mixed-integer VPP contract would require specific service obligations not already represented.
+Power-market clearing, reserve auctions, congestion rights and price bidding: MKT when market mechanism/rights dominate; physical grid-feasible commitment remains commitment/remedial under supplied commercial inputs. Settlement/hedging is FIN. No financial profitability baseline is imported into physical Templates.
+Long-term hydro water values and reservoir releases: upstream continuous/stochastic inputs unless there are real discrete unit/action choices. LAND owns basin and rights allocation. Pumped storage with reversible modes is hydro; electrical batteries are storage.
+Renewable forecasts, continuous wind yaw/pitch and continuous inverter power allocation: exclude. Discrete wind site/collection design is wind; block curtailment may be a remedial/flex action. Solar panel/string topology is a local electrical-plant design specialization; no distinct commercially general parent is established by a technology name alone.
+Capacity screens with divisible MW, scalar storage arbitrage with exact continuous relaxation, continuous dynamic operating envelopes, continuous gas blending and water pressure/chemical setpoints: not standalone ICO. Their physics can support an admitted discrete asset/mode/action decision.
+Reactive-device placement, valve/booster placement, utility resilience hardening and asset renewal: retain as design options when they alter utility network service capability. Generic risk-ranked capital or maintenance portfolios remain CIVIC where utility balance is merely an evaluator.
+Gas/hydrogen conversion: retain gas_design as a phased expansion/repurposing variant. Carrier conversion does not create a new Primary Domain. The flow abstraction in S07 does not establish pressure-feasible transient transition.
+Nuclear refueling outage timing belongs to outage. Core loading belongs to nuclear. Fuel purchase inventory belongs to SCM; fabrication is PROD/PROC. Spent-fuel canister packing is a narrow specialized downstream contract not established here as a commercially general utility-operation parent.
+Thermal-storage scheduling is integrated with multi_operation; a purely thermal fluid-state controller is continuous. Standalone thermal storage with genuine discrete modes may be a scoped storage-type variant, but electrical and hydro-specific feasibility must not be silently copied.
+Emergency protection settings belong to shedding_policy; actual block disconnection to emergency; planned fair interruptions to rotation. Generic relay setting optimization is not admitted without discrete policy/action choices and supported coordination evidence.
+Distribution fault restoration and bulk restart have different supplied service states and delivered obligations. Bottom-up feeder black start remains distribution_restore when feeder service defines the contract; system-wide source startup and synchronizing islands belong to bulk_restore.
+Pipe/asset physical repair sequencing, construction staging and workforce travel remain CIVIC/HR/LOG interfaces. water_restore selects hydraulic isolation/recovery; it does not manufacture a crew-scheduling card.
+Rolling schedule recomputation, robust/stochastic formulations, reinforcement learning, quantum optimization and decomposition are methods or qualifiers. They do not justify new Problem identities. A separate frozen-commitment utility schedule-repair parent is not established by simply rerunning UC/SHOP.
+Water treatment/reuse chemistry and hydrogen/ammonia process synthesis stay PROC when transformation feasibility dominates. Installed utility desalination pumping can couple water_operation and multi_operation; reaction/treatment control is not silently subsumed.
+
+DEPENDENCY GRAPH AND EVIDENCE CONVENTION
+
+An edge A -> B records a meaningful industrial output handoff when both contracts occur in one deployment. It does not assert that every B instance must solve A first; an existing asset/issued plan can be supplied externally. Edges are neither mathematical reductions nor citations of authors' taxonomy. The source evidence supports physical coupling; the partition into project keys and ordering implications are explicitly our industrial inferences.
+Design -> operation: generation supplies installed power capability; transmission/distribution supply connection/control limits; gas/thermal/water designs supply hydraulic assets; local_design supplies installed local fleets. Their downstream calendars and controls consume these outputs.
+generation -> wind: selected wind projects supply capacity/site requirements for within-plant design. generation -> transmission -> distribution: staged hierarchy uses supply footprint and upstream transfer constraints. Joint planning is a co-optimization alternative, not a universal sequential requirement (S01, S04, S05).
+generation/transmission/local_design -> black_capacity -> shedding_policy/restoration: installed candidates constrain black-start readiness; restored-source availability constrains supported islands and protective scenarios (S15, S43).
+outage -> nuclear/commitment/hydro/multi_operation/storage/water_operation: outage outputs constrain when installed utility assets are available (S18, S19). Refueling outage/cycle windows constrain the loading-plan commitment; the nuclear physics pattern supplies allowable next-cycle operating conditions (S49, S50).
+commitment -> hydro/multi_operation/storage/flex/trans_switch/feeder/rotation: issued power availability and residual supply requirements constrain coordinated subplans where a hierarchy is used. Joint optimization of these schedules is explicitly retained (S20, S22, S24, S26, S27).
+multi_operation -> gas_operation: conversion/CHP schedules supply gas nominations and timing needs. Supplied upstream nominations can replace this edge (S25, S30, S31).
+commitment -> water_operation: issued electrical supply/availability can constrain electricity-dependent pumping. The source supports energy-aware scheduling; the named handoff is a deployment inference (S32, S33).
+distribution/local_design/storage -> charging: connection capability and issued local/storage support constrain station power availability; vehicle requests arrive as external inputs (S29).
+phase -> feeder/voltage: phase assignments change the unbalanced network data evaluated by controls (S17, S37).
+trans_switch/feeder -> voltage/remedial: issued topology supplies the network state on which voltage/security action selection operates (S34, S36, S37, S39).
+commitment/hydro/storage/flex/trans_switch/feeder/voltage -> remedial: current schedules and controls are the commitments/actions available for security correction (S39, S40).
+commitment/storage/flex/outage/distribution -> rotation: issued supply and connection/service capacity define sustained residual shortage (S41).
+shedding_policy/commitment/remedial -> emergency: configured protection and current feasible action availability constrain actual block disconnection (S16, S42). rotation is not a mandatory input to emergency; both may occur independently.
+remedial/emergency -> islanding: previous measures and resulting state constrain intentional separation when containment is still needed (S43). Black-start/protection capability supplies island support and safeguards. Not every intentional islanding event follows shedding.
+feeder/voltage/emergency/islanding -> distribution_restore: resulting or previously issued network states are inputs to recovery where such events preceded the fault/restoration state (S36, S44). Restoration may instead start directly from observed fault data.
+black_capacity/commitment/hydro/storage/islanding/distribution_restore -> bulk_restore: available startup sources, survivor islands and distribution pickup feasibility constrain whole-system restart (S45, S46). Last operating commitments are historical state, not an obligation to preserve failed power balance.
+water_design/water_operation -> water_restore: installed valves/bypasses and current tank/pump state constrain hydraulic recovery (S47, S48).
+All candidate-specific upstream-key lists below define the compile graph. Reciprocal recourse is possible between outage and unit schedules, generation and transmission expansion, topology and dispatch, and restored states and subsequent operation. Those are iteration feedback interfaces, not extra unconditional edges in this release. The graph records a directed deployment handoff abstraction; it is acyclic. Alternative integrated models do not force backward dependencies by sharing variables.
+Cross-domain inputs/outputs remain narrative interfaces, not unsupported references to unseen ENER/CIVIC/LAND cards. Existing PROC04/PROC05/LOG11 IDs are used only to identify already visible boundary contracts.
+
+SEARCH COVERAGE AND SATURATION
+
+Pass 1: normative ENER territory — bulk power SCUC/dispatch, renewables, hydro, outage, storage, gas, district heat/cooling, microgrids and installed water pumping. Retrieved FERC, laboratory planning models, SINTEF and EPA.
+Pass 2: construction and identity — expansion and equipment choices; distribution reconfiguration versus restoration; gas configurations/combined controls; discrete taps/shunts; water pump and pipe decisions. Retrieved author papers, GasLib and model documentation.
+Pass 3: independent omission search — internal wind plant/collection layout; phase swapping; UFLS policy; rotating outages; black-start readiness; nuclear core loading; water isolation/bypass response; EV charger sessions. These searches added material identities beyond the original territory seeds.
+Pass 4: integrated/boundary stress — DER/VPP disaggregation, multi-utility generation, hydrogen conversion, demand response versus production/computation, station charging versus LOG11, utility controls versus basin/treatment/civic work. New results largely mapped to existing keys, continuous subcases, technology specializations or other-domain decisions.
+Coverage is near-exhaustive at the retained industrial-contract granularity within the principal territories, not a proof over all possible utility systems. Known limits: no exhaustive worldwide vendor deployment census; specialist nuclear/water/gas cases may require stronger instance-specific template verification; detailed sewer optimization evidence is weaker than potable-water pumping; several source pages are abstract-only. These do not justify invented parent Problems or claims of uniquely strongest practice. Case research must resolve actual data access, baseline, fidelity, reproducibility and current strongest instance-specific methods after approval.
+
+SOURCE LEDGER
+
+S01 Integrated Expansion Planning of Electric Energy Generation, Transmission, and Storage
+https://arxiv.org/abs/2310.05811
+Support and limits: Author paper; integrated investment MILP with Benders decomposition. Supports discrete generation, storage and transmission choices, not a claim that all capacity models are combinatorial.
+
+S02 ReEDS Model Documentation 2025
+https://research-hub.nlr.gov/en/publications/regional-energy-deployment-system-reeds-model-documentation-2025/
+Support and limits: Laboratory model record; generation/transmission investment and dispatch scope. Continuous aggregated capacities do not alone establish ICO admission.
+
+S03 Integrated wind farm design: turbine placement and cable routing with wake effects
+https://link.springer.com/article/10.1007/s00291-026-00862-1
+Support and limits: Full author article inspected; candidate locations, collection connections, wake interactions and quota-Steiner formulation.
+
+S04 Strong Mixed-Integer Formulations for Transmission Expansion Planning with FACTS Devices
+https://arxiv.org/abs/2310.02347
+Support and limits: Author paper; discrete transmission additions and device options.
+
+S05 A Mixed Integer Conic Model for Distribution Expansion Planning: Matheuristic Approach
+https://research.aalto.fi/en/publications/a-mixed-integer-conic-model-for-distribution-expansion-planning-m/
+Support and limits: Author institutional record; distribution reinforcement with DER and storage alternatives, MICP and matheuristic.
+
+S06 Robust Gas Pipeline Network Expansion Planning to Support Power System Reliability
+https://arxiv.org/abs/2101.10398
+Support and limits: Author paper; pressure-feasible robust expansion and mixed-integer conic relaxation.
+
+S07 Multi-period Stochastic Network Design for Combined Natural Gas and Hydrogen Distribution
+https://arxiv.org/abs/2312.13388
+Support and limits: Author paper inspected; phased construction/conversion and progressive hedging. Its transport abstraction does not certify hydraulic feasibility.
+
+S08 A two-phase nonlinear optimization method for routing and sizing district heating systems
+https://portal.fis.tum.de/en/publications/a-two-phase-nonlinear-optimization-method-for-routing-and-sizing-/
+Support and limits: Author institutional record; topology and sizing via MILP followed by nonlinear evaluation.
+
+S09 Design and connection optimization of a district cooling network
+https://www.sciencedirect.com/science/article/pii/S0306261921012939
+Support and limits: Publisher abstract; mixed-integer network design and heuristic alternative.
+
+S10 Exact Mixed-Integer Convex Programming Formulation for Optimal Water Network Design
+https://arxiv.org/abs/2010.03422
+Support and limits: Author abstract inspected; discrete water-network design with an exact mixed-integer convex formulation for its stated model.
+
+S11 EPANET
+https://www.epa.gov/water-research/epanet
+Support and limits: Official simulator documentation; hydraulic, water-quality and pump/valve network modeling. EPANET is an evaluator, not itself an optimizer.
+
+S12 DER-CAM
+https://gridintegration.lbl.gov/der-cam
+Support and limits: Laboratory model documentation; multi-energy microgrid technology selection, capacity and scheduling by MILP.
+
+S13 A Mixed Integer Linear Programming Approach for Optimal DER Portfolio, Sizing, and Placement in Multi-Energy Microgrids
+https://ets.lbl.gov/publications/a-mixed-integer-linear-programming-ap
+Support and limits: Author laboratory record; technology portfolio and placement on a multi-energy system.
+
+S14 About REopt
+https://www.nlr.gov/reopt/about
+Support and limits: Official platform documentation; installed technology mix and dispatch via MILP. A site-screening template, not detailed gas/thermal-network verification.
+
+S15 Optimal Black Start Allocation for Power System Restoration
+https://optimization-online.org/2018/02/6450/
+Support and limits: Author repository; black-start capability allocation with restoration feasibility.
+
+S16 Optimization-based Framework for Selecting Under-frequency Load Shedding Parameters
+https://arxiv.org/abs/2401.04799
+Support and limits: Author paper; UFLS setpoint/location MILP. Scheme configuration differs from executing a shedding event.
+
+S17 Low voltage user phase reconfiguration as a planning problem
+https://arxiv.org/abs/2507.05910
+Support and limits: Author paper; static phase reassignment using MINLP, MIQP or GA.
+
+S18 Security-constrained generation and transmission outage scheduling with uncertainties
+https://researchwith.stevens.edu/en/publications/security-constrained-generation-and-transmission-outage-schedulin/
+Support and limits: Author institutional record; coordinated outage windows and short-term SCUC.
+
+S19 Sensor-Driven Condition-Based Generator Maintenance Scheduling—Part II
+https://ieeexplore.ieee.org/document/7387798/
+Support and limits: Publisher abstract; two-stage maintenance MIP coupled to unit commitment and dispatch.
+
+S20 RTO Unit Commitment Test System
+https://ferc.gov/power-sales-and-markets/increasing-efficiency-through-improved-software/rto-unit-commitment-test
+Support and limits: Official problem/test-system scope; commitment and dispatch algorithms analogous to wholesale physical operations. No cases selected here.
+
+S21 Is learning for the unit commitment problem a low-hanging fruit?
+https://arxiv.org/abs/2106.11687
+Support and limits: Author abstract inspected; NP-hard UCP and realistic system computation. Supports the general UC complexity label only.
+
+S22 SINTEF SHOP generator documentation
+https://docs.shop.sintef.energy/objects/generator/generator.html
+Support and limits: Official operational-model documentation; turbine commitment, reversible pumping units and reserve constraints.
+
+S23 SINTEF SHOP online optimization
+https://docs.shop.sintef.energy/examples/online_optimization/online_optimization_intro.html
+Support and limits: Official documentation; repeated short-term hydro MIP and online operation. Rerunning a model does not create a separate Problem.
+
+S24 Optimal Technology Selection and Operation of Commercial-Building Microgrids
+https://certs.lbl.gov/publications/optimal-technology-selection-and.html
+Support and limits: Author laboratory record; electrical/thermal storage and CHP/cooling schedules.
+
+S25 Multi Energy Systems
+https://www.zib.de/research/mai/optimization/multi-energy
+Support and limits: Research-owner description; coupled utility carriers create large mixed-integer nonconvex systems.
+
+S26 Mixed Integer Optimization — EPRI DER-VET
+https://storagewiki.epri.com/index.php/DER_VET_User_Guide/Model_Details/Mixed_Integer_Optimization
+Support and limits: Official model documentation; real charging/discharging mode restrictions and minimum generating power. Binary encoding is not itself the industrial construction.
+
+S27 Residential demand response scheduling with consideration of consumer preferences
+https://strathprints.strath.ac.uk/70646/
+Support and limits: Author institutional record; discrete load scheduling with service preferences and mixed-integer optimization.
+
+S28 A comprehensive and modular set of appliance operation MILP models for demand response optimization
+https://www.sciencedirect.com/science/article/pii/S0306261922005189
+Support and limits: UNVERIFIED DISCOVERY LEAD; publisher full-page retrieval failed. A secondary index provided the modular-load description; it is not used as primary evidence for admission or Template claims.
+
+S29 Study of electric vehicle charging scheduling with renewable energy: Offline and stochastic online optimization
+https://www.sciencedirect.com/science/article/pii/S0377221726000378
+Support and limits: Indexed publisher abstract; session queues, charger assignment, power allocation and MILP. Full-page retrieval failed; no code/license/performance claim used.
+
+S30 Combinatorial Switching for Routing Gas Flows
+https://www.zib.de/research/projects/combinatorial-switching-routing-gas-flows
+Support and limits: Research-owner description; discrete gas-network control and transient MIP/MINLP reoptimization.
+
+S31 GasLib documentation
+https://gaslib.zib.de/documentation.html
+Support and limits: Official schemas inspected; compressor configurations and exactly-one combined-control groups; stationary nominations. Not a transient-control dataset.
+
+S32 Polyhedral Relaxations for Optimal Pump Scheduling of Potable Water Distribution Networks
+https://arxiv.org/abs/2208.03551
+Support and limits: Author paper; pump scheduling MINLP and strengthening methods.
+
+S33 Optimal Scheduling of Variable Speed Pumps Using MILP
+https://arxiv.org/abs/2309.04715
+Support and limits: Author paper; pump-status/speed scheduling with piecewise approximations and nonlinear simulation.
+
+S34 Tight Big-Ms for Optimal Transmission Switching
+https://arxiv.org/abs/2306.02784
+Support and limits: Author abstract inspected; line topology MILP and bounding strategies.
+
+S35 Learning-Assisted Optimization for Transmission Switching
+https://arxiv.org/abs/2304.07269
+Support and limits: Author paper; general DC-OTS NP-hardness and learned candidate assistance without universal optimality guarantees.
+
+S36 Directed graph-based distribution network reconfiguration for operation adjustment and restoration
+https://doi.org/10.1007/s40565-016-0198-3
+Support and limits: Author article; separate normal topology adjustment and outage service restoration formulations.
+
+S37 Volt/var optimization of unbalanced distribution feeders via MILP
+https://www.sciencedirect.com/science/article/abs/pii/S0142061515000927
+Support and limits: Publisher abstract; discrete taps and capacitors coordinated with unbalanced feeder operation.
+
+S38 Volt/VAR Optimization in Transmission Networks with Discrete-Control Devices
+https://arxiv.org/abs/2601.22080
+Support and limits: Author paper; discrete tap/shunt settings with AC feasibility.
+
+S39 ARPA-E Grid Optimization Competition Challenge 2
+https://catalog.data.gov/dataset/arpa-e-grid-optimization-go-competition-challenge-2
+Support and limits: Official dataset/formulation record inspected; discrete controls, fast-start commitment and security-constrained physical operation. Evidence of template existence, not a selected canonical case.
+
+S40 Remedial Actions for Security Constraint Management of Overstressed Power Systems
+https://www.research.ed.ac.uk/en/publications/remedial-actions-for-security-constraint-management-of-overstress/
+Support and limits: Author institutional record; corrective physical actions for overstressed networks.
+
+S41 Optimal Rotational Load Shedding via Bilinear Integer Programming
+https://arxiv.org/abs/1810.08894
+Support and limits: Author paper; scheduled zone interruptions with numbers/durations of outages.
+
+S42 AC-aware Optimization Framework for Under-Frequency Load Shedding
+https://arxiv.org/abs/2501.03020
+Support and limits: Author paper; shedding choices constrained by AC-aware frequency response.
+
+S43 Strong Mixed-Integer Formulations for Power System Islanding and Restoration
+https://optimization-online.org/2018/11/6912/
+Support and limits: Author repository inspected; intentional islanding and energized-generator component requirements; flow/cut formulations.
+
+S44 Service Restoration Model With MISOCP for Distribution Network With DG
+https://ieeexplore.ieee.org/document/8395395/
+Support and limits: Publisher abstract; restoration chooses served loads and switching actions under distribution feasibility.
+
+S45 Power System Recovery Coordinated with (Non-)Black-Start Generators
+https://arxiv.org/abs/2302.12368
+Support and limits: Author paper; coordinated startup and restoration sequence.
+
+S46 A Model Predictive Control Based Generator Start-Up Optimization Strategy for Restoration With Microgrids as Black-Start Resources
+https://www.ornl.gov/publication/model-predictive-control-based-generator-start-optimization-strategy-restoration
+Support and limits: Author laboratory record; look-ahead bulk restoration using microgrid black-start capability.
+
+S47 Real-time operational response methodology for reducing failure impacts in water distribution systems
+https://research.tudelft.nl/en/publications/real-time-operational-response-methodology-for-reducing-failure-i/
+Support and limits: Author institutional record; valve/bypass/pressure interventions evaluated by hydraulic solver.
+
+S48 Automatic network response methodology for bursts or failure recovery in drinking water networks
+https://www.iri.upc.edu/files/scidoc/2641-Automatic-network-response-methodology-for-bursts-or-failure-recovery-in-drinking-water-networks.pdf
+Support and limits: Author institutional manuscript; isolation/response and intervention choices, distinct from repair-crew scheduling.
+
+S49 Optimization of reload core designs for pressurized water reactors
+https://impact.ornl.gov/en/publications/optimization-of-reload-core-designs-for-pressurized-water-reactor/
+Support and limits: Author laboratory record inspected; assembly/poison loading patterns, FORMOSA-P and simulated annealing.
+
+S50 Assessment of Reinforcement Learning Algorithms for Nuclear Power Plant Fuel Optimization
+https://arxiv.org/abs/2305.05812
+Support and limits: Author paper; large combinatorial loading-pattern search. Emerging RL does not displace established physics-evaluated search by assertion.
+
+S51 Grid-aware aggregation and realtime disaggregation of DER in radial networks
+https://arxiv.org/abs/1907.06709
+Support and limits: Author abstract inspected; convex nodal limits and dispatch. Evidence against calling every VPP disaggregation task combinatorial.
+
+S52 SWMM
+https://www.epa.gov/water-research/storm-water-management-model-swmm
+Support and limits: Official simulator; installed drainage/sewer pump and gate rules. Simulation alone does not establish an optimizing template.
+
+S53 Relax-Tighten-Round Algorithm for Optimal Placement and Control of Valves and Chlorine Boosters in Water Networks
+https://arxiv.org/abs/2007.15532
+Support and limits: Author paper; placement/control MINLP. Discrete device placement belongs to water-network design; continuous quality settings alone are not ICO.
+
+S54 Optimal Power Flow and Formulation Papers
+https://www.ferc.gov/industries-data/electric/power-sales-and-markets/increasing-efficiency-through-improved-software-0
+Support and limits: Official technical papers; separates AC power-flow operation from binary commitment and switching.
+
