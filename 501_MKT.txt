@@ -164,14 +164,14 @@ COMMENTS Grid-feasible power commitment and dispatch belong to ENER; settlement 
 
 MKT15 Marketplace Counterparty and Contract Matching.
 DESCRIPTION Assigns market participants to eligible counterparties or contracts under capacities, preferences and market stability rules when required..
-TEMPLATE Two-sided matching and market assignment | Weighted matching or min-cost flow for additive allocations; deferred acceptance for substitutable preferences; IP for constrained variants.
+TEMPLATE Two-sided matching and market assignment | Weighted matching or min-cost flow for additive allocations; deferred acceptance for tractable substitutable choices; IP for constrained variants.
 REGIME #allocate | Commits counterparties and market contracts.
 STRUCTURE #map | Assigns participants to counterparties or supplied contract opportunities.
 PRIORITY High | Matching recurs in service, trading and platform markets.
 RELEVANCE High | Better matches improve market participation and realized exchange value.
-HARDNESS Medium | Polynomial for classical assignment and stable-matching restrictions; Complex quotas and non-substitutable preferences require richer models and can prevent stable solutions.
+HARDNESS Medium | Polynomial for classical assignment and responsive-preference stable matching; Complex quotas and non-substitutable preferences require richer models and can prevent stable solutions.
 DEPENDENCIES MKT02 → MKT15 → ∅.
-COMMENTS Workforce placement belongs to HR and clinical allocation to HC when those conditions define the decision. | #EXCH #MKT #allocate #map ##MARKETPLACE ##matching ##stability.
+COMMENTS Stable outcomes need suitable preference conditions. Workforce placement belongs to HR and clinical allocation to HC when those conditions define the decision. | #EXCH #MKT #allocate #map ##MARKETPLACE ##matching ##stability.
 
 MKT16 Dynamic Offer and Commercial Request Acceptance.
 DESCRIPTION Selects offers to make available and accepts or rejects arriving commercial requests under remaining capacity, eligibility and revenue-control policies..
