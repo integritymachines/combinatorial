@@ -36,7 +36,7 @@ PRIORITY Medium | Clinical layout optimization serves specific care spaces and m
 RELEVANCE High | Layout affects access to equipment during patient care.
 HARDNESS Medium | Discrete layout assignment with geometric constraints; Detailed clinical access rules and physical dimensions require careful model validation.
 DEPENDENCIES HC02 → HC03 → ∅.
-COMMENTS The cited model concerns an intensive-care vehicle interior, not an entire hospital layout. | #HUMAN #HC #design #place ##EMERGENCYMEDICINE ##layout ##ergonomics.
+COMMENTS Includes mobile intensive-care workspaces where clinical access defines the layout. | #HUMAN #HC #design #place ##EMERGENCYMEDICINE ##layout ##ergonomics.
 
 HC04 EMS Station and Fleet Deployment Design.
 DESCRIPTION Selects emergency medical service bases and assigns ambulance types and numbers to them under demand coverage and response requirements.
@@ -58,7 +58,7 @@ PRIORITY High | Hospitals and ambulatory services repeatedly plan capacity by se
 RELEVANCE High | Balanced capacity reduces access delays and downstream bottlenecks.
 HARDNESS High | Multi-period integer resource allocation; Uncertain patient flows couple many resource types and periods.
 DEPENDENCIES HC02 → HC05 → HC06, HC07, HC13, HC14, HC18, HC19, HC20.
-COMMENTS Generic staff-to-shift rostering is HR; this contract allocates clinical service capacity. | #HUMAN #HC #plan #map #place ##HOSPITALS ##patient-mix ##care-pathway ##tactical.
+COMMENTS Generic staff-to-shift rostering is HR; this contract allocates clinical service capacity. | #HUMAN #HC #plan #map #place ##HOSPITALS ##patient-mix ##care-pathway #tactical.
 
 HC06 Master Surgical Block Allocation.
 DESCRIPTION Assigns surgical specialties or teams to recurring operating-room blocks under workload, availability and recovery-capacity limits.
@@ -146,7 +146,7 @@ PRIORITY High | Elective admissions affect access and inpatient workload.
 RELEVANCE High | Feasible admission dates reduce postponements and congestion.
 HARDNESS High | Contains knapsack-type patient-selection variants; Uncertain stays and downstream resource demand couple admission dates.
 DEPENDENCIES HC02, HC05 → HC13 → HC14, HC24.
-COMMENTS The historical PAS label often denotes bed assignment; that meaning belongs to patient-room allocation. | #HUMAN #HC #plan #place #select ##HOSPITALS ##admission-control ##occupancy ##rolling.
+COMMENTS The historical PAS label often denotes bed assignment; that meaning belongs to patient-room allocation. | #HUMAN #HC #plan #place #select ##HOSPITALS ##admission-control ##occupancy #rolling.
 
 HC14 Hospital-Wide Care Pathway Coordination.
 DESCRIPTION Schedules patient care activities and ward stays across departments under clinical precedence, transfer, resource and discharge-readiness requirements.
@@ -179,7 +179,7 @@ PRIORITY Critical | Appointment access is a core primary and ambulatory care dec
 RELEVANCE High | Booking affects timely access, waiting and resource use.
 HARDNESS Medium | Basic slot assignment is polynomial; coupled bookings add integer constraints; No-shows, urgency and online arrivals complicate booking policy.
 DEPENDENCIES HC07, HC09, HC10 → HC16 → HC17, HC18, HC19, HC20, HC26.
-COMMENTS Constructing the underlying recurring slot pattern is a separate blueprint decision. | #HUMAN #HC #allocate #dispatch #map #select ##OUTPATIENT ##online ##appointment-booking ##no-show.
+COMMENTS Constructing the underlying recurring slot pattern is a separate blueprint decision. | #HUMAN #HC #allocate #dispatch #map #select ##OUTPATIENT #online ##appointment-booking ##no-show.
 
 HC17 Clinical Diagnostic Resource Scheduling.
 DESCRIPTION Schedules patient diagnostic activities on eligible equipment and clinical resources under urgency, preparation and result-timing requirements.
@@ -245,7 +245,7 @@ PRIORITY High | Emergency departments continuously coordinate unscheduled patien
 RELEVANCE Critical | Delays can affect time-critical treatment and care access.
 HARDNESS High | Contains multi-resource scheduling variants; Uncertain arrivals and care durations restrict response time for decisions.
 DEPENDENCIES ∅ → HC22 → ∅.
-COMMENTS Triage categories are clinical inputs; this problem schedules permitted care actions. | #HUMAN #HC #dispatch #operate #place #map ##EMERGENCYMEDICINE ##triage ##online ##multi-resource.
+COMMENTS Triage categories are clinical inputs; this problem schedules permitted care actions. | #HUMAN #HC #dispatch #operate #place #map ##EMERGENCYMEDICINE ##triage #online ##multi-resource.
 
 HC23 Critical-Care Admission and Scarce Treatment Allocation.
 DESCRIPTION Selects patients for available intensive or intermediate care and assigns care capacity under clinical eligibility, risk priority and occupancy limits.
@@ -311,7 +311,7 @@ PRIORITY High | EMS operators make patient-response assignments continuously.
 RELEVANCE Critical | Correct capability and timely destination access affect urgent care.
 HARDNESS High | Sequential stochastic assignment and destination decisions; Live availability, severity uncertainty and hospital congestion limit simple nearest-vehicle rules.
 DEPENDENCIES HC04, HC23, HC24 → HC28 → HC29.
-COMMENTS Generic shortest-path execution is LOG; clinical response capability defines this contract. | #HUMAN #HC #dispatch #map ##EMS ##online ##severity ##destination-assignment.
+COMMENTS Generic shortest-path execution is LOG; clinical response capability defines this contract. | #HUMAN #HC #dispatch #map ##EMS #online ##severity ##destination-assignment.
 
 HC29 Ambulance Standby Relocation.
 DESCRIPTION Reassigns available ambulances to standby locations under live demand, medical coverage and relocation limits.
@@ -322,7 +322,7 @@ PRIORITY High | EMS fleets rebalance coverage after calls and releases.
 RELEVANCE High | Relocation can improve readiness for future medical demand.
 HARDNESS High | Dynamic stochastic coverage assignment; Future calls and relocation costs make myopic coverage incomplete.
 DEPENDENCIES HC04, HC28 → HC29 → ∅.
-COMMENTS Response-time evidence does not by itself establish improved patient outcomes. | #HUMAN #HC #dispatch #map ##EMS ##coverage ##rolling ##relocation.
+COMMENTS Response-time evidence does not by itself establish improved patient outcomes. | #HUMAN #HC #dispatch #map ##EMS ##coverage #rolling ##relocation.
 
 HC30 Mass-Casualty Medical Treatment and Evacuation Coordination.
 DESCRIPTION Assigns casualties to medical facilities and schedules evacuation and treatment under severity, survival, transport and clinical-capacity limits.
@@ -344,4 +344,4 @@ PRIORITY High | Operating-room schedules routinely face intraday disruption.
 RELEVANCE High | Repair reduces cancellations, delay and overtime.
 HARDNESS High | Strongly NP-hard in the cited multiple-room rescheduling model; Frozen work, arrival uncertainty and limited decision time constrain repair.
 DEPENDENCIES HC15 → HC31 → ∅.
-COMMENTS Some established repair models keep elective room assignments fixed. | #HUMAN #HC #adapt #dispatch #place #map ##PERIOPERATIVE ##rescheduling ##frozen-commitments ##rolling.
+COMMENTS Some established repair models keep elective room assignments fixed. | #HUMAN #HC #adapt #dispatch #place #map ##PERIOPERATIVE ##rescheduling ##frozen-commitments #rolling.
