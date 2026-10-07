@@ -1,0 +1,436 @@
+MKT Market and Commercial Allocation — Problem Research
+v0.1 | Problem layer | 2026-10-07
+Normative: 000_DOMAIN.txt v0.4; background/000_DOMAIN_research.txt.
+Workflow: workflow/0_workflow.txt and workflow/1_research.txt–4_foreground.txt.
+Requested artifact labels remain v0.1. Role findings and corrections belong to commit history. No Cases are researched or numbered.
+
+TERRITORY AND ADMISSION
+
+MKT owns decisions that construct commercial offers, choose bids or commercial opportunities, allocate traded rights, match counterparties, or determine commercial exposure. The exchange contract determines ownership. Monetary value is often an objective in other Domains and does not make their physical or human decisions MKT. Commercial optimization is not identical to all marketing analytics. Forecasts, elasticities, propensity models, valuations and bidding recommendations can supply inputs without creating a discrete decision.
+
+Principal operating systems:
+- Retail and e-commerce: ranges, bundles, price ladders, physical merchandising, promotion calendars, terminal clearance, targeting and ordered digital displays.
+- Airline, hospitality, rental and reservation services: product/fare definitions, commercial capacity protection, oversale permissions and dynamic offer/acceptance.
+- Advertising publishers: guaranteed inventory reservation, spot market allocation, break/airtime placement and delivery repair.
+- Advertisers and agencies: media purchases, targeted campaign offers and budget-limited auction participation.
+- Procurement, rights and service markets: bidder packages, package winner selection and contractual counterparty matching.
+- Telecommunications, cloud services and spectrum: offer menus and capacity-right awards; installed resource operation remains elsewhere.
+- Commercial real estate: offers and lease terms. Physical tenant-to-space allocation remains LAND.
+- Multi-party collaborative systems: coalition candidates examined separately; physical collaboration evidence does not prove a stand-alone generic MKT Problem.
+
+The candidate set must produce an industrially real subset, assignment, relation or placement. Numeric discretization solely for algorithm convenience does not change ownership or establish a stand-alone ICO contract. Continuous quantities and prices can accompany discrete menus, acceptance decisions or integer booking limits. Templates establish defensible architecture rather than a universal solver ranking. Source claims below are summarized narrowly; ontology, graph and rating conclusions are analytical inferences unless explicitly described as a source result.
+
+OWNERSHIP AND INTERFACES
+
+MKT / SCM: assortment and customer offers differ from stocking, replenishment and supplier supply-position choice. Auction-mechanism award is MKT; a sourcing model with quoted prices as input is SCM. A price-dependent replenishment model is owned by its dominant supply commitment, not its objective.
+MKT / LOG: selling seats, service rights or delivery windows is MKT. Flights, vehicle assignments, routes and delivery execution are LOG. Bid cost envelopes may be computed by LOG without moving package submission there.
+MKT / ENER: mechanism-based bid acceptance or tradable capacity-right allocation is MKT. Physical unit commitment, balance and grid-feasible clearing remain ENER, even when organized as an auction. Integrated contracts follow the dominant feasibility decision.
+MKT / FIN: price offers, bidding and counterparty market allocation are MKT. Portfolio positions, risk exposure, financing, settlement and reconciliation are FIN. Generic order-book processing is not automatically a discrete MKT Problem.
+MKT / COMP: commercial impressions and ranking opportunities are MKT. Compute, memory, network traffic, digital storage and operational spectrum/channel assignment are COMP. Prediction and search infrastructure may supply ranking values.
+MKT / HR and HC: labor-market terms and general counterparty preferences can be commercial. Workforce assignments, skills/rostering or patient-defined allocation are owned by HR or HC. Medical matching publications are method evidence, not MKT case evidence.
+MKT / LAND: physical tenant layout, parcel use and geographically constitutive territories belong to LAND. Commercial offer selection or pricing with physical feasibility supplied can be MKT.
+MKT / PROC and PROD: supplied cost/feasibility envelopes constrain offers. Joint production schedules, process recipes and physical product configurations remain in their physical Domain.
+
+RESEARCH METHOD AND COVERAGE
+
+Discovery used the foundational MKT seeds, then searched separately for retail, revenue management, publisher/advertiser operations, procurement/rights, two-sided markets, finite pricing, physical merchandising, live control and repair. Search families included winner determination and generalized auctions; mixed-logit assortment; bundles; discrete price ladders; shelf allocation; promotions and markdowns; targeted offers; reach/frequency media buying; network booking control; no-shows; guaranteed/spot reservations; bid generation; stable matching; position effects; online matching and budget throttling; TV scheduling; sales territories; commercial coalition formation.
+
+Source access was mixed: full text, author/institutional abstracts, publisher abstracts and primary-source indexed excerpts. Direct publisher opens that failed are identified in the register. Those sources support only the facts stated in their available abstracts; full experimental details, software access and benchmark reproducibility remain unverified. This is Problem-level research. No measured SOTA ranking, performance baseline or benchmark completeness is asserted.
+
+Two follow-up discovery sweeps focused on omitted actors and decisions. The bidder-side participation contract added THROTTLE beyond publisher SERVE; bidder package construction remains distinct from market CLEAR. Buyer media commitments and seller airtime placements differ. General mechanism design and coalition generation require caution: not every economic model creates a supported industrial ICO Problem. Later searches mainly produced alternative formulations, narrow variants, integrated neighboring-domain contracts or candidates listed below. This is a broad v0.1 discovery result, not proof that future industrial evidence cannot add a material family.
+
+CANDIDATE DOSSIERS
+
+Symbolic keys below are research identifiers, not permanent Problem IDs. They are listed for discovery organization. Compilation must derive its own sequence after graph control.
+
+ASSORT — Retail Assortment Selection
+Decision contract: Selects products to offer by store or channel under category, range-size and supplied availability limits while accounting for substitution..
+Identity and evidence: Alias: assortment optimization, product-range optimization. Variants: store clusters, channel-specific ranges, cardinality, budgets, substitution, robust demand. Do not split each choice model into a Problem. Inputs: candidate products, margins, availability envelopes and estimated preferences. Delivered artifact: range membership, not replenishment quantities. Joint position or price models couple to DISPLAY or PRICE without erasing standalone range selection. Priority reflects defining retail role; value reflects multi-product margin. S03 establishes constrained formulations and model-dependent computational difficulty; unconstrained single-segment MNL must not inherit the general difficulty. No claim that a conic architecture universally dominates.
+Candidate ontology: Primary Domain MKT. Regime #plan | Commits the commercial range before display, campaigns and live offers. Structure #select | Chooses the product subset offered in each commercial context.
+Template evidence: IE / OR Category and range planning | Choice-based MILP or mixed-integer conic optimization; specialized algorithms for tractable choice models. Sources S03. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority Critical | Product-range selection defines major retail and digital-commerce systems; Relevance Critical | The offered range affects sales, margin and customer substitution across large portfolios; industrial Hardness High | NP-hard for general constrained mixed-logit variants; Choice heterogeneity and category restrictions couple product selections.
+Useful refinements: ##RETAIL ##assortment ##choice-model. Stock deployment and replenishment belong to SCM.
+
+BUNDLE — Commercial Bundle and Offer-Menu Design
+Decision contract: Selects product combinations and offer alternatives, with coupled prices when required, under compatibility, menu-size and customer-choice conditions..
+Identity and evidence: Aliases: mixed bundling, package design, subscription menu design. Distinguish commercial packages from manufacturing bills of material. Supplied compatibility does not imply LINK: the solver groups product components into offers. Prices may be continuous without eliminating the discrete bundle/menu decision. Fixed-bundle price optimization is PRICE only if it retains a discrete price choice; pure continuous pricing is outside ICO scope. IE evidence concerns reservation-value and choice modeling; MILP and MINLP depend on the demand representation. Published demonstrations establish Template existence, not the best implementation in all industries. Ratings are scope-based inference.
+Candidate ontology: Primary Domain MKT. Regime #design | Defines commercial offer composition before prices and offer allocation are committed. Structure #select + #map | Chooses the offer menu and assigns components to its bundles.
+Template evidence: IE / OR Product bundling and commercial menu design | Disjunctive MILP or choice-based MINLP; restricted-menu enumeration. Sources S04, S05. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Bundle and menu design recurs in subscriptions, travel and multi-product commerce; Relevance High | Offer composition changes customer choice and realized margin; industrial Hardness High | Combinatorial menu design; Candidate bundles grow exponentially and customer-choice conditions couple composition and prices.
+Useful refinements: ##RETAIL ##TELECOM ##bundling ##menu-design. Physical product design and assembly remain in PROC or PROD.
+
+PRICE — Discrete Commercial Price Assignment
+Decision contract: Assigns products or supplied offers to permitted price points under price relationships, margin limits and demand interactions..
+Identity and evidence: Aliases: regular-price optimization, finite-menu pricing. Scope requires genuine commercial price points, not an arbitrary numerical discretization inserted to obtain integer variables. Inputs: price ladders, demand response, competitor/reference data and supplied supply bounds. Constructed artifact: product-to-price assignment. Promotion calendars and terminal monotone markdown trajectories remain distinct temporal decisions. S06 explicitly identifies discrete-ladder MILP practice while studying a continuous method itself; its active-signature algorithm is therefore not transferred into this Template. Complexity language stays at finite coupled assignment because no generic theorem is needed for admission. Ratings and model architecture are supported by the discrete treatment and portfolio coupling, with no continuous-to-discrete SOTA claim.
+Candidate ontology: Primary Domain MKT. Regime #plan | Commits posted commercial prices before customers receive offers. Structure #map | Assigns each product or supplied offer to a permitted price point.
+Template evidence: IE / OR Price-ladder and category-price planning | Finite-price MILP or nonlinear discrete optimization with demand-model evaluation. Sources S06. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority Critical | Price assignment is central to commercial offer systems with discrete ladders; Relevance Critical | Coordinated prices affect enterprise revenue and margin; industrial Hardness High | Finite coupled price assignment; Cross-price effects and price relationships complicate large product portfolios.
+Useful refinements: ##RETAIL ##price-ladder ##cross-price. Continuous price optimization alone does not enter this discrete scope.
+
+SHELF — Retail Planogram and Display-Space Allocation
+Decision contract: Places product facings on retail shelves under product dimensions, display capacities, family adjacency and merchandising rules..
+Identity and evidence: Aliases: shelf-space allocation, facing optimization. Variants: two-dimensional layout, shelf heights, orientation, category blocks, stacking and cross-space elasticity. This is commercial merchandising, not geographic parcel allocation or warehouse handling. Fixed shop fixtures are supplied; optional shelf-segment design stays in the integrated planogram variant. Substrate: fixed shelf coordinates, candidate facings and merchandising relations. Decision constructs placements and segment assignments; supplied adjacency requirements do not justify a LINK tag. Evidence establishes integer nonlinear and MIP models, with CP hybrids as a material alternative. Forecasting display-response inputs is not a standalone combinatorial Problem. Practical hardness comes from physical and commercial rules together.
+Candidate ontology: Primary Domain MKT. Regime #plan | Commits the merchandising layout before shelf execution. Structure #place + #map | Positions product facings in shelf space and assigns products to display segments.
+Template evidence: IE / OR Planogram and facing allocation | Shelf-space MIP or MINLP; constraint programming and hybrid decomposition. Sources S07, S08. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Shelf allocation recurs throughout physical retail merchandising; Relevance High | Layout affects visibility, sales and use of scarce display space; industrial Hardness High | NP-hard for knapsack-based shelf-allocation variants; Dimensions, adjacency and demand effects couple many placements.
+Useful refinements: ##RETAIL ##planogram ##adjacency ##packing. Warehouse storage slotting belongs to LOG; replenishment belongs to SCM.
+
+PROMO — Promotion Calendar and Mechanic Scheduling
+Decision contract: Selects promotional products, price levels and promotion mechanisms and places them in periods under budgets, spacing and demand carryover..
+Identity and evidence: Aliases: promotion optimization, promotional price scheduling. Variants: feature/display mechanism, repeated campaigns, minimum gaps, post-promotion dip and supplier funds. Price is tied to an event calendar; this differs from baseline PRICE. Offered products and permissible price mechanics are supplied or established upstream. Deliverable: dated promotional commitments, not inferred demand. Structural law: temporal spacing and allowed event windows; no LINK merely because carryover couples periods. S09 supports business-rule IP and general NP-hardness but also an integral LP-solvable approximation. IE practice and OR approximation must remain distinguishable. Value and centrality are planning-scope judgments; no quantitative improvement copied into the canonical rating.
+Candidate ontology: Primary Domain MKT. Regime #plan | Commits future promotional actions and their timing. Structure #place + #select + #map | Places selected promotions in time and assigns permitted promotion options.
+Template evidence: IE / OR Category promotion-calendar planning | Time-indexed IP or MILP; nonlinear demand evaluation and tractable approximations. Sources S09. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Promotional calendars recur in major retail and commercial campaign systems; Relevance High | Timing and promotion interactions affect margin and supplier-funded campaign value; industrial Hardness High | NP-hard for the general promotion model; Carryover, spacing and interacting campaigns increase planning difficulty.
+Useful refinements: ##RETAIL ##promotion ##carryover ##schedule. Some single-item IP approximations have integral relaxations and admit LP solution.
+
+MARKDOWN — Clearance Markdown Scheduling
+Decision contract: Assigns residual products to permitted markdown prices over a clearance horizon under stock limits, price monotonicity and exit requirements..
+Identity and evidence: Aliases: clearance pricing, liquidation pricing, markdown optimization. Admit only when price levels or dated markdown events are material discrete choices. Variants: country/group pricing, monotone ladders, perishability, salvage/terminal rules. SCM supplies stock and replenishment consequences; MKT controls sale offers. Forecasts feed price optimization and are not the solution artifact. Template alternatives depend on whether item-independent DP or coupled price/group integer models fit. Historical operational evidence at Zara supports industrial relevance; its reported deployment at publication is not asserted to be current in 2026. No claim that historical 6% improvement generalizes. Residual-stock feedback makes ADAPT a secondary commitment stage without a separate repair Problem.
+Candidate ontology: Primary Domain MKT. Regime #plan + #adapt | Commits clearance prices and revises them as residual stock changes. Structure #map + #place | Assigns price levels and places markdown actions in the clearance horizon.
+Template evidence: IE / OR Clearance and sell-through planning | Discrete-price dynamic programming or multiperiod MILP with demand forecasts. Sources S10. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Clearance decisions recur in seasonal and perishable retail; Relevance High | Better markdowns recover value from residual inventory; industrial Hardness High | Finite-state price and stock control; Many products, demand uncertainty and coordinated price rules enlarge the state or integer model.
+Useful refinements: ##RETAIL ##markdown ##clearance ##inventory-coupling. Terminal clearance is distinct from recurring promotional demand stimulation.
+
+TARGET — Targeted Commercial Offer Allocation
+Decision contract: Assigns customers to eligible product offers, discounts or no offer under campaign budgets, contact limits and response-value estimates..
+Identity and evidence: Aliases: coupon allocation, next-best-offer assignment, direct-marketing contact selection. The canonical object is a constrained campaign assignment rather than a prediction score. Variants: multi-product offers, frequency caps, minimum campaign volume, segment quotas and renewal/retention incentives. Bundle definitions and posted price levels are supplied; TARGET selects recipients and offered alternatives. Supplied eligibility does not imply LINK. A pure one-off best-score lookup without binding shared constraints is deterministic administration. Source retrieval is limited to the indexed publisher abstract; it establishes IP offer-client selection. Knapsack claim is a direct restriction of the stated generic scope: one offer per customer, arbitrary cost/value and one total budget. Rating is inference from portfolio size and side constraints, not proof of universally difficult instances.
+Candidate ontology: Primary Domain MKT. Regime #allocate | Assigns campaign opportunities and benefits to customers. Structure #map + #select | Maps customers to offers and selects which customers receive a contact.
+Template evidence: IE / OR Direct-marketing and personalized-offer allocation | Customer-offer IP or MILP; exact and heuristic allocation methods. Sources S11. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Targeted offer allocation recurs in retail, subscriptions and direct marketing; Relevance High | Allocation affects incremental return and use of limited campaign budgets; industrial Hardness High | NP-hard for budgeted indivisible-offer variants through knapsack; Large customer sets and contact restrictions complicate allocation.
+Useful refinements: ##RETAIL ##TELECOM ##targeting ##customer-offer. Response prediction supplies values; it does not itself allocate offers.
+
+MEDIA — Advertising Media Purchase Planning
+Decision contract: Selects advertising placements or packages and allocates them across periods under spend limits, audience reach, frequency and brand restrictions..
+Identity and evidence: Aliases: media planning, campaign placement buying. Scope includes finite media packages and slot choices; continuous unconstrained spend-response optimization alone is excluded. Inputs: candidate media opportunities, audience estimates, costs and campaign goals. Artifact: purchased placements and period commitments. TV break purchase and detailed publisher pod positions differ by decision owner and committed artifact even when both use time. S12 provides advertiser-side multiobjective IP with budget/competition rules; channel-general scope is an inference for the same finite opportunity contract, not evidence that all channels share one best solver. DP or greedy reach approximations can be baselines only after case-specific validation. No audience measurement or media bidding model is silently included.
+Candidate ontology: Primary Domain MKT. Regime #plan | Commits an advertiser's media purchases before campaigns are served. Structure #select + #place | Chooses media opportunities and places purchased advertisements in campaign periods.
+Template evidence: IE / OR Media mix, reach and frequency planning | Binary or integer media-selection models; multiobjective or stochastic programming. Sources S12. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Media purchase planning recurs across major advertising channels; Relevance High | Decisions determine campaign coverage and allocation of advertising spend; industrial Hardness High | NP-hard for budgeted indivisible-placement selection through knapsack; Overlapping audiences and brand constraints couple purchases.
+Useful refinements: ##ADVERTISING ##media-planning ##reach ##frequency. Advertiser-side buying differs from publisher-side reservation and detailed commercial scheduling.
+
+CAPACITY — Revenue Capacity and Booking-Limit Planning
+Decision contract: Allocates integer sales capacity across products or fare classes and sets booking limits under shared-resource consumption and forecast demand..
+Identity and evidence: Aliases: yield management, fare-class capacity allocation, booking-limit planning. Distinguish integer class protection decisions from live OFFER requests. Physical capacity and network incidence are supplied by LOG/ENER/COMP/SCM owners; supplied product-resource links are not constructed LINK. Variants: multi-leg itineraries, room-night stays, rental capacity and virtual nesting. IE practice includes protection levels and bid-price controls; OR uses fluid/choice LP to inform discrete policies, with DP/ADP alternatives. Neither continuous LP allocation nor a price threshold by itself demonstrates a combinatorial output. Candidate retained only for actual integer allowances/capacity assignments. Choice offers and overbooking can be integrated; distinct policy outputs justify separate standalone scopes. Formal language reflects DP dimensionality rather than claiming universal NP-hardness.
+Candidate ontology: Primary Domain MKT. Regime #plan | Commits commercial protection and booking limits before requests arrive. Structure #map | Assigns sellable capacity units or integer booking allowances to commercial classes.
+Template evidence: IE / OR Revenue protection levels, virtual nesting and bid-price planning | Network revenue LP or choice-based LP with discrete policy extraction; dynamic programming approximations. Sources S13, S14. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority Critical | Capacity protection defines airline, hospitality and other scarce-service revenue systems; Relevance Critical | Allocation governs revenue from perishable service capacity; industrial Hardness High | Network capacity-control dynamic program; Large state spaces and choice substitution require approximations at industrial scale.
+Useful refinements: ##AIRLINE ##HOSPITALITY ##revenue-management ##booking-limits. LP shadow prices are policy inputs; a purely continuous LP allocation is outside the discrete contract.
+
+OVERBOOK — Overbooking Limit Planning
+Decision contract: Sets integer reservation limits above physical capacity under product-specific cancellations, no-shows and denied-service costs..
+Identity and evidence: Aliases: oversale control, overbooking optimization. Distinct decision: authorized reservation exposure, not which travelers to displace physically at service time. Supplied inputs include show probabilities, capacity, compensation rules and offered products. Continuous randomized LP supplies bounds and bid-price guidance; the admitted artifact remains integer booking allowances or discrete reservation control. Variants: class-dependent cancellations, network sharing, group bookings and service-risk limits. Source supports joint capacity/oversale methods and state growth from differentiated probabilities. No complexity class inferred solely from LP approximations. Capacity policy and oversale limits jointly constrain live admission; do not impose arbitrary precedence between co-designed policies.
+Candidate ontology: Primary Domain MKT. Regime #plan | Commits authorized oversale limits before reservations are accepted. Structure #map | Assigns integer reservation allowances to products and capacity classes.
+Template evidence: IE / OR Overbooking and denied-service risk planning | Stochastic dynamic programming or randomized network LP with integer-limit extraction and simulation. Sources S15. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Overbooking recurs in travel and reservation-based service markets; Relevance High | Limits balance unused capacity against denied-service losses; industrial Hardness High | Stochastic finite-state reservation control; Product-specific show rates and shared capacities enlarge policy calculations.
+Useful refinements: ##AIRLINE ##HOSPITALITY ##overbooking ##no-shows. Clinical appointment overbooking belongs to HC when patient conditions define service feasibility.
+
+RESERVE — Guaranteed Advertising Inventory Reservation
+Decision contract: Assigns forecast impression blocks or advertising slots to guaranteed campaigns and spot-sale channels under eligibility, delivery and inventory limits..
+Identity and evidence: Aliases: guaranteed ad allocation, inventory reservation, campaign booking allocation. Distinguish fixed-contract reservation from new-contract OFFER acceptance and live SERVE. Sources establish stochastic slot/channel assignment and a priority-assignment practice baseline; a guaranteed-delivery LP or QP is not silently relabeled as an ICO Problem. Admission requires indivisible inventory blocks, slots, patterns or other actual discrete commitment. Optional reach-pattern models choose patterns rather than infer LINK from user sequences. Formal NP-hardness is a direct generalized-assignment restriction only when slots/blocks have differing campaign consumption and benefits; unconstrained eligible unit slots reduce to flow/matching. Detailed MEDIA is buyer-side purchase; AIRTIME is the seller's later pod schedule. Industrial rating is scope inference.
+Candidate ontology: Primary Domain MKT. Regime #plan | Reserves commercial inventory for campaign delivery before impressions or slots are served. Structure #map | Assigns discrete inventory blocks or slots to campaigns and sales channels.
+Template evidence: IE / OR Guaranteed-versus-spot inventory reservation | Integer allocation or two-stage stochastic programming; priority-assignment baseline and reach-pattern models. Sources S16. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Reservation is central to publishers that combine guaranteed and spot sales; Relevance High | Reservations affect contractual delivery and inventory yield; industrial Hardness High | NP-hard for indivisible generalized-assignment variants; Uncertain inventory and eligibility couple reservations.
+Useful refinements: ##ADVERTISING ##reservation ##guaranteed-delivery ##stochastic. Aggregate fractional impression-flow planning alone does not establish this discrete scope.
+
+BID — Combinatorial Bid Construction
+Decision contract: Selects offered contracts or rights to include in package bids and chooses admissible bid alternatives under capacity, exposure and expected-profit limits..
+Identity and evidence: Aliases: bid generation, bid construction, package-bid optimization. Bidder-side actor and deliverable distinguish this from market CLEAR. Inputs: tendered contracts, physical cost/feasibility envelopes, likely competitor prices and allowable bidding language. Variants: XOR/OR offers, stochastic clearing, contract realization and risk limits. Continuous bid prices may accompany discrete package contents. Physical lane itineraries or production schedules do not become MKT because prepared for a tender; separate LOG/PROD calculations supply feasible bid packages. Exact and hybrid methods are material alternatives; indexed primary abstracts support existence, not a universal SOTA ordering or fully reproduced baseline. Avoid importing auction winner NP-hardness as a theorem about bid generation.
+Candidate ontology: Primary Domain MKT. Regime #plan | Commits a bidder's package offers before auction clearing. Structure #select + #map | Selects bid contents and assigns selected contracts or rights to bid packages.
+Template evidence: IE / OR Package-bid and tender preparation | Stochastic mixed-integer bid construction; exact decomposition and hybrid search. Sources S17, S18. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Package-bid construction recurs in transport procurement and rights markets; Relevance High | Bid composition affects win exposure and realized contract margin; industrial Hardness High | Coupled package selection under uncertain acceptance; Many possible bundles and asymmetric outcomes complicate bid preparation.
+Useful refinements: ##PROCUREMENT ##auction ##package-bid ##stochastic. Operational costs and feasibility are supplied by the execution Domain.
+
+CLEAR — Combinatorial Auction and Exchange Clearing
+Decision contract: Selects winning package bids under offered quantities, bid-language restrictions and market eligibility rules..
+Identity and evidence: Aliases: winner determination, reverse-auction clearing, multi-unit combinatorial clearing. Forward, reverse and exchange directions are variants because the common artifact is accepted mutually compatible bid commitments. Allocation implied by supplied bidder/package data does not require a MAP tag. Variants include XOR, OR, multiple units, exclusions, reserve rules and coupled award criteria. A standalone sourcing/quantity decision with procurement bids merely supplying prices is SCM; mechanism-based award is MKT. Ordinary continuous order-book matching is not automatically a combinatorial auction. Spectrum-right awards are MKT; station channel repacking is a COMP feasibility interface, not a second MKT rights Problem. Mechanism architecture is supplied: no unsupported auction-rule design Problem. Exact IP and specialized search are near-equals subject to bid structure.
+Candidate ontology: Primary Domain MKT. Regime #allocate | Awards traded goods, service contracts or rights to accepted bids. Structure #select | Chooses the mutually feasible winning bids; package consistency defines accepted allocations.
+Template evidence: IE / OR Auction winner determination and package-contract award | Set-packing or set-covering IP; branch-and-cut, specialized tree search and decomposition. Sources S01, S02, S29, S30. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority Critical | Winner determination defines combinatorial auction and package-exchange systems; Relevance Critical | Clearing can allocate large procurement budgets and valuable market rights; industrial Hardness Critical | NP-hard through weighted set packing; Overlapping packages and market side constraints can require substantial decomposition or search.
+Useful refinements: ##PROCUREMENT ##auction ##winner-determination ##set-packing. Grid-feasible power commitment and dispatch belong to ENER; settlement and financial positions belong to FIN.
+
+MATCH — Marketplace Counterparty and Contract Matching
+Decision contract: Assigns market participants to eligible counterparties or contracts under capacities, preferences and market stability rules when required..
+Identity and evidence: Aliases: market matching, bilateral contract assignment, platform allocation. Monetary bids are not necessary; preference-based matching is not synonymous with revenue-maximizing auction clearing. Inputs include counterpart capacities, eligibility and stated preferences; artifact is assignment/accepted relationship. Supplied compatibility edges are not constructed LINK. Weighted welfare and stability are different market objectives/conditions within this family; do not pretend weighted assignment automatically satisfies stability. Classical methods have distinct applicability: min-cost flow for additive capacities, deferred acceptance under substitution assumptions, and integer models for general contract conditions. Medical-residency examples are methodological evidence rather than MKT-owned clinical cases. Rare stability failure must remain visible when preferences violate assumptions. Medium hardness balances tractable base cases and richer industrial rules.
+Candidate ontology: Primary Domain MKT. Regime #allocate | Commits counterparties and market contracts. Structure #map | Assigns participants to counterparties or supplied contract opportunities.
+Template evidence: IE / OR Two-sided matching and market assignment | Weighted matching or min-cost flow for additive allocations; deferred acceptance for substitutable preferences; IP for constrained variants. Sources S19, S20. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Matching recurs in service, trading and platform markets; Relevance High | Better matches improve market participation and realized exchange value; industrial Hardness Medium | Polynomial for classical assignment and stable-matching restrictions; Complex quotas and non-substitutable preferences require richer models and can prevent stable solutions.
+Useful refinements: ##MARKETPLACE ##matching ##stability. Workforce placement belongs to HR and clinical allocation to HC when those conditions define the decision.
+
+DISPLAY — Commercial Offer Ranking and Display
+Decision contract: Selects commercial offers and positions them in a ranked display under eligibility, diversity and position-dependent customer choice..
+Identity and evidence: Aliases: assortment-position optimization, slate optimization, product ranking. Variants: sequential displays, sponsored/organic mixes, duplicate limits and diversity rules. Distinct artifact from ASSORT: actual order or positions of presented alternatives. Raw scores, search index infrastructure and recommendation inference are COMP inputs. A score sort without binding commercial constraints is deterministic ranking administration. Source establishes joint selection-position nonlinear binary formulation and DP under specified nested-logit assumptions; commercial diversity extension is a scope inference and does not imply its DP applies to every extension. Placement consumes fixed ordered slots, not physical land. Online latency may justify execution parameters only on specific cases. No universal AI-learning Template asserted.
+Candidate ontology: Primary Domain MKT. Regime #operate | Commits the display that presents current commercial opportunities. Structure #place + #select | Orders selected offers in the display; position changes their commercial exposure.
+Template evidence: IE / OR Commercial display and choice-aware ranking | Position-assignment IP or nonlinear binary optimization; dynamic programming for structured choice models. Sources S21. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Ranked displays define major digital-commerce and marketplace interfaces; Relevance High | Ordering affects customer choice and commercial conversion; industrial Hardness High | Coupled assortment-position assignment; Position effects and diversity restrictions complicate large candidate displays.
+Useful refinements: ##MARKETPLACE ##RETAIL ##ranking ##position-effects. Learning relevance scores supplies inputs; the constrained commercial ranking is the decision.
+
+OFFER — Dynamic Offer and Commercial Request Acceptance
+Decision contract: Selects offers to make available and accepts or rejects arriving commercial requests under remaining capacity, eligibility and revenue-control policies..
+Identity and evidence: Aliases: dynamic availability, offer-set control, booking acceptance, commercial contract admission. Admission and availability are coupled finite actions in a live selling policy; do not split by individual industry request. Variants: contract arrival, network itinerary, guaranteed-ad contract, scarce delivery window and discrete channel quota. Fixed prices and promised physical-capacity envelopes are supplied. Integrated production sequencing with order selection is PROD/PROC; a commercial acceptance service that consumes a supplied feasibility oracle is MKT. Do not claim a temporal Regime merely because decisions are fast: DISPATCH follows short-cycle current admission commitments. Bid prices are computed by CAPACITY or dynamic value approximation; they do not become MAP artifact. Feedback to capacity policy is a later-iteration return, not backward execution in the first pass.
+Candidate ontology: Primary Domain MKT. Regime #dispatch + #adapt | Commits current availability or acceptance and revises it as sales consume capacity. Structure #select | Chooses offered alternatives and accepted requests from the current eligible set.
+Template evidence: IE / OR Dynamic availability and revenue-based admission control | Stochastic dynamic programming, bid-price controls or choice-based approximate dynamic programming. Sources S13, S14, S27, S28. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority Critical | Live availability and acceptance define scarce-capacity selling systems; Relevance Critical | Decisions realize revenue while protecting future commercial opportunities; industrial Hardness High | Dynamic finite-action capacity control; Demand uncertainty and network state growth limit exact policies.
+Useful refinements: ##AIRLINE ##HOSPITALITY ##availability ##admission ##rolling-horizon. Applying a fixed supplied threshold without optimizing alternatives is policy execution.
+
+SERVE — Online Advertising Impression and Slot Allocation
+Decision contract: Assigns arriving impressions or advertising slots to eligible campaigns or spot buyers under budgets, delivery obligations and exposure limits..
+Identity and evidence: Aliases: ad allocation, impression assignment, advertiser-query matching. Distinct from RESERVE forecast commitments, MEDIA buyer planning and THROTTLE bidder participation. Inputs: supplied impression/campaign eligibility, bids, residual budgets and guaranteed commitments. Artifact: realized campaign/buyer assignment. Multiple-slot ranking or creative selection is an integrated variant and may need PLACE/SELECT when actually constructed; the base card does not infer these from web coordinates. Primal-dual online matching gives a benchmark architecture with competitive guarantees only under stated arrival/bid assumptions; production delivery controls use pacing/opportunity-cost heuristics. S23 supports operation but does not expose source code, data or a universal optimality guarantee. Hardness refers to online uncertainty and practical constraints, not an invented NP-hardness theorem.
+Candidate ontology: Primary Domain MKT. Regime #dispatch | Commits a campaign or buyer for each current commercial opportunity. Structure #map | Assigns current impressions or slots to campaigns or buyers.
+Template evidence: IE / OR Publisher ad serving and guaranteed-versus-spot yield control | Online budgeted matching, primal-dual allocation and delivery-aware opportunity-cost controls. Sources S22, S23. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority Critical | Serving allocation defines online advertising markets; Relevance Critical | Decisions affect publisher yield and advertiser contract delivery at large scale; industrial Hardness High | Online budgeted matching; Unknown future arrivals, delivery coupling and latency make policy quality difficult despite simple local assignments.
+Useful refinements: ##ADVERTISING ##online-matching ##guaranteed-delivery. Compute-resource scheduling belongs to COMP; commercial impression assignment belongs to MKT.
+
+THROTTLE — Budget-Constrained Auction Participation
+Decision contract: Selects which arriving advertising auctions to enter under remaining spend, expected value and campaign timing conditions..
+Identity and evidence: Aliases: auction throttling, hard pacing. Distinguish an advertiser's entry decision from publisher SERVE. A supplied recommended bid/valuation is input; the selected auction subset is a discrete artifact. Probabilistic implementation delivers entry/no-entry decisions but should not imply that merely tuning one probability without an optimized allocation policy is a separate ICO Problem. Soft pacing may participate in every auction with scaled bids; that continuous control is excluded unless accompanied by an independent finite bid/entry choice. Source directly compares throttling with pacing and qualifies stochastic/adversarial performance. No universal advantage claimed for either. Offline budgeted auction selection supplies a diagnostic bound or benchmark, not an implementable clairvoyant live policy. Adaptation consumes observed spend and value; it is not a distinct generic pacing Problem.
+Candidate ontology: Primary Domain MKT. Regime #dispatch + #adapt | Commits auction entry and revises participation as spend and opportunities change. Structure #select | Chooses the auctions in which the advertiser participates.
+Template evidence: IE / OR Advertiser budget throttling and participation control | Online threshold or gradient-based participation policies; stochastic budgeted selection and offline IP baselines. Sources S24. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Discrete participation control recurs in budget-limited advertising buying; Relevance High | Participation affects campaign return and budget use; industrial Hardness High | Online budgeted selection; Future auction values and prices are uncertain, and performance guarantees depend on their arrival model.
+Useful refinements: ##ADVERTISING ##throttling ##budget-control ##online. Continuous bid-multiplier tuning alone is outside this participation-selection scope.
+
+AIRTIME — Advertising Break and Airtime Scheduling
+Decision contract: Places accepted commercials in broadcast periods, breaks and ordered positions under durations, audience commitments, separation and rotation rules..
+Identity and evidence: Aliases: commercial scheduling, pod assignment, broadcast traffic scheduling. Distinguish fixed/bought campaign commitments from MEDIA purchases and RESERVE capacity reservations. Variants: competitor exclusion, first/last rotation, uncertain viewers, multiple stations, make-goods and rolling rescheduling. Substrate: supplied show/break timeline, durations, campaign terms and forecasts. Solver positions ads and assigns breaks; mutual-exclusion relations are feasibility constraints, not chosen LINK. Historical NBC implementation and contemporary cable study establish industrial practice and MIP/heuristic architecture. Prediction informs audience counts; it is not an OR scheduling substitute. Make-good and delivery repair have no independent canonical identity because they revise the same placement artifact and use the same core Template. Published industrial results are not reproduced here or generalized.
+Candidate ontology: Primary Domain MKT. Regime #operate + #adapt | Commits detailed commercial airing schedules and repairs them as delivery conditions change. Structure #place + #map | Places commercials in ordered airtime and assigns them to breaks.
+Template evidence: IE / OR Commercial traffic and campaign-delivery scheduling | Time-indexed MIP or assignment IP; decomposition and operational scheduling heuristics. Sources S25, S26. Source-reported methods establish architecture; rating and ownership conclusions use the contract above.
+Ratings with rationale: Priority High | Airtime scheduling recurs in broadcast and scheduled-media advertising; Relevance High | Schedules determine contract compliance and saleable advertising yield; industrial Hardness High | Constrained multiperiod integer scheduling; Audience uncertainty, separation and campaign obligations couple placements.
+Useful refinements: ##ADVERTISING ##BROADCAST ##schedule ##separation. Make-good placement is a repair variant of this scheduling contract.
+
+DEPENDENCY GRAPH — SYMBOLIC, CONDITIONAL
+
+Edges record a handoff only where both Problems exist as separately scoped decisions in the same operating system. They are not required universal stages for every industry. The sources establish the participating contracts; graph links and direction are industrial input/output inferences. No mathematical reduction is a dependency. Integrated optimization can co-decide outputs without erasing these scoped interfaces.
+
+ASSORT -> BUNDLE: Selected product universe constrains offer components. Basis S03,S04.
+ASSORT -> PRICE: Selected products require permitted commercial prices. Basis S03,S06.
+ASSORT -> SHELF: Range membership supplies display candidates. Basis S07,S08.
+ASSORT -> PROMO: Range membership supplies promotional products. Basis S09.
+ASSORT -> MARKDOWN: Admitted stocked products can enter clearance. Basis S10.
+ASSORT -> TARGET: Range membership limits eligible product offers. Basis S11.
+ASSORT -> DISPLAY: Chosen range supplies commercial display candidates. Basis S21.
+ASSORT -> OFFER: Range membership supplies allowable live alternatives. Basis S13.
+BUNDLE -> PRICE: Defined offer packages supply price-assignment entities. Basis S04,S05.
+BUNDLE -> TARGET: Supplied packages enter targeted offer eligibility. Basis S04,S11.
+BUNDLE -> CAPACITY: Network products define commercial capacity consumption. Basis S13.
+BUNDLE -> MATCH: Supplied contract menus define match alternatives where used. Basis S19.
+BUNDLE -> DISPLAY: Defined offers enter the ranked candidate set. Basis S21.
+BUNDLE -> OFFER: Defined offer menu supplies live selling alternatives. Basis S13.
+PRICE -> PROMO: Regular prices constrain permissible campaign discounts. Basis S09.
+PRICE -> MARKDOWN: Initial prices constrain clearance trajectories. Basis S10.
+PRICE -> TARGET: Permitted commercial offer values constrain customer allocation. Basis S11.
+PRICE -> CAPACITY: Product revenue values inform protection policies. Basis S13,S14.
+PRICE -> OFFER: Supplied offer prices inform live opportunity costs. Basis S13,S14.
+PRICE -> DISPLAY: Offer price enters choice-aware display evaluation. Basis S21.
+PROMO -> TARGET: Campaign calendar defines available customer incentives. Basis S09,S11.
+PROMO -> MEDIA: Campaign timing and selected products define advertising requirements. Basis S09,S12.
+PROMO -> OFFER: Dated promotions change eligible live offers. Basis S09,S13.
+MARKDOWN -> OFFER: Dated clearance prices determine active sales offers. Basis S10.
+TARGET -> THROTTLE: Targeting supplies eligible campaign opportunities where auctions buy exposure. Basis S11,S24.
+MEDIA -> BID: Chosen finite media packages can become bidder package candidates. Basis S12,S17; transfer inference.
+MEDIA -> THROTTLE: Campaign goals and spend envelopes constrain live advertising entry. Basis S12,S24.
+MEDIA -> RESERVE: Accepted guaranteed media purchases create publisher reservation obligations. Basis S12,S16; counterparty handoff.
+MEDIA -> AIRTIME: Accepted purchased placements supply airing commitments. Basis S12,S25.
+CAPACITY -> OFFER: Protection and booking allowances constrain live admission. Basis S13,S14.
+OVERBOOK -> OFFER: Oversale limits constrain reservation acceptance. Basis S15.
+RESERVE -> OFFER: Reserved obligations constrain admission of further guaranteed contracts. Basis S16,S27.
+RESERVE -> SERVE: Reservation commitments constrain realized campaign assignment. Basis S16,S23.
+RESERVE -> AIRTIME: Reserved broadcast obligations supply detailed scheduling requirements. Basis S25,S26; broadcast variant.
+BID -> CLEAR: Submitted package bids supply auction clearing input. Basis S01,S17.
+THROTTLE -> CLEAR: Auction entry determines submitted bids in repeated ad-auction variants. Basis S24; timing inference.
+CLEAR -> SERVE: Winning commercial bids supply spot allocation in auction-served variants. Basis S01,S23.
+OFFER -> DISPLAY: Currently available offers supply live ranked displays. Basis S13,S21.
+OFFER -> CAPACITY: Observed acceptance state revises protection in the next planning iteration. Basis S13,S14.
+SERVE -> RESERVE: Realized delivery and residual inventory revise next reservation plan. Basis S16,S23.
+AIRTIME -> RESERVE: Aired delivery and remaining obligations revise next reservation plan. Basis S25,S26.
+DISPLAY -> OFFER: tentative reverse relation from exposure to observed commercial response; direction requires B decision.
+
+Cycles: CAPACITY -> OFFER -> CAPACITY; RESERVE -> SERVE -> RESERVE; RESERVE -> AIRTIME -> RESERVE. The three reverse edges consume realized state in a later iteration. They do not require future outcomes to produce first-pass policy. MEDIA -> RESERVE and MEDIA -> AIRTIME apply only after media purchase becomes an accepted seller obligation. THROTTLE -> CLEAR applies to repeated ad auctions; it is same-event entry-before-award, not feedback. BID -> CLEAR is bidder-to-market submission. MATCH can operate independently of price, auctions or bundles; BUNDLE -> MATCH is optional contract-menu input, not mandatory.
+
+CONTROL-RETURN QUESTIONS FOR B
+
+1. PRICE admission: decide whether a numerical discretization alone is sufficient or whether permitted commercial price levels are required.
+2. CAPACITY / RESERVE: decide whether continuous LP guidance alone supports admission or whether an actual integer/discrete commercial artifact is required.
+3. OFFER / DISPLAY direction: available menus feed ranking. A candidate reverse DISPLAY -> OFFER edge was considered because displays affect observed demand. Check whether that is direct commitment flow or only an estimation input.
+4. THROTTLE / CLEAR timing: live participation precedes the current award; determine whether to place THROTTLE before CLEAR despite its dispatch Regime.
+5. Territorial and coalition candidates: decide whether geographic and physical collaboration examples establish a separate generic MKT contract.
+6. Ratings and hardness: ensure direct knapsack/generalized-assignment restrictions remain variant-qualified and do not transfer source complexity across actors.
+
+ALIASES, VARIANTS, EXCLUSIONS AND DEFERRED CANDIDATES
+
+Merge:
+- Forward, reverse, multi-unit and exchange winner determination under CLEAR; each selects accepted bid commitments. Do not add a Problem per auction direction or solver.
+- Coupon, retention, personalized-discount and direct-marketing assignments under TARGET when customer-offer allocation is the artifact.
+- Fare-class and room-class protection under CAPACITY; industry or resource incidence does not create a second family.
+- Hard pacing under THROTTLE; publisher delivery pacing is a control component of SERVE or RESERVE.
+- Broadcast competitor separation, pod assignment, rotation and make-good placement under AIRTIME.
+- Dynamic contract acceptance and offer availability under OFFER when both are finite live selling actions over supplied capacity.
+- Choice-model, robust/stochastic and solver-specific changes remain variants unless they change the industrial artifact.
+
+Keep distinct:
+ASSORT membership / BUNDLE composition / PRICE level assignment / SHELF physical commercial layout / DISPLAY ordered digital exposure.
+PROMO repeated event calendar / MARKDOWN terminal residual-stock trajectory.
+CAPACITY commercial protection policy / OVERBOOK authorized oversale risk.
+MEDIA advertiser purchases / RESERVE publisher forecast commitments / SERVE current impression assignments / AIRTIME detailed future/current airing placements.
+BID bidder contents / THROTTLE bidder live participation / CLEAR market winning packages / MATCH preference or welfare counterpart assignments.
+
+Exclude as stand-alone MKT Problems:
+- Demand forecasting, elasticity estimation, propensity scoring, valuation, click prediction and causal response estimation: analytical inputs, no admitted combinatorial allocation.
+- Pure continuous pricing, bid multiplier tuning, pacing probability optimization, monetary budget splitting or continuous risk valuation without a material discrete output.
+- Applying an already supplied price, threshold, auction rule or ranking score deterministically, without optimizing competing finite alternatives.
+- Pure sales-force rostering and representative-to-customer workload assignment: HR where human capacity dominates.
+- Warehouse slotting: LOG; supply replenishment and shortage allocation: SCM; shelf merchandising is SHELF.
+- Aircraft displacement/reaccommodation or transport capacity construction: LOG; clinical no-show/appointment policies: HC where direct care defines feasibility.
+- Portfolio trade quantities, investment selection and financial settlement: FIN. Auction architecture in a financial industry does not override a financially constituted position contract.
+- Station repacking/channels and installed radio-resource use: COMP; rights winners: CLEAR.
+- Power market clearing with physical commitment/grid balance: ENER; separate offered rights or bid-mechanism acceptance: CLEAR.
+- Physical tenant mix, facility siting and geographic land layout: LAND. Merely maximizing rent does not transfer ownership.
+- Integrated order acceptance and production scheduling: PROD/PROC where transformation feasibility is constructed, illustrated by S28.
+
+Deferred, with reasons:
+- Auction-rule/mechanism optimization: S29 supports a complex mechanism design project; it does not establish one commercially recurring finite rule-selection contract and benchmark Template distinct from clearing. Fixed mechanism is input here. Reopen with evidence of actual optimized finite rule architecture.
+- Sales territory/account portfolio design: S31 establishes geographic territory models. Geography, worker capacity and commercial opportunity can lead to different Primary Domains. No generic MKT family is admitted from the shared name. Reopen a commercial-only account/right allocation contract with geography and staffing supplied.
+- Commercial coalition/consortium formation: S32 establishes generic set partitioning; S33 establishes integrated physical joint ordering. Generic commercial alliance feasibility, value data and operational ownership remain insufficiently resolved to add a canonical MKT Problem. Integrated physical collaboration remains SCM/LOG; no universal MKT coalition claim.
+- Loyalty program tier/rule design, commercial channel-network design and finite mechanism parameter portfolios: potentially discrete, but no distinct strongly supported IE/OR contract after this discovery. Do not force Templates to gain coverage.
+- Standalone commercial contract rescue or generic repair: revisions belong to the existing acceptance, reservation, matching or scheduling family; separate admission requires a different delivered artifact.
+- Barter exchanges, spectrum/airport/cloud rights and service-contract auctions: CLEAR or MATCH variants when the commercial award dominates; physical execution remains with the owning Domain.
+
+LIMITS AND LATER CASE RESEARCH
+
+The problem set covers established finite commercial decisions; it does not imply that every marketing optimization or every marketplace is combinatorial. Constrained variants may be hard while classical assignment, flow or basic choice models are tractable. Rating judgments use the stated scope, not only formal complexity. Direct restriction arguments are marked explicitly in the relevant dossiers. No unattested full-contract complexity labels are filled in for visual uniformity.
+
+Cases need separate human approval. Later work must test the Template against current implementations and public reproducibility, identify meaningful industrial instances, record license/access conditions, and compare real baselines. CATS-style auction generators, published assortment instances and operational media records are discovery leads, not selected or numbered Cases. Historical deployment statements remain historical; none is asserted to still be deployed without verification.
+
+SOURCE REGISTER
+
+Primary evidence retrieved or indexed on 2026-10-07. Retrieval depth is stated for each source. Source methods are not claimed to be current global SOTA. URLs are evidence locators, not benchmark-access or license assertions.
+
+S01 Sandholm, Optimal Winner Determination Algorithms.
+https://www.cs.cmu.edu/~sandholm/www/windetalgs.pdf
+Scope and access: General package-bid winner selection; set-packing formulation, exact search and tractable restrictions. Full chapter retrieved.
+
+S02 Sandholm et al., Winner determination in combinatorial auction generalizations (2002).
+https://doi.org/10.1145/544741.544760
+Scope and access: Extends clearing to reverse auctions, exchanges and multiple units. Publisher abstract retrieved.
+
+S03 Sen et al., A Conic Integer Programming Approach to Constrained Assortment Optimization under the Mixed Multinomial Logit Model.
+https://arxiv.org/abs/1705.09040
+Scope and access: Constrained assortment; MILP, conic formulations and bound strengthening. Full text retrieved.
+
+S04 Hanson and Martin, Optimal Bundle Pricing (1990).
+https://doi.org/10.1287/mnsc.36.2.155
+Scope and access: Bundle/menu selection with disjunctive MILP. Publisher abstract retrieved.
+
+S05 Bitran and Ferrer, On Pricing and Composition of Bundles (2007).
+https://doi.org/10.1111/j.1937-5956.2007.tb00168.x
+Scope and access: Joint bundle composition and pricing with nonlinear mixed-integer models. Publisher abstract indexed.
+
+S06 On solving nonsmooth retail portfolio maximization problems using active signature methods (2025).
+https://doi.org/10.1007/s10287-025-00544-3
+Scope and access: Explicit distinction between discrete price ladders and continuous price optimization; method focus is continuous. Full text retrieved.
+
+S07 Shelf space dimensioning and product allocation in retail stores (2021).
+https://doi.org/10.1016/j.ejor.2020.10.030
+Scope and access: Planogram dimensional allocation, integer nonlinear models and knapsack complexity. Publisher abstract indexed; university record retrieved by search.
+
+S08 Joint shelf design and shelf space allocation problem for retailers (2022).
+https://www.sciencedirect.com/science/article/pii/S030504832200041X
+Scope and access: MIP plus hybrid constraint-programming approach; shelf layout and product-family adjacency. Publisher abstract indexed.
+
+S09 Cohen et al., The Impact of Linear Optimization on Promotion Planning (2017).
+https://doi.org/10.1287/opre.2016.1573
+Scope and access: Promotional price calendar, post-promotion effects, general NP-hardness and tractable IP approximation. Publisher abstract retrieved.
+
+S10 Caro and Gallien, Clearance Pricing Optimization for a Fast-Fashion Retailer (2012).
+https://doi.org/10.1287/opre.1120.1102
+Scope and access: Operational markdown process at Zara; forecasting feeds price optimization. Publisher abstract retrieved; author paper indexed.
+
+S11 Optimization models for targeted offers in direct marketing: Exact and heuristic algorithms (2011).
+https://www.sciencedirect.com/science/article/pii/S0377221710006600
+Scope and access: Client-product offer campaign selection via IP. Publisher abstract indexed; direct open failed.
+
+S12 Evangelista et al., A multiobjective approach for maximizing the reach or GRP of different brands in TV advertising.
+https://doi.org/10.1111/itor.12481
+Scope and access: Advertiser-side break buying under budgets and brand constraints; multiobjective IP. Publisher abstract retrieved.
+
+S13 Liu and van Ryzin, On the Choice-Based Linear Programming Model for Network Revenue Management (2008).
+https://business.columbia.edu/faculty/research/choice-based-linear-programming-model-network-revenue-management
+Scope and access: Choice-based offer sets and conversion of static LP to dynamic control. Author institutional abstract retrieved.
+
+S14 Talluri and van Ryzin, An Analysis of Bid-Price Controls for Network Revenue Management.
+https://business.columbia.edu/sites/default/files-efs/pubfiles/3933/network_revenue_management.pdf
+Scope and access: Network RM dynamic program and bid-price controls. Author paper indexed.
+
+S15 Kunnumkal, Talluri and Topaloglu, A Randomized Linear Programming Method for Network Revenue Management with Product-Specific No-Shows.
+https://doi.org/10.1287/trsc.1110.0386
+Scope and access: Joint capacity control and overbooking with product-specific show probabilities; randomized LP and control policy. Publisher abstract retrieved.
+
+S16 Rhuggenaath et al., Optimal display-ad allocation with guaranteed contracts and supply side platforms (2019).
+https://research.tue.nl/en/publications/optimal-display-ad-allocation-with-guaranteed-contracts-and-suppl/
+Scope and access: Two-stage stochastic impression reservation between guaranteed and spot sales; compares priority-assignment practice. Institutional abstract retrieved.
+
+S17 Exact and hybrid heuristic methods to solve the combinatorial bid construction problem with stochastic prices in truckload transportation services procurement auctions (2021).
+https://www.sciencedirect.com/science/article/pii/S0191261521000722
+Scope and access: Carrier-side bid construction under uncertain prices; exact and hybrid heuristic architectures. Publisher abstract indexed; direct open failed.
+
+S18 An exact method for the combinatorial bids generation problem with uncertainty on clearing prices, bids success, and contracts materialization (2022).
+https://www.sciencedirect.com/science/article/pii/S0305054822002210
+Scope and access: Stochastic package construction; separates prices, success and realized contracts. Publisher abstract indexed; direct open failed.
+
+S19 Huang, Stable matching: An integer programming approach (2023).
+https://doi.org/10.3982/TE4830
+Scope and access: Many-to-one two-sided matching with heterogeneous firms; structural existence qualifications. Author preprint and publisher abstract indexed.
+
+S20 Roth, Rothblum and Vande Vate, Stable Matchings, Optimal Assignments, and Linear Programming (1993).
+https://doi.org/10.1287/moor.18.4.803
+Scope and access: Stable matching and assignment optimization; classical tractable foundation. Publisher abstract indexed.
+
+S21 Chen and Jiang, Assortment optimization with position effects under the nested logit model (2020).
+https://doi.org/10.1002/nav.21879
+Scope and access: Joint offer selection and ordered display; nonlinear binary model and dynamic programming. Publisher abstract retrieved.
+
+S22 Mehta et al., AdWords and Generalized Online Matching (2007).
+https://people.eecs.berkeley.edu/~vazirani/pubs/adwords.pdf
+Scope and access: Online advertiser-query assignment under budgets; primal-dual/competitive-algorithm foundation. Author paper indexed and institutional record retrieved.
+
+S23 Google Ad Manager, How we decide which ad is served.
+https://support.google.com/admanager/answer/11204312?hl=en
+Scope and access: Operational guaranteed-versus-auction selection with delivery progress and opportunity costs. Official documentation indexed on research date.
+
+S24 Chen et al., Dynamic Budget Throttling in Repeated Second-Price Auctions (2024).
+https://doi.org/10.1609/aaai.v38i9.28816
+Scope and access: Advertiser auction participation control; online gradient-based policy, stochastic regret and adversarial qualifications. Publisher abstract retrieved.
+
+S25 Dawande et al., Scheduling Commercials on Broadcast Television (2004).
+https://doi.org/10.1287/opre.1030.0083
+Scope and access: Publisher-side break positioning under competitive separation and rotation; IP and operational heuristics. Publisher abstract retrieved.
+
+S26 Souyris, Seshadri and Subramanian, Scheduling Advertising on Cable Television (2023).
+https://doi.org/10.1287/opre.2022.2430
+Scope and access: Industrial multiperiod campaign scheduling under uncertain audiences; MIP plus prediction. Publisher abstract retrieved.
+
+S27 Dynamic allocation of display advertising impressions in dual sales channels.
+https://www.sciencedirect.com/science/article/pii/S0305048324001774
+Scope and access: Separates contract acceptance and impression allocation under demand/supply uncertainty; Lagrangian approaches. Publisher abstract indexed; direct open failed.
+
+S28 A branch and price solution approach for order acceptance and capacity planning in make-to-order operations (2011).
+https://www.sciencedirect.com/science/article/pii/S037722171100004X
+Scope and access: Integrated physical production acceptance/capacity model, used as boundary counterexample rather than generic MKT ownership. Publisher abstract indexed.
+
+S29 FCC, Incentive Auction Design: Report to the FCC (2012).
+https://docs.fcc.gov/public/attachments/FCC-12-118A2.pdf
+Scope and access: Spectrum-rights auction design and forward/reverse coupling. Official report indexed.
+
+S30 FCC/SATFC.
+https://github.com/FCC/SATFC
+Scope and access: Operational feasibility checker for station repacking. Official repository indexed; physical channel assignment is COMP interface.
+
+S31 Commercial territory design planning with realignment and disjoint assignment requirements (2013).
+https://www.sciencedirect.com/science/article/pii/S0305048312001090
+Scope and access: Commercial territory MIP with geographic connectivity and continuity; boundary candidate. Publisher abstract indexed.
+
+S32 A column generation approach to the coalition formation problem in multi-agent systems.
+https://www.sciencedirect.com/science/article/pii/S0305054803001126
+Scope and access: Coalition grouping via set partitioning; commercially generic implementation not established here. Publisher abstract indexed.
+
+S33 Optimal coalition structures in supply chains: a cooperative game approach to economic lot-sizing in emerging markets (2026).
+https://doi.org/10.1007/s12063-026-00616-w
+Scope and access: Operational joint-ordering coalition model; supports physical SCM ownership and an unresolved generic-commercial boundary. Full text retrieved.
+
