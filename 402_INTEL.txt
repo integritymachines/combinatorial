@@ -1,0 +1,271 @@
+INTEL Defense, Intelligence and Security
+v0.1 | Problem layer | 2026-10-07
+Normative: 000_DOMAIN.txt. Evidence: background/402_INTEL_research.txt v0.1.
+
+INTEL decides protective, adversarial and strategic-response commitments. The set spans defense capability, security-system design, intelligence collection, protective operations and cyber defense.
+Ownership follows the decision contract. Military context alone does not move generic sensing, transport, provisioning or staffing into INTEL. Those decisions remain COMP, LOG, SCM or HR. Routine utility and civic-service operations remain ENER and CIVIC.
+Dependencies are conditional decision flow. Initial plans precede execution and explicit feedback returns. Templates identify supported reference approaches; a research method is not automatically deployed practice. Cases require human approval of this Problem set.
+
+INTEL01 Defense Capability Portfolio and Modernization Planning.
+DESCRIPTION Selects capability programs and their implementation periods under budgets, capability requirements and program dependencies.
+TEMPLATE Capability-based planning and modernization programming | Multiperiod portfolio MILP; scenario and robust optimization.
+REGIME #plan + #design | Commits the capability program that defines future force resources.
+STRUCTURE #select + #place | Selects capability programs and places their implementation phases in time.
+PRIORITY High | Capability commitments constrain many defense planning systems.
+RELEVANCE Critical | Decisions commit large budgets and determine long-lived capability gaps.
+HARDNESS High | Multiperiod budgets, program interactions and uncertain scenarios require tailored models.
+DEPENDENCIES ∅ → INTEL01 → INTEL10, INTEL14.
+COMMENTS Procurement transactions belong to MKT; equipment manufacturing belongs to PROD | #INFO #INTEL #plan #design #select #place ##DEFENSE ##capability-planning ##portfolio.
+
+INTEL02 Critical Infrastructure Protection Planning.
+DESCRIPTION Selects protective investments for critical assets under budgets, adversarial disruption scenarios and required residual service.
+TEMPLATE Asset vulnerability assessment and protective investment planning | Defender–attacker–operator optimization; interdiction decomposition.
+REGIME #design | Commits protective capacity before a disruption occurs.
+STRUCTURE #select | Selects assets and discrete protection options; the service network is supplied.
+PRIORITY High | Protective investment recurs across critical physical systems.
+RELEVANCE Critical | Protection can prevent major service loss and casualties.
+HARDNESS High | Discrete defenses interact with adversary choices and operating recourse.
+DEPENDENCIES ∅ → INTEL02 → INTEL13.
+COMMENTS Routine reliability investment remains with the physical-service domain when adversarial protection does not define the contract | #INFO #INTEL #design #select ##critical-infrastructure ##bilevel ##trilevel.
+
+INTEL03 Security Sensor Deployment.
+DESCRIPTION Chooses sensor types and locations to detect unauthorized access under coverage, installation and resource limits.
+TEMPLATE Protective surveillance layout and detection coverage design | Discrete location and coverage optimization; bilevel security models.
+REGIME #design | Commits the detection layout before surveillance operation.
+STRUCTURE #place + #select | Places sensors at admissible locations and selects sensor configurations.
+PRIORITY High | Detection layout constrains border, facility and infrastructure security.
+RELEVANCE High | Better deployment reduces surveillance gaps and installation waste.
+HARDNESS High | Coverage overlap and adversarial route choice couple many location alternatives.
+DEPENDENCIES ∅ → INTEL03 → INTEL14, INTEL24.
+COMMENTS Civilian observation without a defining protective contract belongs to COMP | #INFO #INTEL #design #place #select ##sensor-placement ##coverage ##surveillance.
+
+INTEL04 Cybersecurity Control Portfolio Selection.
+DESCRIPTION Selects preventive security controls under budgets, compatibility requirements and modeled exposure to cyber threats.
+TEMPLATE Security risk treatment and control investment planning | Scenario-based portfolio MILP; attack-graph defender–attacker optimization.
+REGIME #design + #allocate | Commits preventive protection measures and their budgets.
+STRUCTURE #select | Selects compatible controls from available alternatives.
+PRIORITY High | Control investment recurs across digital security programs.
+RELEVANCE Critical | Effective portfolios protect enterprise operations and sensitive information.
+HARDNESS High | Control interactions, shared vulnerabilities and uncertain attack pathways couple investment choices.
+DEPENDENCIES ∅ → INTEL04 → INTEL05, INTEL06, INTEL07, INTEL09.
+COMMENTS The attack graph is supplied evidence; it does not itself imply #link | #INFO #INTEL #design #allocate #select ##countermeasure-selection ##attack-graph ##risk-treatment.
+
+INTEL05 Access-Control Role Engineering.
+DESCRIPTION Defines permission roles and user-role assignments that provide required access while limiting excess privilege and policy violations.
+TEMPLATE Least-privilege role engineering | Boolean-matrix decomposition; integer programming and constrained role mining.
+REGIME #design | Defines authorization structure before access requests are executed.
+STRUCTURE #map + #select | Maps users and permissions to selected roles; permitted memberships define access.
+PRIORITY High | Authorization design recurs across enterprise information systems.
+RELEVANCE High | Better roles reduce excess access and administration effort.
+HARDNESS High | Basic role-mining optimization is NP-hard; overlapping roles and policy restrictions complicate large entitlement sets.
+DEPENDENCIES INTEL04 → INTEL05 → INTEL22.
+COMMENTS Roles are authorization bundles, not workforce jobs | #INFO #INTEL #design #map #select ##role-mining ##least-privilege ##authorization.
+
+INTEL06 Security Network Segmentation.
+DESCRIPTION Assigns digital assets to security zones and chooses permitted inter-zone connections while preserving required services and limiting compromise propagation.
+TEMPLATE Security-zone design and microsegmentation | Graph partition and policy optimization; multilevel MIP decomposition or evolutionary search.
+REGIME #design | Defines security boundaries before routine network operation.
+STRUCTURE #map + #link | Maps assets to zones and constructs permitted communication relations.
+PRIORITY High | Segmentation is a recurring enterprise and operational-technology protection decision.
+RELEVANCE Critical | Better boundaries can limit compromise across essential services.
+HARDNESS High | Security reachability and service accessibility create interacting partition and connection choices.
+DEPENDENCIES INTEL04 → INTEL06 → INTEL22.
+COMMENTS Logical security connections are chosen; physical topology and traffic routing may remain COMP inputs | #INFO #INTEL #design #map #link ##microsegmentation ##partition ##cyber-physical.
+
+INTEL07 Cyber Deception Resource Deployment.
+DESCRIPTION Selects decoy resources and assigns them to digital locations under budgets, compatibility and attacker-information assumptions.
+TEMPLATE Honeypot deployment and defensive deception design | Attack-graph security games; randomized deployment optimization.
+REGIME #design + #allocate | Commits decoy capacity and its deployment policy.
+STRUCTURE #select + #map | Selects decoy configurations and maps them to eligible digital resources.
+PRIORITY Medium | Deception is a recurring specialized cyber-defense option.
+RELEVANCE High | Effective decoy placement can improve detection and divert malicious activity.
+HARDNESS High | Hidden defender configurations and contingent attacker behavior enlarge strategy spaces.
+DEPENDENCIES INTEL04 → INTEL07 → ∅.
+COMMENTS Decoy usefulness depends on the attacker model; it is not a guaranteed security benefit | #INFO #INTEL #design #allocate #select #map ##honeypot ##deception ##imperfect-information.
+
+INTEL08 Privacy-Preserving Data Release Design.
+DESCRIPTION Assigns records to release groups and selects generalizations or suppressions under stated disclosure limits and data-utility requirements.
+TEMPLATE Disclosure control and constrained anonymization | Optimal anonymization search; mixed-integer grouping and suppression models.
+REGIME #design | Defines the releasable data artifact before disclosure.
+STRUCTURE #map + #select | Maps records to release groups and selects permitted generalizations or suppressions.
+PRIORITY Medium | Controlled data release is recurring across information-sharing systems.
+RELEVANCE High | Better designs preserve useful data while meeting the stated privacy contract.
+HARDNESS High | Optimal k-anonymization is NP-hard in supported restricted models; high-dimensional records complicate grouping.
+DEPENDENCIES ∅ → INTEL08 → ∅.
+COMMENTS A k-anonymity contract does not guarantee protection against all inference attacks | #INFO #INTEL #design #map #select ##privacy ##anonymization ##disclosure-control.
+
+INTEL09 Moving-Target Defense Scheduling.
+DESCRIPTION Chooses admissible digital configurations and transition times to limit attacker persistence under compatibility and service-disruption limits.
+TEMPLATE Proactive security reconfiguration | Stochastic and strategic games over discrete configurations; policy optimization.
+REGIME #plan + #adapt | Commits configuration changes and revises them as security conditions change.
+STRUCTURE #select + #place | Selects configurations and places their changes in time.
+PRIORITY Medium | Proactive reconfiguration is specialized within cyber defense.
+RELEVANCE High | Changing exposed configurations can reduce persistent exploitation opportunities.
+HARDNESS High | Transition costs, attack learning and service continuity couple choices over time.
+DEPENDENCIES INTEL04 → INTEL09 → ∅.
+COMMENTS Ordinary migration for performance remains COMP; incident-triggered containment belongs to response | #INFO #INTEL #plan #adapt #select #place ##moving-target-defense ##configuration ##switching-cost.
+
+INTEL10 Force Readiness and Rotation Planning.
+DESCRIPTION Assigns available units to mission commitments and readiness periods under capability demand, availability and rotation limits.
+TEMPLATE Force generation and readiness-cycle management | Time-indexed assignment and scheduling integer programming.
+REGIME #plan + #allocate | Prepares unit commitments and reserves capacity for future demand.
+STRUCTURE #map + #place | Maps units to commitments and places deployment and readiness periods in time.
+PRIORITY Medium | Unit rotation is a recurring defense force-management problem.
+RELEVANCE Critical | Readiness plans determine whether mission demand can be covered.
+HARDNESS High | Interdependent readiness cycles and uncertain demand limit scheduling flexibility.
+DEPENDENCIES INTEL01 → INTEL10 → INTEL16.
+COMMENTS Transporting units belongs to LOG; standalone personnel rostering belongs to HR | #INFO #INTEL #plan #allocate #map #place ##DEFENSE ##force-generation ##readiness.
+
+INTEL11 Strategic Security Inspection Allocation.
+DESCRIPTION Selects sites, visits or samples for a security-verification program under inspection budgets, detection limits and strategic noncompliance.
+TEMPLATE Safeguards verification and randomized inspection planning | Inspection games; recursive discrete inspection policies and equilibrium computation.
+REGIME #plan + #allocate | Commits limited verification effort across an inspection program.
+STRUCTURE #select | Selects admissible inspection actions or samples for each realized program.
+PRIORITY Medium | Verification programs recur in safeguards and security compliance.
+RELEVANCE Critical | Effective inspection supports detection and deterrence of concealed violations.
+HARDNESS Medium | Simple recursive inspection models have closed-form solutions; richer facility choices and imperfect detection need tailored models.
+DEPENDENCIES ∅ → INTEL11 → ∅.
+COMMENTS Retains discrete inspections; purely continuous effort allocation is outside the combinatorial scope | #INFO #INTEL #plan #allocate #select ##inspection-game ##verification ##imperfect-detection.
+
+INTEL12 Threat Screening Allocation.
+DESCRIPTION Assigns arriving people or consignments to permitted screening procedures under detection, throughput and resource limits.
+TEMPLATE Risk-based security screening | Threat-screening games with decomposition; constrained online policies.
+REGIME #allocate + #dispatch | Commits screening resources and selects procedures as arrivals occur.
+STRUCTURE #map | Maps screenees to feasible screening procedures or resource teams.
+PRIORITY High | Screening recurs at transport gateways and controlled facilities.
+RELEVANCE Critical | Assignments affect threat detection and access throughput.
+HARDNESS High | Optimal threat-screening strategy computation is NP-hard; bursty arrivals and shared resources complicate live allocation.
+DEPENDENCIES ∅ → INTEL12 → ∅.
+COMMENTS Queue staffing alone belongs to HR; generic terminal flow belongs to LOG | #INFO #INTEL #allocate #dispatch #map ##threat-screening ##capacity ##online-allocation.
+
+INTEL13 Security Coverage and Patrol Scheduling.
+DESCRIPTION Assigns protective resources and schedules patrols under travel, coverage and availability limits while accounting for adversarial response.
+TEMPLATE Risk-based security coverage and randomized patrol planning | Stackelberg security games; route generation and mixed-strategy optimization.
+REGIME #plan + #allocate | Commits feasible coverage schedules and their deployment probabilities.
+STRUCTURE #map + #place + #link | Assigns resources to duties, places visits in time and constructs patrol succession.
+PRIORITY High | Protective coverage recurs in transport, facilities, borders and conservation enforcement.
+RELEVANCE Critical | Better coverage can reduce attack exposure across valuable assets.
+HARDNESS High | Feasible patrol sets grow rapidly and adversary models complicate strategy computation.
+DEPENDENCIES INTEL02, INTEL24 → INTEL13 → INTEL24.
+COMMENTS Mixed probabilities must correspond to executable schedules; bounded-rational models can differ from perfect best response | #INFO #INTEL #plan #allocate #map #place #link ##patrolling ##security-game ##randomized-coverage.
+
+INTEL14 ISR Collection Tasking.
+DESCRIPTION Selects intelligence requests and assigns collection resources and observation times under capability, access, urgency and capacity limits.
+TEMPLATE Intelligence collection management and sensor tasking | Assignment and scheduling MIP/MIQP; tailored search with eligibility filtering.
+REGIME #plan + #allocate | Commits collection opportunities to intelligence requirements.
+STRUCTURE #map + #place + #select | Maps accepted requests to collectors and places observations in feasible time windows.
+PRIORITY High | Collection tasking is central to intelligence and surveillance operations.
+RELEVANCE Critical | Timely collection determines which information reaches decision makers.
+HARDNESS High | Heterogeneous capabilities and overlapping observation opportunities create coupled schedules.
+DEPENDENCIES INTEL01, INTEL03, INTEL15 → INTEL14 → INTEL15, INTEL16.
+COMMENTS Satellite observation is a variant; civilian observation scheduling belongs to COMP | #INFO #INTEL #plan #allocate #map #place #select ##DEFENSE ##ISR ##observation-scheduling.
+
+INTEL15 Security Search Path Planning.
+DESCRIPTION Constructs search paths and observation sequences for unlocated objects of security interest under movement, endurance and detection limits.
+TEMPLATE Search theory and constrained surveillance search | Discrete search-path branch-and-bound; resource-constrained path optimization.
+REGIME #plan + #operate | Prepares search paths and updates search effort as observations arrive.
+STRUCTURE #link + #place | Constructs successive search locations and places observations in space and time.
+PRIORITY Medium | Search is recurring where security objects cannot be located in advance.
+RELEVANCE High | Better search can improve detection with limited surveillance resources.
+HARDNESS High | Path choices interact with uncertain motion and the information from unsuccessful searches.
+DEPENDENCIES INTEL14 → INTEL15 → INTEL14.
+COMMENTS Location beliefs are inputs or updates, not a new canonical Structure | #INFO #INTEL #plan #operate #link #place ##search-theory ##path-constrained ##partial-observability.
+
+INTEL16 Integrated Defense Mission Planning.
+DESCRIPTION Assigns available platforms to mission tasks and coordinates their routes and times under mission precedence, synchronization and resource limits.
+TEMPLATE Mission-package planning and coordination | Synchronized assignment-routing-scheduling MILP; decomposition and tailored search.
+REGIME #plan | Commits an integrated mission program before execution.
+STRUCTURE #map + #place + #link | Maps platforms to tasks, places activities in time and constructs task succession and routes.
+PRIORITY Medium | Integrated mission planning is recurring within defense operations.
+RELEVANCE Critical | Feasible coordination determines whether interdependent mission tasks can be completed.
+HARDNESS High | Coupled assignments, routes and synchronization restrict decomposition.
+DEPENDENCIES INTEL10, INTEL14 → INTEL16 → INTEL18, INTEL19.
+COMMENTS Transport-only missions remain LOG; detailed effect assignment is a separate contract | #INFO #INTEL #plan #map #place #link ##DEFENSE ##mission-planning ##synchronization.
+
+INTEL17 Network Interdiction Planning.
+DESCRIPTION Selects resource-limited network interdictions to reduce prohibited flow or adversarial network service while accounting for rerouting.
+TEMPLATE Network denial and interdiction planning | Bilevel network interdiction; integer programming and decomposition.
+REGIME #plan + #allocate | Commits interdiction actions against a supplied network.
+STRUCTURE #select | Selects network components or actions to interdict; network routes are supplied or induced responses.
+PRIORITY Medium | Interdiction is a recurring security and denial decision.
+RELEVANCE High | Action selection determines the effect of limited interdiction resources.
+HARDNESS High | Network substitution and adversarial recourse couple otherwise local action choices.
+DEPENDENCIES ∅ → INTEL17 → ∅.
+COMMENTS Vulnerability analysis may inform protective investment without constituting a separate operational interdiction plan | #INFO #INTEL #plan #allocate #select ##network-interdiction ##denial ##bilevel.
+
+INTEL18 Weapon–Target Assignment.
+DESCRIPTION Assigns available weapons to supplied targets under compatibility, resource and effect requirements.
+TEMPLATE Defense effect allocation | Nonlinear integer assignment; branch-and-bound and large-neighborhood search.
+REGIME #allocate | Commits scarce effect resources to eligible targets.
+STRUCTURE #map | Maps weapon resources to targets; joint effects constrain assignment quality.
+PRIORITY Medium | Effect assignment is a recurring defense allocation problem.
+RELEVANCE Critical | Assignments determine whether scarce defensive or mission resources meet stated requirements.
+HARDNESS High | Nonlinear joint effects prevent reduction to ordinary one-to-one assignment.
+DEPENDENCIES INTEL16 → INTEL18 → ∅.
+COMMENTS The static assignment Template does not establish real-time engagement performance | #INFO #INTEL #allocate #map ##DEFENSE ##weapon-target-assignment ##nonlinear-assignment.
+
+INTEL19 Electronic Countermeasure Allocation.
+DESCRIPTION Assigns discrete electronic countermeasure resources to approved protective tasks under compatibility, availability and mutual-interference limits.
+TEMPLATE Electronic protection resource coordination | Discrete assignment with interaction evaluation; enumeration or permutation-based evolutionary search.
+REGIME #allocate | Commits available electronic countermeasure resources to tasks.
+STRUCTURE #map | Maps countermeasure resources and admissible modes to protective tasks.
+PRIORITY Medium | Electronic countermeasures are recurring in specialized defense systems.
+RELEVANCE High | Assignments affect protective coverage and resource conflicts.
+HARDNESS High | Interacting effects and compatibility limits require application-specific evaluation.
+DEPENDENCIES INTEL16 → INTEL19 → ∅.
+COMMENTS Continuous waveform design is excluded; ordinary spectrum-resource operation belongs to COMP | #INFO #INTEL #allocate #map ##DEFENSE ##electronic-protection ##interaction.
+
+INTEL20 Security Alert Triage and Assignment.
+DESCRIPTION Selects security alerts for investigation and assigns qualified analysts under workload, timeliness and detection-value limits.
+TEMPLATE Security operations triage and analyst allocation | Cyber-screening games; integer allocation and dynamic prioritization policies.
+REGIME #dispatch + #allocate | Commits immediate investigation capacity to arriving alerts.
+STRUCTURE #select + #map | Selects alerts and maps them to eligible analysts.
+PRIORITY High | Alert overload is recurring across security operations centers.
+RELEVANCE High | Better triage reduces missed incidents and wasted investigation effort.
+HARDNESS High | Optimal cyber-screening strategy computation is NP-hard; adaptive arrivals and analyst heterogeneity add operational difficulty.
+DEPENDENCIES ∅ → INTEL20 → INTEL21, INTEL22.
+COMMENTS Analyst rostering belongs to HR; the security value of the selected work defines this contract | #INFO #INTEL #dispatch #allocate #select #map ##alert-triage ##security-operations ##adversarial.
+
+INTEL21 Cyber-Forensic Investigation Planning.
+DESCRIPTION Selects the next evidence-gathering actions within a cyber incident under effort limits and uncertain information gain.
+TEMPLATE Incident scoping and forensic investigation management | Markov decision models; Monte Carlo tree search and data-driven action valuation.
+REGIME #operate | Directs ongoing investigation as evidence changes.
+STRUCTURE #select | Selects evidence-gathering actions conditional on the current investigation state.
+PRIORITY Medium | Detailed forensic planning is recurring within incident investigations.
+RELEVANCE High | Efficient investigation improves incident scope and response decisions.
+HARDNESS High | Uncertain action outcomes and long decision sequences enlarge the policy search.
+DEPENDENCIES INTEL20, INTEL22 → INTEL21 → INTEL22.
+COMMENTS The policy conditions future action choices on findings; it does not prescribe one fixed investigation order | #INFO #INTEL #operate #select ##cyber-forensics ##sequential-decision ##value-of-information.
+
+INTEL22 Cyber Incident Containment and Recovery Planning.
+DESCRIPTION Selects containment and recovery actions for a compromised system while preserving required services and respecting action preconditions.
+TEMPLATE Incident-response orchestration and service-preserving containment | Game and state-transition planning; response MIP with large-neighborhood search.
+REGIME #adapt + #operate | Revises protection and service commitments after a detected compromise.
+STRUCTURE #select | Selects admissible response actions conditional on the evolving incident state.
+PRIORITY High | Containment and recovery are recurring cybersecurity operations.
+RELEVANCE Critical | Action choices affect compromise spread and essential service continuity.
+HARDNESS High | Uncertain compromise state and disruptive action interactions require rapid model-specific planning.
+DEPENDENCIES INTEL05, INTEL06, INTEL20, INTEL21 → INTEL22 → INTEL23, INTEL21.
+COMMENTS Generic restoration after non-adversarial failure belongs to COMP | #INFO #INTEL #adapt #operate #select ##incident-response ##containment ##recovery.
+
+INTEL23 Vulnerability Remediation Prioritization.
+DESCRIPTION Selects discovered vulnerabilities for remediation under effort limits, deadlines and residual-exposure objectives.
+TEMPLATE Risk-based vulnerability backlog management | Mixed-integer multiobjective remediation selection.
+REGIME #dispatch + #allocate | Commits available remediation effort to the current vulnerability backlog.
+STRUCTURE #select | Selects vulnerability-remediation tasks for the available capacity.
+PRIORITY High | Remediation prioritization is routine in operational cybersecurity.
+RELEVANCE High | Better selection reduces unresolved exposure with limited effort.
+HARDNESS Medium | Resource-constrained selection is tractable in many bounded models, while shared fixes and uncertain exposure complicate scaling.
+DEPENDENCIES INTEL22 → INTEL23 → ∅.
+COMMENTS This contract selects remediation work; detailed maintenance-window scheduling remains a separate COMP interface | #INFO #INTEL #dispatch #allocate #select ##vulnerability-management ##backlog ##multiobjective.
+
+INTEL24 Alarm-Triggered Protective Response Routing.
+DESCRIPTION Chooses a protective responder's route after a security alarm under travel, deadline and location-uncertainty limits.
+TEMPLATE Protective alarm verification and response routing | Alarm-response security games; contingent route optimization.
+REGIME #dispatch + #adapt | Commits immediate response and revises planned protective coverage.
+STRUCTURE #link | Constructs the responder's sequence of visits to possible alarm locations.
+PRIORITY Medium | Alarm response recurs in guarded facilities and border-security systems.
+RELEVANCE Critical | Response decisions affect whether detected threats can be addressed in time.
+HARDNESS High | Uncertain alarm locations and response deadlines require contingent route choices.
+DEPENDENCIES INTEL03, INTEL13 → INTEL24 → INTEL13.
+COMMENTS The supported Template uses one responder; responding can reduce planned patrol coverage | #INFO #INTEL #dispatch #adapt #link ##alarm-response ##uncertainty ##protective-dispatch.
