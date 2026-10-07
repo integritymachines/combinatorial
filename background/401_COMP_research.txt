@@ -1,0 +1,713 @@
+COMP Computational and Digital Infrastructure — Problem research
+v0.1 | Problem layer | 2026-10-07
+Normative input: 000_DOMAIN.txt v0.4; background/000_DOMAIN_research.txt.
+Scope: R → B → C → F, PROBLEM only. User-requested release label v0.1 is retained for both deliverables; it overrides automatic .2 relabeling. Control decisions belong to version-control history. No case research or stabilization is authorized.
+
+PURPOSE AND TERRITORY
+
+COMP owns decisions whose delivered service is computation, communication, storage or civilian sensing. The defining test is the decision contract, not the industry buying the service or the solver used. The domain includes discrete system configuration, executable computational plans, scarce-resource commitments, digital execution and state-preserving adaptation.
+
+Cloud and data centers contribute capacity configuration, admission, temporal scheduling, host assignment, scaling, migration and planned updates. Telecom contributes installed network design, channel plans, service embedding, optical provisioning, packet routing and transmission grants. Storage and content delivery contribute durable placement, cache management and transfer scheduling. Database and compiler systems contribute physical access structures, query-plan construction, register allocation and instruction scheduling. AI infrastructure contributes execution-plan partitioning, heterogeneous job scheduling and online serving as distinct decisions; model fitting itself is not automatically ICO. Civilian sensing contributes deployment, observation and contact schedules.
+
+Principal industries and contexts: ##CLOUD, ##DATACENTER, ##TELECOM, ##AEROSPACE; open additions ##AI, ##HPC and ##CDN denote industry/application contexts. Compiler and database decisions occur across these industries. Their software implementation does not make them solver algorithms for some other admitted decision: their output is itself the executable resource plan.
+
+BOUNDARY RULES
+
+- PROD owns semiconductor fabrication, chip physical design and production configuration. COMP owns the operation and executable use of installed digital resources. Register allocation is not chip-register circuit layout.
+- CIVIC owns civil construction, buildings and civic asset maintenance. Communication topology and digital capacity remain COMP when communication or computing feasibility dominates.
+- ENER owns utility production, grid balance and supply operation. Compute activation, workload deferral and energy-aware placement remain COMP when digital service feasibility dominates.
+- INTEL owns adversarial, protective or strategic-security contracts. General availability after accidental failure remains COMP. Cyber attack-defense games, interdiction and ISR planning are excluded.
+- MKT owns offers, pricing, rights, bids and commercial allocation. Technical admission, radio channel use and resource binding remain COMP. A revenue coefficient alone does not move a technical feasibility problem to MKT.
+- HR owns stand-alone staffing, technician rostering and organizational calendars. This file schedules machines, programs and communication sessions.
+- PROC, PROD, LAND and HC can consume digital sensing. A decision that chooses the sensing system itself remains COMP; a process, land-resource or clinical control decision remains with its dominant contract.
+
+RESEARCH METHOD AND EVIDENCE STATUS
+
+Search date: 2026-10-07. Search families covered cloud/HPC schedulers, AI infrastructure, edge deployment, telecom design and operation, distributed storage, CDN caching, database tuning, compiler optimization, civilian observation, downlink, migration and maintenance. Official implementation documentation and primary research were preferred. Sources are indexed below; retrieval depth and limitations are explicit.
+
+This is problem discovery, not a contemporary performance leaderboard. Established practice, published optimization methods and evidence of accessible implementations are kept distinct. No numerical performance claim has been reproduced. No benchmark instance, case ID or definitive starter set is selected. Current implementations, licenses and executable baselines must be checked during the later case layer after human approval.
+
+Ratings, Primary Regime, Structure and ownership are ontology judgments from the documented contract. Formal complexity statements are scoped to a specified restriction or generalization. Where a complexity claim uses a standard embedded problem rather than a theorem about an entire industrial system, that is a modeling inference. It is not evidence for industrial hardness by itself. Industrial difficulty follows interaction size, operational latency, state uncertainty and observed use of specialized methods.
+
+STRUCTURAL INTERPRETATION
+
+Resources, topology, interference, precedence, query semantics and visibility can all be supplied. They do not by themselves earn #link or #place. A host name is a target: assignment is #map. A frequency label is also a target: channel assignment is #map. An ordered spectral interval or time window is a position: #place. Routing chooses paths: #link. Query planning chooses an execution graph: #link. An optional demand set is #select. Candidate site selection is #select even though each candidate has supplied coordinates.
+
+Every candidate below distinguishes the delivered choice from its environmental constraints. Models may integrate several candidates, but an integration is not automatically a new stand-alone Problem. A second card is justified only by a distinct decision artifact and usable operational interface.
+
+CANDIDATE DOSSIERS
+
+Temporary mnemonic keys are research references, not permanent Problem numbers. Their order is not the proposed canonical sequence.
+
+[capacity] Compute and Storage Capacity Configuration
+
+Decision contract. Selects digital-resource sites, server or storage configurations and discrete capacities under demand, latency, resilience and facility limits.
+Identity and variants. Cloudlet placement; edge-server deployment; server-mix and storage-tier capacity configuration. Continuous facility engineering is outside this discrete contract.
+Boundary. Owns digital service capacity. Civil construction belongs to CIVIC; energy plant design to ENER; supplier and delivery choices to SCM. Reuse an existing capacity plan as input when the decision is only workload placement.
+Construction. #select + #map: Selects capacity configurations and maps demand regions to resource pools. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #design: Commits deployable digital capacity before service allocation.
+Template evidence. S01 establishes capacity-constrained edge location and access-point assignment, including clustering and integer-programming alternatives. S02 establishes forecast and scenario practice. Extending the same contract to server and storage configurations is a modeling inference, not a claim that S01 evaluates every configuration technology.
+Defensible IE basis: Workload-based capacity sizing and edge deployment. OR basis: Capacitated location-allocation MILP; scenario evaluation and clustering heuristics. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority High: Capacity configuration constrains cloud, edge and storage deployments. Relevance Critical: Capacity choices determine major infrastructure cost and service reach. Industrial hardness High: Demand uncertainty, resource compatibility and failure domains couple investment choices. Formal scope: NP-hard for discrete capacitated location-allocation variants.
+Useful refinements. ##CLOUD ##DATACENTER ##edge-computing ##capacity
+Compilation-sensitive qualification. Facility and utility limits are inputs; their engineering designs belong to CIVIC and ENER.
+Sources: S01, S02.
+
+[network] Communication Network Topology and Capacity Design
+
+Decision contract. Selects communication equipment and discrete link capacities and connects nodes to meet traffic and survivability requirements.
+Identity and variants. WAN, access, backhaul and data-center network dimensioning; radio access equipment activation at design stage; survivable and multilayer design.
+Boundary. Trench work and civic construction are CIVIC. Spectrum rights auctions are MKT. Routing over an installed substrate is a downstream decision. Virtual service topology is not the installed network.
+Construction. #link + #select: Constructs interconnections and selects equipment and capacity modules. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #design: Commits the communication substrate before traffic is routed.
+Template evidence. S03 provides the multilayer network-design research and SNDlib tradition. S04 confirms an industrial WAN distinction between installed capacity and centralized traffic engineering. Treat rights of way, building readiness and purchased spectrum rights as supplied constraints.
+Defensible IE basis: Multilayer telecommunications network dimensioning. OR basis: Fixed-charge network-design MILP; branch-and-cut and decomposition. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority High: Network design constrains telecom and data-center communication. Relevance Critical: Topology and capacity determine long-lived cost, reach and resilience. Industrial hardness High: Capacity modules, alternative routes and failure scenarios interact. Formal scope: NP-hard for fixed-charge capacitated network design.
+Useful refinements. ##TELECOM ##DATACENTER ##network-design ##survivability
+Compilation-sensitive qualification. Physical civil works are outside this communication-resource contract.
+Sources: S03, S04.
+
+[sensors] Civilian Sensing Network Configuration
+
+Decision contract. Selects sensor sites and instrument configurations to meet observation coverage or information-quality targets under cost and deployment limits.
+Identity and variants. Environmental monitoring; civilian remote sensing; instrument subset design. Continuous free-coordinate design requires #place and is outside this candidate-site card.
+Boundary. Adversarial surveillance is INTEL. A plant-control decision whose process physics defines feasibility belongs to PROC. Here the delivered artifact is the sensing deployment itself, not a process-control schedule.
+Construction. #select: Selects candidate site and instrument configurations; site coordinates are supplied. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #design: Commits sensing capability before observations are scheduled.
+Template evidence. S05 supports information-based sensor selection and conditional submodular approximation. Coverage MILP is an alternative mathematical framing when coverage rather than Gaussian-process information defines the contract. No universal approximation guarantee is inferred for arbitrary sensing objectives.
+Defensible IE basis: Monitoring-network design and experimental design. OR basis: Budgeted coverage or information-gain optimization; greedy submodular search and integer programming. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Medium: Recurs in environmental, industrial and scientific monitoring systems. Relevance High: Sensor choices determine information quality and deployment cost. Industrial hardness High: Spatial correlation and communication limits complicate useful sensor selection. Formal scope: NP-hard for budgeted maximum-coverage variants.
+Useful refinements. ##sensing ##coverage ##experimental-design
+Compilation-sensitive qualification. Submodular guarantees apply only when the chosen information objective satisfies their assumptions.
+Sources: S05.
+
+[channels] Radio Frequency and Channel Assignment
+
+Decision contract. Assigns radio transmitters or links to allowed channels under interference, separation and equipment constraints.
+Identity and variants. Fixed wireless, cellular frequency reuse and Wi-Fi channel assignment; minimum interference and minimum spectrum variants.
+Boundary. The plan assigns channel labels. Choosing contiguous spectral intervals is #place in optical provisioning. Per-frame user scheduling is a separate transmission decision. Spectrum ownership and auctions belong to MKT.
+Construction. #map: Maps transmitters or links to channel labels; interference relations are supplied. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #plan: Prepares a reusable channel plan before individual transmissions.
+Template evidence. S06 documents frequency-assignment models and methods. CALMA originated in defense; it supports model and algorithm lineage only. Civilian deployment ownership follows the service contract, so no defense benchmark is silently admitted as a civilian case.
+Defensible IE basis: Frequency planning and channel reuse. OR basis: Graph or list coloring; constraint programming, integer programming and local search. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Medium: Channel planning is central to radio deployments but absent from many compute systems. Relevance High: Channel reuse controls communication quality and usable spectrum. Industrial hardness High: Dense interference and frequency-separation constraints require specialized search. Formal scope: NP-hard through graph-coloring variants.
+Useful refinements. ##TELECOM ##frequency-assignment ##coloring
+Compilation-sensitive qualification. Channel assignment does not allocate commercial spectrum rights.
+Sources: S06.
+
+[dbdesign] Database Physical Design
+
+Decision contract. Selects indexes, materialized views and data-partition configurations under query workload, storage and update-cost limits.
+Identity and variants. Index selection; materialized-view selection; horizontal partition design treated as candidate configurations; joint tuning across structures.
+Boundary. Does not choose a query execution plan or assign durable replicas to hosts. If row-to-partition membership itself is optimized rather than configuration-selected, #map is required in that more detailed contract.
+Construction. #select: Selects physical-design alternatives from candidate access and partition configurations. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #design: Configures persistent access structures before query execution.
+Template evidence. S07 establishes commercial what-if tuning and interacting physical design. The optimization objective is predicted workload cost with maintenance and space limits. A cost-based tuner and an integer configuration model are alternatives; their predictions require validation against the actual workload.
+Defensible IE basis: Workload-driven database tuning and optimizer what-if analysis. OR basis: Cost-based configuration search; integer selection models and local improvement. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Medium: Physical tuning recurs in database and analytical platforms. Relevance High: Access structures materially affect database latency, throughput and storage. Industrial hardness High: Design interactions and costly optimizer estimates restrict exhaustive search. Formal scope: NP-hard for budgeted interacting index-selection variants.
+Useful refinements. ##database ##index-selection ##materialized-view
+Compilation-sensitive qualification. Physical data placement on hosts is a separate decision from access-structure selection.
+Sources: S07.
+
+[registers] Compiler Register Allocation
+
+Decision contract. Assigns program values to processor registers or spill storage under live-range interference, register-class and instruction constraints.
+Identity and variants. Static and just-in-time compilation; local and global allocation; integrated instruction scheduling retained as a coupled alternative.
+Boundary. The product is executable digital-resource allocation, not chip layout. Processor fabrication and physical design remain PROD. Allocation and instruction scheduling have distinct outputs despite their strong coupling.
+Construction. #map + #select: Maps values to storage resources and selects spill or split actions. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #allocate: Commits scarce processor registers to program values before machine-code execution.
+Template evidence. S08 establishes greedy LLVM practice. S09 establishes a constraint-programming alternative integrated with instruction scheduling and reports industrial use. Its evaluated scope does not establish exact scalability for arbitrary whole programs.
+Defensible IE basis: Compiler register assignment with spilling and live-range splitting. OR basis: Graph-coloring and greedy allocation; integrated constraint programming. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Medium: Register allocation recurs in optimizing compilers and runtime compilation. Relevance High: Allocation affects code speed, memory traffic and code size. Industrial hardness High: Register classes, spill transformations and compile-time budgets restrict exact optimization. Formal scope: NP-hard for general interference-graph coloring.
+Useful refinements. ##compiler ##register-allocation ##coloring
+Compilation-sensitive qualification. Register allocation and instruction scheduling may be solved jointly.
+Sources: S08, S09.
+
+[instructions] Compiler Instruction Scheduling
+
+Decision contract. Orders machine instructions and assigns issue cycles under data dependencies, processor latency and execution-unit limits.
+Identity and variants. Basic-block scheduling; regional scheduling; modulo scheduling of loops. Runtime operating-system thread scheduling is not this decision.
+Boundary. Instruction precedence is an input, so it does not justify #link. Compiler transformation selection beyond schedule and register decisions is not claimed to be exhaustively covered.
+Construction. #place: Positions instructions in execution order and issue cycles; program dependencies are supplied. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #plan: Prepares machine-code execution order before instructions run.
+Template evidence. S08 supports production list-scheduling practice. S09 provides integrated allocation/scheduling CP. Register pressure changes as instruction order changes; allocation can add spills and alter the scheduling instance, creating a real iteration loop.
+Defensible IE basis: Target-aware compiler scheduling and software pipelining. OR basis: List scheduling; resource-constrained scheduling and integrated constraint programming. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Medium: Instruction scheduling recurs in optimizing compiler back ends. Relevance High: Scheduling controls instruction-level parallelism and execution stalls. Industrial hardness High: Register pressure, target details and short compilation budgets couple choices. Formal scope: NP-hard for general resource-constrained precedence scheduling.
+Useful refinements. ##compiler ##instruction-scheduling ##precedence
+Compilation-sensitive qualification. Supplied data dependencies do not make this a #link problem.
+Sources: S08, S09.
+
+[parallel] Parallel Execution Plan Construction
+
+Decision contract. Partitions computational operators and tensors and assigns them to device groups under memory, communication and execution constraints.
+Identity and variants. Data, tensor, operator and pipeline parallelism; distributed DAG partitioning. A fixed algorithm graph is supplied; topology is not automatically constructed.
+Boundary. Plan construction is distinct from assigning jobs to a shared cluster and from compiler instruction issue order. Tensor numerical optimization or model training itself is not an ICO problem merely because execution uses GPUs.
+Construction. #map + #select: Maps operators or tensor partitions to device groups and selects parallelization configurations. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #plan: Prepares a distributed execution plan before a job receives its execution schedule.
+Template evidence. S10 establishes hierarchical inter- and intra-operator planning. S11 and S12 show that cluster allocation and per-job performance are coupled. Their evidence supports a feedback interface; it does not make parallel planning synonymous with cluster scheduling.
+Defensible IE basis: Distributed-program partitioning and model-parallel execution planning. OR basis: Hierarchical dynamic programming and integer sharding optimization; profiled configuration search. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority High: Parallel execution planning recurs in large-scale analytics and AI systems. Relevance Critical: Plan quality determines whether large workloads fit and use expensive accelerators effectively. Industrial hardness High: Memory, communication and heterogeneous device performance produce interacting choices. Formal scope: NP-hard for balanced graph-partitioning variants.
+Useful refinements. ##AI ##HPC ##partition ##model-parallelism
+Compilation-sensitive qualification. The operator graph is supplied; this card does not infer #link from that graph.
+Sources: S10, S11, S12.
+
+[query] Database Query Plan Construction
+
+Decision contract. Chooses join structure, access paths and physical operators for a query under semantic equivalence and execution-resource limits.
+Identity and variants. Join ordering; physical operator selection; left-deep and bushy plans; distributed query plans. Runtime task placement is a downstream interface.
+Boundary. A query semantics graph is supplied, but the execution operator tree or DAG is chosen: #link is therefore justified. Do not confuse join order with just chronological scheduling of an already fixed plan.
+Construction. #link + #select: Constructs operator connections and selects access methods and physical operators. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #plan: Commits an executable query plan before the query runs.
+Template evidence. S13 provides MILP for left-deep join ordering and contrasts it with established dynamic programming. The evidence does not support replacing production query optimizers with a universal MILP template. General database physical tuning remains a separate upstream decision.
+Defensible IE basis: Cost-based database query optimization. OR basis: Dynamic programming and memoized plan search; MILP for restricted join-order models. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Medium: Query-plan construction is central to relational database engines. Relevance High: Poor plans can sharply increase query latency and resource use. Industrial hardness High: Plan alternatives grow rapidly and cardinality estimates can misrank plans. Formal scope: NP-hard for general join-order optimization models.
+Useful refinements. ##database ##query-optimization ##join-ordering
+Compilation-sensitive qualification. The selected operator graph is the solution; the logical query is an input.
+Sources: S13.
+
+[admission] Digital Service Admission
+
+Decision contract. Selects service or job requests to accept under available digital capacity, service guarantees and existing commitments.
+Identity and variants. Queue admission, network-slice admission and reservation acceptance. Priority and fairness are objectives or policies, not independent problem identities.
+Boundary. Technical feasibility defines COMP admission. Offer pricing and bid acceptance dominated by commercial allocation belong to MKT. Admission is not synonymous with assigning accepted requests to hosts.
+Construction. #select: Chooses the accepted request set; feasibility checks account for downstream resource use. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #allocate + #dispatch: Commits capacity to accepted requests; online arrivals can require immediate acceptance.
+Template evidence. S14 provides online robust binary admission with resource-allocation coupling and a scalable heuristic. S15 supplies operational cluster admission context. Decomposition keeps acceptance as a stand-alone card while recording that integrated models may decide admission and embedding jointly.
+Defensible IE basis: Capacity-backed admission control and reservation acceptance. OR basis: Multidimensional knapsack or robust binary programming; online acceptance heuristics. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority High: Admission control protects constrained compute and communication services. Relevance High: Acceptance decisions balance utilization against service failures. Industrial hardness High: Uncertain demand and nonrevocable promises make online decisions difficult. Formal scope: NP-hard for multidimensional capacity-constrained acceptance.
+Useful refinements. ##CLOUD ##TELECOM ##admission-control ##knapsack
+Compilation-sensitive qualification. Pricing and auction mechanisms belong to MKT; this card accepts technically supportable service commitments.
+Sources: S14, S15.
+
+[batch] Cluster Job Scheduling and Reservations
+
+Decision contract. Schedules accepted jobs on compute resources under durations, deadlines, dependencies, gang requirements and reservation commitments.
+Identity and variants. HPC batch scheduling, DAG scheduling, advance reservations and multi-GPU training schedules. Gavel-like round scheduling and Pollux-like adaptive job sizing are material variants, not separate cards.
+Boundary. Temporal commitments distinguish this from immediate pod-to-node assignment. A resource share alone is not a completed schedule; continuous fair-share policy is retained only as an input or relaxation.
+Construction. #place + #map: Positions job execution in time and assigns compute resources; gang tasks require synchronized capacity. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #plan + #operate: Reserves resource-time capacity and orchestrates the resulting execution schedule.
+Template evidence. S16 supports backfill practice; S17 supplies space-time MILP; S11 supports effective-throughput allocation followed by round realization; S12 supports adaptive goodput-aware allocation. These optimize different objectives and no universal winner is established.
+Defensible IE basis: Batch-queue scheduling, backfilling and heterogeneous accelerator scheduling. OR basis: Resource-constrained scheduling MILP; rolling rescheduling and throughput-aware allocation with round scheduling. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Critical: Job scheduling is central to shared batch, HPC and AI compute platforms. Relevance Critical: Scheduling determines costly resource utilization and completion performance. Industrial hardness High: Heterogeneity, duration errors and gang placement require specialized scheduling. Formal scope: NP-hard for parallel-machine and resource-constrained scheduling variants.
+Useful refinements. ##HPC ##AI ##CLOUD ##schedule ##gang-scheduling
+Compilation-sensitive qualification. GPU allocation is included when it produces a resource-time execution schedule.
+Sources: S16, S17, S11, S12.
+
+[service] Virtual Service Placement and Embedding
+
+Decision contract. Assigns service components to hosts and routes their communication through an installed network under capacity, latency and service-chain requirements.
+Identity and variants. NFV service chains; virtual network embedding; distributed microservice placement with explicit route choice. Plain component placement with no chosen route reduces to workload placement.
+Boundary. The required service graph is supplied. #link is justified by selected substrate routes, not by reasserting the service graph. Installed network design is upstream.
+Construction. #map + #link: Maps components to hosts and constructs substrate paths between them; required service order is supplied. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #allocate: Commits host and network resources to a deployable service.
+Template evidence. S18 establishes joint scaling, placement and routing from service templates. S19 independently supports placement-routing decomposition in dynamic satellite-terrestrial substrates. Different substrates are variants of this digital-service contract.
+Defensible IE basis: Network-function virtualization and distributed-service deployment. OR basis: Joint placement-routing MILP; decomposition and service-aware heuristics. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority High: Embedding recurs in telecom cores, edge platforms and distributed applications. Relevance High: Placement and path choices control latency and shared-resource efficiency. Industrial hardness High: Host packing and routing constraints interact across many services. Formal scope: NP-hard for capacitated virtual-network embedding variants.
+Useful refinements. ##TELECOM ##CLOUD ##service-chaining ##embedding
+Compilation-sensitive qualification. The required service graph is input; substrate routes are chosen.
+Sources: S18, S19.
+
+[replicas] Durable Data and Replica Placement
+
+Decision contract. Assigns data shards, replicas or erasure-coded fragments to storage nodes under capacity, locality and failure-domain separation requirements.
+Identity and variants. Shard assignment; replica placement; erasure-coded fragment placement; rack-aware storage balancing. Replication factor may be supplied or selected in an extended contract.
+Boundary. Durable correctness and redundancy distinguish this from an evictable cache. Choosing desired locations is distinct from scheduling the live movement to reach them.
+Construction. #map: Maps shards and redundant copies to storage nodes while separating required failure domains. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #allocate: Commits storage locations for durable data.
+Template evidence. S20 establishes CRUSH failure-domain-aware operational placement. S21 establishes workload-locality optimization. Neither establishes that hashing is an exact optimizer for arbitrary workload objectives; both are defensible practice alternatives with different costs.
+Defensible IE basis: Distributed storage partition and replication management. OR basis: Capacitated assignment and partitioning; topology-aware hashing and locality-driven search. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority High: Data placement is central to distributed storage and databases. Relevance Critical: Placement affects data availability, access cost and recovery load. Industrial hardness High: Skewed accesses, redundancy and rebalance cost couple many assignments. Formal scope: NP-hard for capacitated partitioning and placement variants.
+Useful refinements. ##storage ##replication ##partition ##failure-domains
+Compilation-sensitive qualification. Cache contents may be evicted; durable placement must preserve the specified redundancy contract.
+Sources: S20, S21.
+
+[cache] Cache Content and Service Replication
+
+Decision contract. Selects cache objects or content classes and assigns copies to cache nodes under storage, freshness, bandwidth and latency limits.
+Identity and variants. CDN object placement; class-to-server provisioning; hierarchical caches; online eviction. Fixed-cache local replacement is a simpler restriction.
+Boundary. The scope is evictable content replicas, not persistent database indexes or durable replicas. Request-to-server routing uses the resulting available content locations.
+Construction. #select + #map: Selects retained content and maps copies or content classes to cache nodes. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #allocate + #dispatch: Allocates cache capacity and updates contents as requests arrive.
+Template evidence. S22 establishes traffic-class provisioning with cache-miss cost. S23 establishes adaptive operational caching. These are related configurations of cache management; content-level assignment formulations are a synthesis rather than a claim that both sources use the same model.
+Defensible IE basis: CDN provisioning and cache replacement. OR basis: Budgeted content placement and capacitated assignment; popularity-aware and adaptive caching heuristics. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority High: Caching is common in CDNs, edge platforms and data-intensive services. Relevance High: Cache decisions reduce origin traffic and request latency. Industrial hardness High: Popularity shifts, object sizes and cross-cache duplication complicate coordinated placement. Formal scope: NP-hard for networked budgeted content-placement variants.
+Useful refinements. ##CDN ##cache-placement ##replication
+Compilation-sensitive qualification. Freshness and recoverability distinguish caches from durable replica stores.
+Sources: S22, S23.
+
+[placement] Workload Placement and Compute Offloading
+
+Decision contract. Assigns runnable workloads to eligible hosts or execution tiers under resource capacity, affinity, locality and service limits.
+Identity and variants. VM and container placement; serverless execution tier choice; edge/cloud offloading; task placement. Optional admission belongs to the acceptance interface.
+Boundary. No #place without a chosen time or spatial coordinate. A named server is an assignment target. Temporal reservations belong to batch scheduling; joint routed-service embedding belongs to service placement.
+Construction. #map: Maps workloads to hosts or tiers; supplied topology and affinity constrain assignments. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #dispatch + #allocate: Binds runnable work to execution resources as capacity becomes available.
+Template evidence. S24 specifies filtering, scoring and binding. S25 supplies min-cost-flow scheduling under an appropriate representation. Normative Medium hardness for cloud placement is retained for this generic scope; harder temporal, topology-embedding and migration contracts have separate cards.
+Defensible IE basis: Cluster scheduler filtering and scoring; edge offloading. OR basis: Vector packing and generalized-assignment models; min-cost-flow restrictions and placement heuristics. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Critical: Workload placement is central to shared compute platforms. Relevance Critical: Placement controls utilization, service latency and resource waste. Industrial hardness Medium: Many standard instances are tractable with established methods; dense affinity requires more engineering. Formal scope: NP-hard for vector packing variants; min-cost-flow restrictions are polynomial.
+Useful refinements. ##CLOUD ##DATACENTER ##edge-computing ##assignment
+Compilation-sensitive qualification. Host assignment is #map; temporal reservation is a separate construction.
+Sources: S24, S25.
+
+[scaling] Digital Service and Node Autoscaling
+
+Decision contract. Selects service replica counts, resource configurations and active nodes under changing demand, startup delays and service constraints.
+Identity and variants. Horizontal service scaling; node autoscaling; server activation; integer-valued vertical configurations. Purely continuous resource sizing is not an ICO card.
+Boundary. Installed capacity is an upstream limit. Desired replica counts differ from placing those replicas. Utility dispatch remains ENER even when compute demand motivates it.
+Construction. #select: Selects active instances and discrete capacity configurations. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #dispatch + #adapt: Activates or removes capacity and revises prior resource commitments from observed load.
+Template evidence. S26 and S27 establish separate workload and node autoscalers. S28 establishes that restricted right-sizing is not generically NP-hard. More complex heterogeneous configurations can be harder without invalidating the tractable restriction.
+Defensible IE basis: Feedback autoscaling and capacity right-sizing. OR basis: Discrete dynamic optimization and model-predictive control; threshold policies with feasibility checks. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority High: Elastic capacity management is common in cloud and edge services. Relevance High: Right-sizing balances service performance against recurring capacity cost. Industrial hardness Medium: Forecast error, startup costs and interactions between controllers limit deployment quality. Formal scope: Restricted right-sizing models admit polynomial algorithms.
+Useful refinements. ##CLOUD ##autoscaling ##right-sizing #online #closedloop
+Compilation-sensitive qualification. Energy prices are inputs; utility production and grid dispatch belong to ENER.
+Sources: S26, S27, S28.
+
+[optical] Optical Lightpath and Spectrum Provisioning
+
+Decision contract. Routes optical connections and assigns wavelengths or contiguous spectrum intervals under continuity, nonoverlap and transmission-reach limits.
+Identity and variants. RWA, RSA and routing-modulation-spectrum assignment; spectrum defragmentation as adaptation; protection variants.
+Boundary. Installed fiber topology is input. The chosen lightpath is a new relation path, and ordered spectrum has a metric interval structure; both constructions are required. Capacity expansion is network design.
+Construction. #link + #place: Constructs lightpaths and positions their spectral intervals; continuity and contiguity constrain the result. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #allocate: Commits optical paths and spectrum to connection demands.
+Template evidence. S29 establishes ILP and competing decomposition families. Its comparative results concern specific models and instances, not an all-time method ranking. S30 supports restoration as a material adaptation variant of the same provisioning contract.
+Defensible IE basis: Optical connection provisioning and spectrum management. OR basis: Routing-and-spectrum ILP; path or configuration column generation and spectrum heuristics. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Medium: Optical provisioning is central to optical transport networks. Relevance High: Spectrum use and feasible paths determine network throughput and blocking. Industrial hardness High: Path alternatives, spectral fragmentation and physical reach couple choices. Formal scope: NP-hard for general routing-and-spectrum allocation.
+Useful refinements. ##TELECOM ##optical-network ##routing ##spectrum
+Compilation-sensitive qualification. Connection restoration and spectrum defragmentation are variants of this provisioning contract.
+Sources: S29, S30.
+
+[traffic] Packet Traffic Engineering
+
+Decision contract. Chooses packet-demand routes or forwarding configurations under link capacities, service policies and failure conditions.
+Identity and variants. WAN and data-center TE; segment-path selection; multicast tree routing; failure rerouting and protection path selection. Continuous rate allocation alone is excluded.
+Boundary. Packet paths differ from optical lightpaths with spectrum continuity. The two layers interact through available link capacity. Security-driven interdiction and adversarial response belong to INTEL.
+Construction. #link: Constructs demand paths or forwarding relations; flow conservation constrains valid routing. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #operate + #adapt: Controls traffic on the installed network and revises routing after change.
+Template evidence. S04 establishes B4 centralized TE but does not imply its entire allocation core is combinatorial. The card explicitly retains discrete route and forwarding choices. S31 demonstrates operational path reselection following failure; it supports adaptation without a duplicate generic recovery card.
+Defensible IE basis: WAN traffic engineering and software-defined routing. OR basis: Unsplittable or path-constrained multicommodity-flow optimization; LP relaxations and routing heuristics. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Critical: Traffic routing is central to communication infrastructure. Relevance Critical: Routing controls congestion, service continuity and expensive network use. Industrial hardness High: Policy, path-count and update constraints make industrial routing harder than continuous allocation. Formal scope: NP-hard for unsplittable multicommodity routing; splittable fixed-path flow is an LP.
+Useful refinements. ##TELECOM ##DATACENTER ##routing ##multicommodity-flow
+Compilation-sensitive qualification. Continuous bandwidth allocation alone falls outside the discrete routing scope.
+Sources: S04, S31.
+
+[radio] Radio Transmission Scheduling
+
+Decision contract. Assigns users or transmissions to time-frequency resource blocks and serving radios under interference, channel quality and service requirements.
+Identity and variants. OFDMA resource blocks; uplink and downlink scheduling; user association integrated with grants; beam or mode selection when discrete.
+Boundary. Longer-lived channel reuse plans constrain but do not decide individual grants. Continuous power control with all discrete choices fixed is outside the ICO scope.
+Construction. #map + #place: Maps users to serving resources and positions transmissions in the time-frequency grid. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #dispatch: Issues short-cycle transmission grants from current network state.
+Template evidence. S32 establishes max-min integer resource-block allocation in a maritime cellular setting. S33 demonstrates why pairwise graph conflict models can be insufficient under aggregate interference. The candidate covers shared radio-resource decisions, not the entire physical-layer control problem.
+Defensible IE basis: Radio access scheduling and channel-aware resource allocation. OR basis: Integer resource-block allocation; matching restrictions and fast scheduling heuristics. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Medium: Transmission scheduling is central to cellular and wireless access systems. Relevance High: Grant decisions determine spectral efficiency and user service. Industrial hardness High: Rapidly varying channels and short deadlines constrain search. Formal scope: NP-hard for interference-coupled allocation variants; simple matching restrictions are polynomial.
+Useful refinements. ##TELECOM ##radio-resource-allocation ##interference #realtime
+Compilation-sensitive qualification. Pure continuous power control is outside this card.
+Sources: S32, S33.
+
+[requests] Online Request Routing and Batch Dispatch
+
+Decision contract. Assigns incoming requests to service instances and forms ordered execution batches under queue, compatibility, memory and latency limits.
+Identity and variants. Inference batching; model-serving dispatch; request load balancing; iteration-level generation scheduling. A single-request assignment restriction is simpler.
+Boundary. Replica count and placement are inputs from scaling and placement. Packet TE routes communication through links, whereas this decision chooses service destinations and execution batches.
+Construction. #map + #place: Maps requests to instances or batches and orders batch execution. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #dispatch: Routes requests and releases executable batches from live queues.
+Template evidence. S34 establishes predictable SLO-aware inference serving; S35 establishes integrated batching, replication and placement heuristics. Retain the dispatch contract separately while recognizing joint models. S36 extends evidence to iteration-level LLM serving.
+Defensible IE basis: Latency-aware serving, load balancing and dynamic batching. OR basis: Online assignment and batch scheduling; deadline-aware and interference-aware heuristics. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority High: Online serving is common across web, database and AI platforms. Relevance Critical: Dispatch quality determines user-facing latency and service throughput. Industrial hardness High: Short latency budgets, variable requests and interference restrict optimization. Formal scope: NP-hard for general batch scheduling with deadlines.
+Useful refinements. ##AI ##CLOUD ##serving ##batching #realtime
+Compilation-sensitive qualification. Service-instance choice differs from routing the resulting packets.
+Sources: S34, S35, S36.
+
+[transfers] Data Transfer and Coflow Scheduling
+
+Decision contract. Orders and schedules data transfers under shared communication capacity, release times, completion dependencies and deadlines.
+Identity and variants. Bulk transfer scheduling; shuffle coflows; checkpoint and backup transfer windows. Joint routing is an extension, not mandatory #link.
+Boundary. TE supplies feasible network paths. This card schedules transfer service over that substrate. Data migration adds live-state and consistency requirements beyond a plain transfer.
+Construction. #place: Positions transfer service in time or priority order; coflow membership is supplied. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #operate: Coordinates active application transfers against shared network capacity.
+Template evidence. S37 establishes Varys with known-size scheduling; S38 retains Aalo where sizes are unknown. The difference is operationally material. Purely continuous bandwidth shares without selected order, admission or path are outside the discrete contract.
+Defensible IE basis: Application-aware transfer coordination and coflow scheduling. OR basis: Concurrent open-shop and network scheduling; LP-based bounds and size-aware or nonclairvoyant heuristics. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority High: Transfer scheduling recurs in analytics, replication and distributed compute. Relevance High: Transfer completion can govern entire application completion time. Industrial hardness High: Shared bottlenecks and uncertain transfer sizes require online heuristics. Formal scope: NP-hard for general coflow completion-time scheduling.
+Useful refinements. ##DATACENTER ##coflow ##schedule
+Compilation-sensitive qualification. Known-size and nonclairvoyant scheduling require different baselines.
+Sources: S37, S38.
+
+[observations] Civilian Observation Scheduling
+
+Decision contract. Selects observation requests and schedules instruments under visibility, pointing, duration, cadence and resource constraints.
+Identity and variants. Civilian satellite imaging; telescope networks; ground instrument scheduling; active sensing windows. Adversarial mission purpose changes ownership.
+Boundary. The schedule produces observations, not physical transport visits. Defense ISR belongs to INTEL. Downlink is a separate delivery contract and can be jointly optimized.
+Construction. #place + #select + #map: Positions accepted observations in time, selects requests and assigns instruments. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #plan + #adapt: Commits observation windows and revises them after weather or resource changes.
+Template evidence. S39 supplies deployed telescope-network motivation and integer scheduling. S40 supplies observation-relay-downlink coupling for Earth observation. No claim of a universal schedule objective is made across astronomy and imaging.
+Defensible IE basis: Scientific and Earth-observation mission planning. OR basis: Time-window scheduling MILP; rolling replanning and schedule repair. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Medium: Observation scheduling recurs in scientific and civilian sensing systems. Relevance High: Schedules determine which scarce observation opportunities produce usable data. Industrial hardness High: Visibility, slew transitions and uncertain conditions couple requests. Formal scope: NP-hard for general optional resource-constrained window scheduling.
+Useful refinements. ##AEROSPACE ##sensing ##observation ##time-windows
+Compilation-sensitive qualification. Adversarial observation and ISR missions belong to INTEL.
+Sources: S39, S40.
+
+[downlink] Space Communication Contact Scheduling
+
+Decision contract. Assigns space communication sessions to ground or relay resources and schedules contacts under visibility, compatibility, data-volume and buffer limits.
+Identity and variants. Ground-station scheduling; observation downlink; relay contact planning; uplink windows. Fixed contact topology is assumed in this scope.
+Boundary. Unlike packet TE, the scarce asset is a time-limited instrument/antenna contact. Joint relay route construction requires #link in an extended contract. Crew rostering for the ground network remains HR.
+Construction. #place + #map: Positions contact sessions in time and maps them to antennas or relays. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #plan + #adapt: Reserves communication contacts and repairs commitments after change.
+Template evidence. S40 establishes contact scheduling within an integrated image-relay-downlink model. The stand-alone contact contract is a decomposition inference: image production and storage state constrain contact needs, while contact capacity constrains feasible image acceptance.
+Defensible IE basis: Ground-network contact allocation and mission-data delivery planning. OR basis: Time-window and cumulative-resource MILP; decomposition and schedule repair. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Medium: Contact scheduling is essential in satellite and space-science operations. Relevance High: Contact use determines data delivery and onboard storage availability. Industrial hardness High: Overlapping windows, antenna conflicts and stored-data balances couple missions. Formal scope: NP-hard for general multi-resource contact scheduling.
+Useful refinements. ##AEROSPACE ##TELECOM ##contact-scheduling ##time-windows
+Compilation-sensitive qualification. Available downlink capacity can force revision of the observation schedule.
+Sources: S40.
+
+[migration] Live Workload and Data Migration Scheduling
+
+Decision contract. Selects and schedules moves from existing to target digital-resource placements under transient capacity, bandwidth and service-continuity limits.
+Identity and variants. VM live migration; container relocation with state; shard and replica rebalance; consolidation execution. Target selection can be integrated but remains separately identifiable.
+Boundary. Desired host mapping belongs to placement; moving live state safely has a distinct transient contract. Generic bulk transfers do not preserve live application continuity by themselves.
+Construction. #place + #select: Positions migration actions in time and selects compatible concurrent moves; target placements are supplied. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #adapt: Changes an existing allocation while maintaining ongoing service.
+Template evidence. S41 establishes concurrency-aware migration and the interface from target-placement policies. S42 supports controlled migration during distributed storage expansion. Storage and VM consistency differ; implementations must preserve the relevant protocol rather than assume interchangeable actions.
+Defensible IE basis: Live migration, consolidation and storage rebalancing. OR basis: Conflict-graph selection and resource-constrained migration scheduling; concurrency-aware heuristics. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority High: Migration supports elastic, maintained and rebalanced digital systems. Relevance High: Migration quality limits disruption and stranded resource capacity. Industrial hardness High: Temporary duplicate capacity, dirty state and shared links constrain safe concurrency. Formal scope: NP-hard for conflict-constrained migration selection variants.
+Useful refinements. ##CLOUD ##storage ##migration ##transient-capacity
+Compilation-sensitive qualification. This card assumes target placements are supplied; integrated target selection adds #map.
+Sources: S41, S42.
+
+[maintenance] Digital Infrastructure Maintenance and Update Scheduling
+
+Decision contract. Groups and schedules digital-resource maintenance or update actions under residual service capacity, redundancy, precedence and rollback requirements.
+Identity and variants. Network device upgrades; cluster node maintenance; rolling service updates; planned evacuation waves. Security prioritization itself belongs to INTEL when adversarial conditions dominate.
+Boundary. Owns service-safe digital change sequencing. Civil asset maintenance is CIVIC; technician staffing is HR. Migration and rerouting can be prerequisite actions within the change plan.
+Construction. #place + #map: Positions actions in an ordered schedule and groups resources into update waves. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #plan + #adapt: Plans outages or update waves and revises them as execution reveals system state.
+Template evidence. S43 supplies Janus risk-based planning and executable comparison planners. S44 supplies service disruption budgets for cluster maintenance. Disruption budgets are feasibility safeguards, not a complete optimization algorithm.
+Defensible IE basis: Rolling upgrades, maintenance waves and risk-aware change planning. OR basis: Constrained batch and precedence scheduling; risk-evaluated search and staged repair. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority High: Maintenance and updates recur across managed digital infrastructure. Relevance Critical: Poor change sequencing can interrupt large shared services. Industrial hardness High: Intermediate-state availability and traffic uncertainty require system-specific evaluation. Formal scope: NP-hard for general precedence and resource-constrained maintenance scheduling.
+Useful refinements. ##DATACENTER ##TELECOM ##maintenance ##rolling-upgrade
+Compilation-sensitive qualification. A disruption budget constrains an update plan; it is not a complete scheduling method.
+Sources: S43, S44.
+
+[isel] Compiler Instruction Selection
+
+Decision contract. Selects target-machine instruction patterns that implement a program representation under semantic and processor constraints.
+Identity and variants. Tree and DAG instruction covering; target lowering; combined operations. Global program equivalence search is a broader and less bounded contract.
+Boundary. Selecting machine operations is distinct from deciding their issue times or register locations. Program semantics and the legal target instruction set are supplied.
+Construction. #select + #map: Selects instruction patterns and maps program operations to their covering patterns. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #plan: Chooses the machine operations before register assignment and execution scheduling.
+Template evidence. S45 establishes greedy production instruction selection and fusion. S46 establishes DAG covering, a binary integer model and a near-optimal method, while contrasting the tractable tree restriction.
+Defensible IE basis: Target-specific pattern matching and instruction covering. OR basis: Tree dynamic programming; DAG-covering integer programming and near-optimal heuristics. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Medium: Instruction selection recurs in compiler back ends across computing platforms. Relevance High: Instruction choices affect executable speed, code size and target support. Industrial hardness High: Shared expressions and machine-specific patterns interact under tight compilation budgets. Formal scope: General DAG instruction selection is NP-hard; tree restrictions admit dynamic programming.
+Useful refinements. ##compiler ##instruction-selection ##covering
+Compilation-sensitive qualification. Instruction selection precedes the separately scoped issue-order and register decisions.
+Sources: S45, S46.
+
+[kernel] Tensor Kernel Implementation Configuration
+
+Decision contract. Chooses tiling, loop-order, fusion and hardware-mapping configurations for tensor computations under semantic, memory and target constraints.
+Identity and variants. Tensor tiling and loop interchange; fusion decisions; memory hierarchy and thread mapping; template-guided and generated schedules.
+Boundary. Internal kernel implementation differs from partitioning a model across multiple devices and from competing jobs for cluster capacity. Vendor kernels can be supplied instead of optimized.
+Construction. #select + #map + #place: Selects transformations, maps computation to hardware resources and orders loop execution. Supplied constraints appear in the decision contract; they are not additional chosen structures.
+Commitment. #plan: Prepares an executable kernel implementation before workload execution.
+Template evidence. S47 establishes measured hardware-aware TVM optimization. S48 establishes hierarchical program generation with evolutionary search and learned cost models. The card admits bounded implementation choices, not unrestricted synthesis of any equivalent program.
+Defensible IE basis: Tensor program autotuning and hardware-aware kernel generation. OR basis: Hierarchical discrete configuration search; cost-model-guided evolutionary search and measurement. These identify method families, not an unqualified strongest-solver claim.
+Assessment (ontology inference). Priority Medium: Kernel configuration recurs in AI compilers and high-performance numerical libraries. Relevance High: Kernel choices materially affect hardware utilization and inference or training cost. Industrial hardness High: Interacting transformations and expensive hardware measurements limit exploration. Formal scope: Exhaustive search grows as the product of discrete configuration counts.
+Useful refinements. ##AI ##HPC ##tensor-program ##autotuning
+Compilation-sensitive qualification. A kernel schedule is an implementation artifact, distinct from a cluster job schedule.
+Sources: S47, S48.
+
+DEPENDENCY GRAPH — TEMPORARY KEYS
+
+All edges are conditional industrial information or commitment flow, not mathematical reduction. They are synthesis from source contracts; no source is claimed to publish this canonical graph. A listed edge applies when both decisions occur in one deployment. Unlisted weak associations are not inferred as dependencies.
+
+isel → instructions: Selected machine operations define the instruction scheduling instance. Evidence: S45,S46,S08.
+isel → registers: Selected instructions specify register operands and constraints. Evidence: S45,S08.
+kernel → parallel: Kernel profiles and implementation costs inform distributed execution planning. Evidence: S47,S10.
+capacity → admission: Resource pools bound feasible commitments. Evidence: S01,S14.
+capacity → batch: Available hardware and capacity bound resource-time schedules. Evidence: S01,S16.
+capacity → replicas: Storage nodes and failure domains bound durable placement. Evidence: S01,S20.
+capacity → scaling: Deployable configurations bound active capacity. Evidence: S02,S27.
+network → service: Installed substrate constrains service embedding. Evidence: S03,S18.
+network → optical: Fiber topology and modules constrain optical provisioning. Evidence: S03,S29.
+network → traffic: Installed links and capacities constrain packet routing. Evidence: S03,S04.
+network → channels: Radio equipment and link set constrain channel planning. Evidence: S03,S06.
+sensors → observations: Selected instrument capability defines observation opportunities. Evidence: S05,S39.
+dbdesign → query: Available access structures constrain executable query alternatives. Evidence: S07,S13.
+instructions → registers: Scheduled order determines live ranges. Evidence: S08,S09.
+registers → instructions: Spills and register pressure require schedule revision. Evidence: S08,S09.
+parallel → batch: Execution configurations determine job resource demand. Evidence: S10,S11.
+batch → parallel: Granted resources can force replanning of parallel configuration. Evidence: S11,S12.
+admission → batch: Accepted jobs enter the execution commitment set. Evidence: S14,S16.
+admission → service: Accepted service requests require feasible embedding. Evidence: S14,S18.
+batch → placement: Resource-time commitments constrain actual binding. Evidence: S16,S24.
+service → traffic: Placed service endpoints generate routed communication demands. Evidence: S18,S04.
+replicas → query: Data locations affect distributed execution cost and access choices. Evidence: S21,S13.
+replicas → migration: Changed target storage locations generate rebalance actions. Evidence: S20,S42.
+cache → requests: Cached content locations determine serving eligibility. Evidence: S22,S34.
+scaling → placement: Desired instances and active nodes define placement demand and capacity. Evidence: S26,S27,S24.
+placement → scaling: Unschedulable demand and consolidation feasibility inform node scaling. Evidence: S24,S27.
+placement → requests: Deployed instances define destinations for online requests. Evidence: S24,S34.
+placement → migration: Changed target hosts generate migration actions. Evidence: S41.
+optical → traffic: Provisioned optical connections supply packet-layer capacity where layers are coupled. Evidence: S03,S29,S04.
+channels → radio: Channel plan bounds the transmission resource grid. Evidence: S06,S32.
+traffic → transfers: Routes and residual link capacities constrain transfer schedules. Evidence: S04,S37.
+observations → downlink: Accepted acquisitions generate time-dependent data volumes. Evidence: S40.
+downlink → observations: Delivery capacity and memory release constrain later observation acceptance. Evidence: S40.
+transfers → migration: Available transfer windows bound live migration execution. Evidence: S37,S41.
+maintenance → migration: Planned unavailable resources require evacuation. Evidence: S41,S44.
+migration → maintenance: Completed evacuation enables scheduled outages or updates. Evidence: S41,S44.
+maintenance → traffic: Planned link or device outages require traffic rerouting. Evidence: S43,S04.
+
+Cycles and direction control:
+- instructions ↔ registers: instruction order changes liveness; register assignment and spills revise order. Common pipelines and integrated models differ; neither direction is globally mandatory.
+- parallel ↔ batch: a proposed execution plan supplies resource demand; feasible allocation can trigger plan revision. First-pass plan before schedule is the sequencing convention.
+- scaling ↔ placement: desired capacity precedes binding; observed placement feasibility feeds scaling. First-pass desired capacity before binding is the convention.
+- observations ↔ downlink: acquisitions create data; delivery windows and finite memory restrict acquisitions. Integrated planning is often appropriate. Acquisition before delivery is the first-pass convention, not a ban on feedback.
+- maintenance ↔ migration: the outage plan requests evacuation; safe evacuation enables the outage. Put the intended maintenance plan before migration execution, retaining the readiness return.
+
+Traffic management is also consulted while planning upgrades, but a full traffic-to-maintenance reciprocal edge is not required by every contract. The explicit maintenance → traffic edge records the chosen residual substrate. Restoration is an adapt variant of placement, routing or optical provisioning unless a separately evidenced integrated restoration contract is later admitted.
+
+Dependencies intentionally omitted: no universal compiler → cloud scheduler edge; most schedulers consume a job resource profile rather than compiler allocation. No universal sensing-deployment → ground-contact edge because instrument deployments and space communication are not always one system. No blanket all-to-all cloud stack dependencies. Quota and fairness policy can be exogenous data without becoming a separate parent Problem.
+
+MERGES, EXCLUSIONS AND INTEGRATED MODELS
+
+MERGE as aliases or variants:
+- VM placement, pod placement, container assignment, serverless host selection and edge offloading share the workload-to-resource decision when timing and routes are fixed.
+- GPU, TPU and accelerator job scheduling remain temporal cluster scheduling. Heterogeneity, gang size and goodput models are material variants. A separate fractional fair-share optimizer alone is not an ICO Problem.
+- RWA, RSA and modulation-aware provisioning share a lightpath/spectrum artifact; retain their different constraints for cases.
+- Satellite and telescope observation schedules share optional time-window instrument commitments. Civilian ownership must be preserved in every case.
+- Planned replica rebalancing and VM live migration share the state-preserving transition contract; protocols and feasibility differ and must not be conflated in cases.
+- Failure rerouting, rescheduling, replacement placement and optical restoration are adaptation variants. Do not add a generic recovery card that duplicates their outputs.
+
+RETAIN distinct:
+- Capacity configuration vs autoscaling: installed/deployable envelope vs active configuration.
+- Admission vs scheduling vs placement: accepted demand set vs resource-time reservations vs actual resource binding.
+- Service embedding vs placement: embedding chooses substrate routes as well as endpoints.
+- Durable data placement vs caching: mandated redundancy and persistence vs revocable performance copies.
+- Database physical design vs query plan: persistent access structures vs an executable operator graph.
+- Register allocation vs instruction scheduling: values-to-storage mapping vs issue order. Their integrated solution is a coupled model, not evidence of synonymy.
+- Parallel execution planning vs cluster scheduling: internal program distribution vs competition among jobs for time and devices.
+- Packet TE vs coflow scheduling: route/forwarding artifact vs time/order of application transfer service.
+- Observation vs contact scheduling: production of information vs access to time-limited communication assets.
+- Maintenance planning vs migration: allowed change sequence vs execution of state-preserving moves.
+
+EXCLUDE from the admitted foreground:
+- Pure continuous congestion control, bandwidth shares, power control and continuous sizing, absent discrete route, action, configuration or schedule decisions.
+- Fairness, multi-tenancy, energy efficiency, carbon awareness, robust optimization and online operation as stand-alone identities. They qualify actual decisions.
+- Hyperparameter tuning, numerical training, generic reinforcement learning and optimization algorithms as such. Their compute-resource plans are covered where discrete.
+- Semiconductor physical design and fabrication configuration (PROD); spectrum auctions and cloud pricing (MKT); cyber interdiction and defensive security games (INTEL); utility supply (ENER); workforce rostering (HR).
+- A generic integrated digital-operations superproblem. Existing integrated papers support coupling, not one necessary monolithic contract.
+
+FOLLOW-UP TERRITORY AND COVERAGE LIMITS
+
+The search rounds first recovered expected cloud and telecom families. The second pass added databases, civilian sensing and live transitions. The omission pass added compiler resource decisions and confirmed that several ostensibly new names were GPU, edge, serverless, recovery or LLM variants. Practical coverage is broad; this is not a proof of exhaustion.
+
+The omission pass established instruction selection and tensor-kernel implementation configuration as additional supported contracts. They are retained separately from register allocation, issue scheduling and distributed parallel execution planning. General unrestricted program synthesis/superoptimization is not admitted as one industrial decision; bounded executable choices now have explicit homes. Memory layout is a kernel-configuration variant where it is an implementation choice, or data placement where storage-node assignment is decided. Repair transfer scheduling is a transfer/migration variant; choosing an entirely new error-correcting code is outside this operational resource-planning set. Quantum-specific resource scheduling remains a specialized follow-up territory: generic job and instruction scheduling are covered, but quantum-specific calibration, qubit routing and error-correction design are not claimed to be established by these sources. This limits claims of exhaustiveness without blocking the documented principal digital operating stacks.
+
+Finite investigation scope does not justify a universal SOTA claim. Later case work must test the selected template families against current alternatives, reported scale and reproducibility. Research papers with only an inspected abstract support only the claims stated there. In particular, JASPER and optical restoration method internals are not treated as independently audited implementations.
+
+COMPLEXITY AND RATINGS BASIS
+
+Standard embedded-problem arguments used for compilation: fixed-charge activation with capacity contains network design; finite-site capacity configuration contains location-allocation; optional coverage contains maximum coverage; channel coloring contains graph coloring; constrained value-to-register assignment contains interference coloring; bounded-resource precedence schedules contain resource-constrained scheduling; multi-resource acceptance contains knapsack; vector host assignment contains vector packing; a chosen contiguous optical allocation contains RSA; unsplittable packet paths contain discrete multicommodity routing. These are conditional scope arguments, not proofs that every named implementation solves an NP-hard instance.
+
+Database index selection requires a budget and competing benefits/interactions for the hard selection restriction. Join-plan complexity depends on the allowed plan space and cost model. General coflow completion scheduling is hard, while an individual fixed-path rate allocation may be an LP. Some fixed-resource matching restrictions are polynomial. Right-sizing has tractable restricted models, so no generic NP-hard label is assigned to autoscaling. Cloud placement retains normative Medium industrial hardness for its generic scope; integrated routing, temporal commitments and live transitions carry their own harder contracts.
+
+Critical Priority is reserved for shared-compute job scheduling, workload placement and packet routing, which define major digital operating stacks. Specialized compiler, database, radio, optical and sensing decisions are Medium even where indispensable inside that subdomain. High covers recurring cross-platform decisions. Relevance is based on the affected resource/service, not on an invented uplift percentage. High hardness records specialized engineering; Critical hardness is not used merely to signal fashionable scale.
+
+SOURCE REGISTER
+
+URLs below are stable retrieval references, not selected Cases. Read or searched 2026-10-07. No numerical benchmark result is imported into the foreground.
+
+S01 Lähderanta et al., Edge computing server placement with capacitated location allocation.
+https://arxiv.org/abs/1907.07349
+Evidence scope: Full text inspected. Capacity-constrained deployment and clustering; not a general procurement study.
+
+S02 Microsoft, Architecture strategies for capacity planning.
+https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/capacity-planning
+Evidence scope: Official practice; forecast and scenario guidance, not optimality evidence.
+
+S03 ZIB, Integrated Planning of Multi-layer Telecommunication Networks; SNDlib lineage.
+https://www.zib.de/de/research/projects/integrated-planning-multi-layer-telecommunication-networks
+Evidence scope: Research project and primary publication links; network-design model families.
+
+S04 Jain et al., B4: Experience with a Globally Deployed Software Defined WAN, SIGCOMM 2013.
+https://research.google/pubs/b4-experience-with-a-globally-deployed-software-defined-wan/
+Evidence scope: Industrial research; centralized TE practice. Do not classify all continuous flow allocation as ICO.
+
+S05 Krause, Singh and Guestrin, Near-Optimal Sensor Placements in Gaussian Processes, JMLR 2008.
+https://jmlr.org/beta/papers/v9/krause08a.html
+Evidence scope: Primary research; information selection and assumption-dependent approximation.
+
+S06 ZIB, Frequency Assignment Problems: test problems and method references.
+https://fap.zib.de/problems/
+Evidence scope: Benchmark curator evidence. Includes military-origin CALMA; no case admitted here.
+
+S07 Chaudhuri and Narasayya, AutoAdmin: Self-Tuning Database Systems Technology; AutoAdmin project.
+https://www.microsoft.com/en-us/research/publication/autoadmin-self-tuning-database-systems-technology/
+Evidence scope: Industrial research; cost-driven physical design and what-if evaluation.
+
+S08 LLVM, The LLVM Target-Independent Code Generator; Greedy Register Allocation.
+https://llvm.org/docs/CodeGenerator.html
+Evidence scope: Official implementation guidance; production methods differ from exact combinatorial research.
+
+S09 Castañeda Lozano et al., Combinatorial Register Allocation and Instruction Scheduling.
+https://arxiv.org/abs/1804.02452
+Evidence scope: Primary research; integrated CP, executable code and reported evaluation. Results not reproduced.
+
+S10 Zheng et al., Alpa, OSDI 2022.
+https://www.usenix.org/conference/osdi22/presentation/zheng-lianmin
+Evidence scope: Primary research; hierarchical parallel plans and linked implementation.
+
+S11 Narayanan et al., Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads, OSDI 2020.
+https://www.usenix.org/conference/osdi20/presentation/narayanan-deepak
+Evidence scope: Gavel: effective-throughput optimization followed by round scheduling.
+
+S12 Qiao et al., Pollux, OSDI 2021.
+https://www.usenix.org/conference/osdi21/presentation/qiao
+Evidence scope: Primary research; goodput-aware co-adaptation. Not interchangeable with fixed-resource scheduling.
+
+S13 Trummer and Koch, Solving the Join Ordering Problem via Mixed Integer Linear Programming.
+https://arxiv.org/abs/1511.02071
+Evidence scope: Full text inspected; left-deep MILP scope and comparison with dynamic programming.
+
+S14 Gholamipour et al., Online Admission Control and Resource Allocation in Network Slicing under Demand Uncertainties.
+https://arxiv.org/abs/2108.03710
+Evidence scope: Primary research; robust binary formulation and heuristic. Abstract and method description inspected.
+
+S15 Verma et al., Large-scale cluster management at Google with Borg, EuroSys 2015.
+https://research.google/pubs/large-scale-cluster-management-at-google-with-borg/
+Evidence scope: Industrial system source; admission and cluster operation.
+
+S16 SchedMD, Slurm Scheduling Configuration Guide.
+https://slurm.schedmd.com/sched_config.html
+Evidence scope: Official backfill and queue scheduling practice.
+
+S17 TetriSched, Space-Time Scheduling for Heterogeneous Datacenters.
+https://www.cs.cmu.edu/~harchol/Papers/tetrischedtr.pdf
+Evidence scope: Primary technical report; space-time MILP, constraints and utility.
+
+S18 Dräxler, Karl and Mann, JASPER.
+https://arxiv.org/abs/1711.10839
+Evidence scope: Primary abstract and metadata retrieved through search; direct open failed. Joint scaling, placement and routing; method details require follow-up for cases.
+
+S19 Yuan, Sun and Peng, Joint Network Function Placement and Routing Optimization in Dynamic Software-defined Satellite-Terrestrial Integrated Networks.
+https://arxiv.org/abs/2310.13940
+Evidence scope: Primary abstract; integer model, Benders-based method and greedy alternative.
+
+S20 Ceph, CRUSH Maps.
+https://docs.ceph.com/en/latest/rados/operations/crush-map/
+Evidence scope: Official placement-policy and failure-domain documentation.
+
+S21 Paiva et al., AUTOPLACER, ICAC 2013.
+https://www.usenix.org/conference/icac13/technical-sessions/presentation/paiva
+Evidence scope: Primary research; locality-aware durable data placement.
+
+S22 Sundarrajan et al., Midgress-aware traffic provisioning for content delivery, ATC 2020.
+https://www.usenix.org/conference/atc20/presentation/sundarrajan
+Evidence scope: Primary research with Akamai traces; traffic-class provisioning, not a universal object-cache solver.
+
+S23 Janardhan, Predictive Caching@Scale, OpML 2019.
+https://www.usenix.org/conference/opml19/presentation/janardhan
+Evidence scope: Industry presentation; adaptive caching practice, not proof of universal dominance.
+
+S24 Kubernetes, Kubernetes Scheduler.
+https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/
+Evidence scope: Official filtering, scoring, binding and constraint description.
+
+S25 Gog et al., Firmament, OSDI 2016.
+https://www.usenix.org/conference/osdi16/technical-sessions/presentation/gog
+Evidence scope: Primary research; min-cost-flow representation and scalable placement.
+
+S26 Kubernetes, Autoscaling Workloads.
+https://kubernetes.io/docs/concepts/workloads/autoscaling/
+Evidence scope: Official service scaling practice.
+
+S27 Kubernetes, Node Autoscaling.
+https://kubernetes.io/docs/concepts/cluster-administration/node-autoscaling/
+Evidence scope: Official node lifecycle and scaling constraints.
+
+S28 Albers and Quedenfeld, Optimal Algorithms for Right-Sizing Data Centers.
+https://arxiv.org/abs/1807.05112
+Evidence scope: Restricted model tractability; do not infer NP-hardness from discreteness.
+
+S29 Enoch, Nested Column Generation decomposition for Routing and Spectrum Allocation.
+https://arxiv.org/abs/2001.00066
+Evidence scope: Full text inspected; RSA model, complexity and alternative decompositions.
+
+S30 Efficient Mixed Integer Linear Programming Approaches to Dynamic Path Restoration.
+https://arxiv.org/abs/2406.10110
+Evidence scope: Primary abstract retrieved through search; direct open failed. Limited to stated optical-restoration setting.
+
+S31 Landa et al., Staying Alive: Connection Path Reselection at the Edge, NSDI 2021.
+https://www.usenix.org/conference/nsdi21/presentation/landa
+Evidence scope: Primary research; failure-driven route reselection.
+
+S32 Optimization of LTE Radio Resource Block Allocation for Maritime Channels.
+https://arxiv.org/abs/1808.06025
+Evidence scope: Primary abstract; max-min integer resource allocation, specialized radio setting.
+
+S33 Radio Resource Allocation for Device-to-Device Underlay Communication Using Hypergraph Theory.
+https://arxiv.org/abs/1604.03246
+Evidence scope: Primary abstract; aggregate interference and hypergraph allocation.
+
+S34 Gujarati et al., Serving DNNs like Clockwork, OSDI 2020.
+https://www.usenix.org/conference/osdi20/presentation/gujarati
+Evidence scope: Primary research; predictable request SLOs and serving.
+
+S35 Shubha et al., USHER, OSDI 2024.
+https://www.usenix.org/conference/osdi24/presentation/shubha
+Evidence scope: Primary research; interference-aware batching, replication and placement.
+
+S36 Wu et al., FastServe: Iteration-Level Preemptive Scheduling for Large Language Model Inference, NSDI 2026.
+https://www.usenix.org/conference/nsdi26/presentation/wu-bingyang
+Evidence scope: Primary research; generation-serving scheduling variant, not a new ontology class.
+
+S37 Chowdhury, Zhong and Stoica, Efficient Coflow Scheduling with Varys, SIGCOMM 2014.
+https://amplab.cs.berkeley.edu/publication/efficient-coflow-scheduling-with-varys/
+Evidence scope: Author institution page; known-size coflow scheduling and hardness statement.
+
+S38 Chowdhury and Stoica, Efficient Coflow Scheduling Without Prior Knowledge, SIGCOMM 2015.
+https://amplab.cs.berkeley.edu/publication/efficient-coflow-scheduling-without-prior-knowledge/
+Evidence scope: Author institution page; Aalo and nonclairvoyant scheduling.
+
+S39 Lampoudi, Saunders and Eastman, An Integer Linear Programming Solution to the Telescope Network Scheduling Problem.
+https://arxiv.org/abs/1503.07170
+Evidence scope: Full text inspected; reservation formalism, optional requests and discretized ILP.
+
+S40 Kim et al., Satellite Scheduling Framework of Observation-Relay-Downlink, AIAA SciTech 2025.
+https://pure.kaist.ac.kr/en/publications/satellite-scheduling-framework-of-observation-relay-downlink-with/
+Evidence scope: Author institution abstract; integrated MILP and sequential task/data flow.
+
+S41 He et al., CAMIG: Concurrency-Aware Live Migration Management of Multiple Virtual Machines in SDN-enabled Clouds.
+https://arxiv.org/abs/2111.08942
+Evidence scope: Full text inspected; target-placement interface and concurrent migration conflicts.
+
+S42 Wang et al., MAPX: Controlled Data Migration in the Expansion of Decentralized Object-Based Storage Systems, FAST 2020.
+https://www.usenix.org/conference/fast20/presentation/wang-li
+Evidence scope: Primary research; storage expansion and controlled data movement.
+
+S43 Janus: A Risk Based Planner for Data Centers, author repository.
+https://github.com/SiGe/janus
+Evidence scope: README inspected; planner variants, traffic risk and Jupiter-specific implementation. Not the unrelated 2026 peering system also called Janus.
+
+S44 Kubernetes, Disruptions.
+https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
+Evidence scope: Official availability safeguards and voluntary disruption constraints.
+
+S45 LLVM, GlobalISel InstructionSelect.
+https://llvm.org/docs/GlobalISel/InstructionSelect.html
+Evidence scope: Official target-pattern selection and fusion behavior.
+
+S46 Koes and Goldstein, Near-Optimal Instruction Selection on DAGs, CGO 2008.
+https://www.cs.cmu.edu/~seth/papers/koes-cgo08.html
+Evidence scope: Primary author page and paper; DAG complexity, integer covering and NOLTIS.
+
+S47 Chen et al., TVM, OSDI 2018.
+https://www.usenix.org/conference/osdi18/presentation/chen
+Evidence scope: Primary research; graph/operator transformations and hardware-measured optimization.
+
+S48 Zheng et al., Ansor, OSDI 2020.
+https://www.usenix.org/conference/osdi20/presentation/zheng
+Evidence scope: Primary research; generated tensor programs, cost models and evolutionary search.
+
