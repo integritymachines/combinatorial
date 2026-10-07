@@ -172,15 +172,15 @@ CANDIDATE inspection | Strategic Security Inspection Allocation
 Decision boundary: Selects sites, visits or samples for a security-verification program under inspection budgets, detection limits and strategic noncompliance.
 Aliases: safeguards inspection; inspection-resource allocation.
 Retained variants: site visits; sample selection; randomized verification.
-Evidence: Inspection-game literature establishes strategic resource allocation across imperfect inspections and multiple inspectees. [S16, S17].
+Evidence: Strategic inspection literature establishes imperfect verification and multiple inspectees. Recursive Inspection Games explicitly allocates a limited number of discrete inspections over available periods [S16, S17, S39].
 Admission and neighboring contracts: Do not infer ICO from game theory alone: the candidate requires visit/sample selection. Financial reconciliation remains FIN; routine equipment condition inspection belongs to its asset domain.
 Supplied substrate: inspectable entities, available discrete actions, detection functions, budgets and compliance obligations.
 Chosen construction: Selects admissible inspection actions or samples for each realized program.
 Regime inference: #plan + #allocate — Commits limited verification effort across an inspection program.
 Structure inference: #select. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
-Template synthesis: IE — Safeguards verification and randomized inspection planning. OR — Inspection games; discrete allocation optimization and strategy computation.
-Practice, alternatives and evidence limits: Inspection-game solutions are defensible formal references. Continuous effort models are explanatory evidence only; later Cases must expose actual discrete commitments before admission.
-Ratings and industrial reasoning: Priority Medium — Verification programs recur in safeguards and security compliance. Relevance Critical — Effective inspection supports detection and deterrence of concealed violations. Hardness High — Hidden noncompliance, imperfect detection and competing inspectees complicate resource allocation.
+Template synthesis: IE — Safeguards verification and randomized inspection planning. OR — Inspection games; recursive discrete inspection policies and equilibrium computation.
+Practice, alternatives and evidence limits: Recursive finite-inspection models give a directly supported discrete Template, including tractable special cases. Continuous effort models explain deterrence but do not alone justify ICO admission. Operational benchmark access remains for later Case research
+Ratings and industrial reasoning: Priority Medium — Verification programs recur in safeguards and security compliance. Relevance Critical — Effective inspection supports detection and deterrence of concealed violations. Hardness Medium — Simple recursive inspection models have closed-form solutions; richer facility choices and imperfect detection need tailored models.
 Compilation distinction: Retains discrete inspections; purely continuous effort allocation is outside the combinatorial scope.
 Useful descriptors: ##inspection-game ##verification ##imperfect-detection.
 
@@ -268,14 +268,14 @@ CANDIDATE electronic | Electronic Countermeasure Allocation
 Decision boundary: Assigns discrete electronic countermeasure resources to approved protective tasks under compatibility, availability and mutual-interference limits.
 Aliases: jamming resource allocation; electronic countermeasure assignment.
 Retained variants: discrete resource-mode selection; coordinated protective assignments.
-Evidence: Threat-evaluation and jamming-allocation research identifies interacting allocation effects that differ from independent assignment. [S25].
+Evidence: TEJA studies model interacting allocation effects. The COTEJA work supplies a discrete combinatorial allocation representation and a permutation-based search architecture [S25, S40].
 Admission and neighboring contracts: Keep as a specialized discrete protection contract. Do not promote threat evaluation, waveform synthesis or a named search algorithm into separate Problems.
 Supplied substrate: authorized protective tasks, admissible resource modes and aggregate interaction estimates.
 Chosen construction: Maps countermeasure resources and admissible modes to protective tasks.
 Regime inference: #allocate — Commits available electronic countermeasure resources to tasks.
 Structure inference: #map. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
-Template synthesis: IE — Electronic protection resource coordination. OR — Discrete assignment optimization with interaction models; tailored combinatorial search.
-Practice, alternatives and evidence limits: The cited work supports research-level allocation models. A universal operational best method is not evidenced; the Template names the defensible formulation and search family without detailed electronic-warfare parameters.
+Template synthesis: IE — Electronic protection resource coordination. OR — Discrete assignment with interaction evaluation; enumeration or permutation-based evolutionary search.
+Practice, alternatives and evidence limits: Enumeration provides a small-instance reference; permutation-based evolutionary search is a published scaling alternative. Comparative evidence is model-specific and does not establish a universal operational best method
 Ratings and industrial reasoning: Priority Medium — Electronic countermeasures are recurring in specialized defense systems. Relevance High — Assignments affect protective coverage and resource conflicts. Hardness High — Interacting effects and compatibility limits require application-specific evaluation.
 Compilation distinction: Continuous waveform design is excluded; ordinary spectrum-resource operation belongs to COMP.
 Useful descriptors: ##DEFENSE ##electronic-protection ##interaction.
@@ -377,35 +377,35 @@ Compilation distinction: The policy conditions future action choices on findings
 Useful descriptors: ##cyber-forensics ##sequential-decision ##value-of-information.
 
 CANDIDATE response | Cyber Incident Containment and Recovery Planning
-Decision boundary: Selects containment and recovery actions for a compromised system while preserving required services and respecting action dependencies.
+Decision boundary: Selects containment and recovery actions for a compromised system while preserving required services and respecting action preconditions.
 Aliases: intrusion response; automated response selection.
 Retained variants: operator-approved responses; service-preserving containment; staged recovery.
 Evidence: RRE supplies game-based response planning. DUELMIPs supports a MIP security-response stage with large-neighborhood search. [S34, S35].
-Admission and neighboring contracts: Separate reactive response from preventive segmentation and control procurement. Investigation may inform response, but urgent containment need not wait for forensic completion.
+Admission and neighboring contracts: Separate reactive response from preventive segmentation and control procurement. Investigation may inform response, but urgent containment need not wait for forensic completion. A supplied state-transition graph is not a chosen sequence or topology
 Supplied substrate: incident state, permissible actions, action preconditions and critical service requirements.
-Chosen construction: Selects response actions and constructs their feasible execution sequence.
+Chosen construction: Selects admissible response actions conditional on the evolving incident state.
 Regime inference: #adapt + #operate — Revises protection and service commitments after a detected compromise.
-Structure inference: #select + #link. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Structure inference: #select. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
 Template synthesis: IE — Incident-response orchestration and service-preserving containment. OR — Game and state-transition planning; response MIP with large-neighborhood search.
 Practice, alternatives and evidence limits: These references establish prototype/model architectures. DUELMIPs evaluates synthetic networks; RRE emphasizes system invariants and human interaction. No production-ready autonomous response claim is made.
 Ratings and industrial reasoning: Priority High — Containment and recovery are recurring cybersecurity operations. Relevance Critical — Action choices affect compromise spread and essential service continuity. Hardness High — Uncertain compromise state and disruptive action interactions require rapid model-specific planning.
 Compilation distinction: Generic restoration after non-adversarial failure belongs to COMP.
 Useful descriptors: ##incident-response ##containment ##recovery.
 
-CANDIDATE alarm | Alarm-Triggered Protective Response
-Decision boundary: Assigns available response resources and constructs response routes after security alarms under travel, deadline and location-uncertainty limits.
-Aliases: alarm response dispatch; contingent protective routing.
-Retained variants: uncertain location; missed detection; multi-alarm extension where supported.
-Evidence: The alarm-response security-game study combines patrolling with contingent responses under uncertain signals. [S36].
+CANDIDATE alarm | Alarm-Triggered Protective Response Routing
+Decision boundary: Chooses a protective responder's route after a security alarm under travel, deadline and location-uncertainty limits.
+Aliases: alarm response routing; contingent protective routing.
+Retained variants: uncertain alarm location; missed detections; single-responder contingent routes.
+Evidence: The alarm-response security-game study models one patroller and contingent routes under spatially uncertain signals [S36].
 Admission and neighboring contracts: Keep the event-conditioned dispatch separate from precommitted patrol coverage. Ordinary ambulance response is HC, civic emergency coordination is CIVIC, and pure travel is LOG.
-Supplied substrate: alarms, possible incident locations, responder state, travel graph and deadlines.
-Chosen construction: Maps resources to alarm response duties and constructs feasible response routes.
+Supplied substrate: alarm signals, possible incident locations, responder position, travel graph and deadlines.
+Chosen construction: Constructs the responder's sequence of visits to possible alarm locations.
 Regime inference: #dispatch + #adapt — Commits immediate response and revises planned protective coverage.
-Structure inference: #map + #link. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
-Template synthesis: IE — Protective response dispatch and alarm verification. OR — Alarm-response security games; contingent resource and route optimization.
-Practice, alternatives and evidence limits: The cited architecture supports single-model alarm-response planning. Multi-alarm and multi-resource variants require additional case-specific evidence; no universal scaling claim is made.
-Ratings and industrial reasoning: Priority Medium — Alarm response recurs in guarded facilities and border-security systems. Relevance Critical — Response decisions affect whether detected threats can be addressed in time. Hardness High — Uncertain alarm locations and simultaneous response commitments create time-critical choices.
-Compilation distinction: The response plan can reduce planned patrol coverage and trigger replanning.
+Structure inference: #link. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Protective alarm verification and response routing. OR — Alarm-response security games; contingent route optimization.
+Practice, alternatives and evidence limits: The supported Template is single-responder game-based routing. Multi-responder allocation and simultaneous incidents require further evidence and are not admitted as established variants
+Ratings and industrial reasoning: Priority Medium — Alarm response recurs in guarded facilities and border-security systems. Relevance Critical — Response decisions affect whether detected threats can be addressed in time. Hardness High — Uncertain alarm locations and response deadlines require contingent route choices.
+Compilation distinction: The supported Template uses one responder; responding can reduce planned patrol coverage.
 Useful descriptors: ##alarm-response ##uncertainty ##protective-dispatch.
 
 COVERAGE, MERGES AND EXCLUSIONS
@@ -532,3 +532,8 @@ Evidence: alarm-conditioned response with uncertain alarm location and missed de
 Evidence: compact LP and schedule sampling for escort protection of moving assets. Retained as a patrol variant, not another permanent Problem.
 [S38] Playing Stackelberg Security Games in perfect formulations (2024). Omega. https://www.sciencedirect.com/science/article/pii/S0305048324000355
 Evidence: formulation improvements and column-generation recovery of implementable mixed strategies. Does not supersede all bounded-rational or online models.
+[S39] von Stengel (2016). Recursive Inspection Games. Mathematics of Operations Research 41(3), 935–952. https://doi.org/10.1287/moor.2015.0762
+Author preprint: https://arxiv.org/abs/1412.0129
+Evidence: a limited integer number of inspections is allocated over time periods; recursive solutions and closed forms exist under specified payoff assumptions. Establishes the discrete inspection specialization and cautions against blanket hardness claims.
+[S40] Implementation of a combinatorial-optimisation-based threat evaluation and jamming allocation system (2019). IET Radar, Sonar & Navigation. https://doi.org/10.1049/iet-rsn.2019.0001
+Evidence: a discrete assignment representation with permutation-based differential evolution; contrasts exhaustive search with a scalable research heuristic. No claim of universal operational superiority.
