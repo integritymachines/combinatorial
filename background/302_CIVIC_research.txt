@@ -15,7 +15,7 @@ Boundary rule: distinguish the delivered contract from adjacent system models. S
 
 EVIDENCE METHOD AND LIMITS
 
-Material problem and Template claims use source handles S01-S66 below. Original papers, official agency tools/guidance and author-institution records were used. Some publisher pages expose only abstracts or search-index excerpts. A cited method is established enough to support a Problem Template; it is not asserted to dominate every industrial instance. Published methods, official engineering practice and benchmark discovery are distinguished. No paper results were reproduced, no software was run and no Case was selected. Reported code/data availability is a discovery lead, not an independently checked reproducibility finding.
+Material problem and Template claims use source handles S01-S71 below. Original papers, official agency tools/guidance and author-institution records were used. Some publisher pages expose only abstracts or search-index excerpts. A cited method is established enough to support a Problem Template; it is not asserted to dominate every industrial instance. Published methods, official engineering practice and benchmark discovery are distinguished. No paper results were reproduced, no software was run and no Case was selected. Reported code/data availability is a discovery lead, not an independently checked reproducibility finding.
 Candidate scope, Primary Domain, Regime, Structure, ratings and dependency directions are project synthesis under the normative ontology. They are explicitly inference unless the evidence sentence says otherwise. Evidence supports method existence and decision identity; it does not empirically calibrate the ontology's subjective ratings. Hardness judgments use coupling, scale and response requirements. Formal complexity is included only for a supported scoped result; no placeholder class statements are emitted.
 
 Search rounds used: (1) road network design, public facilities, municipal districting and construction scheduling; (2) work zones, phase plans, adaptive signals, curb and parking allocation; (3) railway works possessions, lane reversals and school assignment; (4) discrete structural design, portfolio selection, time-cost modes and repetitive work; (5) inspection, street-service calendars and infrastructure/project recovery; (6) workspace, crane coordination and urban runoff tools; (7) official scheduling benchmark/model sources and cross-asset intervention coordination. Searches through 2026-10-07 included recent work but establish defensible approaches, not a universal SOTA ranking.
@@ -100,7 +100,7 @@ Template evidence and synthesis: IE Civil structural synthesis and catalogue-sec
 Priority inference: Medium | Structural configuration is central to specific building and civil asset designs.
 Relevance inference: High | Better configurations can reduce material use and construction cost.
 Hardness inference: High | Member topology, catalogue sections and nonlinear stability checks interact.
-Upstream research handles: portfolio. Downstream: modes.
+Upstream research handles: portfolio. Downstream: modes, formwork.
 Distinction retained for compilation: For fixed topology, section assignment is primary #map; topology choice is not mandatory.
 Descriptors/parameters: ##structural-design ##truss ##discrete-sizing.
 
@@ -131,17 +131,17 @@ Retained variants: accessible bays; orientation alternatives; irregular sites.
 Evidence: Parking-layout MIPs optimize reachable bays on rasterized sites. The publication compares grid resolutions and evaluates actual parking-lot geometries. [S11].
 Admission and ownership inference: CIVIC owns the parking asset layout. LAND owns site or land-use allocation; LOG owns vehicle journeys to and through the facility.
 Supplied substrate: site boundary, access points, obstacles and clearance rules.
-Chosen construction and delivered artifact: Positions bays and aisles and constructs their access connections.
+Chosen construction and delivered artifact: Positions bays and aisles; geometric clearance and reachability constrain the layout.
 Constitutive/feasibility laws: nonoverlap and bay reachability.
 Objective refinements: usable bay capacity and circulation space. Objective terms, response models and auxiliary linearization variables do not add Structure.
 Regime inference: #design | Commits the physical parking arrangement before space allocation.
-Structure inference: #place + #link | Classification follows the chosen artifact, not the supplied substrate.
+Structure inference: #place | Classification follows the chosen artifact, not the supplied substrate.
 Template evidence and synthesis: IE Parking geometry and aisle-access design | OR Grid-based geometric layout MIP; spatial search and access validation. The cited architectures are defensible references; larger or nonlinear instances may favor the listed search or validation alternative.
 Priority inference: Medium | Parking layouts recur in civic and shared-access facilities.
 Relevance inference: High | Better layouts can increase usable parking capacity on constrained sites.
 Hardness inference: High | Fine spatial resolution, clearances and aisle reachability enlarge layout search.
 Upstream research handles: facility. Downstream: parking.
-Distinction retained for compilation: A supplied site boundary does not add #place to site selection; bay geometry does.
+Distinction retained for compilation: Add #link only when a separate access-connection artifact is chosen; reachability alone does not establish it.
 Descriptors/parameters: ##parking-layout ##geometry ##reachability.
 
 CANDIDATE district | Public-Service District Design
@@ -168,7 +168,7 @@ CANDIDATE users | Public-Service User-to-Facility Assignment
 Decision and scope: Assigns eligible users or indivisible user groups to installed public-service facilities under capacity, access and service-consistency limits.
 Aliases: school assignment; public-service allocation.
 Retained variants: group assignment; accessibility; multi-stage service consistency.
-Evidence: School-operations research treats pupil assignment as a decision coupled with, but distinct from, school transport. School assignment also has established network-flow formulations. [S14, S15].
+Evidence: School-operations research treats pupil assignment as a decision coupled with school transport and facility access. School assignment also has established network-flow formulations. [S14, S15].
 Admission and ownership inference: CIVIC owns physical civic-service access and capacity. Preference-based school-choice mechanisms belong to MKT; staff assignment is HR; clinical patient assignment is HC.
 Supplied substrate: eligible users, fixed facilities, capacities and access costs.
 Chosen construction and delivered artifact: Maps users or groups to facilities under capacity and eligibility rules.
@@ -200,9 +200,29 @@ Template evidence and synthesis: IE Construction method planning and discrete pr
 Priority inference: High | Execution-method choices constrain construction cost and completion.
 Relevance inference: High | Better modes can reduce deadline costs and resource overload.
 Hardness inference: High | Mode combinations, precedence and limited resources couple cost and completion. Formal result: Strongly NP-hard for the general discrete time-cost tradeoff problem.
-Upstream research handles: structural. Downstream: site, project, repetitive.
+Upstream research handles: structural. Downstream: site, project, repetitive, formwork.
 Distinction retained for compilation: Detailed activity timing belongs to project scheduling; combined mode-and-time models retain #place.
 Descriptors/parameters: ##CONSTRUCTION ##multi-mode ##time-cost-tradeoff.
+
+CANDIDATE formwork | Formwork Panel Configuration and Reuse Planning
+Decision and scope: Selects reusable formwork panels and corner options and assigns configurations to wall segments and work zones under supplied geometry, reuse and assembly limits.
+Aliases: vertical formwork layout; reusable panel-set configuration.
+Retained variants: standard panels; corner alternatives; sequential zone reuse.
+Evidence: Published formwork MILP selects panel quantities and corner configurations for given walls while accounting for reuse across sequential zones. BIM and layout-search research provide material alternative approaches. [S67, S68, S69].
+Admission and ownership inference: CIVIC owns construction formwork configuration. Manufacturing cut panels is PROD; procurement quantities alone are SCM. Temporary facility layout does not determine wall-form configurations.
+Supplied substrate: wall dimensions, catalogue panels and corner options, supplied zone sequence.
+Chosen construction and delivered artifact: Maps panel and corner configurations to wall segments and zones and selects the reusable panel set.
+Constitutive/feasibility laws: geometric coverage, compatible corners and available reusable panel stock.
+Objective refinements: rental or assembly cost and reusable set size. Objective terms, response models and auxiliary linearization variables do not add Structure.
+Regime inference: #plan | Commits the reusable formwork set and zone configurations before concrete construction.
+Structure inference: #map + #select | Classification follows the chosen artifact, not the supplied substrate.
+Template evidence and synthesis: IE Catalogue formwork engineering and zone-by-zone reuse planning | OR Panel-set and wall-configuration MILP; BIM-supported layout search. The cited architectures are defensible references; larger or nonlinear instances may favor the listed search or validation alternative.
+Priority inference: Medium | Formwork configuration is a recurring decision in cast-in-place construction.
+Relevance inference: High | Better configurations can reduce formwork cost and repeated assembly losses.
+Hardness inference: Medium | Wall geometries, corner alternatives and reuse across zones couple catalogue choices.
+Upstream research handles: structural, modes. Downstream: site, project, repetitive.
+Distinction retained for compilation: Add #place only when panel joint positions or zone timing are chosen; supplied wall geometry and zone order do not establish it.
+Descriptors/parameters: ##CONSTRUCTION ##formwork ##reuse.
 
 CANDIDATE site | Construction Site Layout and Temporary Facility Configuration
 Decision and scope: Selects temporary facilities and equipment and places them through construction stages under space, access, reach and relocation limits.
@@ -220,7 +240,7 @@ Template evidence and synthesis: IE Construction site layout and stage-dependent
 Priority inference: High | Site configuration constrains construction access and equipment use.
 Relevance inference: High | Better layouts can reduce handling losses and costly relocations.
 Hardness inference: High | Changing work fronts, crane reach and relocation commitments couple stage layouts.
-Upstream research handles: modes. Downstream: project, workspace, cranes.
+Upstream research handles: modes, formwork. Downstream: project, workspace, cranes.
 Distinction retained for compilation: Lift assignment and sequence use the installed layout as input.
 Descriptors/parameters: ##CONSTRUCTION ##site-layout ##temporary-facilities.
 
@@ -260,7 +280,7 @@ Template evidence and synthesis: IE Life-cycle asset management and condition-ba
 Priority inference: Critical | Maintenance and renewal sustain the shared civic asset base.
 Relevance inference: Critical | Better interventions can avoid large life-cycle costs and service failures.
 Hardness inference: High | Deterioration, treatment effects and network-wide budget tradeoffs couple asset decisions.
-Upstream research handles: inspection. Downstream: windows, inspection, asset_recovery.
+Upstream research handles: inspection. Downstream: windows, inspection, asset_recovery, work_packages.
 Distinction retained for compilation: Network treatment programming precedes detailed access-window and work scheduling.
 Descriptors/parameters: ##asset-management ##rehabilitation ##deterioration.
 
@@ -280,7 +300,7 @@ Template evidence and synthesis: IE Road closure, rail possession and multi-util
 Priority inference: High | Shared civic assets require coordinated maintenance and construction access.
 Relevance inference: Critical | Better windows can reduce network-wide disruption and repeated closures.
 Hardness inference: High | Concurrent closures, traffic redistribution and cross-asset intervention savings couple calendars.
-Upstream research handles: road, rehab, asset_recovery. Downstream: staging, project, repetitive.
+Upstream research handles: road, rehab, asset_recovery. Downstream: staging, project, repetitive, work_packages.
 Distinction retained for compilation: Closed assets constrain LOG movements and ENER service operation through domain interfaces.
 Descriptors/parameters: ##possession ##closure-coordination ##interdependent.
 
@@ -320,7 +340,7 @@ Template evidence and synthesis: IE Critical-path planning with resource-feasibl
 Priority inference: Critical | Resource-feasible project schedules define construction execution.
 Relevance inference: Critical | Better schedules can change completion time and major project cost.
 Hardness inference: High | Precedence, scarce resources and multiple execution modes restrict activity timing.
-Upstream research handles: runoff, modes, windows, site, staging, project_repair. Downstream: repetitive, workspace, cranes, project_repair.
+Upstream research handles: runoff, modes, formwork, windows, site, staging, project_repair. Downstream: repetitive, workspace, cranes, project_repair.
 Distinction retained for compilation: Supplied activity precedence does not create #link; add #map only when resource identities or modes are chosen.
 Descriptors/parameters: ##CONSTRUCTION ##rcpsp ##precedence.
 
@@ -340,7 +360,7 @@ Template evidence and synthesis: IE Line-of-balance and location-based construct
 Priority inference: Medium | Repeated location work defines major linear and multistory construction modes.
 Relevance inference: High | Better progress plans can reduce work-front interference and idle capacity.
 Hardness inference: High | Location precedence, crew continuity and variable production rates couple repeated operations.
-Upstream research handles: modes, windows, project, project_repair. Downstream: workspace, cranes, project_repair.
+Upstream research handles: modes, formwork, windows, project, project_repair. Downstream: workspace, cranes, project_repair.
 Distinction retained for compilation: The location progression makes this decision distinct from a generic project calendar.
 Descriptors/parameters: ##CONSTRUCTION ##line-of-balance ##work-front.
 
@@ -383,6 +403,26 @@ Hardness inference: Medium | Frequency rules, holidays and shared daily capacity
 Upstream research handles: district. Downstream: ∅.
 Distinction retained for compilation: Daily journeys use this calendar as input and belong to LOG.
 Descriptors/parameters: ##municipal-service ##periodic ##calendar.
+
+CANDIDATE work_packages | Civic Maintenance Work-Package Scheduling
+Decision and scope: Groups approved civic asset maintenance tasks and places their execution intervals under task frequency, asset access, resource capacity and service-interruption limits.
+Aliases: maintenance work packaging; short-term civic maintenance scheduling.
+Retained variants: public buildings; drainage maintenance; grouped recurring tasks.
+Evidence: Operational-building maintenance research groups tasks within flexible frequency windows to reduce repeated interruption. Municipal drainage research provides daily resource-constrained maintenance operations planning. [S70, S71].
+Admission and ownership inference: CIVIC owns task execution when asset access and maintenance conditions define the contract. Standalone technician assignment is HR and travel ordering is LOG. Major construction delivery uses the construction project schedule.
+Supplied substrate: approved tasks, frequencies, service restrictions and available resource capacities.
+Chosen construction and delivered artifact: Maps tasks to compatible work packages and places package execution intervals in time.
+Constitutive/feasibility laws: permitted maintenance windows, compatible packages and resource capacity.
+Objective refinements: service interruption, maintenance lateness and resource utilization. Objective terms, response models and auxiliary linearization variables do not add Structure.
+Regime inference: #plan + #operate | Commits near-term maintenance work and coordinates ongoing asset access.
+Structure inference: #map + #place | Classification follows the chosen artifact, not the supplied substrate.
+Template evidence and synthesis: IE Asset maintenance work packaging and short-term execution planning | OR Task-clustering and scheduling ILP/MILP; resource-feasible calendar search. The cited architectures are defensible references; larger or nonlinear instances may favor the listed search or validation alternative.
+Priority inference: High | Approved asset treatments need feasible short-term execution.
+Relevance inference: High | Better packages can reduce repeated service interruption and maintenance backlog.
+Hardness inference: Medium | Frequency windows, task clustering and concurrent resource demand restrict execution calendars.
+Upstream research handles: rehab, windows. Downstream: asset_recovery.
+Distinction retained for compilation: Treatment programming chooses the intervention; this card commits its physical execution packages.
+Descriptors/parameters: ##maintenance ##work-packaging ##service-interruption.
 
 CANDIDATE curb | Curb-Space Function and Time Allocation
 Decision and scope: Assigns curb segments to parking, loading, pickup, transit or other permitted uses over time under access, continuity and change limits.
@@ -431,17 +471,17 @@ Retained variants: pedestrian stages; transit priority; time-of-day plans; spill
 Evidence: Traffic-signal MILP optimizes phase orders, split times and offsets. FHWA guidance identifies phase-sequence choices and constraints for coordinated signal operation. [S49, S50, S51].
 Admission and ownership inference: CIVIC owns shared junction access. Vehicle itineraries remain LOG. Fixed-order continuous split optimization alone does not establish an ICO problem.
 Supplied substrate: movement conflict graph, candidate phases, clearance rules and traffic demand.
-Chosen construction and delivered artifact: Places phase intervals in time and chooses permitted phase succession.
+Chosen construction and delivered artifact: Places phase intervals, phase order and corridor offsets in time under clearance and synchronization laws.
 Constitutive/feasibility laws: conflict-free green service and clearance; corridor synchronization.
 Objective refinements: delay, queue management and service access. Objective terms, response models and auxiliary linearization variables do not add Structure.
 Regime inference: #plan | Commits the phase program and corridor coordination before live activation.
-Structure inference: #place + #link | Classification follows the chosen artifact, not the supplied substrate.
+Structure inference: #place | Classification follows the chosen artifact, not the supplied substrate.
 Template evidence and synthesis: IE Traffic-engineering phase planning and corridor signal coordination | OR Phase-order and time-expanded MILP; traffic simulation and coordinated plan optimization. The cited architectures are defensible references; larger or nonlinear instances may favor the listed search or validation alternative.
 Priority inference: High | Signal plans govern shared access at urban intersections.
 Relevance inference: High | Better plans can reduce recurring queues and network delay.
 Hardness inference: High | Conflicting movements, clearance intervals and corridor queue propagation couple signal choices.
 Upstream research handles: road, staging, curb. Downstream: signal_live.
-Distinction retained for compilation: The conflict graph is supplied; chosen phase succession establishes #link.
+Distinction retained for compilation: The conflict graph is supplied; phase order is temporal placement and does not require a separate #link.
 Descriptors/parameters: ##traffic-signal ##phase-order ##synchronization.
 
 CANDIDATE lanes | Road Lane Direction and Use Configuration
@@ -520,7 +560,7 @@ Template evidence and synthesis: IE Interdependent infrastructure physical resto
 Priority inference: High | Physical recovery is a recurring obligation after civic asset failures.
 Relevance inference: Critical | Better repairs can shorten widespread loss of essential infrastructure service.
 Hardness inference: Critical | Damaged access, coupled infrastructure services and uncertain repair durations require coordinated recovery.
-Upstream research handles: rehab. Downstream: windows.
+Upstream research handles: rehab, work_packages. Downstream: windows.
 Distinction retained for compilation: Network edges become usable after repair; do not infer #link when repair choices alone determine availability.
 Descriptors/parameters: ##physical-repair ##interdependent ##restoration.
 
@@ -559,7 +599,7 @@ Feasibility checking, demand estimation, condition prediction, traffic assignmen
 
 DEPENDENCY EVIDENCE AND INFERENCE
 
-All edges are conditional industrial or information dependencies; none is a mathematical reduction. S01-S03 support capital/facility commitment flow. S07-S08 support structural alternatives before execution planning. S19-S20 support stage layout and installed crane geometry as scheduling inputs. S21-S26 support inspection information, treatment decisions and next-inspection feedback. S27-S33 support treatment choices, shared work windows and configuration-dependent construction access. S18/S34-S41 support mode, activity, location and workspace coupling. S42-S48 support service territories, public-service calendar and curb functions before detailed access assignment. S49-S57 support road configuration and planned phase constraints before adaptive activation. S58-S60 support project/layout/workspace prerequisites for lifts. S61-S66 support damaged-asset and issued-project recovery.
+All edges are conditional industrial or information dependencies; none is a mathematical reduction. S01-S03 support capital/facility commitment flow. S07-S08 support structural alternatives before execution planning. S19-S20 support stage layout and installed crane geometry as scheduling inputs. S21-S26 support inspection information, treatment decisions and next-inspection feedback. S27-S33 support treatment choices, shared work windows and configuration-dependent construction access. S18/S34-S41 support mode, activity, location and workspace coupling. S42-S48 support service territories, public-service calendar and curb functions before detailed access assignment. S49-S57 support road configuration and planned phase constraints before adaptive activation. S58-S60 support project/layout/workspace prerequisites for lifts. S61-S66 support damaged-asset and issued-project recovery. S67-S69 support structural geometry and execution modes before formwork configuration, then zone reuse constraints before site/work-front scheduling. S70-S71 support approved treatments and access before maintenance packaging; asset defects observed during execution can trigger physical repair recovery.
 Within those interfaces, edge direction is synthesis from the input/output contract. Do not interpret a source citation as proof that each paper models all linked decisions. Capital programming uses prior demand and appraisal studies, not a downstream facility optimizer output in every deployment. An existing facility/asset can be supplied exogenously and omit its design ancestor.
 portfolio -> facility
 portfolio -> road
@@ -580,6 +620,11 @@ parking_layout -> parking
 modes -> site
 modes -> project
 modes -> repetitive
+structural -> formwork
+modes -> formwork
+formwork -> site
+formwork -> project
+formwork -> repetitive
 inspection -> rehab
 rehab -> windows
 rehab -> inspection
@@ -587,6 +632,9 @@ rehab -> asset_recovery
 windows -> staging
 windows -> project
 windows -> repetitive
+rehab -> work_packages
+windows -> work_packages
+work_packages -> asset_recovery
 site -> project
 site -> workspace
 site -> cranes
@@ -618,8 +666,8 @@ Relevant external interfaces (not required same-domain dependency IDs): facility
 
 COVERAGE ASSESSMENT AND REMAINING LIMITS
 
-The searches covered physical design, service access, capital/treatment allocation, calendars, site operations, live permissions and disrupted commitments. Later results mainly added aliases, narrow subtypes or cross-domain interfaces. Further checks found rail possession coordination, workspace occupancy and runoff retrofit selection; these were retained. The result is a broad v0.1 starter Problem inventory, not a claim of demonstrated exhaustive coverage.
-Remaining limits: industrial Template comparisons are not uniformly available; generic MILP/CP and published heuristics are therefore retained where no universal winner is defensible. Public-school user assignment is evidence-rich but extrapolation to other civic services is an explicitly scoped family inference. Runoff retrofit ownership depends on the local built-asset contract; regional watershed or land-allocation variants require LAND. Structural design evidence is strongest for discrete trusses; other civil systems require their own response model before case admission. Temporary works such as formwork cycles fit project/work-front/site-layout variants; no independent Problem is asserted without a distinct committed artifact. Small recreation facility bookings and public-counter appointments have insufficient distinct civic-asset evidence here; they are not silently elevated into standalone cards. Event/sports scheduling and educational staff/course scheduling remain HR/MKT boundary candidates until their actual decision contract is specified.
+The searches covered physical design, service access, capital/treatment allocation, calendars, site operations, live permissions and disrupted commitments. Later results mainly added aliases, narrow subtypes or cross-domain interfaces. Further checks found rail possession coordination, workspace occupancy and runoff retrofit selection. Background-control searching added reusable formwork configuration and near-term asset maintenance packages; these were retained. The result is a broad v0.1 starter Problem inventory, not a claim of demonstrated exhaustive coverage.
+Remaining limits: industrial Template comparisons are not uniformly available; generic MILP/CP and published heuristics are therefore retained where no universal winner is defensible. Public-school user assignment is evidence-rich but extrapolation to other civic services is an explicitly scoped family inference. Runoff retrofit ownership depends on the local built-asset contract; regional watershed or land-allocation variants require LAND. Structural design evidence is strongest for discrete trusses; other civil systems require their own response model before case admission. Formwork panel-set configuration is admitted as a distinct delivered artifact; its installation calendar remains a project/work-front variant. Short-term maintenance packages are separated from long-term treatment selection and generic crew dispatch. Small recreation facility bookings and public-counter appointments have insufficient distinct civic-asset evidence here; they are not silently elevated into standalone cards. Event/sports scheduling and educational staff/course scheduling remain HR/MKT boundary candidates until their actual decision contract is specified.
 Problem Templates permit later benchmark research. PSPLIB, EPA tools, parking-layout supplemental material and published transport/crane implementations are discovery leads only. Case identity, industrial fidelity, licenses, runnable baselines and reference results remain unresearched at this layer. No Case IDs or Case cards are present.
 
 SOURCES
@@ -691,3 +739,8 @@ S63 | Resilience-driven restoration model for interdependent infrastructure netw
 S64 | An event-based reactive scheduling approach for the Resource Constrained Project Scheduling Problem with unreliable resources | Original research; author institution record | https://opus.lib.uts.edu.au/handle/10453/152165
 S65 | Heuristic procedures for reactive project scheduling | Original research | https://www.sciencedirect.com/science/article/pii/S0360835206001756
 S66 | Reactive heuristics for disrupted multi-mode resource-constrained project scheduling problem | Original research | https://www.sciencedirect.com/science/article/pii/S0957417420308800
+S67 | Optimization of Vertical Formwork Layout Plans Using Mixed Integer Linear Programming | Original research; full article inspected in part | https://doi.org/10.1007/s40999-016-0090-6
+S68 | BIM-Based Framework for Formwork Planning Considering Potential Reuse | Original research; cutting-stock formulation is a related PROD interface | https://doi.org/10.1061/(ASCE)ME.1943-5479.0001004
+S69 | Advanced planning model of formwork layout for productivity improvement in high-rise building construction | Original research | https://www.sciencedirect.com/science/article/pii/S0926580517301619
+S70 | Planning municipal drainage infrastructure maintenance operations with finite available crews: pragmatic optimization approach | Original research; publisher abstract inspected | https://doi.org/10.3846/jcem.2024.21744
+S71 | Optimising scheduled maintenance on operational buildings: a microservice-based BIM framework | Original research; publisher and author-institution abstracts inspected | https://doi.org/10.3846/jcem.2025.24957
