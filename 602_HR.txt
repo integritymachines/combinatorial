@@ -100,7 +100,7 @@ REGIME #plan + #operate | Prepares break times or coordinates them during a runn
 STRUCTURE #place | Positions break intervals within supplied duties.
 PRIORITY Medium | Supports operations with flexible breaks and time-varying demand.
 RELEVANCE High | Preserves service capacity while meeting rest requirements.
-HARDNESS Medium | General break-scheduling decision variants are NP-complete; bounded-window instances are often tractable with standard formulations.
+HARDNESS Medium | General break-scheduling decision variants are NP-complete; standard formulations solve many bounded-window instances well.
 DEPENDENCIES HR06, HR08 → HR09 → HR21, HR22.
 COMMENTS Employees and shift assignments are supplied. | #HUMAN #HR #plan #operate #place ##break-window ##coverage.
 
