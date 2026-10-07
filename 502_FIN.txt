@@ -49,7 +49,7 @@ STRUCTURE #select | Chooses the treaty alternatives that form the risk-transfer 
 PRIORITY High | Risk transfer is central to substantial insurance and reinsurance operations.
 RELEVANCE Critical | Program choices affect solvency, retained losses and premium cost.
 HARDNESS High | Coupled finite-menu selection; Loss dependence, reinstatements and nonlinear risk measures complicate evaluation.
-DEPENDENCIES FIN01 → FIN04 → FIN05.
+DEPENDENCIES FIN22 → FIN25 → FIN03, FIN06.
 COMMENTS Continuous indemnity-function optimization is outside this menu-selection scope. | #EXCH #FIN #plan #select ##INSURANCE ##reinsurance ##treaty-selection.
 
 FIN05 Discrete Asset–Liability Planning.
@@ -82,7 +82,7 @@ STRUCTURE #select | Chooses the instruments and discrete positions included in t
 PRIORITY Critical | Discrete portfolio construction is central to investment operations.
 RELEVANCE Critical | Holding choices affect enterprise-scale risk and investment performance.
 HARDNESS High | NP-hard for cardinality-constrained mean-variance variants; Asset dependence, risk scenarios and concentration rules complicate selection.
-DEPENDENCIES FIN05 → FIN07 → FIN12.
+DEPENDENCIES FIN05 → FIN07 → FIN12, FIN14.
 COMMENTS Risk metrics and solver encodings are variants of this decision. | #EXCH #FIN #allocate #select ##ASSETMANAGEMENT ##portfolio ##cardinality.
 
 FIN08 Sparse Index Tracking.
@@ -93,7 +93,7 @@ STRUCTURE #select | Chooses the instruments used to replicate the index.
 PRIORITY High | Recurs across index funds and benchmark-constrained mandates.
 RELEVANCE High | Better replication reduces tracking deviation and holding cost.
 HARDNESS High | NP-hard for sparse tracking variants; Correlated constituents and turnover limits complicate subset choice.
-DEPENDENCIES ∅ → FIN08 → FIN12.
+DEPENDENCIES ∅ → FIN08 → FIN12, FIN14.
 COMMENTS A supplied replication target distinguishes this contract from free risk-return portfolio selection. | #EXCH #FIN #allocate #select ##ASSETMANAGEMENT ##index-tracking ##benchmark-replication.
 
 FIN09 Credit Commitment and Loan-Pool Selection.
@@ -115,7 +115,7 @@ STRUCTURE #select | Chooses contract positions and supplied maturity alternative
 PRIORITY High | Financial hedging recurs in bank, investment and corporate treasury operations.
 RELEVANCE Critical | Hedge choices affect exposure to major currency, rate and commodity changes.
 HARDNESS High | NP-hard for exact integer-lot matching through subset sum; Basis risk and correlated factors complicate hedge construction.
-DEPENDENCIES FIN05 → FIN10 → FIN16.
+DEPENDENCIES FIN05 → FIN10 → FIN14, FIN16.
 COMMENTS Physical procurement or dispatch plans supply exposures and retain their own Domain. | #EXCH #FIN #allocate #select ##CORPORATE ##hedging ##contract-lots.
 
 FIN11 Securities-Lending Inventory Allocation.
@@ -143,11 +143,11 @@ COMMENTS Initial holdings and revision costs distinguish this contract from fres
 FIN13 Tax-Lot Disposal Selection.
 DESCRIPTION Selects acquired lots for a supplied asset-sale requirement or loss-realization target under basis, holding-period and permitted-trade rules.
 TEMPLATE Tax-basis-aware disposal and loss realization | Lot-selection MILP; mixed-integer convex tax-aware portfolio models with two-stage convex approximations for coupled variants.
-REGIME #allocate | Assigns a disposal requirement to selected tax lots.
+REGIME #allocate | Commits specific acquired lots to an authorized disposal requirement.
 STRUCTURE #select | Chooses acquired lots for realization.
 PRIORITY Medium | Recurs in taxable investment mandates.
 RELEVANCE High | Lot choices affect realized tax cost and after-tax portfolio value.
-HARDNESS Medium | NP-hard for exact indivisible-lot disposal through subset sum; Divisible sales with linear tax costs can be LP.
+HARDNESS Medium | NP-hard for exact indivisible-lot disposal through subset sum; Cross-trade rules couple disposal choices, while divisible linear-tax cases can be LP.
 DEPENDENCIES FIN12 → FIN13 → FIN14.
 COMMENTS Tax eligibility is a supplied rule set for the applicable jurisdiction. | #EXCH #FIN #allocate #select ##ASSETMANAGEMENT ##tax-lots ##basis.
 
@@ -159,7 +159,7 @@ STRUCTURE #place + #select | Places trade lots in time and selects active execut
 PRIORITY High | Execution schedules implement major portfolio and hedge commitments.
 RELEVANCE High | Good schedules reduce transaction cost and interim exposure.
 HARDNESS High | NP-hard for indivisible lot placement under period capacities through bin packing; Market costs and changing liquidity complicate execution.
-DEPENDENCIES FIN12, FIN13 → FIN14 → FIN16, FIN21.
+DEPENDENCIES FIN07, FIN08, FIN10, FIN12, FIN13 → FIN14 → FIN16, FIN21.
 COMMENTS The target trade list is supplied; exchange-side order matching belongs to MKT. | #EXCH #FIN #operate #dispatch #place #select ##ASSETMANAGEMENT ##trade-execution ##market-impact.
 
 FIN15 Derivative Portfolio Compression.
@@ -169,7 +169,7 @@ REGIME #adapt | Revises existing derivative commitments while preserving specifi
 STRUCTURE #select + #link | Selects cancellations and constructs counterparty relations for replacement contracts.
 PRIORITY Medium | Recurs in large derivatives portfolios and dealer networks.
 RELEVANCE High | Compression can reduce gross exposure and operational burden.
-HARDNESS High | NP-hard for exact whole-contract cancellation through subset sum; Divisible conservative compression is LP.
+HARDNESS High | NP-hard for exact whole-contract cancellation through subset sum; Risk tolerances and consent couple discrete changes, while divisible conservative compression is LP.
 DEPENDENCIES ∅ → FIN15 → FIN16, FIN17.
 COMMENTS Conservative tear-up requires #select alone; lower gross exposure does not by itself establish lower systemic risk. | #EXCH #FIN #adapt #select #link ##BANKING ##compression ##risk-preservation.
 
@@ -203,7 +203,7 @@ STRUCTURE #select + #place | Selects obligations for offset and places permitted
 PRIORITY High | Netting recurs in corporate and interconnected payment operations.
 RELEVANCE High | Feasible offsets reduce external cash requirements and payment burden.
 HARDNESS High | Atomic obligation subset optimization; Shared dates, consent and financing limits complicate feasible offsets.
-DEPENDENCIES ∅ → FIN18 → FIN19, FIN20.
+DEPENDENCIES FIN09, FIN11, FIN14, FIN17 → FIN21 → FIN17, FIN22.
 COMMENTS Fixed bilateral subtraction is a calculation; the supplied debt graph does not imply chosen #link structure. | #EXCH #FIN #operate #select #place ##CORPORATE ##multilateral-netting ##atomic-invoices.
 
 FIN19 Invoice Payment Scheduling.
@@ -246,7 +246,7 @@ REGIME #operate | Confirms correspondence between existing financial records.
 STRUCTURE #map | Assigns records to common match groups under nonreuse and balance requirements.
 PRIORITY Critical | Reconciliation recurs across treasury, accounting and post-trade operations.
 RELEVANCE High | Correct matches reduce unresolved claims, reporting errors and manual effort.
-HARDNESS High | Pairwise bipartite matching is polynomial; Grouped amount matching contains subset sum and disjoint-group selection can be NP-hard.
+HARDNESS High | Polynomial for pairwise bipartite matching and NP-hard for general grouped matching; Ambiguous candidate groups and large record volumes complicate reliable reconciliation.
 DEPENDENCIES FIN20, FIN21 → FIN22 → FIN06, FIN23, FIN24, FIN25.
 COMMENTS A match does not authorize corrective postings; rule-engine order and ambiguity controls affect the operational baseline. | #EXCH #FIN #operate #map ##ACCOUNTING ##reconciliation ##grouped-matching.
 

@@ -220,10 +220,13 @@ REINSURANCE -> ALM: treaty-selected net liabilities change financial cover and s
 ALM -> PORTFOLIO: liability-derived investment limits constrain portfolio implementation (S04).
 ALM -> HEDGE: liability exposures define financial cover requirements (S04/S21).
 PORTFOLIO -> REBALANCE: target holdings constrain a later held-portfolio revision (S11/S33).
+PORTFOLIO -> EXECUTE: initial target holdings define trades for temporal execution (S11/S32).
 INDEX -> REBALANCE: benchmark replication targets constrain later portfolio revision (S17).
+INDEX -> EXECUTE: initial replication holdings define trades for temporal execution (S15/S32).
 CREDIT -> COLLECT: admitted loans can later supply delinquent financial claims (S18/S29).
 CREDIT -> SECSETTLE: acquired tradable loan-pool securities can create delivery obligations; consumer loan origination need not (S19/S50).
 HEDGE -> MARGIN: eligible derivatives positions enter account-allocation optimization (S21/S37).
+HEDGE -> EXECUTE: selected implementable hedge lots define trades for temporal execution (S21/S32).
 CASH -> PAYABLE: cash budgets constrain approved payment dates (S03/S27).
 CASH -> REBALANCE: investment or withdrawal commitments constrain available trading funds (S33).
 CASH -> COLLATERAL: cash or securities reserved for liquidity constrain deliverable collateral (S31/S40).
