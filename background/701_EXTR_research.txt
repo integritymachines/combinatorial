@@ -1,0 +1,654 @@
+EXTR Resource Extraction Research
+v0.1 | Problem layer | 2026-10-07
+
+Authority: 000_DOMAIN.txt (v0.4) and background/000_DOMAIN_research.txt (v0.4).
+Workflow: workflow/0_workflow.txt through workflow/4_foreground.txt.
+Scope: LEVEL=PROBLEM. No Case research or canonical benchmark selection.
+Requested artifact labels remain v0.1. Role findings and resolutions belong to Git commit history; this file contains evidence and domain analysis, not a control appendix.
+Source access date: 2026-10-07. Source records distinguish retrieved text from indexed abstracts. No computational result was reproduced.
+
+TERRITORY AND ADMISSION CONTRACT
+
+Primary EXTR means that prospecting, extraction, depletion, wells, resource blocks or nonrenewable-resource activation defines the decision contract. Optimization must construct a discrete solution; a continuous reservoir simulator, geological estimate or pumping-control problem alone is not admitted.
+
+Industries investigated: ##MINING (metal, coal, underground industrial minerals), ##QUARRYING (limestone, aggregates and raw materials), ##OILGAS (onshore/offshore, conventional/unconventional), ##WATER (groundwater prospecting and extraction). These are open industry contexts, not additional Domains. Brine and solution-mining well systems can instantiate the wellfield contracts subject to validating their dissolution and processing interfaces. Fisheries, forestry and agricultural harvest planning belong to LAND. Water withdrawal is expressly within EXTR even where the resource is renewable.
+
+Coverage spans exploration selection, information acquisition, extraction geometry, underground access, field configuration, extraction-unit scheduling, well construction, depletion, selective grade control, material allocation, waste emplacement, aquifer withdrawals, producing-well operation and corrective intervention. Open-pit, underground and well-based systems are not interchangeable: their different delivered artifacts and physical feasibility justify separate families.
+
+OWNERSHIP AND INTERFACE RULES
+
+EXTR / LOG: geological extraction decisions remain EXTR; vehicle journeys, truck dispatch and fleet/handling capacity under fixed extraction requirements belong to LOG. S52 chooses a truck/loader fleet for a supplied mine plan; S53 dispatches trucks. They support commercially material exclusions, not omission of haulage territory. Integrated mine shift decisions stay EXTR only when extraction-cycle feasibility defines their output. LOG supplies mobility and transport capacities.
+
+EXTR / PROC: ore-unit destination and recovery decisions linked to mine availability are EXTR. Standalone blend recipes, crushers/mills/flotation process design, smelter campaigns and transformation settings belong to PROC. Pure continuous blend ratios are not forced into EXTR ICO. Surface oil separation alone does not make every petroleum problem PROC: an integrated well-activation contract remains EXTR.
+
+EXTR / SCM: extraction and depletion create physical availability. Inventory position, replenishment, procurement and supplier allocation are SCM. A stockpile state in a mine schedule does not create a second SCM primary domain.
+
+EXTR / LAND: land access, concession footprint as land use, basin rights, resource entitlements, recharge allocation and reclamation belong to LAND. EXTR consumes these limits. A mine-waste placement contract is EXTR only when extraction provenance, progressive dump availability and material compatibility define it; land restoration is not included. Conjunctive-use research can contain LAND-owned decisions and is not imported as a whole into EXTR.
+
+EXTR / ENER: reservoir or aquifer extraction defines EXTR; installed utility pump, valve, tank and distribution operation defines ENER. Mine ventilation and dewatering can be constraints in an extraction schedule. An independently scoped utility-control or power-supply problem belongs to ENER.
+
+EXTR / CIVIC: resource access layout is EXTR; generic construction calendars, civil structure design, roads and asset maintenance follow CIVIC when those decisions dominate. Platform dismantling does not become EXTR merely because it occurs at an oilfield.
+
+EXTR / HR / COMP / INTEL: standalone crews and rosters are HR; sensing/data-resource operation is COMP; adversarial protection is INTEL. Geological sampling remains EXTR when its output is an extraction-information programme. A research paper's industry label does not determine Domain ownership.
+
+EXTR / MKT / FIN: rights auctions, commodity offers and allocation mechanisms are MKT; financing, hedges and financial asset positions are FIN. A budget or discounted cash-flow objective does not displace an extraction decision. Physical exploration project selection is EXTR.
+
+RESEARCH METHOD AND COVERAGE LOG
+
+Pass A searched mine scheduling, MineLib, stope optimization, field development, groundwater well design and exploration sampling. It established the main physical systems and the distinction between continuous simulation and discrete activation.
+Pass B searched access-network and stope boundaries, operational pushbacks and surface/underground transition, short-term grade/destination planning, workover rigs and well production allocation. It exposed operational designs missed by a generic scheduling-only list.
+Pass C searched block-cave draw control, drilling/fracturing campaigns, exploration portfolios, extraction/backfill and ventilation-aware plans. It distinguished cave drawpoint scheduling from stope activity calendars.
+Pass D searched quarry production, mine-waste progression, lift-gas allocation and field retirement. Quarry is a variant of the extraction-plan contract; gas-lift is an operational well-allocation variant; retirement is retained in depletion scheduling.
+Pass E searched equipment selection, dig limits, short-term tasks, truck dispatch and aquifer well activation. It added a distinct grade-control geometry contract and confirmed the LOG exclusions. Cutoff-policy granularity remains a control question described below.
+This is broad practical coverage, not a proof of exhaustiveness. Repeated hits increasingly concern aliases, uncertainty extensions, integrated combinations and neighboring-domain problems. Gaps remain in specialist marine extraction, solution mining and coupled geothermal development; these are not invented canonical Problems without distinct decision/Template evidence.
+
+EVIDENCE INTERPRETATION
+
+A source supports the existence of a decision or method family only to the extent stated in its record. Indexed abstracts do not support detailed implementation, runtime, licensing or industrial adoption claims. Vendor documentation supports the existence of industrial functionality, not independent optimality or superiority.
+
+IE Templates identify defensible operational framings. OR Templates retain meaningful alternatives where model scope matters. No single universally strongest algorithm was established for this domain. Published stochastic, integrated and simulation-based methods are not silently labelled routine industrial practice. MineLib and FieldOpt are reproducibility leads for the later, separately authorized Case phase; no Cases or performance baselines are selected here.
+
+Priority, Relevance, Hardness and ontology annotations are analyst judgments under 000_DOMAIN.txt, supported by the decision scope and cited mechanisms. They are not ratings quoted from papers. Formal complexity statements are limited to an identified classical problem or a containing standard hard special case. General mixed-integer or nonlinear formulations alone do not prove NP-hardness.
+
+Structure records the chosen solution: block membership = select; destination or resource assignment = map; new access connections = link; trajectories and activity calendars = place. Supplied slope arcs, reservoir connectivity, task precedence, spatial adjacency and mathematical auxiliary variables do not justify link. Continuous volumes and rates accompany discrete choices without creating another Structure.
+
+CANDIDATE EVIDENCE DOSSIERS
+
+Candidate keys below are temporary research references, not permanent Problem numbers or final sequence. Their order follows discovery groups.
+PROSPECT — Exploration Prospect Portfolio Selection
+
+Decision evidence and identity. Contract: fund or defer physical exploration prospects, not rank geological pixels or trade asset shares. Inputs are candidate prospects, conditional discoveries, costs and access conditions; output is an exploration subset. Alias: exploration project selection. Sequential drilling with information updates is a variant; appraisal-hole geometry is a separate contract. S01 compares exploration portfolio approaches; S02 gives binary exploration-project decisions in a stochastic formulation, but is a 2026 preprint. Neither establishes a universally superior industrial method. The Template is a defensible model family, not a claim of commercial deployment. Budgeted independent rewards reduce to knapsack; this is the limited complexity inference. High centrality across exploration-intensive industries and enterprise-scale relevance are analyst assessments. Geological risk alone does not change ownership to FIN. Commercial licence allocation is excluded.
+
+Candidate scope. Selects resource prospects for exploration under exploration budgets, geological dependence and access limits.
+Template conclusion. Risked prospect evaluation and exploration portfolio planning | Binary stochastic or multiobjective portfolio optimization.
+Commitment annotation. #plan | Commits exploration effort across prospects before appraisal work.
+Construction annotation. #select | Chooses prospects from a supplied opportunity set.
+Rating assessment. Priority High | Prospect choice initiates major mineral and petroleum development programmes. Relevance Critical | Choices determine discovery exposure and the use of exploration capital. Hardness High | Budgeted subset variants are NP-hard; correlated geological outcomes and staged information complicate portfolio evaluation.
+Boundary note. Physical exploration commitments define this scope; financial holdings and licence auctions belong to FIN and MKT.
+Retrieval tags. ##MINING ##OILGAS ##prospect-selection ##geological-uncertainty
+Source support. S01 S02.
+
+SAMPLE — Resource Appraisal Sampling Design
+
+Decision evidence and identity. Contract: purchase additional geological information at selected locations; resource estimation itself is an input-generating analytical activity. Aliases include infill drilling design and appraisal-hole selection. Discrete candidate collars and patterns define this ICO scope; pure continuous kriging-parameter fitting is excluded. S03 explicitly selects binary variance-reduction locations against a downstream chance-constrained blending model. S04 compares additional-hole layouts using several information criteria. Information gain and economic value of information are material alternatives: they need not select the same locations. Geometric drilling trajectories can refine the candidates but are not required by this contract. Existing mine plans can guide resampling, creating a feedback loop. Mining evidence is direct; oil/gas and water are conditional industry transfers of the sampling contract, not verified common benchmarks.
+
+Candidate scope. Selects appraisal and infill sampling locations under drilling budgets, access conditions and required resource-information quality.
+Template conclusion. Geostatistical sampling design and value-of-information analysis | Discrete simulation-optimization or mixed-integer chance-constrained optimization.
+Commitment annotation. #plan | Commits information-gathering locations before extraction decisions.
+Construction annotation. #select | Chooses sampling locations or drilling patterns from feasible candidates.
+Rating assessment. Priority High | Resource characterization supports mine and well development. Relevance High | Better sampling reduces costly extraction and classification errors. Hardness High | No general complexity claim; spatial uncertainty and downstream decision evaluation make repeated selection expensive.
+Boundary note. Sampling for resource discovery and extraction remains EXTR; generic sensor-network operation belongs to COMP.
+Retrieval tags. ##MINING ##OILGAS ##WATER ##value-of-information ##sampling
+Source support. S03 S04.
+
+METHOD — Mining Method and Surface-to-Underground Transition Selection
+
+Decision evidence and identity. Contract: choose mutually exclusive ways to exploit overlapping reserves. It is distinct from ultimate pit limits, which assume the surface method, and from a mine schedule under fixed methods. S05 optimizes pit outline with transition depth and a prescribed crown pillar; S06 couples surface and underground schedules. Allowing time makes #plan a possible variant, but the admitted primary contract commits design. Crown-pillar shape and geotechnical feasibility are supplied engineering restrictions, not generated ontology Structure. The output zone-to-method assignment justifies #map. Cost and reserve exposure support Critical relevance; occurrence is limited to convertible deposits, so Priority is Medium. Method choice among variants without explicit combinatorial alternatives is not automatically ICO.
+
+Candidate scope. Selects surface or underground extraction alternatives and their transition boundary under resource overlap, crown-pillar and access conditions.
+Template conclusion. Strategic mining-option and transition analysis | Coupled mine-design integer programming and optimization-based heuristics.
+Commitment annotation. #design | Commits extraction methods and the boundary between them.
+Construction annotation. #select + #map | Chooses extraction alternatives and assigns resource zones to the selected methods.
+Rating assessment. Priority Medium | Essential when surface and underground options compete for the same deposit. Relevance Critical | A poor transition can sterilize reserves or destroy project value. Hardness High | No general complexity claim; competing geometries and shared reserves couple two mine designs.
+Boundary note. Transition timing is a scheduling variant coupled to the selected method boundary.
+Retrieval tags. ##MINING ##crown-pillar ##mutually-exclusive
+Source support. S05 S06.
+
+PIT — Ultimate Pit Limit Selection
+
+Decision evidence and identity. Contract: decide economic extraction membership without a production calendar. Aliases: ultimate pit problem, ultimate pit limit, economic pit shell. S07 separates this problem from capacitated production scheduling. S08 states the graph model and its capacity-constrained extensions. The supplied precedence arcs represent slope support; they do not imply chosen #link. Parametric revenue factors generate nested shells, but those shells do not by themselves solve operational phase design. The Low industrial rating is restricted to the classical graph problem; geological robustness, transport design or capacity constraints must not be silently folded into it. Large source models alone are not evidence of High hardness. No prescribed geotechnical angle is invented.
+
+Candidate scope. Selects the ultimate set of mineable blocks under slope precedences and block economic values.
+Template conclusion. Ultimate pit optimization | Maximum-weight closure by minimum cut or equivalent graph algorithms.
+Commitment annotation. #design | Defines the surface extraction envelope before phase and production planning.
+Construction annotation. #select | Chooses blocks while respecting supplied slope-precedence relations.
+Rating assessment. Priority High | Pit limits are foundational in open-pit mine planning. Relevance Critical | The extraction envelope sets recoverable value and waste exposure. Hardness Low | The classical maximum-closure model is polynomial; mature graph algorithms handle large block sets, while added constraints can change difficulty.
+Boundary note. The classical scope excludes production-period capacities and practical pushback widths.
+Retrieval tags. ##MINING ##QUARRYING ##maximum-closure ##precedence
+Source support. S07 S08.
+
+PHASE — Open-Pit Pushback Design
+
+Decision evidence and identity. Contract: turn an extraction envelope into practical, ordered phases. It differs from choosing the ultimate set and from placing its blocks in calendar periods. S09 treats minimum widths between successive pushbacks and at the bottom; S10 supplies a genetic-search alternative. There is no evidence that one method dominates all phase geometries. IE practice uses shells and engineered phase layouts; optimization must retain operating-width and connectivity restrictions. The grouping is #map and the chosen phase progression is #place; adjacency feasibility alone is not #link. Haul-road engineering is not automatically included. Joint design and scheduling is a coupled variant, not a new generic integrated-mining card.
+
+Candidate scope. Groups pit blocks into ordered extraction phases under slope, connectivity and minimum mining-width requirements.
+Template conclusion. Practical pushback and phase design | Integer optimization or geometry-aware search over candidate phases.
+Commitment annotation. #design | Defines workable extraction phases before production scheduling.
+Construction annotation. #map + #place | Assigns blocks to phases and orders the phases within the pit.
+Rating assessment. Priority High | Practical phase geometry connects pit economics to executable mine plans. Relevance Critical | Phase design governs stripping exposure and access to valuable ore. Hardness High | No general complexity claim; spatial width, contiguity and phase interactions require tailored search.
+Boundary note. Nested economic shells are candidate inputs; operational pushbacks must also satisfy mining geometry.
+Retrieval tags. ##MINING ##QUARRYING ##pushback ##connectivity
+Source support. S09 S10.
+
+STOPE — Underground Stope Layout Selection
+
+Decision evidence and identity. Contract: choose extraction shapes from a geological block model. Candidate shapes can be generated internally, but the admitted representation explicitly selects feasible shapes. Stope boundary optimization and stope layout optimization are aliases at this level; sublevel stoping, variable widths and pillar rules are variants. S11 gives IP plus heuristics; S12 gives a binary formulation with shape and pillar constraints. Mine access and production scheduling are separate delivered artifacts; joint optimization couples them without removing their identities. Detailed stress simulation is supplied feasibility evaluation. Shape count and spatial conflicts support High hardness, without asserting that every restricted layout problem is NP-hard.
+
+Candidate scope. Selects non-overlapping stopes and retained pillars under ore geometry, dilution and geotechnical limits.
+Template conclusion. Stope boundary and layout optimization | Binary integer programming, candidate-shape selection and tailored heuristics.
+Commitment annotation. #design | Commits extraction units and retained support before underground schedules.
+Construction annotation. #select | Chooses feasible stope shapes from a generated candidate set.
+Rating assessment. Priority High | Stope layouts define recoverable units in major underground mining methods. Relevance Critical | Layout choices determine recovery, dilution and retained support. Hardness High | No general complexity claim; many conflicting shapes and spatial support rules require specialized models.
+Boundary note. Candidate generation supplies shapes; the selection contract does not construct access links.
+Retrieval tags. ##MINING ##stope-layout ##non-overlap
+Source support. S11 S12.
+
+ACCESS — Underground Mine Access Network Design
+
+Decision evidence and identity. Contract: deliver the underground access network, not schedule already designed drives. S13 reports Underground Network Optimiser and Decline Optimisation Tool; S14 jointly models access and stope layout using MINLP and genetic search. Geometric optimization and network design are material approaches, and no generic MILP dominance is claimed. Supplied orebody topology is not the output: the actual chosen access relations justify #link. Stope-to-access dependence is bidirectional during design; a staged handoff uses provisional stopes to design access, followed by correction if stopes become uneconomic. Civil works are an interface, but resource reachability defines this contract.
+
+Candidate scope. Selects and connects shafts, declines and development drives to extraction zones under gradient, access and development-cost limits.
+Template conclusion. Underground access and decline network design | Constrained network optimization and geometric search.
+Commitment annotation. #design | Commits underground access topology before development and extraction.
+Construction annotation. #link + #select | Constructs access connections and selects participating development segments.
+Rating assessment. Priority High | Access networks enable underground extraction and constrain its cost. Relevance Critical | Network choices determine development expenditure and mine accessibility. Hardness High | No general complexity claim; topology, three-dimensional geometry and extraction value interact.
+Boundary note. Mine-access design is EXTR; generic civil construction scheduling belongs to CIVIC.
+Retrieval tags. ##MINING ##network-design ##gradient
+Source support. S13 S14.
+
+FIELD — Oil and Gas Field Development Configuration
+
+Decision evidence and identity. Contract: choose the field-scale asset configuration and resource-facility allocation. S15 gives reservoir selection, candidate wells, platforms and capacities in a multiperiod MILP; S16 covers wells assigned to FPSOs and production/injection capacities. The schedule and well locations are material couplings, but are separate contracts when the field concept is fixed. A facility assignment is #map; the source vocabulary of networks does not justify #link unless connections themselves are chosen. MINLP is supported by S17 for integrated reservoir and surface decisions. IE framing is project-development planning; the formal models are published approaches, not evidence that every operator deploys them. Critical hardness is an analyst judgment restricted to integrated, uncertain field-scale models.
+
+Candidate scope. Selects reservoirs and production facilities and assigns wells to facilities under development budgets, shared capacities and reservoir deliverability.
+Template conclusion. Field development and gathering-system configuration | Multiperiod MILP or MINLP with reservoir-response models.
+Commitment annotation. #design | Commits field infrastructure and resource activation options before detailed drilling.
+Construction annotation. #select + #map | Chooses development assets and assigns wells to production facilities.
+Rating assessment. Priority High | Field configuration governs major upstream oil and gas projects. Relevance Critical | Configuration determines capital exposure and attainable production. Hardness Critical | No general complexity claim; discrete infrastructure and nonlinear reservoir forecasts require aggregation or decomposition.
+Boundary note. Detailed processing-unit synthesis belongs to PROC; this scope is defined by resource development.
+Retrieval tags. ##OILGAS ##field-development ##capacity
+Source support. S15 S16.
+
+WELL — Petroleum Well Placement and Completion Configuration
+
+Decision evidence and identity. Contract: deliver a well pattern, including which wells exist, where their trajectories lie and which roles or completion alternatives they use. S18 identifies number, roles, placements and drilling times in field development; S19 supplies an open research framework covering placement, completions and controls. S17 supports a joint placement-to-scheduling model. Artificial-lift rates are operational, not a new layout. Pure coordinate-only optimization with no combinatorial construction is outside ICO; the candidate includes existence, role or completion choices. Horizontal and multilateral wells are variants. Placement under interference is different from assigning an existing well to a separator. FieldOpt is a future reproducibility lead only; no execution or instance verification was performed.
+
+Candidate scope. Selects wells, production or injection roles and completion options and positions well trajectories under reservoir contact, drilling and interference limits.
+Template conclusion. Reservoir well-pattern and completion design | Mixed discrete-continuous simulation-optimization and derivative-free search.
+Commitment annotation. #design | Commits well geometry and roles before drilling and production.
+Construction annotation. #place + #select + #map | Positions well trajectories, selects wells and completions, and assigns production or injection roles.
+Rating assessment. Priority High | Well configuration is central to reservoir development. Relevance Critical | Well placement changes drainage, recovery and drilling expenditure. Hardness Critical | No general complexity claim; costly reservoir simulations and coupled discrete and geometric choices constrain search.
+Boundary note. Pure continuous well-control optimization is outside the discrete configuration scope.
+Retrieval tags. ##OILGAS ##well-placement ##reservoir-simulation
+Source support. S17 S18 S19.
+
+WATERDESIGN — Groundwater Extraction Wellfield Design
+
+Decision evidence and identity. Contract: choose the abstraction works acting on an aquifer. Groundwater well placement and wellfield capacity expansion are aliases or capacity variants. S20 is a primary USGS-associated MINLP study of well locations in a broader conjunctive-use system; its broader LAND-owned recharge and water-source allocation is not imported wholesale. S21 directly models integer wellfield capacity expansion. The admitted core uses supplied candidate locations, hence #select rather than #place. A continuous placement extension is possible but does not define this card. Candidate-site decisions differ from an established water utility's daily pump switching. Relevance and hardness are analyst judgments grounded in hydraulic interaction, not legal advice or a statement of current abstraction law.
+
+Candidate scope. Selects extraction wells and capacity options under aquifer drawdown, well interference, abstraction and water-supply limits.
+Template conclusion. Hydrogeological wellfield design | Mixed-integer simulation-optimization or response-matrix models.
+Commitment annotation. #design | Commits extraction locations and capacity before withdrawal operation.
+Construction annotation. #select | Chooses wells and capacity options from feasible candidates.
+Rating assessment. Priority Medium | Wellfield design is foundational to groundwater extraction projects. Relevance High | Design affects supply reliability, extraction cost and aquifer impacts. Hardness High | No general complexity claim; well interactions and aquifer-response evaluation complicate discrete design.
+Boundary note. Water rights and basin allocation belong to LAND; installed distribution equipment operation belongs to ENER.
+Retrieval tags. ##WATER ##wellfield ##drawdown
+Source support. S20 S21.
+
+SURFACEPLAN — Open-Pit Extraction Scheduling
+
+Decision evidence and identity. Contract: produce a block-period-destination plan from a designed resource. S07 separates ultimate-pit membership from capacitated scheduling; S08 gives large-scale aggregation; S22 supports grade, contaminant and stockpile integration in an operating mine. S23 supplies a quarry application with chemical raw-mix restrictions. Long-, medium- and short-period block schedules are variants if the output remains the same. A shift task schedule is separate because it commits machines to drilling/blasting/excavation activities. Cutoff grades can be derived from block destination choices; continuous economic cutoff analysis alone is not a separate ICO problem. A fixed-pit all-block special case removes selection without changing the family. The Critical rating concerns operationally rich industrial schedules, not every MineLib instance.
+
+Candidate scope. Schedules extraction blocks and their destinations under slope precedences, mining capacity, processing capacity and ore-quality targets.
+Template conclusion. Life-of-mine and tactical open-pit production planning | Precedence-constrained MILP, aggregation and optimization-based heuristics.
+Commitment annotation. #plan | Commits extraction periods and material destinations before detailed execution.
+Construction annotation. #place + #select + #map | Places selected blocks in time and assigns their material to destinations.
+Rating assessment. Priority Critical | Extraction schedules coordinate the main open-pit production commitments. Relevance Critical | Schedules govern resource value, stripping demand and plant supply. Hardness Critical | Capacitated precedence-constrained variants are NP-hard; large block sets, blending and uncertain grades require aggregation or decomposition.
+Boundary note. Quarry, strip-mine and stochastic variants share this decision contract.
+Retrieval tags. ##MINING ##QUARRYING ##schedule ##precedence
+Source support. S07 S08 S22 S23.
+
+UGPLAN — Underground Development, Extraction and Backfill Scheduling
+
+Decision evidence and identity. Contract: determine when mine development, ore extraction and filling occur under a supplied layout. S24 documents extraction and backfill scheduling at Lisheen; S25 develops optimization-based heuristics; S26 integrates life-of-mine development and stope production. The source distinctions justify keeping this separate from surface block scheduling. Supplying curing and access precedence does not create #link. Longwall and room-and-pillar panel development are variants where the delivered result is still a development/extraction calendar; mining-method-specific feasibility must be retained. Cave draw schedules are separate because sustained drawpoint activity and material-flow continuity define the output. A generic personnel roster is HR. Industrial ratings describe full coupled models, not small deterministic demonstrations.
+
+Candidate scope. Schedules development, stope extraction and backfill under access, stability, curing and shared production-resource limits.
+Template conclusion. Integrated underground mine production planning | Resource-constrained MILP and optimization-based scheduling heuristics.
+Commitment annotation. #plan | Commits underground activity periods before shift execution.
+Construction annotation. #place | Positions development, extraction and backfill activities in time.
+Rating assessment. Priority High | The coupled cycle defines production planning in backfilled underground mines. Relevance Critical | Scheduling controls output and when neighboring stopes become accessible. Hardness Critical | General resource-constrained scheduling variants are NP-hard; access and fill interactions require tailored decomposition.
+Boundary note. Backfill plant recipe design belongs to PROC; extraction-support sequencing remains EXTR.
+Retrieval tags. ##MINING ##backfill ##precedence ##curing
+Source support. S24 S25 S26.
+
+CAVE — Cave Drawpoint Activation and Draw Scheduling
+
+Decision evidence and identity. Contract: choose drawpoint opening/active states and their temporal draw profiles. S27 presents MILP with drawpoint aggregation; S28 controls extraction sequence and draw-rate constraints. This is not ordinary stope selection: material flows through drawpoints as caving progresses. Cave-front adjacency is supplied physical feasibility, not chosen #link. Block and panel caving are variants; a fixed active set with only continuous rate optimization is excluded from this discrete card. Long-term schedules can feed shorter draw-control horizons and be revised after hang-ups. The papers establish model families, not guaranteed geomechanical safety or a universal best operating policy. No quantitative performance claim is imported.
+
+Candidate scope. Schedules drawpoint openings and draw quantities under cave-front progression, draw balance, dilution and production limits.
+Template conclusion. Cave production and draw-control planning | Drawpoint-based MILP with clustering and simulation-supported evaluation.
+Commitment annotation. #plan | Commits drawpoint activation and depletion profiles before draw execution.
+Construction annotation. #place + #select | Positions drawpoint activations in time and selects active drawpoints.
+Rating assessment. Priority Medium | Draw control is a core decision in caving mines. Relevance Critical | Draw schedules affect recovery, dilution and cave progression. Hardness Critical | No general complexity claim; many drawpoints and uncertain material flow require aggregation and specialized models.
+Boundary note. Continuous draw quantities accompany the discrete activation schedule.
+Retrieval tags. ##MINING ##block-caving ##draw-control
+Source support. S27 S28.
+
+DEPLETION — Reservoir Development and Depletion Scheduling
+
+Decision evidence and identity. Contract: deliver the time-phased exploitation policy under an established development concept. It differs from FIELD's asset configuration and DRILL's executable rig campaign. S15 supplies multiperiod field activity; S17 jointly couples placement, rig limitations and production; S29 explicitly adds decommissioning timing and abandonment constraints. Retirement is retained as a lifecycle variant because source evidence couples it to drilling and production, not as a redundant generic decommissioning card. Physical plugging tasks can be WORKOVER variants; platform dismantling as civil project work belongs to CIVIC. The implied production curves and stage availability inform operational well selection. Feedback from declining deliverability revises the plan. Finite reserve depletion is distinct from aquifer withdrawal policy.
+
+Candidate scope. Schedules reservoir and well activation, production stages and retirement under depletion response, development capacity and field-output limits.
+Template conclusion. Reservoir exploitation and economic field-life planning | Multiperiod MILP or MINLP with reservoir-response approximations.
+Commitment annotation. #plan | Commits resource activation and field-life stages before operation.
+Construction annotation. #place + #select | Positions activation and retirement decisions in time and chooses developed wells or reservoirs.
+Rating assessment. Priority High | Depletion plans coordinate oil and gas resource use over field life. Relevance Critical | Timing determines recovered value and the economic life of assets. Hardness Critical | No general complexity claim; reservoir coupling, uncertain deliverability and irreversible decisions constrain industrial solutions.
+Boundary note. Continuous rate optimization alone is excluded; retirement timing is included when coupled to remaining resource extraction.
+Retrieval tags. ##OILGAS ##depletion ##activation
+Source support. S15 S17 S29.
+
+DRILL — Well Drilling and Completion Campaign Scheduling
+
+Decision evidence and identity. Contract: schedule construction and completion of selected wells, rather than decide the exploration portfolio or the subsurface well pattern. S30 provides primary MILP and rolling-horizon evidence for drilling/fracturing interference; S31 supplies a rig-scheduling MIP. S16 gives the field-development linkage. Drilling, completion and fracturing are operations within a well lifecycle; they do not require one Problem per operation. Rig travel is a setup and LOG interface; a pure rig route with fixed extraction tasks is owned by LOG. Water-well campaigns instantiate the same compatibility-and-construction contract, but source support is strongest in petroleum. Workover serves existing wells and has production-loss and intervention eligibility conditions, supporting a separate contract.
+
+Candidate scope. Assigns rigs and completion resources to wells and schedules drilling and completion under resource compatibility, access and interference restrictions.
+Template conclusion. Rig campaign and drilling-completion planning | Resource-constrained MILP and rolling-horizon optimization.
+Commitment annotation. #plan | Commits well-construction assignments and execution times.
+Construction annotation. #place + #map | Schedules well activities and assigns rigs and completion resources.
+Rating assessment. Priority High | Drilling campaigns turn resource-development plans into producing wells. Relevance High | Better sequencing reduces rig idle time and delayed production. Hardness High | General resource-constrained scheduling variants are NP-hard; rig compatibility, relocations and well interference require tailored models.
+Boundary note. Fracturing interference is a completion variant; resource prospect selection remains a separate decision.
+Retrieval tags. ##OILGAS ##WATER ##rig-scheduling ##interference
+Source support. S16 S30 S31.
+
+GRADE — Grade-Control Dig Limit Definition
+
+Decision evidence and identity. Contract: construct operational dig groups rather than merely classify samples statistically. S32 supplies a MILP and a problem-specific NP-hardness result; S33 extends multiple destinations; S34 documents a commercial dig-line tool. Aliases include dig-line optimization and mining-cut definition. Ore/waste classes and minimum selectivity restrict the delivered grouping; #map is primary. Contiguity does not itself imply #link. This local geometric decision differs from final plant/stockpile destination assignment: a mine can receive grade-control polygons and still choose where each lot goes. S33 supports a coupled version, which is not a reason to erase that distinction. Blast movement and grade uncertainty are variants; continuous fragmentation prediction is not ICO.
+
+Candidate scope. Groups bench material into mineable ore and waste polygons under grade estimates, equipment selectivity and minimum mining-width limits.
+Template conclusion. Grade-control dig-line design | Mixed-integer polygon or mining-cut optimization and geometric heuristics.
+Commitment annotation. #plan | Commits selective-mining boundaries before excavation.
+Construction annotation. #map | Assigns spatial material units to mineable ore and waste groups.
+Rating assessment. Priority High | Selective extraction depends on workable grade-control boundaries. Relevance High | Better boundaries reduce ore loss and dilution. Hardness High | Published dig-limit optimization is NP-hard; irregular geometry and grade uncertainty complicate industrial models.
+Boundary note. Grade estimation supplies evidence; the optimization chooses mineable groups.
+Retrieval tags. ##MINING ##QUARRYING ##dig-limit ##dilution
+Source support. S32 S33 S34.
+
+TASK — Mine Shift Activity and Equipment Scheduling
+
+Decision evidence and identity. Contract: produce equipment-executable work orders for drilling, charging, blasting, ventilation clearance, loading or support activities. S35 includes machine and worker assignment in potash mining; S36 supplies preemptive underground scheduling; S37 supports dynamic reassignment; S38 supplies shovel-aware surface short-term planning. Those are related activity-scheduling contracts with different feasibility rules, not aliases of an aggregate block-period plan. Integrated worker feasibility leaves primary EXTR because extraction activities define the promised result; a standalone roster is HR. #dispatch covers immediate reassignment, while full replanning is an #adapt variant. A real-time guarantee is not established, so #realtime is not asserted. Supplied task precedences do not imply #link.
+
+Candidate scope. Schedules extraction-cycle tasks and assigns machines under face availability, task precedences, blast-clearance and shared-resource limits.
+Template conclusion. Short-term mine production and shift planning | Resource-constrained MILP and dynamic schedule repair.
+Commitment annotation. #plan + #dispatch | Commits shift work and revises immediate task assignments as mine conditions change.
+Construction annotation. #place + #map | Places mining tasks in time and assigns machines to them.
+Rating assessment. Priority High | Shift schedules connect production plans to physical extraction. Relevance High | Feasible task coordination reduces lost extraction time. Hardness High | General resource-constrained scheduling variants are NP-hard; access conflicts, equipment moves and changing face states complicate execution.
+Boundary note. Standalone truck routing belongs to LOG; this scope schedules the extraction cycle.
+Retrieval tags. ##MINING ##QUARRYING #execution #rolling ##blast-clearance
+Source support. S35 S36 S37 S38.
+
+DEST — Mine Material Destination and Stockpile Allocation
+
+Decision evidence and identity. Contract: choose the disposition of mined units given availability, with extraction-linked grade identity and recoverability. S22 models destination and blending jointly with a mine schedule; S39 supports stockpiling and grade-engineering extensions; S40 documents industrial product/destination rules. Existence as a separable allocation subproblem is an analytical contraction of these models, not a claim that all mines solve it independently. Cutoff policies and ore/waste routing are variants when they induce discrete unit assignments. Continuous blending of already available ingredients under process-quality feasibility belongs to PROC; material purchase and replenishment policy belongs to SCM. Stockpile quantities are state variables, not #place. A reclaim-time schedule can add #place, but the admitted card fixes the allocation contract.
+
+Candidate scope. Assigns discrete ore lots or mining units to processing, stockpiling or waste destinations under grade, contaminant, capacity and availability limits.
+Template conclusion. Mine material routing and stockpile feed planning | MILP or MINLP with material balances and blending constraints.
+Commitment annotation. #allocate | Commits extracted-resource units to feasible destinations.
+Construction annotation. #map | Assigns discrete material units to plant, stockpile or waste destinations.
+Rating assessment. Priority High | Material destination decisions recur across mine production systems. Relevance High | Better assignments improve recovery and use constrained processing capacity. Hardness High | No general complexity claim; discrete lots, grade mixing and stockpile histories require strong formulations.
+Boundary note. Separate process blend recipes belong to PROC; pure inventory policy belongs to SCM.
+Retrieval tags. ##MINING ##QUARRYING ##destination ##stockpile
+Source support. S22 S39 S40.
+
+DUMP — Mine Waste-Rock Emplacement Scheduling
+
+Decision evidence and identity. Contract: dispose of waste generated by a mine sequence while retaining material provenance and mineral/geochemical placement restrictions. S41 and S43 provide mine-waste MIP schedules; S42 includes acid-generating rock controls. This scope is more specific than selecting a waste destination: it delivers cell-level emplacement and progression. Topography and dump stability are supplied restrictions. It remains EXTR only when the extraction stream and progressive dump availability define feasibility; a general municipal waste system or independent civil embankment does not. Final reclamation is explicitly LAND. Tailings impoundment structural design and slurry process control are not silently included. The boundary is an ontology inference, not a classification asserted by the papers.
+
+Candidate scope. Assigns mine waste-rock units to dump cells and schedules placement under cell access, capacity and material-encapsulation requirements.
+Template conclusion. Life-of-mine waste-rock placement planning | Spatial and temporal mixed-integer emplacement models.
+Commitment annotation. #plan | Commits disposal-cell progression alongside extraction.
+Construction annotation. #map + #place | Assigns waste-rock units to cells and places deposition activities in time.
+Rating assessment. Priority Medium | Waste emplacement is material in mines with constrained dump progression. Relevance High | Better placement reduces rehandling and manages reactive-rock exposure. Hardness High | No general complexity claim; dump access, material classes and extraction timing interact.
+Boundary note. Land restoration belongs to LAND; standalone earthworks construction belongs to CIVIC.
+Retrieval tags. ##MINING ##waste-rock ##encapsulation
+Source support. S41 S42 S43.
+
+WATEROP — Groundwater Withdrawal Activation Scheduling
+
+Decision evidence and identity. Contract: activate a subset of extraction wells through time with transient aquifer response. S44 directly couples flow simulation and mixed-integer management of relief wells; it supports the model architecture, not a claim that relief drainage is identical to potable-water supply. S21 supports discrete capacity and pumping constraints. S45 supplies a lifecycle drilling/activation/operation MILP under spatial interference. Wellfield design fixes location capacity; this problem operates that field. LAND controls basin entitlements and recharge allocation; ENER controls installed distribution hydraulics when aquifer state is not constitutive. Pure continuously variable pumpage with all wells fixed on is not an ICO instance. No claim of nonrenewability is needed: the normative water-extraction boundary expressly includes groundwater withdrawal.
+
+Candidate scope. Selects active extraction wells and withdrawal periods under aquifer response, drawdown, recovery and abstraction limits.
+Template conclusion. Aquifer-constrained well operation planning | Mixed-integer response-function or simulation-optimization models.
+Commitment annotation. #plan | Commits extraction activation and withdrawal periods before operation.
+Construction annotation. #place + #select | Schedules withdrawal periods and chooses active extraction wells.
+Rating assessment. Priority Medium | Discrete withdrawal plans support aquifer-constrained extraction systems. Relevance High | Coordinated activation can preserve supply and reduce excessive drawdown. Hardness High | No general complexity claim; delayed aquifer response couples well states across locations and time.
+Boundary note. Aquifer withdrawal defines this scope; utility distribution switching belongs to ENER.
+Retrieval tags. ##WATER ##aquifer-response ##well-activation
+Source support. S21 S44 S45.
+
+WELLOP — Well Activation and Production Allocation
+
+Decision evidence and identity. Contract: decide which installed wells produce and their feasible receiving facility, with continuous rates as accompanying controls. S46 models daily integrated well operation, S47 provides piecewise-linear MILP for lift gas and separator allocation, S48 provides dynamic programming for a restricted gas-lift problem, and S49 extends naturally flowing and artificial-lift wells. These approaches are not interchangeable global SOTA claims. The fixed-network allocation is #map, not #link; a genuine new physical gathering-system topology would return to design. Gas lift, ESP and naturally flowing wells are variants. Pure choke/rate optimization with no well-state or routing alternatives lies outside the combinatorial core. Ownership follows reservoir extraction, not the presence of separators alone.
+
+Candidate scope. Selects producing wells and assigns them to available manifolds or separators under reservoir deliverability, lift-resource and surface-capacity limits.
+Template conclusion. Integrated well operation and artificial-lift allocation | MINLP, piecewise-linear MILP or dynamic programming for restricted gas-lift models.
+Commitment annotation. #operate | Coordinates existing wells and production resources during extraction.
+Construction annotation. #select + #map | Chooses active wells and assigns their production to available receiving facilities.
+Rating assessment. Priority High | Well activation and allocation are recurring upstream production decisions. Relevance High | Better coordination recovers production within constrained field capacity. Hardness High | No general complexity claim; nonlinear well response and shared pressure or capacity limits complicate discrete operation.
+Boundary note. Continuous lift-gas and flow quantities accompany the discrete choices; fixed-connection variants need only selection.
+Retrieval tags. ##OILGAS ##gas-lift ##well-allocation
+Source support. S46 S47 S48 S49.
+
+WORKOVER — Well Intervention and Workover Scheduling
+
+Decision evidence and identity. Contract: restore or modify existing producing assets rather than construct new development wells. S50 directly states service selection, rig assignment and timing; S51 gives deterministic and stochastic models including fleet sizing. Aliases: workover rig scheduling, well intervention scheduling. Routing and fleet acquisition are couplings, not grounds to claim all rig logistics for EXTR. Well abandonment services can be a variant if plugging eligibility defines the intervention; retirement economics remains DEPLETION. S50 duration estimation is input evidence, not part of the optimization Problem identity. The same resource-constrained pattern does not merge this with DRILL because installed-asset condition, lost production and corrective intervention define a distinct contract. Public abstract evidence establishes method existence; source instances were not reproduced.
+
+Candidate scope. Selects intervention jobs, assigns service rigs and schedules work on existing wells under compatibility, access and production-loss conditions.
+Template conclusion. Production-restoration and workover planning | MILP scheduling, decomposition and uncertainty-aware optimization.
+Commitment annotation. #plan + #adapt | Commits intervention work and revises recovery plans after well degradation or failure.
+Construction annotation. #place + #map + #select | Schedules intervention jobs, assigns rigs and selects jobs within the service horizon.
+Rating assessment. Priority High | Existing wells require recurring intervention and restoration planning. Relevance High | Timely intervention reduces deferred production and rig cost. Hardness High | General parallel-resource scheduling variants are NP-hard; travel, uncertain duration and well eligibility require tailored search.
+Boundary note. Generic rig movement is LOG; well restoration and intervention eligibility define this scope.
+Retrieval tags. ##OILGAS ##workover ##production-loss
+Source support. S50 S51.
+
+
+DEPENDENCY GRAPH: INDUSTRIAL HANDOFFS
+
+An edge means that the upstream delivered artifact supplies an applicable downstream input, not that every installation must instantiate both Problems. These are analyst reconstructions from the cited integrated models and industrial contracts. They are not mathematical reductions. Mining, petroleum and groundwater chains are alternative deployment paths.
+
+Prospect to sampling: the selected opportunity set constrains appraisal locations (S01-S04). Existing deposits can enter directly at sampling or design.
+Sampling to method, pit, stope, field, wellfield and grade-control design: geological information updates candidate values and feasibility (S03-S05, S11-S12, S18-S21). These are information handoffs, not promises that uncertainty disappears.
+Method to pit/stope: method restrictions determine permitted extraction units (S05-S06).
+Pit to pushback to surface plan: membership bounds practical phases, which restrict extraction progression (S07-S10).
+Stope to access and underground plan; access to underground/cave schedules: units and access feasibility constrain extraction timing (S11-S14, S24-S28). The ACCESS-to-CAVE edge applies only to cave-access infrastructure; a stope layout is not a cave-design prerequisite.
+Field to well and depletion; well to depletion/drilling: field capacity and well configuration constrain activation and campaigns (S15-S19).
+Wellfield design to drilling/withdrawal: installed candidate locations and capacities constrain implementation and extraction (S20-S21, S45).
+Depletion to drilling and well operation; drilling to well operation/withdrawal: target activation dates drive campaign needs; completed wells supply operational availability (S15-S17, S29-S31, S45-S49).
+Surface plan to grade/shift/destination/waste; underground and cave schedules to shift/destination: production targets and available extraction units define local execution and material choices (S22-S28, S32-S43).
+Grade to shift/destination: selective-mining polygons determine executable cuts and material identity (S32-S34).
+Shift to destination: realized available lots and extraction states inform updated destination allocation (S35-S40). A prescriptive destination plan can also guide the shift; that reverse direction is feedback.
+Destination to waste emplacement: assigned waste units provide quantities and material classes (S41-S43).
+Well operation to workover: observed loss and operating status generate eligible intervention demand (S46-S51).
+
+FIRST-COMMITMENT EDGES
+PROSPECT -> SAMPLE
+SAMPLE -> METHOD
+SAMPLE -> PIT
+SAMPLE -> STOPE
+SAMPLE -> FIELD
+SAMPLE -> WELL
+SAMPLE -> WATERDESIGN
+SAMPLE -> GRADE
+METHOD -> PIT
+METHOD -> STOPE
+PIT -> PHASE
+PHASE -> SURFACEPLAN
+STOPE -> ACCESS
+STOPE -> UGPLAN
+ACCESS -> UGPLAN
+ACCESS -> CAVE
+FIELD -> WELL
+FIELD -> DEPLETION
+WELL -> DEPLETION
+WELL -> DRILL
+WATERDESIGN -> DRILL
+WATERDESIGN -> WATEROP
+SURFACEPLAN -> GRADE
+SURFACEPLAN -> TASK
+SURFACEPLAN -> DEST
+SURFACEPLAN -> DUMP
+UGPLAN -> TASK
+UGPLAN -> DEST
+CAVE -> TASK
+CAVE -> DEST
+DEPLETION -> DRILL
+DEPLETION -> WELLOP
+DRILL -> WELLOP
+DRILL -> WATEROP
+GRADE -> TASK
+GRADE -> DEST
+TASK -> DEST
+DEST -> DUMP
+WELLOP -> WORKOVER
+
+CYCLES, COUPLINGS AND ORDERING LIMITS
+
+Design is iterative: ACCESS -> STOPE and WELL -> FIELD are economic/feasibility feedback, while the first committed layout proceeds in the reverse direction. The Compiler may retain the forward handoff while explaining the feedback here.
+GRADE/DEST -> SURFACEPLAN and DEST -> TASK feed grade/plant targets back into plans. DUMP -> SURFACEPLAN is capacity feedback. TASK -> UGPLAN revises near-term accessibility and execution assumptions. CAVE draw outcomes revise drawpoint schedules internally.
+WORKOVER -> WELLOP returns restored capacity; WELLOP -> DEPLETION updates deliverability. DRILL -> DEPLETION returns completion delays. WATEROP -> WATERDESIGN can trigger additional capacity or revised wells. These adaptation paths do not reverse the initial dependency sequence.
+The phase, stope, access and well design/schedule models may be solved jointly. Joint solution is a coupling architecture, not evidence for a catch-all integrated extraction Problem that duplicates its components.
+No cross-domain permanent IDs are asserted: supplied interfaces are contract boundaries rather than unresolved references to future LAND work.
+
+ALIAS, EXCLUSION AND OPEN-QUESTION LEDGER
+
+Mine scheduling, block scheduling, extraction sequencing: resolve to the surface, underground, cave or shift contract according to the delivered artifact; a change of horizon alone is insufficient for a new Problem.
+Quarry/coal/metal-specific schedules: variants unless a distinct output/feasibility contract is established. Quarry chemical limits refine SURFACEPLAN and DEST; quarry plant transformations remain PROC.
+Deterministic/stochastic/robust mining: uncertainty variants and descriptors, not independent Problems.
+Pit shells/Lerchs-Grossmann/minimum cut: solution approaches or inputs for PIT, not separate Problems.
+Stope boundaries versus mine access: distinct selection and network artifacts; retained separately.
+Cutoff grade policy: S55 chooses zone-level thresholds and evaluates extraction schedules. Provisionally treated as a material-assignment/extraction-policy variant, but whether the reusable threshold policy deserves a distinct contract is an open control question.
+Drill/blast pattern parameters and fragmentation simulation: pure continuous engineering settings excluded. Discrete extraction-task scheduling is TASK. A separate discrete blast-pattern selection Problem lacks adequately distinct Template evidence in this pass.
+Surface/underground transition timing: METHOD plus production-planning coupling; no duplicate transition scheduler.
+Grade estimation, resource classification statistics and reservoir history matching: analytical inputs; no chosen combinatorial construction demonstrated.
+Truck/shovel fleet purchase, salvage, generic transport infrastructure and truck dispatch under fixed mining requirements: LOG (S52-S53). Excavation-cycle choices remain TASK.
+Mine ventilation/dewatering: extraction feasibility refinements, or ENER when separately scoped utility operation; S54 supports integration without requiring another EXTR card.
+Process blending, mineral processing, refinery planning: PROC. Destination allocation does not claim the process-recipe contract.
+Mine closure/reclamation: LAND for resource/land restoration; CIVIC for independent civil works. Field retirement linked to remaining extraction is a DEPLETION variant supported by S29.
+Mine waste versus dump construction: DUMP retains extraction-stream-specific cell progression; geotechnical earthworks design itself is not included.
+Tailings process handling, impoundment civil design and basin reclamation: PROC, CIVIC and LAND according to their decision contracts. No generic tailings card is added here.
+Geothermal wells: prospective EXTR configuration/activation interface only when subsurface extraction dominates; installed heat/power dispatch belongs to ENER. A dedicated industry-specific split is deferred.
+Solution mining, salt/brine and in-situ leaching: potential WELL/WATERDESIGN/DEPLETION variants; dissolution chemistry may instead make the primary contract PROC. No false equivalence or dedicated Problem is asserted.
+Marine seabed mining and dredged aggregates: likely extraction-sequence and LOG interfaces; separate coverage not established. Revisit if subsequent industry research supplies distinct commercially material decisions.
+No Case identifiers, instance sizes, selected benchmark suite, numerical reference results or uplift claims are included.
+
+SOURCE REGISTER
+S01 Petroleum exploration portfolios generated with different optimization approaches: Lessons for decision-makers (2022)
+https://www.sciencedirect.com/science/article/pii/S0920410522003448
+Evidence used: Indexed publisher abstract only; direct open failed. Supports exploration-specific portfolio comparisons, not implementation availability.
+
+S02 A two-stage stochastic programming framework for oil and gas exploration well portfolio optimization under geological and economic uncertainty (2026)
+https://arxiv.org/abs/2605.26493
+Evidence used: Primary author preprint, indexed abstract. Provisional evidence for discrete stochastic exploration selection; not established industrial practice.
+
+S03 Jeuken and Forbes, The Value of Drilling—A Chance-Constrained Optimization Approach (2024)
+https://link.springer.com/article/10.1007/s42461-024-01061-8
+Evidence used: Full article retrieved. Binary selection of variance-reduction locations; downstream chance-constrained model. Supports sampling Template, not a universal optimum sampling criterion.
+
+S04 A Multi-Objective Approach for Optimizing the Layout of Additional Boreholes in Mineral Exploration (2023)
+https://www.mdpi.com/2075-163X/13/10/1252
+Evidence used: Indexed primary article. Multiple information and ore-value criteria support alternative sampling objectives.
+
+S05 Combined optimisation of an open-pit mine outline and the transition depth to underground mining (2018)
+https://www.sciencedirect.com/science/article/pii/S0377221718301000
+Evidence used: Indexed primary abstract. Joint pit/transition geometry with prescribed crown pillar.
+
+S06 Timing of transition from open-pit to underground mining: A simultaneous optimisation model for open-pit and underground mine production schedules (2022)
+https://www.sciencedirect.com/science/article/pii/S0301420722000812
+Evidence used: Indexed primary abstract. Supports coupled transition timing and schedules.
+
+S07 Espinoza, Goycoolea, Moreno and Newman, MineLib
+https://minelib.org/v1/
+Evidence used: Official author-maintained landing page retrieved. Distinguishes ultimate pit and two production-scheduling families; future benchmark lead, no Case selection.
+
+S08 Aggregation heuristic for the open-pit block scheduling problem (2016)
+https://www.sciencedirect.com/science/article/pii/S0377221715009704
+Evidence used: Indexed primary abstract. Large block counts motivate aggregation; evaluates MineLib families.
+
+S09 Optimizing pushback design considering minimum mining width for open pit strategic planning (2022)
+https://www.tandfonline.com/doi/full/10.1080/0305215X.2021.1941919
+Evidence used: Indexed primary abstract. Operational widths distinguish phases from nested shells.
+
+S10 Open-Pit Pushback Optimization by a Parallel Genetic Algorithm (2024)
+https://www.mdpi.com/2075-163X/14/5/438
+Evidence used: Indexed primary article. Search-based phase design alternative; no universal superiority inferred.
+
+S11 Stope boundary optimization: A mathematical model and efficient heuristics (2019)
+https://www.sciencedirect.com/science/article/abs/pii/S0301420718303519
+Evidence used: Indexed primary abstract. IP and heuristic approaches; distinguishes stope boundaries, access and scheduling.
+
+S12 A Binary Integer Linear Programming Model for Optimizing Underground Stope Layout (2025)
+https://link.springer.com/article/10.1007/s42461-025-01192-6
+Evidence used: Indexed primary abstract. Stope width, pillar and shape restrictions.
+
+S13 Optimisation in the design of underground mine access (2007)
+https://research.monash.edu/en/publications/optimisation-in-the-design-of-underground-mine-access/
+Evidence used: Author institution record. UNO and DOT support network/geometric Template existence.
+
+S14 Integrated optimisation of stope boundary and access layout for underground mining operations
+https://digital.library.adelaide.edu.au/items/ca9b644f-2db1-4387-8ce1-739038b782ff/full
+Evidence used: Institutional primary research record. MINLP and genetic search for coupled access and stope decisions.
+
+S15 Optimal Planning and Scheduling of Offshore Oil Field Infrastructure Investment and Operations (1998)
+https://pubs.acs.org/doi/10.1021/ie970532x
+Evidence used: Indexed primary abstract. Reservoir and well selection, platform decisions, drilling and production scheduling.
+
+S16 Optimal design and scheduling for offshore oil-field development (2019)
+https://www.sciencedirect.com/science/article/pii/S0098135418309876
+Evidence used: Indexed primary abstract. MILP of drilling, well-to-FPSO allocation and production/injection capacities.
+
+S17 Integrated Oil-Field Management: From Well Placement and Planning to Production Scheduling (2016)
+https://pubs.acs.org/doi/10.1021/acs.iecr.5b03326
+Evidence used: Indexed primary abstract. MINLP jointly incorporates reservoir placement, surface effects and rig availability.
+
+S18 Stanford Smart Fields: Optimal Well Placement and Control; related field-development research
+https://smartfields.stanford.edu/research/optimal-well-placement-and-control
+Evidence used: Research-group page retrieved. Well number, type, trajectory and expensive simulation; method families span continuous and discrete problems.
+
+S19 FieldOpt: A powerful and effective programming framework tailored for field development optimization (2020)
+https://doi.org/10.1016/j.cageo.2019.104379
+Evidence used: Indexed primary paper. Framework demonstrates well control, completion and placement; discrete eligibility must be checked per instance.
+
+S20 Chiu, Nishikawa and Martin, Hybrid-optimization algorithm for the management of a conjunctive-use project and well field design (2012)
+https://pubs.usgs.gov/publication/70032410
+Evidence used: Official USGS primary article record retrieved. MINLP with candidate pumping wells; hybrid genetic and successive-linear optimization.
+
+S21 Optimal Capacity-Expansion Planning in Multiaquifer Systems (1994)
+https://ascelibrary.org/doi/10.1061/%28ASCE%290733-9496%281994%29120%3A6%28836%29
+Evidence used: Indexed primary abstract. Binary wellfield investment models and pumpage/drawdown constraints.
+
+S22 Practical performance of an open pit mine scheduling model considering blending and stockpiling (2019)
+https://pure.uai.cl/en/publications/practical-performance-of-an-open-pit-mine-scheduling-model-consid/
+Evidence used: Author institution abstract. Industrial polymetallic application; extraction time, destination and stockpile grades.
+
+S23 Optimisation of long-term quarry production scheduling under geological uncertainty to supply raw materials to a cement plant (2021)
+https://journals.sagepub.com/doi/10.1080/25726668.2021.1894398
+Evidence used: Indexed primary abstract. Stochastic MIP, quarry development and raw-mix targets.
+
+S24 O'Sullivan and Newman, Extraction and Backfill Scheduling in a Complex Underground Mine (2014)
+https://pubsonline.informs.org/doi/10.1287/inte.2013.0730
+Evidence used: Primary article and author-hosted manuscript located; abstract inspected. Extraction/fill coupling in an operating mine.
+
+S25 Optimization-based heuristics for underground mine scheduling (2015)
+https://www.sciencedirect.com/science/article/pii/S0377221714006559
+Evidence used: Indexed primary abstract. Extends underground extraction/backfill scheduling with solution heuristics.
+
+S26 Life-of-mine optimization for integrated open stope development and production scheduling using a mixed-integer linear programming framework (2023)
+https://journals.sagepub.com/doi/full/10.1080/25726668.2023.2182285
+Evidence used: Indexed primary abstract. Integrated access development and extraction calendar.
+
+S27 Mixed-Integer Linear Programming formulation for block-cave sequence optimisation (2012)
+https://www.inderscience.com/info/inarticle.php?artid=47998
+Evidence used: Primary publisher abstract. Drawpoint and cluster formulations; opening and draw progression.
+
+S28 Draw rate optimisation in block cave production scheduling using mathematical programming (2017)
+https://papers.acg.uwa.edu.au/p/1710_24_Pourrahimian/
+Evidence used: Primary conference paper record. Draw-rate and sequence MILP; no performance result reproduced.
+
+S29 Formulations for automatic optimization of decommissioning timing in offshore oil and gas field development planning (2022)
+https://www.sciencedirect.com/science/article/pii/S0098135422002484
+Evidence used: Primary indexed abstract and SINTEF author record. Retirement timing coupled to drilling and production allocation.
+
+S30 Linderoth, Luedtke, Rigterink and Soni, Mixed-Integer Linear Programming for Scheduling Unconventional Oil Field Development (2020)
+https://optimization-online.org/2020/02/7604/
+Evidence used: Author submission abstract retrieved. Drilling/fracturing neighborhood interference, MILP and rolling-horizon solution.
+
+S31 Rig scheduling mixed-integer programming study, IEOM (2021)
+https://index.ieomsociety.org/index.cfm/article/view/ID/533
+Evidence used: Primary proceedings index. Explicit rig scheduling MIP; supplementary evidence only.
+
+S32 Dig-limits optimization through mixed-integer linear programming in open-pit mines (2018)
+https://www.tandfonline.com/doi/abs/10.1057/s41274-017-0201-z
+Evidence used: Indexed primary abstract; direct open failed. Explicit NP-hardness result and MILP for mineable ore/waste clusters.
+
+S33 A novel optimization model for the dig-limit definition problem in open pit mines with multiple destinations (2025)
+https://www.sciencedirect.com/science/article/pii/S0301420725000522
+Evidence used: Indexed primary abstract. Multi-destination grade-control geometry.
+
+S34 Micromine, Create Dig Lines
+https://webhelp.micromine.com/mm/25.5/English/Content/mmgrades/IDH_DIG_LINE_OPTIMISER.htm
+Evidence used: Official industrial documentation indexed. Commercial implementation evidence for dig-line generation; no solver optimality guarantee inferred.
+
+S35 A new mathematical formulation for a potash-mine shift scheduling problem with a simultaneous assignment of machines and workers (2021)
+https://research.uni-hannover.de/en/publications/a-new-mathematical-formulation-for-a-potash-mine-shift-scheduling/
+Evidence used: Author institution abstract. MILP assigning extraction-cycle work to resources.
+
+S36 Short-term planning optimization model for underground mines (2019)
+https://www.sciencedirect.com/science/article/pii/S0305054819300309
+Evidence used: Indexed primary abstract. Preemptive MIP, resource mobility and underground space constraints.
+
+S37 Dynamic short term production scheduling and machine allocation in underground mining using mathematical programming (2010)
+https://journals.sagepub.com/doi/10.1179/1743286310Y.0000000001
+Evidence used: Indexed primary abstract. Shift schedule and dynamic machine reassignment.
+
+S38 Mixed integer programming model for short term planning in open-pit mines (2013)
+https://www.tandfonline.com/doi/abs/10.1179/1743286313Y.0000000037
+Evidence used: Indexed primary abstract. Block order, shovel movement and equipment capacity.
+
+S39 A mathematical model for open pit mine production scheduling with Grade Engineering and stockpiling (2021)
+https://doi.org/10.1016/j.ijmst.2021.03.011
+Evidence used: Indexed primary abstract. Material pathways, stockpiles and extraction constraints.
+
+S40 Micromine Alastri Tactical Scheduler, Gold Mine Example
+https://webhelp.micromine.com/alastri/latest/English/Content/ATS/IDH_TS_GOLD_MINE_EXAMPLE.htm
+Evidence used: Official industrial example indexed. Product-optimized destinations, grade penalties and stockpile specifications; not independently reproduced.
+
+S41 A new model for open-pit production and waste-dump scheduling (2019)
+https://www.tandfonline.com/doi/full/10.1080/0305215X.2018.1476501
+Evidence used: Indexed primary abstract. Joint production and waste-rock placement MIP.
+
+S42 Improved mine waste dump planning through integration of geochemical and mineralogical data and mixed integer programming (2022)
+https://www.sciencedirect.com/science/article/pii/S0301479722002857
+Evidence used: Indexed primary abstract. Waste-cell planning with acid-rock generation and rehandling restrictions.
+
+S43 Waste rock dumping optimisation using mixed integer programming (2013)
+https://www.tandfonline.com/doi/full/10.1080/17480930.2013.794513
+Evidence used: Indexed primary abstract. Two dump-planning models using a mine schedule.
+
+S44 Combining flow simulation and optimization for dynamic management of relief wells (1989)
+https://www.sciencedirect.com/science/article/pii/0309170889900134
+Evidence used: Indexed primary abstract. MIP using aquifer response functions; drainage context limits transfer to water-supply extraction.
+
+S45 A Rolling Horizon MILP Framework for Strategic Well Drilling Planning in Semi-Arid Regions: Integration of Spatial Interference Constraints and Resource Allocation (2026)
+https://ascelibrary.org/doi/full/10.1061/JWRMD5.WRENG-7444
+Evidence used: Indexed primary abstract. Joint well drilling, activation and operation; recent evidence, no deployment or reproduction claim.
+
+S46 Optimization of Well Oil Rate Allocations in Petroleum Fields (2004)
+https://pubs.acs.org/doi/10.1021/ie034171z
+Evidence used: Indexed primary abstract. Mixed-integer daily well operation and gas-lift allocation under integrated reservoir/surface constraints.
+
+S47 Mixed-integer linear optimization for optimal lift-gas allocation with well-separator routing (2012)
+https://www.sciencedirect.com/science/article/pii/S0377221711007983
+Evidence used: Indexed primary abstract. Piecewise-linear MILP alternative with receiving-unit assignment.
+
+S48 Solving a gas-lift optimization problem by dynamic programming (2006)
+https://www.sciencedirect.com/science/article/pii/S0377221705002705
+Evidence used: Indexed primary abstract. Binary well activation with lift-gas allocation; restricted dynamic-programming Template.
+
+S49 Mixed-Integer Nonlinear Programming for production optimisation of naturally flowing and artificial lift wells with routing constraints (2019)
+https://www.research.ed.ac.uk/en/publications/mixed-integer-nonlinear-programming-minlp-for-production-optimisa/
+Evidence used: Author institution abstract. Naturally flowing, gas-lift and ESP well operations with discrete routing.
+
+S50 Santos, Hamacher and Oliveira, A data-driven optimization model for the workover rig scheduling problem: Case study in an oil company
+https://gamma-opt.aalto.fi/publication/santos_2022/
+Evidence used: Author research-group abstract retrieved. Job selection, rig assignment, time placement and MILP; estimated duration is input.
+
+S51 Optimizing Workover Rig Fleet Sizing and Scheduling Using Deterministic and Stochastic Programming Models (2018)
+https://pmc.ncbi.nlm.nih.gov/articles/PMC6156096/
+Evidence used: Primary full article location and abstract indexed. Stochastic and deterministic models support duration uncertainty and sizing interfaces.
+
+S52 Burt, Caccetta, Fouche and Welgama, An MILP approach to Multi-location, Multi-Period Equipment Selection for Surface Mining with Case Studies (2013)
+https://optimization-online.org/2013/06/3931/
+Evidence used: Primary author abstract retrieved. Truck/loader fleet, purchase/salvage and allocation with a supplied mine plan; supports LOG ownership exclusion.
+
+S53 Linderoth, Luedtke and Smith, Optimization-Based Dispatching Policies for Open-Pit Mining (2020)
+https://optimization-online.org/2020/02/7646/
+Evidence used: Primary author abstract retrieved. Truck-dispatch models and simulation; supports LOG exclusion when extraction choices are fixed.
+
+S54 Optimizing Ventilation in Medium- and Short-Term Mine Planning (2024)
+https://stacks.cdc.gov/view/cdc/207864
+Evidence used: Official primary research record indexed. Ventilation-aware extraction schedule supports feasibility variant, not a new generic EXTR utility Problem.
+
+S55 King and Newman, Optimizing the Cutoff Grade for an Operational Underground Mine (2018)
+https://pubsonline.informs.org/doi/10.1287/inte.2017.0934
+Evidence used: Indexed primary abstract. MIP cutoff choices in supplied zones; candidate policy variant retained under material destination and extraction plans.
+
