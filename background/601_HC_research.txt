@@ -182,11 +182,11 @@ Identity / aliases: Kidney paired donation; KPD; kidney exchange clearing.
 Scope and boundary reasoning: The deliverable is a selected relational exchange graph, not merely a subset of unrelated donor pairs. Cycle disjointness and chain succession are constitutive. Two-way-only matching has an easier matching specialization. Crossmatch testing and failure-aware recourse are meaningful refinements retained within exchange planning until a separate industrial testing-allocation contract is established.
 Construction analysis: #link. Chooses transplant relations that form disjoint exchange cycles and chains. Supplied data and constraints are not extra chosen structures.
 Commitment evidence: #allocate. Commits a compatible exchange set for a transplant match run.
-IE / OR support: Kidney paired donation clearing | Cycle or position-indexed ILP; branch-and-price and hierarchical objective methods. S22 provides position-indexed formulations and branch-and-price. S23 supports hierarchical ILP methods used by exchange programmes. S24 establishes crossmatch-selection recourse research; it is retained as an approach variant rather than promoted into a new Problem without further operational evidence.
+IE / OR support: Kidney paired donation clearing | Cycle or position-indexed ILP; branch-and-price and hierarchical objective methods. S22 provides position-indexed formulations and branch-and-price. S23 supports hierarchical ILP methods used by exchange programmes. S24 establishes crossmatch-selection recourse research. S67 explicitly supports NP-hardness when cycles of lengths two and three are permitted; two-way-only exchange retains a polynomial matching specialization.
 Assessment inference: Priority Medium — Paired exchange is specific to living-donor transplantation. Relevance Critical — Exchange construction can enable otherwise infeasible transplants. Hardness High — Long chains, failure risk and hierarchical goals increase model difficulty. Complexity scope: NP-hard bounded-cycle exchange variants.
 Useful refinements / limits: ##TRANSPLANTATION ##kidney-exchange ##cycle ##chain ##compatibility. The compatibility graph is supplied; the solution chooses the transplant relations.
 First-commitment dependency candidates: ∅ → EXCHANGE → SURGERY. Clinical occupancy and execution state can feed back as described above.
-Evidence references: S22, S23, S24.
+Evidence references: S22, S23, S24, S67.
 
 ADMIT — Elective Patient Admission Scheduling
 Decision and output: Selects elective patients for admission and assigns admission dates under clinical priority, readiness and forecast resource occupancy.
@@ -215,8 +215,8 @@ Evidence references: S27, S28, S29.
 BED — Patient-to-Room and Bed Allocation
 Decision and output: Assigns admitted patients to rooms or beds over their care stays under specialty, isolation, compatibility and transfer requirements.
 Identity / aliases: Patient admission scheduling in fixed-stay benchmarks; PAS; patient-to-room assignment.
-Scope and boundary reasoning: The historical PAS name is retained as an alias, not a second admission-date Problem. Isolation cohorting is a compatibility refinement. If the room assignment jointly changes clinician walking and patient workload, use the integrated BED/NURSE variant. Do not manufacture #link from compatibility supplied in the instance.
-Construction analysis: #map + #place. Assigns patients to beds or rooms and places their stays in occupancy periods. Supplied data and constraints are not extra chosen structures.
+Scope and boundary reasoning: The historical PAS name is retained as an alias, not a second admission-date Problem. Admission and discharge periods can be supplied. Assigning rooms in each supplied occupancy period is #map, not #place. Isolation cohorting is a compatibility refinement. If room assignment jointly changes clinician walking and patient workload, use the integrated BED/NURSE variant. Do not manufacture #link from supplied compatibility.
+Construction analysis: #map. Assigns patients to eligible beds or rooms over supplied stay periods. Supplied data and constraints are not extra chosen structures.
 Commitment evidence: #allocate + #operate. Commits individual patients to usable accommodation and updates assignments.
 IE / OR support: Clinical bed management and patient-room assignment | Patient-room MIP; local search, matheuristics and rolling assignment. S30 explicitly describes PAS as patient-to-bed assignment. S31 establishes integrated patient-room/nurse MIP and heuristics with real and generated instances. S32 establishes the patient-admission MIP tradition. Their decision variables support this identity even when titles use admission scheduling.
 Assessment inference: Priority Critical — Patient accommodation is a core inpatient operating decision. Relevance Critical — Safe bed access controls admissions, transfers and congestion. Hardness High — Shared rooms, uncertain stays and transfer costs create strong interactions. Complexity scope: NP-hard constrained patient-room assignment variants.
@@ -635,9 +635,9 @@ S35 Stochastic Optimization Approaches for an Operating Room and Anesthesiologis
 URL https://arxiv.org/abs/2204.11374
 Evidence / access: Primary author paper; full text opened. Activation, assignment, sequence and timing; SP, DRO, SAA and column-and-constraint generation.
 
-S36 Integrated Healthcare Timetabling Competition 2024 problem specification.
-URL https://ihtc2024.github.io/assets/files/ihtc2024_problem_specification.pdf
-Evidence / access: Official specification discovered and indexed. Integrated patient, room, nurse and surgery decisions. No benchmark instances or results selected here.
+S36 Integrated Healthcare Timetabling Competition 2024.
+URL https://ihtc2024.github.io/
+Evidence / access: Official competition site opened; linked specification discovered. Integrated admission, room, nurse and surgery decisions. No benchmark instances or results selected here.
 
 S37 Online scheduling using a fixed template: the case of outpatient chemotherapy drug administration.
 URL https://ir.cwi.nl/pub/32451/
@@ -712,8 +712,8 @@ URL https://link.springer.com/article/10.1007/s11750-022-00643-3
 Evidence / access: Primary study; indexed abstract. Equipment sharing/reallocation models; boundary evidence, not proof of bedside triage optimization.
 
 S55 Optimal blood issuing by comprehensive matching.
-URL https://www.sciencedirect.com/science/article/abs/pii/S0377221721001673
-Evidence / access: Primary study; indexed abstract; direct open failed. Comprehensive blood-group representation and minimum-cost-flow allocation.
+URL https://research.utwente.nl/en/publications/optimal-blood-issuing-by-comprehensive-matching/
+Evidence / access: Primary institutional abstract opened. Comprehensive blood-group representation and minimum-cost-flow allocation. DOI 10.1016/j.ejor.2021.02.054; publisher open failed, institutional account verified.
 
 S56 Extensive red blood cell matching considering patient alloimmunization risk.
 URL https://pubmed.ncbi.nlm.nih.gov/38286764/
@@ -758,3 +758,7 @@ Evidence / access: Primary institutional record opened; primary full-text indexe
 S66 Operating room scheduling and rescheduling: a rolling horizon approach.
 URL https://re.public.polimi.it/handle/11311/1022214
 Evidence / access: Primary institutional record indexed. Deterministic and robust rolling-horizon formulations.
+
+S67 Finding long chains in kidney exchange using the traveling salesman problem.
+URL https://pmc.ncbi.nlm.nih.gov/articles/PMC4311855/
+Evidence / access: Primary paper; indexed full-text excerpt; direct open challenged. Explicit NP-hardness statement for exchange allowing cycles of lengths two and three. Used only for that specialization, not all matching.
