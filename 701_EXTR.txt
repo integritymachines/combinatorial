@@ -75,12 +75,12 @@ EXTR07 Underground Mine Access Network Design.
 DESCRIPTION Selects and connects shafts, declines and development drives to extraction zones under gradient, access and development-cost limits.
 TEMPLATE Underground access and decline network design | Constrained network optimization and geometric search.
 REGIME #design | Commits underground access topology before development and extraction.
-STRUCTURE #link + #select | Constructs access connections and selects participating development segments.
+STRUCTURE #link | Constructs the access connections between mine entries and extraction zones.
 PRIORITY High | Access networks enable underground extraction and constrain its cost.
 RELEVANCE Critical | Network choices determine development expenditure and mine accessibility.
 HARDNESS High | No general complexity claim; topology, three-dimensional geometry and extraction value interact.
 DEPENDENCIES EXTR06 → EXTR07 → EXTR13, EXTR14.
-COMMENTS Mine-access design is EXTR; generic civil construction scheduling belongs to CIVIC. | #RES #EXTR #design #link #select ##MINING ##network-design ##gradient.
+COMMENTS Mine-access design is EXTR; generic civil construction scheduling belongs to CIVIC. | #RES #EXTR #design #link ##MINING ##network-design ##gradient.
 
 EXTR08 Oil and Gas Field Development Configuration.
 DESCRIPTION Selects reservoirs and production facilities and assigns wells to facilities under development budgets, shared capacities and reservoir deliverability.
@@ -141,12 +141,12 @@ EXTR13 Underground Development and Extraction Scheduling.
 DESCRIPTION Schedules underground development and extraction, with backfill where required, under access, stability and shared-resource limits.
 TEMPLATE Integrated underground mine production planning | Resource-constrained MILP and optimization-based scheduling heuristics.
 REGIME #plan | Commits underground activity periods before shift execution.
-STRUCTURE #place | Positions development, extraction and backfill activities in time.
+STRUCTURE #place | Positions development, extraction and any required backfill activities in time.
 PRIORITY High | Development and extraction calendars coordinate major underground mining systems.
 RELEVANCE Critical | Scheduling controls output and when neighboring stopes become accessible.
-HARDNESS Critical | General resource-constrained scheduling variants are NP-hard; access and fill interactions require tailored decomposition.
+HARDNESS Critical | General resource-constrained scheduling variants are NP-hard; access, extraction sequence and optional fill interactions require tailored decomposition.
 DEPENDENCIES EXTR06, EXTR07, EXTR11 → EXTR13 → EXTR18, EXTR19.
-COMMENTS Backfill plant recipe design belongs to PROC; extraction-support sequencing remains EXTR. | #RES #EXTR #plan #place ##MINING ##backfill ##precedence ##curing.
+COMMENTS Backfilled variants include fill and curing precedences; panel variants retain their method-specific access rules. | #RES #EXTR #plan #place ##MINING ##underground ##precedence.
 
 EXTR14 Cave Drawpoint Activation and Draw Scheduling.
 DESCRIPTION Schedules drawpoint openings and draw quantities under cave-front progression, draw balance, dilution and production limits.
