@@ -100,7 +100,7 @@ Construction analysis: #map + #place. Assigns resource sessions to services and 
 Commitment evidence: #plan. Prepares service capacity within the installed clinical system.
 IE / OR support: Tactical hospital resource allocation and patient-mix planning | Multi-period MILP with stochastic care-pathway demand; simulation evaluation. S07 establishes a MILP framework spanning resources, time periods and patient groups with uncertain care pathways. S08 establishes priority-constrained patient-mix IP. Templates retain both aggregate allocation and patient-mix framings.
 Assessment inference: Priority High — Hospitals and ambulatory services repeatedly plan capacity by service. Relevance High — Balanced capacity reduces access delays and downstream bottlenecks. Hardness High — Uncertain patient flows couple many resource types and periods. Complexity scope: Multi-period integer resource allocation.
-Useful refinements / limits: ##HOSPITALS ##patient-mix ##care-pathway ##tactical. Generic staff-to-shift rostering is HR; this contract allocates clinical service capacity.
+Useful refinements / limits: ##HOSPITALS ##patient-mix ##care-pathway #tactical. Generic staff-to-shift rostering is HR; this contract allocates clinical service capacity.
 First-commitment dependency candidates: NETWORK → CAPACITY → BLOCK, BLUEPRINT, ADMIT, PATHWAY, DIALYSIS, RADIOTIME, REHAB. Clinical occupancy and execution state can feed back as described above.
 Evidence references: S07, S08.
 
@@ -196,7 +196,7 @@ Construction analysis: #place + #select. Places selected patient admissions on t
 Commitment evidence: #plan. Commits admission dates before the care episode begins.
 IE / OR support: Elective admission planning and capacity reservation | Admission-date MILP; stochastic occupancy models and rolling planning. S25 establishes elective admission scheduling and stochastic resource needs. S26 records delayed admissions and uncertain stays in dynamic PAS. Source terminology overlaps BED, so industrial variables, not the title, determine ownership.
 Assessment inference: Priority High — Elective admissions affect access and inpatient workload. Relevance High — Feasible admission dates reduce postponements and congestion. Hardness High — Uncertain stays and downstream resource demand couple admission dates. Complexity scope: Contains knapsack-type patient-selection variants.
-Useful refinements / limits: ##HOSPITALS ##admission-control ##occupancy ##rolling. The historical PAS label often denotes bed assignment; that meaning belongs to patient-room allocation.
+Useful refinements / limits: ##HOSPITALS ##admission-control ##occupancy #rolling. The historical PAS label often denotes bed assignment; that meaning belongs to patient-room allocation.
 First-commitment dependency candidates: NETWORK, CAPACITY → ADMIT → PATHWAY, BED. Clinical occupancy and execution state can feed back as described above.
 Evidence references: S25, S26.
 
@@ -242,11 +242,11 @@ Identity / aliases: Operating-room scheduling; surgery scheduling; surgical case
 Scope and boundary reasoning: Case selection, resource assignment, sequencing and timing can be jointly chosen. #place covers temporal ordering; a selected immediate-successor relation is not mandatory. Recovery-bed occupancy is a clinical constraint, not an extra structure. Model scope must say whether operating rooms can be opened and on-call staff activated.
 Construction analysis: #place + #map + #select. Places selected surgeries in time and assigns their clinical resources. Supplied data and constraints are not extra chosen structures.
 Commitment evidence: #plan. Commits patient-specific surgery resources, order and start times.
-IE / OR support: Perioperative surgical case scheduling | MILP or constraint programming; stochastic and distributionally robust scheduling. S35 establishes joint OR activation, anesthesiologist assignment and surgery scheduling with stochastic and distributionally robust approaches. S36 supplies an integrated timetabling tradition. There is no universal superiority claim across deterministic, stochastic and robust methods.
+IE / OR support: Perioperative surgical case scheduling | MILP or constraint programming; stochastic and distributionally robust scheduling. S35 establishes joint OR activation, anesthesiologist assignment and surgery scheduling with stochastic and distributionally robust approaches. S36 supplies an integrated timetabling tradition. S68 explicitly establishes MILP and constraint-programming alternatives in a no-wait surgery specialization. No universal superiority is asserted across different assumptions.
 Assessment inference: Priority Critical — Surgical case scheduling is a central hospital optimization problem. Relevance High — Better schedules reduce delays, overtime and unused theatre capacity. Hardness High — Uncertain durations and shared clinical and recovery resources require specialized models. Complexity scope: NP-hard parallel-machine and multi-resource scheduling variants.
 Useful refinements / limits: ##PERIOPERATIVE ##schedule ##turnover ##stochastic. The template concerns actual cases; the master block schedule supplies capacity entitlements.
 First-commitment dependency candidates: BLOCK, ORGAN, EXCHANGE, PATHWAY → SURGERY → ORREPAIR. Clinical occupancy and execution state can feed back as described above.
-Evidence references: S35, S36.
+Evidence references: S35, S36, S68.
 
 APPOINT — Patient Appointment Booking
 Decision and output: Assigns patient requests to eligible provider, mode and time slots under clinical urgency, visit type and booking-capacity limits.
@@ -256,7 +256,7 @@ Construction analysis: #map + #select. Assigns patient requests to supplied slot
 Commitment evidence: #allocate + #dispatch. Commits individual requests to remaining appointment capacity.
 IE / OR support: Outpatient appointment booking and template-based online scheduling | Slot-assignment integer programming; stochastic or dynamic booking policies. S37 gives online binary-IP booking into a fixed chemotherapy template. S38 supplies multi-disciplinary blueprint and appointment coordination. These support booking architectures, not a claim that every clinic requires a multi-stage optimizer.
 Assessment inference: Priority Critical — Appointment access is a core primary and ambulatory care decision. Relevance High — Booking affects timely access, waiting and resource use. Hardness Medium — No-shows, urgency and online arrivals complicate booking policy. Complexity scope: Basic slot assignment is polynomial; coupled bookings add integer constraints.
-Useful refinements / limits: ##OUTPATIENT ##online ##appointment-booking ##no-show. Constructing the underlying recurring slot pattern is a separate blueprint decision.
+Useful refinements / limits: ##OUTPATIENT #online ##appointment-booking ##no-show. Constructing the underlying recurring slot pattern is a separate blueprint decision.
 First-commitment dependency candidates: BLUEPRINT, SCREEN, VACCINE → APPOINT → DIAGNOSTIC, INFUSION, DIALYSIS, RADIOTIME, REHAB. Clinical occupancy and execution state can feed back as described above.
 Evidence references: S37, S38.
 
@@ -326,11 +326,11 @@ Identity / aliases: Home-healthcare routing and scheduling; home nursing coordin
 Scope and boundary reasoning: The solver chooses the succession of visits, so #link is justified despite using a supplied travel matrix. Two-person simultaneous care and temporal dependencies are clinical service laws. Long-term patient-caregiver continuity assignments can be integrated or fed into daily routing; do not create separate cards for every horizon.
 Construction analysis: #link + #map + #place. Constructs visit succession, assigns caregivers and places care visits in time. Supplied data and constraints are not extra chosen structures.
 Commitment evidence: #plan + #operate. Commits and updates direct-care visits and caregiver itineraries.
-IE / OR support: Home-care routing and scheduling | Synchronized routing MILP; robust models, column generation and neighbourhood search. S48 establishes robust home-care models with temporal dependencies and synchronized visits. S49 supplies mixed-integer routing/staff synchronization. S50 provides dynamic continuity-focused assignment and routing. Newer column-generation work is a candidate method alternative, not a verified universal best practice.
+IE / OR support: Home-care routing and scheduling | Synchronized routing MILP; robust models, column generation and neighbourhood search. S48 establishes robust home-care models with temporal dependencies and synchronized visits. S49 supplies mixed-integer routing/staff synchronization. S50 provides dynamic continuity-focused assignment and routing. S69 explicitly establishes a column-generation heuristic with synchronization and workload balance. These are supported alternatives, not a universal solver ranking.
 Assessment inference: Priority High — Home-care services must coordinate mobile clinical work. Relevance High — Feasible itineraries support continuity and reduce missed care. Hardness High — Synchronized visits and clinical continuity couple routes and schedules. Complexity scope: NP-hard vehicle-routing variants.
 Useful refinements / limits: ##HOMECARE ##route ##synchronization ##continuity-of-care. Clinical visit requirements define HC; generic service routing belongs to LOG or HR.
 First-commitment dependency candidates: ∅ → HOME → ∅. Clinical occupancy and execution state can feed back as described above.
-Evidence references: S48, S49, S50.
+Evidence references: S48, S49, S50, S69.
 
 ED — Emergency Department Care Sequencing
 Decision and output: Prioritizes and schedules emergency patient care stages on available clinical resources under triage, treatment precedence and bed requirements.
@@ -340,7 +340,7 @@ Construction analysis: #place + #map. Orders and times patient care stages and a
 Commitment evidence: #dispatch + #operate. Commits immediate care priorities as patients and clinical state change.
 IE / OR support: Triage-constrained emergency department patient scheduling | Multi-resource MILP; robust-stochastic scheduling and rolling updates. S51 provides ED MILP with both human and bed resources and supplied triage rules. S52 provides hybrid robust-stochastic patient scheduling. These support dispatch and resource sequencing without transferring clinical triage judgement to the scheduling model.
 Assessment inference: Priority High — Emergency departments continuously coordinate unscheduled patient care. Relevance Critical — Delays can affect time-critical treatment and care access. Hardness High — Uncertain arrivals and care durations restrict response time for decisions. Complexity scope: Contains multi-resource scheduling variants.
-Useful refinements / limits: ##EMERGENCYMEDICINE ##triage ##online ##multi-resource. Triage categories are clinical inputs; this problem schedules permitted care actions.
+Useful refinements / limits: ##EMERGENCYMEDICINE ##triage #online ##multi-resource. Triage categories are clinical inputs; this problem schedules permitted care actions.
 First-commitment dependency candidates: ∅ → ED → ∅. Clinical occupancy and execution state can feed back as described above.
 Evidence references: S51, S52.
 
@@ -376,7 +376,7 @@ Construction analysis: #map. Assigns emergency requests to capable response vehi
 Commitment evidence: #dispatch. Commits immediate medical response and a suitable receiving destination.
 IE / OR support: Severity-aware ambulance dispatch and destination choice | State-dependent dispatch policies; approximate dynamic programming and integrated MILP. S58 establishes joint dispatch and relocation ADP. S59 introduces two medical-response tiers and severity classification error. S60 integrates destination choice with ED crowding using MILP. Policy performance depends on the state and objective; nearest-vehicle dispatch is not universally optimal.
 Assessment inference: Priority High — EMS operators make patient-response assignments continuously. Relevance Critical — Correct capability and timely destination access affect urgent care. Hardness High — Live availability, severity uncertainty and hospital congestion limit simple nearest-vehicle rules. Complexity scope: Sequential stochastic assignment and destination decisions.
-Useful refinements / limits: ##EMS ##online ##severity ##destination-assignment. Generic shortest-path execution is LOG; clinical response capability defines this contract.
+Useful refinements / limits: ##EMS #online ##severity ##destination-assignment. Generic shortest-path execution is LOG; clinical response capability defines this contract.
 First-commitment dependency candidates: EMSBASE, BED, ICU → EMSDISPATCH → EMSRELOC. Clinical occupancy and execution state can feed back as described above.
 Evidence references: S58, S59, S60.
 
@@ -388,7 +388,7 @@ Construction analysis: #map. Assigns available response vehicles to standby loca
 Commitment evidence: #dispatch. Commits short-cycle standby movements under current fleet availability.
 IE / OR support: Dynamic medical response coverage and standby redeployment | Coverage MIP; approximate dynamic programming and simulation evaluation. S58 and S61 support ADP and priority-guideline real-time relocation. S62 is used only as an evidentiary caution: the reviewed relocation evidence largely concerns response time, and it does not establish a generally superior clinical outcome.
 Assessment inference: Priority High — EMS fleets rebalance coverage after calls and releases. Relevance High — Relocation can improve readiness for future medical demand. Hardness High — Future calls and relocation costs make myopic coverage incomplete. Complexity scope: Dynamic stochastic coverage assignment.
-Useful refinements / limits: ##EMS ##coverage ##rolling ##relocation. Response-time evidence does not by itself establish improved patient outcomes.
+Useful refinements / limits: ##EMS ##coverage #rolling ##relocation. Response-time evidence does not by itself establish improved patient outcomes.
 First-commitment dependency candidates: EMSBASE, EMSDISPATCH → EMSRELOC → ∅. Clinical occupancy and execution state can feed back as described above.
 Evidence references: S58, S61, S62.
 
@@ -412,7 +412,7 @@ Construction analysis: #place + #map. Repositions remaining surgeries in time an
 Commitment evidence: #adapt + #dispatch. Revises an issued surgical schedule when operating conditions change.
 IE / OR support: Intraday perioperative rescheduling | Repair ILP or rolling-horizon robust scheduling. S65 establishes stakeholder-preference ILP for intraday OR repair; its fixed elective-room assignment is a material limitation. S66 provides deterministic and robust rolling-horizon alternatives. The formal strong NP-hard claim is restricted to the cited multiple-room model, not all single-room repairs.
 Assessment inference: Priority High — Operating-room schedules routinely face intraday disruption. Relevance High — Repair reduces cancellations, delay and overtime. Hardness High — Frozen work, arrival uncertainty and limited decision time constrain repair. Complexity scope: Strongly NP-hard in the cited multiple-room rescheduling model.
-Useful refinements / limits: ##PERIOPERATIVE ##rescheduling ##frozen-commitments ##rolling. Some established repair models keep elective room assignments fixed.
+Useful refinements / limits: ##PERIOPERATIVE ##rescheduling ##frozen-commitments #rolling. Some established repair models keep elective room assignments fixed.
 First-commitment dependency candidates: SURGERY → ORREPAIR → ∅. Clinical occupancy and execution state can feed back as described above.
 Evidence references: S65, S66.
 
@@ -762,3 +762,11 @@ Evidence / access: Primary institutional record indexed. Deterministic and robus
 S67 Finding long chains in kidney exchange using the traveling salesman problem.
 URL https://pmc.ncbi.nlm.nih.gov/articles/PMC4311855/
 Evidence / access: Primary paper; indexed full-text excerpt; direct open challenged. Explicit NP-hardness statement for exchange allowing cycles of lengths two and three. Used only for that specialization, not all matching.
+
+S68 Mixed-integer linear programming and constraint programming formulations for solving the three-stage no-wait surgery scheduling problem.
+URL https://doi.org/10.1016/j.cie.2026.111976
+Evidence / access: Primary study; indexed abstract. Explicit MILP and CP alternatives for three-stage no-wait surgery scheduling; specialization, not universal dominance.
+
+S69 A column generation-based heuristic algorithm for home healthcare scheduling and routing with synchronization and workload balance.
+URL https://www.sciencedirect.com/science/article/abs/pii/S0377221726006028
+Evidence / access: Primary study; indexed abstract. Column-generation heuristic with high-priority visits, synchronization, workload and preferred windows. Method existence only; current superiority is not established.
