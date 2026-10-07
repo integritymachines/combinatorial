@@ -1,0 +1,534 @@
+INTEL Defense, Intelligence and Security Research
+v0.1 | LEVEL=PROBLEM | DOMAIN=INTEL | DOMAIN code=402 | 2026-10-07
+Normative inputs: 000_DOMAIN.txt v0.4; background/000_DOMAIN_research.txt.
+Workflow: workflow/0_workflow.txt and workflow/1_research.txt through workflow/4_foreground.txt.
+Problem layer only. The user explicitly requests v0.1; review does not change that version label. Findings and resolutions are recorded in version-control history. No Cases are researched or compiled here.
+
+TERRITORY AND OWNERSHIP
+
+INTEL owns decisions whose adversarial, protective, security, denial or strategic-response conditions define the industrial contract. It spans defense capability management, intelligence collection, protective security and cybersecurity. Military ownership alone is insufficient. Conversely, an enterprise security or privacy decision need not be military to belong here.
+Industrial coverage: defense organizations; intelligence collection; airport, seaport and border security; safeguards verification; critical infrastructure; enterprise and operational-technology cyber defense; conservation enforcement; protective data release. These intersect ##DEFENSE, ##AEROSPACE, ##AIRLINE, ##MARITIME, ##POWER, ##TELECOM, ##FINANCE, ##HEALTHCARE and other open Industry contexts. Industry labels do not create Problems.
+COMP owns civilian observation, ordinary compute/network scheduling and non-adversarial digital restoration. LOG owns pure journeys, transport and deployment movement. SCM owns provisioning and inventories. HR owns standalone staffing and training rosters. CIVIC owns civic-service coordination and routine public-asset upkeep. ENER owns utility production and service operation. LAND and EXTR own resource management and extraction; protective anti-poaching or anti-intrusion commitments can belong to INTEL. FIN owns financial positions and reconciliation; MKT owns procurement mechanisms and traded opportunities. HC owns integrated clinical response.
+
+EVIDENCE AND INFERENCE
+
+Source statements establish the existence of decisions, method families and documented applications. The ownership boundaries, candidate identity, Regime, Structure, ratings and conditional dependency graph below are project synthesis under 000_DOMAIN.txt, not source-authored ontology claims. Ratings are qualitative judgments, not measurements: Priority reflects spread across this heterogeneous domain, Relevance reflects improvement value, and Hardness reflects solution difficulty in the stated industrial contract. No individual niche is labeled Critical Priority merely because its stakes are high.
+Templates identify defensible established reference architectures. Deployed practice, published research and reproducibility are distinguished. A recent proposed heuristic does not automatically displace an established formulation. Absence of a common public benchmark is not evidence that an industrial problem does not exist. No comparative runs, classified-data access or current operational deployment audit was performed.
+Structural audit: supplied graphs, constraints, probabilistic beliefs and opponent-response models do not themselves add Structure. Each dossier identifies the delivered construction. Auxiliary variables, dualization, linearization and scenario expansion remain solver representation. Mixed strategy probabilities are continuous companions to executable discrete choices; a purely continuous game is excluded from ICO.
+
+DISCOVERY SEARCH RECORD
+
+Searches on 2026-10-07 covered (a) deployed security games and infrastructure protection, (b) ISR and satellite tasking, threat screening and effect assignment, (c) sensors, access roles, alerts and response, (d) capability programs, interdiction, deception and reconfiguration, (e) force cycles, mission integration, search and electronic protection, (f) inspection, segmentation and vulnerability remediation, and (g) privacy, escort variants and recent patrol formulations. Final searches recovered narrower search/escort variants and method changes rather than a further well-supported major family.
+Coverage is a broad first-pass Problem inventory, not a proof of exhaustiveness. Sparse public operational evidence remains for electronic protection, classified collection and integrated defense decisions. The coverage ledger below retains these limits and exclusions rather than turning every technique into a Problem.
+
+CANDIDATE DOSSIERS
+Handles below are research handles, not permanent Problem numbers or a final sequence.
+
+CANDIDATE capability | Defense Capability Portfolio and Modernization Planning
+Decision boundary: Selects capability programs and their implementation periods under budgets, capability requirements and program dependencies.
+Aliases: capability programming; defense modernization portfolio.
+Retained variants: alternative equipment packages; uncertain budgets; phased modernization.
+Evidence: CPAT documents operational use of multiphase MILP for modernization. The Norwegian acquisition model supplies a robust-budget alternative. [S01, S02].
+Admission and neighboring contracts: Admit the capability program, not a universal defense procurement family. Financing is FIN; supplier selection is SCM or MKT. Force employment from an existing inventory is readiness or mission.
+Supplied substrate: candidate programs, scenario capability scores, budgets and prerequisite relations.
+Chosen construction: Selects capability programs and places their implementation phases in time.
+Regime inference: #plan + #design — Commits the capability program that defines future force resources.
+Structure inference: #select + #place. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Capability-based planning and modernization programming. OR — Multiperiod portfolio MILP; scenario and robust optimization.
+Practice, alternatives and evidence limits: Deployed decision support is documented for CPAT. Scenario results depend on supplied capability assessments; no common cross-country benchmark or single best solver is established.
+Ratings and industrial reasoning: Priority High — Capability commitments constrain many defense planning systems. Relevance Critical — Decisions commit large budgets and determine long-lived capability gaps. Hardness High — Multiperiod budgets, program interactions and uncertain scenarios require tailored models.
+Compilation distinction: Procurement transactions belong to MKT; equipment manufacturing belongs to PROD.
+Useful descriptors: ##DEFENSE ##capability-planning ##portfolio.
+
+CANDIDATE hardening | Critical Infrastructure Protection Planning
+Decision boundary: Selects protective investments for critical assets under budgets, adversarial disruption scenarios and required residual service.
+Aliases: fortification; infrastructure defense; resilience investment.
+Retained variants: asset hardening; redundant protection; interdependent service systems.
+Evidence: Brown et al. formulate sequential protection, attack and operating-response decisions for infrastructure resilience. [S03].
+Admission and neighboring contracts: Admit physical protective investments. Preventive cyber control portfolios and cyber segmentation have different delivered artifacts. Mere use of a worst-case mathematical scenario does not establish an adversarial industrial contract.
+Supplied substrate: asset network, feasible protective measures, attack scenarios and service-response model.
+Chosen construction: Selects assets and discrete protection options; the service network is supplied.
+Regime inference: #design — Commits protective capacity before a disruption occurs.
+Structure inference: #select. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Asset vulnerability assessment and protective investment planning. OR — Defender–attacker–operator optimization; interdiction decomposition.
+Practice, alternatives and evidence limits: The reference is an established modeling architecture and applied analysis, not proof of a universally deployed infrastructure optimizer. Operating recourse must use the appropriate ENER, COMP or CIVIC service model.
+Ratings and industrial reasoning: Priority High — Protective investment recurs across critical physical systems. Relevance Critical — Protection can prevent major service loss and casualties. Hardness High — Discrete defenses interact with adversary choices and operating recourse.
+Compilation distinction: Routine reliability investment remains with the physical-service domain when adversarial protection does not define the contract.
+Useful descriptors: ##critical-infrastructure ##bilevel ##trilevel.
+
+CANDIDATE sensor | Security Sensor Deployment
+Decision boundary: Chooses sensor types and locations to detect unauthorized access under coverage, installation and resource limits.
+Aliases: intrusion-detection placement; protective camera layout.
+Retained variants: border sensors; facility cameras; heterogeneous fixed sensors.
+Evidence: The border-surveillance study establishes heterogeneous sensor placement with a bilevel adversarial model. [S04].
+Admission and neighboring contracts: Separate installation from tasking installed sensors. Cyber control selection may include fixed monitoring products, but this candidate owns an explicitly optimized spatial sensing layout.
+Supplied substrate: candidate sites, sensor catalogues, detection fields, terrain and intrusion models.
+Chosen construction: Places sensors at admissible locations and selects sensor configurations.
+Regime inference: #design — Commits the detection layout before surveillance operation.
+Structure inference: #place + #select. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Protective surveillance layout and detection coverage design. OR — Discrete location and coverage optimization; bilevel security models.
+Practice, alternatives and evidence limits: MILP/bilevel and heuristic alternatives are supported at research level. Detection models and geographic calibration remain site-specific; no deployment-wide SOTA claim is made.
+Ratings and industrial reasoning: Priority High — Detection layout constrains border, facility and infrastructure security. Relevance High — Better deployment reduces surveillance gaps and installation waste. Hardness High — Coverage overlap and adversarial route choice couple many location alternatives.
+Compilation distinction: Civilian observation without a defining protective contract belongs to COMP.
+Useful descriptors: ##sensor-placement ##coverage ##surveillance.
+
+CANDIDATE access | Access-Control Role Engineering
+Decision boundary: Defines permission roles and user-role assignments that provide required access while limiting excess privilege and policy violations.
+Aliases: RBAC optimization; role mining.
+Retained variants: exact permission reconstruction; bounded excess privilege; constrained roles.
+Evidence: Purdue and Lu et al. establish the role-mining problem and Boolean decomposition architectures. The NP-complete statement concerns the decision version. [S05, S06].
+Admission and neighboring contracts: Keep security authorization in INTEL despite user entities. HR owns staffing and employment roles. Network segmentation controls connectivity rather than user entitlement bundles.
+Supplied substrate: user-permission requirements, prohibited combinations and permitted role candidates or generators.
+Chosen construction: Maps users and permissions to selected roles; permitted memberships define access.
+Regime inference: #design — Defines authorization structure before access requests are executed.
+Structure inference: #map + #select. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Least-privilege role engineering. OR — Boolean-matrix decomposition; integer programming and constrained role mining.
+Practice, alternatives and evidence limits: Role engineering is established practice; the cited optimization methods are research baselines. No algorithm dominates all reconstruction, administrative-cost and separation constraints.
+Ratings and industrial reasoning: Priority High — Authorization design recurs across enterprise information systems. Relevance High — Better roles reduce excess access and administration effort. Hardness High — Basic role-mining optimization is NP-hard; overlapping roles and policy restrictions complicate large entitlement sets.
+Compilation distinction: Roles are authorization bundles, not workforce jobs.
+Useful descriptors: ##role-mining ##least-privilege ##authorization.
+
+CANDIDATE segmentation | Security Network Segmentation
+Decision boundary: Assigns digital assets to security zones and chooses permitted inter-zone connections while preserving required services and limiting compromise propagation.
+Aliases: microsegmentation policy design; security-zone partitioning.
+Retained variants: enterprise policy rules; industrial-control zones; grid communication partitions.
+Evidence: Noel et al. optimize policy rules against risk and mission access. The covering-decomposition work treats grid cyber segmentation with operating consequences. [S07, S08].
+Admission and neighboring contracts: Do not merge with access roles: the output is a zone/connectivity design. Generic load-balanced partitioning is COMP. Revoking connections during an active incident is response.
+Supplied substrate: asset graph, required services, candidate access rules and compromise scenarios.
+Chosen construction: Maps assets to zones and constructs permitted communication relations.
+Regime inference: #design — Defines security boundaries before routine network operation.
+Structure inference: #map + #link. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Security-zone design and microsegmentation. OR — Graph partition and policy optimization; multilevel MIP decomposition or evolutionary search.
+Practice, alternatives and evidence limits: Published evolutionary and exact-decomposition architectures are near-equals for different contracts. Their performance is not directly comparable across policy-rule and grid models.
+Ratings and industrial reasoning: Priority High — Segmentation is a recurring enterprise and operational-technology protection decision. Relevance Critical — Better boundaries can limit compromise across essential services. Hardness High — Security reachability and service accessibility create interacting partition and connection choices.
+Compilation distinction: Logical security connections are chosen; physical topology and traffic routing may remain COMP inputs.
+Useful descriptors: ##microsegmentation ##partition ##cyber-physical.
+
+CANDIDATE controls | Cybersecurity Control Portfolio Selection
+Decision boundary: Selects preventive security controls under budgets, compatibility requirements and modeled exposure to cyber threats.
+Aliases: countermeasure selection; security investment portfolio.
+Retained variants: scenario losses; risk limits; attack-path mitigation.
+Evidence: Scenario-based mixed-integer portfolio models and attack-graph interdiction models directly support preventive control selection. [S09, S10].
+Admission and neighboring contracts: A broad investment envelope may fund access, segmentation or deception systems, but it does not replace their internal configuration decisions. Remediation prioritizes discovered vulnerabilities in an existing system.
+Supplied substrate: available controls, costs, incompatibilities, threat scenarios and attack graphs.
+Chosen construction: Selects compatible controls from available alternatives.
+Regime inference: #design + #allocate — Commits preventive protection measures and their budgets.
+Structure inference: #select. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Security risk treatment and control investment planning. OR — Scenario-based portfolio MILP; attack-graph defender–attacker optimization.
+Practice, alternatives and evidence limits: Risk treatment is the IE framing. MILP and bilevel variants have different uncertainty assumptions; neither is asserted to be the universal strongest method.
+Ratings and industrial reasoning: Priority High — Control investment recurs across digital security programs. Relevance Critical — Effective portfolios protect enterprise operations and sensitive information. Hardness High — Control interactions, shared vulnerabilities and uncertain attack pathways couple investment choices.
+Compilation distinction: The attack graph is supplied evidence; it does not itself imply #link.
+Useful descriptors: ##countermeasure-selection ##attack-graph ##risk-treatment.
+
+CANDIDATE readiness | Force Readiness and Rotation Planning
+Decision boundary: Assigns available units to mission commitments and readiness periods under capability demand, availability and rotation limits.
+Aliases: unit deployment cycle; force generation scheduling.
+Retained variants: crisis rescheduling; reserve availability; alternative rotation lengths.
+Evidence: Engel models deployment cycles using integer programming and includes rescheduling after demand shocks. [S11].
+Admission and neighboring contracts: Retain only unit-level capability availability. Peacetime administrative postings or individual leave scheduling alone do not satisfy INTEL ownership. Acquisition changes the inventory upstream.
+Supplied substrate: existing units, capabilities, initial readiness, mission demand and cycle restrictions.
+Chosen construction: Maps units to commitments and places deployment and readiness periods in time.
+Regime inference: #plan + #allocate — Prepares unit commitments and reserves capacity for future demand.
+Structure inference: #map + #place. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Force generation and readiness-cycle management. OR — Time-indexed assignment and scheduling integer programming.
+Practice, alternatives and evidence limits: Force-generation planning is the practice framing; the cited thesis is a research reference, not a claim of institutional deployment. Crisis repair is a variant rather than another Problem.
+Ratings and industrial reasoning: Priority Medium — Unit rotation is a recurring defense force-management problem. Relevance Critical — Readiness plans determine whether mission demand can be covered. Hardness High — Interdependent readiness cycles and uncertain demand limit scheduling flexibility.
+Compilation distinction: Transporting units belongs to LOG; standalone personnel rostering belongs to HR.
+Useful descriptors: ##DEFENSE ##force-generation ##readiness.
+
+CANDIDATE patrol | Security Coverage and Patrol Scheduling
+Decision boundary: Assigns protective resources and schedules patrols under travel, coverage and availability limits while accounting for adversarial response.
+Aliases: randomized coverage; security patrol routing; escort scheduling.
+Retained variants: fixed posts; mobile patrols; moving-asset escorts; anti-poaching patrols.
+Evidence: PROTECT and PAWS document deployed scheduling. Escort work extends coverage to moving assets; recent formulation work addresses implementable mixed strategies. [S12, S13, S37, S38].
+Admission and neighboring contracts: Merge static coverage and patrol variants under protective coverage commitments. Alarm-conditioned response remains separate. Ordinary inspection routes with no security-defining condition are LOG.
+Supplied substrate: protected assets, eligible resources, travel graph, duty constraints and attacker-response models.
+Chosen construction: Assigns resources to duties, places visits in time and constructs patrol succession.
+Regime inference: #plan + #allocate — Commits feasible coverage schedules and their deployment probabilities.
+Structure inference: #map + #place + #link. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Risk-based security coverage and randomized patrol planning. OR — Stackelberg security games; route generation and mixed-strategy optimization.
+Practice, alternatives and evidence limits: Deployed models include quantal response and learned risk, while exact security-game models often assume a best-response adversary. Column generation helps large schedule sets but does not eliminate behavioral uncertainty.
+Ratings and industrial reasoning: Priority High — Protective coverage recurs in transport, facilities, borders and conservation enforcement. Relevance Critical — Better coverage can reduce attack exposure across valuable assets. Hardness High — Feasible patrol sets grow rapidly and adversary models complicate strategy computation.
+Compilation distinction: Mixed probabilities must correspond to executable schedules; bounded-rational models can differ from perfect best response.
+Useful descriptors: ##patrolling ##security-game ##randomized-coverage.
+
+CANDIDATE screening | Threat Screening Allocation
+Decision boundary: Assigns arriving people or consignments to permitted screening procedures under detection, throughput and resource limits.
+Aliases: passenger screening; cargo threat screening.
+Retained variants: time-window allocation; arrival-by-arrival dispatch; multiple screening layers.
+Evidence: Threat-screening games supply a formal allocation model and scoped hardness result. Online work addresses bursty arrivals and adaptive choices. [S14, S15].
+Admission and neighboring contracts: Screening acts on a flow at an access boundary. Strategic inspection selects sites or samples to verify compliance over an inspection program. Do not split by airport, border or cargo label alone.
+Supplied substrate: arrivals, risk groups, permitted screening teams, detection estimates and resource capacities.
+Chosen construction: Maps screenees to feasible screening procedures or resource teams.
+Regime inference: #allocate + #dispatch — Commits screening resources and selects procedures as arrivals occur.
+Structure inference: #map. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Risk-based security screening. OR — Threat-screening games with decomposition; constrained online policies.
+Practice, alternatives and evidence limits: Published game decomposition and constrained online learning address different arrival contracts. Operational adoption of the specific research algorithms is not established here.
+Ratings and industrial reasoning: Priority High — Screening recurs at transport gateways and controlled facilities. Relevance Critical — Assignments affect threat detection and access throughput. Hardness High — Optimal threat-screening strategy computation is NP-hard; bursty arrivals and shared resources complicate live allocation.
+Compilation distinction: Queue staffing alone belongs to HR; generic terminal flow belongs to LOG.
+Useful descriptors: ##threat-screening ##capacity ##online-allocation.
+
+CANDIDATE inspection | Strategic Security Inspection Allocation
+Decision boundary: Selects sites, visits or samples for a security-verification program under inspection budgets, detection limits and strategic noncompliance.
+Aliases: safeguards inspection; inspection-resource allocation.
+Retained variants: site visits; sample selection; randomized verification.
+Evidence: Inspection-game literature establishes strategic resource allocation across imperfect inspections and multiple inspectees. [S16, S17].
+Admission and neighboring contracts: Do not infer ICO from game theory alone: the candidate requires visit/sample selection. Financial reconciliation remains FIN; routine equipment condition inspection belongs to its asset domain.
+Supplied substrate: inspectable entities, available discrete actions, detection functions, budgets and compliance obligations.
+Chosen construction: Selects admissible inspection actions or samples for each realized program.
+Regime inference: #plan + #allocate — Commits limited verification effort across an inspection program.
+Structure inference: #select. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Safeguards verification and randomized inspection planning. OR — Inspection games; discrete allocation optimization and strategy computation.
+Practice, alternatives and evidence limits: Inspection-game solutions are defensible formal references. Continuous effort models are explanatory evidence only; later Cases must expose actual discrete commitments before admission.
+Ratings and industrial reasoning: Priority Medium — Verification programs recur in safeguards and security compliance. Relevance Critical — Effective inspection supports detection and deterrence of concealed violations. Hardness High — Hidden noncompliance, imperfect detection and competing inspectees complicate resource allocation.
+Compilation distinction: Retains discrete inspections; purely continuous effort allocation is outside the combinatorial scope.
+Useful descriptors: ##inspection-game ##verification ##imperfect-detection.
+
+CANDIDATE collection | ISR Collection Tasking
+Decision boundary: Selects intelligence requests and assigns collection resources and observation times under capability, access, urgency and capacity limits.
+Aliases: collection management; ISR asset scheduling; intelligence satellite tasking.
+Retained variants: multi-satellite imaging; heterogeneous sensors; dynamic retasking.
+Evidence: Fraunhofer documents two-stage eligibility and task scheduling. DRDC supplies a formal MIQP for multi-satellite intelligence collection. [S18, S19].
+Admission and neighboring contracts: Keep requirement-driven tasking separate from path-constrained search for an unlocated object. Retasking revises this same contract. Generic processing queues or analyst rosters remain COMP or HR.
+Supplied substrate: information requests, collector eligibility, observation opportunities, priorities and resource capacities.
+Chosen construction: Maps accepted requests to collectors and places observations in feasible time windows.
+Regime inference: #plan + #allocate — Commits collection opportunities to intelligence requirements.
+Structure inference: #map + #place + #select. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Intelligence collection management and sensor tasking. OR — Assignment and scheduling MIP/MIQP; tailored search with eligibility filtering.
+Practice, alternatives and evidence limits: Expert-assisted filtering is documented practice. MIQP is supported for the satellite specialization; the product page does not disclose a universal underlying algorithm.
+Ratings and industrial reasoning: Priority High — Collection tasking is central to intelligence and surveillance operations. Relevance Critical — Timely collection determines which information reaches decision makers. Hardness High — Heterogeneous capabilities and overlapping observation opportunities create coupled schedules.
+Compilation distinction: Satellite observation is a variant; civilian observation scheduling belongs to COMP.
+Useful descriptors: ##DEFENSE ##ISR ##observation-scheduling.
+
+CANDIDATE search | Security Search Path Planning
+Decision boundary: Constructs search paths and observation sequences for unlocated objects of security interest under movement, endurance and detection limits.
+Aliases: moving-target search; constrained searcher path.
+Retained variants: stationary or moving objects; uncertain motion; observation-driven replanning.
+Evidence: Eagle–Yee and Sato–Royset establish specialized exact approaches for constrained search paths. [S20, S21].
+Admission and neighboring contracts: Admit search actions, not target-state estimation alone. Known-request observation is collection. Generic environmental monitoring is COMP; clinical rescue commitments are HC where care defines feasibility.
+Supplied substrate: search cells, feasible transitions, initial beliefs, detection model and endurance budget.
+Chosen construction: Constructs successive search locations and places observations in space and time.
+Regime inference: #plan + #operate — Prepares search paths and updates search effort as observations arrive.
+Structure inference: #link + #place. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Search theory and constrained surveillance search. OR — Discrete search-path branch-and-bound; resource-constrained path optimization.
+Practice, alternatives and evidence limits: Exact branch-and-bound provides a formal reference for finite discretized models. Real-time uncertain searches may need truncation or rolling planning; no operational real-time guarantee is inferred.
+Ratings and industrial reasoning: Priority Medium — Search is recurring where security objects cannot be located in advance. Relevance High — Better search can improve detection with limited surveillance resources. Hardness High — Path choices interact with uncertain motion and the information from unsuccessful searches.
+Compilation distinction: Location beliefs are inputs or updates, not a new canonical Structure.
+Useful descriptors: ##search-theory ##path-constrained ##partial-observability.
+
+CANDIDATE mission | Integrated Defense Mission Planning
+Decision boundary: Assigns available platforms to mission tasks and coordinates their routes and times under mission precedence, synchronization and resource limits.
+Aliases: mission-package scheduling; coordinated mission planning.
+Retained variants: heterogeneous platforms; synchronized tasks; rolling mission repair.
+Evidence: The cited military mission model integrates routing with task precedence and synchronization in a MILP. [S22].
+Admission and neighboring contracts: Admit only the integrated mission promise. Standalone travel, refueling logistics and fleet maintenance retain their owning domains. Do not make separate Problems for each mission vehicle class.
+Supplied substrate: approved tasks, available platforms, eligibility, travel possibilities and synchronization requirements.
+Chosen construction: Maps platforms to tasks, places activities in time and constructs task succession and routes.
+Regime inference: #plan — Commits an integrated mission program before execution.
+Structure inference: #map + #place + #link. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Mission-package planning and coordination. OR — Synchronized assignment-routing-scheduling MILP; decomposition and tailored search.
+Practice, alternatives and evidence limits: The cited model supports a defensible exact formulation family; large integrated instances motivate tailored search. This dossier establishes a classification, not executable mission plans or performance predictions.
+Ratings and industrial reasoning: Priority Medium — Integrated mission planning is recurring within defense operations. Relevance Critical — Feasible coordination determines whether interdependent mission tasks can be completed. Hardness High — Coupled assignments, routes and synchronization restrict decomposition.
+Compilation distinction: Transport-only missions remain LOG; detailed effect assignment is a separate contract.
+Useful descriptors: ##DEFENSE ##mission-planning ##synchronization.
+
+CANDIDATE interdiction | Network Interdiction Planning
+Decision boundary: Selects resource-limited network interdictions to reduce prohibited flow or adversarial network service while accounting for rerouting.
+Aliases: network denial; flow interdiction.
+Retained variants: flow reduction; interdiction budgets; uncertain effectiveness.
+Evidence: Wood supplies integer models for interdiction. Brown et al. use related adversarial responses inside protection models. [S23, S03].
+Admission and neighboring contracts: Separate deliberate denial from hardening the defender network. Graph interdiction as a mathematical subproblem of another industrial decision does not create another Problem instance.
+Supplied substrate: network, feasible interdiction actions, resource costs and follower operating model.
+Chosen construction: Selects network components or actions to interdict; network routes are supplied or induced responses.
+Regime inference: #plan + #allocate — Commits interdiction actions against a supplied network.
+Structure inference: #select. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Network denial and interdiction planning. OR — Bilevel network interdiction; integer programming and decomposition.
+Practice, alternatives and evidence limits: MILP and decomposition are established OR architectures. Effectiveness and follower behavior require application evidence; no real network is selected or assessed here.
+Ratings and industrial reasoning: Priority Medium — Interdiction is a recurring security and denial decision. Relevance High — Action selection determines the effect of limited interdiction resources. Hardness High — Network substitution and adversarial recourse couple otherwise local action choices.
+Compilation distinction: Vulnerability analysis may inform protective investment without constituting a separate operational interdiction plan.
+Useful descriptors: ##network-interdiction ##denial ##bilevel.
+
+CANDIDATE effect | Weapon–Target Assignment
+Decision boundary: Assigns available weapons to supplied targets under compatibility, resource and effect requirements.
+Aliases: WTA; static effect assignment.
+Retained variants: static assignment; heterogeneous resources; defensive applications.
+Evidence: Ahuja et al. establish exact and heuristic methods for the static nonlinear assignment problem. [S24].
+Admission and neighboring contracts: Retain the general documented problem class without operational parameters or targeting advice. Mission planning integrates broader tasks and routes; threat scoring alone is an input, not this decision.
+Supplied substrate: approved targets, available weapon resources, compatibility and externally supplied effect estimates.
+Chosen construction: Maps weapon resources to targets; joint effects constrain assignment quality.
+Regime inference: #allocate — Commits scarce effect resources to eligible targets.
+Structure inference: #map. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Defense effect allocation. OR — Nonlinear integer assignment; branch-and-bound and large-neighborhood search.
+Practice, alternatives and evidence limits: The reference supplies exact bounds and heuristic alternatives. Public static instances cannot substantiate live dynamic performance, decision authority or real-world effect calibration.
+Ratings and industrial reasoning: Priority Medium — Effect assignment is a recurring defense allocation problem. Relevance Critical — Assignments determine whether scarce defensive or mission resources meet stated requirements. Hardness High — Nonlinear joint effects prevent reduction to ordinary one-to-one assignment.
+Compilation distinction: The static assignment Template does not establish real-time engagement performance.
+Useful descriptors: ##DEFENSE ##weapon-target-assignment ##nonlinear-assignment.
+
+CANDIDATE electronic | Electronic Countermeasure Allocation
+Decision boundary: Assigns discrete electronic countermeasure resources to approved protective tasks under compatibility, availability and mutual-interference limits.
+Aliases: jamming resource allocation; electronic countermeasure assignment.
+Retained variants: discrete resource-mode selection; coordinated protective assignments.
+Evidence: Threat-evaluation and jamming-allocation research identifies interacting allocation effects that differ from independent assignment. [S25].
+Admission and neighboring contracts: Keep as a specialized discrete protection contract. Do not promote threat evaluation, waveform synthesis or a named search algorithm into separate Problems.
+Supplied substrate: authorized protective tasks, admissible resource modes and aggregate interaction estimates.
+Chosen construction: Maps countermeasure resources and admissible modes to protective tasks.
+Regime inference: #allocate — Commits available electronic countermeasure resources to tasks.
+Structure inference: #map. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Electronic protection resource coordination. OR — Discrete assignment optimization with interaction models; tailored combinatorial search.
+Practice, alternatives and evidence limits: The cited work supports research-level allocation models. A universal operational best method is not evidenced; the Template names the defensible formulation and search family without detailed electronic-warfare parameters.
+Ratings and industrial reasoning: Priority Medium — Electronic countermeasures are recurring in specialized defense systems. Relevance High — Assignments affect protective coverage and resource conflicts. Hardness High — Interacting effects and compatibility limits require application-specific evaluation.
+Compilation distinction: Continuous waveform design is excluded; ordinary spectrum-resource operation belongs to COMP.
+Useful descriptors: ##DEFENSE ##electronic-protection ##interaction.
+
+CANDIDATE deception | Cyber Deception Resource Deployment
+Decision boundary: Selects decoy resources and assigns them to digital locations under budgets, compatibility and attacker-information assumptions.
+Aliases: honeypot allocation; honeynet configuration.
+Retained variants: randomized placement; heterogeneous decoys; dynamic variants.
+Evidence: Attack-graph games explicitly model honeypot deployment and the attacker response to hidden configurations. [S26].
+Admission and neighboring contracts: Unlike preventive controls, the defining mechanism changes the adversary information and perceived opportunity. Broader physical deception is not inferred from this cyber-specific evidence.
+Supplied substrate: digital environment, candidate decoys, budgets and attacker observations.
+Chosen construction: Selects decoy configurations and maps them to eligible digital resources.
+Regime inference: #design + #allocate — Commits decoy capacity and its deployment policy.
+Structure inference: #select + #map. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Honeypot deployment and defensive deception design. OR — Attack-graph security games; randomized deployment optimization.
+Practice, alternatives and evidence limits: Published game models are defensible reference methods. Strongest performance depends on observation assumptions; no claim of universal industrial adoption is made.
+Ratings and industrial reasoning: Priority Medium — Deception is a recurring specialized cyber-defense option. Relevance High — Effective decoy placement can improve detection and divert malicious activity. Hardness High — Hidden defender configurations and contingent attacker behavior enlarge strategy spaces.
+Compilation distinction: Decoy usefulness depends on the attacker model; it is not a guaranteed security benefit.
+Useful descriptors: ##honeypot ##deception ##imperfect-information.
+
+CANDIDATE reconfiguration | Moving-Target Defense Scheduling
+Decision boundary: Chooses admissible digital configurations and transition times to limit attacker persistence under compatibility and service-disruption limits.
+Aliases: dynamic platform defense; proactive security migration.
+Retained variants: platform diversity; discrete configuration rotation; adaptive policy.
+Evidence: Dynamic platform-defense research optimizes defensive usage strategies under a specified threat model. [S27].
+Admission and neighboring contracts: This is recurrent configuration switching rather than initial control purchase, decoy placement or incident repair. Continuous timing-only models without discrete choices are outside ICO.
+Supplied substrate: approved configurations, transition costs, compatibility restrictions and threat model.
+Chosen construction: Selects configurations and places their changes in time.
+Regime inference: #plan + #adapt — Commits configuration changes and revises them as security conditions change.
+Structure inference: #select + #place. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Proactive security reconfiguration. OR — Stochastic and strategic games over discrete configurations; policy optimization.
+Practice, alternatives and evidence limits: Game and stochastic-policy architectures are research baselines. Feasible configurations and service guarantees must be validated before a later operational Case could be admitted.
+Ratings and industrial reasoning: Priority Medium — Proactive reconfiguration is specialized within cyber defense. Relevance High — Changing exposed configurations can reduce persistent exploitation opportunities. Hardness High — Transition costs, attack learning and service continuity couple choices over time.
+Compilation distinction: Ordinary migration for performance remains COMP; incident-triggered containment belongs to response.
+Useful descriptors: ##moving-target-defense ##configuration ##switching-cost.
+
+CANDIDATE privacy | Privacy-Preserving Data Release Design
+Decision boundary: Assigns records to release groups and selects generalizations or suppressions under stated disclosure limits and data-utility requirements.
+Aliases: data anonymization; disclosure-control optimization.
+Retained variants: k-anonymous grouping; suppression; taxonomy generalization.
+Evidence: IBM establishes exact anonymization search and scoped hardness. Optimization-based work supplies a MILP reference. [S28, S29].
+Admission and neighboring contracts: Protecting information defines INTEL even without a military context. Generic data compression belongs to COMP. Statistical estimation and continuous noise calibration alone are not retained ICO decisions.
+Supplied substrate: records, quasi-identifiers, admissible transformations and explicit privacy criteria.
+Chosen construction: Maps records to release groups and selects permitted generalizations or suppressions.
+Regime inference: #design — Defines the releasable data artifact before disclosure.
+Structure inference: #map + #select. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Disclosure control and constrained anonymization. OR — Optimal anonymization search; mixed-integer grouping and suppression models.
+Practice, alternatives and evidence limits: Exact search and MILP support benchmark references, while practical large-data methods often approximate. The candidate does not declare k-anonymity the strongest privacy standard.
+Ratings and industrial reasoning: Priority Medium — Controlled data release is recurring across information-sharing systems. Relevance High — Better designs preserve useful data while meeting the stated privacy contract. Hardness High — Optimal k-anonymization is NP-hard in supported restricted models; high-dimensional records complicate grouping.
+Compilation distinction: A k-anonymity contract does not guarantee protection against all inference attacks.
+Useful descriptors: ##privacy ##anonymization ##disclosure-control.
+
+CANDIDATE remediation | Vulnerability Remediation Prioritization
+Decision boundary: Selects discovered vulnerabilities for remediation under effort limits, deadlines and residual-exposure objectives.
+Aliases: patch prioritization; vulnerability mitigation selection.
+Retained variants: multiple objectives; workload limits; recurring backlog refresh.
+Evidence: VULCON uses mixed-integer multiobjective optimization to prioritize vulnerabilities for patching under capacity limits. [S30].
+Admission and neighboring contracts: Do not overstate the evidence as a detailed patch-start scheduling model. Preventive control investment precedes discovery; incident response addresses a current compromise rather than the general backlog.
+Supplied substrate: discovered vulnerabilities, candidate fixes, effort estimates and exposure measures.
+Chosen construction: Selects vulnerability-remediation tasks for the available capacity.
+Regime inference: #dispatch + #allocate — Commits available remediation effort to the current vulnerability backlog.
+Structure inference: #select. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Risk-based vulnerability backlog management. OR — Mixed-integer multiobjective remediation selection.
+Practice, alternatives and evidence limits: VULCON is a published operationally motivated system reference. Later Cases must establish implementation access, workload data and suitable baselines rather than assume availability.
+Ratings and industrial reasoning: Priority High — Remediation prioritization is routine in operational cybersecurity. Relevance High — Better selection reduces unresolved exposure with limited effort. Hardness Medium — Resource-constrained selection is tractable in many bounded models, while shared fixes and uncertain exposure complicate scaling.
+Compilation distinction: This contract selects remediation work; detailed maintenance-window scheduling remains a separate COMP interface.
+Useful descriptors: ##vulnerability-management ##backlog ##multiobjective.
+
+CANDIDATE alert | Security Alert Triage and Assignment
+Decision boundary: Selects security alerts for investigation and assigns qualified analysts under workload, timeliness and detection-value limits.
+Aliases: alert prioritization; cyber-screening allocation.
+Retained variants: static batches; streaming alerts; adversarial prioritization.
+Evidence: The IJCAI cyber-screening model assigns experts to alerts. Dynamic adversarial prioritization is an alternative documented in AAAI. [S31, S32].
+Admission and neighboring contracts: Keep triage across incidents separate from choosing forensic steps inside an investigation. Alert classification without a resource decision is an input analytics problem.
+Supplied substrate: alerts, analyst eligibility, investigation effort and threat-value estimates.
+Chosen construction: Selects alerts and maps them to eligible analysts.
+Regime inference: #dispatch + #allocate — Commits immediate investigation capacity to arriving alerts.
+Structure inference: #select + #map. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Security operations triage and analyst allocation. OR — Cyber-screening games; integer allocation and dynamic prioritization policies.
+Practice, alternatives and evidence limits: Static optimization and learned dynamic policies serve different contracts. The NP-hardness statement applies to the cited game, not to every fixed-score assignment specialization.
+Ratings and industrial reasoning: Priority High — Alert overload is recurring across security operations centers. Relevance High — Better triage reduces missed incidents and wasted investigation effort. Hardness High — Optimal cyber-screening strategy computation is NP-hard; adaptive arrivals and analyst heterogeneity add operational difficulty.
+Compilation distinction: Analyst rostering belongs to HR; the security value of the selected work defines this contract.
+Useful descriptors: ##alert-triage ##security-operations ##adversarial.
+
+CANDIDATE investigation | Cyber-Forensic Investigation Planning
+Decision boundary: Selects the next evidence-gathering actions within a cyber incident under effort limits and uncertain information gain.
+Aliases: forensic action prioritization; incident investigation sequencing.
+Retained variants: adaptive investigation; partial evidence; limited analyst effort.
+Evidence: Atefi et al. model investigation as an MDP and use Monte Carlo tree search with data-derived transition estimates. [S33].
+Admission and neighboring contracts: Triage admits an incident to investigation; this contract chooses what to inspect inside it. Generic workforce assignment remains HR and automated classification alone is not a decision candidate.
+Supplied substrate: current evidence, candidate investigative actions, effort costs and outcome models.
+Chosen construction: Selects evidence-gathering actions conditional on the current investigation state.
+Regime inference: #operate — Directs ongoing investigation as evidence changes.
+Structure inference: #select. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Incident scoping and forensic investigation management. OR — Markov decision models; Monte Carlo tree search and data-driven action valuation.
+Practice, alternatives and evidence limits: The method is evaluated against DISCLOSE on ATT&CK-derived records. This is a published comparative result, not a reproduced result or established universal forensic workflow.
+Ratings and industrial reasoning: Priority Medium — Detailed forensic planning is recurring within incident investigations. Relevance High — Efficient investigation improves incident scope and response decisions. Hardness High — Uncertain action outcomes and long decision sequences enlarge the policy search.
+Compilation distinction: The policy conditions future action choices on findings; it does not prescribe one fixed investigation order.
+Useful descriptors: ##cyber-forensics ##sequential-decision ##value-of-information.
+
+CANDIDATE response | Cyber Incident Containment and Recovery Planning
+Decision boundary: Selects containment and recovery actions for a compromised system while preserving required services and respecting action dependencies.
+Aliases: intrusion response; automated response selection.
+Retained variants: operator-approved responses; service-preserving containment; staged recovery.
+Evidence: RRE supplies game-based response planning. DUELMIPs supports a MIP security-response stage with large-neighborhood search. [S34, S35].
+Admission and neighboring contracts: Separate reactive response from preventive segmentation and control procurement. Investigation may inform response, but urgent containment need not wait for forensic completion.
+Supplied substrate: incident state, permissible actions, action preconditions and critical service requirements.
+Chosen construction: Selects response actions and constructs their feasible execution sequence.
+Regime inference: #adapt + #operate — Revises protection and service commitments after a detected compromise.
+Structure inference: #select + #link. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Incident-response orchestration and service-preserving containment. OR — Game and state-transition planning; response MIP with large-neighborhood search.
+Practice, alternatives and evidence limits: These references establish prototype/model architectures. DUELMIPs evaluates synthetic networks; RRE emphasizes system invariants and human interaction. No production-ready autonomous response claim is made.
+Ratings and industrial reasoning: Priority High — Containment and recovery are recurring cybersecurity operations. Relevance Critical — Action choices affect compromise spread and essential service continuity. Hardness High — Uncertain compromise state and disruptive action interactions require rapid model-specific planning.
+Compilation distinction: Generic restoration after non-adversarial failure belongs to COMP.
+Useful descriptors: ##incident-response ##containment ##recovery.
+
+CANDIDATE alarm | Alarm-Triggered Protective Response
+Decision boundary: Assigns available response resources and constructs response routes after security alarms under travel, deadline and location-uncertainty limits.
+Aliases: alarm response dispatch; contingent protective routing.
+Retained variants: uncertain location; missed detection; multi-alarm extension where supported.
+Evidence: The alarm-response security-game study combines patrolling with contingent responses under uncertain signals. [S36].
+Admission and neighboring contracts: Keep the event-conditioned dispatch separate from precommitted patrol coverage. Ordinary ambulance response is HC, civic emergency coordination is CIVIC, and pure travel is LOG.
+Supplied substrate: alarms, possible incident locations, responder state, travel graph and deadlines.
+Chosen construction: Maps resources to alarm response duties and constructs feasible response routes.
+Regime inference: #dispatch + #adapt — Commits immediate response and revises planned protective coverage.
+Structure inference: #map + #link. The construction sentence specifies the output; supplied relations and response functions are not chosen relations.
+Template synthesis: IE — Protective response dispatch and alarm verification. OR — Alarm-response security games; contingent resource and route optimization.
+Practice, alternatives and evidence limits: The cited architecture supports single-model alarm-response planning. Multi-alarm and multi-resource variants require additional case-specific evidence; no universal scaling claim is made.
+Ratings and industrial reasoning: Priority Medium — Alarm response recurs in guarded facilities and border-security systems. Relevance Critical — Response decisions affect whether detected threats can be addressed in time. Hardness High — Uncertain alarm locations and simultaneous response commitments create time-critical choices.
+Compilation distinction: The response plan can reduce planned patrol coverage and trigger replanning.
+Useful descriptors: ##alarm-response ##uncertainty ##protective-dispatch.
+
+COVERAGE, MERGES AND EXCLUSIONS
+
+Physical protection: hardening covers permanent asset protection; sensor covers protective detection layout; patrol covers protective duty schedules, fixed coverage and mobile escorts; alarm covers a triggered response. Anti-poaching is a patrol Industry context, not a LAND resource-harvest problem.
+Verification: screening covers people/consignments crossing access boundaries; inspection covers selected visits and samples against concealed noncompliance. Travel execution within either is not automatically a separate INTEL Problem.
+Intelligence: collection includes satellite observation and dynamic retasking. Search retains path-constrained information acquisition for unlocated objects. Signal classification, target tracking, data fusion and threat scoring alone are inference tasks rather than admitted resource decisions. Evidence did not justify a separate canonical exploitation-capacity Problem: generic digital queues and analyst rosters belong to COMP/HR, and integrated intelligence-priority variants remain collection interfaces pending a distinct supported contract.
+Defense: capability, readiness, mission, interdiction, effect and electronic have distinct outputs. Air defense is an integrated application of collection and effect allocation, not a duplicate Problem. Wargaming is a method/context, not a stand-alone decision. Ordinary base construction, maintenance, spares, training timetables and deployment transportation remain CIVIC, LOG, SCM, HR or PROD according to contract.
+Cyber: controls selects an investment portfolio; access creates authorization roles; segmentation creates security boundaries; deception deploys decoys; reconfiguration chooses recurring configuration changes; remediation selects a vulnerability backlog; alert admits investigation work; investigation chooses evidence actions; response contains and recovers a compromised system. Attack-graph construction, malware classification and intrusion scoring are evidence inputs unless separately tied to a material discrete industrial commitment. Firewall rule pruning and key-management variants are not promoted without a distinct contract beyond access/segmentation/controls.
+Privacy: privacy retains group/generalization/suppression decisions. Noise calibration, cryptographic algorithm design and continuous privacy-budget allocation alone are excluded. k-anonymity is a scoped Template, not a universal privacy guarantee.
+Cross-domain and low-evidence candidates: standalone financial fraud adjudication, generic audit sampling, political influence allocation, offensive exploit construction and abstract pursuit/evasion games are not silently included by keyword. A future distinct candidate requires its own industrial contract and Template evidence. Integrated cyber-physical protection can use ENER operating models while remaining INTEL; routine reliability optimization remains with the asset domain.
+No permanent Cases, benchmark IDs, data-access claims, reference-result tables or benchmark selections are made. Later Case work requires human approval of the foreground Problem set.
+
+DEPENDENCY GRAPH
+
+Edges below are conditional information or commitment flow. They are not claims that every deployment implements all families. Cross-paper edges are explicitly inference; they are not empirical findings of the individual sources. Several Problems are stand-alone and need no canonical predecessor. External inputs are described in dossiers rather than assigned invented cross-domain IDs.
+capability → readiness | Available capability inventory constrains unit commitments. S01/S02/S11; synthesis.
+capability → collection | Available collector capability constrains eligible collection tasks. S01/S18; synthesis.
+hardening → patrol | Permanent protection changes residual protective coverage demand. S03/S12; synthesis.
+sensor → collection | Installed sensor capability and location constrain available observations. S04/S18; synthesis.
+sensor → alarm | Detection layout determines the alarm coverage and uncertainty supplied to response. S04/S36; synthesis.
+controls → access | Approved control investment can authorize an access-role implementation. S09/S05; conditional synthesis.
+controls → segmentation | Approved protection measures can fund a segmentation design. S09/S07; conditional synthesis.
+controls → deception | The preventive portfolio can fund decoy resources. S09/S26; conditional synthesis.
+controls → reconfiguration | The preventive portfolio can enable dynamic platform defense. S09/S27; conditional synthesis.
+access → response | Current authorization boundaries constrain permissible response changes. S05/S34; synthesis.
+segmentation → response | Existing access paths and service boundaries constrain containment. S07/S35; synthesis.
+readiness → mission | Available mission-ready units constrain platform commitments. S11/S22; synthesis.
+collection → search | Collection findings update search beliefs when both systems are coupled. S18/S20; synthesis.
+collection → mission | Collection products can update mission requirements. S18/S22; synthesis.
+mission → effect | A mission plan can supply the resource envelope for detailed effect assignment. S22/S24; synthesis.
+mission → electronic | A mission plan can supply the protective task envelope. S22/S25; synthesis.
+patrol → alarm | A realized patrol schedule supplies responder positions and availability. S36; directly modeled coupling.
+alert → investigation | Selected alerts initiate or expand incident investigations. S31/S33; synthesis.
+alert → response | Triage findings can trigger immediate containment. S31/S34; synthesis.
+investigation → response | Evidence refines incident state and appropriate countermeasures. S33/S34; synthesis.
+response → remediation | Residual weaknesses after containment can enter the remediation backlog. S34/S30; synthesis.
+alarm → patrol | Response commitments change coverage available for subsequent patrol replanning. S36; feedback inference.
+response → investigation | Containment and recovery results update investigation state. S34/S33; feedback inference.
+search → collection | Search findings can generate revised collection requests. S20/S18; feedback inference.
+
+The patrol/alarm, collection/search and investigation/response loops are explicit feedback. Initial schedules or tasking precede event-conditioned updates. No optimization-derived edge is inferred solely because two Problems share a formulation.
+
+SOURCE REGISTER
+Retrieved 2026-10-07. Primary publication abstracts, institutional research descriptions and author records were inspected. Full operational data and implementations were not reproduced. Dates below are publication years, not search-engine crawl dates. Sources establish decision and method existence; they do not establish a universal 2026 SOTA ranking.
+
+[S01] Davis et al. (2016). Maximizing the U.S. Army's Future Contribution to Global Security Using the Capability Portfolio Analysis Tool (CPAT). Interfaces 46(1), 91–108. https://doi.org/10.1287/inte.2015.0824
+Evidence: deployed multiphase MILP for long-term modernization portfolios. Supports capability investment, not tactical execution.
+[S02] Optimization Model for Robust Acquisition Decisions in the Norwegian Armed Forces (2013). Interfaces. https://doi.org/10.1287/inte.2013.0690
+Evidence: acquisition-project timing under uncertain future budgets. Alternative robust capability-program architecture.
+[S03] Brown, Carlyle, Salmerón and Wood (2006). Defending Critical Infrastructure. Interfaces 36(6), 530–544. https://doi.org/10.1287/inte.1060.0252
+Evidence: sequential defender–attacker–operator models for protection and vulnerability analysis. Does not make every utility decision an INTEL problem.
+[S04] Optimal sensor deployment to increase the security of the maximal breach path in border surveillance (2017). EJOR 259(1), 19–36. https://www.sciencedirect.com/science/article/pii/S0377221716307524
+Evidence: heterogeneous security-sensor deployment using a bilevel model and heuristics. Detection coverage concerns adversarial passage.
+[S05] Li et al. (2007). Role Mining for Engineering and Optimizing Role Based Access Control Systems. Purdue CERIAS. https://www.cerias.purdue.edu/apps/reports_and_papers/view/3329
+Evidence: combinatorial role engineering and NP-completeness of the decision problem. The optimization counterpart is NP-hard.
+[S06] Lu, Vaidya and Atluri (2014). An optimization framework for role mining. Journal of Computer Security. https://doi.org/10.3233/JCS-130484
+Evidence: Boolean-matrix decomposition variants for role engineering; objectives and policy constraints change the appropriate formulation.
+[S07] Noel, Swarup and Johnsgard (2023). Optimizing network microsegmentation policy for cyber resilience. Journal of Defense Modeling and Simulation 20(1), 57–79. https://doi.org/10.1177/15485129211051386
+Evidence: security-policy optimization balances attack risk with access to mission resources; evolutionary search is a published approach.
+[S08] A covering decomposition algorithm for power grid cyber-network segmentation (2021 preprint). Optimization Online. https://optimization-online.org/2021/12/8725/
+Evidence: decomposition for a defender–attacker–defender segmentation model. This is a cyber protection contract with a physical-grid consequence model.
+[S09] Selection of optimal countermeasure portfolio in IT security planning (2013). Decision Support Systems. https://www.sciencedirect.com/science/article/pii/S0167923613000109
+Evidence: scenario-based mixed-integer countermeasure portfolio selection with risk measures.
+[S10] Interdicting attack graphs to protect organizations from cyber attacks: A bi-level defender–attacker model (2017). Computers & Operations Research. https://www.sciencedirect.com/science/article/pii/S0305054816301113
+Evidence: affordable preventive controls are selected on an attack graph using MILP formulations.
+[S11] Engel (2024). An Integer Programming Model to Optimize US Army Deployment Cycle and Maximize Unit Availability. AFIT thesis 7713. https://scholar.afit.edu/etd/7713/
+Evidence: integer programming for unit deployment cycles and demand coverage, with a crisis-rescheduling extension. Research prototype, not evidence of Army-wide deployment.
+[S12] Shieh et al. (2013). A Deployed Quantal Response-Based Patrol Planning System for the U.S. Coast Guard. Interfaces 43(5), 400–420. https://doi.org/10.1287/inte.2013.0700
+Evidence: deployed PROTECT patrol planning; bounded-rational response differs from perfect best-response assumptions.
+[S13] Deploying PAWS: Field Optimization of the Protection Assistant for Wildlife Security (2016). AAAI/IAAI proceedings. https://ojs.aaai.org/index.php/AAAI/article/view/19070
+Evidence: field use of security patrol planning with terrain, uncertain payoffs and scheduling constraints.
+[S14] Brown et al. (2016). One Size Does Not Fit All: A Game-Theoretic Approach for Dynamically and Effectively Screening for Threats. AAAI. https://doi.org/10.1609/aaai.v30i1.10023
+Evidence: threat-screening games, NP-hardness and scalable decomposition. Supports screening assignments rather than generic queue staffing.
+[S15] Shah et al. (2020). Solving Online Threat Screening Games using Constrained Action Space Reinforcement Learning. AAAI. https://doi.org/10.1609/aaai.v34i02.5599
+Evidence: adaptive arrival-by-arrival screening under capacity and risk limits. Published online alternative; deployment not established here.
+[S16] Efficient distributions of arms-control inspection effort (2004). Naval Research Logistics 51(1), 1–27. https://doi.org/10.1002/nav.10096
+Evidence: game-theoretic verification effort and imperfect detection. Continuous effort alone is not an ICO problem; discrete visit/sample commitments are the retained specialization.
+[S17] An inspection game with multiple inspectees (2007). EJOR. https://www.sciencedirect.com/science/article/pii/S0377221706001081
+Evidence: inspection allocation with strategic inspectees; arms-control and customs applications motivate the contract.
+[S18] Fraunhofer IOSB. ISR Manager Application – Resource-optimal sensor deployment planning. https://www.iosb.fraunhofer.de/en/projects-and-products/resource-optimal_sensor_deployment_planning.html
+Evidence: expert-assisted eligibility filtering followed by resource assignment and temporal scheduling; deliberate, ad-hoc and dynamic modes. Method detail is limited on the product page.
+[S19] Berger (2018). Multi-satellite intelligence collection scheduling: decision model. DRDC, D68-2/214-2018E-PDF. https://publications.gc.ca/site/eng/9.881134/publication.html
+Evidence: MIQP mapping intelligence requests to imaging opportunities with task, capacity and temporal constraints. Supports the satellite variant of collection tasking.
+[S20] Eagle and Yee (1990). An Optimal Branch-and-Bound Procedure for the Constrained Path, Moving Target Search Problem. Operations Research 38(1), 110–114. https://doi.org/10.1287/opre.38.1.110
+Evidence: exact branch-and-bound for path-constrained search, distinct from divisible effort allocation.
+[S21] Sato and Royset (2010). Path optimization for the resource-constrained searcher. Naval Research Logistics 57(5), 422–440. https://doi.org/10.1002/nav.20411
+Evidence: constrained discrete search paths and specialized branch-and-bound with bounding and network reduction.
+[S22] Military aircraft mission planning: a generalized vehicle routing model with synchronization and precedence (2013). EURO Journal on Transportation and Logistics. https://www.sciencedirect.com/science/article/pii/S2192437620600255
+Evidence: integrated mission assignments, routes and synchronized timing represented by MILP. Scope is the mission contract, not transport-only routing.
+[S23] Wood (1993). Deterministic network interdiction. Mathematical and Computer Modelling 17(2), 1–18. https://www.sciencedirect.com/science/article/pii/089571779390236R
+Evidence: integer programming models for resource-limited network interdiction. Chosen interdictions are a selection; the supplied network is not a chosen topology.
+[S24] Ahuja, Kumar, Jha and Orlin (2007). Exact and Heuristic Algorithms for the Weapon-Target Assignment Problem. Operations Research 55(6), 1136–1146. https://doi.org/10.1287/opre.1070.0440
+Author manuscript record: https://dspace.mit.edu/entities/publication/8c3b5dbd-451a-4b36-b895-39fedeb34e02
+Evidence: static assignment with nonlinear joint effects; branch-and-bound, network-flow bounds and large-neighborhood search. Static research models do not establish operational real-time performance.
+[S25] Osner (2017). Threat evaluation and jamming allocation. IET Radar, Sonar & Navigation. https://doi.org/10.1049/iet-rsn.2016.0277
+Evidence: discrete electronic-countermeasure allocation with interacting effects. Kept at problem-class level; continuous waveform design is outside scope.
+[S26] Durkota, Lisý, Bošanský and Kiekintveld (2015). Optimal Network Security Hardening Using Attack Graph Games. IJCAI, 526–532. https://www.ijcai.org/Abstract/15/080
+Author summary: https://www.cs.utep.edu/kiekintveld/papers/2015/klbp_attack_graphs.htm
+Evidence: strategic honeypot deployment on attack graphs. Deception changes attacker information, not simply asset protection cost.
+[S27] A Game Theoretic Approach to Strategy Determination for Dynamic Platform Defenses (2014). ACM MTD workshop. https://doi.org/10.1145/2663474.2663478
+Evidence: dynamic platform-defense strategy optimization. Published model, not a universal operational default.
+[S28] Bayardo and Agrawal (2005). Data privacy through optimal k-anonymization. ICDE. https://research.ibm.com/publications/data-privacy-through-optimal-k-anonymization
+Evidence: optimal generalization/suppression search; restricted problems remain NP-hard.
+[S29] Optimization-based k-anonymity algorithms (2020). Computers & Security. https://www.sciencedirect.com/science/article/pii/S0167404820300377
+Evidence: a MILP benchmark architecture for utility-preserving k-anonymity. Does not establish protection against every disclosure attack.
+[S30] VULCON: A System for Vulnerability Prioritization, Mitigation, and Management (2018). ACM Transactions on Privacy and Security. https://doi.org/10.1145/3196884
+Institutional record: https://www.pnnl.gov/publications/vulcon-system-vulnerability-prioritization-mitigation-and-management
+Evidence: mixed-integer multiobjective prioritization of vulnerability remediation under resource limits. Institutional search record and publisher abstract inspected; institutional page open returned 403.
+[S31] Don't Bury your Head in Warnings: A Game-Theoretic Approach for Intelligent Allocation of Cyber-security Alerts (2017). IJCAI. https://www.ijcai.org/proceedings/2017/54
+Evidence: expert-to-alert allocation, NP-hardness of defender strategy computation and scaling heuristics.
+[S32] Finding Needles in a Moving Haystack: Prioritizing Alerts with Adversarial Reinforcement Learning (2020). AAAI. https://doi.org/10.1609/aaai.v34i01.5442
+Evidence: dynamic stochastic alert prioritization against an adaptive adversary. Alternative to static screening-game allocation.
+[S33] Atefi, Panda, Panaousis and Laszka (2023). Principled Data-Driven Decision Support for Cyber-Forensic Investigations. AAAI 37(4), 5010–5017. https://doi.org/10.1609/aaai.v37i4.25628
+Evidence: MDP and Monte Carlo tree search for choosing forensic investigation steps; compared with DISCLOSE on ATT&CK-derived data. No reproduction in this work.
+[S34] Zonouz et al. (2009; journal extension 2014). RRE: A Game-Theoretic Intrusion Response and Recovery Engine. https://smartgrid.illinois.edu/publications/rre-game-theoretic-intrusion-response-and-recovery-engine.html
+Project description: https://tcipg.org/research_RRE.html
+Evidence: response-action selection trading security state against response cost, with operator and system-invariant considerations.
+[S35] Curry et al. (2022). DUELMIPs: Optimizing SDN Functionality and Security. CP 2022. https://doi.org/10.4230/LIPIcs.CP.2022.17
+Evidence: a security-response MIP stage and large-neighborhood search; evaluation uses synthetic networks. Generic routing stage is COMP.
+[S36] A Security Game Combining Patrolling and Alarm-Triggered Responses Under Spatial and Detection Uncertainties (2016). AAAI. https://doi.org/10.1609/aaai.v30i1.10022
+Evidence: alarm-conditioned response with uncertain alarm location and missed detections. Supports a distinct contingent response decision.
+[S37] Fang et al. (2013). Optimal Patrol Strategy for Protecting Moving Targets with Multiple Mobile Resources. AAMAS. https://www.andrew.cmu.edu/user/feif/Publications/2013_AAMAS_Ferry.pdf
+Evidence: compact LP and schedule sampling for escort protection of moving assets. Retained as a patrol variant, not another permanent Problem.
+[S38] Playing Stackelberg Security Games in perfect formulations (2024). Omega. https://www.sciencedirect.com/science/article/pii/S0305048324000355
+Evidence: formulation improvements and column-generation recovery of implementable mixed strategies. Does not supersede all bounded-rational or online models.
