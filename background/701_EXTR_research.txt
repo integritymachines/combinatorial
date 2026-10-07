@@ -39,7 +39,7 @@ Pass A searched mine scheduling, MineLib, stope optimization, field development,
 Pass B searched access-network and stope boundaries, operational pushbacks and surface/underground transition, short-term grade/destination planning, workover rigs and well production allocation. It exposed operational designs missed by a generic scheduling-only list.
 Pass C searched block-cave draw control, drilling/fracturing campaigns, exploration portfolios, extraction/backfill and ventilation-aware plans. It distinguished cave drawpoint scheduling from stope activity calendars.
 Pass D searched quarry production, mine-waste progression, lift-gas allocation and field retirement. Quarry is a variant of the extraction-plan contract; gas-lift is an operational well-allocation variant; retirement is retained in depletion scheduling.
-Pass E searched equipment selection, dig limits, short-term tasks, truck dispatch and aquifer well activation. It added a distinct grade-control geometry contract and confirmed the LOG exclusions. Cutoff-policy granularity remains a control question described below.
+Pass E searched equipment selection, dig limits, short-term tasks, truck dispatch and aquifer well activation. It added a distinct grade-control geometry contract and confirmed the LOG exclusions. Follow-up research distinguishes reusable cutoff-policy selection from individual material assignments. Targeted verification also adds room-and-pillar and underground coal scheduling evidence (S55-S59).
 This is broad practical coverage, not a proof of exhaustiveness. Repeated hits increasingly concern aliases, uncertainty extensions, integrated combinations and neighboring-domain problems. Gaps remain in specialist marine extraction, solution mining and coupled geothermal development; these are not invented canonical Problems without distinct decision/Template evidence.
 
 EVIDENCE INTERPRETATION
@@ -96,7 +96,7 @@ Source support. S05 S06.
 
 PIT — Ultimate Pit Limit Selection
 
-Decision evidence and identity. Contract: decide economic extraction membership without a production calendar. Aliases: ultimate pit problem, ultimate pit limit, economic pit shell. S07 separates this problem from capacitated production scheduling. S08 states the graph model and its capacity-constrained extensions. The supplied precedence arcs represent slope support; they do not imply chosen #link. Parametric revenue factors generate nested shells, but those shells do not by themselves solve operational phase design. The Low industrial rating is restricted to the classical graph problem; geological robustness, transport design or capacity constraints must not be silently folded into it. Large source models alone are not evidence of High hardness. No prescribed geotechnical angle is invented.
+Decision evidence and identity. Contract: decide economic extraction membership without a production calendar. Aliases: ultimate pit problem, ultimate pit limit, economic pit shell. S07 separates this problem from capacitated production scheduling. S56 gives the maximum-closure formulation and its capacity-constrained extension. The supplied precedence arcs represent slope support; they do not imply chosen #link. Parametric revenue factors generate nested shells, but those shells do not by themselves solve operational phase design. The Low industrial rating is restricted to the classical graph problem; geological robustness, transport design or capacity constraints must not be silently folded into it. Large source models alone are not evidence of High hardness. No prescribed geotechnical angle is invented.
 
 Candidate scope. Selects the ultimate set of mineable blocks under slope precedences and block economic values.
 Template conclusion. Ultimate pit optimization | Maximum-weight closure by minimum cut or equivalent graph algorithms.
@@ -105,7 +105,7 @@ Construction annotation. #select | Chooses blocks while respecting supplied slop
 Rating assessment. Priority High | Pit limits are foundational in open-pit mine planning. Relevance Critical | The extraction envelope sets recoverable value and waste exposure. Hardness Low | The classical maximum-closure model is polynomial; mature graph algorithms handle large block sets, while added constraints can change difficulty.
 Boundary note. The classical scope excludes production-period capacities and practical pushback widths.
 Retrieval tags. ##MINING ##QUARRYING ##maximum-closure ##precedence
-Source support. S07 S08.
+Source support. S07 S56.
 
 PHASE — Open-Pit Pushback Design
 
@@ -196,20 +196,20 @@ Construction annotation. #place + #select + #map | Places selected blocks in tim
 Rating assessment. Priority Critical | Extraction schedules coordinate the main open-pit production commitments. Relevance Critical | Schedules govern resource value, stripping demand and plant supply. Hardness Critical | Capacitated precedence-constrained variants are NP-hard; large block sets, blending and uncertain grades require aggregation or decomposition.
 Boundary note. Quarry, strip-mine and stochastic variants share this decision contract.
 Retrieval tags. ##MINING ##QUARRYING ##schedule ##precedence
-Source support. S07 S08 S22 S23.
+Source support. S07 S08 S22 S23 S56.
 
-UGPLAN — Underground Development, Extraction and Backfill Scheduling
+UGPLAN — Underground Development and Extraction Scheduling
 
-Decision evidence and identity. Contract: determine when mine development, ore extraction and filling occur under a supplied layout. S24 documents extraction and backfill scheduling at Lisheen; S25 develops optimization-based heuristics; S26 integrates life-of-mine development and stope production. The source distinctions justify keeping this separate from surface block scheduling. Supplying curing and access precedence does not create #link. Longwall and room-and-pillar panel development are variants where the delivered result is still a development/extraction calendar; mining-method-specific feasibility must be retained. Cave draw schedules are separate because sustained drawpoint activity and material-flow continuity define the output. A generic personnel roster is HR. Industrial ratings describe full coupled models, not small deterministic demonstrations.
+Decision evidence and identity. Contract: determine when mine development, ore extraction and filling occur under a supplied layout. S24 documents extraction and backfill scheduling at Lisheen; S25 develops optimization-based heuristics; S26 integrates life-of-mine development and stope production. The source distinctions justify keeping this separate from surface block scheduling. Supplying curing and access precedence does not create #link. S57 directly models room-and-pillar extraction sequence; S58 supplies mixed-binary coal scheduling. Panel schedules are variants of the development/extraction calendar, while backfill and curing apply only where the mining method requires them. Longwall-specific design is not inferred from stope-layout evidence. Cave draw schedules are separate because sustained drawpoint activity and material-flow continuity define the output. A generic personnel roster is HR. Industrial ratings describe full coupled models, not small deterministic demonstrations.
 
-Candidate scope. Schedules development, stope extraction and backfill under access, stability, curing and shared production-resource limits.
+Candidate scope. Schedules underground development and extraction, with backfill where required, under access, stability and shared-resource limits.
 Template conclusion. Integrated underground mine production planning | Resource-constrained MILP and optimization-based scheduling heuristics.
 Commitment annotation. #plan | Commits underground activity periods before shift execution.
 Construction annotation. #place | Positions development, extraction and backfill activities in time.
-Rating assessment. Priority High | The coupled cycle defines production planning in backfilled underground mines. Relevance Critical | Scheduling controls output and when neighboring stopes become accessible. Hardness Critical | General resource-constrained scheduling variants are NP-hard; access and fill interactions require tailored decomposition.
+Rating assessment. Priority High | Development and extraction calendars coordinate major underground mining systems. Relevance Critical | Scheduling controls output and when neighboring stopes become accessible. Hardness Critical | General resource-constrained scheduling variants are NP-hard; access and fill interactions require tailored decomposition.
 Boundary note. Backfill plant recipe design belongs to PROC; extraction-support sequencing remains EXTR.
 Retrieval tags. ##MINING ##backfill ##precedence ##curing
-Source support. S24 S25 S26.
+Source support. S24 S25 S26 S57 S58.
 
 CAVE — Cave Drawpoint Activation and Draw Scheduling
 
@@ -341,6 +341,18 @@ Boundary note. Generic rig movement is LOG; well restoration and intervention el
 Retrieval tags. ##OILGAS ##workover ##production-loss
 Source support. S50 S51.
 
+CUTOFF — Cutoff-Grade Policy Selection
+
+Decision evidence and identity. Contract: deliver a reusable ore-definition policy, not a destination for every individual lot. S55 supports enumerating zone cutoff combinations with a mine-scheduling model; S59 jointly treats block sequence and ore/waste discrimination. This establishes a distinct candidate-policy contract. Pure continuous break-even-grade calculation is excluded from ICO. Supplied threshold alternatives are selected and assigned to zones, justifying select plus map. Policy limits then constrain extraction and destinations; schedule economics can revise thresholds in a feedback loop. A model that produces only implicit per-block cutoff values stays within SURFACEPLAN or DEST rather than duplicating this Problem. High centrality and Critical value are analyst assessments of the policy's effects on reserves; High hardness concerns repeated coupled schedule solves, not threshold comparison alone. No globally strongest cutoff algorithm is established.
+
+Candidate scope. Selects ore/waste cutoff policies for resource zones under recoverability, mining capacity and processing limits.
+Template conclusion. Economic ore-definition and cutoff-policy planning | Candidate-threshold enumeration coupled to mixed-integer mine scheduling.
+Commitment annotation. #plan | Commits ore-definition rules before extraction and destination decisions.
+Construction annotation. #select + #map | Chooses candidate cutoff policies and assigns them to resource zones.
+Rating assessment. Priority High | Cutoff rules connect resource economics to mineable reserves. Relevance Critical | Threshold policies change recoverable tonnage and mine value. Hardness High | No general complexity claim; interacting zone policies require repeated capacity-constrained schedule evaluation.
+Boundary note. Reusable zone policies define this scope; per-lot destination assignments remain separate.
+Retrieval tags. ##MINING ##QUARRYING ##cutoff-grade ##policy-selection
+Source support. S55 S59.
 
 DEPENDENCY GRAPH: INDUSTRIAL HANDOFFS
 
@@ -400,8 +412,14 @@ GRADE -> DEST
 TASK -> DEST
 DEST -> DUMP
 WELLOP -> WORKOVER
+SAMPLE -> CUTOFF
+CUTOFF -> SURFACEPLAN
+CUTOFF -> UGPLAN
+CUTOFF -> DEST
 
 CYCLES, COUPLINGS AND ORDERING LIMITS
+
+Sampling informs CUTOFF; selected cutoff policies constrain surface/underground schedules and destinations. Schedule valuations feed back into CUTOFF (S55, S59). These policies need not be separately instantiated where direct block optimization determines ore/waste decisions.
 
 Design is iterative: ACCESS -> STOPE and WELL -> FIELD are economic/feasibility feedback, while the first committed layout proceeds in the reverse direction. The Compiler may retain the forward handoff while explaining the feedback here.
 GRADE/DEST -> SURFACEPLAN and DEST -> TASK feed grade/plant targets back into plans. DUMP -> SURFACEPLAN is capacity feedback. TASK -> UGPLAN revises near-term accessibility and execution assumptions. CAVE draw outcomes revise drawpoint schedules internally.
@@ -416,7 +434,7 @@ Quarry/coal/metal-specific schedules: variants unless a distinct output/feasibil
 Deterministic/stochastic/robust mining: uncertainty variants and descriptors, not independent Problems.
 Pit shells/Lerchs-Grossmann/minimum cut: solution approaches or inputs for PIT, not separate Problems.
 Stope boundaries versus mine access: distinct selection and network artifacts; retained separately.
-Cutoff grade policy: S55 chooses zone-level thresholds and evaluates extraction schedules. Provisionally treated as a material-assignment/extraction-policy variant, but whether the reusable threshold policy deserves a distinct contract is an open control question.
+Cutoff grade policy: admit CUTOFF when the output is a reusable zone-level policy. Per-unit destinations remain DEST; implicit threshold effects in a block schedule remain SURFACEPLAN. Continuous break-even-grade calculation alone remains outside ICO.
 Drill/blast pattern parameters and fragmentation simulation: pure continuous engineering settings excluded. Discrete extraction-task scheduling is TASK. A separate discrete blast-pattern selection Problem lacks adequately distinct Template evidence in this pass.
 Surface/underground transition timing: METHOD plus production-planning coupling; no duplicate transition scheduler.
 Grade estimation, resource classification statistics and reservoir history matching: analytical inputs; no chosen combinatorial construction demonstrated.
@@ -432,13 +450,14 @@ Marine seabed mining and dredged aggregates: likely extraction-sequence and LOG 
 No Case identifiers, instance sizes, selected benchmark suite, numerical reference results or uplift claims are included.
 
 SOURCE REGISTER
+
 S01 Petroleum exploration portfolios generated with different optimization approaches: Lessons for decision-makers (2022)
 https://www.sciencedirect.com/science/article/pii/S0920410522003448
 Evidence used: Indexed publisher abstract only; direct open failed. Supports exploration-specific portfolio comparisons, not implementation availability.
 
 S02 A two-stage stochastic programming framework for oil and gas exploration well portfolio optimization under geological and economic uncertainty (2026)
 https://arxiv.org/abs/2605.26493
-Evidence used: Primary author preprint, indexed abstract. Provisional evidence for discrete stochastic exploration selection; not established industrial practice.
+Evidence used: Primary author preprint abstract retrieved. Supports discrete stochastic exploration selection; not established industrial practice.
 
 S03 Jeuken and Forbes, The Value of Drilling—A Chance-Constrained Optimization Approach (2024)
 https://link.springer.com/article/10.1007/s42461-024-01061-8
@@ -610,7 +629,7 @@ Evidence used: Indexed primary abstract. MIP using aquifer response functions; d
 
 S45 A Rolling Horizon MILP Framework for Strategic Well Drilling Planning in Semi-Arid Regions: Integration of Spatial Interference Constraints and Resource Allocation (2026)
 https://ascelibrary.org/doi/full/10.1061/JWRMD5.WRENG-7444
-Evidence used: Indexed primary abstract. Joint well drilling, activation and operation; recent evidence, no deployment or reproduction claim.
+Evidence used: Indexed primary abstract. Joint well drilling, activation and operation; recent evidence, no deployment or reproduction claim. Direct open returned HTTP 403; indexed abstract only.
 
 S46 Optimization of Well Oil Rate Allocations in Petroleum Fields (2004)
 https://pubs.acs.org/doi/10.1021/ie034171z
@@ -650,5 +669,21 @@ Evidence used: Official primary research record indexed. Ventilation-aware extra
 
 S55 King and Newman, Optimizing the Cutoff Grade for an Operational Underground Mine (2018)
 https://pubsonline.informs.org/doi/10.1287/inte.2017.0934
-Evidence used: Indexed primary abstract. MIP cutoff choices in supplied zones; candidate policy variant retained under material destination and extraction plans.
+Evidence used: Primary publisher abstract retrieved. Zone cutoff alternatives evaluated with mine schedules; supports a distinct policy-selection contract.
+
+S56 AMPL, MineLib in AMPL and amplpy; Espinoza et al., MineLib (2013)
+https://ampl.com/colab/notebooks/minelib-in-ampl-and-amplpy.html
+Evidence used: Official implementation documentation retrieved, mathematical sections 3.2-3.4. UPIT is maximum closure with a totally unimodular matrix; CPIT is NP-hard. Primary paper abstract also retrieved at https://link.springer.com/article/10.1007/s10479-012-1258-3. No benchmark execution performed.
+
+S57 Illinois Clean Coal Institute final technical report: room-and-pillar simulation and extraction sequencing
+https://isgswikis.web.illinois.edu/icci_reports/files/original/88866d251d4daa1c8d53c7d87c32db44.pdf
+Evidence used: Primary technical report retrieved. MILP panel-extraction sequencing with risk management. Simulation-based panel-dimension design is a separate engineering context, not proof of a generic integer layout Template.
+
+S58 The long-term mine production scheduling problem (2005)
+https://www.tandfonline.com/doi/abs/10.1080/07408170490447339
+Evidence used: Primary publisher abstract retrieved through search. Mixed-binary coal scheduling with quality and capital limits. Supports underground scheduling coverage; detailed method-specific constraints require later source inspection.
+
+S59 Production planning of mines: Optimisation of block sequencing and destination (2012)
+https://www.tandfonline.com/doi/abs/10.1080/17480930.2011.644474
+Evidence used: Indexed primary abstract. Coupled block sequence and cutoff discrimination; supports policy/schedule interaction.
 
