@@ -1,0 +1,284 @@
+FIN Finance, Accounting and Insurance
+v0.1 | Problem layer | 2026-10-07
+Normative: 000_DOMAIN.txt v0.4. Evidence: background/502_FIN_research.txt v0.1.
+
+FIN covers discrete decisions over financial positions, claims, liquidity, settlement, accounting matches and insurance-risk rules. The set spans financial commitments, position allocation, execution, post-trade operations, accounting assurance and financial rescue. A financial industry does not determine ownership: commercial offers and auction winners belong to MKT; physical supply decisions to SCM; physical cash movement to LOG; workforce schedules to HR; adversarial investigations to INTEL; ledger infrastructure to COMP.
+
+Each card requires a material discrete artifact. Continuous valuation, forecasting, risk estimation and deterministic administration supply inputs. Continuous quantities may accompany discrete decisions. Templates identify defensible established architectures; they do not assert a universal performance ranking or public reproducibility of private systems.
+
+Dependencies are conditional industrial or information flow. The sequence places first-pass commitments before their consumers and retains five returns to a later iteration. Independent financial systems need not implement every edge. Integrated models can co-decide connected Problems. Ratings apply to the stated scope. Cases await human approval.
+
+FIN01 Insurance Classification and Transition-Rule Design.
+DESCRIPTION Chooses claim-history transitions between insurance experience classes and, when coupled, class premium relativities under actuarial and rule-simplicity requirements.
+TEMPLATE Actuarial experience-rating system design | Transition-rule IP; joint transition and premium-relativity MILP with Markov-chain evaluation.
+REGIME #design | Defines experience-rating rules before insurance periods are administered.
+STRUCTURE #link | Constructs allowed successor relations between classes for specified claim events.
+PRIORITY Medium | Recurs in insurance systems with experience classes.
+RELEVANCE High | Rules affect retained risk, premium adequacy and policyholder treatment.
+HARDNESS High | Finite constrained transition-rule design; Class occupancy, rule restrictions and premium relativities interact.
+DEPENDENCIES ∅ → FIN01 → FIN04.
+COMMENTS Applying a supplied rule to a policy is deterministic administration. | #EXCH #FIN #design #link ##INSURANCE ##bonus-malus ##markov-chain.
+
+FIN02 Capital-Rationed Investment Selection.
+DESCRIPTION Selects supplied investment or acquisition commitments under financial budgets, exclusivity and return requirements.
+TEMPLATE Capital budgeting and investment appraisal | Binary or mixed-integer capital-rationing models; stochastic or robust recourse.
+REGIME #plan | Commits an investment program before financing and implementation.
+STRUCTURE #select | Chooses which investment commitments enter the program.
+PRIORITY High | Recurs in corporate and institutional capital allocation.
+RELEVANCE Critical | Choices commit major financial resources and future cash flows.
+HARDNESS High | NP-hard through the 0–1 knapsack restriction; Multi-period budgets and dependent commitments complicate selection.
+DEPENDENCIES ∅ → FIN02 → FIN03.
+COMMENTS Physical project feasibility is supplied by the owning Domain. | #EXCH #FIN #plan #select ##CORPORATE ##capital-rationing ##project-selection.
+
+FIN03 Funding and Debt-Issuance Planning.
+DESCRIPTION Selects financing instruments, facility activations and refinancing dates to cover funding requirements under maturity, currency and covenant limits.
+TEMPLATE Financing-program and maturity-ladder planning | Multiperiod cash-flow MILP with discrete activations; scenario or robust extensions.
+REGIME #plan | Commits financing actions before operating cash is allocated.
+STRUCTURE #select + #place | Chooses financing commitments and places their actions in time.
+PRIORITY High | Recurs in bank and corporate financing programs.
+RELEVANCE Critical | Funding choices determine financing cost and refinancing exposure.
+HARDNESS High | NP-hard for indivisible covering-knapsack variants; Maturity, currency, covenants and uncertain needs couple commitments.
+DEPENDENCIES FIN02, FIN25 → FIN03 → FIN05, FIN06.
+COMMENTS Pure continuous capital-structure ratios do not define this discrete commitment contract. | #EXCH #FIN #plan #select #place ##BANKING ##CORPORATE ##funding ##debt-maturity.
+
+FIN04 Reinsurance Program Selection.
+DESCRIPTION Selects offered treaties or discrete layers across insurance lines under premium, retained-risk and counterparty limits.
+TEMPLATE Treaty-program comparison and retained-loss stress analysis | Scenario simulation with finite-menu enumeration and Pareto filtering; evolutionary search for larger nonlinear programs.
+REGIME #plan | Commits risk-transfer cover before insured losses are realized.
+STRUCTURE #select | Chooses the treaty alternatives that form the risk-transfer program.
+PRIORITY High | Risk transfer is central to substantial insurance and reinsurance operations.
+RELEVANCE Critical | Program choices affect solvency, retained losses and premium cost.
+HARDNESS High | Coupled finite-menu selection; Loss dependence, reinstatements and nonlinear risk measures complicate evaluation.
+DEPENDENCIES FIN01 → FIN04 → FIN05.
+COMMENTS Continuous indemnity-function optimization is outside this menu-selection scope. | #EXCH #FIN #plan #select ##INSURANCE ##reinsurance ##treaty-selection.
+
+FIN05 Discrete Asset–Liability Planning.
+DESCRIPTION Selects staged asset and financing actions to service supplied liabilities under solvency, liquidity and discrete transaction restrictions.
+TEMPLATE Liability-driven asset and funding planning | Multistage stochastic MILP and decomposition; simulation-supported integer asset–liability matching.
+REGIME #plan | Commits a financial coverage policy before future obligations fall due.
+STRUCTURE #select + #place | Chooses instrument actions and places them in the policy's decision periods.
+PRIORITY High | Recurs in pension, insurance and bank balance-sheet planning.
+RELEVANCE Critical | Coverage policy determines whether major future obligations can be met.
+HARDNESS Critical | NP-hard for discrete instrument-coverage variants; Scenario branching, nonanticipativity and solvency recourse can require decomposition.
+DEPENDENCIES FIN03, FIN04 → FIN05 → FIN07, FIN10.
+COMMENTS Explicit asset-to-liability assignment variants also require #map. | #EXCH #FIN #plan #select #place ##PENSIONS ##INSURANCE ##asset-liability ##scenario-tree.
+
+FIN06 Treasury Cash and Liquidity Planning.
+DESCRIPTION Selects and schedules account transfers, short-term borrowing and investment actions to maintain required balances under fees, currency and availability limits.
+TEMPLATE Balance projection, cash positioning and cash-pool sweeps | Multiperiod cash-flow network MILP; robust or stochastic cash management.
+REGIME #plan + #operate | Commits treasury actions and applies them within supplied account arrangements.
+STRUCTURE #place + #select | Places cash actions in time and selects transfers or instrument activations.
+PRIORITY Critical | Liquidity planning underpins major treasury and payment operations.
+RELEVANCE Critical | Feasible cash plans avoid funding shortfalls and reduce financing cost.
+HARDNESS High | NP-hard for fixed-charge transfer-network variants; Uncertain receipts and cross-entity eligibility couple cash actions.
+DEPENDENCIES FIN03, FIN22, FIN23, FIN25 → FIN06 → FIN12, FIN17, FIN19, FIN20.
+COMMENTS Cash-pool permissions and account topology are supplied inputs. | #EXCH #FIN #plan #operate #place #select ##CORPORATE ##BANKING ##cash-pooling ##liquidity.
+
+FIN07 Discrete Investment Portfolio Selection.
+DESCRIPTION Selects instruments and holdings under risk-return targets, cardinality, minimum holding and concentration requirements.
+TEMPLATE Constrained portfolio construction | Mean-variance convex MIQP or tail-risk scenario MILP; exact MIP and matheuristics.
+REGIME #allocate | Commits investable capital to a discrete holding set.
+STRUCTURE #select | Chooses the instruments and discrete positions included in the portfolio.
+PRIORITY Critical | Discrete portfolio construction is central to investment operations.
+RELEVANCE Critical | Holding choices affect enterprise-scale risk and investment performance.
+HARDNESS High | NP-hard for cardinality-constrained mean-variance variants; Asset dependence, risk scenarios and concentration rules complicate selection.
+DEPENDENCIES FIN05 → FIN07 → FIN12.
+COMMENTS Risk metrics and solver encodings are variants of this decision. | #EXCH #FIN #allocate #select ##ASSETMANAGEMENT ##portfolio ##cardinality.
+
+FIN08 Sparse Index Tracking.
+DESCRIPTION Selects a limited instrument subset and holdings to reproduce a supplied financial index under tracking, cost and investment limits.
+TEMPLATE Index-fund replication and tracking-error control | Cardinality-constrained tracking MILP or MIQP; transaction-aware MIP for repeated tracking.
+REGIME #allocate | Commits holdings to a supplied benchmark-replication target.
+STRUCTURE #select | Chooses the instruments used to replicate the index.
+PRIORITY High | Recurs across index funds and benchmark-constrained mandates.
+RELEVANCE High | Better replication reduces tracking deviation and holding cost.
+HARDNESS High | NP-hard for sparse tracking variants; Correlated constituents and turnover limits complicate subset choice.
+DEPENDENCIES ∅ → FIN08 → FIN12.
+COMMENTS A supplied replication target distinguishes this contract from free risk-return portfolio selection. | #EXCH #FIN #allocate #select ##ASSETMANAGEMENT ##index-tracking ##benchmark-replication.
+
+FIN09 Credit Commitment and Loan-Pool Selection.
+DESCRIPTION Selects credit exposures under yield, expected-loss, concentration, budget and collateral-pool requirements.
+TEMPLATE Credit portfolio and securitization-pool construction | Risk-constrained MILP or MINLP; convex reformulation and linearized tranche-loss approximations.
+REGIME #allocate | Commits scarce credit or investment capacity to accepted exposures.
+STRUCTURE #select | Chooses loans or credit commitments that enter the portfolio.
+PRIORITY High | Exposure admission recurs in lending and structured-credit operations.
+RELEVANCE Critical | Choices determine major credit losses, income and concentration.
+HARDNESS High | NP-hard for discrete loan-pool selection; Correlated defaults and tranche cash flows complicate portfolio evaluation.
+DEPENDENCIES ∅ → FIN09 → FIN21, FIN23.
+COMMENTS Credit scoring supplies risk estimates; pure loan-price offers belong to MKT. | #EXCH #FIN #allocate #select ##BANKING ##credit-selection ##securitization.
+
+FIN10 Discrete Hedge Construction.
+DESCRIPTION Selects derivative contracts, lots and maturity alternatives to cover supplied exposures under risk, liquidity and transaction limits.
+TEMPLATE Exposure-to-instrument hedging with maturity alignment | Lot-constrained scenario MILP or mixed-integer convex risk optimization.
+REGIME #allocate | Commits hedge instruments against identified financial exposures.
+STRUCTURE #select | Chooses contract positions and supplied maturity alternatives.
+PRIORITY High | Financial hedging recurs in bank, investment and corporate treasury operations.
+RELEVANCE Critical | Hedge choices affect exposure to major currency, rate and commodity changes.
+HARDNESS High | NP-hard for exact integer-lot matching through subset sum; Basis risk and correlated factors complicate hedge construction.
+DEPENDENCIES FIN05 → FIN10 → FIN16.
+COMMENTS Physical procurement or dispatch plans supply exposures and retain their own Domain. | #EXCH #FIN #allocate #select ##CORPORATE ##hedging ##contract-lots.
+
+FIN11 Securities-Lending Inventory Allocation.
+DESCRIPTION Selects locate or borrow requests and assigns available security lots under owner permissions, delivery availability and exposure limits.
+TEMPLATE Securities-availability and locate-allocation control | Knapsack or generalized-assignment MILP; bounded search for short-cycle allocation.
+REGIME #allocate + #dispatch | Commits available securities to requests and updates reservations as requests arrive.
+STRUCTURE #map + #select | Assigns security lots to accepted requests and selects the requests served.
+PRIORITY Medium | Recurs in securities lending and prime brokerage.
+RELEVANCE High | Better allocation increases useful inventory and reduces delivery failures.
+HARDNESS High | NP-hard for indivisible request admission through knapsack; Owner permissions and live reservations couple allocations.
+DEPENDENCIES ∅ → FIN11 → FIN17, FIN21.
+COMMENTS Loan-fee offers and exclusive-auction awards are separate MKT decisions. | #EXCH #FIN #allocate #dispatch #map #select ##BANKING ##securities-lending ##locate.
+
+FIN12 Portfolio Rebalancing.
+DESCRIPTION Selects changes to held positions under revised targets, trade activations, turnover, lot and funding limits.
+TEMPLATE Transaction-aware portfolio transition | MIQP or mixed-integer convex rebalancing; matheuristics for larger asset universes.
+REGIME #adapt | Revises an existing holding commitment under changed targets or resources.
+STRUCTURE #select | Chooses trades and revised discrete holdings.
+PRIORITY High | Holding revision recurs across managed financial portfolios.
+RELEVANCE Critical | Good revisions preserve portfolio objectives while controlling transaction cost.
+HARDNESS High | NP-hard through discrete portfolio selection as a restriction; Turnover, funding changes and transaction activations interact.
+DEPENDENCIES FIN06, FIN07, FIN08 → FIN12 → FIN13, FIN14.
+COMMENTS Initial holdings and revision costs distinguish this contract from fresh portfolio construction. | #EXCH #FIN #adapt #select ##ASSETMANAGEMENT ##rebalancing ##turnover.
+
+FIN13 Tax-Lot Disposal Selection.
+DESCRIPTION Selects acquired lots for a supplied asset-sale requirement or loss-realization target under basis, holding-period and permitted-trade rules.
+TEMPLATE Tax-basis-aware disposal and loss realization | Lot-selection MILP; mixed-integer convex tax-aware portfolio models with two-stage convex approximations for coupled variants.
+REGIME #allocate | Assigns a disposal requirement to selected tax lots.
+STRUCTURE #select | Chooses acquired lots for realization.
+PRIORITY Medium | Recurs in taxable investment mandates.
+RELEVANCE High | Lot choices affect realized tax cost and after-tax portfolio value.
+HARDNESS Medium | NP-hard for exact indivisible-lot disposal through subset sum; Divisible sales with linear tax costs can be LP.
+DEPENDENCIES FIN12 → FIN13 → FIN14.
+COMMENTS Tax eligibility is a supplied rule set for the applicable jurisdiction. | #EXCH #FIN #allocate #select ##ASSETMANAGEMENT ##tax-lots ##basis.
+
+FIN14 Discrete Trade Execution Scheduling.
+DESCRIPTION Places lots from an approved trade list into execution periods under participation, pathwise risk and nonconvex transaction costs.
+TEMPLATE Portfolio-transition scheduling and participation control | Integer trade-schedule models; rolling mixed-integer execution under updated liquidity.
+REGIME #operate + #dispatch | Executes a supplied position change and updates immediate trade releases.
+STRUCTURE #place + #select | Places trade lots in time and selects active execution periods.
+PRIORITY High | Execution schedules implement major portfolio and hedge commitments.
+RELEVANCE High | Good schedules reduce transaction cost and interim exposure.
+HARDNESS High | NP-hard for indivisible lot placement under period capacities through bin packing; Market costs and changing liquidity complicate execution.
+DEPENDENCIES FIN12, FIN13 → FIN14 → FIN16, FIN21.
+COMMENTS The target trade list is supplied; exchange-side order matching belongs to MKT. | #EXCH #FIN #operate #dispatch #place #select ##ASSETMANAGEMENT ##trade-execution ##market-impact.
+
+FIN15 Derivative Portfolio Compression.
+DESCRIPTION Selects contract cancellations or replacements to reduce gross exposure while preserving agreed net risk under consent, counterparty and contract-granularity limits.
+TEMPLATE Risk-preserving post-trade compression | Network-flow LP for divisible reference models; whole-contract mixed-integer network models for discrete variants.
+REGIME #adapt | Revises existing derivative commitments while preserving specified risk exposures.
+STRUCTURE #select + #link | Selects cancellations and constructs counterparty relations for replacement contracts.
+PRIORITY Medium | Recurs in large derivatives portfolios and dealer networks.
+RELEVANCE High | Compression can reduce gross exposure and operational burden.
+HARDNESS High | NP-hard for exact whole-contract cancellation through subset sum; Divisible conservative compression is LP.
+DEPENDENCIES ∅ → FIN15 → FIN16, FIN17.
+COMMENTS Conservative tear-up requires #select alone; lower gross exposure does not by itself establish lower systemic risk. | #EXCH #FIN #adapt #select #link ##BANKING ##compression ##risk-preservation.
+
+FIN16 Margin-Account Position Allocation.
+DESCRIPTION Assigns eligible positions or contract lots among allowed clearing accounts to reduce margin under account permissions and position-preservation requirements.
+TEMPLATE Cross-margin position alignment | Constrained integer account allocation with a portfolio-margin oracle; local search and surrogate optimization.
+REGIME #allocate + #adapt | Assigns positions to accounts and revises prior assignments as holdings change.
+STRUCTURE #map | Assigns positions to permitted margin accounts.
+PRIORITY Medium | Recurs in clearing firms and portfolios eligible for cross-margining.
+RELEVANCE High | Account choices affect tied-up liquidity and financing cost.
+HARDNESS High | Finite integer allocation with a portfolio-dependent evaluation oracle; Nonadditive risk offsets complicate search.
+DEPENDENCIES FIN10, FIN14, FIN15 → FIN16 → FIN17.
+COMMENTS Commercial margin optimizers establish operational use; their solver internals and public reproducibility can remain private. | #EXCH #FIN #allocate #adapt #map ##BANKING ##cross-margin ##account-allocation.
+
+FIN17 Collateral Allocation and Substitution.
+DESCRIPTION Assigns eligible asset lots to margin, repo and secured-credit obligations and selects substitutions under haircut, concentration and movement limits.
+TEMPLATE Eligibility-based collateral delivery with controlled substitution | Collateral-allocation MILP; LP relaxations, staged allocation and movement penalties.
+REGIME #allocate + #adapt | Commits collateral to obligations and revises deliveries as values or eligibility change.
+STRUCTURE #map + #select | Assigns asset lots to obligations and selects substitution movements.
+PRIORITY Critical | Collateral allocation underpins secured financing and clearing operations.
+RELEVANCE Critical | Allocation affects funding access, credit exposure and scarce asset use.
+HARDNESS High | NP-hard for indivisible coverage-assignment variants; Haircuts, concentration and custodian restrictions couple deliveries.
+DEPENDENCIES FIN06, FIN11, FIN15, FIN16, FIN21 → FIN17 → FIN21.
+COMMENTS Simple divisible asset coverage can be LP; lot or movement choices define this ICO scope. | #EXCH #FIN #allocate #adapt #map #select ##BANKING ##collateral ##repo ##haircuts.
+
+FIN18 Integral Obligation Netting.
+DESCRIPTION Selects compatible whole obligations for multilateral offset and chooses offset dates under participant consent, financing and legal netting rules.
+TEMPLATE Consent-based multilateral netting and residual-payment calculation | Whole-obligation subset optimization; integer balance models and cycle or path search.
+REGIME #operate | Converts existing gross obligations into feasible offsets and residual payments.
+STRUCTURE #select + #place | Selects obligations for offset and places permitted offsets on common dates.
+PRIORITY High | Netting recurs in corporate and interconnected payment operations.
+RELEVANCE High | Feasible offsets reduce external cash requirements and payment burden.
+HARDNESS High | Atomic obligation subset optimization; Shared dates, consent and financing limits complicate feasible offsets.
+DEPENDENCIES ∅ → FIN18 → FIN19, FIN20.
+COMMENTS Fixed bilateral subtraction is a calculation; the supplied debt graph does not imply chosen #link structure. | #EXCH #FIN #operate #select #place ##CORPORATE ##multilateral-netting ##atomic-invoices.
+
+FIN19 Invoice Payment Scheduling.
+DESCRIPTION Selects approved invoices and payment dates under cash availability, due dates, discount windows and late-payment penalties.
+TEMPLATE Approved-payables calendar and discount-window management | Time-indexed payment MILP with cash-balance constraints; rolling reoptimization.
+REGIME #plan + #dispatch | Commits payment dates and releases approved instructions as cash becomes available.
+STRUCTURE #place + #select | Places invoice payments in time and selects payments for the available budget.
+PRIORITY High | Payment scheduling recurs in corporate accounts-payable operations.
+RELEVANCE High | Good schedules capture discounts and avoid cash shortfalls or penalties.
+HARDNESS Medium | NP-hard through budgeted discount capture as a knapsack restriction; Bounded departmental models are often manageable with standard MIP.
+DEPENDENCIES FIN06, FIN18 → FIN19 → FIN20.
+COMMENTS This contract creates instructions; actual balance-feasible release belongs to settlement queue optimization. | #EXCH #FIN #plan #dispatch #place #select ##ACCOUNTING ##payment-scheduling ##discount-windows.
+
+FIN20 Payment Settlement Queue Optimization.
+DESCRIPTION Selects queued payments for atomic release under available balances, priorities and liquidity-saving rules.
+TEMPLATE RTGS liquidity-saving queue and priority control | Binary payment-release optimization with account balances; bounded cycle or offset search.
+REGIME #dispatch + #operate | Releases immediate payments from an evolving settlement queue.
+STRUCTURE #select | Chooses the simultaneously releasable payment set.
+PRIORITY Critical | Payment release is central to major settlement infrastructures.
+RELEVANCE Critical | Efficient release reduces gridlock, delay and intraday liquidity needs.
+HARDNESS High | NP-hard for constrained whole-payment subset selection; Shared balances and live priorities couple releases.
+DEPENDENCIES FIN06, FIN18, FIN19 → FIN20 → FIN22.
+COMMENTS Sequence-sensitive release also requires #place; partial-payment LP is a relaxation when full payment is compulsory. | #EXCH #FIN #dispatch #operate #select ##BANKING ##settlement-queue ##gridlock.
+
+FIN21 Securities Settlement Batch Optimization.
+DESCRIPTION Selects and orders linked security deliveries and cash transfers under asset availability, money balances and settlement deadlines.
+TEMPLATE Delivery-versus-payment coordination and fail prevention | Cash-and-security balance optimization with binary atomic transfers or integer lots; LP for divisible settlement.
+REGIME #dispatch + #operate | Releases feasible securities transfers and their linked cash legs.
+STRUCTURE #select + #place | Selects transfers and places them in a balance-feasible execution order.
+PRIORITY High | Recurs in securities settlement and collateral operations.
+RELEVANCE Critical | Good batches reduce failed delivery and liquidity exposure.
+HARDNESS High | NP-hard for indivisible deliveries with a cash budget through knapsack; Cross-security availability and linked legs complicate sequencing.
+DEPENDENCIES FIN09, FIN11, FIN14, FIN17 → FIN21 → FIN17, FIN22.
+COMMENTS Simultaneous atomic batches require #select alone; delivery-versus-payment couples security and cash feasibility. | #EXCH #FIN #dispatch #operate #select #place ##BANKING ##delivery-versus-payment ##atomic-settlement.
+
+FIN22 Transaction Matching and Reconciliation.
+DESCRIPTION Chooses disjoint record matches or groups across ledgers, statements, invoices and settlements under identity, amount, date and tolerance rules.
+TEMPLATE Rule-based reconciliation with exception approval | Weighted bipartite matching for pairs; grouped subset-selection MILP or set packing for aggregated matches.
+REGIME #operate | Confirms correspondence between existing financial records.
+STRUCTURE #map | Assigns records to common match groups under nonreuse and balance requirements.
+PRIORITY Critical | Reconciliation recurs across treasury, accounting and post-trade operations.
+RELEVANCE High | Correct matches reduce unresolved claims, reporting errors and manual effort.
+HARDNESS High | Pairwise bipartite matching is polynomial; Grouped amount matching contains subset sum and disjoint-group selection can be NP-hard.
+DEPENDENCIES FIN20, FIN21 → FIN22 → FIN06, FIN23, FIN24, FIN25.
+COMMENTS A match does not authorize corrective postings; rule-engine order and ambiguity controls affect the operational baseline. | #EXCH #FIN #operate #map ##ACCOUNTING ##reconciliation ##grouped-matching.
+
+FIN23 Receivable Recovery Action Selection.
+DESCRIPTION Selects permitted recovery treatments or repayment-plan offers for delinquent claims under contact, cost and financial policy limits.
+TEMPLATE Treatment segmentation and recovery-policy control | Constrained treatment-assignment MILP or budgeted recovery-action selection.
+REGIME #dispatch + #adapt | Chooses the next financial recovery action and revises treatment as claim status changes.
+STRUCTURE #select + #map | Selects recovery actions and assigns treatments to eligible claims.
+PRIORITY Medium | Recurs in lending and overdue-receivable operations.
+RELEVANCE High | Better treatments can improve recovery and reduce action cost.
+HARDNESS Medium | NP-hard for budgeted treatment choice through multiple-choice knapsack; Recovery estimates and repeated action limits affect practical solutions.
+DEPENDENCIES FIN09, FIN22 → FIN23 → FIN06.
+COMMENTS Collector rostering belongs to HR; patent-backed optimization architecture does not establish a public operational benchmark. | #EXCH #FIN #dispatch #adapt #select #map ##BANKING ##receivables ##collections.
+
+FIN24 Accounting Assurance Procedure Selection.
+DESCRIPTION Selects financial audit tests and control checks to meet assurance requirements under cost and evidence-dependency limits.
+TEMPLATE Financial assertion coverage and reliability-based audit planning | Sequential covering with evidence updates; binary set cover for deterministic tests.
+REGIME #plan | Commits an evidence-producing procedure set before audit execution.
+STRUCTURE #select | Chooses tests and checks that cover required financial assertions.
+PRIORITY Medium | Recurs in financial accounting assurance and control evaluation.
+RELEVANCE High | Good procedures improve assurance for a given test budget.
+HARDNESS Medium | NP-hard for deterministic weighted set-cover variants; Dependent evidence complicates assurance, while bounded test sets can be routine MIP work.
+DEPENDENCIES FIN22 → FIN24 → ∅.
+COMMENTS Audit staff scheduling belongs to HR; adversarial investigation allocation can belong to INTEL. | #EXCH #FIN #plan #select ##ACCOUNTING ##assurance ##assertion-coverage.
+
+FIN25 Financial Network Rescue and Debt-Relief Selection.
+DESCRIPTION Selects institutions or debt obligations for support, guarantees or debt removal under a rescue budget and modeled clearing or default effects.
+TEMPLATE Resolution scenario planning and financial contagion stress analysis | Intervention-selection MILP coupled to a clearing model; network-aware greedy policies and bounds.
+REGIME #adapt | Revises financial commitments under default or systemic stress.
+STRUCTURE #select | Chooses support recipients and obligations for intervention.
+PRIORITY Medium | Recurs in specialized resolution and financial-crisis planning.
+RELEVANCE Critical | Interventions can materially affect systemic solvency and public financing needs.
+HARDNESS Critical | NP-hard for supported network-rescue and default-cost variants; Contagion and equilibrium assumptions can require approximations and scenario analysis.
+DEPENDENCIES FIN22 → FIN25 → FIN03, FIN06.
+COMMENTS Clearing rules and rescue objectives are supplied; no-default-cost continuous injection models can be LP. | #EXCH #FIN #adapt #select ##PUBLICFINANCE ##resolution ##financial-network.
