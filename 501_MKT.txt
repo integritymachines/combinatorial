@@ -1,0 +1,219 @@
+MKT Market and Commercial Allocation
+v0.1 | Problem layer | 2026-10-07
+Normative: 000_DOMAIN.txt v0.4. Evidence: background/501_MKT_research.txt v0.1.
+
+MKT covers discrete commercial choices over ranges, offer menus, prices, exposure, bids, traded rights and market assignments. The set spans offer definition, commercial planning, market allocation and live selling or serving. Physical supply and execution remain in their owning Domains. Financial positions and settlement belong to FIN; physical grid operation to ENER; workforce commitments to HR; clinical allocation to HC; physical land and tenant layouts to LAND; installed digital-resource operation to COMP.
+
+Each card requires a material discrete artifact. Continuous prices, flows, forecasts and control multipliers can supply inputs or accompany it. Templates name defensible established architectures, with distinct applicability conditions. They do not assert a universal performance ranking or public reproducibility of private systems.
+
+Dependencies are conditional industrial or information handoffs. The order places supplied policies before their consumers and bidder participation before auction awards. Three returns update a later planning iteration. Integrated models can co-decide connected Problems. Ratings apply to the stated scope. Cases await human approval.
+
+MKT01 Retail Assortment Selection.
+DESCRIPTION Selects products to offer by store or channel under category, range-size and supplied availability limits while accounting for substitution..
+TEMPLATE Category and range planning | Choice-based MILP or mixed-integer conic optimization; specialized algorithms for tractable choice models.
+REGIME #plan | Commits the commercial range before display, campaigns and live offers.
+STRUCTURE #select | Chooses the product subset offered in each commercial context.
+PRIORITY Critical | Product-range selection defines major retail and digital-commerce systems.
+RELEVANCE Critical | The offered range affects sales, margin and customer substitution across large portfolios.
+HARDNESS High | NP-hard for general constrained mixed-logit variants; Choice heterogeneity and category restrictions couple product selections.
+DEPENDENCIES ∅ → MKT01 → MKT02, MKT03, MKT04, MKT05, MKT06, MKT07, MKT16, MKT17.
+COMMENTS Stock deployment and replenishment belong to SCM. | #EXCH #MKT #plan #select ##RETAIL ##assortment ##choice-model.
+
+MKT02 Commercial Bundle and Offer-Menu Design.
+DESCRIPTION Selects product combinations and offer alternatives, with coupled prices when required, under compatibility, menu-size and customer-choice conditions..
+TEMPLATE Product bundling and commercial menu design | Disjunctive MILP or choice-based MINLP; restricted-menu enumeration.
+REGIME #design | Defines commercial offer composition before prices and offer allocation are committed.
+STRUCTURE #select + #map | Chooses the offer menu and assigns components to its bundles.
+PRIORITY High | Bundle and menu design recurs in subscriptions, travel and multi-product commerce.
+RELEVANCE High | Offer composition changes customer choice and realized margin.
+HARDNESS High | Combinatorial menu design; Candidate bundles grow exponentially and customer-choice conditions couple composition and prices.
+DEPENDENCIES MKT01 → MKT02 → MKT03, MKT07, MKT09, MKT15, MKT16, MKT17.
+COMMENTS Physical product design and assembly remain in PROC or PROD. | #EXCH #MKT #design #select #map ##RETAIL ##TELECOM ##bundling ##menu-design.
+
+MKT03 Discrete Commercial Price Assignment.
+DESCRIPTION Assigns products or supplied offers to permitted price points under price relationships, margin limits and demand interactions..
+TEMPLATE Price-ladder and category-price planning | Finite-price MILP or nonlinear discrete optimization with demand-model evaluation.
+REGIME #plan | Commits posted commercial prices before customers receive offers.
+STRUCTURE #map | Assigns each product or supplied offer to a permitted price point.
+PRIORITY Critical | Price assignment is central to commercial offer systems with discrete ladders.
+RELEVANCE Critical | Coordinated prices affect enterprise revenue and margin.
+HARDNESS High | Finite coupled price assignment; Cross-price effects and price relationships complicate large product portfolios.
+DEPENDENCIES MKT01, MKT02 → MKT03 → MKT05, MKT06, MKT07, MKT09, MKT16, MKT17.
+COMMENTS Continuous price optimization alone does not enter this discrete scope. | #EXCH #MKT #plan #map ##RETAIL ##price-ladder ##cross-price.
+
+MKT04 Retail Planogram and Display-Space Allocation.
+DESCRIPTION Places product facings on retail shelves under product dimensions, display capacities, family adjacency and merchandising rules..
+TEMPLATE Planogram and facing allocation | Shelf-space MIP or MINLP; constraint programming and hybrid decomposition.
+REGIME #plan | Commits the merchandising layout before shelf execution.
+STRUCTURE #place + #map | Positions product facings in shelf space and assigns products to display segments.
+PRIORITY High | Shelf allocation recurs throughout physical retail merchandising.
+RELEVANCE High | Layout affects visibility, sales and use of scarce display space.
+HARDNESS High | NP-hard for knapsack-based shelf-allocation variants; Dimensions, adjacency and demand effects couple many placements.
+DEPENDENCIES MKT01 → MKT04 → ∅.
+COMMENTS Warehouse storage slotting belongs to LOG; replenishment belongs to SCM. | #EXCH #MKT #plan #place #map ##RETAIL ##planogram ##adjacency ##packing.
+
+MKT05 Promotion Calendar and Mechanic Scheduling.
+DESCRIPTION Selects promotional products, price levels and promotion mechanisms and places them in periods under budgets, spacing and demand carryover..
+TEMPLATE Category promotion-calendar planning | Time-indexed IP or MILP; nonlinear demand evaluation and tractable approximations.
+REGIME #plan | Commits future promotional actions and their timing.
+STRUCTURE #place + #select + #map | Places selected promotions in time and assigns permitted promotion options.
+PRIORITY High | Promotional calendars recur in major retail and commercial campaign systems.
+RELEVANCE High | Timing and promotion interactions affect margin and supplier-funded campaign value.
+HARDNESS High | NP-hard for the general promotion model; Carryover, spacing and interacting campaigns increase planning difficulty.
+DEPENDENCIES MKT01, MKT03 → MKT05 → MKT07, MKT08, MKT16.
+COMMENTS Some single-item IP approximations have integral relaxations and admit LP solution. | #EXCH #MKT #plan #place #select #map ##RETAIL ##promotion ##carryover ##schedule.
+
+MKT06 Clearance Markdown Scheduling.
+DESCRIPTION Assigns residual products to permitted markdown prices over a clearance horizon under stock limits, price monotonicity and exit requirements..
+TEMPLATE Clearance and sell-through planning | Discrete-price dynamic programming or multiperiod MILP with demand forecasts.
+REGIME #plan + #adapt | Commits clearance prices and revises them as residual stock changes.
+STRUCTURE #map + #place | Assigns price levels and places markdown actions in the clearance horizon.
+PRIORITY High | Clearance decisions recur in seasonal and perishable retail.
+RELEVANCE High | Better markdowns recover value from residual inventory.
+HARDNESS High | Finite-state price and stock control; Many products, demand uncertainty and coordinated price rules enlarge the state or integer model.
+DEPENDENCIES MKT01, MKT03 → MKT06 → MKT16.
+COMMENTS Terminal clearance is distinct from recurring promotional demand stimulation. | #EXCH #MKT #plan #adapt #map #place ##RETAIL ##markdown ##clearance ##inventory-coupling.
+
+MKT07 Targeted Commercial Offer Allocation.
+DESCRIPTION Assigns customers to eligible product offers, discounts or no offer under campaign budgets, contact limits and response-value estimates..
+TEMPLATE Direct-marketing and personalized-offer allocation | Customer-offer IP or MILP; exact and heuristic allocation methods.
+REGIME #allocate | Assigns campaign opportunities and benefits to customers.
+STRUCTURE #map + #select | Maps customers to offers and selects which customers receive a contact.
+PRIORITY High | Targeted offer allocation recurs in retail, subscriptions and direct marketing.
+RELEVANCE High | Allocation affects incremental return and use of limited campaign budgets.
+HARDNESS High | NP-hard for budgeted indivisible-offer variants through knapsack; Large customer sets and contact restrictions complicate allocation.
+DEPENDENCIES MKT01, MKT02, MKT03, MKT05 → MKT07 → MKT13.
+COMMENTS Response prediction supplies values; it does not itself allocate offers. | #EXCH #MKT #allocate #map #select ##RETAIL ##TELECOM ##targeting ##customer-offer.
+
+MKT08 Advertising Media Purchase Planning.
+DESCRIPTION Selects advertising placements or packages and allocates them across periods under spend limits, audience reach, frequency and brand restrictions..
+TEMPLATE Media mix, reach and frequency planning | Binary or integer media-selection models; multiobjective or stochastic programming.
+REGIME #plan | Commits an advertiser's media purchases before campaigns are served.
+STRUCTURE #select + #place | Chooses media opportunities and places purchased advertisements in campaign periods.
+PRIORITY High | Media purchase planning recurs across major advertising channels.
+RELEVANCE High | Decisions determine campaign coverage and allocation of advertising spend.
+HARDNESS High | NP-hard for budgeted indivisible-placement selection through knapsack; Overlapping audiences and brand constraints couple purchases.
+DEPENDENCIES MKT05 → MKT08 → MKT11, MKT12, MKT13, MKT19.
+COMMENTS Advertiser-side buying differs from publisher-side reservation and detailed commercial scheduling. | #EXCH #MKT #plan #select #place ##ADVERTISING ##media-planning ##reach ##frequency.
+
+MKT09 Revenue Capacity and Booking-Limit Planning.
+DESCRIPTION Allocates integer sales capacity across products or fare classes and sets booking limits under shared-resource consumption and forecast demand..
+TEMPLATE Revenue protection levels, virtual nesting and bid-price planning | Network revenue LP or choice-based LP with discrete policy extraction; dynamic programming approximations.
+REGIME #plan | Commits commercial protection and booking limits before requests arrive.
+STRUCTURE #map | Assigns sellable capacity units or integer booking allowances to commercial classes.
+PRIORITY Critical | Capacity protection defines airline, hospitality and other scarce-service revenue systems.
+RELEVANCE Critical | Allocation governs revenue from perishable service capacity.
+HARDNESS High | Network capacity-control dynamic program; Large state spaces and choice substitution require approximations at industrial scale.
+DEPENDENCIES MKT02, MKT03, MKT16 → MKT09 → MKT16.
+COMMENTS LP shadow prices are policy inputs; a purely continuous LP allocation is outside the discrete contract. | #EXCH #MKT #plan #map ##AIRLINE ##HOSPITALITY ##revenue-management ##booking-limits.
+
+MKT10 Overbooking Limit Planning.
+DESCRIPTION Sets integer reservation limits above physical capacity under product-specific cancellations, no-shows and denied-service costs..
+TEMPLATE Overbooking and denied-service risk planning | Stochastic dynamic programming or randomized network LP with integer-limit extraction and simulation.
+REGIME #plan | Commits authorized oversale limits before reservations are accepted.
+STRUCTURE #map | Assigns integer reservation allowances to products and capacity classes.
+PRIORITY High | Overbooking recurs in travel and reservation-based service markets.
+RELEVANCE High | Limits balance unused capacity against denied-service losses.
+HARDNESS High | Stochastic finite-state reservation control; Product-specific show rates and shared capacities enlarge policy calculations.
+DEPENDENCIES ∅ → MKT10 → MKT16.
+COMMENTS Clinical appointment overbooking belongs to HC when patient conditions define service feasibility. | #EXCH #MKT #plan #map ##AIRLINE ##HOSPITALITY ##overbooking ##no-shows.
+
+MKT11 Guaranteed Advertising Inventory Reservation.
+DESCRIPTION Assigns forecast impression blocks or advertising slots to guaranteed campaigns and spot-sale channels under eligibility, delivery and inventory limits..
+TEMPLATE Guaranteed-versus-spot inventory reservation | Integer or two-stage stochastic allocation; hierarchical column generation for reach patterns; priority-assignment baseline.
+REGIME #plan | Reserves commercial inventory for campaign delivery before impressions or slots are served.
+STRUCTURE #map | Assigns discrete inventory blocks or slots to campaigns and sales channels.
+PRIORITY High | Reservation is central to publishers that combine guaranteed and spot sales.
+RELEVANCE High | Reservations affect contractual delivery and inventory yield.
+HARDNESS High | NP-hard for indivisible generalized-assignment variants; Uncertain inventory and eligibility couple reservations.
+DEPENDENCIES MKT08, MKT18, MKT19 → MKT11 → MKT16, MKT18, MKT19.
+COMMENTS Aggregate fractional impression-flow planning alone does not establish this discrete scope. | #EXCH #MKT #plan #map ##ADVERTISING ##reservation ##guaranteed-delivery ##stochastic.
+
+MKT12 Combinatorial Bid Construction.
+DESCRIPTION Selects offered contracts or rights to include in package bids and chooses admissible bid alternatives under capacity, exposure and expected-profit limits..
+TEMPLATE Package-bid and tender preparation | Stochastic mixed-integer bid construction; exact decomposition and hybrid search.
+REGIME #plan | Commits a bidder's package offers before auction clearing.
+STRUCTURE #select + #map | Selects bid contents and assigns selected contracts or rights to bid packages.
+PRIORITY High | Package-bid construction recurs in transport procurement and rights markets.
+RELEVANCE High | Bid composition affects win exposure and realized contract margin.
+HARDNESS High | Coupled package selection under uncertain acceptance; Many possible bundles and asymmetric outcomes complicate bid preparation.
+DEPENDENCIES MKT08 → MKT12 → MKT14.
+COMMENTS Operational costs and feasibility are supplied by the execution Domain. | #EXCH #MKT #plan #select #map ##PROCUREMENT ##auction ##package-bid ##stochastic.
+
+MKT13 Budget-Constrained Auction Participation.
+DESCRIPTION Selects which arriving advertising auctions to enter under remaining spend, expected value and campaign timing conditions..
+TEMPLATE Advertiser budget throttling and participation control | Online threshold or gradient-based participation policies; stochastic budgeted selection and offline IP baselines.
+REGIME #dispatch + #adapt | Commits auction entry and revises participation as spend and opportunities change.
+STRUCTURE #select | Chooses the auctions in which the advertiser participates.
+PRIORITY High | Discrete participation control recurs in budget-limited advertising buying.
+RELEVANCE High | Participation affects campaign return and budget use.
+HARDNESS High | Online budgeted selection; Future auction values and prices are uncertain, and performance guarantees depend on their arrival model.
+DEPENDENCIES MKT07, MKT08 → MKT13 → MKT14.
+COMMENTS Continuous bid-multiplier tuning alone is outside this participation-selection scope. | #EXCH #MKT #dispatch #adapt #select ##ADVERTISING ##throttling ##budget-control ##online.
+
+MKT14 Combinatorial Auction and Exchange Clearing.
+DESCRIPTION Selects winning package bids under offered quantities, bid-language restrictions and market eligibility rules..
+TEMPLATE Auction winner determination and package-contract award | Set-packing or set-covering IP; branch-and-cut, specialized tree search and decomposition.
+REGIME #allocate | Awards traded goods, service contracts or rights to accepted bids.
+STRUCTURE #select | Chooses the mutually feasible winning bids; package consistency defines accepted allocations.
+PRIORITY Critical | Winner determination defines combinatorial auction and package-exchange systems.
+RELEVANCE Critical | Clearing can allocate large procurement budgets and valuable market rights.
+HARDNESS Critical | NP-hard through weighted set packing; Overlapping packages and market side constraints can require substantial decomposition or search.
+DEPENDENCIES MKT12, MKT13 → MKT14 → MKT18.
+COMMENTS Grid-feasible power commitment and dispatch belong to ENER; settlement and financial positions belong to FIN. | #EXCH #MKT #allocate #select ##PROCUREMENT ##auction ##winner-determination ##set-packing.
+
+MKT15 Marketplace Counterparty and Contract Matching.
+DESCRIPTION Assigns market participants to eligible counterparties or contracts under capacities, preferences and market stability rules when required..
+TEMPLATE Two-sided matching and market assignment | Weighted matching or min-cost flow for additive allocations; deferred acceptance for substitutable preferences; IP for constrained variants.
+REGIME #allocate | Commits counterparties and market contracts.
+STRUCTURE #map | Assigns participants to counterparties or supplied contract opportunities.
+PRIORITY High | Matching recurs in service, trading and platform markets.
+RELEVANCE High | Better matches improve market participation and realized exchange value.
+HARDNESS Medium | Polynomial for classical assignment and stable-matching restrictions; Complex quotas and non-substitutable preferences require richer models and can prevent stable solutions.
+DEPENDENCIES MKT02 → MKT15 → ∅.
+COMMENTS Workforce placement belongs to HR and clinical allocation to HC when those conditions define the decision. | #EXCH #MKT #allocate #map ##MARKETPLACE ##matching ##stability.
+
+MKT16 Dynamic Offer and Commercial Request Acceptance.
+DESCRIPTION Selects offers to make available and accepts or rejects arriving commercial requests under remaining capacity, eligibility and revenue-control policies..
+TEMPLATE Dynamic availability and revenue-based admission control | Stochastic dynamic programming, bid-price controls or choice-based approximate dynamic programming.
+REGIME #dispatch + #adapt | Commits current availability or acceptance and revises it as sales consume capacity.
+STRUCTURE #select | Chooses offered alternatives and accepted requests from the current eligible set.
+PRIORITY Critical | Live availability and acceptance define scarce-capacity selling systems.
+RELEVANCE Critical | Decisions realize revenue while protecting future commercial opportunities.
+HARDNESS High | Dynamic finite-action capacity control; Demand uncertainty and network state growth limit exact policies.
+DEPENDENCIES MKT01, MKT02, MKT03, MKT05, MKT06, MKT09, MKT10, MKT11 → MKT16 → MKT09, MKT17.
+COMMENTS Applying a fixed supplied threshold without optimizing alternatives is policy execution. | #EXCH #MKT #dispatch #adapt #select ##AIRLINE ##HOSPITALITY ##availability ##admission ##rolling-horizon.
+
+MKT17 Commercial Offer Ranking and Display.
+DESCRIPTION Selects commercial offers and positions them in a ranked display under eligibility, diversity and position-dependent customer choice..
+TEMPLATE Commercial display and choice-aware ranking | Position-assignment IP or nonlinear binary optimization; dynamic programming for structured choice models.
+REGIME #operate | Commits the display that presents current commercial opportunities.
+STRUCTURE #place + #select | Orders selected offers in the display; position changes their commercial exposure.
+PRIORITY High | Ranked displays define major digital-commerce and marketplace interfaces.
+RELEVANCE High | Ordering affects customer choice and commercial conversion.
+HARDNESS High | Coupled assortment-position assignment; Position effects and diversity restrictions complicate large candidate displays.
+DEPENDENCIES MKT01, MKT02, MKT03, MKT16 → MKT17 → ∅.
+COMMENTS Learning relevance scores supplies inputs; the constrained commercial ranking is the decision. | #EXCH #MKT #operate #place #select ##MARKETPLACE ##RETAIL ##ranking ##position-effects.
+
+MKT18 Online Advertising Impression and Slot Allocation.
+DESCRIPTION Assigns arriving impressions or advertising slots to eligible campaigns or spot buyers under budgets, delivery obligations and exposure limits..
+TEMPLATE Publisher ad serving and guaranteed-versus-spot yield control | Online budgeted matching, primal-dual allocation and delivery-aware opportunity-cost controls.
+REGIME #dispatch | Commits a campaign or buyer for each current commercial opportunity.
+STRUCTURE #map | Assigns current impressions or slots to campaigns or buyers.
+PRIORITY Critical | Serving allocation defines online advertising markets.
+RELEVANCE Critical | Decisions affect publisher yield and advertiser contract delivery at large scale.
+HARDNESS High | Online budgeted matching; Unknown future arrivals, delivery coupling and latency make policy quality difficult despite simple local assignments.
+DEPENDENCIES MKT11, MKT14 → MKT18 → MKT11.
+COMMENTS Compute-resource scheduling belongs to COMP; commercial impression assignment belongs to MKT. | #EXCH #MKT #dispatch #map ##ADVERTISING ##online-matching ##guaranteed-delivery.
+
+MKT19 Advertising Break and Airtime Scheduling.
+DESCRIPTION Places accepted commercials in broadcast periods, breaks and ordered positions under durations, audience commitments, separation and rotation rules..
+TEMPLATE Commercial traffic and campaign-delivery scheduling | Time-indexed MIP or assignment IP; decomposition and operational scheduling heuristics.
+REGIME #operate + #adapt | Commits detailed commercial airing schedules and repairs them as delivery conditions change.
+STRUCTURE #place + #map | Places commercials in ordered airtime and assigns them to breaks.
+PRIORITY High | Airtime scheduling recurs in broadcast and scheduled-media advertising.
+RELEVANCE High | Schedules determine contract compliance and saleable advertising yield.
+HARDNESS High | Constrained multiperiod integer scheduling; Audience uncertainty, separation and campaign obligations couple placements.
+DEPENDENCIES MKT08, MKT11 → MKT19 → MKT11.
+COMMENTS Make-good placement is a repair variant of this scheduling contract. | #EXCH #MKT #operate #adapt #place #map ##ADVERTISING ##BROADCAST ##schedule ##separation.
+
