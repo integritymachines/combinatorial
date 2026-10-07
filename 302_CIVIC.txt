@@ -1,0 +1,315 @@
+CIVIC Civic Infrastructure and Construction
+v0.1 | Problem layer | 2026-10-07
+Normative: 000_DOMAIN.txt. Evidence: background/302_CIVIC_research.txt v0.1.
+
+CIVIC decides the configuration, access, upkeep and construction execution of shared civic assets and services. The set spans capital commitments, physical design, service allocation, public works, live street coordination and recovery.
+Ownership follows the decision contract. Pure journeys and vehicle duties belong to LOG; standalone workforce decisions to HR; installed utility balance and operating recovery to ENER; basin and land-use allocation to LAND. Public ownership alone does not establish CIVIC.
+Dependencies are conditional decision flow, not a required integrated model. First-pass flow determines sequence; inspection and operational recovery returns remain explicit. Cases require human approval of the Problem set.
+
+CIVIC01 Civic Capital Project Portfolio Selection.
+DESCRIPTION Selects civic construction and expansion projects and their funding periods under budgets, project prerequisites and public-service targets.
+TEMPLATE Public capital programming and phased project appraisal | Project-selection and scheduling MILP; multiobjective portfolio optimization.
+REGIME #plan + #allocate | Prepares the investment program and commits limited capital to physical service projects.
+STRUCTURE #select + #place | Selects projects and places their funding or implementation phases in time.
+PRIORITY High | Capital programs determine which civic assets can be built.
+RELEVANCE Critical | Better programs can change long-lived service reach and capital use.
+HARDNESS High | Project prerequisites, multi-period budgets and competing service goals couple investment choices.
+DEPENDENCIES ∅ → CIVIC01 → CIVIC02, CIVIC03, CIVIC04, CIVIC05.
+COMMENTS Project appraisal scores are inputs; financing instruments remain FIN decisions | #INFRA #CIVIC #plan #allocate #select #place ##capital-programming ##portfolio ##prerequisite.
+
+CIVIC02 Public-Service Facility Network Design.
+DESCRIPTION Selects public-service facilities and discrete capacities and assigns service areas under access, capacity, coverage and investment limits.
+TEMPLATE Public facility location and hierarchical service planning | Capacitated location-allocation MILP; covering and median models.
+REGIME #design | Commits the physical service network before service-area and user allocation.
+STRUCTURE #select + #map | Selects facilities and capacity options and maps service demand to them.
+PRIORITY High | Facility access is central to many civic service networks.
+RELEVANCE Critical | Better networks can change public access and long-lived asset cost.
+HARDNESS Medium | Capacity, access and equity requirements restrict facility choices at large geographic scale.
+DEPENDENCIES CIVIC01 → CIVIC02 → CIVIC06, CIVIC07, CIVIC08.
+COMMENTS Use supplied feasible sites; land-use designation belongs to LAND | #INFRA #CIVIC #design #select #map ##facility-location ##coverage ##hierarchical.
+
+CIVIC03 Shared Road Infrastructure Network Design.
+DESCRIPTION Selects road links and discrete lane or junction improvements under investment, connectivity and network-performance limits.
+TEMPLATE Road network expansion and capacity-improvement appraisal | Discrete network-design bilevel optimization; MIP reformulation and traffic-equilibrium evaluation.
+REGIME #design | Commits shared road connections and physical capacity before traffic operation.
+STRUCTURE #link + #select | Constructs road connections and selects discrete improvement configurations.
+PRIORITY High | Road capacity and connectivity constrain civic movement networks.
+RELEVANCE Critical | Better designs can change congestion and long-lived infrastructure cost.
+HARDNESS Critical | Discrete investments and endogenous traffic redistribution require coupled network evaluation.
+DEPENDENCIES CIVIC01 → CIVIC03 → CIVIC14, CIVIC15, CIVIC23, CIVIC24.
+COMMENTS Traffic assignment evaluates the design; supplied traffic flows do not establish Structure | #INFRA #CIVIC #design #link #select ##road-network ##network-design ##bilevel.
+
+CIVIC04 Civil Structural Configuration and Discrete Sizing.
+DESCRIPTION Selects structural members and standard sections under load, strength, stability, deflection and constructability limits.
+TEMPLATE Civil structural synthesis and catalogue-section design | Discrete sizing and topology MILP/MINLP; structural-response validation.
+REGIME #design | Commits the load-bearing civil structure before construction planning.
+STRUCTURE #link + #map + #select | Chooses member connections, maps retained members to section classes and selects included members.
+PRIORITY Medium | Structural configuration is central to specific building and civil asset designs.
+RELEVANCE High | Better configurations can reduce material use and construction cost.
+HARDNESS High | Member topology, catalogue sections and nonlinear stability checks interact.
+DEPENDENCIES CIVIC01 → CIVIC04 → CIVIC09, CIVIC10.
+COMMENTS For fixed topology, section assignment is primary #map; topology choice is not mandatory | #INFRA #CIVIC #design #link #map #select ##structural-design ##truss ##discrete-sizing.
+
+CIVIC05 Urban Stormwater Control Retrofit Selection.
+DESCRIPTION Selects urban runoff-control installations and assigns discrete technology or size options to feasible sites under runoff, pollutant and budget targets.
+TEMPLATE Municipal green and grey runoff-control retrofit planning | Discrete site-technology optimization with SWMM/SUSTAIN simulation; multiobjective evolutionary search.
+REGIME #design | Commits municipal runoff-control assets before their installation.
+STRUCTURE #select + #map | Selects installation sites and maps each installation to a permitted technology or discrete size.
+PRIORITY Medium | Runoff retrofits recur in urban drainage improvement programs.
+RELEVANCE High | Better installations can reduce local flooding, overflow and pollutant burdens.
+HARDNESS High | Rainfall scenarios, distributed installations and nonlinear runoff response require simulation.
+DEPENDENCIES CIVIC01 → CIVIC05 → CIVIC16.
+COMMENTS Admit discrete installation choices; basin allocation and continuous sizing alone remain outside this card | #INFRA #CIVIC #design #select #map ##stormwater ##green-infrastructure ##simulation-optimization.
+
+CIVIC06 Parking Facility Layout Design.
+DESCRIPTION Places parking bays and driving aisles within a supplied site under geometry, access and vehicle-clearance limits.
+TEMPLATE Parking geometry and aisle-access design | Grid-based geometric layout MIP; spatial search and access validation.
+REGIME #design | Commits the physical parking arrangement before space allocation.
+STRUCTURE #place | Positions bays and aisles; geometric clearance and reachability constrain the layout.
+PRIORITY Medium | Parking layouts recur in civic and shared-access facilities.
+RELEVANCE High | Better layouts can increase usable parking capacity on constrained sites.
+HARDNESS High | Fine spatial resolution, clearances and aisle reachability enlarge layout search.
+DEPENDENCIES CIVIC02 → CIVIC06 → CIVIC22.
+COMMENTS Add #link only when a separate access-connection artifact is chosen; reachability alone does not establish it | #INFRA #CIVIC #design #place ##parking-layout ##geometry ##reachability.
+
+CIVIC07 Public-Service District Design.
+DESCRIPTION Groups geographic demand units into service districts under coverage, workload, continuity and access requirements.
+TEMPLATE Municipal service districting and school attendance-zone design | Connected partitioning MILP; GIS-supported district search and composite school-stream assignment.
+REGIME #design + #plan | Commits recurring civic-service territories or revises their future service organization.
+STRUCTURE #map | Maps geographic units to districts; continuity and service balance constrain the partition.
+PRIORITY High | Service territories organize municipal and education networks.
+RELEVANCE High | Better districts can improve access and recurring service balance.
+HARDNESS High | Geographic continuity, multiple service stages and balance goals couple district assignments.
+DEPENDENCIES CIVIC02 → CIVIC07 → CIVIC08, CIVIC19.
+COMMENTS Geographic adjacency is supplied; the solver constructs district membership | #INFRA #CIVIC #design #plan #map ##districting ##partition ##connectivity.
+
+CIVIC08 Public-Service User-to-Facility Assignment.
+DESCRIPTION Assigns eligible users or indivisible user groups to installed public-service facilities under capacity, access and service-consistency limits.
+TEMPLATE School enrollment allocation and public-service access assignment | Capacitated assignment MILP; network flow for uncoupled divisible subcases.
+REGIME #allocate | Commits available public-service capacity to eligible users.
+STRUCTURE #map | Maps users or groups to facilities under capacity and eligibility rules.
+PRIORITY Medium | User assignment recurs in capacity-constrained civic service systems.
+RELEVANCE High | Better assignments can improve access and reduce capacity imbalance.
+HARDNESS Medium | Group indivisibility and coupled access rules make large assignments harder than simple flow.
+DEPENDENCIES CIVIC02, CIVIC07 → CIVIC08 → ∅.
+COMMENTS Attendance-zone design fixes geographic membership; this card assigns users within permitted access rules | #INFRA #CIVIC #allocate #map ##EDUCATION ##assignment ##capacity.
+
+CIVIC09 Construction Execution-Mode and Time-Cost Selection.
+DESCRIPTION Chooses discrete execution methods and duration-cost options for construction activities under project deadlines, budgets and resource limits.
+TEMPLATE Construction method planning and discrete project crashing | Multi-mode project and discrete time-cost tradeoff MILP/CP; Pareto search.
+REGIME #plan | Commits activity execution modes before detailed site execution.
+STRUCTURE #map | Maps each activity to a permitted execution mode or duration-cost option.
+PRIORITY High | Execution-method choices constrain construction cost and completion.
+RELEVANCE High | Better modes can reduce deadline costs and resource overload.
+HARDNESS High | Strongly NP-hard for the general discrete time-cost tradeoff problem; Mode combinations, precedence and limited resources couple cost and completion.
+DEPENDENCIES CIVIC04 → CIVIC09 → CIVIC11, CIVIC16, CIVIC17, CIVIC10.
+COMMENTS Detailed activity timing belongs to project scheduling; combined mode-and-time models retain #place | #INFRA #CIVIC #plan #map ##CONSTRUCTION ##multi-mode ##time-cost-tradeoff.
+
+CIVIC10 Formwork Panel Configuration and Reuse Planning.
+DESCRIPTION Selects reusable formwork panels and corner options and assigns configurations to wall segments and work zones under supplied geometry, reuse and assembly limits.
+TEMPLATE Catalogue formwork engineering and zone-by-zone reuse planning | Panel-set and wall-configuration MILP; BIM-supported layout search.
+REGIME #plan | Commits the reusable formwork set and zone configurations before concrete construction.
+STRUCTURE #map + #select | Maps panel and corner configurations to wall segments and zones and selects the reusable panel set.
+PRIORITY Medium | Formwork configuration is a recurring decision in cast-in-place construction.
+RELEVANCE High | Better configurations can reduce formwork cost and repeated assembly losses.
+HARDNESS Medium | Wall geometries, corner alternatives and reuse across zones couple catalogue choices.
+DEPENDENCIES CIVIC04, CIVIC09 → CIVIC10 → CIVIC11, CIVIC16, CIVIC17.
+COMMENTS Add #place only when panel joint positions or zone timing are chosen; supplied wall geometry and zone order do not establish it | #INFRA #CIVIC #plan #map #select ##CONSTRUCTION ##formwork ##reuse.
+
+CIVIC11 Construction Site Layout and Temporary Facility Configuration.
+DESCRIPTION Selects temporary facilities and equipment and places them through construction stages under space, access, reach and relocation limits.
+TEMPLATE Construction site layout and stage-dependent temporary works planning | Dynamic spatial layout MILP; crane-location and storage-area search.
+REGIME #design + #plan | Configures the temporary site system and commits its stage layouts.
+STRUCTURE #place + #select | Positions temporary facilities and equipment and selects installed configurations.
+PRIORITY High | Site configuration constrains construction access and equipment use.
+RELEVANCE High | Better layouts can reduce handling losses and costly relocations.
+HARDNESS High | Changing work fronts, crane reach and relocation commitments couple stage layouts.
+DEPENDENCIES CIVIC09, CIVIC10 → CIVIC11 → CIVIC16, CIVIC18, CIVIC26.
+COMMENTS Lift assignment and sequence use the installed layout as input | #INFRA #CIVIC #design #plan #place #select ##CONSTRUCTION ##site-layout ##temporary-facilities.
+
+CIVIC12 Civic Asset Inspection Selection and Scheduling.
+DESCRIPTION Selects condition-assessment tasks and their times under risk, access, inspection budgets and service-availability limits.
+TEMPLATE Risk-based civic asset inspection and value-of-information planning | Inspection-portfolio optimization; belief-state or risk-based scheduling and MIP.
+REGIME #plan | Commits condition-assessment work before maintenance decisions.
+STRUCTURE #select + #place | Selects asset inspections and places them in permitted time windows.
+PRIORITY High | Condition information supports civic asset intervention programs.
+RELEVANCE High | Better inspections can reduce hidden failure risk and unnecessary intervention.
+HARDNESS High | Uncertain deterioration, inspection value and restricted access couple task selection and timing.
+DEPENDENCIES CIVIC13 → CIVIC12 → CIVIC13.
+COMMENTS Condition prediction is an input model; it does not replace inspection-task choice | #INFRA #CIVIC #plan #select #place ##inspection ##condition-assessment ##value-of-information.
+
+CIVIC13 Civic Asset Maintenance and Rehabilitation Programming.
+DESCRIPTION Selects maintenance, renewal and replacement treatments and their periods under asset condition, deterioration, budget and service targets.
+TEMPLATE Life-cycle asset management and condition-based intervention programming | Asset-period treatment MILP; Markov deterioration models and multiobjective network optimization.
+REGIME #plan + #allocate | Prepares intervention programs and commits limited treatment budgets.
+STRUCTURE #select + #map + #place | Selects treated assets, maps them to treatment options and places interventions in planning periods.
+PRIORITY Critical | Maintenance and renewal sustain the shared civic asset base.
+RELEVANCE Critical | Better interventions can avoid large life-cycle costs and service failures.
+HARDNESS High | Deterioration, treatment effects and network-wide budget tradeoffs couple asset decisions.
+DEPENDENCIES CIVIC12 → CIVIC13 → CIVIC14, CIVIC12, CIVIC27, CIVIC20.
+COMMENTS Network treatment programming precedes detailed access-window and work scheduling | #INFRA #CIVIC #plan #allocate #select #map #place ##asset-management ##rehabilitation ##deterioration.
+
+CIVIC14 Shared Infrastructure Work-Window Coordination.
+DESCRIPTION Places approved works into shared infrastructure access windows under closure compatibility, service continuity and work-resource limits.
+TEMPLATE Road closure, rail possession and multi-utility intervention coordination | Work-window MILP; bilevel traffic-impact models and pattern-based branch-and-price.
+REGIME #plan | Commits asset access and closure windows before physical work.
+STRUCTURE #place | Places work possessions and closure intervals in time under network-service limits.
+PRIORITY High | Shared civic assets require coordinated maintenance and construction access.
+RELEVANCE Critical | Better windows can reduce network-wide disruption and repeated closures.
+HARDNESS High | Concurrent closures, traffic redistribution and cross-asset intervention savings couple calendars.
+DEPENDENCIES CIVIC03, CIVIC13, CIVIC27 → CIVIC14 → CIVIC15, CIVIC16, CIVIC17, CIVIC20.
+COMMENTS Closed assets constrain LOG movements and ENER service operation through domain interfaces | #INFRA #CIVIC #plan #place ##possession ##closure-coordination ##interdependent.
+
+CIVIC15 Work-Zone Configuration and Construction Traffic Staging.
+DESCRIPTION Chooses lane-closure, temporary-access and work-zone stage configurations and their sequence under work access, traffic capacity and clearance limits.
+TEMPLATE Transportation management planning and maintenance-of-traffic staging | Stage-selection and scheduling MIP; traffic simulation and bilevel configuration evaluation.
+REGIME #plan | Commits the work-zone access arrangement and construction traffic stages.
+STRUCTURE #map + #place | Maps work stages to permitted closure and access configurations and places the stages in sequence.
+PRIORITY High | Road and corridor works need feasible work-zone staging.
+RELEVANCE High | Better stages can reduce user delay and construction access losses.
+HARDNESS High | Stage prerequisites, traffic response and changing work access restrict configuration choices.
+DEPENDENCIES CIVIC03, CIVIC14 → CIVIC15 → CIVIC23, CIVIC24, CIVIC16.
+COMMENTS The work-window calendar fixes permitted dates; staging determines the arrangement within those windows | #INFRA #CIVIC #plan #map #place ##work-zone ##staging ##temporary-access.
+
+CIVIC16 Resource-Constrained Construction Project Scheduling.
+DESCRIPTION Places construction activities in time under precedence, activity modes, equipment, crew-capacity and completion limits.
+TEMPLATE Critical-path planning with resource-feasible site scheduling | RCPSP/MRCPSP MILP or CP; schedule-generation and neighborhood search.
+REGIME #plan | Commits the activity calendar before construction execution.
+STRUCTURE #place | Places activity intervals in time; precedence and renewable-resource capacity constrain the calendar.
+PRIORITY Critical | Resource-feasible project schedules define construction execution.
+RELEVANCE Critical | Better schedules can change completion time and major project cost.
+HARDNESS High | Precedence, scarce resources and multiple execution modes restrict activity timing.
+DEPENDENCIES CIVIC05, CIVIC09, CIVIC10, CIVIC14, CIVIC11, CIVIC15, CIVIC28 → CIVIC16 → CIVIC17, CIVIC18, CIVIC26, CIVIC28.
+COMMENTS Supplied activity precedence does not create #link; add #map only when resource identities or modes are chosen | #INFRA #CIVIC #plan #place ##CONSTRUCTION ##rcpsp ##precedence.
+
+CIVIC17 Repetitive Construction Work-Front Scheduling.
+DESCRIPTION Places repeated construction operations across locations and time under work-front precedence, continuity, access and production-rate limits.
+TEMPLATE Line-of-balance and location-based construction planning | Time-location scheduling MILP; resource-feasible work-front search.
+REGIME #plan | Commits location-by-location work progress before execution.
+STRUCTURE #place + #map | Places operations in location-time space and maps operations to work fronts or production teams.
+PRIORITY Medium | Repeated location work defines major linear and multistory construction modes.
+RELEVANCE High | Better progress plans can reduce work-front interference and idle capacity.
+HARDNESS High | Location precedence, crew continuity and variable production rates couple repeated operations.
+DEPENDENCIES CIVIC09, CIVIC10, CIVIC14, CIVIC16, CIVIC28 → CIVIC17 → CIVIC18, CIVIC26, CIVIC28.
+COMMENTS The location progression makes this decision distinct from a generic project calendar | #INFRA #CIVIC #plan #place #map ##CONSTRUCTION ##line-of-balance ##work-front.
+
+CIVIC18 Construction Workspace Allocation and Occupancy Scheduling.
+DESCRIPTION Assigns construction tasks to temporary work areas and places their occupancy intervals under space interference, access and activity limits.
+TEMPLATE 4D BIM workspace planning and workface coordination | Space-resource assignment and scheduling MIP; conflict detection and schedule repair.
+REGIME #plan + #operate | Prepares work-area commitments and coordinates active workface occupancy.
+STRUCTURE #map + #place | Maps tasks to work areas and places occupancy intervals in time under spatial exclusion.
+PRIORITY Medium | Dense sites need explicit workspace coordination.
+RELEVANCE High | Better occupancy plans can reduce interference and work stoppages.
+HARDNESS High | Evolving geometry and simultaneous task spaces couple activity and occupancy choices.
+DEPENDENCIES CIVIC11, CIVIC16, CIVIC17, CIVIC28 → CIVIC18 → CIVIC26, CIVIC28.
+COMMENTS Conflict detection alone is analysis; admit a problem only when occupancy assignments or times are chosen | #INFRA #CIVIC #plan #operate #map #place ##CONSTRUCTION ##workspace ##nonoverlap.
+
+CIVIC19 Municipal Street-Service Calendar Design.
+DESCRIPTION Assigns service areas to recurring service days and permitted frequency patterns under service standards, workload and holiday limits.
+TEMPLATE Municipal collection and recurring street-service calendar planning | Area-day pattern MILP; workload balancing and calendar substitution.
+REGIME #plan | Commits recurring civic-service dates before route execution.
+STRUCTURE #map + #place | Maps service areas to frequency patterns and places recurring service dates.
+PRIORITY Medium | Municipal collection and recurring street services need stable service calendars.
+RELEVANCE High | Better calendars can balance service workload and avoid missed service dates.
+HARDNESS Medium | Frequency rules, holidays and shared daily capacity couple area-day assignments.
+DEPENDENCIES CIVIC07 → CIVIC19 → ∅.
+COMMENTS Daily journeys use this calendar as input and belong to LOG | #INFRA #CIVIC #plan #map #place ##municipal-service ##periodic ##calendar.
+
+CIVIC20 Civic Maintenance Work-Package Scheduling.
+DESCRIPTION Groups approved civic asset maintenance tasks and places their execution intervals under task frequency, asset access, resource capacity and service-interruption limits.
+TEMPLATE Asset maintenance work packaging and short-term execution planning | Task-clustering and scheduling ILP/MILP; resource-feasible calendar search.
+REGIME #plan + #operate | Commits near-term maintenance work and coordinates ongoing asset access.
+STRUCTURE #map + #place | Maps tasks to compatible work packages and places package execution intervals in time.
+PRIORITY High | Approved asset treatments need feasible short-term execution.
+RELEVANCE High | Better packages can reduce repeated service interruption and maintenance backlog.
+HARDNESS Medium | Frequency windows, task clustering and concurrent resource demand restrict execution calendars.
+DEPENDENCIES CIVIC13, CIVIC14 → CIVIC20 → CIVIC27.
+COMMENTS Treatment programming chooses the intervention; this card commits its physical execution packages | #INFRA #CIVIC #plan #operate #map #place ##maintenance ##work-packaging ##service-interruption.
+
+CIVIC21 Curb-Space Function and Time Allocation.
+DESCRIPTION Assigns curb segments to parking, loading, pickup, transit or other permitted uses over time under access, continuity and change limits.
+TEMPLATE Municipal curb management and time-dependent curb zoning | Dynamic curb-zoning MIP; Dantzig-Wolfe decomposition and approximate dynamic programming.
+REGIME #allocate + #plan | Commits scarce curb capacity to permitted uses and prepares their time pattern.
+STRUCTURE #map + #place | Maps curb segments to use classes and places use intervals in time.
+PRIORITY Medium | Mixed-use streets require coordinated curb functions.
+RELEVANCE High | Better allocations can reduce blocked traffic and incompatible curb use.
+HARDNESS High | Spatial coverage, repeated use changes and time-varying demand couple many curb segments.
+DEPENDENCIES ∅ → CIVIC21 → CIVIC22, CIVIC23.
+COMMENTS Digital curb data are inputs; pricing and rights auctions remain MKT decisions | #INFRA #CIVIC #allocate #plan #map #place ##curb-management ##zoning ##time-dependent.
+
+CIVIC22 Parking and Loading Space Reservation Allocation.
+DESCRIPTION Selects service requests and assigns them to compatible spaces and occupancy intervals under availability, access and duration limits.
+TEMPLATE Shared parking and loading-space reservation management | Interval space-assignment MILP; online reservation and rolling repair.
+REGIME #allocate + #dispatch | Commits available spaces and issues immediate occupancy permissions.
+STRUCTURE #map + #place + #select | Maps accepted requests to spaces, places occupancy intervals and selects requests when capacity is insufficient.
+PRIORITY Medium | Reservation allocation recurs in constrained parking and loading facilities.
+RELEVANCE Medium | Better assignments can improve local utilization and reduce waiting or obstruction.
+HARDNESS Medium | Overlapping durations, uncertain arrivals and space compatibility couple reservation choices.
+DEPENDENCIES CIVIC06, CIVIC21 → CIVIC22 → ∅.
+COMMENTS Revenue is an objective option; ownership follows the physical space-service contract | #INFRA #CIVIC #allocate #dispatch #map #place #select ##parking ##reservation ##interval-assignment.
+
+CIVIC23 Traffic Signal Phase-Plan Design and Coordination.
+DESCRIPTION Chooses signal phase orders and places green intervals and corridor offsets under movement conflicts, clearance, pedestrian and coordination limits.
+TEMPLATE Traffic-engineering phase planning and corridor signal coordination | Phase-order and time-expanded MILP; traffic simulation and coordinated plan optimization.
+REGIME #plan | Commits the phase program and corridor coordination before live activation.
+STRUCTURE #place | Places phase intervals, phase order and corridor offsets in time under clearance and synchronization laws.
+PRIORITY High | Signal plans govern shared access at urban intersections.
+RELEVANCE High | Better plans can reduce recurring queues and network delay.
+HARDNESS High | Conflicting movements, clearance intervals and corridor queue propagation couple signal choices.
+DEPENDENCIES CIVIC03, CIVIC15, CIVIC21 → CIVIC23 → CIVIC25.
+COMMENTS The conflict graph is supplied; phase order is temporal placement and does not require a separate #link | #INFRA #CIVIC #plan #place ##traffic-signal ##phase-order ##synchronization.
+
+CIVIC24 Road Lane Direction and Use Configuration.
+DESCRIPTION Assigns installed lanes to travel directions or permitted movement classes and places changeovers under clearance, access and traffic-capacity limits.
+TEMPLATE Reversible-lane and lane-use management | Mixed-integer bilevel lane assignment; traffic-flow evaluation and configuration search.
+REGIME #allocate + #operate | Commits shared lane capacity to directional uses during road operation.
+STRUCTURE #map + #place | Maps lanes to directional or movement roles and places permitted changeover events in time.
+PRIORITY Medium | Directional imbalance motivates lane configuration in selected corridors.
+RELEVANCE High | Better configurations can increase usable capacity within existing road space.
+HARDNESS High | Traffic redistribution, junction movements and changeover clearance couple lane roles.
+DEPENDENCIES CIVIC03, CIVIC15 → CIVIC24 → CIVIC25.
+COMMENTS Direction is a lane role; add #link only if the contract also chooses active road connections | #INFRA #CIVIC #allocate #operate #map #place ##reversible-lane ##lane-use ##changeover.
+
+CIVIC25 Adaptive Traffic Signal Phase Activation.
+DESCRIPTION Selects immediate signal phases and their service intervals from observed traffic under movement conflicts, pedestrian service and clearance limits.
+TEMPLATE Actuated and adaptive traffic signal control | Max-pressure phase selection; constrained rolling MILP or model predictive control.
+REGIME #dispatch + #operate | Authorizes short-cycle junction access from live traffic state.
+STRUCTURE #select + #place | Selects permitted phases and places their immediate service intervals in time.
+PRIORITY High | Live phase control coordinates changing urban intersection demand.
+RELEVANCE High | Better activation can reduce spillback and preserve network throughput.
+HARDNESS High | Short response times, downstream queues and required service constrain immediate phase choice.
+DEPENDENCIES CIVIC23, CIVIC24 → CIVIC25 → ∅.
+COMMENTS Max-pressure and constrained rolling optimization are material alternatives; deployment objectives differ | #INFRA #CIVIC #dispatch #operate #select #place ##traffic-signal ##max-pressure #realtime #online #closedloop.
+
+CIVIC26 Construction Lift Assignment and Crane Scheduling.
+DESCRIPTION Assigns construction lifts to installed cranes and places lift sequences under reach, precedence, load and shared-swing-area limits.
+TEMPLATE Construction lift planning and overlapping-crane coordination | Crane-task assignment and sequencing MILP; tabu or neighborhood search with 4D validation.
+REGIME #plan + #dispatch | Prepares lift duties and authorizes immediate construction lifting work.
+STRUCTURE #place + #map | Places lifts in time or order and maps them to compatible cranes.
+PRIORITY Medium | Shared-crane coordination is central to lifting-intensive construction.
+RELEVANCE High | Better schedules can reduce crane interference and delayed installation.
+HARDNESS High | Crane-dependent handling times, installation precedence and overlapping work areas interact.
+DEPENDENCIES CIVIC11, CIVIC16, CIVIC17, CIVIC18, CIVIC28 → CIVIC26 → CIVIC28.
+COMMENTS The installed crane layout is an input; task order is temporal #place, not automatically #link | #INFRA #CIVIC #plan #dispatch #place #map ##CONSTRUCTION ##crane-scheduling ##collision-avoidance.
+
+CIVIC27 Civic Infrastructure Physical Repair and Recovery Scheduling.
+DESCRIPTION Selects damaged assets for repair and schedules repair work under access, resource and cross-network service-recovery limits.
+TEMPLATE Interdependent infrastructure physical restoration planning | Integrated repair-selection and scheduling MILP; decomposition and network-service evaluation.
+REGIME #adapt + #dispatch | Revises interrupted civic service and commits urgent physical repair work.
+STRUCTURE #select + #place + #map | Selects repairs, places repair work in time and maps tasks to available repair resources.
+PRIORITY High | Physical recovery is a recurring obligation after civic asset failures.
+RELEVANCE Critical | Better repairs can shorten widespread loss of essential infrastructure service.
+HARDNESS Critical | Damaged access, coupled infrastructure services and uncertain repair durations require coordinated recovery.
+DEPENDENCIES CIVIC13, CIVIC20 → CIVIC27 → CIVIC14.
+COMMENTS Network edges become usable after repair; do not infer #link when repair choices alone determine availability | #INFRA #CIVIC #adapt #dispatch #select #place #map ##physical-repair ##interdependent ##restoration.
+
+CIVIC28 Construction Schedule Disruption Recovery.
+DESCRIPTION Revises committed construction activity times, execution modes and resource assignments after disruption under completed-work, frozen-commitment and recovery limits.
+TEMPLATE Reactive project control and constrained schedule repair | Reactive RCPSP/MRCPSP MILP/CP; event-based repair and neighborhood search.
+REGIME #adapt | Revises the issued construction schedule after material change.
+STRUCTURE #place + #map | Repositions unfinished activities in time and reassigns permitted modes or resources.
+PRIORITY High | Construction execution requires recurring schedule updates after disruption.
+RELEVANCE High | Better repairs can limit completion delay and unnecessary commitment changes.
+HARDNESS High | Frozen work, resource failures and limited recovery windows restrict feasible schedule changes.
+DEPENDENCIES CIVIC16, CIVIC17, CIVIC18, CIVIC26 → CIVIC28 → CIVIC16, CIVIC17, CIVIC18, CIVIC26.
+COMMENTS Repeated rolling planning is #plan until a material change revises an issued commitment | #INFRA #CIVIC #adapt #place #map ##CONSTRUCTION ##reactive-scheduling ##stability.
