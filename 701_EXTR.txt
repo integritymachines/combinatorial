@@ -1,0 +1,259 @@
+EXTR Resource Extraction Systems
+v0.1 | Problem layer | 2026-10-07
+
+EXTR covers discrete decisions defined by prospecting, extraction, depletion, wells and resource blocks. It spans mining, quarrying, oil and gas, and groundwater extraction. Land rights, standalone transport, process recipes and installed utility operation retain their own Primary Domains.
+
+The sequence follows initial commitments from exploration and resource design to extraction plans, material allocation and well operation. Dependencies are applicable industrial or information handoffs; not every deployment uses every linked Problem. Feedback and joint-design couplings remain in background/701_EXTR_research.txt. Templates describe established model families, not a universal method ranking.
+
+EXTR01 Exploration Prospect Portfolio Selection.
+DESCRIPTION Selects resource prospects for exploration under exploration budgets, geological dependence and access limits.
+TEMPLATE Risked prospect evaluation and exploration portfolio planning | Binary stochastic or multiobjective portfolio optimization.
+REGIME #plan | Commits exploration effort across prospects before appraisal work.
+STRUCTURE #select | Chooses prospects from a supplied opportunity set.
+PRIORITY High | Prospect choice initiates major mineral and petroleum development programmes.
+RELEVANCE Critical | Choices determine discovery exposure and the use of exploration capital.
+HARDNESS High | Budgeted subset variants are NP-hard; correlated geological outcomes and staged information complicate portfolio evaluation.
+DEPENDENCIES ∅ → EXTR01 → EXTR02.
+COMMENTS Physical exploration commitments define this scope; financial holdings and licence auctions belong to FIN and MKT. | #RES #EXTR #plan #select ##MINING ##OILGAS ##prospect-selection ##geological-uncertainty.
+
+EXTR02 Resource Appraisal Sampling Design.
+DESCRIPTION Selects appraisal and infill sampling locations under drilling budgets, access conditions and required resource-information quality.
+TEMPLATE Geostatistical sampling design and value-of-information analysis | Discrete simulation-optimization or mixed-integer chance-constrained optimization.
+REGIME #plan | Commits information-gathering locations before extraction decisions.
+STRUCTURE #select | Chooses sampling locations or drilling patterns from feasible candidates.
+PRIORITY High | Resource characterization supports mine and well development.
+RELEVANCE High | Better sampling reduces costly extraction and classification errors.
+HARDNESS High | No general complexity claim; spatial uncertainty and downstream decision evaluation make repeated selection expensive.
+DEPENDENCIES EXTR01 → EXTR02 → EXTR03, EXTR04, EXTR06, EXTR08, EXTR09, EXTR10, EXTR11, EXTR17.
+COMMENTS Sampling for resource discovery and extraction remains EXTR; generic sensor-network operation belongs to COMP. | #RES #EXTR #plan #select ##MINING ##OILGAS ##WATER ##value-of-information ##sampling.
+
+EXTR03 Mining Method and Surface-to-Underground Transition Selection.
+DESCRIPTION Selects surface or underground extraction alternatives and their transition boundary under resource overlap, crown-pillar and access conditions.
+TEMPLATE Strategic mining-option and transition analysis | Coupled mine-design integer programming and optimization-based heuristics.
+REGIME #design | Commits extraction methods and the boundary between them.
+STRUCTURE #select + #map | Chooses extraction alternatives and assigns resource zones to the selected methods.
+PRIORITY Medium | Essential when surface and underground options compete for the same deposit.
+RELEVANCE Critical | A poor transition can sterilize reserves or destroy project value.
+HARDNESS High | No general complexity claim; competing geometries and shared reserves couple two mine designs.
+DEPENDENCIES EXTR02 → EXTR03 → EXTR04, EXTR06.
+COMMENTS Transition timing is a scheduling variant coupled to the selected method boundary. | #RES #EXTR #design #select #map ##MINING ##crown-pillar ##mutually-exclusive.
+
+EXTR04 Ultimate Pit Limit Selection.
+DESCRIPTION Selects the ultimate set of mineable blocks under slope precedences and block economic values.
+TEMPLATE Ultimate pit optimization | Maximum-weight closure by minimum cut or equivalent graph algorithms.
+REGIME #design | Defines the surface extraction envelope before phase and production planning.
+STRUCTURE #select | Chooses blocks while respecting supplied slope-precedence relations.
+PRIORITY High | Pit limits are foundational in open-pit mine planning.
+RELEVANCE Critical | The extraction envelope sets recoverable value and waste exposure.
+HARDNESS Low | The classical maximum-closure model is polynomial; mature graph algorithms handle large block sets, while added constraints can change difficulty.
+DEPENDENCIES EXTR02, EXTR03 → EXTR04 → EXTR05.
+COMMENTS The classical scope excludes production-period capacities and practical pushback widths. | #RES #EXTR #design #select ##MINING ##QUARRYING ##maximum-closure ##precedence.
+
+EXTR05 Open-Pit Pushback Design.
+DESCRIPTION Groups pit blocks into ordered extraction phases under slope, connectivity and minimum mining-width requirements.
+TEMPLATE Practical pushback and phase design | Integer optimization or geometry-aware search over candidate phases.
+REGIME #design | Defines workable extraction phases before production scheduling.
+STRUCTURE #map + #place | Assigns blocks to phases and orders the phases within the pit.
+PRIORITY High | Practical phase geometry connects pit economics to executable mine plans.
+RELEVANCE Critical | Phase design governs stripping exposure and access to valuable ore.
+HARDNESS High | No general complexity claim; spatial width, contiguity and phase interactions require tailored search.
+DEPENDENCIES EXTR04 → EXTR05 → EXTR12.
+COMMENTS Nested economic shells are candidate inputs; operational pushbacks must also satisfy mining geometry. | #RES #EXTR #design #map #place ##MINING ##QUARRYING ##pushback ##connectivity.
+
+EXTR06 Underground Stope Layout Selection.
+DESCRIPTION Selects non-overlapping stopes and retained pillars under ore geometry, dilution and geotechnical limits.
+TEMPLATE Stope boundary and layout optimization | Binary integer programming, candidate-shape selection and tailored heuristics.
+REGIME #design | Commits extraction units and retained support before underground schedules.
+STRUCTURE #select | Chooses feasible stope shapes from a generated candidate set.
+PRIORITY High | Stope layouts define recoverable units in major underground mining methods.
+RELEVANCE Critical | Layout choices determine recovery, dilution and retained support.
+HARDNESS High | No general complexity claim; many conflicting shapes and spatial support rules require specialized models.
+DEPENDENCIES EXTR02, EXTR03 → EXTR06 → EXTR07, EXTR13.
+COMMENTS Candidate generation supplies shapes; the selection contract does not construct access links. | #RES #EXTR #design #select ##MINING ##stope-layout ##non-overlap.
+
+EXTR07 Underground Mine Access Network Design.
+DESCRIPTION Selects and connects shafts, declines and development drives to extraction zones under gradient, access and development-cost limits.
+TEMPLATE Underground access and decline network design | Constrained network optimization and geometric search.
+REGIME #design | Commits underground access topology before development and extraction.
+STRUCTURE #link + #select | Constructs access connections and selects participating development segments.
+PRIORITY High | Access networks enable underground extraction and constrain its cost.
+RELEVANCE Critical | Network choices determine development expenditure and mine accessibility.
+HARDNESS High | No general complexity claim; topology, three-dimensional geometry and extraction value interact.
+DEPENDENCIES EXTR06 → EXTR07 → EXTR13, EXTR14.
+COMMENTS Mine-access design is EXTR; generic civil construction scheduling belongs to CIVIC. | #RES #EXTR #design #link #select ##MINING ##network-design ##gradient.
+
+EXTR08 Oil and Gas Field Development Configuration.
+DESCRIPTION Selects reservoirs and production facilities and assigns wells to facilities under development budgets, shared capacities and reservoir deliverability.
+TEMPLATE Field development and gathering-system configuration | Multiperiod MILP or MINLP with reservoir-response models.
+REGIME #design | Commits field infrastructure and resource activation options before detailed drilling.
+STRUCTURE #select + #map | Chooses development assets and assigns wells to production facilities.
+PRIORITY High | Field configuration governs major upstream oil and gas projects.
+RELEVANCE Critical | Configuration determines capital exposure and attainable production.
+HARDNESS Critical | No general complexity claim; discrete infrastructure and nonlinear reservoir forecasts require aggregation or decomposition.
+DEPENDENCIES EXTR02 → EXTR08 → EXTR09, EXTR15.
+COMMENTS Detailed processing-unit synthesis belongs to PROC; this scope is defined by resource development. | #RES #EXTR #design #select #map ##OILGAS ##field-development ##capacity.
+
+EXTR09 Petroleum Well Placement and Completion Configuration.
+DESCRIPTION Selects wells, production or injection roles and completion options and positions well trajectories under reservoir contact, drilling and interference limits.
+TEMPLATE Reservoir well-pattern and completion design | Mixed discrete-continuous simulation-optimization and derivative-free search.
+REGIME #design | Commits well geometry and roles before drilling and production.
+STRUCTURE #place + #select + #map | Positions well trajectories, selects wells and completions, and assigns production or injection roles.
+PRIORITY High | Well configuration is central to reservoir development.
+RELEVANCE Critical | Well placement changes drainage, recovery and drilling expenditure.
+HARDNESS Critical | No general complexity claim; costly reservoir simulations and coupled discrete and geometric choices constrain search.
+DEPENDENCIES EXTR02, EXTR08 → EXTR09 → EXTR15, EXTR16.
+COMMENTS Pure continuous well-control optimization is outside the discrete configuration scope. | #RES #EXTR #design #place #select #map ##OILGAS ##well-placement ##reservoir-simulation.
+
+EXTR10 Groundwater Extraction Wellfield Design.
+DESCRIPTION Selects extraction wells and capacity options under aquifer drawdown, well interference, abstraction and water-supply limits.
+TEMPLATE Hydrogeological wellfield design | Mixed-integer simulation-optimization or response-matrix models.
+REGIME #design | Commits extraction locations and capacity before withdrawal operation.
+STRUCTURE #select | Chooses wells and capacity options from feasible candidates.
+PRIORITY Medium | Wellfield design is foundational to groundwater extraction projects.
+RELEVANCE High | Design affects supply reliability, extraction cost and aquifer impacts.
+HARDNESS High | No general complexity claim; well interactions and aquifer-response evaluation complicate discrete design.
+DEPENDENCIES EXTR02 → EXTR10 → EXTR16, EXTR21.
+COMMENTS Water rights and basin allocation belong to LAND; installed distribution equipment operation belongs to ENER. | #RES #EXTR #design #select ##WATER ##wellfield ##drawdown.
+
+EXTR11 Cutoff-Grade Policy Selection.
+DESCRIPTION Selects ore/waste cutoff policies for resource zones under recoverability, mining capacity and processing limits.
+TEMPLATE Economic ore-definition and cutoff-policy planning | Candidate-threshold enumeration coupled to mixed-integer mine scheduling.
+REGIME #plan | Commits ore-definition rules before extraction and destination decisions.
+STRUCTURE #select + #map | Chooses candidate cutoff policies and assigns them to resource zones.
+PRIORITY High | Cutoff rules connect resource economics to mineable reserves.
+RELEVANCE Critical | Threshold policies change recoverable tonnage and mine value.
+HARDNESS High | No general complexity claim; interacting zone policies require repeated capacity-constrained schedule evaluation.
+DEPENDENCIES EXTR02 → EXTR11 → EXTR12, EXTR13, EXTR19.
+COMMENTS Reusable zone policies define this scope; per-lot destination assignments remain separate. | #RES #EXTR #plan #select #map ##MINING ##QUARRYING ##cutoff-grade ##policy-selection.
+
+EXTR12 Open-Pit Extraction Scheduling.
+DESCRIPTION Schedules extraction blocks and their destinations under slope precedences, mining capacity, processing capacity and ore-quality targets.
+TEMPLATE Life-of-mine and tactical open-pit production planning | Precedence-constrained MILP, aggregation and optimization-based heuristics.
+REGIME #plan | Commits extraction periods and material destinations before detailed execution.
+STRUCTURE #place + #select + #map | Places selected blocks in time and assigns their material to destinations.
+PRIORITY Critical | Extraction schedules coordinate the main open-pit production commitments.
+RELEVANCE Critical | Schedules govern resource value, stripping demand and plant supply.
+HARDNESS Critical | Capacitated precedence-constrained variants are NP-hard; large block sets, blending and uncertain grades require aggregation or decomposition.
+DEPENDENCIES EXTR05, EXTR11 → EXTR12 → EXTR17, EXTR18, EXTR19, EXTR20.
+COMMENTS Quarry, strip-mine and stochastic variants share this decision contract. | #RES #EXTR #plan #place #select #map ##MINING ##QUARRYING ##schedule ##precedence.
+
+EXTR13 Underground Development and Extraction Scheduling.
+DESCRIPTION Schedules underground development and extraction, with backfill where required, under access, stability and shared-resource limits.
+TEMPLATE Integrated underground mine production planning | Resource-constrained MILP and optimization-based scheduling heuristics.
+REGIME #plan | Commits underground activity periods before shift execution.
+STRUCTURE #place | Positions development, extraction and backfill activities in time.
+PRIORITY High | Development and extraction calendars coordinate major underground mining systems.
+RELEVANCE Critical | Scheduling controls output and when neighboring stopes become accessible.
+HARDNESS Critical | General resource-constrained scheduling variants are NP-hard; access and fill interactions require tailored decomposition.
+DEPENDENCIES EXTR06, EXTR07, EXTR11 → EXTR13 → EXTR18, EXTR19.
+COMMENTS Backfill plant recipe design belongs to PROC; extraction-support sequencing remains EXTR. | #RES #EXTR #plan #place ##MINING ##backfill ##precedence ##curing.
+
+EXTR14 Cave Drawpoint Activation and Draw Scheduling.
+DESCRIPTION Schedules drawpoint openings and draw quantities under cave-front progression, draw balance, dilution and production limits.
+TEMPLATE Cave production and draw-control planning | Drawpoint-based MILP with clustering and simulation-supported evaluation.
+REGIME #plan | Commits drawpoint activation and depletion profiles before draw execution.
+STRUCTURE #place + #select | Positions drawpoint activations in time and selects active drawpoints.
+PRIORITY Medium | Draw control is a core decision in caving mines.
+RELEVANCE Critical | Draw schedules affect recovery, dilution and cave progression.
+HARDNESS Critical | No general complexity claim; many drawpoints and uncertain material flow require aggregation and specialized models.
+DEPENDENCIES EXTR07 → EXTR14 → EXTR18, EXTR19.
+COMMENTS Continuous draw quantities accompany the discrete activation schedule. | #RES #EXTR #plan #place #select ##MINING ##block-caving ##draw-control.
+
+EXTR15 Reservoir Development and Depletion Scheduling.
+DESCRIPTION Schedules reservoir and well activation, production stages and retirement under depletion response, development capacity and field-output limits.
+TEMPLATE Reservoir exploitation and economic field-life planning | Multiperiod MILP or MINLP with reservoir-response approximations.
+REGIME #plan | Commits resource activation and field-life stages before operation.
+STRUCTURE #place + #select | Positions activation and retirement decisions in time and chooses developed wells or reservoirs.
+PRIORITY High | Depletion plans coordinate oil and gas resource use over field life.
+RELEVANCE Critical | Timing determines recovered value and the economic life of assets.
+HARDNESS Critical | No general complexity claim; reservoir coupling, uncertain deliverability and irreversible decisions constrain industrial solutions.
+DEPENDENCIES EXTR08, EXTR09 → EXTR15 → EXTR16, EXTR22.
+COMMENTS Continuous rate optimization alone is excluded; retirement timing is included when coupled to remaining resource extraction. | #RES #EXTR #plan #place #select ##OILGAS ##depletion ##activation.
+
+EXTR16 Well Drilling and Completion Campaign Scheduling.
+DESCRIPTION Assigns rigs and completion resources to wells and schedules drilling and completion under resource compatibility, access and interference restrictions.
+TEMPLATE Rig campaign and drilling-completion planning | Resource-constrained MILP and rolling-horizon optimization.
+REGIME #plan | Commits well-construction assignments and execution times.
+STRUCTURE #place + #map | Schedules well activities and assigns rigs and completion resources.
+PRIORITY High | Drilling campaigns turn resource-development plans into producing wells.
+RELEVANCE High | Better sequencing reduces rig idle time and delayed production.
+HARDNESS High | General resource-constrained scheduling variants are NP-hard; rig compatibility, relocations and well interference require tailored models.
+DEPENDENCIES EXTR09, EXTR10, EXTR15 → EXTR16 → EXTR21, EXTR22.
+COMMENTS Fracturing interference is a completion variant; resource prospect selection remains a separate decision. | #RES #EXTR #plan #place #map ##OILGAS ##WATER ##rig-scheduling ##interference.
+
+EXTR17 Grade-Control Dig Limit Definition.
+DESCRIPTION Groups bench material into mineable ore and waste polygons under grade estimates, equipment selectivity and minimum mining-width limits.
+TEMPLATE Grade-control dig-line design | Mixed-integer polygon or mining-cut optimization and geometric heuristics.
+REGIME #plan | Commits selective-mining boundaries before excavation.
+STRUCTURE #map | Assigns spatial material units to mineable ore and waste groups.
+PRIORITY High | Selective extraction depends on workable grade-control boundaries.
+RELEVANCE High | Better boundaries reduce ore loss and dilution.
+HARDNESS High | Published dig-limit optimization is NP-hard; irregular geometry and grade uncertainty complicate industrial models.
+DEPENDENCIES EXTR02, EXTR12 → EXTR17 → EXTR18, EXTR19.
+COMMENTS Grade estimation supplies evidence; the optimization chooses mineable groups. | #RES #EXTR #plan #map ##MINING ##QUARRYING ##dig-limit ##dilution.
+
+EXTR18 Mine Shift Activity and Equipment Scheduling.
+DESCRIPTION Schedules extraction-cycle tasks and assigns machines under face availability, task precedences, blast-clearance and shared-resource limits.
+TEMPLATE Short-term mine production and shift planning | Resource-constrained MILP and dynamic schedule repair.
+REGIME #plan + #dispatch | Commits shift work and revises immediate task assignments as mine conditions change.
+STRUCTURE #place + #map | Places mining tasks in time and assigns machines to them.
+PRIORITY High | Shift schedules connect production plans to physical extraction.
+RELEVANCE High | Feasible task coordination reduces lost extraction time.
+HARDNESS High | General resource-constrained scheduling variants are NP-hard; access conflicts, equipment moves and changing face states complicate execution.
+DEPENDENCIES EXTR12, EXTR13, EXTR14, EXTR17 → EXTR18 → EXTR19.
+COMMENTS Standalone truck routing belongs to LOG; this scope schedules the extraction cycle. | #RES #EXTR #plan #dispatch #place #map ##MINING ##QUARRYING #execution #rolling ##blast-clearance.
+
+EXTR19 Mine Material Destination and Stockpile Allocation.
+DESCRIPTION Assigns discrete ore lots or mining units to processing, stockpiling or waste destinations under grade, contaminant, capacity and availability limits.
+TEMPLATE Mine material routing and stockpile feed planning | MILP or MINLP with material balances and blending constraints.
+REGIME #allocate | Commits extracted-resource units to feasible destinations.
+STRUCTURE #map | Assigns discrete material units to plant, stockpile or waste destinations.
+PRIORITY High | Material destination decisions recur across mine production systems.
+RELEVANCE High | Better assignments improve recovery and use constrained processing capacity.
+HARDNESS High | No general complexity claim; discrete lots, grade mixing and stockpile histories require strong formulations.
+DEPENDENCIES EXTR11, EXTR12, EXTR13, EXTR14, EXTR17, EXTR18 → EXTR19 → EXTR20.
+COMMENTS Separate process blend recipes belong to PROC; pure inventory policy belongs to SCM. | #RES #EXTR #allocate #map ##MINING ##QUARRYING ##destination ##stockpile.
+
+EXTR20 Mine Waste-Rock Emplacement Scheduling.
+DESCRIPTION Assigns mine waste-rock units to dump cells and schedules placement under cell access, capacity and material-encapsulation requirements.
+TEMPLATE Life-of-mine waste-rock placement planning | Spatial and temporal mixed-integer emplacement models.
+REGIME #plan | Commits disposal-cell progression alongside extraction.
+STRUCTURE #map + #place | Assigns waste-rock units to cells and places deposition activities in time.
+PRIORITY Medium | Waste emplacement is material in mines with constrained dump progression.
+RELEVANCE High | Better placement reduces rehandling and manages reactive-rock exposure.
+HARDNESS High | No general complexity claim; dump access, material classes and extraction timing interact.
+DEPENDENCIES EXTR12, EXTR19 → EXTR20 → ∅.
+COMMENTS Land restoration belongs to LAND; standalone earthworks construction belongs to CIVIC. | #RES #EXTR #plan #map #place ##MINING ##waste-rock ##encapsulation.
+
+EXTR21 Groundwater Withdrawal Activation Scheduling.
+DESCRIPTION Selects active extraction wells and withdrawal periods under aquifer response, drawdown, recovery and abstraction limits.
+TEMPLATE Aquifer-constrained well operation planning | Mixed-integer response-function or simulation-optimization models.
+REGIME #plan | Commits extraction activation and withdrawal periods before operation.
+STRUCTURE #place + #select | Schedules withdrawal periods and chooses active extraction wells.
+PRIORITY Medium | Discrete withdrawal plans support aquifer-constrained extraction systems.
+RELEVANCE High | Coordinated activation can preserve supply and reduce excessive drawdown.
+HARDNESS High | No general complexity claim; delayed aquifer response couples well states across locations and time.
+DEPENDENCIES EXTR10, EXTR16 → EXTR21 → ∅.
+COMMENTS Aquifer withdrawal defines this scope; utility distribution switching belongs to ENER. | #RES #EXTR #plan #place #select ##WATER ##aquifer-response ##well-activation.
+
+EXTR22 Well Activation and Production Allocation.
+DESCRIPTION Selects producing wells and assigns them to available manifolds or separators under reservoir deliverability, lift-resource and surface-capacity limits.
+TEMPLATE Integrated well operation and artificial-lift allocation | MINLP, piecewise-linear MILP or dynamic programming for restricted gas-lift models.
+REGIME #operate | Coordinates existing wells and production resources during extraction.
+STRUCTURE #select + #map | Chooses active wells and assigns their production to available receiving facilities.
+PRIORITY High | Well activation and allocation are recurring upstream production decisions.
+RELEVANCE High | Better coordination recovers production within constrained field capacity.
+HARDNESS High | No general complexity claim; nonlinear well response and shared pressure or capacity limits complicate discrete operation.
+DEPENDENCIES EXTR15, EXTR16 → EXTR22 → EXTR23.
+COMMENTS Continuous lift-gas and flow quantities accompany the discrete choices; fixed-connection variants need only selection. | #RES #EXTR #operate #select #map ##OILGAS ##gas-lift ##well-allocation.
+
+EXTR23 Well Intervention and Workover Scheduling.
+DESCRIPTION Selects intervention jobs, assigns service rigs and schedules work on existing wells under compatibility, access and production-loss conditions.
+TEMPLATE Production-restoration and workover planning | MILP scheduling, decomposition and uncertainty-aware optimization.
+REGIME #plan + #adapt | Commits intervention work and revises recovery plans after well degradation or failure.
+STRUCTURE #place + #map + #select | Schedules intervention jobs, assigns rigs and selects jobs within the service horizon.
+PRIORITY High | Existing wells require recurring intervention and restoration planning.
+RELEVANCE High | Timely intervention reduces deferred production and rig cost.
+HARDNESS High | General parallel-resource scheduling variants are NP-hard; travel, uncertain duration and well eligibility require tailored search.
+DEPENDENCIES EXTR22 → EXTR23 → ∅.
+COMMENTS Generic rig movement is LOG; well restoration and intervention eligibility define this scope. | #RES #EXTR #plan #adapt #place #map #select ##OILGAS ##workover ##production-loss.
