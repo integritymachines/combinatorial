@@ -1,0 +1,259 @@
+602 HR — Workforce & Organizational Systems
+v0.1 | Problem layer | 2026-10-07
+
+HR covers workforce capacity, qualifications, staffing and coordinated human activity. It includes education, sports and organizational calendars. Standalone clinical staff rosters belong to HR; patient-specific care decisions belong to HC. Movement-led operations belong to LOG. Commercial labor-market mechanisms belong to MKT.
+
+Dependencies describe conditional handoffs within a shared operating system. Independent industry branches need not occur together. Integrated models can co-decide connected Problems. Ratings apply to the stated scope. Evidence, alternatives and planning returns remain in background/602_HR_research.txt.
+
+HR01 Workforce Capacity and Contract-Mix Design.
+DESCRIPTION Chooses workforce size and contract mix by skill pool and location under demand, service-level and budget requirements.
+TEMPLATE Workload and service-level staffing | Integer staffing or stochastic MIP; queueing or simulation for service constraints.
+REGIME #design | Configures workforce capacity before detailed staffing commitments.
+STRUCTURE #select + #map | Selects position or contract units and assigns capacity to workforce pools.
+PRIORITY High | Establishes staffing capacity across major workforce systems.
+RELEVANCE High | Improves recurring labor cost and service coverage.
+HARDNESS High | Complexity depends on the staffing model; skill pools, service constraints and demand uncertainty can require specialized decomposition.
+DEPENDENCIES ∅ → HR01 → HR02, HR03, HR06, HR07, HR13.
+COMMENTS Pure continuous labor budgeting is outside this scope. | #HUMAN #HR #design #select #map #strategic ##staffing ##contract-mix ##service-level.
+
+HR02 Workforce Skill-Mix and Cross-Training Design.
+DESCRIPTION Chooses additional employee qualifications under training budgets, skill requirements and substitution limits.
+TEMPLATE Skill coverage and cross-training design | Integer assignment models; integrated staffing models with scenario or simulation evaluation.
+REGIME #design | Defines workforce capability before training and deployment.
+STRUCTURE #map + #select | Assigns target skills to people or pools and selects training investments.
+PRIORITY High | Supports workforce flexibility across service, maintenance and manufacturing systems.
+RELEVANCE High | Reduces skill shortages and the cost of excess specialist capacity.
+HARDNESS High | Complexity depends on the training model; skill substitution and downstream coverage couple investment choices.
+DEPENDENCIES HR01 → HR02 → HR03, HR04.
+COMMENTS Training dates are a separate scheduling decision. | #HUMAN #HR #design #map #select ##cross-training ##skill-substitution.
+
+HR03 Workforce Recruitment and Mobility Planning.
+DESCRIPTION Plans hires, internal moves and exits across roles, locations and periods under workforce targets, lead times and budget limits.
+TEMPLATE Workforce supply-demand and transition planning | Time-indexed MIP or stochastic MIP.
+REGIME #plan | Prepares the workforce trajectory before individual deployment.
+STRUCTURE #select + #map + #place | Selects staffing actions, assigns their roles or sites and places them in periods.
+PRIORITY High | Maintains personnel supply across major workforce systems.
+RELEVANCE High | Reduces persistent staffing gaps and avoidable workforce costs.
+HARDNESS High | Complexity depends on transition restrictions; qualification changes, hiring batches and uncertain attrition couple periods.
+DEPENDENCIES HR01, HR02 → HR03 → HR04, HR05, HR10, HR20.
+COMMENTS Named placement into fixed positions belongs to HR20. | #HUMAN #HR #plan #select #map #place ##manpower-planning ##workforce-transition.
+
+HR04 Employee Training and Certification Scheduling.
+DESCRIPTION Schedules training sessions and assigns employees under qualification deadlines, instructor limits and required service coverage.
+TEMPLATE Training-capacity and qualification planning | Scheduling MIP; integrated training and employee-scheduling matheuristics.
+REGIME #plan | Commits training attendance and timing before qualifications are required.
+STRUCTURE #place + #map | Places sessions in time and assigns employees and training resources.
+PRIORITY Medium | Recurs in operations with substantial training or certification requirements.
+RELEVANCE High | Releases needed skills while limiting lost productive capacity.
+HARDNESS High | General resource-constrained variants are NP-hard; course precedence, instructor capacity and service cover interact.
+DEPENDENCIES HR02, HR03 → HR04 → HR05, HR08, HR10.
+COMMENTS Qualification rules and training targets are supplied inputs. | #HUMAN #HR #plan #place #map ##certification ##precedence.
+
+HR05 Leave and Planned-Absence Scheduling.
+DESCRIPTION Assigns planned absence periods to employees under entitlements, preferences, priorities and workforce coverage limits.
+TEMPLATE Leave-quota and preference allocation | Period-assignment MIP or column generation over leave patterns.
+REGIME #plan + #allocate | Prepares an absence calendar and allocates scarce leave windows.
+STRUCTURE #place + #map | Places absence periods in time and assigns them to employees.
+PRIORITY Medium | Supports workforce systems with constrained absence calendars.
+RELEVANCE High | Preserves service cover while meeting leave obligations and preferences.
+HARDNESS Medium | Complexity depends on entitlement and pattern restrictions; standard models handle many instances, while scarce skills complicate allocation.
+DEPENDENCIES HR03, HR04 → HR05 → HR08.
+COMMENTS Ordinary roster days off remain part of HR08. | #HUMAN #HR #plan #allocate #place #map ##vacation ##preferences ##coverage.
+
+HR06 Shift and Tour Generation.
+DESCRIPTION Constructs anonymous work patterns and their required numbers to cover demand under permitted shift, work and rest rules.
+TEMPLATE Demand-covering shift and tour construction | Set-covering or compact MIP; column generation for large pattern spaces.
+REGIME #plan | Prepares work patterns before named employee assignments.
+STRUCTURE #place + #select | Positions work and rest intervals and selects active patterns.
+PRIORITY Critical | Provides the work patterns used by core workforce scheduling systems.
+RELEVANCE High | Improves labor utilization and demand coverage.
+HARDNESS High | General shift design is NP-hard; fine time grids and flexible work patterns can require specialized formulations.
+DEPENDENCIES HR01 → HR06 → HR08, HR09.
+COMMENTS Anonymous patterns are distinct from named rosters; breaks can be co-decided. | #HUMAN #HR #plan #place #select ##tour ##coverage ##cyclic.
+
+HR07 Crew Duty and Pairing Construction.
+DESCRIPTION Combines supplied transport work pieces into legal duties and pairings under connection, rest, qualification and base requirements.
+TEMPLATE Legal crew-duty and pairing generation | Set partitioning or covering with resource-constrained path pricing and branch-and-price.
+REGIME #plan | Prepares crew work sequences before assignment to named personnel.
+STRUCTURE #link + #select | Chooses successors between work pieces and selects the duties or pairings that cover the work.
+PRIORITY High | Defines crew work in major transport systems.
+RELEVANCE High | Improves crew utilization and the feasibility of transport staffing.
+HARDNESS High | Unrestricted legal-pattern selection is NP-hard; large pairing spaces require specialized pricing and coverage models.
+DEPENDENCIES HR01 → HR07 → HR08.
+COMMENTS Transport tasks and times are supplied; movement-program decisions belong to LOG. | #HUMAN #HR #plan #link #select ##crew-pairing ##succession ##coverage.
+
+HR08 Personnel Rostering.
+DESCRIPTION Assigns named employees to duties and work/rest patterns under qualifications, availability, coverage and labor rules.
+TEMPLATE Demand- and rule-based rostering | Assignment MIP or constraint programming; pattern-based branch-and-price and neighborhood repair.
+REGIME #plan | Commits individual work and rest calendars before execution.
+STRUCTURE #map + #place | Assigns employees to duties and constructs their work/rest calendars.
+PRIORITY Critical | Forms the core named-workforce schedule across industries.
+RELEVANCE High | Improves staff coverage, labor cost and schedule quality.
+HARDNESS Medium | Unrestricted pattern selection is NP-hard; standard methods handle many generic rosters, while richer crew and multi-unit variants need custom methods.
+DEPENDENCIES HR04, HR05, HR06, HR07 → HR08 → HR09, HR11, HR12, HR20, HR21, HR23.
+COMMENTS Includes reserve and on-call rosters. Patient-specific clinical assignments belong to HC. | #HUMAN #HR #plan #map #place ##roster ##coverage ##preferences.
+
+HR09 Break Scheduling.
+DESCRIPTION Places meal and rest intervals within fixed shifts under break rules and remaining service coverage requirements.
+TEMPLATE Coverage-preserving break planning | Implicit or time-indexed MIP; constraint-based and local-search methods.
+REGIME #plan + #operate | Prepares break times or coordinates them during a running shift.
+STRUCTURE #place | Positions break intervals within supplied duties.
+PRIORITY Medium | Supports operations with flexible breaks and time-varying demand.
+RELEVANCE High | Preserves service capacity while meeting rest requirements.
+HARDNESS Medium | General break-scheduling decision variants are NP-complete; bounded-window instances are often tractable with standard formulations.
+DEPENDENCIES HR06, HR08 → HR09 → HR21, HR22.
+COMMENTS Employees and shift assignments are supplied. | #HUMAN #HR #plan #operate #place ##break-window ##coverage.
+
+HR10 Team Formation.
+DESCRIPTION Selects people and assigns them to teams under combined skill, size and compatibility requirements.
+TEMPLATE Competency and compatibility team formation | Assignment or set-partitioning MIP; quadratic formulations and decomposition for pairwise effects.
+REGIME #allocate | Commits people to teams with defined capability requirements.
+STRUCTURE #map + #select | Forms team memberships and selects participants from the available pool.
+PRIORITY Medium | Supports work that requires complementary skills or stable teams.
+RELEVANCE High | Improves team capability and the use of scarce expertise.
+HARDNESS High | General skill-cover team selection is NP-hard; skill combinations and pairwise compatibility create coupled choices.
+DEPENDENCIES HR03, HR04 → HR10 → HR11, HR12.
+COMMENTS Supplied affinity relationships do not imply chosen communication links. | #HUMAN #HR #allocate #map #select ##team-formation ##skill-cover ##compatibility.
+
+HR11 Multi-Skilled Project Workforce Scheduling.
+DESCRIPTION Schedules project work and assigns people or teams under skill-specific effort, precedence, availability and deadline requirements.
+TEMPLATE Resource-loaded multi-project workforce planning | Multi-skill resource-constrained scheduling MIP; decomposition and matheuristics.
+REGIME #plan | Prepares human-resource commitments across project activities.
+STRUCTURE #place + #map | Places project work in time and assigns qualified people or teams.
+PRIORITY Medium | Supports professional services and other personnel-led project systems.
+RELEVANCE High | Improves use of bottleneck skills and project delivery capacity.
+HARDNESS High | General resource-constrained project scheduling is NP-hard; shared skills and concurrent projects require substantial model engineering.
+DEPENDENCIES HR08, HR10 → HR11 → HR21, HR23.
+COMMENTS Construction or production execution remains in its owning Domain when physical feasibility defines the contract. | #HUMAN #HR #plan #place #map ##project-staffing ##precedence ##multi-skill.
+
+HR12 Skilled Field-Service Workforce Scheduling.
+DESCRIPTION Assigns qualified technicians or teams to interventions and schedules their visits under skill, availability, travel and joint-attendance requirements.
+TEMPLATE Skill-constrained field-service planning | Assignment/routing MIP; branch-and-price or constraint programming; adaptive large-neighborhood search.
+REGIME #plan + #operate | Prepares and coordinates the field-service workforce program.
+STRUCTURE #map + #link + #place | Assigns personnel, chooses visit successors and places interventions in time.
+PRIORITY Medium | Supports technician and contractor service systems.
+RELEVANCE High | Improves completion of skilled service work and workforce utilization.
+HARDNESS High | General routing variants are NP-hard; skills, shared visits and travel windows couple assignments and timing.
+DEPENDENCIES HR08, HR10 → HR12 → HR22, HR23.
+COMMENTS Workforce capability defines this scope. Movement-led routing belongs to LOG; integrated clinical home care belongs to HC. | #HUMAN #HR #plan #operate #map #link #place ##technician ##route ##synchronization.
+
+HR13 Course Offering and Section-Capacity Planning.
+DESCRIPTION Chooses courses, section numbers and offering periods under curricular demand, staffing and class-capacity limits.
+TEMPLATE Demand-led teaching-program planning | Course and section activation IP; column generation for coupled student choices.
+REGIME #plan | Commits the teaching program before detailed class timetabling.
+STRUCTURE #select + #place | Selects courses or sections and places offerings in teaching periods.
+PRIORITY Medium | Supports institutional teaching-program preparation.
+RELEVANCE High | Improves course access and the use of instructional capacity.
+HARDNESS Medium | Complexity depends on activation and curriculum restrictions; demand, staffing and course alternatives couple offering choices.
+DEPENDENCIES HR01 → HR13 → HR14, HR15, HR16.
+COMMENTS The course catalog and degree requirements are supplied. | #HUMAN #HR #plan #select #place ##EDUCATION ##course-offering ##curriculum.
+
+HR14 Student Course-Progression Planning.
+DESCRIPTION Selects courses and assigns study periods under degree requirements, prerequisites, workload limits and available offerings.
+TEMPLATE Prerequisite-constrained academic planning | Binary course and period assignment IP.
+REGIME #plan | Prepares a learner's course trajectory before enrollment commitments.
+STRUCTURE #select + #place | Chooses courses and places them in study periods.
+PRIORITY Medium | Supports recurring academic progression decisions.
+RELEVANCE Medium | Improves individual course choices and expected degree completion.
+HARDNESS Medium | Complexity depends on course alternatives and prerequisite restrictions; institutional rules determine model size and coupling.
+DEPENDENCIES HR13 → HR14 → HR16.
+COMMENTS Allocation to parallel classes belongs to HR16. | #HUMAN #HR #plan #select #place ##EDUCATION ##degree-planning ##prerequisite.
+
+HR15 Course and School Timetabling.
+DESCRIPTION Places teaching events in time and assigns rooms or teaching resources under teacher, student, curriculum and availability constraints.
+TEMPLATE Conflict-aware educational timetabling | Constraint programming and local search; MIP or MaxSAT for suitable formulations.
+REGIME #plan | Commits the recurring teaching calendar before delivery.
+STRUCTURE #place + #map | Places teaching events in time and assigns rooms or other resources.
+PRIORITY High | Organizes teaching activity across schools and universities.
+RELEVANCE High | Improves educational access and the use of teaching resources.
+HARDNESS High | General conflict-constrained timetabling is NP-hard; dense conflicts, resource limits and preferences complicate large institutions.
+DEPENDENCIES HR13 → HR15 → HR16, HR20.
+COMMENTS Student sectioning can be integrated; supplied conflict relations are not chosen links. | #HUMAN #HR #plan #place #map ##EDUCATION ##timetable ##conflict ##curriculum.
+
+HR16 Student Sectioning.
+DESCRIPTION Assigns students to compatible sections of requested courses under class capacities, course structure and timetable conflicts.
+TEMPLATE Capacity- and preference-aware student allocation | Assignment MIP or constraint-based search; large-neighborhood methods for course bundles.
+REGIME #allocate | Commits available class places to students.
+STRUCTURE #map | Assigns students to supplied class alternatives.
+PRIORITY High | Connects student course demand to institutional teaching capacity.
+RELEVANCE High | Improves feasible enrollment and access to requested courses.
+HARDNESS High | Independent seat allocation has polynomial flow special cases; coupled course bundles and timetable conflicts require richer models.
+DEPENDENCIES HR13, HR14, HR15 → HR16 → HR17, HR20.
+COMMENTS Class times are supplied. Admissions and market rights are outside this scope. | #HUMAN #HR #allocate #map ##EDUCATION ##student-sectioning ##course-bundle.
+
+HR17 Examination Timetabling.
+DESCRIPTION Places examinations in periods and assigns rooms under student conflicts, seating, duration and spacing requirements.
+TEMPLATE Conflict- and capacity-aware examination planning | Constraint-based search or binary period/room assignment MIP.
+REGIME #plan | Commits the examination calendar before assessment delivery.
+STRUCTURE #place + #map | Places examinations in periods and assigns rooms.
+PRIORITY Medium | Supports recurring examination programs in education.
+RELEVANCE High | Preserves examination access and feasible use of rooms and periods.
+HARDNESS High | General conflict-constrained examination scheduling is NP-hard; shared students, seating and spacing create coupled decisions.
+DEPENDENCIES HR16 → HR17 → HR20.
+COMMENTS Student enrollments supply conflicts; separate invigilator allocation belongs to HR20. | #HUMAN #HR #plan #place #map ##EDUCATION ##examination ##conflict ##spacing.
+
+HR18 Sports Fixture and Venue Scheduling.
+DESCRIPTION Schedules required matches and assigns venues or home-away positions under competition, availability and rest rules.
+TEMPLATE Fixture and home-away planning | Pattern-based MIP, constraint programming or fix-and-optimize search.
+REGIME #plan | Commits the competition calendar before matches occur.
+STRUCTURE #place + #map | Places matches in rounds or time slots and assigns venue or home-away roles.
+PRIORITY Medium | Organizes league and tournament activity.
+RELEVANCE High | Improves calendar feasibility and use of competition resources.
+HARDNESS High | Complexity depends on tournament restrictions and objectives; constrained calendars are harder than an unrestricted round-robin construction.
+DEPENDENCIES ∅ → HR18 → HR20.
+COMMENTS Required opponents and tournament format are supplied; officials are allocated separately in HR20. | #HUMAN #HR #plan #place #map ##SPORTS ##fixture ##home-away ##venue.
+
+HR19 Meeting and Conference Scheduling.
+DESCRIPTION Schedules meetings or presentations and assigns rooms or sessions under participant conflicts, capacity and event requirements.
+TEMPLATE Participant-conflict and session planning | CP, MIP or MaxSAT; clustering and local search for grouped sessions.
+REGIME #plan | Prepares a coordinated event calendar before attendance.
+STRUCTURE #place + #map | Places events in time and assigns rooms or session membership.
+PRIORITY Medium | Supports organized meetings, interviews and conferences.
+RELEVANCE Medium | Improves participant access and use of event capacity.
+HARDNESS High | General conflict-constrained event scheduling is NP-hard; attendee conflicts and session grouping can need custom formulations.
+DEPENDENCIES ∅ → HR19 → HR20.
+COMMENTS Participants and accepted events are supplied; acceptance and commercial matchmaking are separate decisions. | #HUMAN #HR #plan #place #map ##meeting ##conference ##conflict.
+
+HR20 Personnel-to-Position and Fixed-Duty Allocation.
+DESCRIPTION Assigns named people to supplied positions, professional roles or fixed-time duties under qualifications, availability and workload limits.
+TEMPLATE Qualification- and workload-based placement | Min-cost matching or flow for separable cases; generalized-assignment or time-indexed MIP for coupled roles.
+REGIME #allocate | Commits people to defined organizational or professional responsibilities.
+STRUCTURE #map | Assigns people to positions, roles or supplied duty slots.
+PRIORITY High | Supports personnel placement across workforce systems.
+RELEVANCE High | Improves coverage of qualified roles and use of available personnel.
+HARDNESS Medium | Bipartite matching is polynomial; capacitated variable-workload assignment is NP-hard, and coupled roles require richer formulations.
+DEPENDENCIES HR03, HR08, HR15, HR16, HR17, HR18, HR19 → HR20 → HR21, HR22.
+COMMENTS Includes instructors, officials and invigilators. Complete intrashift activity programs belong to HR21. | #HUMAN #HR #allocate #map ##assignment ##qualification ##workload.
+
+HR21 Personnel Task Scheduling and Job Rotation.
+DESCRIPTION Assigns workers to activities and schedules work or rotation intervals under demand, qualifications, task order and workload limits.
+TEMPLATE Skill-based intrashift deployment | Time-indexed MIP or pattern-based column generation; local search for rotation and integrated models.
+REGIME #operate + #plan | Coordinates workforce activity during operations or prepares its detailed program.
+STRUCTURE #map + #place | Assigns workers to activities and chooses task or rotation times.
+PRIORITY High | Converts workforce availability into detailed work coverage.
+RELEVANCE High | Improves productive use of labor and distribution of workload.
+HARDNESS High | Complexity depends on task and labor restrictions; multiple activities, shift boundaries and cumulative exposure couple decisions.
+DEPENDENCIES HR08, HR09, HR11, HR20 → HR21 → HR22, HR23.
+COMMENTS Fixed-time task variants require only mapping; physical production decisions remain in PROD or PROC. | #HUMAN #HR #operate #plan #map #place ##task-scheduling ##job-rotation ##multi-activity.
+
+HR22 Immediate Workforce Dispatch and Reserve Activation.
+DESCRIPTION Assigns immediate work to available qualified people and activates reserves using current queues and workforce state.
+TEMPLATE Skill-based queue and reserve control | Priority policies or matching; approximate dynamic programming and simulation for future opportunity costs.
+REGIME #dispatch | Commits the next personnel action under changing execution conditions.
+STRUCTURE #map + #select | Assigns current work to personnel and selects reserve activations.
+PRIORITY High | Maintains workforce response during live service operations.
+RELEVANCE High | Reduces avoidable waiting and uncovered immediate work.
+HARDNESS High | Instantaneous matching can be polynomial; coupled stochastic control has model-dependent complexity and large state spaces.
+DEPENDENCIES HR09, HR12, HR20, HR21 → HR22 → HR23.
+COMMENTS Skill-based call routing assigns work to humans; it is not digital-network routing. | #HUMAN #HR #dispatch #map #select #realtime #online #closedloop ##skill-based-routing ##reserve ##queue.
+
+HR23 Workforce Roster and Assignment Recovery.
+DESCRIPTION Revises committed personnel calendars and assignments after absences or demand changes while restoring cover and limiting disruption.
+TEMPLATE Minimum-change legal workforce recovery | Repair MIP or CP; neighborhood search; branch-and-price for duty reconstruction.
+REGIME #adapt | Changes prior workforce commitments after material disruption.
+STRUCTURE #map + #place + #select + #link | Revises assignments and times, selects cover actions and reconnects duties where required.
+PRIORITY High | Restores workforce feasibility when published plans fail.
+RELEVANCE High | Limits service loss and unnecessary changes to employee commitments.
+HARDNESS High | Unrestricted recovery inherits its underlying scheduling complexity; response time, remaining legality and plan stability constrain industrial solutions.
+DEPENDENCIES HR08, HR11, HR12, HR21, HR22 → HR23 → ∅.
+COMMENTS Duty reconnection applies to crew variants. Movement-led integrated recovery belongs to LOG. | #HUMAN #HR #adapt #map #place #select #link ##recovery ##stability ##absence.
