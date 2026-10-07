@@ -1,0 +1,347 @@
+HC Healthcare and Human-Critical Operational Systems
+v0.1 | Problem layer | 2026-10-07
+
+HC covers discrete decisions whose feasibility or service materially depends on clinical conditions, patients or direct care. It spans clinical service design, care scheduling, patient-resource allocation, medical response and clinically constrained transplantation, transfusion and public health. Generic workforce, supply, transport and construction decisions retain their own Primary Domains.
+
+The sequence follows first commitments from service design and capacity to patient allocation, care execution and repair. Dependencies denote applicable industrial or information inputs; not every deployment uses every linked Problem. Research and evidence: background/601_HC_research.txt. Clinical eligibility, prescriptions and priority policies are supplied unless a card explicitly chooses among approved alternatives.
+
+HC01 Health Intervention Portfolio Selection.
+DESCRIPTION Selects health interventions and service packages under public budgets, clinical eligibility and staff-capacity limits.
+TEMPLATE Health-benefit package design and constrained health-economic evaluation | Binary or multiobjective integer programming.
+REGIME #design | Defines which clinical services the health system will fund and provide.
+STRUCTURE #select | Chooses interventions from a supplied candidate set.
+PRIORITY High | Service-package decisions shape public health and coverage programmes.
+RELEVANCE Critical | Choices affect population health and access to essential care.
+HARDNESS Medium | NP-hard budgeted subset variants; Benefit uncertainty, intervention interactions and equity goals complicate policy choice.
+DEPENDENCIES ∅ → HC01 → HC02, HC09, HC10.
+COMMENTS Health gains and clinical eligibility define this scope; insurance pricing belongs to FIN. | #HUMAN #HC #design #select ##PUBLICHEALTH ##intervention-selection ##multiobjective.
+
+HC02 Clinical Service Network and Capacity Design.
+DESCRIPTION Selects clinical facilities, service capabilities and capacity levels and assigns patient catchments under access, referral and congestion limits.
+TEMPLATE Healthcare location-allocation and service-network design | Capacitated facility-location MILP or MINLP; congestion and user-choice models.
+REGIME #design | Commits clinical service locations and installed capacity before operating plans.
+STRUCTURE #select + #map | Chooses facilities and capabilities and assigns catchments to eligible services.
+PRIORITY High | Regional care networks require coordinated access and capacity decisions.
+RELEVANCE Critical | Network design affects access, investment and referral feasibility.
+HARDNESS High | NP-hard capacitated facility-location variants; Patient choice, congestion and service complementarities couple location and capacity.
+DEPENDENCIES HC01 → HC02 → HC03, HC05, HC13, HC14, HC23.
+COMMENTS Medical access defines ownership; generic warehouses and civic buildings belong elsewhere. | #HUMAN #HC #design #select #map ##HEALTHSYSTEMS ##facility-location ##congestion.
+
+HC03 Clinical Care-Space Layout.
+DESCRIPTION Places care equipment and materials within a clinical workspace under access, reach, separation and physical-fit requirements.
+TEMPLATE Clinical workspace and mobile intensive-care layout | Grid-based layout MIP with clinical review.
+REGIME #design | Commits the care-space arrangement before use.
+STRUCTURE #place | Positions equipment and materials in physical space.
+PRIORITY Medium | Clinical layout optimization serves specific care spaces and mobile units.
+RELEVANCE High | Layout affects access to equipment during patient care.
+HARDNESS Medium | Discrete layout assignment with geometric constraints; Detailed clinical access rules and physical dimensions require careful model validation.
+DEPENDENCIES HC02 → HC03 → ∅.
+COMMENTS The cited model concerns an intensive-care vehicle interior, not an entire hospital layout. | #HUMAN #HC #design #place ##EMERGENCYMEDICINE ##layout ##ergonomics.
+
+HC04 EMS Station and Fleet Deployment Design.
+DESCRIPTION Selects emergency medical service bases and assigns ambulance types and numbers to them under demand coverage and response requirements.
+TEMPLATE EMS location and coverage planning | Location-allocation MIP; expected-covering and scenario models.
+REGIME #design | Commits the base network and fleet deployment capacity.
+STRUCTURE #select + #map | Chooses bases and assigns medical response capacity to them.
+PRIORITY High | EMS systems need a base and response-capacity plan.
+RELEVANCE Critical | Coverage determines access to urgent medical response.
+HARDNESS High | NP-hard covering-location variants; Traffic, demand uncertainty and heterogeneous medical capability complicate deployment.
+DEPENDENCIES ∅ → HC04 → HC28, HC29, HC30.
+COMMENTS Live repositioning of available ambulances is a separate operating decision. | #HUMAN #HC #design #select #map ##EMS ##coverage ##facility-location.
+
+HC05 Clinical Session and Service-Capacity Planning.
+DESCRIPTION Assigns available clinical resource sessions to patient groups and services under care-pathway demand and service-access targets.
+TEMPLATE Tactical hospital resource allocation and patient-mix planning | Multi-period MILP with stochastic care-pathway demand; simulation evaluation.
+REGIME #plan | Prepares service capacity within the installed clinical system.
+STRUCTURE #map + #place | Assigns resource sessions to services and places session capacity in periods.
+PRIORITY High | Hospitals and ambulatory services repeatedly plan capacity by service.
+RELEVANCE High | Balanced capacity reduces access delays and downstream bottlenecks.
+HARDNESS High | Multi-period integer resource allocation; Uncertain patient flows couple many resource types and periods.
+DEPENDENCIES HC02 → HC05 → HC06, HC07, HC13, HC14, HC18, HC19, HC20.
+COMMENTS Generic staff-to-shift rostering is HR; this contract allocates clinical service capacity. | #HUMAN #HC #plan #map #place ##HOSPITALS ##patient-mix ##care-pathway ##tactical.
+
+HC06 Master Surgical Block Allocation.
+DESCRIPTION Assigns surgical specialties or teams to recurring operating-room blocks under workload, availability and recovery-capacity limits.
+TEMPLATE Master surgical scheduling and downstream workload levelling | Block-allocation MIP with occupancy forecasting and simulation.
+REGIME #plan | Commits recurring specialty access to operating-room capacity.
+STRUCTURE #map | Assigns surgical services to supplied room-day blocks.
+PRIORITY High | Block schedules organize substantial perioperative capacity.
+RELEVANCE High | Block allocation affects utilization and recovery-unit workload.
+HARDNESS High | Integer block-allocation optimization; Surgical mix and uncertain recovery stays connect operating rooms to wards and ICU.
+DEPENDENCIES HC05 → HC06 → HC15.
+COMMENTS Individual surgery sequence and start-time decisions belong to surgical case scheduling. | #HUMAN #HC #plan #map ##PERIOPERATIVE ##master-surgical-schedule ##downstream-capacity.
+
+HC07 Outpatient Appointment Blueprint Design.
+DESCRIPTION Constructs recurring visit-type slots and booking capacity under provider availability, service durations and shared-resource limits.
+TEMPLATE Clinic blueprint and appointment-template planning | Integer programming; simulation optimization for duration and arrival uncertainty.
+REGIME #plan | Creates the slot pattern that later appointment bookings consume.
+STRUCTURE #place + #map | Places capacity slots in time and assigns visit types to them.
+PRIORITY High | Appointment templates govern access in many outpatient services.
+RELEVANCE High | Good slot patterns balance waiting, workload and available capacity.
+HARDNESS High | Discrete slot-pattern scheduling; No-shows, duration variability and shared resources make templates difficult to validate.
+DEPENDENCIES HC05 → HC07 → HC16, HC18, HC20, HC26.
+COMMENTS A template defines capacity by visit type; patient booking consumes that capacity. | #HUMAN #HC #plan #place #map ##OUTPATIENT ##blueprint ##appointment-template ##simulation.
+
+HC08 Radiotherapy Beam Configuration Selection.
+DESCRIPTION Selects treatment beams and delivery configurations under prescribed target-dose and organ-at-risk limits.
+TEMPLATE Inverse radiation treatment planning with discrete beam selection | Mixed-integer dose planning; beam-selection heuristics with continuous fluence subproblems.
+REGIME #plan | Prepares a patient-specific physical treatment configuration.
+STRUCTURE #select | Chooses beam configurations from permitted candidates.
+PRIORITY Medium | Beam configuration is central within radiation oncology.
+RELEVANCE Critical | The configuration controls target coverage and exposure of healthy tissue.
+HARDNESS High | Mixed discrete beam selection and continuous dose optimization; Each configuration can require a large dose-evaluation subproblem.
+DEPENDENCIES ∅ → HC08 → HC19.
+COMMENTS Pure continuous fluence optimization with fixed beams is outside this discrete selection scope. | #HUMAN #HC #plan #select ##RADIOTHERAPY ##beam-angle ##dose-planning.
+
+HC09 Risk-Based Screening Regimen Allocation.
+DESCRIPTION Assigns patients or risk groups to eligible screening regimens under resource limits and predicted health outcomes.
+TEMPLATE Resource-constrained risk-based screening | Integer programme over supplied regimen alternatives and risk estimates.
+REGIME #allocate | Commits screening resources to patient-specific or group-specific regimens.
+STRUCTURE #map | Assigns eligible screening regimens to patients or groups.
+PRIORITY Medium | Risk-based screening allocation recurs in preventive-care programmes.
+RELEVANCE High | Allocation can improve early detection within limited screening capacity.
+HARDNESS Medium | Multiple-choice budgeted allocation; Risk estimation and outcome uncertainty matter as much as assignment scale.
+DEPENDENCIES HC01 → HC09 → HC16.
+COMMENTS This decision consumes risk predictions; it does not build the predictive model. | #HUMAN #HC #allocate #map ##PUBLICHEALTH ##screening ##risk-stratification.
+
+HC10 Vaccination Allocation.
+DESCRIPTION Allocates available vaccine doses or complete courses to eligible populations and service areas under clinical priorities, capacity and access requirements.
+TEMPLATE Public-health vaccination allocation with eligibility and equity rules | Integer allocation models; epidemic-model coupling and scenario analysis.
+REGIME #allocate | Commits scarce doses or courses to eligible populations.
+STRUCTURE #map | Assigns vaccine capacity to population groups and service areas.
+PRIORITY High | Vaccination programmes regularly allocate limited clinical resources.
+RELEVANCE Critical | Allocation affects preventable disease and equitable access.
+HARDNESS High | Integer allocation with epidemic or access constraints; Multiple doses, uptake uncertainty and interacting population outcomes complicate allocation.
+DEPENDENCIES HC01 → HC10 → HC16.
+COMMENTS Inventory replenishment and cold-chain shipment execution belong to SCM and LOG. | #HUMAN #HC #allocate #map ##PUBLICHEALTH ##vaccination ##equity ##multi-dose.
+
+HC11 Deceased-Donor Organ Allocation and Offer Sequencing.
+DESCRIPTION Assigns available deceased-donor organs to eligible recipients and orders offers under compatibility and policy-defined priorities.
+TEMPLATE Policy-constrained donor-recipient matching and offer progression | Compatibility filtering and priority ranking; constrained assignment when joint choices are permitted.
+REGIME #allocate | Commits an available organ through the permitted recipient-offer process.
+STRUCTURE #map + #place | Assigns organs to recipients and orders recipient offers.
+PRIORITY Medium | The decision is specific to organ procurement and transplantation.
+RELEVANCE Critical | Organ allocation directly affects access to life-saving transplantation.
+HARDNESS Medium | Fixed-policy filtering and ranking are polynomial; coupled assignment variants add integer choices; Compatibility, acceptance and short viability windows constrain the process.
+DEPENDENCIES ∅ → HC11 → HC15.
+COMMENTS Priority rules are supplied policy; an optimizer may not replace them with a free welfare objective. | #HUMAN #HC #allocate #map #place ##TRANSPLANTATION ##organ-allocation ##compatibility ##offer-sequence.
+
+HC12 Kidney Paired Exchange Construction.
+DESCRIPTION Constructs compatible donor-recipient exchange cycles and chains under participation, length and clinical priority rules.
+TEMPLATE Kidney paired donation clearing | Cycle or position-indexed ILP; branch-and-price and hierarchical objective methods.
+REGIME #allocate | Commits a compatible exchange set for a transplant match run.
+STRUCTURE #link | Chooses transplant relations that form disjoint exchange cycles and chains.
+PRIORITY Medium | Paired exchange is specific to living-donor transplantation.
+RELEVANCE Critical | Exchange construction can enable otherwise infeasible transplants.
+HARDNESS High | NP-hard bounded-cycle exchange variants; Long chains, failure risk and hierarchical goals increase model difficulty.
+DEPENDENCIES ∅ → HC12 → HC15.
+COMMENTS The compatibility graph is supplied; the solution chooses the transplant relations. | #HUMAN #HC #allocate #link ##TRANSPLANTATION ##kidney-exchange ##cycle ##chain ##compatibility.
+
+HC13 Elective Patient Admission Scheduling.
+DESCRIPTION Selects elective patients for admission and assigns admission dates under clinical priority, readiness and forecast resource occupancy.
+TEMPLATE Elective admission planning and capacity reservation | Admission-date MILP; stochastic occupancy models and rolling planning.
+REGIME #plan | Commits admission dates before the care episode begins.
+STRUCTURE #place + #select | Places selected patient admissions on the calendar.
+PRIORITY High | Elective admissions affect access and inpatient workload.
+RELEVANCE High | Feasible admission dates reduce postponements and congestion.
+HARDNESS High | Contains knapsack-type patient-selection variants; Uncertain stays and downstream resource demand couple admission dates.
+DEPENDENCIES HC02, HC05 → HC13 → HC14, HC24.
+COMMENTS The historical PAS label often denotes bed assignment; that meaning belongs to patient-room allocation. | #HUMAN #HC #plan #place #select ##HOSPITALS ##admission-control ##occupancy ##rolling.
+
+HC14 Hospital-Wide Care Pathway Coordination.
+DESCRIPTION Schedules patient care activities and ward stays across departments under clinical precedence, transfer, resource and discharge-readiness requirements.
+TEMPLATE Integrated care-pathway and hospital patient-flow planning | Hierarchical or monolithic MILP; rolling multi-resource scheduling.
+REGIME #plan + #operate | Coordinates a care episode across departments and supports execution updates.
+STRUCTURE #place + #map | Places care activities and stays in time and assigns eligible clinical resources.
+PRIORITY Critical | Cross-department patient flow connects major hospital decisions.
+RELEVANCE Critical | Coordinated care reduces delays and releases constrained capacity.
+HARDNESS Critical | Contains resource-constrained scheduling variants; Many linked clinical stages, uncertain durations and departmental commitments require decomposition.
+DEPENDENCIES HC02, HC05, HC13 → HC14 → HC15, HC17, HC24, HC26.
+COMMENTS Clinical precedence is supplied; scheduling it does not by itself construct #link. | #HUMAN #HC #plan #operate #place #map ##HOSPITALS ##care-pathway ##precedence ##patient-flow ##decomposition.
+
+HC15 Surgical Case Scheduling.
+DESCRIPTION Selects surgical cases and assigns rooms, clinical teams and start times under availability, urgency, turnover and recovery-capacity limits.
+TEMPLATE Perioperative surgical case scheduling | MILP or constraint programming; stochastic and distributionally robust scheduling.
+REGIME #plan | Commits patient-specific surgery resources, order and start times.
+STRUCTURE #place + #map + #select | Places selected surgeries in time and assigns their clinical resources.
+PRIORITY Critical | Surgical case scheduling is a central hospital optimization problem.
+RELEVANCE High | Better schedules reduce delays, overtime and unused theatre capacity.
+HARDNESS High | NP-hard parallel-machine and multi-resource scheduling variants; Uncertain durations and shared clinical and recovery resources require specialized models.
+DEPENDENCIES HC06, HC11, HC12, HC14 → HC15 → HC31.
+COMMENTS The template concerns actual cases; the master block schedule supplies capacity entitlements. | #HUMAN #HC #plan #place #map #select ##PERIOPERATIVE ##schedule ##turnover ##stochastic.
+
+HC16 Patient Appointment Booking.
+DESCRIPTION Assigns patient requests to eligible provider, mode and time slots under clinical urgency, visit type and booking-capacity limits.
+TEMPLATE Outpatient appointment booking and template-based online scheduling | Slot-assignment integer programming; stochastic or dynamic booking policies.
+REGIME #allocate + #dispatch | Commits individual requests to remaining appointment capacity.
+STRUCTURE #map + #select | Assigns patient requests to supplied slots and selects requests for available capacity.
+PRIORITY Critical | Appointment access is a core primary and ambulatory care decision.
+RELEVANCE High | Booking affects timely access, waiting and resource use.
+HARDNESS Medium | Basic slot assignment is polynomial; coupled bookings add integer constraints; No-shows, urgency and online arrivals complicate booking policy.
+DEPENDENCIES HC07, HC09, HC10 → HC16 → HC17, HC18, HC19, HC20, HC26.
+COMMENTS Constructing the underlying recurring slot pattern is a separate blueprint decision. | #HUMAN #HC #allocate #dispatch #map #select ##OUTPATIENT ##online ##appointment-booking ##no-show.
+
+HC17 Clinical Diagnostic Resource Scheduling.
+DESCRIPTION Schedules patient diagnostic activities on eligible equipment and clinical resources under urgency, preparation and result-timing requirements.
+TEMPLATE Diagnostic service and laboratory patient scheduling | Flexible open-shop or multi-resource scheduling MILP.
+REGIME #plan + #dispatch | Commits diagnostic resource times and prioritizes arriving requests.
+STRUCTURE #place + #map | Places diagnostic activities in time and assigns eligible resources.
+PRIORITY High | Diagnostic resources support many inpatient and outpatient care streams.
+RELEVANCE High | Timely diagnosis reduces treatment delay and occupied care capacity.
+HARDNESS High | NP-hard flexible open-shop variants; Multiple tests, resource eligibility and clinical priority couple schedules.
+DEPENDENCIES HC14, HC16 → HC17 → ∅.
+COMMENTS Full diagnostic-to-treatment pathways belong to cross-stage care coordination. | #HUMAN #HC #plan #dispatch #place #map ##DIAGNOSTICS ##laboratory ##open-shop ##priority.
+
+HC18 Dialysis Course and Session Scheduling.
+DESCRIPTION Schedules recurring dialysis sessions and assigns treatment stations and connection staff under treatment intervals, patient availability and equipment limits.
+TEMPLATE Hemodialysis recurring-course scheduling | Set-based branch-and-price; session and technician-assignment MIP.
+REGIME #plan | Commits a recurring clinically required treatment course.
+STRUCTURE #place + #map | Places treatment sessions in time and assigns stations and clinical support.
+PRIORITY Medium | Recurring dialysis is a material chronic-care scheduling system.
+RELEVANCE Critical | Feasible repeated treatments sustain access to essential care.
+HARDNESS High | Recurring multi-resource appointment scheduling; Repeated attendance and connection/disconnection tasks constrain the same resources.
+DEPENDENCIES HC05, HC07, HC16 → HC18 → ∅.
+COMMENTS Home-dialysis visit routing is a home-care variant. | #HUMAN #HC #plan #place #map ##DIALYSIS ##recurring-treatment ##branch-and-price.
+
+HC19 Radiotherapy Treatment-Course Scheduling.
+DESCRIPTION Schedules prescribed radiation fractions on eligible treatment units under course spacing, preparation, machine continuity and patient time requirements.
+TEMPLATE Radiotherapy course and fraction scheduling | Treatment-course MILP; stochastic scheduling with simulation evaluation.
+REGIME #plan | Commits the treatment-course calendar and unit access.
+STRUCTURE #place + #map | Places fractions in time and assigns eligible treatment resources.
+PRIORITY Medium | Treatment-course scheduling is central within radiotherapy operations.
+RELEVANCE High | Schedules affect treatment access, continuity and equipment use.
+HARDNESS High | Recurring multi-resource scheduling; Course coupling, preparation and variable durations restrict local slot choices.
+DEPENDENCIES HC05, HC08, HC16 → HC19 → ∅.
+COMMENTS The treatment prescription is input; beam configuration and clinical fraction-size design are separate decisions. | #HUMAN #HC #plan #place #map ##RADIOTHERAPY ##fraction-scheduling ##continuity ##stochastic.
+
+HC20 Multidisciplinary Rehabilitation Therapy Scheduling.
+DESCRIPTION Schedules recurring rehabilitation therapy sessions and assigns therapists, groups and rooms under clinical frequency, continuity and combination-appointment requirements.
+TEMPLATE Integrated rehabilitation treatment planning | Therapy scheduling ILP; decomposition and neighbourhood search.
+REGIME #plan | Commits a coordinated rehabilitation programme for actual patients.
+STRUCTURE #place + #map | Places therapy sessions in time and assigns eligible therapists and groups.
+PRIORITY Medium | Multidisciplinary rehabilitation requires coordinated recurring treatment.
+RELEVANCE High | Coordination improves access and continuity across therapy disciplines.
+HARDNESS High | Recurring multi-resource timetabling; Therapist continuity and combination appointments restrict patient schedules.
+DEPENDENCIES HC05, HC07, HC16 → HC20 → ∅.
+COMMENTS The blueprint supplies reusable session capacity; this card schedules actual patient programmes. | #HUMAN #HC #plan #place #map ##REHABILITATION ##continuity-of-care ##group-therapy ##synchronization.
+
+HC21 Home Healthcare Visit Coordination.
+DESCRIPTION Assigns caregivers to patient visits and constructs visit routes and times under clinical skills, continuity, time windows and synchronized-care requirements.
+TEMPLATE Home-care routing and scheduling | Synchronized routing MILP; robust models, column generation and neighbourhood search.
+REGIME #plan + #operate | Commits and updates direct-care visits and caregiver itineraries.
+STRUCTURE #link + #map + #place | Constructs visit succession, assigns caregivers and places care visits in time.
+PRIORITY High | Home-care services must coordinate mobile clinical work.
+RELEVANCE High | Feasible itineraries support continuity and reduce missed care.
+HARDNESS High | NP-hard vehicle-routing variants; Synchronized visits and clinical continuity couple routes and schedules.
+DEPENDENCIES ∅ → HC21 → ∅.
+COMMENTS Clinical visit requirements define HC; generic service routing belongs to LOG or HR. | #HUMAN #HC #plan #operate #link #map #place ##HOMECARE ##route ##synchronization ##continuity-of-care.
+
+HC22 Emergency Department Care Sequencing.
+DESCRIPTION Prioritizes and schedules emergency patient care stages on available clinical resources under triage, treatment precedence and bed requirements.
+TEMPLATE Triage-constrained emergency department patient scheduling | Multi-resource MILP; robust-stochastic scheduling and rolling updates.
+REGIME #dispatch + #operate | Commits immediate care priorities as patients and clinical state change.
+STRUCTURE #place + #map | Orders and times patient care stages and assigns clinical resources.
+PRIORITY High | Emergency departments continuously coordinate unscheduled patient care.
+RELEVANCE Critical | Delays can affect time-critical treatment and care access.
+HARDNESS High | Contains multi-resource scheduling variants; Uncertain arrivals and care durations restrict response time for decisions.
+DEPENDENCIES ∅ → HC22 → ∅.
+COMMENTS Triage categories are clinical inputs; this problem schedules permitted care actions. | #HUMAN #HC #dispatch #operate #place #map ##EMERGENCYMEDICINE ##triage ##online ##multi-resource.
+
+HC23 Critical-Care Admission and Scarce Treatment Allocation.
+DESCRIPTION Selects patients for available intensive or intermediate care and assigns care capacity under clinical eligibility, risk priority and occupancy limits.
+TEMPLATE Risk-stratified critical-care admission control | Queueing-network policy optimization with MIP; state-dependent admission models.
+REGIME #allocate + #dispatch | Commits scarce critical-care access at the current admission decision.
+STRUCTURE #select + #map | Selects eligible admissions and assigns patients to care levels or units.
+PRIORITY High | Critical-care units repeatedly face constrained admission decisions.
+RELEVANCE Critical | Allocation directly affects access to life-critical care.
+HARDNESS High | Constrained admission-policy optimization with integer decisions; Patient risk, uncertain stays and downstream capacity affect current admissions.
+DEPENDENCIES HC02 → HC23 → HC24, HC28.
+COMMENTS Clinical eligibility and priority rules must be supplied; bed location alone is a different assignment decision. | #HUMAN #HC #allocate #dispatch #select #map ##CRITICALCARE ##admission-control ##scarcity ##queueing.
+
+HC24 Patient-to-Room and Bed Allocation.
+DESCRIPTION Assigns admitted patients to rooms or beds over their care stays under specialty, isolation, compatibility and transfer requirements.
+TEMPLATE Clinical bed management and patient-room assignment | Patient-room MIP; local search, matheuristics and rolling assignment.
+REGIME #allocate + #operate | Commits individual patients to usable accommodation and updates assignments.
+STRUCTURE #map | Assigns patients to eligible beds or rooms over supplied stay periods.
+PRIORITY Critical | Patient accommodation is a core inpatient operating decision.
+RELEVANCE Critical | Safe bed access controls admissions, transfers and congestion.
+HARDNESS High | NP-hard constrained patient-room assignment variants; Shared rooms, uncertain stays and transfer costs create strong interactions.
+DEPENDENCIES HC13, HC14, HC23 → HC24 → HC25, HC28.
+COMMENTS Generic bed stock or purchasing decisions are separate from patient-compatible occupancy. | #HUMAN #HC #allocate #operate #map ##HOSPITALS ##patient-room-assignment ##isolation ##occupancy.
+
+HC25 Clinical Staff-to-Patient Assignment.
+DESCRIPTION Assigns available clinical staff to patients or care groups under acuity, skill, continuity and workload requirements.
+TEMPLATE Acuity-based clinical assignment and workload balancing | Assignment MIP; stochastic workload models; integrated room and staff assignment.
+REGIME #allocate + #operate | Commits available clinicians to patient care responsibilities.
+STRUCTURE #map | Assigns clinical responsibility to eligible staff.
+PRIORITY High | Clinical teams repeatedly assign patient care responsibilities.
+RELEVANCE Critical | Assignments affect safe care workload and continuity.
+HARDNESS High | NP-hard capacitated workload-balancing variants; Patient acuity, skills and changing workload limit simple assignment rules.
+DEPENDENCIES HC24 → HC25 → HC26.
+COMMENTS Generic clinician shift rostering belongs to HR; patient-specific care feasibility defines this contract. | #HUMAN #HC #allocate #operate #map ##HOSPITALS ##acuity ##continuity-of-care ##assignment.
+
+HC26 Infusion Treatment Scheduling.
+DESCRIPTION Schedules patient infusion treatments and assigns chairs and clinical staff under prescribed cycles, changing nursing demand and uncertain treatment durations.
+TEMPLATE Acuity-aware infusion centre scheduling | Infusion scheduling MILP; robust optimization and template-assisted scheduling.
+REGIME #plan | Commits patient infusion sessions and care resources.
+STRUCTURE #place + #map | Places treatments in time and assigns chairs and qualified staff.
+PRIORITY Medium | Infusion scheduling recurs in oncology and other infusion services.
+RELEVANCE High | Good schedules reduce care overload and treatment delay.
+HARDNESS High | Multi-resource scheduling with time-varying care demand; Nursing peaks and variable durations limit chair-only planning.
+DEPENDENCIES HC07, HC14, HC16, HC25 → HC26 → ∅.
+COMMENTS Chemotherapy is a major context; medicine production and stock replenishment remain outside this card. | #HUMAN #HC #plan #place #map ##INFUSION ##ONCOLOGY ##acuity ##robust.
+
+HC27 Patient-Compatible Blood Unit Allocation.
+DESCRIPTION Assigns available blood units to transfusion requests under antigen compatibility, patient-specific mismatch risk and unit expiry.
+TEMPLATE Extended antigen matching and clinical blood issuing | Minimum-cost flow for fixed compatible-unit allocation; integer extensions for coupled requirements.
+REGIME #allocate | Commits available transfusion units to eligible patient requests.
+STRUCTURE #map | Assigns blood units to compatible patient demand.
+PRIORITY Medium | Clinical blood issuing is specific to transfusion services.
+RELEVANCE Critical | Matching affects safe transfusion and use of scarce compatible units.
+HARDNESS Medium | Polynomial minimum-cost flow in the fixed compatible-unit model; Rare phenotypes, clinical priorities and uncertain future demand complicate operational use.
+DEPENDENCIES ∅ → HC27 → ∅.
+COMMENTS Blood ordering, inventory targets and collection supply planning belong to SCM. | #HUMAN #HC #allocate #map ##TRANSFUSION ##antigen-matching ##min-cost-flow ##perishability.
+
+HC28 Clinical EMS Dispatch and Hospital Destination Assignment.
+DESCRIPTION Assigns response vehicles and receiving hospitals to emergency patients under medical capability, severity, response and receiving-capacity requirements.
+TEMPLATE Severity-aware ambulance dispatch and destination choice | State-dependent dispatch policies; approximate dynamic programming and integrated MILP.
+REGIME #dispatch | Commits immediate medical response and a suitable receiving destination.
+STRUCTURE #map | Assigns emergency requests to capable response vehicles and hospitals.
+PRIORITY High | EMS operators make patient-response assignments continuously.
+RELEVANCE Critical | Correct capability and timely destination access affect urgent care.
+HARDNESS High | Sequential stochastic assignment and destination decisions; Live availability, severity uncertainty and hospital congestion limit simple nearest-vehicle rules.
+DEPENDENCIES HC04, HC23, HC24 → HC28 → HC29.
+COMMENTS Generic shortest-path execution is LOG; clinical response capability defines this contract. | #HUMAN #HC #dispatch #map ##EMS ##online ##severity ##destination-assignment.
+
+HC29 Ambulance Standby Relocation.
+DESCRIPTION Reassigns available ambulances to standby locations under live demand, medical coverage and relocation limits.
+TEMPLATE Dynamic medical response coverage and standby redeployment | Coverage MIP; approximate dynamic programming and simulation evaluation.
+REGIME #dispatch | Commits short-cycle standby movements under current fleet availability.
+STRUCTURE #map | Assigns available response vehicles to standby locations.
+PRIORITY High | EMS fleets rebalance coverage after calls and releases.
+RELEVANCE High | Relocation can improve readiness for future medical demand.
+HARDNESS High | Dynamic stochastic coverage assignment; Future calls and relocation costs make myopic coverage incomplete.
+DEPENDENCIES HC04, HC28 → HC29 → ∅.
+COMMENTS Response-time evidence does not by itself establish improved patient outcomes. | #HUMAN #HC #dispatch #map ##EMS ##coverage ##rolling ##relocation.
+
+HC30 Mass-Casualty Medical Treatment and Evacuation Coordination.
+DESCRIPTION Assigns casualties to medical facilities and schedules evacuation and treatment under severity, survival, transport and clinical-capacity limits.
+TEMPLATE Medical mass-casualty response and regional preparedness | Integrated evacuation, destination and treatment-order MIP; uncertainty analysis.
+REGIME #dispatch + #adapt | Commits urgent care and revises response plans during a medical surge.
+STRUCTURE #place + #map + #select | Places treatment and evacuation actions in time, assigns destinations and selects actions under scarcity.
+PRIORITY Medium | The problem is specific to major medical surges and disasters.
+RELEVANCE Critical | Coordinated evacuation and treatment affect casualty survival.
+HARDNESS Critical | Integrated resource-constrained evacuation and care scheduling; Rapidly changing casualties and multiple scarce resources require simplified or decomposed decisions.
+DEPENDENCIES HC04 → HC30 → ∅.
+COMMENTS General civilian evacuation is LOG or CIVIC; adversarial response is INTEL when it defines the decision. | #HUMAN #HC #dispatch #adapt #place #map #select ##DISASTERMEDICINE ##triage ##evacuation ##surge.
+
+HC31 Operating-Room Schedule Repair.
+DESCRIPTION Revises committed surgery times and permitted resource assignments after emergency arrivals or duration changes under frozen work and stakeholder limits.
+TEMPLATE Intraday perioperative rescheduling | Repair ILP or rolling-horizon robust scheduling.
+REGIME #adapt + #dispatch | Revises an issued surgical schedule when operating conditions change.
+STRUCTURE #place + #map | Repositions remaining surgeries in time and revises assignments where permitted.
+PRIORITY High | Operating-room schedules routinely face intraday disruption.
+RELEVANCE High | Repair reduces cancellations, delay and overtime.
+HARDNESS High | Strongly NP-hard in the cited multiple-room rescheduling model; Frozen work, arrival uncertainty and limited decision time constrain repair.
+DEPENDENCIES HC15 → HC31 → ∅.
+COMMENTS Some established repair models keep elective room assignments fixed. | #HUMAN #HC #adapt #dispatch #place #map ##PERIOPERATIVE ##rescheduling ##frozen-commitments ##rolling.
