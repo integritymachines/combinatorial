@@ -59,9 +59,8 @@ Check:
 - Each candidate is a distinct industrial decision, not merely an alias, narrow parameter variant, formulation, or algorithm.
 - Synonyms, variants, integrated problems, uncertain merges/splits, and exclusions are handled explicitly.
 - Domain ownership and important interfaces are defensible.
-- For Industry Domains, Industry, Primary Domain, Territory, and Macro Domain anchor are defensible.
-- The default Industry × Primary Domain identity remains unless the Territory split test passes.
-- Every proposed Territory split satisfies all four normative conditions.
+- For Industry Domains, the supplied code, mnemonic, Industry, Primary Domain, Territory, and Macro Domain anchor are applied consistently.
+- Any material evidence against the supplied identity is flagged for ontology-level review rather than silently resolved.
 - Problem families, Regimes, Structures, specializations, departments, and lifecycle labels are not promoted into Territory splits.
 
 4. Dependencies
