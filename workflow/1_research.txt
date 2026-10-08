@@ -9,6 +9,7 @@ DOMAIN = D
 DOMAIN code = NNN
 000_DOMAIN.txt
 background/000_DOMAIN_research.txt
+background/000_PROBLEM_marketplace.txt
 Existing foreground and relevant background.
 
 Output
@@ -24,6 +25,18 @@ Do not force agreement where sources differ.
 Classify the industrial decision, not its formulation.
 For structural checks, distinguish supplied structure, chosen construction, delivered solution, constitutive laws, feasibility conditions, objectives, and auxiliary variables.
 Record apparent ontology defects; do not modify the ontology.
+
+When D is an Industry Domain:
+- establish Industry, Primary Domain, Territory, and Macro Domain anchor;
+- apply the Primary Domain test before Territory;
+- test whether the default Industry × Primary Domain identity is sufficient;
+- apply the Territory split test when materially distinct same-Domain territories appear;
+- do not create a Territory split from Regime, Structure, horizon, department, specialization, or lifecycle terminology alone;
+- record split, merge, and unresolved Territory evidence explicitly.
+
+When a credible candidate is excluded because another Domain owns it, record it in background/000_PROBLEM_marketplace.txt.
+When D is the proposed owner of an OPEN marketplace candidate, assess it during normal candidate discovery and resolve it as CLAIMED, MERGED, REJECTED, or still OPEN.
+Do not classify another Domain's foreground on its behalf.
 
 LEVEL=PROBLEM
 
@@ -47,11 +60,13 @@ For each candidate, record:
 - distinction from neighboring problems;
 - Domain ownership and material interfaces;
 - candidate Regime and Structure;
-- Priority, Relevance, Hardness evidence;
+- Priority, Relevance, industrial Hardness evidence;
+- formal complexity class or material class span when defensible;
 - useful descriptors;
 - Template evidence.
 
 Merge only clear synonyms. Preserve uncertain merges, splits, exclusions, and integrated-problem questions for control.
+Do not spend foreground effort proving absence of a full-contract complexity classification. Record uncertainty in background when useful.
 
 4. Establish dependencies.
 Record meaningful directed problem dependencies: which decisions feed, constrain, consume, or revise which others.
