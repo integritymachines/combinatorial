@@ -365,7 +365,7 @@ PRIORITY High | Hospitals repeatedly coordinate patient discharge and bed releas
 RELEVANCE High | Timely discharge reduces boarding and avoidable inpatient stays.
 HARDNESS High | Uncertain processing times and bed requests couple patient departure decisions.
 DEPENDENCIES HLTH308, HLTH506 → HLTH701 → ∅.
-TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #operate #sequence #execution ##discharge ##bed-release ##stochastic.
+TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #operate #sequence #place #execution ##discharge ##bed-release ##stochastic.
 COMMENTS Medical readiness is supplied. Post-acute facility matching is not established by the discharge-scheduling evidence.
 
 HLTH801 Emergency Department Care Sequencing.
