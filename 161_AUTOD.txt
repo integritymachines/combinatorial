@@ -19,7 +19,7 @@ STRUCTURE #map + #select | Assigns variants to platform or module definitions an
 PRIORITY Critical | Commonality commitments constrain the product-family design stack.
 RELEVANCE Critical | Better commonality can reduce engineering and manufacturing investment across vehicle families.
 HARDNESS High | Shared definitions must balance compatibility, performance and coupled family costs.
-DEPENDENCIES ∅ → AUTOD101 → AUTOD102, AUTOD103, AUTOD104, AUTOD105, AUTOD901.
+DEPENDENCIES ∅ → AUTOD101 → AUTOD102, AUTOD103, AUTOD104, AUTOD105, AUTOD111, AUTOD901.
 TAGS #TRANS #PROD ##AUTOMOTIVE #DEVELOPMENT #design #map #select ##product-platform ##commonality ##product-family.
 COMMENTS Commercial assortment is a separate contract. Shared motor and battery module designs are variants of this Problem.
 
@@ -31,7 +31,7 @@ STRUCTURE #map | Assigns functions and components to modules using supplied inte
 PRIORITY High | Modular architecture recurs in major vehicle and component programs.
 RELEVANCE High | Better grouping reduces unnecessary interfaces and supports reuse and integration.
 HARDNESS High | Interaction weights, permitted boundaries and integration limits require tailored grouping.
-DEPENDENCIES AUTOD101 → AUTOD102 → AUTOD103, AUTOD104, AUTOD901.
+DEPENDENCIES AUTOD101 → AUTOD102 → AUTOD103, AUTOD104, AUTOD111, AUTOD901.
 TAGS #TRANS #PROD ##AUTOMOTIVE #DEVELOPMENT #design #map ##modularity ##partition ##dsm.
 COMMENTS Includes physical zoning and assembly-driven product restructuring. Manufacturing cell grouping and software-only partitioning are separate contracts.
 
@@ -43,7 +43,7 @@ STRUCTURE #link + #select | Constructs subsystem interconnections and selects pa
 PRIORITY High | Architecture decisions recur in major vehicle-system development.
 RELEVANCE Critical | Physical architecture constrains attainable performance, cost and integration.
 HARDNESS High | Invalid topologies and coupled dynamic evaluations require specialized search.
-DEPENDENCIES AUTOD101, AUTOD102, AUTOD901 → AUTOD103 → AUTOD104, AUTOD107, AUTOD108, AUTOD301, AUTOD901.
+DEPENDENCIES AUTOD101, AUTOD102, AUTOD901 → AUTOD103 → AUTOD104, AUTOD107, AUTOD108, AUTOD111, AUTOD301, AUTOD901.
 TAGS #TRANS #PROD ##AUTOMOTIVE #DEVELOPMENT #design #link #select ##system-architecture ##topology ##powertrain.
 COMMENTS Powertrain evidence supports the core Template. Physical E/E, thermal and battery connection variants require their own physical laws; installed software and message operation remain COMP.
 
@@ -55,9 +55,9 @@ STRUCTURE #map | Assigns component alternatives and multiplicities to fixed func
 PRIORITY Critical | Finite component choices recur throughout vehicle definition.
 RELEVANCE High | Better compatible choices improve product performance and lifecycle cost.
 HARDNESS High | Coupled performance and compatibility evaluation require tailored search.
-DEPENDENCIES AUTOD101, AUTOD102, AUTOD103, AUTOD901 → AUTOD104 → AUTOD107, AUTOD110, AUTOD111, AUTOD301, AUTOD901.
+DEPENDENCIES AUTOD101, AUTOD102, AUTOD103, AUTOD901 → AUTOD104 → AUTOD107, AUTOD110, AUTOD111, AUTOD112, AUTOD301, AUTOD901.
 TAGS #TRANS #PROD ##AUTOMOTIVE #DEVELOPMENT #design #map ##configuration ##catalog ##bill-of-materials.
-COMMENTS Supplier and purchasing quantities remain SCM. Continuous sizing alone is outside this discrete configuration contract; optional subsystem participation adds AUTOD103 decisions.
+COMMENTS Supplier and purchasing quantities remain SCM. Continuous sizing alone is outside this discrete configuration contract; optional subsystem participation adds AUTOD103 decisions when physical architecture changes. Vehicle-wide feature compatibility belongs to AUTOD111.
 
 AUTOD105 Discrete Structural Topology Design.
 DESCRIPTION Choose load-bearing members and their connections within a specified vehicle envelope under structural and manufacturing requirements.
@@ -131,7 +131,19 @@ DEPENDENCIES AUTOD104, AUTOD106, AUTOD107, AUTOD109, AUTOD901 → AUTOD110 → A
 TAGS #TRANS #PROD ##AUTOMOTIVE #DEVELOPMENT #design #map ##tolerancing ##variation ##tolerance-cost.
 COMMENTS Continuous-only tolerancing is outside this card. Matching measured manufactured components belongs to AUTOM; process-capability decisions remain a manufacturing interface.
 
-AUTOD111 Prototype Fleet Configuration.
+AUTOD111 Variant Configuration.
+DESCRIPTION Choose a technically valid combination of vehicle features and equipment options under specified requirements, compatibility rules and cost, mass or preference objectives.
+TEMPLATE Feature-model and compatibility-rule engineering with variant BOM checks | SAT for configuration feasibility; weighted MaxSAT or pseudo-Boolean optimization; finite-domain CP or MILP.
+REGIME #design | Commits an engineering variant definition before routine realization.
+STRUCTURE #select | Selects included feature and equipment alternatives within a supplied product definition.
+PRIORITY Critical | Variant compatibility governs valid vehicle definitions across the product family.
+RELEVANCE High | Better configurations prevent incompatible product content and downstream rework.
+HARDNESS Medium | Standard configuration solvers handle useful industrial instances; rule integration, objective form and scaling remain important.
+DEPENDENCIES AUTOD101, AUTOD102, AUTOD103, AUTOD104, AUTOD901 → AUTOD111 → AUTOD112, AUTOD301, AUTOD901.
+TAGS #TRANS #PROD ##AUTOMOTIVE #DEVELOPMENT #design #select ##variant-configuration ##feature-model ##buildability ##product-line.
+COMMENTS Technical requirements remain hard constraints. Catalog component and module-count assignments belong to AUTOD104. Rule checking and variant counting support this decision; commercial offers, production variant mixes and software-only configurations are separate contracts.
+
+AUTOD112 Prototype Fleet Configuration.
 DESCRIPTION Choose the number and feature configurations of buildable development specimens needed to support specified validation demands.
 TEMPLATE Prototype buildability and test-coverage engineering | SAT or Max-SAT and MILP-compatible configuration optimization; greedy coverage; decomposition with scheduling.
 REGIME #design | Defines purpose-built development specimens before named test-calendar commitments.
@@ -139,7 +151,7 @@ STRUCTURE #select + #map | Selects participating prototype slots and assigns com
 PRIORITY High | Configured prototypes recur in physical vehicle validation.
 RELEVANCE High | Better coverage reduces expensive prototype requirements.
 HARDNESS Medium | Standard configuration solvers handle useful instances; tight calendars and reuse constraints require additional engineering.
-DEPENDENCIES AUTOD104, AUTOD301, AUTOD302, AUTOD901, AUTOD902 → AUTOD111 → AUTOD302.
+DEPENDENCIES AUTOD104, AUTOD111, AUTOD301, AUTOD302, AUTOD901, AUTOD902 → AUTOD112 → AUTOD302.
 TAGS #TRANS #PROD ##AUTOMOTIVE #DEVELOPMENT #design #select #map ##prototype ##configuration ##coverage.
 COMMENTS Chooses specimen definitions, not fabrication start times. Calendar feasibility can force additional prototypes or changed variants.
 
@@ -153,7 +165,7 @@ STRUCTURE #select | Selects the validation activities or scenarios included in t
 PRIORITY High | Validation programs must ration expensive development tests.
 RELEVANCE High | Better portfolios improve useful coverage within available resources.
 HARDNESS Medium | Finite coverage models use standard solvers, but realistic coverage and risk inputs require engineering.
-DEPENDENCIES AUTOD103, AUTOD104, AUTOD105, AUTOD106, AUTOD107, AUTOD108, AUTOD109, AUTOD110, AUTOD901 → AUTOD301 → AUTOD111, AUTOD302, AUTOD901.
+DEPENDENCIES AUTOD103, AUTOD104, AUTOD105, AUTOD106, AUTOD107, AUTOD108, AUTOD109, AUTOD110, AUTOD111, AUTOD901 → AUTOD301 → AUTOD112, AUTOD302, AUTOD901.
 TAGS #TRANS #PROD ##AUTOMOTIVE #DEVELOPMENT #plan #select ##validation ##test-selection ##coverage.
 COMMENTS Optimized coverage does not itself prove product safety. Generic software regression selection remains COMP; mandatory checks are fixed constraints.
 
@@ -165,7 +177,7 @@ STRUCTURE #place + #map | Places tests in calendar time and assigns eligible spe
 PRIORITY Critical | Validation calendars coordinate recurring vehicle-development programs.
 RELEVANCE High | Better calendars reduce prototype needs and avoid development delay.
 HARDNESS High | Specimen state, compatibility and constrained calendars require custom scheduling models.
-DEPENDENCIES AUTOD111, AUTOD301, AUTOD902 → AUTOD302 → AUTOD111, AUTOD901, AUTOD902.
+DEPENDENCIES AUTOD112, AUTOD301, AUTOD902 → AUTOD302 → AUTOD112, AUTOD901, AUTOD902.
 TAGS #TRANS #PROD ##AUTOMOTIVE #DEVELOPMENT #plan #place #map ##prototype ##test-scheduling ##precedence ##degradation.
 COMMENTS Destructive tests can prohibit or restrict later reuse. Series-production tests remain AUTOM; independent vehicle journeys and generic engineer rosters remain LOG and HR.
 
@@ -179,7 +191,7 @@ STRUCTURE #select | Selects candidate edits that form a compatible revised defin
 PRIORITY High | Physical design changes recur during vehicle development.
 RELEVANCE High | Better revisions reduce propagated rework and preserve product commitments.
 HARDNESS High | Coupled impacts and compatibility require tailored search and engineering review.
-DEPENDENCIES AUTOD101, AUTOD102, AUTOD103, AUTOD104, AUTOD105, AUTOD106, AUTOD107, AUTOD108, AUTOD109, AUTOD110, AUTOD301, AUTOD302 → AUTOD901 → AUTOD103, AUTOD104, AUTOD105, AUTOD106, AUTOD107, AUTOD108, AUTOD109, AUTOD110, AUTOD111, AUTOD301, AUTOD902.
+DEPENDENCIES AUTOD101, AUTOD102, AUTOD103, AUTOD104, AUTOD105, AUTOD106, AUTOD107, AUTOD108, AUTOD109, AUTOD110, AUTOD111, AUTOD301, AUTOD302 → AUTOD901 → AUTOD103, AUTOD104, AUTOD105, AUTOD106, AUTOD107, AUTOD108, AUTOD109, AUTOD110, AUTOD111, AUTOD112, AUTOD301, AUTOD902.
 TAGS #TRANS #PROD ##AUTOMOTIVE #DEVELOPMENT #adapt #select ##engineering-change ##redesign ##change-propagation.
 COMMENTS The OR Template transfers published product-change methods; a dominant deployed automotive solver is not established. Supplied propagation relations do not add #link; changed physical connections invoke the relevant architecture or joining decisions.
 
@@ -191,6 +203,6 @@ STRUCTURE #place + #map | Repositions tests and reassigns feasible surviving spe
 PRIORITY High | Disruptions recurrently invalidate development-test calendars.
 RELEVANCE High | Better repair protects validation completion and scarce specimen use.
 HARDNESS High | State changes and dependent tests require coordinated calendar revision.
-DEPENDENCIES AUTOD302, AUTOD901 → AUTOD902 → AUTOD111, AUTOD302.
+DEPENDENCIES AUTOD302, AUTOD901 → AUTOD902 → AUTOD112, AUTOD302.
 TAGS #TRANS #PROD ##AUTOMOTIVE #DEVELOPMENT #adapt #place #map ##validation ##rescheduling ##disruption.
 COMMENTS Published rig-field evidence is a limited simulation demonstration. Removing mandatory tests is not an allowed repair; revised optional-test selection belongs to AUTOD301.
