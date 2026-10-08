@@ -7,7 +7,8 @@ Input
 LEVEL ∈ {PROBLEM, CASE}
 DOMAIN = D
 000_DOMAIN.txt
-background/000_DOMAIN_research.txt  
+background/000_DOMAIN_research.txt
+background/000_PROBLEM_marketplace.txt
 background/<NNN>_<D>_research.txt
 Relevant foreground and background.
 
@@ -51,11 +52,17 @@ Check:
 - Material recurring ICO problems are not obviously missing.
 - Claimed near-exhaustive coverage is supported by search saturation, not assertion.
 - Existing lists were not treated as exhaustive.
+- Material candidates owned elsewhere are recorded in background/000_PROBLEM_marketplace.txt.
+- Inbound marketplace candidates for D are explicitly resolved.
 
 3. Problem identity
 - Each candidate is a distinct industrial decision, not merely an alias, narrow parameter variant, formulation, or algorithm.
 - Synonyms, variants, integrated problems, uncertain merges/splits, and exclusions are handled explicitly.
 - Domain ownership and important interfaces are defensible.
+- For Industry Domains, Industry, Primary Domain, Territory, and Macro Domain anchor are defensible.
+- The default Industry × Primary Domain identity remains unless the Territory split test passes.
+- Every proposed Territory split satisfies all four normative conditions.
+- Problem families, Regimes, Structures, specializations, departments, and lifecycle labels are not promoted into Territory splits.
 
 4. Dependencies
 - Directed dependencies are evidenced and meaningful at problem level.
