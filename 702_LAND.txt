@@ -1,0 +1,271 @@
+LAND Land Use and Renewable Resource Systems
+v0.1 | Problem layer | 2026-10-08
+
+LAND covers discrete land, geospatial-asset, basin and renewable-resource commitments. It includes physical property allocation, forestry, agriculture, fisheries, conservation and ecological recovery.
+
+The sequence follows initial commitments from spatial configuration and resource access to use calendars, execution and recovery. Dependencies are applicable industrial or information handoffs; no deployment must use every linked Problem. Feedback and conditional directions remain in background/702_LAND_research.txt. Templates are established model families, not a universal method ranking.
+
+LAND01 Spatial Land-Use and Resource Zoning.
+DESCRIPTION Assigns land parcels or spatial units to permitted uses under suitability, area, adjacency and environmental limits.
+TEMPLATE Spatial master planning and land suitability analysis | Multiobjective integer programming and spatial search.
+REGIME #design | Commits the spatial use pattern before development and resource operations.
+STRUCTURE #map | Assigns spatial units to use classes; supplied adjacency constrains the resulting pattern.
+PRIORITY High | Spatial zoning coordinates competing uses across urban, rural and marine resource systems.
+RELEVANCE Critical | Use patterns determine durable resource access and development opportunities.
+HARDNESS High | No general complexity claim; large spatial grids and competing compactness and suitability goals require tailored formulations.
+DEPENDENCIES ∅ → LAND01 → LAND02, LAND03, LAND05, LAND06, LAND07, LAND08, LAND10, LAND13, LAND18.
+COMMENTS Marine spatial zoning shares this contract. Pure continuous acreage balances are excluded. | #RES #LAND #design #map ##land-use ##spatial-allocation ##adjacency.
+
+LAND02 Land Consolidation and Parcel Readjustment.
+DESCRIPTION Reassigns discrete land units or ownership interests to consolidated holdings under entitlement, value, access and parcel-shape conditions.
+TEMPLATE Cadastral land consolidation and readjustment | Mixed-integer allocation and geometric optimization.
+REGIME #design | Defines the land holdings available to later development and cultivation.
+STRUCTURE #map | Assigns land units to resulting holdings or entitled owners.
+PRIORITY High | Fragmented agricultural and urban holdings require recurring reallocation.
+RELEVANCE High | Consolidation can reduce access costs and improve usable land value.
+HARDNESS High | No general complexity claim; indivisible parcels, owner preferences and geometric conditions complicate standard assignment.
+DEPENDENCIES LAND01 → LAND02 → LAND06, LAND08, LAND10.
+COMMENTS Transfers of financial land-backed claims belong to FIN. | #RES #LAND #design #map ##land-consolidation ##readjustment ##entitlement.
+
+LAND03 Conservation Area Selection.
+DESCRIPTION Selects conservation sites under habitat-representation targets, resource budgets and required spatial conditions.
+TEMPLATE Systematic conservation prioritization | Binary planning-unit optimization, prioritizr ILP and Marxan-style spatial search.
+REGIME #design | Commits the protected-site portfolio before management implementation.
+STRUCTURE #select | Chooses planning units from a supplied landscape.
+PRIORITY High | Reserve selection recurs across terrestrial and marine resource management.
+RELEVANCE Critical | Site choices can determine enduring biodiversity protection and resource-use limits.
+HARDNESS High | Budgeted coverage variants are NP-hard; multiple features and spatial requirements require strong formulations or spatial search.
+DEPENDENCIES LAND01 → LAND03 → LAND04, LAND13, LAND14, LAND16, LAND18, LAND24.
+COMMENTS Connected and staged acquisition are variants; explicit corridor construction is separate. | #RES #LAND #design #select ##conservation ##coverage ##FORESTRY ##FISHERIES.
+
+LAND04 Habitat Corridor Network Design.
+DESCRIPTION Connects habitat patches through feasible corridors under conservation budgets, habitat quality and corridor geometry requirements.
+TEMPLATE Landscape connectivity and wildlife corridor planning | Connectivity-constrained MILP and corridor-system decomposition.
+REGIME #design | Defines ecological connections before land acquisition or restoration work.
+STRUCTURE #link | Constructs the corridor connections between habitat patches.
+PRIORITY Medium | Connectivity design is essential in fragmented habitat systems.
+RELEVANCE High | Better connections improve feasible movement between protected habitats.
+HARDNESS High | No general complexity claim; corridor geometry, overlapping parcels and network requirements complicate large designs.
+DEPENDENCIES LAND03 → LAND04 → LAND14, LAND24.
+COMMENTS Fixed-path parcel selection is a corridor variant; supplied landscape adjacency alone does not imply #link. | #RES #LAND #design #link ##connectivity ##corridor ##network-design.
+
+LAND05 Forest Harvest Access Network Design.
+DESCRIPTION Connects harvest areas to exit points through logging roads, landings and access spurs under terrain, access and cost limits.
+TEMPLATE Integrated forest harvest-access planning | Fixed-charge network MILP and joint road-harvest optimization.
+REGIME #design | Defines the access topology that enables later timber harvesting.
+STRUCTURE #link | Constructs the road and spur connections that give access to harvest areas.
+PRIORITY Medium | Access design is fundamental in road-constrained forest operations.
+RELEVANCE High | Access topology changes recoverable timber and development cost.
+HARDNESS High | No general complexity claim; terrain, discrete road costs and harvest-value coupling require tailored models.
+DEPENDENCIES LAND01 → LAND05 → LAND13, LAND20.
+COMMENTS Standalone road construction is CIVIC; timber-transport routing is LOG. | #RES #LAND #design #link ##FORESTRY ##network-design ##landing.
+
+LAND06 Perennial Crop Establishment and Replacement Planning.
+DESCRIPTION Selects crop-block establishment or replacement and assigns varieties and planting options under land, investment and yield-development limits.
+TEMPLATE Orchard and perennial plantation renewal planning | Multiperiod MILP and investment-policy optimization.
+REGIME #design + #plan | Defines perennial block configuration and commits its establishment or replacement calendar.
+STRUCTURE #map + #place + #select | Assigns varieties and planting options to selected blocks and schedules establishment or replacement.
+PRIORITY Medium | Perennial crops require recurring establishment and reconversion decisions.
+RELEVANCE High | Renewal choices determine productive capacity over many seasons.
+HARDNESS Medium | No general complexity claim; juvenile yield and block indivisibility couple multiple years, while standard MILP provides a defensible starting point.
+DEPENDENCIES LAND01, LAND02 → LAND06 → LAND21.
+COMMENTS Annual crop rotation is separate; purely financial plantation holdings belong to FIN. | #RES #LAND #design #plan #map #place #select ##perennial-crops ##orchard ##replacement.
+
+LAND07 Watershed Intervention Selection and Allocation.
+DESCRIPTION Selects catchment interventions and assigns them to eligible land units under budgets, land compatibility and water-quality or runoff targets.
+TEMPLATE Catchment best-management-practice targeting | Hydrological simulation-optimization, multiobjective search and surrogate MILP.
+REGIME #design | Defines the catchment intervention portfolio before implementation.
+STRUCTURE #map + #select | Assigns selected intervention types to land units.
+PRIORITY High | Catchment resource management repeatedly requires spatial intervention choices.
+RELEVANCE High | Targeting can reduce pollutant loads and protect water-resource function.
+HARDNESS High | No general complexity claim; response simulation and interacting intervention effects make portfolio evaluation expensive.
+DEPENDENCIES LAND01 → LAND07 → LAND10, LAND21, LAND24.
+COMMENTS Urban drainage asset decisions belong to CIVIC or ENER when that service-asset contract dominates. | #RES #LAND #design #map #select ##WATER ##watershed ##nonpoint-source ##simulation-optimization.
+
+LAND08 Real-Estate Development Phasing.
+DESCRIPTION Schedules the development and release of property phases under site-use commitments, capacity, investment and market-absorption limits.
+TEMPLATE Property master-plan phasing and absorption planning | Multiperiod mixed-integer development scheduling.
+REGIME #plan | Commits when physical property phases become available for use.
+STRUCTURE #place | Positions development phases and space releases in time.
+PRIORITY Medium | Large property developments require coordinated phase commitments.
+RELEVANCE Critical | Phasing controls major capital exposure and usable-space availability.
+HARDNESS Medium | No general complexity claim; commercial MILP can handle standard phase calendars, while uncertain absorption requires scenario analysis.
+DEPENDENCIES LAND01, LAND02 → LAND08 → LAND19.
+COMMENTS Detailed construction-task schedules belong to CIVIC; financing structure belongs to FIN. | #RES #LAND #plan #place ##REALESTATE ##development-phasing ##absorption.
+
+LAND09 Basin Drought Rationing Policy Planning.
+DESCRIPTION Selects rationing policies and user-group service levels under basin water availability, entitlement priorities and environmental flow requirements.
+TEMPLATE Basin resource rationing and drought hedging | Discrete hedging MILP, multistage stochastic MIQP and policy optimization.
+REGIME #plan + #adapt | Prepares rationing commitments and revises them after material changes in water availability.
+STRUCTURE #select + #map | Chooses rationing policies and assigns service levels to user groups.
+PRIORITY High | Drought rationing is material across agricultural, municipal and environmental basin uses.
+RELEVANCE Critical | Allocation changes agricultural output, ecosystem flows and essential supply.
+HARDNESS High | No general complexity claim; discrete rationing choices interact with uncertain inflows and resource balances.
+DEPENDENCIES ∅ → LAND09 → LAND10, LAND11, LAND22.
+COMMENTS Continuous water-right balances alone are excluded. Utility pump switching is ENER; groundwater withdrawal is EXTR. | #RES #LAND #plan #adapt #select #map ##WATER ##water-rights ##basin ##drought.
+
+LAND10 Seasonal Crop-to-Plot Allocation.
+DESCRIPTION Assigns crops or crop plans to land units for a season under suitability, acreage, demand and farm-resource limits.
+TEMPLATE Whole-farm crop budgeting and plot planning | Crop-selection MILP and discrete pattern allocation.
+REGIME #plan | Commits the seasonal crop mix before field work.
+STRUCTURE #map | Assigns crops or crop plans to discrete land units.
+PRIORITY High | Seasonal crop allocation is a recurring agricultural planning decision.
+RELEVANCE High | Better allocation improves scarce land and resource use.
+HARDNESS Medium | No general complexity claim; standard MILP handles many discrete plot plans, while shared resources and large pattern sets need formulation care.
+DEPENDENCIES LAND01, LAND02, LAND07, LAND09 → LAND10 → LAND11, LAND21, LAND22.
+COMMENTS Multi-season succession is a separate rotation contract; pure continuous acreage LP is excluded. | #RES #LAND #plan #map ##agriculture ##crop-selection ##plot-allocation.
+
+LAND11 Crop Rotation and Planting Calendar Planning.
+DESCRIPTION Assigns crop sequences and planting periods to plots under crop-family succession, soil recovery, seasonal windows and required spatial conditions.
+TEMPLATE Agronomic rotation and crop calendar design | Multiperiod MILP, sequence-pattern decomposition and constraint programming.
+REGIME #plan | Commits crop succession and planting calendars before cultivation.
+STRUCTURE #place + #map | Positions crop activities in time and assigns them to plots.
+PRIORITY High | Rotation and planting calendars govern recurring multi-season agriculture.
+RELEVANCE High | Feasible succession protects productive soil and coordinates harvest availability.
+HARDNESS High | Published rotation and diversification variants are strongly NP-hard; multi-year patterns, neighboring plots and nutrient state require tailored scheduling methods.
+DEPENDENCIES LAND09, LAND10 → LAND11 → LAND21, LAND22.
+COMMENTS Succession restrictions are supplied agronomic laws; they do not alone create a #link construction. | #RES #LAND #plan #place #map ##agriculture ##crop-rotation ##succession ##schedule.
+
+LAND12 Protected-Cultivation Crop Batch Scheduling.
+DESCRIPTION Schedules crop batches and assigns growing space under crop growth, space occupancy, seeding and harvest-window limits.
+TEMPLATE Greenhouse and vertical-farm crop occupancy planning | Crop-growth MILP scheduling and Lagrangian relaxation.
+REGIME #plan | Commits batch starts and growing-space use before cultivation.
+STRUCTURE #place + #map | Positions crop batches in time and assigns them to growing spaces.
+PRIORITY Medium | Protected cultivation requires coordinated growing-space calendars.
+RELEVANCE High | Better calendars improve usable capacity and crop availability.
+HARDNESS High | No general complexity claim; changing crop volume, yield and repeated harvests can require tailored formulations or Lagrangian decomposition.
+DEPENDENCIES ∅ → LAND12 → ∅.
+COMMENTS Installed climate and utility controls belong to ENER or COMP; crop-space commitments remain LAND. | #RES #LAND #plan #place #map ##agriculture ##greenhouse ##vertical-farm ##batch-scheduling.
+
+LAND13 Forest Harvest and Silvicultural Scheduling.
+DESCRIPTION Selects stand treatments and harvest periods under forest growth, timber targets, opening-size, adjacency and habitat requirements.
+TEMPLATE Spatial forest management and sustainable-yield planning | Prescription-based MILP, spatial cuts and optimization-based heuristics.
+REGIME #plan | Commits stand-treatment and harvest calendars before harvest execution.
+STRUCTURE #place + #map + #select | Schedules treatments, assigns prescriptions to stands and selects treated stands.
+PRIORITY High | Harvest and treatment schedules coordinate substantial forestry operations.
+RELEVANCE Critical | Calendars determine sustained timber value and landscape resource outcomes.
+HARDNESS High | No general complexity claim; spatial openings, stand prescriptions and long growth horizons require strong formulations or spatial search.
+DEPENDENCIES LAND01, LAND03, LAND05 → LAND13 → LAND14, LAND18, LAND20, LAND24.
+COMMENTS Supplied stand adjacency constrains treatments; it is not a chosen connection network. | #RES #LAND #plan #place #map #select ##FORESTRY ##harvest-scheduling ##adjacency ##silviculture.
+
+LAND14 Landscape Fuel Treatment Scheduling.
+DESCRIPTION Selects and schedules fuel-reduction treatments under budgets, vegetation recovery, habitat and wildfire-spread conditions.
+TEMPLATE Landscape fuel and prescribed-treatment planning | Spatial multiperiod MILP and treatment search.
+REGIME #plan | Commits landscape treatments before wildfire response.
+STRUCTURE #place + #select | Schedules selected treatment units and actions in time.
+PRIORITY Medium | Fire-prone landscapes require recurring fuel management.
+RELEVANCE Critical | Treatment choices can materially affect exposure of lives, assets and ecosystems.
+HARDNESS High | No general complexity claim; vegetation ageing and spatial fire pathways couple treatment choices across periods.
+DEPENDENCIES LAND03, LAND04, LAND13 → LAND14 → ∅.
+COMMENTS Emergency response coordination belongs to CIVIC or INTEL when response conditions dominate. | #RES #LAND #plan #place #select ##FORESTRY ##wildfire ##fuel-treatment ##spatial-interaction.
+
+LAND15 Livestock Herd Replacement and Production Planning.
+DESCRIPTION Selects animal retention, replacement and breeding actions under biological state, herd capacity and feed-resource limits.
+TEMPLATE Biological herd development and replacement planning | Multiperiod MILP and Markov decision or dynamic-programming policies.
+REGIME #plan | Commits herd changes before future production periods.
+STRUCTURE #select + #place | Chooses animal or cohort actions and positions them in time.
+PRIORITY Medium | Livestock enterprises require recurring herd renewal commitments.
+RELEVANCE High | Herd choices affect productive capacity and resource demand.
+HARDNESS Medium | No general complexity claim; standard replacement-policy and MILP models provide useful solutions, while herd coupling and uncertainty need care.
+DEPENDENCIES ∅ → LAND15 → LAND23.
+COMMENTS Standalone feed inventory is SCM and feed formulation is PROC. | #RES #LAND #plan #select #place ##agriculture ##livestock ##replacement ##biological-state.
+
+LAND16 Fishery Spatial and Seasonal Harvest Planning.
+DESCRIPTION Assigns fishing effort to areas and target species over periods under quota, bycatch, season and renewable-stock conditions.
+TEMPLATE Quota-constrained fishery harvest and effort planning | Mixed-integer multiperiod bioeconomic allocation.
+REGIME #plan | Commits resource harvesting opportunities before individual voyages.
+STRUCTURE #map + #place | Assigns harvest effort to area-species choices and places it in seasonal periods.
+PRIORITY Medium | Commercial fisheries require coordinated seasonal resource use.
+RELEVANCE Critical | Plans affect harvest value, bycatch exposure and renewable-stock pressure.
+HARDNESS High | No general complexity claim; uncertain catch rates and nonlinear quota interactions complicate discrete harvest choices.
+DEPENDENCIES LAND03 → LAND16 → ∅.
+COMMENTS Individual vessel voyage routing belongs to LOG; quota trading mechanisms belong to MKT. | #RES #LAND #plan #map #place ##FISHERIES ##quota ##bycatch ##harvest-planning.
+
+LAND17 Aquaculture Stocking and Harvest Scheduling.
+DESCRIPTION Schedules stocking, transfer and harvest of fish cohorts and assigns rearing capacity under growth, biomass and biological compatibility limits.
+TEMPLATE Biological cohort and rearing-capacity planning | Multiperiod MILP and production-cycle decomposition.
+REGIME #plan | Commits cohort development and harvest calendars before rearing operations.
+STRUCTURE #place + #map | Schedules cohort events and assigns cohorts to rearing units.
+PRIORITY Medium | Fish farms require recurring biological capacity planning.
+RELEVANCE High | Feasible cohort calendars improve biomass capacity and harvest supply.
+HARDNESS High | No general complexity claim; growth-dependent occupancy and cohort transfers can require cycle decomposition.
+DEPENDENCIES ∅ → LAND17 → ∅.
+COMMENTS Installed water and energy utility operation belongs to ENER; fish processing belongs to PROC or PROD. | #RES #LAND #plan #place #map ##FISHERIES ##aquaculture ##cohort ##decomposition.
+
+LAND18 Landscape Pest and Invasive-Species Treatment Planning.
+DESCRIPTION Selects treatments and assigns sites and periods under biological spread, treatment efficacy, budgets and native-resource protection requirements.
+TEMPLATE Spatial biological threat and land-resource management | Dynamic landscape MILP, response approximations and treatment search.
+REGIME #plan + #adapt | Commits treatment plans and revises them as infestations or invasions change.
+STRUCTURE #map + #place + #select | Assigns selected treatments to land units and schedules their application.
+PRIORITY Medium | Biological landscape threats require recurring treatment portfolios in affected systems.
+RELEVANCE High | Treatment choices protect productive land and native resource function.
+HARDNESS High | No general complexity claim; endogenous spread and delayed treatment effects couple sites and periods.
+DEPENDENCIES LAND01, LAND03, LAND13 → LAND18 → LAND21, LAND24.
+COMMENTS Routine crop-task execution is FIELD; human clinical disease control belongs to HC when clinical service defines the contract. | #RES #LAND #plan #adapt #map #place #select ##FORESTRY ##invasive-species ##pest-management ##spatial-dynamics.
+
+LAND19 Tenant-to-Space Allocation.
+DESCRIPTION Assigns tenants or tenant categories to physical units under space compatibility, category balance and spatial interaction requirements.
+TEMPLATE Physical tenant-mix and occupancy planning | Assignment MILP, nonlinear integer layout models and spatial heuristics.
+REGIME #allocate | Commits available physical units to tenants or tenant categories.
+STRUCTURE #map | Assigns tenants or categories to units in a supplied property layout.
+PRIORITY Medium | Retail and commercial estates require recurring physical occupancy allocation.
+RELEVANCE High | Placement affects occupancy value and tenant compatibility.
+HARDNESS High | No general complexity claim; tenant synergy and unit compatibility complicate otherwise simple matching.
+DEPENDENCIES LAND08 → LAND19 → ∅.
+COMMENTS Offer pricing and commercial assortment without physical-space assignment belong to MKT. | #RES #LAND #allocate #map ##REALESTATE ##RETAIL ##tenant-mix ##assignment.
+
+LAND20 Forest Harvest Operation Scheduling.
+DESCRIPTION Schedules harvest-area work and assigns harvesting resources under access, stand readiness, assortment demand and log-quality conditions.
+TEMPLATE Short-term timber harvesting and resource coordination | Schedule-pattern MILP and harvest scheduling heuristics.
+REGIME #plan + #dispatch | Commits harvest work and updates immediate resource assignments as conditions change.
+STRUCTURE #place + #map | Schedules harvest activities and assigns resource teams or machines to areas.
+PRIORITY Medium | Operational harvest coordination recurs in managed timber systems.
+RELEVANCE High | Better coordination reduces idle resources and harvest-related quality loss.
+HARDNESS High | No general complexity claim; access changes, resource-specific schedules and assortment demand require custom schedules or heuristics.
+DEPENDENCIES LAND05, LAND13 → LAND20 → ∅.
+COMMENTS Standalone crew rosters belong to HR; standalone timber haulage belongs to LOG. | #RES #LAND #plan #dispatch #place #map ##FORESTRY #execution #rolling ##harvest-operations.
+
+LAND21 Agricultural Field Operation Scheduling.
+DESCRIPTION Schedules cultivation and harvest tasks and assigns machinery under crop readiness, soil trafficability, weather windows and task precedences.
+TEMPLATE Agronomic work-window and machinery coordination | Resource-constrained scheduling, simulation-supported search and rolling repair.
+REGIME #plan + #dispatch | Commits field work and revises immediate assignments as field conditions evolve.
+STRUCTURE #place + #map | Schedules field tasks and assigns compatible machines.
+PRIORITY High | Field-work coordination connects crop plans to agricultural execution.
+RELEVANCE High | Timely work protects yield and productive machine use.
+HARDNESS High | Resource-constrained scheduling variants are NP-hard; weather and crop-state changes require rapid schedule repair.
+DEPENDENCIES LAND06, LAND07, LAND10, LAND11, LAND18 → LAND21 → ∅.
+COMMENTS Pure between-field or within-field routing belongs to LOG when movement defines the contract. | #RES #LAND #plan #dispatch #place #map ##agriculture #execution #rolling ##weather-windows ##trafficability.
+
+LAND22 Irrigation Turn Scheduling.
+DESCRIPTION Schedules irrigation turns for fields or users under crop water needs, delivery capacity, required durations and access to water.
+TEMPLATE Rotational irrigation and agronomic delivery planning | Mixed-integer outlet-turn scheduling and rolling calendar optimization.
+REGIME #plan + #operate | Commits delivery turns and coordinates their execution against crop needs.
+STRUCTURE #place | Positions irrigation turns in time.
+PRIORITY High | Irrigated agriculture repeatedly requires coordinated water-delivery turns.
+RELEVANCE High | Feasible delivery calendars protect yield and scarce water use.
+HARDNESS Medium | No general complexity claim; standard MILP supports outlet-turn models, while timing conflicts and delivery limits require formulation care.
+DEPENDENCIES LAND09, LAND10, LAND11 → LAND22 → ∅.
+COMMENTS Pump, valve and pressure optimization without an agronomic turn contract belongs to ENER. | #RES #LAND #plan #operate #place ##WATER ##agriculture ##irrigation ##schedule.
+
+LAND23 Rotational Grazing Allocation and Scheduling.
+DESCRIPTION Assigns livestock groups to paddocks and schedules grazing under pasture availability, regrowth, stocking and land-condition limits.
+TEMPLATE Pasture budgeting and rotational grazing management | Discrete dynamic optimization and pasture-response scheduling.
+REGIME #plan + #operate | Commits grazing rotations and coordinates pasture use as growth changes.
+STRUCTURE #map + #place | Assigns groups to paddocks and positions grazing periods in time.
+PRIORITY Medium | Grazing systems require recurring pasture-use coordination.
+RELEVANCE High | Better rotations can improve usable forage and animal production.
+HARDNESS High | No general complexity claim; pasture recovery and uncertain growth couple paddock choices through time.
+DEPENDENCIES LAND15 → LAND23 → ∅.
+COMMENTS Animal movement routing alone belongs to LOG; pasture use defines this scope. | #RES #LAND #plan #operate #map #place ##agriculture ##pasture ##grazing ##state-propagation.
+
+LAND24 Land Restoration and Reclamation Scheduling.
+DESCRIPTION Selects restoration actions and schedules ecological recovery across land units under budgets, access and recovery-state requirements.
+TEMPLATE Landscape restoration and reclamation investment planning | Multiperiod ecological-transition ILP and spatial prioritization.
+REGIME #plan | Commits restoration actions and recovery stages before implementation.
+STRUCTURE #place + #select + #map | Schedules selected actions and assigns them to land units.
+PRIORITY High | Damaged landscapes require recurring recovery and reclamation planning.
+RELEVANCE High | Better timing improves resource recovery within limited restoration budgets.
+HARDNESS High | No general complexity claim; recovery lags, spatial interactions and uncertain ecological transitions complicate long schedules.
+DEPENDENCIES LAND03, LAND04, LAND07, LAND13, LAND18 → LAND24 → ∅.
+COMMENTS Mine extraction and waste emplacement remain EXTR; standalone earthworks execution belongs to CIVIC. | #RES #LAND #plan #place #select #map ##reclamation ##restoration ##ecological-transition.
+
