@@ -8,6 +8,8 @@ Macro Domain anchor: #HUMAN. Primary Domain: 601 #HC. Industry: ##HEALTHCARE. Te
 HLTH covers direct healthcare services whose clinical, patient or care conditions define feasible decisions. It spans clinical service and response-system configuration, hospital and ambulatory care, patient-specific radiation delivery, transplantation, transfusion, home care and public-health treatment access.
 Ownership follows the delivered clinical service or patient-care commitment. Standalone workforce duties, supply and replenishment, generic transport, billing, construction, manufacturing and digital-resource operation remain with their corresponding Domains. Clinical trials that develop new efficacy evidence are outside this service-production territory.
 
+#design | 1##
+
 HLTH101 Health Intervention Portfolio Selection.
 DESCRIPTION Selects health interventions and service packages under public budgets, clinical eligibility and staff-capacity limits.
 TEMPLATE Health-benefit package design and constrained health-economic evaluation | Binary or multiobjective integer programming.
@@ -67,6 +69,8 @@ HARDNESS High | Many geographic groupings and patient-level allocation effects r
 DEPENDENCIES ∅ → HLTH105 → HLTH503.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #design #map ##transplantation ##partition ##geographic-equity.
 COMMENTS This card covers disjoint sharing districts. Donor-circle radius policies are related geographic variants. Neither model specifies the currently enacted policy.
+
+#plan | 3##
 
 HLTH301 Clinical Session and Service-Capacity Planning.
 DESCRIPTION Assigns available clinical resource sessions to patient groups and services under care-pathway demand and service-access targets.
@@ -248,6 +252,8 @@ DEPENDENCIES HLTH303, HLTH308, HLTH507, HLTH508 → HLTH315 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map ##infusion ##oncology ##acuity ##robust.
 COMMENTS Chemotherapy is a major context; medicine production and stock replenishment remain outside this card.
 
+#allocate | 5##
+
 HLTH501 Risk-Based Screening Regimen Allocation.
 DESCRIPTION Assigns patients or risk groups to eligible screening regimens under resource limits and predicted health outcomes.
 TEMPLATE Resource-constrained risk-based screening | Integer programme over supplied regimen alternatives and risk estimates.
@@ -356,6 +362,8 @@ DEPENDENCIES ∅ → HLTH509 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #map ##transfusion ##antigen-matching ##min-cost-flow ##perishability.
 COMMENTS Blood ordering, inventory targets and collection supply planning belong to SCM.
 
+#operate + #sequence | 7##
+
 HLTH701 Clinical Discharge Sequencing.
 DESCRIPTION Orders and times discharge processing for medically ready patients under processing capacity, departure windows and downstream bed requests.
 TEMPLATE Ready-for-discharge work and bed-release coordination | Two-stage stochastic scheduling with decomposition; deterministic-equivalent optimization and processing-time heuristics.
@@ -367,6 +375,8 @@ HARDNESS High | Uncertain processing times and bed requests couple patient depar
 DEPENDENCIES HLTH308, HLTH506 → HLTH701 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #operate #sequence #place #execution ##discharge ##bed-release ##stochastic.
 COMMENTS Medical readiness is supplied. Post-acute facility matching is not established by the discharge-scheduling evidence.
+
+#dispatch | 8##
 
 HLTH801 Emergency Department Care Sequencing.
 DESCRIPTION Prioritizes and schedules emergency patient care stages on available clinical resources under triage, treatment precedence and bed requirements.
@@ -415,6 +425,8 @@ HARDNESS Critical | Rapidly changing casualties and multiple scarce resources re
 DEPENDENCIES HLTH104 → HLTH804 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #dispatch #adapt #place #map #select ##disastermedicine ##triage ##evacuation ##surge.
 COMMENTS General civilian evacuation is LOG or CIVIC; adversarial response is INTEL when it defines the decision.
+
+#adapt | 9##
 
 HLTH901 Operating-Room Schedule Repair.
 DESCRIPTION Revises committed surgery times and permitted resource assignments after emergency arrivals or duration changes under frozen work and stakeholder limits.
