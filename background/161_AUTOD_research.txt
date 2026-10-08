@@ -84,9 +84,9 @@ S13 Ludwig et al., A Schedule Optimization Tool for Destructive and Non-Destruct
 https://ojs.aaai.org/index.php/AAAI/article/view/19030
 Primary abstract inspected: domain-specific scheduling framework; expensive prototypes and test windows; reported comparison with manual planning. No result has been reproduced here.
 
-S14 Scheduling of Tests on Vehicle Prototypes, TU Dortmund dissertation, institutional full-text repository.
+S14 Kamol Limtanyakul, Scheduling of Tests on Vehicle Prototypes, TU Dortmund doctoral thesis, 30 September 2009, institutional full-text repository.
 https://eldorado.tu-dortmund.de/server/api/core/bitstreams/c1c976cc-a799-4dff-9f4d-ea6047e59bb1/content
-Relevant primary text inspected: a MILP prototype/variant master and CP test-scheduling subproblem linked through feasibility cuts; physical preparation, incompatibility and degradation restrictions. Repository metadata and exact author/year require verification before later canonical Case citation.
+Relevant primary text inspected: a MILP prototype/variant master and CP test-scheduling subproblem linked through feasibility cuts; physical preparation, incompatibility and degradation restrictions. Title-page author and date were verified separately.
 
 S15 Models and algorithms for configuring and testing prototype cars, Computers & Operations Research, 2024/2025. PII: S030505482400306X.
 https://www.sciencedirect.com/science/article/pii/S030505482400306X
@@ -104,9 +104,9 @@ S18 Stütz et al., Improvement of the Scheduling of Automotive Testing Processes
 https://link.springer.com/chapter/10.1007/978-3-031-27933-1_6
 Primary open chapter inspected: MILP with simulated component/system test rigs and disruption/rush-order replanning. The demonstrated setting is a test-field simulation with physical-rig reference context, not a verified enterprise-wide live deployment.
 
-S19 Requirement-driven engineering change management in product design, Computers & Industrial Engineering 168, 2022. PII: S0360835222001231.
+S19 Yin et al., Requirement-driven engineering change management in product design, Computers & Industrial Engineering 168, June 2022, 108053. DOI: 10.1016/j.cie.2022.108053.
 https://www.sciencedirect.com/science/article/pii/S0360835222001231
-Primary indexed abstract: change-solution generation and path optimization. The example is a nursing bed, not automotive. Supports a transferable method family only.
+Primary indexed abstract: logical component dependencies, change-solution generation and ant-colony optimization of generated propagation paths. The retrieved source does not establish an automotive deployment. Supports a transferable method family only; unrelated citing-paper examples are not attributed to this paper.
 
 S20 Process and Product Change Management as a Predictor and Innovative Solution for Company Performance: A Case Study on the Optimization Process in the Automotive Industry, Applied System Innovation 6(5), 2023, 75.
 https://www.mdpi.com/2571-5577/6/5/75
