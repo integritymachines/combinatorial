@@ -1,7 +1,7 @@
 FOREGROUND CONTROL
 
 Role
-Foreground Controller (F): check compilation.
+Foreground Controller (F): control compiled content.
 
 Input
 LEVEL ∈ {PROBLEM, CASE}
@@ -18,12 +18,12 @@ Do not edit the foreground artifact.
 
 Rules
 000_DOMAIN.txt is normative.
-Check faithful contraction of controlled evidence into canonical foreground.
+Check faithful contraction of controlled evidence into canonical foreground content.
 Do not reward extra detail merely because it is correct.
 Do not recompile, rewrite, or renumber the foreground.
-Distinguish representation defects from substantive evidence defects.
-Representation defects return to C.
+Content-compilation defects return to C.
 Substantive evidence, coverage, ownership, or Template defects return to R/B.
+Do not enforce cross-domain layout or presentation alignment. workflow/5_output.txt owns output representation.
 Do not create a new ontology rule to make the foreground pass.
 Issue only actionable findings.
 
@@ -37,7 +37,7 @@ On PASS, promote the foreground to the controlled workflow stage.
 The review history is the control record.
 
 Finding form
-[BLOCK-C] <location>: <compilation or representation defect>. <required correction>.
+[BLOCK-C] <location>: <content-compilation defect>. <required correction>.
 [BLOCK-RB] <location>: <substantive evidence defect>. <required research/control action>.
 [NOTE] <location>: <non-blocking observation>.
 PASS only when all BLOCK findings are resolved or successfully rebutted.
@@ -89,14 +89,18 @@ Check:
 - Controlled uncertainty that affects canonical interpretation remains visible.
 - Foreground is materially smaller and simpler than background.
 
-8. Format
-- Problem cards follow exactly the schema in 000_DOMAIN.txt.
-- Controlled technical English is concise and consistent.
-- Tags and literal characters are preserved as project syntax.
-- File naming and references use .txt.
+8. Content sufficiency
+- Required semantic fields are present.
+- SCOPE contains only controlled domain-specific conclusions.
+- TAGS contain the required canonical classification and supported useful refinements.
+- Material qualifications not represented elsewhere are preserved in COMMENTS.
+- Tags are not displaced into COMMENTS.
+- COMMENTS are not required when the canonical fields and TAGS are sufficient.
+- Numbering assignments follow the normative Regime bands.
+- No generic workflow or ontology boilerplate is compiled into the foreground.
 
 PASS criteria
-The foreground is a faithful, minimal, canonical contraction of the controlled Problem background and can be inspected without reopening basic research.
+The foreground content is a faithful, minimal, canonical contraction of the controlled Problem background and can proceed to output normalization without reopening basic research.
 
 LEVEL=CASE
 
@@ -128,12 +132,11 @@ Check:
 - No local Case schema or numbering convention was invented.
 - If 000_DOMAIN.txt lacks the required Case schema or identifier rule, Case foreground cannot PASS; issue a BLOCK-RB or ontology-return finding rather than accepting an improvised format.
 
-6. Contraction quality and format
+6. Contraction quality
 - Case entries preserve only the facts needed for canonical benchmark use.
 - Evidence history and candidate-selection discussion remain in background.
 - References resolve.
-- Controlled technical English is concise and consistent.
-- File naming and references use .txt.
+- No generic workflow or ontology boilerplate is compiled into the foreground.
 
 PASS criteria
-The foreground contains a defensible minimal starter Case set for every parent Problem that has an adequate benchmark, faithfully contracted from controlled evidence and represented under the current normative Case rules.
+The foreground content contains a defensible minimal starter Case set for every parent Problem that has an adequate benchmark and can proceed to output normalization.
