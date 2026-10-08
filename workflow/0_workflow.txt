@@ -8,7 +8,9 @@ Normative input (read only)
 background/000_DOMAIN_research.txt
 
 Input
-Domain D ∈ {PROC, PROD, LOG, SCM, ENER, CIVIC, COMP, INTEL, MKT, FIN, HC, HR, EXTR, LAND, ...} and industry domains from 000_DOMAIN_research.txt
+DOMAIN D = canonical generic Domain mnemonic or canonical Industry Domain mnemonic.
+DOMAIN code = NNN.
+For an Industry Domain, code, mnemonic, Industry, Primary Domain, Territory, and Macro Domain anchor are fixed before the workflow starts.
 
 Workflow prompts (read only)
 workflow/1_research.txt
@@ -149,7 +151,8 @@ Content defects return to C or R/B.
 Output-format defects return to O.
 O must stop rather than repair a content defect.
 Do not descend from Problems to Cases before presentation-controlled problem foreground and human approval.
-Research establishes dependencies; compilation derives sequence and numbering.
+Research establishes dependencies; compilation derives Problem sequence and numbering.
+Industry Domain identity and code are inputs to the workflow. If research exposes an identity defect, flag it for ontology-level review; do not rename, recode, split, or merge the Industry Domain inside R → B → C → F → O.
 
 Versioning
 Use version control for all intermediate revisions.
