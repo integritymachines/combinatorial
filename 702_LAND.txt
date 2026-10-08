@@ -61,7 +61,7 @@ DEPENDENCIES LAND01 → LAND05 → LAND13, LAND20.
 COMMENTS Standalone road construction is CIVIC; timber-transport routing is LOG. | #RES #LAND #design #link ##FORESTRY ##network-design ##landing.
 
 LAND06 Perennial Crop Establishment and Replacement Planning.
-DESCRIPTION Selects crop-block establishment or replacement and assigns varieties and planting options under land, investment and yield-development limits.
+DESCRIPTION Selects and schedules crop-block establishment or replacement and assigns varieties and planting options under land, investment and yield-development limits.
 TEMPLATE Orchard and perennial plantation renewal planning | Multiperiod MILP and investment-policy optimization.
 REGIME #design + #plan | Defines perennial block configuration and commits its establishment or replacement calendar.
 STRUCTURE #map + #place + #select | Assigns varieties and planting options to selected blocks and schedules establishment or replacement.
@@ -201,7 +201,7 @@ PRIORITY Medium | Biological landscape threats require recurring treatment portf
 RELEVANCE High | Treatment choices protect productive land and native resource function.
 HARDNESS High | No general complexity claim; endogenous spread and delayed treatment effects couple sites and periods.
 DEPENDENCIES LAND01, LAND03, LAND13 → LAND18 → LAND21, LAND24.
-COMMENTS Routine crop-task execution is FIELD; human clinical disease control belongs to HC when clinical service defines the contract. | #RES #LAND #plan #adapt #map #place #select ##FORESTRY ##invasive-species ##pest-management ##spatial-dynamics.
+COMMENTS Routine crop-task execution belongs to LAND21; human clinical disease control belongs to HC when clinical service defines the contract. | #RES #LAND #plan #adapt #map #place #select ##FORESTRY ##invasive-species ##pest-management ##spatial-dynamics.
 
 LAND19 Tenant-to-Space Allocation.
 DESCRIPTION Assigns tenants or tenant categories to physical units under space compatibility, category balance and spatial interaction requirements.
