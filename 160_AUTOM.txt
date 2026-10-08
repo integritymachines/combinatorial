@@ -1,0 +1,424 @@
+160_AUTOM.txt
+AUTOM — Automotive Manufacturing
+v0.1 | 8 October 2026 | Problem layer
+
+SCOPE
+Industry: ##AUTOMOTIVE. Primary Domain: 102 #PROD. Territory: #production. Macro Domain anchor: #TRANS.
+Manufacturing capability, fabrication, physical assembly and recovery of released vehicle and component designs define this Domain. Product-platform and family-architecture decisions belong to a separate automotive development territory. Factory capability design remains production.
+Supply commitments, independent movement, workforce arrangements, utility operation, chemical recipes and software operation remain with SCM, LOG, HR, ENER, PROC and COMP when those contracts define the decision.
+
+1## #design
+
+AUTOM101 Manufacturing Capacity Configuration.
+DESCRIPTION Select equipment types, counts and station configurations to meet vehicle and component output requirements within investment and capability limits.
+TEMPLATE Production-system and capacity engineering | Capacity-configuration MILP with throughput simulation; robotic line-design optimization.
+REGIME #design | Commits manufacturing capability before production plans name its use.
+STRUCTURE #select + #map | Selects equipment and assigns capability configurations to production stages.
+PRIORITY Critical | Installed capability constrains the manufacturing stack.
+RELEVANCE Critical | Capacity commitments affect long-term investment and attainable output.
+HARDNESS High | Equipment alternatives, parallel stages and uncertain effective throughput require tailored models.
+DEPENDENCIES ∅ → AUTOM101 → AUTOM102, AUTOM103, AUTOM104, AUTOM105, AUTOM301.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #select #map ##capacity ##equipment.
+COMMENTS Use of installed capacity belongs to AUTOM301; equipment investment belongs here.
+
+AUTOM102 Manufacturing Cell Formation.
+DESCRIPTION Group component families and machines into production cells under capability, capacity and intercell-flow limits.
+TEMPLATE Group technology and cellular manufacturing | Machine-part grouping MILP or constrained grouping search.
+REGIME #design | Defines production groups before shop loading and scheduling.
+STRUCTURE #map | Assigns parts and machines to cells; supplied routings constrain the groups.
+PRIORITY Medium | Recurring in cellular component manufacturing.
+RELEVANCE High | Better cells reduce intercell work and release productive capacity.
+HARDNESS High | Alternative routes, duplicated capabilities and changing product mixes couple group choices.
+DEPENDENCIES AUTOM101 → AUTOM102 → AUTOM103, AUTOM313, AUTOM501.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #map ##cellular ##partition.
+COMMENTS Cell membership, factory geometry and station work content remain distinct decisions.
+
+AUTOM103 Factory Layout.
+DESCRIPTION Place manufacturing areas, cells and equipment within factory space, clearance and access limits.
+TEMPLATE Factory block and equipment layout | Geometric MILP or layout search with discrete-event simulation.
+REGIME #design | Commits production space before equipment setup and operation.
+STRUCTURE #place | Positions production areas and equipment under nonoverlap and access constraints.
+PRIORITY High | Recurring in plant installation and model-program changes.
+RELEVANCE High | Better layouts reduce space use and manufacturing interference.
+HARDNESS High | Unequal areas, access corridors and coupled flow distances impede large layout searches.
+DEPENDENCIES AUTOM101, AUTOM102 → AUTOM103 → AUTOM313.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #place ##layout ##geometry.
+
+AUTOM104 Production Buffer Capacity Design.
+DESCRIPTION Choose buffer installations and discrete capacities to limit line blocking and starvation within space and cost limits.
+TEMPLATE Flow-line decoupling and throughput engineering | Simulation optimization or sample-based MILP with Benders decomposition.
+REGIME #design | Commits decoupling capacity before production release and sequence control.
+STRUCTURE #map + #select | Assigns capacity classes to buffer locations and selects installations.
+PRIORITY High | Buffers couple body, paint, assembly and component-flow systems.
+RELEVANCE High | Better capacities sustain throughput without excessive work in process.
+HARDNESS High | Random failures and blocking couple the value of capacities across stages.
+DEPENDENCIES AUTOM101 → AUTOM104 → AUTOM307, AUTOM313, AUTOM801, AUTOM802.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #map #select ##buffer ##blocking ##starvation.
+COMMENTS Installed-buffer operation belongs to AUTOM802.
+
+AUTOM105 Assembly Line Balancing.
+DESCRIPTION Assign manufacturing tasks to stations and eligible robots or work positions under precedence, cycle-time and access limits.
+TEMPLATE Work measurement and mixed-model line balancing | Task-assignment MILP or CP; exact and heuristic balancing search.
+REGIME #design | Establishes station work content before production-stream execution.
+STRUCTURE #map | Assigns tasks to stations and executors; precedence and cycle-time limits constrain assignment.
+PRIORITY Critical | Station work content defines paced automotive assembly.
+RELEVANCE Critical | Better balances affect labor use, throughput and capital utilization.
+HARDNESS High | Model-dependent times, shared zones and robotic access require custom balancing search.
+DEPENDENCIES AUTOM101, AUTOM303 → AUTOM105 → AUTOM310, AUTOM703, AUTOM901.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #map ##line-balancing ##precedence ##takt.
+COMMENTS Equipment purchases belong to AUTOM101; assigned robot-action order belongs to AUTOM310.
+
+AUTOM106 Fixture Configuration.
+DESCRIPTION Choose locating and clamping elements and their feasible positions for released parts under access, deformation and dimensional-quality requirements.
+TEMPLATE Fixture planning and variation engineering | Evolutionary discrete fixture-layout search with compliant variation simulation.
+REGIME #design | Commits workholding configurations before manufacturing execution.
+STRUCTURE #select + #place | Selects fixture configurations and places locating or clamping elements.
+PRIORITY Medium | Recurring in body assembly and precision component production.
+RELEVANCE High | Better fixtures reduce dimensional defects and costly tool correction.
+HARDNESS High | Candidate geometry and deformation evaluation make configuration search expensive.
+DEPENDENCIES AUTOM303 → AUTOM106 → AUTOM107, AUTOM310, AUTOM313.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #select #place ##fixture ##tolerancing ##geometry.
+COMMENTS Choose discrete elements or candidate positions with fixed released-part datums. Product datum redesign and continuous-only tuning are excluded.
+
+AUTOM107 Manufacturing Inspection Configuration.
+DESCRIPTION Select inspection stages, technologies and coverage classes under detection, outgoing-quality and capacity requirements.
+TEMPLATE Manufacturing quality and inspection planning | Robust inspection-allocation MILP; simulation-based discrete plan search.
+REGIME #design | Defines inspection capability before production and test scheduling.
+STRUCTURE #select + #map | Selects inspection options and assigns them to stages or characteristics.
+PRIORITY High | Inspection configuration recurs across vehicle and component production.
+RELEVANCE High | Better coverage reduces defect escape and unnecessary inspection effort.
+HARDNESS High | Imperfect detection, propagation and competing quality objectives couple the choices.
+DEPENDENCIES AUTOM106 → AUTOM107 → AUTOM304, AUTOM313, AUTOM504.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #select #map ##inspection ##quality.
+COMMENTS Fixed end-of-line test calendars belong to AUTOM313. Defect estimation alone is excluded.
+
+3## #plan
+
+AUTOM301 Production Capacity Allocation Planning.
+DESCRIPTION Assign vehicle and component production volumes to installed plants, lines and periods under capacity, demand and capability limits.
+TEMPLATE Aggregate production and model-mix planning | Production-allocation MILP; scenario or rolling-horizon extensions.
+REGIME #plan | Prepares future manufacturing volumes on installed capacity.
+STRUCTURE #place + #map | Places production in periods and assigns it to plants or lines.
+PRIORITY Critical | Production volumes connect demand to plant operations.
+RELEVANCE Critical | Allocation affects enterprise output and utilization of expensive capacity.
+HARDNESS High | Model eligibility, capacity flexibility and uncertain demand require coupled planning.
+DEPENDENCIES AUTOM101 → AUTOM301 → AUTOM305, AUTOM306, AUTOM307, AUTOM308.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place #map ##capacity ##model-mix.
+COMMENTS Supplier procurement and distribution commitments remain SCM. Individual accepted vehicle orders belong to AUTOM307.
+
+AUTOM302 Component Process Planning.
+DESCRIPTION Select fabrication operations, manufacturing alternatives and their order for released component designs under capability and access requirements.
+TEMPLATE Computer-aided process planning | Alternative-plan CP or MILP; integrated process planning and scheduling.
+REGIME #plan | Prepares the fabrication route before detailed production scheduling.
+STRUCTURE #select + #place | Chooses fabrication alternatives and orders the selected operations.
+PRIORITY High | Recurring in component manufacture and tooling production.
+RELEVANCE High | Better routes reduce setups, cost and production lead time.
+HARDNESS High | Feature coverage, operation alternatives and machining access require structured search.
+DEPENDENCIES ∅ → AUTOM302 → AUTOM306, AUTOM313, AUTOM501, AUTOM503.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #select #place ##process-planning ##precedence.
+COMMENTS Product geometry is an input. A fixed catalogue-route variant selects a route and inherits its order.
+
+AUTOM303 Assembly Process Planning.
+DESCRIPTION Choose assembly operations and their order for released vehicles or subassemblies under geometry, accessibility and joining requirements.
+TEMPLATE Assembly engineering and design for assembly | AND/OR assembly-state search or precedence-constrained optimization.
+REGIME #plan | Prepares the assembly procedure before station loading and execution.
+STRUCTURE #place + #select | Orders assembly operations and selects feasible assembly alternatives.
+PRIORITY High | Assembly procedures underpin body and vehicle manufacture.
+RELEVANCE High | Better procedures prevent inaccessible builds and reduce assembly effort.
+HARDNESS High | Geometry, joining alternatives and product-dependent accessibility couple operation choices.
+DEPENDENCIES ∅ → AUTOM303 → AUTOM105, AUTOM106, AUTOM310, AUTOM313.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place #select ##assembly-planning ##precedence.
+COMMENTS Operation order within one assembly differs from vehicle order on a line.
+
+AUTOM304 Selective Disassembly Planning.
+DESCRIPTION Select recovery targets and disassembly operations and order them under accessibility, condition and recovery-value limits.
+TEMPLATE Selective disassembly and recovery engineering | Quality-dependent disassembly optimization or AND/OR-state search.
+REGIME #plan | Prepares a physical recovery procedure before disassembly execution.
+STRUCTURE #select + #place | Chooses recovery operations and orders removal actions.
+PRIORITY Medium | Recurring in automotive component remanufacturing.
+RELEVANCE High | Better disassembly avoids unnecessary work and preserves recoverable components.
+HARDNESS High | Unknown condition, destructive options and accessible removal orders require tailored search.
+DEPENDENCIES AUTOM107 → AUTOM304 → AUTOM308, AUTOM313.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #select #place ##disassembly ##recovery ##precedence.
+COMMENTS Core supply and reverse transport are inputs from SCM and LOG.
+
+AUTOM305 Press Toolkit Allocation Planning.
+DESCRIPTION Assign stamping toolkits and part programs to compatible press lines and periods under workload and assignment-continuity limits.
+TEMPLATE Press-network utilization planning | Toolkit-allocation optimization with tabu, greedy and local search; MILP alternatives.
+REGIME #plan | Commits future press workloads before stamping job order is fixed.
+STRUCTURE #map + #place | Assigns toolkits to presses and places the assignments in periods.
+PRIORITY High | Toolkit loading is central to multi-line automotive press systems.
+RELEVANCE High | Better loading reduces capacity imbalance and unnecessary external production.
+HARDNESS High | Toolkit compatibility, assignment persistence and period capacity need tailored search.
+DEPENDENCIES AUTOM301 → AUTOM305 → AUTOM306, AUTOM701.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #map #place ##stamping ##toolkit ##capacity.
+
+AUTOM306 Capacitated Production Lot Sizing.
+DESCRIPTION Choose production-lot activations and quantities by period under component requirements, setups and finite capacity.
+TEMPLATE MRP and finite-capacity lot planning | Multilevel lot-sizing MILP; rolling relax-and-fix and matheuristics.
+REGIME #plan | Prepares production quantities and lot starts before shop execution.
+STRUCTURE #select + #place | Selects lot activations and places them in production periods.
+PRIORITY Critical | Lot commitments coordinate component fabrication and assembly supply.
+RELEVANCE High | Better lots reduce setup loss, shortages and production inventory.
+HARDNESS High | Multilevel requirements and shared setup capacity require rolling decomposition.
+DEPENDENCIES AUTOM301, AUTOM302, AUTOM305 → AUTOM306 → AUTOM311, AUTOM312, AUTOM313, AUTOM501, AUTOM502, AUTOM505, AUTOM701, AUTOM801.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #select #place ##lot-sizing ##multilevel ##setup.
+COMMENTS Transfer-sublot choice and lot streaming are variants.
+
+AUTOM307 Vehicle Master Production Scheduling.
+DESCRIPTION Select vehicle orders and assign them to production shifts under model-mix, capability, lead-time and component-availability limits.
+TEMPLATE Vehicle order-pool and master scheduling | Order-to-period MILP with sequencing-feasibility anticipation and simulation evaluation.
+REGIME #plan | Names future production use for individual accepted orders.
+STRUCTURE #place + #select + #map | Selects orders, places them in shifts and assigns eligible production lines.
+PRIORITY Critical | Master scheduling connects accepted orders to the vehicle stream.
+RELEVANCE Critical | Better commitments protect due dates and sequence-feasible output.
+HARDNESS High | Equipment options, component blocks and downstream sequence effects require coupled planning.
+DEPENDENCIES AUTOM104, AUTOM301, AUTOM903 → AUTOM307 → AUTOM702, AUTOM703, AUTOM801.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place #select #map ##master-scheduling ##model-mix.
+COMMENTS Use accepted orders. Commercial order acceptance and promise setting remain external inputs; immediate physical entry belongs to AUTOM801.
+
+AUTOM308 Remanufacturing Production Planning.
+DESCRIPTION Choose core-processing and recovery quantities across disassembly, reprocessing and reassembly periods under yields and finite capacity.
+TEMPLATE Remanufacturing material and capacity planning | Recovery-production MILP; scenario planning and decomposition.
+REGIME #plan | Prepares future physical recovery production.
+STRUCTURE #select + #place | Selects recovery-lot activations and places recovery work in periods.
+PRIORITY Medium | Recurring in automotive component remanufacturing.
+RELEVANCE High | Better plans use recoverable cores and meet replacement-part demand.
+HARDNESS High | Uncertain condition and recovery yields couple several production stages.
+DEPENDENCIES AUTOM301, AUTOM304 → AUTOM308 → AUTOM313, AUTOM501, AUTOM504, AUTOM801.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #select #place ##remanufacturing ##recovery ##uncertain-yield.
+COMMENTS Core availability and purchased replacements are SCM inputs.
+
+AUTOM309 Production and Maintenance Scheduling.
+DESCRIPTION Schedule manufacturing work and maintenance actions together under equipment-condition, downtime and production-capacity limits.
+TEMPLATE Reliability-centered production and maintenance coordination | Risk-aware maintenance MILP or joint production-maintenance CP; simulation evaluation.
+REGIME #plan | Commits future production and maintenance windows.
+STRUCTURE #place + #select | Selects maintenance interventions and places production and maintenance in time.
+PRIORITY High | Maintenance windows constrain capital-intensive manufacturing lines.
+RELEVANCE High | Coordination reduces avoidable line stoppages and lost output.
+HARDNESS High | Failure risk, intervention grouping and throughput effects need tailored models.
+DEPENDENCIES ∅ → AUTOM309 → AUTOM313, AUTOM801, AUTOM903.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place #select ##maintenance ##reliability ##schedule.
+COMMENTS Choose maintenance interventions. A supplied fixed downtime calendar is a AUTOM313 restriction; standalone crew rosters remain HR.
+
+AUTOM310 Robotic Manufacturing Cycle Planning.
+DESCRIPTION Order and time assigned robotic manufacturing actions under reach, collision, process and shared-zone constraints.
+TEMPLATE Offline robotic cycle and weld-sequence engineering | Simulation-assisted sequence optimization and collision-free motion planning.
+REGIME #plan | Prepares an executable manufacturing cycle before it is run.
+STRUCTURE #place | Orders assigned robot actions and synchronizes their positions in time.
+PRIORITY High | Robot cycles define body-shop and automated-assembly productivity.
+RELEVANCE High | Better cycles improve throughput on installed robotic assets.
+HARDNESS High | Collision checks, simultaneous robots and sequence-dependent travel require specialized search.
+DEPENDENCIES AUTOM105, AUTOM106, AUTOM303, AUTOM901 → AUTOM310 → AUTOM313, AUTOM803.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place ##robotic-cycle ##welding ##synchronization.
+COMMENTS Consumes task-to-robot assignments from AUTOM105. Repetition of an offline program does not change its planning contract.
+
+AUTOM311 Electronic Assembly Setup Planning.
+DESCRIPTION Assign component feeders and order pickup and placement actions for automotive boards under machine and setup constraints.
+TEMPLATE Surface-mount setup and placement engineering | Feeder-assignment and placement-sequencing optimization with machine-specific search.
+REGIME #plan | Prepares machine setups and placement programs before board production.
+STRUCTURE #map + #place | Assigns feeders to machine locations and orders mounting actions.
+PRIORITY Medium | Recurring in automotive electronic component manufacture.
+RELEVANCE High | Better setups improve board-line throughput and changeover performance.
+HARDNESS High | Pickup-head architecture and shared feeders require machine-specific algorithms.
+DEPENDENCIES AUTOM306 → AUTOM311 → AUTOM313.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #map #place ##smt ##feeder ##placement ##setup.
+COMMENTS The feeder and mounting architecture is transferable from board-assembly methods. Vehicle software operation remains COMP.
+
+AUTOM312 Manufacturing Batch Formation and Scheduling.
+DESCRIPTION Group compatible component jobs for simultaneous processing and assign batches to equipment and times under load and recipe-class limits.
+TEMPLATE Parallel-batch production planning | Batch-assignment integer programming or CP with batching heuristics.
+REGIME #plan | Prepares co-processing groups and their future calendar.
+STRUCTURE #map + #place | Assigns jobs to batches and places batches on eligible equipment in time.
+PRIORITY Medium | Recurring in component heat treatment and batch processors.
+RELEVANCE High | Better batches reduce underfilled runs and late component supply.
+HARDNESS High | Compatibility, batch capacity and setup families couple grouping and scheduling.
+DEPENDENCIES AUTOM306 → AUTOM312 → AUTOM313.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #map #place ##batching ##compatibility ##heat-treatment.
+COMMENTS Discrete component workpieces define this contract. Chemical recipes and bulk-material transformation remain PROC.
+
+AUTOM313 Component and Assembly Shop Scheduling.
+DESCRIPTION Assign manufacturing operations to resources and times under precedence, setups, tooling and capacity limits.
+TEMPLATE Finite-capacity automotive production scheduling | Interval CP or scheduling MILP; decomposition and neighborhood search.
+REGIME #plan | Prepares operation calendars before execution.
+STRUCTURE #place + #map | Places operations in time and assigns eligible resources.
+PRIORITY Critical | Detailed calendars coordinate component and nonpaced assembly work.
+RELEVANCE Critical | Better schedules affect output, due dates and factory utilization.
+HARDNESS High | Large operation sets and coupled tools, setups and reentry need tailored scheduling. | NP-hard for general job-shop makespan restrictions.
+DEPENDENCIES AUTOM102, AUTOM103, AUTOM104, AUTOM106, AUTOM107, AUTOM302, AUTOM303, AUTOM304, AUTOM306, AUTOM308, AUTOM309, AUTOM310, AUTOM311, AUTOM312, AUTOM501, AUTOM502, AUTOM503, AUTOM504, AUTOM505, AUTOM902, AUTOM903 → AUTOM313 → AUTOM801, AUTOM803, AUTOM903.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place #map ##schedule ##precedence ##setup.
+COMMENTS Includes manufacturing-synchronized handling. Independent transport dispatch remains LOG.
+
+5## #allocate
+
+AUTOM501 Manufacturing Workload Allocation.
+DESCRIPTION Select component jobs and assign their operations to installed machines under workload, capability and tooling limits.
+TEMPLATE Flexible manufacturing loading and finite-capacity workload allocation | Workload-allocation MILP; constrained neighborhood or genetic search.
+REGIME #allocate | Commits specified manufacturing workload to scarce installed resources.
+STRUCTURE #map + #select | Assigns operations to machines and selects the admitted job workload.
+PRIORITY High | Recurring in flexible component manufacturing.
+RELEVANCE High | Better loading reduces bottlenecks and unused manufacturing capacity.
+HARDNESS High | Capability and tool interactions require tailored allocation search.
+DEPENDENCIES AUTOM102, AUTOM302, AUTOM306, AUTOM308 → AUTOM501 → AUTOM313, AUTOM503.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #allocate #map #select ##fms ##workload ##assignment.
+COMMENTS Produces machine-workload commitments without operation start times. AUTOM301 chooses plant or line volumes; AUTOM305 preserves toolkit continuity.
+
+AUTOM502 Blank and Trim Nesting.
+DESCRIPTION Assign component blanks to suitable stock and place cutting patterns under material, geometry and production restrictions.
+TEMPLATE Blank development and material-yield planning | Coil grouping and geometric nesting optimization; pattern-based integer optimization.
+REGIME #allocate | Allocates available stock space to required component blanks.
+STRUCTURE #place + #map + #select | Places blanks, assigns stock groups and selects stock-width or pattern alternatives.
+PRIORITY High | Nesting recurs in body-sheet and trim manufacture.
+RELEVANCE High | Better patterns reduce material waste and manufacturing cost.
+HARDNESS High | Irregular geometry, periodic patterns and restricted material combinations require specialized search.
+DEPENDENCIES AUTOM306 → AUTOM502 → AUTOM313, AUTOM701.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #allocate #place #map #select ##nesting ##cutting-stock ##geometry.
+COMMENTS Uses specified stock and released-part geometry; supplier choice remains SCM.
+
+AUTOM503 Tool Loading and Change Planning.
+DESCRIPTION Assign required tools to capacity-limited machine magazines and plan tool replacements for specified production work.
+TEMPLATE Machining tool provisioning and change planning | Capacity-constrained tool-loading optimization with tool-switching search.
+REGIME #allocate | Commits scarce tooling to machines for specified manufacturing work.
+STRUCTURE #map + #select | Assigns tools to magazines and selects the retained and replacement tools.
+PRIORITY Medium | Recurring in flexible automotive component machining.
+RELEVANCE High | Better tooling reduces avoidable machine waits and tool changes.
+HARDNESS High | Shared tools and tight magazine capacities couple loading decisions.
+DEPENDENCIES AUTOM302, AUTOM501 → AUTOM503 → AUTOM313.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #allocate #map #select ##tool-loading ##setup ##magazine.
+COMMENTS The core contract uses a supplied work order. Joint job ordering adds temporal placement.
+
+AUTOM504 Selective Component Matching.
+DESCRIPTION Assign measured components to assembly groups that meet dimensional or functional compatibility requirements.
+TEMPLATE Selective assembly and tolerance matching | Min-cost matching for pairwise cases; integer assignment or evolutionary matching for multipart assemblies.
+REGIME #allocate | Commits available component instances to assemblies.
+STRUCTURE #map | Assigns components to mating roles or assembly groups.
+PRIORITY Medium | Recurring where random assembly cannot meet required tolerances.
+RELEVANCE High | Better matches reduce scrap and preserve demanding assembly quality.
+HARDNESS Medium | Pairwise cases are tractable; multipart geometry and variation simulation require stronger search.
+DEPENDENCIES AUTOM107, AUTOM308 → AUTOM504 → AUTOM313.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #allocate #map ##selective-assembly ##tolerancing ##assignment.
+COMMENTS Matches physical component instances. Core traceability and commercial product matching are separate contracts.
+
+AUTOM505 Additive Manufacturing Build Planning.
+DESCRIPTION Group automotive parts into builds and choose orientations and placements under build-space and machine-compatibility limits.
+TEMPLATE Additive build preparation and packing | Packing-and-build assignment MILP or two-stage packing and scheduling heuristics.
+REGIME #allocate | Commits parts and machine build space to production builds.
+STRUCTURE #place + #map | Places oriented parts in build space and assigns them to compatible builds.
+PRIORITY Medium | Recurring in additive component and manufacturing-aid production.
+RELEVANCE High | Better builds improve productive machine use and delivery performance.
+HARDNESS High | Orientation, packing and machine suitability create coupled geometric choices.
+DEPENDENCIES AUTOM306 → AUTOM505 → AUTOM313.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #allocate #place #map ##additive-manufacturing ##packing ##geometry.
+COMMENTS Includes series-production components and manufacturing aids. Prototypes that define a new vehicle belong to development.
+
+7## #operate + #sequence
+
+AUTOM701 Stamping Production Sequencing.
+DESCRIPTION Order committed stamping jobs on assigned press lines under die-change, shared-setup and manufacturing constraints.
+TEMPLATE Press-shop finite-capacity sequencing | Stamping scheduling MILP or CP with decomposition and sequence search.
+REGIME #operate + #sequence | Fixes near-term order for press work already under operation.
+STRUCTURE #place | Places committed stamping jobs in press-line order.
+PRIORITY High | Press-run order determines die-change loss and component availability.
+RELEVANCE High | Better order reduces setup loss and interrupted downstream supply.
+HARDNESS High | Sequence-dependent die changes and shared setup resources need tailored search.
+DEPENDENCIES AUTOM305, AUTOM306, AUTOM502 → AUTOM701 → AUTOM803, AUTOM903.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #operate #sequence #place ##stamping ##setup ##succession.
+COMMENTS Future press calendars are planning variants; toolkit allocation belongs to AUTOM305.
+
+AUTOM702 Paint-Shop Vehicle Sequencing.
+DESCRIPTION Order committed vehicle bodies for painting under color-run, product and downstream production requirements.
+TEMPLATE Paint color batching and vehicle-stream sequencing | Multiobjective sequence optimization; CP or MILP with local search.
+REGIME #operate + #sequence | Fixes the next paint sequence for bodies committed to operation.
+STRUCTURE #place | Places bodies in order; color-run rules constrain successive positions.
+PRIORITY High | Color changes and paint-flow constraints define a major vehicle-production stage.
+RELEVANCE High | Better order reduces cleaning loss, paint waste and downstream delay.
+HARDNESS High | Color objectives compete with model, due-date and downstream workload constraints.
+DEPENDENCIES AUTOM307 → AUTOM702 → AUTOM703, AUTOM802, AUTOM903.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #operate #sequence #place ##paint ##color-batching ##succession.
+COMMENTS Coating chemistry remains PROC. Future streams are planning variants; integrated paint, buffer and assembly decisions retain their constituent contracts.
+
+AUTOM703 Mixed-Model Assembly Sequencing.
+DESCRIPTION Order committed vehicles on final assembly lines under option-installation capacity, workload and parts-consumption limits.
+TEMPLATE Mixed-model sequencing and production leveling | Option-ratio CP or MILP; workload-based sequencing and neighborhood search.
+REGIME #operate + #sequence | Fixes near-term vehicle order before local execution decisions.
+STRUCTURE #place | Places vehicles in line order; option ratios and station workloads constrain positions.
+PRIORITY Critical | Vehicle order governs mixed-model final-assembly execution.
+RELEVANCE Critical | Better sequences prevent station overload and avoidable line stoppages.
+HARDNESS High | Many option ratios and conflicting workload goals require tailored search.
+DEPENDENCIES AUTOM105, AUTOM307, AUTOM702, AUTOM901, AUTOM902, AUTOM903 → AUTOM703 → AUTOM802, AUTOM803, AUTOM903.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #operate #sequence #place ##car-sequencing ##model-mix ##succession.
+COMMENTS Car-sequencing and workload-based mixed-model formulations are alternative Templates for this contract. Future complete streams are planning variants.
+
+8## #dispatch
+
+AUTOM801 Production Order Release and WIP Control.
+DESCRIPTION Select eligible production orders to enter manufacturing under current workload, component readiness and WIP limits.
+TEMPLATE Workload control, CONWIP and bottleneck release control | Workload-constrained release selection or rolling optimization with simulation-based policy evaluation.
+REGIME #dispatch | Authorizes immediate entry using current manufacturing state.
+STRUCTURE #select | Chooses which eligible orders enter production now.
+PRIORITY High | Release regulates congestion and readiness before execution.
+RELEVANCE High | Better entry decisions reduce flow-time loss and shortages in production.
+HARDNESS Medium | Standard policies work well, but interacting bottlenecks need calibrated release rules.
+DEPENDENCIES AUTOM104, AUTOM306, AUTOM307, AUTOM308, AUTOM309, AUTOM313, AUTOM903 → AUTOM801 → AUTOM803, AUTOM903.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #dispatch #select ##order-release ##wip ##workload-control.
+
+AUTOM802 Production Buffer Resequencing.
+DESCRIPTION Assign bodies to available buffer lanes or slots and choose a reachable outgoing sequence under current arrivals and assembly requirements.
+TEMPLATE Selectivity-bank and painted-body-store control | Buffer-constrained rolling sequence optimization or online resequencing search.
+REGIME #dispatch | Recomputes feasible output order from the evolving physical buffer state.
+STRUCTURE #place + #map | Places available bodies in outgoing order and assigns controlled storage lanes or slots.
+PRIORITY High | Buffer control reconnects paint output with assembly requirements.
+RELEVANCE High | Better reachable sequences reduce final-assembly overload and stoppages.
+HARDNESS High | Finite access, lane order and changing arrivals constrain attainable permutations.
+DEPENDENCIES AUTOM104, AUTOM702, AUTOM703 → AUTOM802 → AUTOM803, AUTOM902, AUTOM903.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #dispatch #place #map #online ##resequencing ##buffer.
+COMMENTS FIFO-lane access and slot reachability restrict attainable permutations. Repair of a committed production program belongs to AUTOM903.
+
+AUTOM803 Real-Time Manufacturing Dispatching.
+DESCRIPTION Select ready manufacturing actions and assign them to available resources under current capability, tooling and WIP constraints.
+TEMPLATE MES priority and capability-based production control | Priority-rule baseline or rolling local CP and assignment optimization.
+REGIME #dispatch | Activates work from live machine and order state.
+STRUCTURE #select + #map | Chooses ready actions and assigns their executing resources.
+PRIORITY High | Live dispatch connects plans to variable shop conditions.
+RELEVANCE High | Better local decisions reduce idle time and blocked manufacturing work.
+HARDNESS High | Fast decisions must coordinate capabilities and resource contention.
+DEPENDENCIES AUTOM310, AUTOM313, AUTOM701, AUTOM703, AUTOM801, AUTOM802, AUTOM903 → AUTOM803 → AUTOM903.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #dispatch #select #map #online ##dispatching ##capability.
+
+9## #adapt
+
+AUTOM901 Assembly Line Rebalancing.
+DESCRIPTION Revise task and executor assignments after demand, product-work-content or station-availability changes while limiting disruption.
+TEMPLATE Reactive line balancing and configuration preservation | Rebalancing MILP or CP; neighborhood search with change penalties.
+REGIME #adapt | Revises an existing station-work commitment after material change.
+STRUCTURE #map | Reassigns manufacturing tasks to feasible stations or executors.
+PRIORITY High | Model changes and unavailable stations require recurring rebalance.
+RELEVANCE High | Better revision restores output with fewer disruptive task moves.
+HARDNESS High | Existing assignments, cycle-time targets and change costs create coupled revision choices.
+DEPENDENCIES AUTOM105 → AUTOM901 → AUTOM310, AUTOM703, AUTOM903.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #adapt #map ##rebalancing ##stability.
+COMMENTS Uses installed capability; changes to equipment types or counts add AUTOM101 decisions.
+
+AUTOM902 Order-to-Body Reassignment.
+DESCRIPTION Revise accepted-order assignments to compatible manufactured bodies after component or sequence disruptions while preserving completed manufacturing work.
+TEMPLATE Postponed configuration and body-order reassignment | Compatibility-constrained assignment optimization; joint matching and resequencing models.
+REGIME #adapt | Revises prior accepted-order attachments after a production disruption.
+STRUCTURE #map | Assigns compatible customer orders to existing bodies.
+PRIORITY Medium | Useful where order attachment can be postponed or changed.
+RELEVANCE High | Better attachments preserve throughput during option or component shortages.
+HARDNESS Medium | Compatibility pools and coupled sequence requirements complicate otherwise standard assignment.
+DEPENDENCIES AUTOM802 → AUTOM902 → AUTOM313, AUTOM703, AUTOM903.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #adapt #map ##order-reassignment ##compatibility ##postponement.
+COMMENTS Uses compatible unfinished bodies. Reassignment of saleable finished vehicles to dealers or commercial claims remains MKT.
+
+AUTOM903 Production Schedule Repair.
+DESCRIPTION Revise committed production calendars and vehicle sequences after material failures, shortages or quality disruptions while limiting deviation.
+TEMPLATE Predictive-reactive production scheduling | Repair CP or MILP; rolling neighborhood search with stability penalties.
+REGIME #adapt | Repairs commitments invalidated by observed changes.
+STRUCTURE #place + #map + #select | Repositions work, reassigns eligible resources and selects deferred or retained actions.
+PRIORITY High | Disruptions recurrently invalidate automotive production commitments.
+RELEVANCE Critical | Better repair can protect output and delivery across the plant.
+HARDNESS High | Frozen work, material blocks and stability tradeoffs require coordinated repair.
+DEPENDENCIES AUTOM309, AUTOM313, AUTOM701, AUTOM702, AUTOM703, AUTOM801, AUTOM802, AUTOM803, AUTOM901, AUTOM902 → AUTOM903 → AUTOM307, AUTOM313, AUTOM703, AUTOM801, AUTOM803.
+TAGS #TRANS #PROD ##AUTOMOTIVE #production #adapt #place #map #select ##rescheduling ##stability ##disruption.
+COMMENTS Changes a prior production program. Ordinary local state-based choice belongs to AUTOM803; revised station work content belongs to AUTOM901.
