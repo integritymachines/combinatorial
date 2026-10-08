@@ -1,0 +1,19 @@
+PROBLEM MARKETPLACE
+
+Purpose
+Preserve materially credible Problem candidates transferred between Domains.
+
+Record
+CANDIDATE | ORIGIN | PROPOSED OWNER | REASON | EVIDENCE | STATUS
+
+Status
+OPEN      Origin excludes the candidate but considers it materially ICO and plausibly owned elsewhere.
+CLAIMED   Proposed owner admits it as a distinct Problem.
+MERGED    Proposed owner absorbs it into an admitted Problem.
+REJECTED  Proposed owner determines that it is not a separate Problem or not owned there.
+
+Rules
+- Origin records the transfer but does not classify another Domain's foreground.
+- Proposed owner resolves the candidate during normal research and control.
+- Keep the record when resolved.
+- Do not use the marketplace as a substitute for evidence in the receiving Domain's research background.
