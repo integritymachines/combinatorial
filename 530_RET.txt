@@ -112,7 +112,7 @@ RELEVANCE Medium | Better editions can improve category exposure and campaign sa
 HARDNESS High | Cross-category response and overlap limits couple content across editions.
 DEPENDENCIES RET301, RET304, RET305 → RET307 → ∅.
 TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #plan #select #place ##flyer ##feature-space ##cross-category.
-COMMENTS The exact finite-alternative comparator is a formulation extension, not the cited flyer study's implemented method.
+COMMENTS The exact comparator requires finite presentation alternatives and an explicit demand-response model.
 
 RET501 Coupon and Targeted Offer Allocation.
 DESCRIPTION Assign discrete coupon or merchandise-offer alternatives to eligible customers or groups under campaign budget, contact-frequency and offer-interaction limits.
