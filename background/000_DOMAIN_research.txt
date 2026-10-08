@@ -671,12 +671,13 @@ INDUSTRY DOMAIN TERRITORY
 
 Territory partitions the industrial value chain into four mutually exclusive and exhaustive parts:
 
-#development
-#production
-#distribution
-#administration
+#DEVELOPMENT
+#PRODUCTION
+#DISTRIBUTION
+#ADMINISTRATION
 
 Apply Primary Domain before Territory.
+#DISTRIBUTION covers both upstream acquisition/procurement and downstream sales/delivery.
 
 Every Industry Domain receives one Territory.
 Industry × Primary Domain remains the default identity.
