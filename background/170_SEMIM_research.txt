@@ -143,7 +143,7 @@ KEY MATCH — Known-Good Die and Wafer Matching
 Decision: assign measured dies or wafers to physical bonding groups for a released multi-die product, satisfying compatibility and parametric performance limits. The result names the physical members of each assembly.
 Aliases: die-to-die matching; wafer-to-wafer matching; yield-aware selective assembly. Variants: heterogeneous die classes, timing/thermal compatibility and measured-wafer alignment. Binning labels and statistical prediction are inputs; customer allocation of available bins is SCM/MKT.
 Evidence: S12 studies die matching to improve parametric yield of bonded 3D ICs. S29 formulates joint die packing, matching and thread mapping; only its physical assembly part supports this manufacturing candidate. Software thread mapping is explicitly excluded.
-Template basis: IE known-good-die selective assembly and yield matching. OR assignment/partition optimization and specialized matching heuristics; joint physical-die MILP is a material formulation alternative. A simple bipartite assignment restriction can be routine; multi-die compatibility is a different scale of search.
+Template basis: IE known-good-die selective assembly and yield matching. OR min-cost-flow/bipartite matching with iterative multidie matching; joint physical-die MILP is a material formulation alternative. S12 establishes a polynomial two-die matching restriction and an iterative flow method for the more difficult multidie setting. No universal multidie optimum is promised.
 Ontology inference: #allocate; Primary #map. It groups physical dies or wafers into required assembly roles. Bonds specified by the released product do not imply a newly chosen interconnect graph.
 Rating inference: Priority Medium because it is restricted to manufacturing systems that can choose among measured assembly members. Relevance High because compatible groups improve usable assembled-device yield. Hardness High because multi-die constraints and uncertain measured performance can make simple pairwise matching inadequate.
 Inputs: TEST supplies qualified die/wafer measurements. Outputs: named groups to ASSEMBLY. Descriptors: die-matching, selective-assembly, yield. Stage-test information precedes matching and assembly; final test follows assembly. This is a typed pipeline coupling, not a requirement that final test precede its own assembly.
@@ -260,6 +260,7 @@ DEPENDENCY GRAPH AND TYPED LOOPS
 
 Edges are industrial information/commitment dependencies. S04 directly supports QUALIFY → LOAD/scheduling; S11 supports kit availability → test feasibility; S40 directly supports committed schedule → RESCHEDULE. Other edges below are engineering inferences from the documented artifacts and are not claimed as empirically measured causal effects.
 CAPACITY → LAYOUT, QUALIFY, STARTPLAN, LOAD, KITS.
+LAYOUT → FAB, ASSEMBLY, as installed geometry supplies feasible equipment positions and productive access/transfer restrictions.
 QUALIFY → STARTPLAN, LOAD.
 RETICLEPLAN → WAFERPLAN.
 CONTROLPLAN → FAB, TEST, SAMPLE.
@@ -374,7 +375,7 @@ S18 Tassel and coauthors. Semiconductor Fab Scheduling with Self-Supervised and 
 https://arxiv.org/abs/2302.07162
 Author preprint abstract read. Basis: dynamic fab control and comparison with hierarchical dispatch on the paper's models. A paper's 'first' or performance claim is not generalized to industrial SOTA.
 
-S19 A Novel Mixed Integer Programming Model with Precedence Relation-Based Decision Variables for Non-Cyclic Scheduling of Cluster Tools (2024).
+S19 Ahn and Kim. A Novel Mixed Integer Programming Model with Precedence Relation-Based Decision Variables for Non-Cyclic Scheduling of Cluster Tools. IEEE TASE 22 (2025), 2893–2908. DOI 10.1109/TASE.2024.3386562.
 https://pure.kaist.ac.kr/en/publications/a-novel-mixed-integer-programming-model-with-precedence-relation-/
 Author-institution abstract retrieved. Basis: noncyclic cluster scheduling with chosen order and MIP. No complete full-text runtime claim.
 
