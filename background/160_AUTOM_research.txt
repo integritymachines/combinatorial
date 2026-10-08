@@ -40,12 +40,13 @@ Powertrain, trim and other suppliers: machining routes, tools, cellular systems,
 Automotive electronics: feeder/pickup programs and fixed-capacity board production; installed computation remains outside this contract.
 Additive manufacturing: released series components and manufacturing aids; build grouping/orientation/packing is distinguished from product-development prototypes.
 Remanufacturing: physical disassembly and rebuilding of components. Return collection, core procurement and reverse network positioning remain interfaces.
+Candidate-position fixture design is admitted with fixed released datums [S56]; product datum redesign is outside manufacturing.
 Shared constraints: component availability, skills, utility limits, transport availability, quality observations and due dates constrain manufacturing decisions. They do not alone establish another Primary Domain.
 
 BOUNDARIES AND TRANSFER CANDIDATES
 LOG: line-feeding policies, kit delivery, tugger/AGV routes, warehouse movements and finished-vehicle yard dispatch deliver movement/handling. S39 supports the distinct storage-to-line contract.
 SCM: supplier selection, component procurement allocation, replenishment, supply-network position and spare-parts inventory deliver availability. S40 explicitly describes supplier quantity allocation despite its production-allocation title.
-HR: worker shifts, rosters and skill-capacity plans deliver staffing. Task-to-station balancing stays PROD when manufacturing work content defines the contract. Employee names in a production model do not decide ownership.
+HR: worker shifts, rosters and skill-capacity plans deliver staffing. S57 directly supports automotive shift scheduling. Task-to-station balancing stays PROD when manufacturing work content defines the contract. Employee names in a production model do not decide ownership.
 PROC: paint/coating chemistry, chemical recipes, melt composition and material-state transformation deliver process feasibility. Ordering identifiable bodies through an installed paint shop remains PROD.
 ENER: factory power/utility commitment and network balance are utility contracts. Energy prices and caps can instead be inputs to a production model.
 COMP: vehicle software deployment, MES compute allocation and generic digital-resource operation are informational/digital contracts. Board fabrication and electronics assembly remain PROD.
@@ -56,25 +57,31 @@ Credible transferred candidates are recorded in background/000_PROBLEM_marketpla
 
 DISCOVERY, GRANULARITY AND SEARCH SATURATION
 Independent broad searches covered production hierarchy, body-shop robotics, press scheduling, master planning, paint/assembly sequencing and buffer control.
-Targeted searches then covered factory grouping/layout, inspection, fixture discreteness, selective assembly, tooling, additive production, automotive electronics, disassembly, recovery, release, maintenance and line rebalancing.
+Targeted searches then covered standalone flexible-machine loading and factory grouping/layout, inspection, fixture discreteness, selective assembly, tooling, additive production, automotive electronics, disassembly, recovery, release, maintenance and line rebalancing.
 The generic PROD inventory was a seed for missed functions, not the final set. Automotive evidence admitted press-toolkit allocation, paint sequencing, restricted-buffer control and order-to-body reassignment as distinct industrial contracts.
 Alias merges: car sequencing and workload-based mixed-model sequencing become SEQUENCE; lean leveling is its IE framing. Colored paint batching remains PAINT. Job/flow/hybrid shops, flexible/matrix assembly, test calendars and molding calendars remain SHOP variants.
-Additional artifacts: NEST builds a cutting pattern; BUILD builds a packing arrangement; BATCH chooses co-processing groups; TOOL commits magazine contents. They are not mere synonyms for an operation calendar.
+Additional artifacts: LOAD commits machine workload without start times; NEST builds a cutting pattern; BUILD builds a packing arrangement; BATCH chooses co-processing groups; TOOL commits magazine contents. They are not mere synonyms for an operation calendar.
 Integrated-problem decisions: CAP+BALANCE, CELL+LAYOUT, LOT+SHOP, ROBOT+BALANCE, paint/PBS/assembly and production+maintenance can be solved jointly. Composition alone does not create another canonical Problem. MAINT is retained because maintenance actions and windows are chosen, not merely supplied.
 Candidate exclusion: product platform selection is development after the residual split. Continuous machining parameters, robot servo control, chemical process setpoints, defect classification, failure prediction and continuous locator tuning alone do not establish ICO. Discrete alternatives can place a properly scoped decision back in PROCESS, FIXTURE or another admitted contract.
 Qualification-network configuration lacks automotive-specific evidence sufficient for a separate parent here. Fixed manufacturing eligibility is an input to CAP, SHOP and DISPATCH. It is not promoted by analogy to semiconductor qualification.
 Transfer-batch/lot-streaming choices are material LOT/SHOP variants [S21 and generic PROD research]; no separate automotive parent is forced from a parameter change. Future study can return a genuinely distinct transfer-sublot contract to R.
 The latest targeted results predominantly supplied variants, integrated models and neighboring contracts. Coverage is broad within the stated scope; it is not a statistical proof that no niche has been missed.
-Evidence gaps: FIXTURE discrete-choice proof is pending; no full industrial hardness distributions or universally dominant algorithms are established. Niche additive/electronic contexts use explicit transferable method evidence. These limitations must remain visible to B.
+Evidence limits: FIXTURE is restricted to verified discrete fixture choices; no full industrial hardness distributions or universally dominant algorithms are established. Niche additive/electronic contexts use explicit transferable method evidence. These limitations must remain visible to B.
 
 DEPENDENCY BASIS
 Edges mean that one admitted decision's industrial artifact can constrain another. They are analyst inferences from the decision contracts and production hierarchy, not mathematical reductions or mandatory execution order for every plant.
 S01–S04 support installed-capability/work-allocation/cycle order. S06 supports aggregate output, named order commitments, buffers and subsequent sequencing. S08/S19 support paint-to-buffer-to-assembly flow. S37/S38 distinguish physical release from work-centre activation. S18/S43/S54 support revision of prior work-content or calendar commitments.
+The inspection system supplies measurements used to choose DISASSEMBLY procedures; ASSEMBLY supplies workholding-access requirements to FIXTURE. PROCESS/CELL/LOT/RECOVERY supply operation requirements and job quantities to LOAD; LOAD supplies tool demand and workload assignments to TOOL/SHOP.
 Each candidate record identifies its outputs. The graph is conditional on an integrated plant or supplier system that uses both endpoints; it does not assume every deployment has every Problem.
 ASSEMBLY → BALANCE is cross-band: a planned procedure informs configured station content. Regime bands take precedence over that backward dependency when compilation numbers the Problems.
 PAINT → SEQUENCE carries upstream workpiece availability/order; SEQUENCE → BUFFERSEQ carries target downstream restrictions. The physical arrival edge PAINT → BUFFERSEQ is separate. BUFFERSEQ → REMATCH allows order attachments to be repaired after attainable body order changes; REMATCH → SEQUENCE closes a conditional feedback cycle.
 REPAIR → MASTER/SHOP/SEQUENCE/RELEASE/DISPATCH returns revised commitments. This is an intentional adaptation feedback cycle. REBALANCE → ROBOT/SEQUENCE returns revised work content and robot assignments.
 No capacity-right provision or class-window reservation parent is admitted from horizon terminology alone. No unused Regime band is filled for aesthetic completeness.
+
+STRUCTURAL AND TEMPLATE CHECKS
+Supplied eligibility, precedence, geometry and observed attributes are distinct from delivered choices. A known precedence graph is not a chosen #link construction. Constraints and objective terms do not add a Structure.
+Every approach entry cites method-existence evidence. Simulation is a performance/geometry evaluator where explicitly stated. Alternative CP, MILP and search architectures are retained where contract differences make one universal ranking indefensible.
+Industrial priority/relevance/hardness ratings are conditional judgments grounded in the stated manufacturing applications, not adoption-frequency or monetary measurements.
 
 UNNUMBERED CANDIDATE RECORDS
 
@@ -83,9 +90,7 @@ DECISION AND OUTPUT Assign vehicle and component production volumes to installed
 IDENTITY, VARIANTS AND OWNERSHIP Use only the production-feasibility portion of integrated network models. Supplier procurement, replenishment and distribution location remain SCM. CAP changes physical capability; AGG names its future use. MASTER names individual vehicle orders rather than aggregated quantities.
 COMMITMENT INFERENCE Primary #plan. Prepares future manufacturing volumes on installed capacity.
 CONSTRUCTION INFERENCE Primary #place; Secondary #map. Places production in periods and assigns it to plants or lines.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Aggregate production and model-mix planning. OR: Production-allocation MILP; scenario or rolling-horizon extensions. Evidence: S20, S55.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Critical: Production volumes connect demand to plant operations. Relevance Critical: Allocation affects enterprise output and utilization of expensive capacity. Industrial Hardness High: Model eligibility, capacity flexibility and uncertain demand require coupled planning.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS PRESSLOAD, LOT, MASTER, RECOVERY.
@@ -96,12 +101,10 @@ DECISION AND OUTPUT Choose assembly operations and their order for released vehi
 IDENTITY, VARIANTS AND OWNERSHIP This orders operations inside one assembly; SEQUENCE orders vehicles entering a line. Product redesign and joint architecture design are outside the released-product contract. Fixed BOM precedence is supplied, not chosen connectivity.
 COMMITMENT INFERENCE Primary #plan. Prepares the assembly procedure before station loading and execution.
 CONSTRUCTION INFERENCE Primary #place; Secondary #select. Orders assembly operations and selects feasible assembly alternatives.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Assembly engineering and design for assembly. OR: AND/OR assembly-state search or precedence-constrained optimization. Evidence: S27, S52.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Assembly procedures underpin body and vehicle manufacture. Relevance High: Better procedures prevent inaccessible builds and reduce assembly effort. Industrial Hardness High: Geometry, joining alternatives and product-dependent accessibility couple operation choices.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
-CONDITIONAL DOWNSTREAM KEYS BALANCE, ROBOT, SHOP.
+CONDITIONAL DOWNSTREAM KEYS BALANCE, ROBOT, SHOP, FIXTURE.
 RETRIEVAL REFINEMENTS ##assembly-planning ##precedence.
 
 KEY BALANCE — Automotive Assembly Line Balancing
@@ -109,9 +112,7 @@ DECISION AND OUTPUT Assign manufacturing tasks to stations and eligible robots o
 IDENTITY, VARIANTS AND OWNERSHIP Manual, robotic, two-sided and multiworker systems are variants, not separate parents. Robot/equipment purchases are CAP; weld visit order is ROBOT. Supplied task precedence does not make the chosen balance #link. Integrated robot selection is CAP+BALANCE.
 COMMITMENT INFERENCE Primary #design. Establishes station work content before production-stream execution.
 CONSTRUCTION INFERENCE Primary #map. Assigns tasks to stations and executors; precedence and cycle-time limits constrain assignment.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Work measurement and mixed-model line balancing. OR: Task-assignment MILP or CP; exact and heuristic balancing search. Evidence: S02, S03.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Critical: Station work content defines paced automotive assembly. Relevance Critical: Better balances affect labor use, throughput and capital utilization. Industrial Hardness High: Model-dependent times, shared zones and robotic access require custom balancing search.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS ROBOT, SEQUENCE, REBALANCE.
@@ -122,9 +123,7 @@ DECISION AND OUTPUT Group compatible component jobs for simultaneous processing 
 IDENTITY, VARIANTS AND OWNERSHIP Discrete gears and manufactured workpieces define this contract. Chemical recipe design, melt composition or bulk-material transformation is PROC. Fixed batches are only SHOP inputs; a color run is PAINT order continuity, not simultaneous furnace co-processing.
 COMMITMENT INFERENCE Primary #plan. Prepares co-processing groups and their future calendar.
 CONSTRUCTION INFERENCE Primary #map; Secondary #place. Assigns jobs to batches and places batches on eligible equipment in time.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Parallel-batch production planning. OR: Batch-assignment integer programming or CP with batching heuristics. Evidence: S23.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Medium: Recurring in component heat treatment and batch processors. Relevance High: Better batches reduce underfilled runs and late component supply. Industrial Hardness High: Compatibility, batch capacity and setup families couple grouping and scheduling.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS SHOP.
@@ -135,9 +134,7 @@ DECISION AND OUTPUT Choose buffer installations and discrete capacities to limit
 IDENTITY, VARIANTS AND OWNERSHIP Random-access stores and FIFO selectivity banks are configurations. BUFFER decides installation/capacity; BUFFERSEQ operates installed storage. Queue size is not a geometric packing decision unless actual slot placement is chosen.
 COMMITMENT INFERENCE Primary #design. Commits decoupling capacity before production release and sequence control.
 CONSTRUCTION INFERENCE Primary #map; Secondary #select. Assigns capacity classes to buffer locations and selects installations.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Flow-line decoupling and throughput engineering. OR: Simulation optimization or sample-based MILP with Benders decomposition. Evidence: S51, S47.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Buffers couple body, paint, assembly and component-flow systems. Relevance High: Better capacities sustain throughput without excessive work in process. Industrial Hardness High: Random failures and blocking couple the value of capacities across stages.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS MASTER, RELEASE, BUFFERSEQ, SHOP.
@@ -148,9 +145,7 @@ DECISION AND OUTPUT Assign bodies to available buffer lanes or slots and choose 
 IDENTITY, VARIANTS AND OWNERSHIP Routine state-driven resequencing is #dispatch; material repair of a committed production program is REPAIR. Random-access and FIFO-lane buffers are physical variants. Unrestricted sequence permutations are not a valid universal Template. Pure finished-vehicle yard moves remain LOG.
 COMMITMENT INFERENCE Primary #dispatch. Recomputes feasible output order from the evolving physical buffer state.
 CONSTRUCTION INFERENCE Primary #place; Secondary #map. Places available bodies in outgoing order and assigns controlled storage lanes or slots.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Selectivity-bank and painted-body-store control. OR: Buffer-constrained rolling sequence optimization or online resequencing search. Evidence: S08, S19.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Buffer control reconnects paint output with assembly requirements. Relevance High: Better reachable sequences reduce final-assembly overload and stoppages. Industrial Hardness High: Finite access, lane order and changing arrivals constrain attainable permutations.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS DISPATCH, REMATCH, REPAIR.
@@ -161,9 +156,7 @@ DECISION AND OUTPUT Group automotive parts into builds and choose orientations a
 IDENTITY, VARIANTS AND OWNERSHIP Admit only physical production builds. Printing prototypes used to define a new vehicle belongs to development; routine tooling and production-component realization belong here. Future build calendars are SHOP or an integrated scheduling variant.
 COMMITMENT INFERENCE Primary #allocate. Commits parts and machine build space to production builds.
 CONSTRUCTION INFERENCE Primary #place; Secondary #map. Places oriented parts in build space and assigns them to compatible builds.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Additive build preparation and packing. OR: Packing-and-build assignment MILP or two-stage packing and scheduling heuristics. Evidence: S29, S30.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Medium: Recurring in additive component and manufacturing-aid production. Relevance High: Better builds improve productive machine use and delivery performance. Industrial Hardness High: Orientation, packing and machine suitability create coupled geometric choices.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS SHOP.
@@ -174,9 +167,7 @@ DECISION AND OUTPUT Select equipment types, counts and station configurations to
 IDENTITY, VARIANTS AND OWNERSHIP Robot types, parallel stations, press capacity, discrete flexible-capacity stages and powertrain equipment are variants. Product-to-plant use of already installed capacity is AGG; investment that changes capability is CAP. Selecting factory equipment is production Territory even before factory operation.
 COMMITMENT INFERENCE Primary #design. Commits manufacturing capability before production plans name its use.
 CONSTRUCTION INFERENCE Primary #select; Secondary #map. Selects equipment and assigns capability configurations to production stages.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Production-system and capacity engineering. OR: Capacity-configuration MILP with throughput simulation; robotic line-design optimization. Evidence: S01, S20.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Critical: Installed capability constrains the manufacturing stack. Relevance Critical: Capacity commitments affect long-term investment and attainable output. Industrial Hardness High: Equipment alternatives, parallel stages and uncertain effective throughput require tailored models.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS CELL, LAYOUT, BUFFER, BALANCE, AGG.
@@ -187,12 +178,10 @@ DECISION AND OUTPUT Group component families and machines into production cells 
 IDENTITY, VARIANTS AND OWNERSHIP Machining, trim and component cells instantiate the grouping contract. CELL commits membership, LAYOUT commits geometry, and BALANCE commits station work content; integration does not erase these distinctions.
 COMMITMENT INFERENCE Primary #design. Defines production groups before shop loading and scheduling.
 CONSTRUCTION INFERENCE Primary #map. Assigns parts and machines to cells; supplied routings constrain the groups.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Group technology and cellular manufacturing. OR: Machine-part grouping MILP or constrained grouping search. Evidence: S26, S46.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Medium: Recurring in cellular component manufacturing. Relevance High: Better cells reduce intercell work and release productive capacity. Industrial Hardness High: Alternative routes, duplicated capabilities and changing product mixes couple group choices.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
-CONDITIONAL DOWNSTREAM KEYS LAYOUT, SHOP.
+CONDITIONAL DOWNSTREAM KEYS LAYOUT, SHOP, LOAD.
 RETRIEVAL REFINEMENTS ##cellular ##partition.
 
 KEY DISASSEMBLY — Automotive Selective Disassembly Planning
@@ -200,9 +189,7 @@ DECISION AND OUTPUT Select recovery targets and disassembly operations and order
 IDENTITY, VARIANTS AND OWNERSHIP Engine, steering and other component recovery are physical production contracts. Collection and reverse transport are LOG; sourcing usable cores is SCM. Salvage-market pricing is MKT. The input is a returned product; the output is a removal procedure, not a new product design.
 COMMITMENT INFERENCE Primary #plan. Prepares a physical recovery procedure before disassembly execution.
 CONSTRUCTION INFERENCE Primary #select; Secondary #place. Chooses recovery operations and orders removal actions.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Selective disassembly and recovery engineering. OR: Quality-dependent disassembly optimization or AND/OR-state search. Evidence: S15.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Medium: Recurring in automotive component remanufacturing. Relevance High: Better disassembly avoids unnecessary work and preserves recoverable components. Industrial Hardness High: Unknown condition, destructive options and accessible removal orders require tailored search.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS RECOVERY, SHOP.
@@ -213,9 +200,7 @@ DECISION AND OUTPUT Select ready manufacturing actions and assign them to availa
 IDENTITY, VARIANTS AND OWNERSHIP Restricted one-step assignments can be simple; rolling multiresource dispatch is harder. No universal live-latency guarantee is asserted. Buffer resequencing has its own restricted-permutation artifact. Standalone AGV fleet dispatch is LOG.
 COMMITMENT INFERENCE Primary #dispatch. Activates work from live machine and order state.
 CONSTRUCTION INFERENCE Primary #select; Secondary #map. Chooses ready actions and assigns their executing resources.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: MES priority and capability-based production control. OR: Priority-rule baseline or rolling local CP and assignment optimization. Evidence: S17, S35, S44.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Live dispatch connects plans to variable shop conditions. Relevance High: Better local decisions reduce idle time and blocked manufacturing work. Industrial Hardness High: Fast decisions must coordinate capabilities and resource contention.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS REPAIR.
@@ -226,22 +211,18 @@ DECISION AND OUTPUT Assign component feeders and order pickup and placement acti
 IDENTITY, VARIANTS AND OWNERSHIP Use only for automotive electronics manufacturing, not installed in-vehicle computation. The source for the automotive planning tool establishes context; the generic PCB paper supports feeder/pickup architecture. Vehicle software deployment and compute operation are COMP.
 COMMITMENT INFERENCE Primary #plan. Prepares machine setups and placement programs before board production.
 CONSTRUCTION INFERENCE Primary #map; Secondary #place. Assigns feeders to machine locations and orders mounting actions.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Surface-mount setup and placement engineering. OR: Feeder-assignment and placement-sequencing optimization with machine-specific search. Evidence: S31, S32.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Medium: Recurring in automotive electronic component manufacture. Relevance High: Better setups improve board-line throughput and changeover performance. Industrial Hardness High: Pickup-head architecture and shared feeders require machine-specific algorithms.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS SHOP.
 RETRIEVAL REFINEMENTS ##smt ##feeder ##placement ##setup.
 
 KEY FIXTURE — Automotive Fixture Configuration
-DECISION AND OUTPUT Choose feasible locating and clamping configurations for released parts under access, deformation and dimensional-quality requirements.
-IDENTITY, VARIANTS AND OWNERSHIP Admit only a contract with discrete alternatives. Continuous locator tuning alone is not ICO. The initial source supports simulation-backed layout optimization but its public abstract does not certify discreteness; verify this condition during B before admission. Fixtures deliver a production capability, not a new vehicle architecture.
+DECISION AND OUTPUT Choose locating and clamping elements and their feasible positions for released parts under access, deformation and dimensional-quality requirements.
+IDENTITY, VARIANTS AND OWNERSHIP Admit discrete clamp-presence, locator-type and candidate-position choices. S56's fixed-datum door-panel example establishes a production contract without changing vehicle geometry or its datum definition. Continuous locator tuning alone is not ICO. Fixture configurations deliver manufacturing capability rather than a new vehicle architecture. Choosing product holes/slots while redefining a part belongs to development and is excluded here.
 COMMITMENT INFERENCE Primary #design. Commits workholding configurations before manufacturing execution.
 CONSTRUCTION INFERENCE Primary #select; Secondary #place. Selects fixture configurations and places locating or clamping elements.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
-APPROACH EVIDENCE IE: Fixture planning and variation engineering. OR: Discrete configuration search with finite-element or tolerance simulation. Evidence: S24.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
+APPROACH EVIDENCE IE: Fixture planning and variation engineering. OR: Evolutionary discrete fixture-layout search with compliant variation simulation. Evidence: S24, S56.
 RATING INFERENCE Priority Medium: Recurring in body assembly and precision component production. Relevance High: Better fixtures reduce dimensional defects and costly tool correction. Industrial Hardness High: Candidate geometry and deformation evaluation make configuration search expensive.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS INSPECT, ROBOT, SHOP.
@@ -252,12 +233,10 @@ DECISION AND OUTPUT Select inspection stages, technologies and coverage classes 
 IDENTITY, VARIANTS AND OWNERSHIP Selecting measurement views or station geometry is a geometric variant when alternatives are discrete. Scheduling fixed end-of-line tests is SHOP. Defect estimation, visual classification and continuous sampling-only optimization do not independently establish ICO.
 COMMITMENT INFERENCE Primary #design. Defines inspection capability before production and test scheduling.
 CONSTRUCTION INFERENCE Primary #select; Secondary #map. Selects inspection options and assigns them to stages or characteristics.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Manufacturing quality and inspection planning. OR: Robust inspection-allocation MILP; simulation-based discrete plan search. Evidence: S12.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Inspection configuration recurs across vehicle and component production. Relevance High: Better coverage reduces defect escape and unnecessary inspection effort. Industrial Hardness High: Imperfect detection, propagation and competing quality objectives couple the choices.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
-CONDITIONAL DOWNSTREAM KEYS MATCH, SHOP.
+CONDITIONAL DOWNSTREAM KEYS MATCH, SHOP, DISASSEMBLY.
 RETRIEVAL REFINEMENTS ##inspection ##quality.
 
 KEY LAYOUT — Automotive Factory Layout
@@ -265,25 +244,32 @@ DECISION AND OUTPUT Place manufacturing areas, cells and equipment within factor
 IDENTITY, VARIANTS AND OWNERSHIP Factory-space placement is PROD; land-use allocation and building construction are LAND/CIVIC. The automotive layout study establishes practice and simulation, while the transferable layout paper establishes the formal optimization architecture.
 COMMITMENT INFERENCE Primary #design. Commits production space before equipment setup and operation.
 CONSTRUCTION INFERENCE Primary #place. Positions production areas and equipment under nonoverlap and access constraints.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Factory block and equipment layout. OR: Geometric MILP or layout search with discrete-event simulation. Evidence: S25, S48.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Recurring in plant installation and model-program changes. Relevance High: Better layouts reduce space use and manufacturing interference. Industrial Hardness High: Unequal areas, access corridors and coupled flow distances impede large layout searches.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS SHOP.
 RETRIEVAL REFINEMENTS ##layout ##geometry.
+
+KEY LOAD — Automotive Manufacturing Workload Allocation
+DECISION AND OUTPUT Select component jobs and assign their operations to installed machines under workload, capability and tooling limits.
+IDENTITY, VARIANTS AND OWNERSHIP LOAD produces a machine-workload commitment without operation start times; SHOP produces a calendar. AGG sets plant/line period volumes; PRESSLOAD preserves press-toolkit continuity. These outputs can be integrated without becoming synonyms. The standalone loading architecture is transferable; S35 supplies automotive machining context, not a claim of separate deployed software.
+COMMITMENT INFERENCE Primary #allocate. Commits specified manufacturing workload to scarce installed resources.
+CONSTRUCTION INFERENCE Primary #map; Secondary #select. Assigns operations to machines and selects the admitted job workload.
+APPROACH EVIDENCE IE: Flexible manufacturing loading and finite-capacity workload allocation. OR: Workload-allocation MILP; constrained neighborhood or genetic search. Evidence: S35, S58.
+RATING INFERENCE Priority High: Recurring in flexible component manufacturing. Relevance High: Better loading reduces bottlenecks and unused manufacturing capacity. Industrial Hardness High: Capability and tool interactions require tailored allocation search.
+FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
+CONDITIONAL DOWNSTREAM KEYS TOOL, SHOP.
+RETRIEVAL REFINEMENTS ##fms ##workload ##assignment.
 
 KEY LOT — Automotive Capacitated Production Lot Sizing
 DECISION AND OUTPUT Choose production-lot activations and quantities by period under component requirements, setups and finite capacity.
 IDENTITY, VARIANTS AND OWNERSHIP Injection molds, stamping runs and synchronizer production are variants. Inventories couple quantities but do not move production-lot ownership to SCM. Transfer sublot choice and lot streaming are retained as a material variant, not a new parent without a separately scoped sublot contract.
 COMMITMENT INFERENCE Primary #plan. Prepares production quantities and lot starts before shop execution.
 CONSTRUCTION INFERENCE Primary #select; Secondary #place. Selects lot activations and places them in production periods.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: MRP and finite-capacity lot planning. OR: Multilevel lot-sizing MILP; rolling relax-and-fix and matheuristics. Evidence: S10, S21, S22.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Critical: Lot commitments coordinate component fabrication and assembly supply. Relevance High: Better lots reduce setup loss, shortages and production inventory. Industrial Hardness High: Multilevel requirements and shared setup capacity require rolling decomposition.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
-CONDITIONAL DOWNSTREAM KEYS NEST, BUILD, BATCH, ELECTRONIC, SHOP, STAMP, RELEASE.
+CONDITIONAL DOWNSTREAM KEYS NEST, BUILD, BATCH, ELECTRONIC, SHOP, STAMP, RELEASE, LOAD.
 RETRIEVAL REFINEMENTS ##lot-sizing ##multilevel ##setup.
 
 KEY MAINT — Automotive Production and Maintenance Scheduling
@@ -291,9 +277,7 @@ DECISION AND OUTPUT Schedule manufacturing work and maintenance actions together
 IDENTITY, VARIANTS AND OWNERSHIP Failure predictions and condition sensors are inputs, not ICO parents. Fixed downtime calendars are a SHOP restriction; this parent actively chooses maintenance actions. Standalone maintenance-crew rosters are HR. Utility outages are ENER.
 COMMITMENT INFERENCE Primary #plan. Commits future production and maintenance windows.
 CONSTRUCTION INFERENCE Primary #place; Secondary #select. Selects maintenance interventions and places production and maintenance in time.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Reliability-centered production and maintenance coordination. OR: Risk-aware maintenance MILP or joint production-maintenance CP; simulation evaluation. Evidence: S16, S37.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Maintenance windows constrain capital-intensive manufacturing lines. Relevance High: Coordination reduces avoidable line stoppages and lost output. Industrial Hardness High: Failure risk, intervention grouping and throughput effects need tailored models.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS SHOP, RELEASE, REPAIR.
@@ -304,9 +288,7 @@ DECISION AND OUTPUT Select vehicle orders and assign them to production shifts u
 IDENTITY, VARIANTS AND OWNERSHIP MASTER selects future order commitments; RELEASE authorizes physical entry now. Commercial order acceptance and promise setting are MKT/SCM interfaces. The production pool uses already accepted orders. Rolling execution does not turn the future commitment itself into dispatch.
 COMMITMENT INFERENCE Primary #plan. Names future production use for individual accepted orders.
 CONSTRUCTION INFERENCE Primary #place; Secondary #select, #map. Selects orders, places them in shifts and assigns eligible production lines.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Vehicle order-pool and master scheduling. OR: Order-to-period MILP with sequencing-feasibility anticipation and simulation evaluation. Evidence: S06, S11.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Critical: Master scheduling connects accepted orders to the vehicle stream. Relevance Critical: Better commitments protect due dates and sequence-feasible output. Industrial Hardness High: Equipment options, component blocks and downstream sequence effects require coupled planning.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS PAINT, SEQUENCE, RELEASE.
@@ -317,9 +299,7 @@ DECISION AND OUTPUT Assign measured components to assembly groups that meet dime
 IDENTITY, VARIANTS AND OWNERSHIP This assigns physical parts to compatible assemblies. Returning original components to their own remanufactured core is traceability in SHOP/RECOVERY, not selective matching. Supplier choice and commercial product matching are separate ownership contracts.
 COMMITMENT INFERENCE Primary #allocate. Commits available component instances to assemblies.
 CONSTRUCTION INFERENCE Primary #map. Assigns components to mating roles or assembly groups.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Selective assembly and tolerance matching. OR: Min-cost matching for pairwise cases; integer assignment or evolutionary matching for multipart assemblies. Evidence: S13, S14.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Medium: Recurring where random assembly cannot meet required tolerances. Relevance High: Better matches reduce scrap and preserve demanding assembly quality. Industrial Hardness Medium: Pairwise cases are tractable; multipart geometry and variation simulation require stronger search.
 FORMAL COMPLEXITY Fixed pairwise compatibility and additive costs permit polynomial min-cost matching. Multipart/simulation-based variants are a different class span; no blanket theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS SHOP.
@@ -330,9 +310,7 @@ DECISION AND OUTPUT Assign component blanks to suitable stock and place cutting 
 IDENTITY, VARIANTS AND OWNERSHIP Selecting raw-material suppliers is SCM. This card allocates already specified stock types to physical fabrication. Product geometry and material requirements are fixed inputs; redesigning the vehicle part is development.
 COMMITMENT INFERENCE Primary #allocate. Allocates available stock space to required component blanks.
 CONSTRUCTION INFERENCE Primary #place; Secondary #map, #select. Places blanks, assigns stock groups and selects stock-width or pattern alternatives.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Blank development and material-yield planning. OR: Coil grouping and geometric nesting optimization; pattern-based integer optimization. Evidence: S05.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Nesting recurs in body-sheet and trim manufacture. Relevance High: Better patterns reduce material waste and manufacturing cost. Industrial Hardness High: Irregular geometry, periodic patterns and restricted material combinations require specialized search.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS STAMP, SHOP.
@@ -343,9 +321,7 @@ DECISION AND OUTPUT Order committed vehicle bodies for painting under color-run,
 IDENTITY, VARIANTS AND OWNERSHIP Paint sequencing acts on discrete bodies; coating chemistry and recipe feasibility remain PROC. Initial future vehicle streams are #plan variants. Multi-shop paint/PBS/assembly optimization integrates constituent contracts, and is not an extra parent by composition alone.
 COMMITMENT INFERENCE Primary #operate; Secondary #sequence. Fixes the next paint sequence for bodies committed to operation.
 CONSTRUCTION INFERENCE Primary #place. Places bodies in order; color-run rules constrain successive positions.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Paint color batching and vehicle-stream sequencing. OR: Multiobjective sequence optimization; CP or MILP with local search. Evidence: S07, S08.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Color changes and paint-flow constraints define a major vehicle-production stage. Relevance High: Better order reduces cleaning loss, paint waste and downstream delay. Industrial Hardness High: Color objectives compete with model, due-date and downstream workload constraints.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS BUFFERSEQ, SEQUENCE, REPAIR.
@@ -356,9 +332,7 @@ DECISION AND OUTPUT Assign stamping toolkits and part programs to compatible pre
 IDENTITY, VARIANTS AND OWNERSHIP PRESSLOAD commits where toolkit workloads run; STAMP orders their production jobs. A long horizon does not by itself make an assignment #design. The source's discrete investment-extension ideas belong to CAP/PROCESS, not this fixed-capacity contract.
 COMMITMENT INFERENCE Primary #plan. Commits future press workloads before stamping job order is fixed.
 CONSTRUCTION INFERENCE Primary #map; Secondary #place. Assigns toolkits to presses and places the assignments in periods.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Press-network utilization planning. OR: Toolkit-allocation optimization with tabu, greedy and local search; MILP alternatives. Evidence: S04.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Toolkit loading is central to multi-line automotive press systems. Relevance High: Better loading reduces capacity imbalance and unnecessary external production. Industrial Hardness High: Toolkit compatibility, assignment persistence and period capacity need tailored search.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS LOT, STAMP.
@@ -369,12 +343,10 @@ DECISION AND OUTPUT Select fabrication operations, manufacturing alternatives an
 IDENTITY, VARIANTS AND OWNERSHIP Machining, forming, molding and additive/subtractive alternatives are variants. Product geometry is an input. If the solver instead changes the released product architecture, the contract returns to automotive development. Fixed catalogue routes need selection but inherit their order; that variant omits the independent PLACE construction.
 COMMITMENT INFERENCE Primary #plan. Prepares the fabrication route before detailed production scheduling.
 CONSTRUCTION INFERENCE Primary #select; Secondary #place. Chooses fabrication alternatives and orders the selected operations.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Computer-aided process planning. OR: Alternative-plan CP or MILP; integrated process planning and scheduling. Evidence: S28, S49.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Recurring in component manufacture and tooling production. Relevance High: Better routes reduce setups, cost and production lead time. Industrial Hardness High: Feature coverage, operation alternatives and machining access require structured search.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
-CONDITIONAL DOWNSTREAM KEYS LOT, TOOL, SHOP.
+CONDITIONAL DOWNSTREAM KEYS LOT, TOOL, SHOP, LOAD.
 RETRIEVAL REFINEMENTS ##process-planning ##precedence.
 
 KEY REBALANCE — Automotive Assembly Line Rebalancing
@@ -382,9 +354,7 @@ DECISION AND OUTPUT Revise task and executor assignments after demand, product-w
 IDENTITY, VARIANTS AND OWNERSHIP A new greenfield work balance is BALANCE. Changing equipment types or counts adds CAP decisions. Restrict this contract to installed capability; personnel roster changes alone are HR. Adaptation identity comes from the prior balance and change/stability requirements, not horizon.
 COMMITMENT INFERENCE Primary #adapt. Revises an existing station-work commitment after material change.
 CONSTRUCTION INFERENCE Primary #map. Reassigns manufacturing tasks to feasible stations or executors.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Reactive line balancing and configuration preservation. OR: Rebalancing MILP or CP; neighborhood search with change penalties. Evidence: S18.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Model changes and unavailable stations require recurring rebalance. Relevance High: Better revision restores output with fewer disruptive task moves. Industrial Hardness High: Existing assignments, cycle-time targets and change costs create coupled revision choices.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS SEQUENCE, ROBOT, REPAIR.
@@ -395,12 +365,10 @@ DECISION AND OUTPUT Choose core-processing and recovery quantities across disass
 IDENTITY, VARIANTS AND OWNERSHIP Returned-core availability and purchased replacements are inputs from SCM. The selected physical recovery work defines PROD. Returned-product quality forecasting alone is not a separate combinatorial parent; it informs DISASSEMBLY and RECOVERY.
 COMMITMENT INFERENCE Primary #plan. Prepares future physical recovery production.
 CONSTRUCTION INFERENCE Primary #select; Secondary #place. Selects recovery-lot activations and places recovery work in periods.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Remanufacturing material and capacity planning. OR: Recovery-production MILP; scenario planning and decomposition. Evidence: S33, S34.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Medium: Recurring in automotive component remanufacturing. Relevance High: Better plans use recoverable cores and meet replacement-part demand. Industrial Hardness High: Uncertain condition and recovery yields couple several production stages.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
-CONDITIONAL DOWNSTREAM KEYS MATCH, SHOP, RELEASE.
+CONDITIONAL DOWNSTREAM KEYS MATCH, SHOP, RELEASE, LOAD.
 RETRIEVAL REFINEMENTS ##remanufacturing ##recovery ##uncertain-yield.
 
 KEY RELEASE — Automotive Production Order Release and WIP Control
@@ -408,9 +376,7 @@ DECISION AND OUTPUT Select eligible production orders to enter manufacturing und
 IDENTITY, VARIANTS AND OWNERSHIP MASTER names future accepted orders; RELEASE lets ready jobs physically enter now. A queue priority rule alone is a baseline, not proof of mathematical optimality. Parts replenishment authorization is SCM when the delivered contract is a supply position.
 COMMITMENT INFERENCE Primary #dispatch. Authorizes immediate entry using current manufacturing state.
 CONSTRUCTION INFERENCE Primary #select. Chooses which eligible orders enter production now.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Workload control, CONWIP and bottleneck release control. OR: Workload-constrained release selection or rolling optimization with simulation-based policy evaluation. Evidence: S37, S38, S06.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Release regulates congestion and readiness before execution. Relevance High: Better entry decisions reduce flow-time loss and shortages in production. Industrial Hardness Medium: Standard policies work well, but interacting bottlenecks need calibrated release rules.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS DISPATCH, REPAIR.
@@ -421,9 +387,7 @@ DECISION AND OUTPUT Revise accepted-order assignments to compatible manufactured
 IDENTITY, VARIANTS AND OWNERSHIP Ownership is PROD only when build compatibility and preserved completed operations define reassignment. Reassigning saleable finished vehicles to dealers or commercial claims is MKT. Physically moving bodies is BUFFERSEQ; changing only their order attachments is REMATCH.
 COMMITMENT INFERENCE Primary #adapt. Revises prior accepted-order attachments after a production disruption.
 CONSTRUCTION INFERENCE Primary #map. Assigns compatible customer orders to existing bodies.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Postponed configuration and body-order reassignment. OR: Compatibility-constrained assignment optimization; joint matching and resequencing models. Evidence: S19, S53.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Medium: Useful where order attachment can be postponed or changed. Relevance High: Better attachments preserve throughput during option or component shortages. Industrial Hardness Medium: Compatibility pools and coupled sequence requirements complicate otherwise standard assignment.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS SEQUENCE, SHOP, REPAIR.
@@ -434,9 +398,7 @@ DECISION AND OUTPUT Revise committed production calendars and vehicle sequences 
 IDENTITY, VARIANTS AND OWNERSHIP Ordinary state-driven local choice is DISPATCH; repair changes a prior production program. Rebalancing changes station work content rather than a job calendar. Future capacity revision and contractual supply renegotiation retain their respective owners. Repair output can feed plans again, creating explicit feedback cycles.
 COMMITMENT INFERENCE Primary #adapt. Repairs commitments invalidated by observed changes.
 CONSTRUCTION INFERENCE Primary #place; Secondary #map, #select. Repositions work, reassigns eligible resources and selects deferred or retained actions.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Predictive-reactive production scheduling. OR: Repair CP or MILP; rolling neighborhood search with stability penalties. Evidence: S43, S54, S06.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Disruptions recurrently invalidate automotive production commitments. Relevance Critical: Better repair can protect output and delivery across the plant. Industrial Hardness High: Frozen work, material blocks and stability tradeoffs require coordinated repair.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS MASTER, SHOP, SEQUENCE, RELEASE, DISPATCH.
@@ -447,9 +409,7 @@ DECISION AND OUTPUT Order and time assigned robotic manufacturing actions under 
 IDENTITY, VARIANTS AND OWNERSHIP Task-to-robot workload allocation is BALANCE; robot counts are CAP. ROBOT consumes those assignments and chooses their executable cycle. A repeated offline program is not #operate merely because robots later repeat it. Standalone material-transfer journeys remain LOG.
 COMMITMENT INFERENCE Primary #plan. Prepares an executable manufacturing cycle before it is run.
 CONSTRUCTION INFERENCE Primary #place. Orders assigned robot actions and synchronizes their positions in time.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Offline robotic cycle and weld-sequence engineering. OR: Simulation-assisted sequence optimization and collision-free motion planning. Evidence: S03.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Robot cycles define body-shop and automated-assembly productivity. Relevance High: Better cycles improve throughput on installed robotic assets. Industrial Hardness High: Collision checks, simultaneous robots and sequence-dependent travel require specialized search.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS SHOP, DISPATCH.
@@ -460,9 +420,7 @@ DECISION AND OUTPUT Order committed vehicles on final assembly lines under optio
 IDENTITY, VARIANTS AND OWNERSHIP Car sequencing and workload-based mixed-model sequencing are competing model families, not separate parents. Vehicle order is distinct from task order within one vehicle. Dealer allocation and commercial priority choice remain MKT inputs.
 COMMITMENT INFERENCE Primary #operate; Secondary #sequence. Fixes near-term vehicle order before local execution decisions.
 CONSTRUCTION INFERENCE Primary #place. Places vehicles in line order; option ratios and station workloads constrain positions.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Mixed-model sequencing and production leveling. OR: Option-ratio CP or MILP; workload-based sequencing and neighborhood search. Evidence: S07, S50.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Critical: Vehicle order governs mixed-model final-assembly execution. Relevance Critical: Better sequences prevent station overload and avoidable line stoppages. Industrial Hardness High: Many option ratios and conflicting workload goals require tailored search.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS BUFFERSEQ, DISPATCH, REPAIR.
@@ -473,9 +431,7 @@ DECISION AND OUTPUT Assign manufacturing operations to resources and times under
 IDENTITY, VARIANTS AND OWNERSHIP Flexible machining, plastic molding, remanufacture, mixed-model matrix assembly and fixed-test calendars are variants. STAMP and vehicle-stream cards retain industry-specific sequence contracts. Production-integrated handling is part of SHOP only when manufacturing synchronization defines feasibility; independent transport dispatch is LOG.
 COMMITMENT INFERENCE Primary #plan. Prepares operation calendars before execution.
 CONSTRUCTION INFERENCE Primary #place; Secondary #map. Places operations in time and assigns eligible resources.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Finite-capacity automotive production scheduling. OR: Interval CP or scheduling MILP; decomposition and neighborhood search. Evidence: S11, S17, S22, S35, S44, S45.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Critical: Detailed calendars coordinate component and nonpaced assembly work. Relevance Critical: Better schedules affect output, due dates and factory utilization. Industrial Hardness High: Large operation sets and coupled tools, setups and reentry need tailored scheduling.
 FORMAL COMPLEXITY General job-shop makespan restrictions are NP-hard [S45]. This does not classify every restricted automotive calendar.
 CONDITIONAL DOWNSTREAM KEYS RELEASE, DISPATCH, REPAIR.
@@ -486,9 +442,7 @@ DECISION AND OUTPUT Order committed stamping jobs on assigned press lines under 
 IDENTITY, VARIANTS AND OWNERSHIP Future press calendars use the same model under #plan. This card's fixed contract is the running shop's near-term order. Toolkit-to-press allocation is PRESSLOAD; lot quantities are LOT. Given line assignments do not create an additional chosen MAP.
 COMMITMENT INFERENCE Primary #operate; Secondary #sequence. Fixes near-term order for press work already under operation.
 CONSTRUCTION INFERENCE Primary #place. Places committed stamping jobs in press-line order.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Press-shop finite-capacity sequencing. OR: Stamping scheduling MILP or CP with decomposition and sequence search. Evidence: S09.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority High: Press-run order determines die-change loss and component availability. Relevance High: Better order reduces setup loss and interrupted downstream supply. Industrial Hardness High: Sequence-dependent die changes and shared setup resources need tailored search.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS DISPATCH, REPAIR.
@@ -499,9 +453,7 @@ DECISION AND OUTPUT Assign required tools to capacity-limited machine magazines 
 IDENTITY, VARIANTS AND OWNERSHIP Machine calibration and continuous tool-wear prediction are inputs. TOOL commits magazine contents; SHOP schedules manufacturing and tool availability. Joint tool/job ordering is an integrated variant and adds temporal placement; it is not asserted for the fixed-workloading core contract.
 COMMITMENT INFERENCE Primary #allocate. Commits scarce tooling to machines for specified manufacturing work.
 CONSTRUCTION INFERENCE Primary #map; Secondary #select. Assigns tools to magazines and selects the retained and replacement tools.
-SUBSTRATE CHECK Released product definitions, candidate resources, observed attributes and relevant feasibility relations are supplied. Only the choices specified above are delivered; objective and auxiliary solver variables are not additional Structures.
 APPROACH EVIDENCE IE: Machining tool provisioning and change planning. OR: Capacity-constrained tool-loading optimization with tool-switching search. Evidence: S35, S36.
-APPROACH LIMIT Published/implemented approach families support a defensible baseline architecture. No universal dominance is inferred. Where simulation evaluates geometry or throughput, the evaluation model is not itself the combinatorial solver.
 RATING INFERENCE Priority Medium: Recurring in flexible automotive component machining. Relevance High: Better tooling reduces avoidable machine waits and tool changes. Industrial Hardness High: Shared tools and tight magazine capacities couple loading decisions.
 FORMAL COMPLEXITY No formal class is needed for admission; retain industrial difficulty separately. No full-contract theorem is asserted.
 CONDITIONAL DOWNSTREAM KEYS SHOP.
@@ -783,3 +735,21 @@ S55 Production planning using evolving automotive demand
 https://pdxscholar.library.pdx.edu/busadmin_fac/46/
 INSPECTED Author institutional indexed abstract.
 SUPPORTED OBSERVATION An auto-parts supplier revises future production plans as customer releases change, using an optimization model.
+
+S56 Discrete fixture-layout design for compliant automotive assemblies
+https://link.springer.com/article/10.1007/s00170-020-05954-y
+INSPECTED Primary article text, Sections 2 and 5.3.
+SUPPORTED OBSERVATION The method chooses locator regions/types and clamp presence. A fixed-datum automotive door-panel example retains binary clamp choices, establishing a production fixture contract without changing product hole/slot definitions.
+
+S57 Employee work shifts at a car factory
+https://dergipark.org.tr/en/pub/ijet/article/293126
+INSPECTED Primary publisher abstract.
+SUPPORTED OBSERVATION A car-factory unit uses integer linear programming for employee shift scheduling under staffing and skill requirements. This establishes a standalone workforce contract distinct from assigning manufacturing tasks to stations.
+
+S58 Flexible manufacturing workload loading
+https://www.sciencedirect.com/science/article/abs/pii/S0360835211003196
+INSPECTED Primary indexed abstract and indexed method description.
+SUPPORTED OBSERVATION The model selects jobs and assigns operations to installed machines under capability, capacity and tool constraints. A MILP and genetic algorithm support this workload-commitment artifact; applicability to automotive component cells is a transfer inference with S35.
+
+METHOD-TRANSFER VERIFICATION
+Primary records for S32, S34, S36, S44, S46, S48, S49, S54 were additionally inspected during this run (author paper, official documentation, author abstract or primary indexed publication record, as accessible). Their source labels retain the origin in generic PROD research. S47 was checked through its author-hosted indexed PDF record after its landing page failed. This does not convert transferable methods into automotive deployment claims.
