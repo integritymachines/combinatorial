@@ -1,7 +1,7 @@
 160_AUTOM_research.txt
 
 AUTOM — Automotive Manufacturing problem research
-v0.2 | 8 October 2026 | LEVEL=PROBLEM
+v0.1 | 8 October 2026 | LEVEL=PROBLEM
 Industry Domain code: 160.
 Industry: ##AUTOMOTIVE. Primary Domain: 102 #PROD. Territory: #production. Macro Domain anchor: #TRANS.
 Normative inputs: 000_DOMAIN.txt v0.5 and background/000_DOMAIN_research.txt v0.5.
