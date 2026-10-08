@@ -1,0 +1,209 @@
+530_RET.txt
+
+RET — Retail Merchandising
+v0.1 | 9 October 2026 | Problem layer
+
+SCOPE
+Macro Domain anchor: #EXCH. Primary Domain: 501 #MKT. Industry: ##RETAIL. Territory: #DISTRIBUTION.
+Merchandise ranges, commercial bundle menus, category and item display space, posted prices, promotions, targeted offers, curated subscription content and live retail presentation define this territory. It covers physical, digital, omnichannel and subscription retail.
+Ownership follows the delivered commercial offer, merchandise presentation or curated content commitment. Stock quantities, sourcing, replenishment and fixed-order fulfillment remain SCM contracts. Physical handling and delivery, workforce schedules, financial positions, manufacturable product definitions and installed digital-resource operation remain with their corresponding Domains.
+
+#design | 1##
+
+RET101 Category Space Configuration.
+DESCRIPTION Configure category selling locations and discrete fixture-space shares within a supplied store layout under category capacity, presentation and demand-response conditions.
+TEMPLATE Macro-space and category-space management | Store-wide space-allocation IP or MINLP with hierarchical product-allocation decomposition.
+REGIME #design | Configures category presentation capacity before item ranges and display plans are committed.
+STRUCTURE #place + #map | Positions category blocks and assigns discrete fixture-space modules to categories.
+PRIORITY High | Category space defines the presentation capacity of major physical retail formats.
+RELEVANCE High | Better category footprints and locations can improve store margin and visibility.
+HARDNESS High | Category demand, customer traffic and downstream item allocations couple the store layout.
+DEPENDENCIES ∅ → RET101 → RET301, RET303.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #design #place #map ##macro-space ##category-layout ##space-elasticity.
+COMMENTS Building design, supply-site location and warehouse storage layouts remain external contracts.
+
+RET102 Retail Bundle Menu Design.
+DESCRIPTION Select reusable merchandise bundle offers and their component membership under compatibility, menu-size and customer-choice rules.
+TEMPLATE Mixed-bundling and commercial menu design | Choice-based MINLP or linearized MILP with restricted bundle enumeration.
+REGIME #design | Defines composite merchandise offers before prices and customer assignments are committed.
+STRUCTURE #select + #map | Selects the offer menu and assigns merchandise components to bundles.
+PRIORITY High | Bundle composition recurs across multi-product retail offers.
+RELEVANCE High | Better menus can improve basket margin and cross-selling.
+HARDNESS High | Component combinations and customer substitution couple menu composition and prices.
+DEPENDENCIES ∅ → RET102 → RET302, RET304, RET501, RET804.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #design #select #map ##bundling ##menu-design ##cross-selling.
+COMMENTS Physical product design and kit assembly remain external contracts.
+
+#plan | 3##
+
+RET301 Retail Assortment Selection.
+DESCRIPTION Select products to offer by store or channel under category, range-size, attribute, presentation and supplied availability limits while accounting for customer substitution.
+TEMPLATE Category and localized range planning | Choice-based integer optimization; model-specific exact algorithms, convexification or large neighborhood search.
+REGIME #plan + #adapt | Commits a future merchandise range and revises an issued range after material change.
+STRUCTURE #select | Chooses the product subset offered in each supplied commercial context.
+PRIORITY Critical | The offered merchandise range defines retail merchandising.
+RELEVANCE Critical | Range quality affects chain-wide sales, margin and customer retention.
+HARDNESS High | Heterogeneous choice, substitution and linked store or channel restrictions couple many selections.
+DEPENDENCIES RET101 → RET301 → RET302, RET303, RET304, RET306, RET307, RET501, RET502, RET503, RET801, RET802.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #plan #adapt #select ##assortment ##substitution ##localization ##omnichannel.
+COMMENTS Listing and delisting are range variants. Purchase quantities, stock deployment and replenishment remain SCM contracts.
+
+RET302 Regular Price Assignment.
+DESCRIPTION Assign merchandise and supplied offers to permitted regular price points across stores, zones and channels under margin, price-relationship and demand-interaction rules.
+TEMPLATE Price-ladder and omnichannel category pricing | Finite-price MIP with choice-response reformulation or nonlinear discrete optimization.
+REGIME #plan | Commits posted regular prices before the planned selling periods.
+STRUCTURE #map | Assigns each item or supplied offer to a permitted price alternative.
+PRIORITY Critical | Regular price assignment is central to discrete retail offer systems.
+RELEVANCE Critical | Coordinated prices affect enterprise sales and margin.
+HARDNESS High | Cross-product, store and channel responses complicate coupled price rules.
+DEPENDENCIES RET102, RET301 → RET302 → RET304, RET306, RET501, RET803, RET804.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #plan #map ##price-ladder ##cross-price ##omnichannel.
+COMMENTS Pure continuous price setting does not enter this discrete scope.
+
+RET303 Item Planogram and Facing Optimization.
+DESCRIPTION Position merchandise facings and display blocks on configured retail shelves under dimensions, capacity, contiguity, adjacency and presentation rules.
+TEMPLATE Planogram and micro-space management | Shelf-space IP or MINLP with geometric decomposition; integrated assortment-space optimization when required.
+REGIME #plan | Commits future item presentation within supplied fixtures and category space.
+STRUCTURE #place + #select | Positions product display blocks and selects the facings or blocks to include.
+PRIORITY High | Planograms govern recurring presentation in physical retail.
+RELEVANCE High | Better displays can improve visibility, margin and use of shelf capacity.
+HARDNESS High | Geometry, product interactions and space-dependent demand couple many placements | Strongly NP-hard for the cited two-dimensional weighted-revenue display model.
+DEPENDENCIES RET101, RET301 → RET303 → ∅.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #plan #place #select ##planogram ##facings ##packing ##contiguity.
+COMMENTS Physical shelf-refill movement and inventory replenishment remain external contracts.
+
+RET304 Promotion Calendar Optimization.
+DESCRIPTION Select promoted merchandise and permitted price or promotion mechanisms and place them in periods under budget, spacing, frequency, funding and demand-carryover rules.
+TEMPLATE Category promotion-calendar planning | Nonlinear IP with linear integer approximations and rounding; LP for supported integral approximations.
+REGIME #plan + #adapt | Commits future campaigns and revises issued campaign commitments after material change.
+STRUCTURE #place + #select + #map | Places promotions in time, selects participation and assigns price or mechanism alternatives.
+PRIORITY High | Promotion calendars recur across major promotional retail formats.
+RELEVANCE High | Better timing and campaign interactions can improve recurring margin.
+HARDNESS High | Carryover and cross-item effects couple product-period decisions | NP-hard for the cited general nonlinear model; its supported integral IP approximation admits LP solution.
+DEPENDENCIES RET102, RET301, RET302 → RET304 → RET305, RET307, RET501, RET502, RET803.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #plan #adapt #place #select #map ##promotion ##carryover ##schedule.
+COMMENTS Promotional stock quantities remain SCM commitments.
+
+RET305 Promotion Vehicle Scheduling.
+DESCRIPTION Schedule retail promotion exposure mechanisms in selling periods under mechanism capacity, compatibility and combined demand-response conditions.
+TEMPLATE Feature and promotional display-calendar planning | Nonlinear matching-type optimization, compact IP and approximation algorithms.
+REGIME #plan | Commits the future calendar of promotion exposure mechanisms.
+STRUCTURE #place + #map | Places exposure events in time and assigns them to supplied promotion mechanisms.
+PRIORITY Medium | Exposure calendars are important in feature- and display-led retail.
+RELEVANCE High | Better exposure timing can improve campaign effectiveness.
+HARDNESS High | Combined mechanism effects and shared period capacities complicate scheduling.
+DEPENDENCIES RET304 → RET305 → RET307, RET502.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #plan #place #map ##promotion-vehicle ##feature-display ##schedule.
+COMMENTS Promotion vehicles are marketing mechanisms, such as features and displays.
+
+RET306 Clearance Markdown Planning.
+DESCRIPTION Assign residual seasonal or perishable merchandise to discrete discount trajectories and selling periods under remaining stock, shelf-life, price-change and terminal sell-through conditions.
+TEMPLATE Clearance and expiry sell-through planning | Stochastic dynamic programming or multiperiod MIP; omnichannel price-policy decomposition.
+REGIME #plan + #dispatch | Commits a finite selling policy and selects its immediate prices from observed selling state.
+STRUCTURE #map + #place | Assigns discount alternatives to merchandise and positions their application in selling periods.
+PRIORITY High | Markdown planning is central to seasonal and perishable retail.
+RELEVANCE High | Better discounts can recover residual margin and reduce expiry loss.
+HARDNESS High | Uncertain sell-through, substitution and shared channel stock complicate discount paths.
+DEPENDENCIES RET301, RET302 → RET306 → ∅.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #plan #dispatch #map #place ##markdown ##clearance ##perishable ##sell-through.
+COMMENTS Sale eligibility and stock are supplied. Physical recovery, redistribution and disposal remain SCM contracts.
+
+RET307 Flyer Merchandise and Space Planning.
+DESCRIPTION Select featured merchandise or categories and their discrete space or placement alternatives in supplied flyer editions under page capacity, thematic and repeat-exposure rules.
+TEMPLATE Circular and showcase flyer planning | Response-based large neighborhood search; finite-alternative space-allocation MIP as an exact comparator.
+REGIME #plan | Commits an edition's merchandise content and feature-space plan before publication.
+STRUCTURE #select + #place | Selects featured merchandise and positions its presentation in page or slot space.
+PRIORITY Medium | Flyer planning recurs in print- and digital-circular retail.
+RELEVANCE Medium | Better editions can improve category exposure and campaign sales.
+HARDNESS High | Cross-category response and overlap limits couple content across editions.
+DEPENDENCIES RET301, RET304, RET305 → RET307 → ∅.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #plan #select #place ##flyer ##feature-space ##cross-category.
+COMMENTS The exact comparator requires finite presentation alternatives and an explicit demand-response model.
+
+#allocate | 5##
+
+RET501 Coupon and Targeted Offer Allocation.
+DESCRIPTION Assign discrete coupon or merchandise-offer alternatives to eligible customers or groups under campaign budget, contact-frequency and offer-interaction limits.
+TEMPLATE Loyalty promotion targeting | Multiple-choice knapsack or assignment MIP; robust aggregate portfolio allocation under compatible segment assumptions.
+REGIME #allocate + #dispatch | Commits offer entitlements to recipients and can assign them as customers arrive.
+STRUCTURE #map + #select | Assigns offer alternatives to recipients and selects which eligible recipients receive an offer.
+PRIORITY High | Targeted offers recur across large loyalty and digital retail systems.
+RELEVANCE High | Better allocation can improve incremental margin from limited campaign spend.
+HARDNESS High | Response uncertainty, many recipients and coupled budgets require segmentation or specialized optimization.
+DEPENDENCIES RET102, RET301, RET302, RET304 → RET501 → ∅.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #allocate #dispatch #map #select ##coupon ##targeting ##uplift ##budget.
+COMMENTS Aggregate portfolio methods can be continuous. The admitted contract requires discrete recipient or offer decisions.
+
+RET502 Promotional Display Product Allocation.
+DESCRIPTION Select merchandise for supplied special displays and assign the selected items to available display opportunities under capacity, eligibility and category-demand conditions.
+TEMPLATE Endcap and promotional display management | Choice-based analytical selection; discrete assignment extension for coupled display opportunities.
+REGIME #allocate | Commits named merchandise to scarce supplied display opportunities.
+STRUCTURE #map + #select | Assigns items to display opportunities and selects the participating merchandise.
+PRIORITY Medium | Special-display allocation is important in display-led physical retail.
+RELEVANCE High | Better display beneficiaries can shape demand and category margin.
+HARDNESS Medium | Single-display analytical selection is tractable; shared opportunities need coupled assignment modeling.
+DEPENDENCIES RET301, RET304, RET305 → RET502 → ∅.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #allocate #map #select ##endcap ##promotional-display ##demand-shaping.
+COMMENTS Display geometry is supplied. Detailed facing and spatial layout decisions belong to planogram planning.
+
+RET503 Subscription Box Merchandise Allocation.
+DESCRIPTION Construct merchandise configurations and assign them to subscriber boxes under supplied item availability, customer preferences and content requirements.
+TEMPLATE Curated subscription assortment allocation | Configuration-and-customer assignment MIP with reciprocating integer programming for industrial scaling.
+REGIME #allocate | Commits curated merchandise content to named subscriber entitlements.
+STRUCTURE #map + #select | Assigns merchandise configurations to subscribers and selects configuration contents or the configuration portfolio.
+PRIORITY Medium | Curated content allocation is central to subscription retail and specialized within retail overall.
+RELEVANCE High | Better content can improve subscriber value and commercial use of available merchandise.
+HARDNESS High | Many subscribers and possible configurations require formulation and solve engineering.
+DEPENDENCIES RET301 → RET503 → ∅.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #allocate #map #select ##subscription-box ##configuration ##personalization.
+COMMENTS Fixed-content order sourcing belongs to SCM. Physical kitting and transport remain external contracts.
+
+#dispatch | 8##
+
+RET801 Live Assortment Activation.
+DESCRIPTION Select the active offer subset from an admitted merchandise range for an arriving customer or current selling state under exposure, eligibility and supplied availability limits.
+TEMPLATE Dynamic assortment and personalized availability control | Choice-based assortment optimization; MNL-bandit methods when demand must be learned.
+REGIME #dispatch | Issues the immediate offer set from current customer or selling-state information.
+STRUCTURE #select | Chooses which eligible products are offered now.
+PRIORITY High | Live offer selection is central to personalized digital merchandising.
+RELEVANCE High | Better active assortments can improve conversion and use of selling opportunities.
+HARDNESS High | Short latency, uncertain preferences and availability changes complicate repeated selection.
+DEPENDENCIES RET301 → RET801 → RET802.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #dispatch #select #online #closedloop ##dynamic-assortment ##personalization ##choice-model.
+COMMENTS Stock deployment, replenishment and fulfillment-source assignment remain SCM contracts.
+
+RET802 Digital Product Ranking.
+DESCRIPTION Order retail products in search, recommendation or browse positions under relevance, diversity, eligibility and position-response conditions.
+TEMPLATE Commercial digital-shelf merchandising | Choice-based assortment-position IP or dynamic programming; sequential submodular approximation for compatible browse models.
+REGIME #dispatch | Issues a product display for a current query or shopping session.
+STRUCTURE #place + #select | Positions products in ordered display space and selects items when display capacity is limited.
+PRIORITY High | Ranked presentation recurs across major online retail catalogs.
+RELEVANCE High | Better ordering can improve customer engagement and merchandise conversion.
+HARDNESS High | Browsing depth, product substitution and diversity rules complicate low-latency ranking.
+DEPENDENCIES RET301, RET801 → RET802 → ∅.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #dispatch #place #select #online ##product-ranking ##position-bias ##diversity ##ordered-space.
+COMMENTS Model training and installed compute-resource operation remain COMP contracts.
+
+RET803 State-Based Retail Repricing.
+DESCRIPTION Select immediate discrete price changes and assign permitted prices in response to observed demand or competition within supplied regular-price and campaign constraints.
+TEMPLATE Competitive and state-triggered retail price control | Candidate-action price optimization or finite-price MIP with demand-response evaluation.
+REGIME #dispatch | Authorizes immediate price actions from current selling and competitive state.
+STRUCTURE #map + #select | Assigns permitted prices and selects the items or price actions to change.
+PRIORITY High | State-triggered pricing recurs in online and fast-changing retail.
+RELEVANCE High | Better responses can preserve margin and competitiveness.
+HARDNESS High | Demand uncertainty and coupled item, channel and price-change rules constrain live responses.
+DEPENDENCIES RET302, RET304 → RET803 → ∅.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #dispatch #map #select #online #closedloop ##repricing ##competition ##price-response.
+COMMENTS Finite residual-stock clearance and expiry pricing remain within clearance markdown planning.
+
+RET804 Personalized Bundle Offer Construction.
+DESCRIPTION Select the components of an immediate shopper-specific discounted merchandise bundle under preference, compatibility, price and supplied inventory conditions.
+TEMPLATE Personalized bundle pricing and recommendation | Real-time additive or multiplicative approximation algorithms; restricted candidate MIP for small-instance comparison.
+REGIME #dispatch | Issues a composite merchandise offer to the current shopper before acceptance.
+STRUCTURE #select | Chooses the merchandise components included in the personalized offer.
+PRIORITY Medium | Personalized bundle construction is important in specialized digital retail systems.
+RELEVANCE High | Better bundles can improve basket relevance and margin.
+HARDNESS High | Customer-specific component combinations and price interactions must be resolved within offer latency.
+DEPENDENCIES RET102, RET302 → RET804 → ∅.
+TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #dispatch #select #online ##personalized-bundle ##recommendation ##cross-selling.
+COMMENTS Continuous prices can accompany the discrete bundle composition.
