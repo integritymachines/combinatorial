@@ -15,7 +15,7 @@ REGIME #design | Defines which clinical services the health system will fund and
 STRUCTURE #select | Chooses interventions from a supplied candidate set.
 PRIORITY High | Service-package decisions shape public health and coverage programmes.
 RELEVANCE Critical | Choices affect population health and access to essential care.
-HARDNESS Medium | NP-hard budgeted subset variants; Benefit uncertainty, intervention interactions and equity goals complicate policy choice.
+HARDNESS Medium | Benefit uncertainty, intervention interactions and equity goals complicate policy choice.
 DEPENDENCIES ∅ → HLTH101 → HLTH102, HLTH501, HLTH502.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #design #select ##publichealth ##intervention-selection ##multiobjective.
 COMMENTS Health gains and clinical eligibility define this scope; insurance pricing belongs to FIN.
@@ -27,7 +27,7 @@ REGIME #design | Commits clinical service locations and installed capacity befor
 STRUCTURE #select + #map | Chooses facilities and capabilities and assigns catchments to eligible services.
 PRIORITY High | Regional care networks require coordinated access and capacity decisions.
 RELEVANCE Critical | Network design affects access, investment and referral feasibility.
-HARDNESS High | NP-hard capacitated facility-location variants; Patient choice, congestion and service complementarities couple location and capacity.
+HARDNESS High | Patient choice, congestion and service complementarities couple location and capacity.
 DEPENDENCIES HLTH101 → HLTH102 → HLTH103, HLTH301, HLTH307, HLTH308, HLTH505.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #design #select #map ##healthsystems ##facility-location ##congestion.
 COMMENTS Medical access defines ownership; generic warehouses and civic buildings belong elsewhere.
@@ -39,7 +39,7 @@ REGIME #design | Commits the care-space arrangement before use.
 STRUCTURE #place | Positions equipment and materials in physical space.
 PRIORITY Medium | Clinical layout optimization serves specific care spaces and mobile units.
 RELEVANCE High | Layout affects access to equipment during patient care.
-HARDNESS Medium | Discrete layout assignment with geometric constraints; Detailed clinical access rules and physical dimensions require careful model validation.
+HARDNESS Medium | Detailed clinical access rules and physical dimensions require careful model validation.
 DEPENDENCIES HLTH102 → HLTH103 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #design #place ##emergencymedicine ##layout ##ergonomics.
 COMMENTS Includes mobile intensive-care workspaces where clinical access defines the layout.
@@ -51,7 +51,7 @@ REGIME #design | Commits the base network and fleet deployment capacity.
 STRUCTURE #select + #map | Chooses bases and assigns medical response capacity to them.
 PRIORITY High | EMS systems need a base and response-capacity plan.
 RELEVANCE Critical | Coverage determines access to urgent medical response.
-HARDNESS High | NP-hard covering-location variants; Traffic, demand uncertainty and heterogeneous medical capability complicate deployment.
+HARDNESS High | Traffic, demand uncertainty and heterogeneous medical capability complicate deployment.
 DEPENDENCIES ∅ → HLTH104 → HLTH802, HLTH803, HLTH804.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #design #select #map ##ems ##coverage ##facility-location.
 COMMENTS Live repositioning of available ambulances is a separate operating decision.
@@ -75,7 +75,7 @@ REGIME #plan | Prepares service capacity within the installed clinical system.
 STRUCTURE #map + #place | Assigns resource sessions to services and places session capacity in periods.
 PRIORITY High | Hospitals and ambulatory services repeatedly plan capacity by service.
 RELEVANCE High | Balanced capacity reduces access delays and downstream bottlenecks.
-HARDNESS High | Multi-period integer resource allocation; Uncertain patient flows couple many resource types and periods.
+HARDNESS High | Uncertain patient flows couple many resource types and periods.
 DEPENDENCIES HLTH102 → HLTH301 → HLTH302, HLTH303, HLTH307, HLTH308, HLTH311, HLTH312, HLTH313.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #map #place ##hospitals ##patient-mix ##care-pathway #tactical.
 COMMENTS Generic staff-to-shift rostering is HR; this contract allocates clinical service capacity.
@@ -87,7 +87,7 @@ REGIME #plan | Commits recurring specialty access to operating-room capacity.
 STRUCTURE #map | Assigns surgical services to supplied room-day blocks.
 PRIORITY High | Block schedules organize substantial perioperative capacity.
 RELEVANCE High | Block allocation affects utilization and recovery-unit workload.
-HARDNESS High | Integer block-allocation optimization; Surgical mix and uncertain recovery stays connect operating rooms to wards and ICU.
+HARDNESS High | Surgical mix and uncertain recovery stays connect operating rooms to wards and ICU.
 DEPENDENCIES HLTH301 → HLTH302 → HLTH309.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #map ##perioperative ##master-surgical-schedule ##downstream-capacity.
 COMMENTS Individual surgery sequence and start-time decisions belong to surgical case scheduling.
@@ -99,7 +99,7 @@ REGIME #plan | Creates the slot pattern that later appointment bookings consume.
 STRUCTURE #place + #map | Places capacity slots in time and assigns visit types to them.
 PRIORITY High | Appointment templates govern access in many outpatient services.
 RELEVANCE High | Good slot patterns balance waiting, workload and available capacity.
-HARDNESS High | Discrete slot-pattern scheduling; No-shows, duration variability and shared resources make templates difficult to validate.
+HARDNESS High | No-shows, duration variability and shared resources make templates difficult to validate.
 DEPENDENCIES HLTH301 → HLTH303 → HLTH311, HLTH313, HLTH315, HLTH508.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map ##outpatient ##blueprint ##appointment-template ##simulation.
 COMMENTS A template defines capacity by visit type; patient booking consumes that capacity.
@@ -111,7 +111,7 @@ REGIME #plan | Prepares a patient-specific physical treatment configuration.
 STRUCTURE #select | Chooses beam configurations from permitted candidates.
 PRIORITY Medium | Beam configuration is central within radiation oncology.
 RELEVANCE Critical | The configuration controls target coverage and exposure of healthy tissue.
-HARDNESS High | Mixed discrete beam selection and continuous dose optimization; Each configuration can require a large dose-evaluation subproblem.
+HARDNESS High | Each configuration can require a large dose-evaluation subproblem.
 DEPENDENCIES ∅ → HLTH304 → HLTH305, HLTH312.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #select ##radiotherapy ##beam-angle ##dose-planning.
 COMMENTS Pure continuous fluence optimization with fixed beams is outside this discrete selection scope.
@@ -147,7 +147,7 @@ REGIME #plan | Commits admission dates before the care episode begins.
 STRUCTURE #place + #select | Places selected patient admissions on the calendar.
 PRIORITY High | Elective admissions affect access and inpatient workload.
 RELEVANCE High | Feasible admission dates reduce postponements and congestion.
-HARDNESS High | Contains knapsack-type patient-selection variants; Uncertain stays and downstream resource demand couple admission dates.
+HARDNESS High | Uncertain stays and downstream resource demand couple admission dates.
 DEPENDENCIES HLTH102, HLTH301 → HLTH307 → HLTH308, HLTH506.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #select ##hospitals ##admission-control ##occupancy #rolling.
 COMMENTS The historical PAS label often denotes bed assignment; that meaning belongs to patient-room allocation.
@@ -159,7 +159,7 @@ REGIME #plan + #operate | Coordinates a care episode across departments and supp
 STRUCTURE #place + #map | Places care activities and stays in time and assigns eligible clinical resources.
 PRIORITY Critical | Cross-department patient flow connects major hospital decisions.
 RELEVANCE Critical | Coordinated care reduces delays and releases constrained capacity.
-HARDNESS Critical | Contains resource-constrained scheduling variants; Many linked clinical stages, uncertain durations and departmental commitments require decomposition.
+HARDNESS Critical | Many linked clinical stages, uncertain durations and departmental commitments require decomposition.
 DEPENDENCIES HLTH102, HLTH301, HLTH307 → HLTH308 → HLTH309, HLTH310, HLTH315, HLTH506, HLTH701.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #operate #place #map ##hospitals ##care-pathway ##precedence ##patient-flow ##decomposition.
 COMMENTS Clinical precedence is supplied; scheduling it does not by itself construct #link.
@@ -171,7 +171,7 @@ REGIME #plan | Commits patient-specific surgery resources, order and start times
 STRUCTURE #place + #map + #select | Places selected surgeries in time and assigns their clinical resources.
 PRIORITY Critical | Surgical case scheduling is a central hospital optimization problem.
 RELEVANCE High | Better schedules reduce delays, overtime and unused theatre capacity.
-HARDNESS High | NP-hard parallel-machine and multi-resource scheduling variants; Uncertain durations and shared clinical and recovery resources require specialized models.
+HARDNESS High | Uncertain durations and shared clinical and recovery resources require specialized models.
 DEPENDENCIES HLTH302, HLTH306, HLTH308, HLTH503, HLTH504 → HLTH309 → HLTH901.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map #select ##perioperative ##schedule ##turnover ##stochastic.
 COMMENTS The template concerns actual cases; the master block schedule supplies capacity entitlements.
@@ -183,7 +183,7 @@ REGIME #plan + #dispatch | Commits diagnostic resource times and prioritizes arr
 STRUCTURE #place + #map | Places diagnostic activities in time and assigns eligible resources.
 PRIORITY High | Diagnostic resources support many inpatient and outpatient care streams.
 RELEVANCE High | Timely diagnosis reduces treatment delay and occupied care capacity.
-HARDNESS High | NP-hard flexible open-shop variants; Multiple tests, resource eligibility and clinical priority couple schedules.
+HARDNESS High | Multiple tests, resource eligibility and clinical priority couple schedules.
 DEPENDENCIES HLTH308, HLTH508 → HLTH310 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #dispatch #place #map ##diagnostics ##laboratory ##open-shop ##priority.
 COMMENTS Patient-priority laboratory batching is a variant. Pure specimen processing without patient-service conditions requires a transformation-domain assessment.
@@ -195,7 +195,7 @@ REGIME #plan | Commits a recurring clinically required treatment course.
 STRUCTURE #place + #map | Places treatment sessions in time and assigns stations and clinical support.
 PRIORITY Medium | Recurring dialysis is a material chronic-care scheduling system.
 RELEVANCE Critical | Feasible repeated treatments sustain access to essential care.
-HARDNESS High | Recurring multi-resource appointment scheduling; Repeated attendance and connection/disconnection tasks constrain the same resources.
+HARDNESS High | Repeated attendance and connection/disconnection tasks constrain the same resources.
 DEPENDENCIES HLTH301, HLTH303, HLTH508 → HLTH311 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map ##dialysis ##recurring-treatment ##branch-and-price.
 COMMENTS Home-dialysis visit routing is a home-care variant.
@@ -207,7 +207,7 @@ REGIME #plan | Commits the treatment-course calendar and unit access.
 STRUCTURE #place + #map | Places fractions in time and assigns eligible treatment resources.
 PRIORITY Medium | Treatment-course scheduling is central within radiotherapy operations.
 RELEVANCE High | Schedules affect treatment access, continuity and equipment use.
-HARDNESS High | Recurring multi-resource scheduling; Course coupling, preparation and variable durations restrict local slot choices.
+HARDNESS High | Course coupling, preparation and variable durations restrict local slot choices.
 DEPENDENCIES HLTH301, HLTH304, HLTH305, HLTH508 → HLTH312 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map ##radiotherapy ##fraction-scheduling ##continuity ##stochastic.
 COMMENTS The treatment prescription is input; beam configuration and clinical fraction-size design are separate decisions.
@@ -219,7 +219,7 @@ REGIME #plan | Commits a coordinated rehabilitation programme for actual patient
 STRUCTURE #place + #map | Places therapy sessions in time and assigns eligible therapists and groups.
 PRIORITY Medium | Multidisciplinary rehabilitation requires coordinated recurring treatment.
 RELEVANCE High | Coordination improves access and continuity across therapy disciplines.
-HARDNESS High | Recurring multi-resource timetabling; Therapist continuity and combination appointments restrict patient schedules.
+HARDNESS High | Therapist continuity and combination appointments restrict patient schedules.
 DEPENDENCIES HLTH301, HLTH303, HLTH508 → HLTH313 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map ##rehabilitation ##continuity-of-care ##group-therapy ##synchronization.
 COMMENTS The blueprint supplies reusable session capacity; this card schedules actual patient programmes.
@@ -231,7 +231,7 @@ REGIME #plan + #operate | Commits and updates direct-care visits and caregiver i
 STRUCTURE #link + #map + #place | Constructs visit succession, assigns caregivers and places care visits in time.
 PRIORITY High | Home-care services must coordinate mobile clinical work.
 RELEVANCE High | Feasible itineraries support continuity and reduce missed care.
-HARDNESS High | NP-hard vehicle-routing variants; Synchronized visits and clinical continuity couple routes and schedules.
+HARDNESS High | Synchronized visits and clinical continuity couple routes and schedules.
 DEPENDENCIES ∅ → HLTH314 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #operate #link #map #place ##homecare ##route ##synchronization ##continuity-of-care.
 COMMENTS Clinical visit requirements define HC; generic service routing belongs to LOG or HR.
@@ -243,7 +243,7 @@ REGIME #plan | Commits patient infusion sessions and care resources.
 STRUCTURE #place + #map | Places treatments in time and assigns chairs and qualified staff.
 PRIORITY Medium | Infusion scheduling recurs in oncology and other infusion services.
 RELEVANCE High | Good schedules reduce care overload and treatment delay.
-HARDNESS High | Multi-resource scheduling with time-varying care demand; Nursing peaks and variable durations limit chair-only planning.
+HARDNESS High | Nursing peaks and variable durations limit chair-only planning.
 DEPENDENCIES HLTH303, HLTH308, HLTH507, HLTH508 → HLTH315 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map ##infusion ##oncology ##acuity ##robust.
 COMMENTS Chemotherapy is a major context; medicine production and stock replenishment remain outside this card.
@@ -255,7 +255,7 @@ REGIME #allocate | Commits screening resources to patient-specific or group-spec
 STRUCTURE #map | Assigns eligible screening regimens to patients or groups.
 PRIORITY Medium | Risk-based screening allocation recurs in preventive-care programmes.
 RELEVANCE High | Allocation can improve early detection within limited screening capacity.
-HARDNESS Medium | Multiple-choice budgeted allocation; Risk estimation and outcome uncertainty matter as much as assignment scale.
+HARDNESS Medium | Risk estimation and outcome uncertainty matter as much as assignment scale.
 DEPENDENCIES HLTH101 → HLTH501 → HLTH508.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #map ##publichealth ##screening ##risk-stratification.
 COMMENTS This decision consumes risk predictions; it does not build the predictive model.
@@ -267,7 +267,7 @@ REGIME #allocate | Commits scarce doses or courses to eligible populations.
 STRUCTURE #map | Assigns vaccine capacity to population groups and service areas.
 PRIORITY High | Vaccination programmes regularly allocate limited clinical resources.
 RELEVANCE Critical | Allocation affects preventable disease and equitable access.
-HARDNESS High | Integer allocation with epidemic or access constraints; Multiple doses, uptake uncertainty and interacting population outcomes complicate allocation.
+HARDNESS High | Multiple doses, uptake uncertainty and interacting population outcomes complicate allocation.
 DEPENDENCIES HLTH101 → HLTH502 → HLTH508.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #map ##publichealth ##vaccination ##equity ##multi-dose.
 COMMENTS Inventory replenishment and cold-chain shipment execution belong to SCM and LOG.
@@ -291,7 +291,7 @@ REGIME #allocate | Commits a compatible exchange set for a transplant match run.
 STRUCTURE #link | Chooses transplant relations that form disjoint exchange cycles and chains.
 PRIORITY Medium | Paired exchange is specific to living-donor transplantation.
 RELEVANCE Critical | Exchange construction can enable otherwise infeasible transplants.
-HARDNESS High | NP-hard bounded-cycle exchange variants; Long chains, failure risk and hierarchical goals increase model difficulty.
+HARDNESS High | Long chains, failure risk and hierarchical goals increase model difficulty.
 DEPENDENCIES ∅ → HLTH504 → HLTH309.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #link ##transplantation ##kidney-exchange ##cycle ##chain ##compatibility.
 COMMENTS The compatibility graph is supplied; the solution chooses the transplant relations.
@@ -303,7 +303,7 @@ REGIME #allocate + #dispatch | Commits scarce critical-care access at the curren
 STRUCTURE #select + #map | Selects eligible admissions and assigns patients to care levels or units.
 PRIORITY High | Critical-care units repeatedly face constrained admission decisions.
 RELEVANCE Critical | Allocation directly affects access to life-critical care.
-HARDNESS High | Constrained admission-policy optimization with integer decisions; Patient risk, uncertain stays and downstream capacity affect current admissions.
+HARDNESS High | Patient risk, uncertain stays and downstream capacity affect current admissions.
 DEPENDENCIES HLTH102 → HLTH505 → HLTH506, HLTH802.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #dispatch #select #map ##criticalcare ##admission-control ##scarcity ##queueing.
 COMMENTS Clinical eligibility and priority rules must be supplied; bed location alone is a different assignment decision.
@@ -315,7 +315,7 @@ REGIME #allocate + #operate | Commits individual patients to usable accommodatio
 STRUCTURE #map | Assigns patients to eligible beds or rooms over supplied stay periods.
 PRIORITY Critical | Patient accommodation is a core inpatient operating decision.
 RELEVANCE Critical | Safe bed access controls admissions, transfers and congestion.
-HARDNESS High | NP-hard constrained patient-room assignment variants; Shared rooms, uncertain stays and transfer costs create strong interactions.
+HARDNESS High | Shared rooms, uncertain stays and transfer costs create strong interactions.
 DEPENDENCIES HLTH307, HLTH308, HLTH505 → HLTH506 → HLTH507, HLTH701, HLTH802.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #operate #map ##hospitals ##patient-room-assignment ##isolation ##occupancy.
 COMMENTS Generic bed stock or purchasing decisions are separate from patient-compatible occupancy.
@@ -327,7 +327,7 @@ REGIME #allocate + #operate | Commits available clinicians to patient care respo
 STRUCTURE #map | Assigns clinical responsibility to eligible staff.
 PRIORITY High | Clinical teams repeatedly assign patient care responsibilities.
 RELEVANCE Critical | Assignments affect safe care workload and continuity.
-HARDNESS High | NP-hard capacitated workload-balancing variants; Patient acuity, skills and changing workload limit simple assignment rules.
+HARDNESS High | Patient acuity, skills and changing workload limit simple assignment rules.
 DEPENDENCIES HLTH506 → HLTH507 → HLTH315.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #operate #map ##hospitals ##acuity ##continuity-of-care ##assignment.
 COMMENTS Generic clinician shift rostering belongs to HR; patient-specific care feasibility defines this contract.
@@ -339,7 +339,7 @@ REGIME #allocate + #dispatch | Commits individual requests to remaining appointm
 STRUCTURE #map + #select | Assigns patient requests to supplied slots and selects requests for available capacity.
 PRIORITY Critical | Appointment access is a core primary and ambulatory care decision.
 RELEVANCE High | Booking affects timely access, waiting and resource use.
-HARDNESS Medium | Basic slot assignment is polynomial; coupled bookings add integer constraints; No-shows, urgency and online arrivals complicate booking policy.
+HARDNESS Medium | coupled bookings add integer constraints; No-shows, urgency and online arrivals complicate booking policy.
 DEPENDENCIES HLTH303, HLTH501, HLTH502 → HLTH508 → HLTH310, HLTH311, HLTH312, HLTH313, HLTH315.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #dispatch #map #select ##outpatient #online ##appointment-booking ##no-show.
 COMMENTS Constructing the underlying recurring slot pattern is a separate blueprint decision.
@@ -351,7 +351,7 @@ REGIME #allocate | Commits available transfusion units to eligible patient reque
 STRUCTURE #map | Assigns blood units to compatible patient demand.
 PRIORITY Medium | Clinical blood issuing is specific to transfusion services.
 RELEVANCE Critical | Matching affects safe transfusion and use of scarce compatible units.
-HARDNESS Medium | Polynomial minimum-cost flow in the fixed compatible-unit model; Rare phenotypes, clinical priorities and uncertain future demand complicate operational use.
+HARDNESS Medium | Rare phenotypes, clinical priorities and uncertain future demand complicate operational use | Polynomial minimum-cost flow for the fixed compatible-unit model.
 DEPENDENCIES ∅ → HLTH509 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #map ##transfusion ##antigen-matching ##min-cost-flow ##perishability.
 COMMENTS Blood ordering, inventory targets and collection supply planning belong to SCM.
@@ -375,7 +375,7 @@ REGIME #dispatch + #operate | Commits immediate care priorities as patients and 
 STRUCTURE #place + #map | Orders and times patient care stages and assigns clinical resources.
 PRIORITY High | Emergency departments continuously coordinate unscheduled patient care.
 RELEVANCE Critical | Delays can affect time-critical treatment and care access.
-HARDNESS High | Contains multi-resource scheduling variants; Uncertain arrivals and care durations restrict response time for decisions.
+HARDNESS High | Uncertain arrivals and care durations restrict response time for decisions.
 DEPENDENCIES ∅ → HLTH801 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #dispatch #operate #place #map ##emergencymedicine ##triage #online ##multi-resource.
 COMMENTS Triage categories are clinical inputs; this problem schedules permitted care actions.
@@ -387,7 +387,7 @@ REGIME #dispatch | Commits immediate medical response and a suitable receiving d
 STRUCTURE #map | Assigns emergency requests to capable response vehicles and hospitals.
 PRIORITY High | EMS operators make patient-response assignments continuously.
 RELEVANCE Critical | Correct capability and timely destination access affect urgent care.
-HARDNESS High | Sequential stochastic assignment and destination decisions; Live availability, severity uncertainty and hospital congestion limit simple nearest-vehicle rules.
+HARDNESS High | Live availability, severity uncertainty and hospital congestion limit simple nearest-vehicle rules.
 DEPENDENCIES HLTH104, HLTH505, HLTH506 → HLTH802 → HLTH803.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #dispatch #map ##ems #online ##severity ##destination-assignment.
 COMMENTS Generic shortest-path execution is LOG; clinical response capability defines this contract.
@@ -399,7 +399,7 @@ REGIME #dispatch | Commits short-cycle standby movements under current fleet ava
 STRUCTURE #map | Assigns available response vehicles to standby locations.
 PRIORITY High | EMS fleets rebalance coverage after calls and releases.
 RELEVANCE High | Relocation can improve readiness for future medical demand.
-HARDNESS High | Dynamic stochastic coverage assignment; Future calls and relocation costs make myopic coverage incomplete.
+HARDNESS High | Future calls and relocation costs make myopic coverage incomplete.
 DEPENDENCIES HLTH104, HLTH802 → HLTH803 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #dispatch #map ##ems ##coverage #rolling ##relocation.
 COMMENTS Response-time evidence does not by itself establish improved patient outcomes.
@@ -411,7 +411,7 @@ REGIME #dispatch + #adapt | Commits urgent care and revises response plans durin
 STRUCTURE #place + #map + #select | Places treatment and evacuation actions in time, assigns destinations and selects actions under scarcity.
 PRIORITY Medium | The problem is specific to major medical surges and disasters.
 RELEVANCE Critical | Coordinated evacuation and treatment affect casualty survival.
-HARDNESS Critical | Integrated resource-constrained evacuation and care scheduling; Rapidly changing casualties and multiple scarce resources require simplified or decomposed decisions.
+HARDNESS Critical | Rapidly changing casualties and multiple scarce resources require simplified or decomposed decisions.
 DEPENDENCIES HLTH104 → HLTH804 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #dispatch #adapt #place #map #select ##disastermedicine ##triage ##evacuation ##surge.
 COMMENTS General civilian evacuation is LOG or CIVIC; adversarial response is INTEL when it defines the decision.
@@ -423,7 +423,7 @@ REGIME #adapt + #dispatch | Revises an issued surgical schedule when operating c
 STRUCTURE #place + #map | Repositions remaining surgeries in time and revises assignments where permitted.
 PRIORITY High | Operating-room schedules routinely face intraday disruption.
 RELEVANCE High | Repair reduces cancellations, delay and overtime.
-HARDNESS High | Strongly NP-hard in the cited multiple-room rescheduling model; Frozen work, arrival uncertainty and limited decision time constrain repair.
+HARDNESS High | Frozen work, arrival uncertainty and limited decision time constrain repair.
 DEPENDENCIES HLTH309 → HLTH901 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #adapt #dispatch #place #map ##perioperative ##rescheduling ##frozen-commitments #rolling.
 COMMENTS Some established repair models keep elective room assignments fixed.
