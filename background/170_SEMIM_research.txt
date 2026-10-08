@@ -1,0 +1,475 @@
+170_SEMIM_research.txt
+
+SEMIM — Semiconductor Manufacturing
+v0.1 | 8 October 2026 | Problem layer
+
+IDENTITY AND RESEARCH BASIS
+
+Code 170. Mnemonic SEMIM. Macro Domain anchor #TRANS. Primary Domain 102 #PROD. Industry ##SEMICONDUCTOR. Territory #PRODUCTION.
+The user fixes the code, mnemonic, manufacturing scope and v0.1 output label. The remaining identity fields follow 000_DOMAIN.txt and background/000_DOMAIN_research.txt. They are not new ontology classes. The two requested paths were absent from main at retrieval; this is a new Problem-layer inventory.
+000_DOMAIN.txt v0.5 is normative. Its current boundary explicitly assigns semiconductor fabrication to #PROD. This background covers fabrication and assembly of released device designs, manufacturing-system configuration, production inspection and test, and physical device repair before shipment. A manufacturing-system design commitment stays in #PRODUCTION; #design is a Regime, not a Territory.
+Chip architecture, netlist synthesis, standard-cell placement, circuit routing, package architecture and design-for-test insertion deliver new product definitions. They are outside this manufacturing territory even where their Primary Domain is #PROD. Installed compute-resource operation is #COMP. Earlier generic PROD research contains a conflicting older VLSI boundary; the current normative ontology and domain background prevail. No ontology or existing foreground is changed here.
+
+OPERATING TERRITORY
+
+Front-end: wafer starts; repeated visits to qualified toolsets; diffusion, deposition, oxidation, etch, implantation, cleaning and lithography; metrology; wafer sort. Relevant systems combine single-wafer, lot and parallel-batch processing. Eligibility, sequence-dependent setups, reticles, limited intermediate storage, processing windows and equipment outages constrain feasible fabrication.
+Back-end: wafer singulation; die selection and matching; die attach, interconnection, molding and packaging; burn-in; electrical final test. Integrated device manufacturers, foundries and outsourced assembly/test facilities instantiate different subsets of the same manufacturing contracts. Compound-semiconductor, memory, logic, power-device and heterogeneous-integration contexts are variants unless they change the delivered decision artifact.
+Manufacturing preparation includes arranging released chip images on reticles and defining exposure and dicing plans. These decisions do not alter a chip's internal circuit architecture. A source's word 'design' does not determine Territory.
+Prototype or engineering lots are capacity-consuming job classes in production plans and schedules. Choosing experiments to define a new technology or device is a development contract and is excluded.
+The research covers system configuration, plans, resource assignment, operation order, live activation and disruption revision. It does not force occupancy of every numbering band. No evidence establishes a separate contingent-capacity right, anonymous capacity reservation or non-sequencing operation parent in this run.
+
+OWNERSHIP AND INTERFACES
+
+PROD owns the fabrication-feasible product/operation/resource commitment. Process recipes and supplied process constraints do not transfer a fab calendar to PROC. Standalone chemical-process synthesis, continuous recipe setting and bulk material conversion are different contracts.
+LOG owns independent AMHS transport, carrier routing, stocker movement and reticle delivery. Chamber-robot coordination inside a productive cluster tool and die-attach motion are retained where material transformation and productive equipment feasibility define the contract.
+SCM owns supplier quantities, inbound supply positions, stock replenishment, finished-wafer availability and wafer-to-order allocation when the artifact is an inventory/customer commitment. Assigning fabrication work to capable tools remains PROD. Generic multi-site supply-network planning is excluded; manufacturing quantities at eligible fabrication stages remain within production planning.
+HR owns standalone rosters, technician tours and organizational staffing. Skilled labor can constrain a manufacturing schedule without changing its owner.
+ENER owns utility production, distribution and balancing. Energy-aware fab scheduling is a variant of a production calendar; a utility dispatch calendar is not.
+COMP owns MES compute operation, prediction-model training, pure virtual-metrology computation, digital simulation-resource allocation and runtime memory operation. Manufacturing selection of actual measurements and post-test physical-device redundancy decisions remain PROD under the restricted contracts below.
+MKT owns commercial order acceptance, foundry pricing and customer capacity rights. A production plan consumes orders; it does not choose a market allocation mechanism.
+Factory building construction belongs to CIVIC when construction execution defines the artifact. Manufacturing area/equipment layout belongs here. Utilities and AMHS geometry can constrain or couple the layout without becoming additional standalone SEMIM parents.
+
+EVIDENCE RULES AND LIMITS
+
+Source IDs below identify primary research, author-institution records or industrial first-party evidence retrieved on 8 October 2026. Full-text availability varies and is stated. Abstract evidence supports the decision and named method family; it does not certify complete instance reproduction, deployment prevalence or worldwide SOTA.
+Regime, Structure, Priority, Relevance, industrial Hardness and dependency edges are explicit ontology/engineering inferences unless a source directly supports them. 'High' Hardness means substantial model/search engineering is credible from the interaction of restrictions; it is not inferred from NP-hardness alone. Formal complexity is retained only for a precise supported restriction.
+Established dispatching rules, optimization-based scheduling, simulation optimization and learning-based control coexist. Reported research comparisons do not establish universal dominance. Commercial capability statements establish an operational function; they do not establish a best algorithm or independently measured uplift. Case datasets, baseline implementation, access/license and reference results are deferred until human approval of the Problem set.
+Only discrete choices or jointly discrete/continuous contracts are admitted. Continuous recipe fitting, fixed-sequence timing and pure statistical prediction are not sufficient ICO identities. No source-derived text is quoted verbatim.
+
+DISCOVERY AND IDENTITY REGISTER
+
+The following keys are temporary research references. They are not permanent Problem IDs and do not determine final sequence.
+
+KEY CAPACITY — Manufacturing Equipment and Capacity Configuration
+Decision: choose processing/test equipment types, integer counts, installed capability and commissioning periods for a released product mix under capital and effective-capacity limits. The result is a manufacturing resource portfolio, not a supplier purchase order or daily machine loading.
+Aliases: tool capacity planning; fab capacity expansion; tester investment planning. Variants: single/multiple production sites, staged expansion, stochastic demand, cluster-tool effective capacity, test fixtures and kit-component acquisition. Continuous capacity-only planning is not separately ICO.
+Evidence: S02 models equipment acquisition jointly with aggregate production; S11 provides component-level kit planning; S24 shows that cluster-tool internal concurrency can change capacity estimates. These support an equipment-selection model with manufacturing validation rather than a count-only spreadsheet.
+Template basis: IE capacity engineering and bottleneck investment planning. OR multiperiod capacity MILP, stochastic integer models and discrete-event simulation checks. Joint plan/investment papers support coupling, not a merger of the capital portfolio and production-plan artifacts.
+Ontology inference: Primary #design; Primary #select, Secondary #map when selected resources receive capability/stage configurations. Purchasing a machine is not #provision; it commits physical capability rather than a contingent right.
+Rating inference: Priority Critical because installed capability bounds all substantial fabrication and test deployments. Relevance Critical because equipment commitments affect enterprise-scale capital and long-lived output. Hardness High because technology eligibility, lumpy investments and uncertain effective utilization interact.
+Outputs: physical resources and effective capacity for LAYOUT, QUALIFY, STARTPLAN, LOAD and KITS. Inputs: released routes and product-mix forecasts external to this parent inventory. Useful descriptors: capacity, equipment, bottleneck. No universal full-contract complexity class is asserted.
+
+KEY LAYOUT — Manufacturing Facility Layout
+Decision: position fabrication/assembly areas and equipment in allowed cleanroom or factory space under area, clearance, access and flow limits. Fixed flow volumes and transport-system constraints are inputs. The delivered artifact is manufacturing geometry.
+Aliases: fab bay layout; intrabay/interbay layout; tool layout. Variants: unequal-area blocks, corridor constraints, existing-equipment anchors, congestion-aware layouts, stocker coupling and retrofit space. Choosing only the AMHS track network is excluded.
+Evidence: S03 compares fab layout approaches with actual wafer-flow data and simulation. S25 explicitly models fab bays, shortcuts and stockers. The coupled AMHS part is retained as an interface rather than promoted to a second SEMIM Problem.
+Template basis: IE cleanroom/factory layout and material-flow analysis. OR quadratic assignment or geometric MILP with discrete-event simulation evaluation. Distance minimization alone is not certified as the best fab layout criterion; congestion and operational constraints matter.
+Ontology inference: #design, Primary #place. Assigning department labels to fixed sites is a layout representation; include #map only if it is an additional required construction, not merely binary placement encoding.
+Rating inference: Priority High because new fabs, expansions and assembly installations require this contract. Relevance High because poor geometry creates recurring interference and space losses. Hardness High because unequal geometry, anchored tools and interacting flow effects make broad layout search difficult.
+Inputs: CAPACITY. Outputs: feasible equipment space and access for fab/assembly operation and disruption revision. Descriptors: layout, geometry, cleanroom. Layout changes and production feedback can form a redesign loop; the direct feed-forward commitment here is resource portfolio to geometry.
+
+KEY QUALIFY — Product–Tool Qualification Configuration
+Decision: choose which product/recipe-operation permissions to establish on available tools, accounting for qualification effort and future capacity exposure. The selected relation is delivered eligibility; merely consuming an existing eligibility matrix is a different decision.
+Aliases: recipe-machine qualification; product-machine qualification; capability-flexibility planning. Variants: expiry, requalification after maintenance, stochastic demand, engineering/test-wafer consumption, front-end and back-end. Adaptation of permission sets is retained as a variant rather than a second parent.
+Evidence: S04 describes product-specific setup and test-wafer verification, present qualification cost and future shortage exposure. It explicitly connects qualification to capacity allocation and daily scheduling.
+Template basis: IE manufacturing qualification and flexibility planning. OR stochastic product-machine qualification optimization; deterministic binary models are a restricted baseline. Detailed qualification-test calendars are scheduled jobs within the relevant manufacturing scheduler.
+Ontology inference: #design; Primary #link, Secondary #select. Potential permissions are supplied; the solver chooses the qualified product/tool relations and actions needed to establish them. Supplied relations alone would not justify #link in LOAD.
+Rating inference: Priority High because qualification is a recurrent capacity restriction in front-end and back-end practice, while some facilities use mostly fixed qualification sets. Relevance High because suitable flexibility prevents avoidable manufacturing shortages. Hardness High because qualification consumes present capacity while its payoff depends on future uncertain loads.
+Inputs: CAPACITY. Outputs: eligibility to LOAD, STARTPLAN and local schedulers. Descriptors: qualification, flexibility, eligibility. Qualification of a new product's engineering validity is outside this released-product manufacturing contract.
+
+KEY CONTROLPLAN — Inspection and Metrology Control-Plan Design
+Decision: choose inspection steps, sampled lot/wafer classes, candidate measurement sites and discrete sampling frequencies under detection-risk and metrology-capacity requirements. The result is a control plan for recurring production, not a calendar of already specified tests.
+Aliases: sampling-plan optimization; production inspection strategy; wafer spatial sampling. Variants: static/adaptive policy design, destructive measurements, uncertain detection, virtual-metrology assistance and within-wafer spatial coverage. Threshold calibration without discrete choices is outside ICO.
+Evidence: S05 supports control-plan search that balances metrology load and risk; S22 supports site selection for wafer-profile reconstruction. S20 supports actual measurement selection informed by prediction uncertainty. The sources concern different levels of sampling, so a single universal method is not claimed.
+Template basis: IE statistical quality control and risk-exposure planning. OR simulation-based multiobjective genetic search for control plans; discrete spatial sampling optimization where selected sites define the artifact. Prediction estimates and continuous reconstruction are model inputs, not additional SEMIM Problems.
+Ontology inference: #design; Primary #select, Secondary #map when coverage is assigned to fabrication stages or site classes. The chosen measurement coverage differs from test scheduling and from the individual live decision in SAMPLE.
+Rating inference: Priority High because manufacturing quality control is recurring even when policy optimization is less frequent. Relevance High because inspection saves risk exposure but consumes scarce productive time. Hardness High because risk propagation, observation delay and limited measurement capacity couple many discrete choices.
+Inputs: released specifications and available metrology technologies, external to the parent set. Outputs: required observations and policy limits to fab/test scheduling and SAMPLE. Descriptors: metrology, sampling, quality, risk. Case research must establish product-specific acceptable risk; no generic escape-rate claim is made.
+
+KEY RETICLEPLAN — Multi-Project Reticle Floorplanning
+Decision: arrange already released chip images within reticle boundaries under alignment, nonoverlap and dicing-compatibility limits. It produces mask/exposure preparation for physical realization, without redesigning chip internals.
+Aliases: MPW reticle layout; multi-project mask floorplanning. Variants: multiple reticles, different project quantities, rectilinear modules and allowable chip orientations. Product architecture and flexible internal circuit floorplans remain development; commercial project admission remains MKT.
+Evidence: S06 and S23 establish multi-project reticle floorplanning, exposure-map and wafer-dicing optimization. These are separate delivered artifacts with a coupled cost/yield objective. Reticle layout is therefore distinguishable from the downstream wafer production plan.
+Template basis: IE mask-sharing and dicing-compatible layout preparation. OR floorplanning mathematical programming or simulated annealing; newer learning-assisted layout search is a published alternative, not a proven universal replacement.
+Ontology inference: #design because it commits fabrication layout before wafer-use plans; Primary #place. Assigning chips to reticles is a material Secondary #map only in the multiple-reticle variant, not required by the minimum single-reticle contract.
+Rating inference: Priority Medium because this is commercially recurring for shared-mask production but not required by every high-volume dedicated-mask fab. Relevance High because better layouts can reduce shared-mask wafer cost. Hardness High because rectangle/polygon packing and cut compatibility interact.
+Inputs: released chip dimensions, quantities and mask rules. Outputs: fixed reticle geometry to WAFERPLAN. Descriptors: multiproject-wafer, floorplanning, dicing. Its #PRODUCTION ownership is a contract inference; a proposed source workflow that alters chip architecture must be excluded or separated.
+
+KEY STARTPLAN — Wafer-Start and Manufacturing Production Planning
+Decision: choose discrete wafer/lot starts and period output quantities for released products at eligible fabrication/assembly stages under capacity, yield, WIP and due-date limits. Manufacturing-site assignments can be integrated where they commit fabrication work rather than supply availability.
+Aliases: master production planning; fab input planning; production mix planning; lot-start planning. Variants: reentrant clearing functions, stochastic lead times, engineering lots sharing production capacity, integer lot sizes and rolling plans. Pure continuous aggregate balance is a relaxation, not a separate ICO parent.
+Evidence: S07 evaluates release plans with simulation optimization. S02 integrates wafer production and investment; S24 addresses cluster-tool capacity estimation. S26 first-party industrial planning describes daily wafer-start commitments. These are complementary operational/OR views, without an established global winner.
+Template basis: IE capacity-feasible master production and wafer-start planning. OR lot-based production MILP with load-dependent clearing functions and simulation validation; simulation optimization is a material alternative when queueing effects dominate plan quality.
+Ontology inference: #plan; Primary #place, Secondary #map and #select when lots are assigned to stages/sites and candidate starts selected. The delivered plan identifies future use; anonymous class reservation is not established here.
+Rating inference: Priority Critical because production plans connect required device output to constrained wafer starts. Relevance Critical because errors propagate through expensive long fabrication pipelines. Hardness Critical because uncertain cycle times, reentry and effective capacities require aggregation, decomposition or repeated validation at fab scale.
+Inputs: CAPACITY and QUALIFY. Outputs: workload volumes to LOAD/KITS; job and target commitments to FAB, ASSEMBLY, TEST and RELEASE. Descriptors: wafer-starts, reentrant, lot-sizing. Supplier choice, customer order acceptance and finished-goods deployment are excluded.
+
+KEY POLICY — Release and Dispatch Policy Configuration
+Decision: select discrete policy alternatives and WIP/workload threshold settings for future fab operation, using a representative demand and failure environment. The artifact is a configured controller, not the list of lots activated at the next event.
+Aliases: fab rule selection; CONWIP/workload-regulation tuning; hierarchical dispatch-policy configuration. Variants: bottleneck workload control, product-specific thresholds, weekly rule switching and simulation-optimized combinations. A queueing analysis with no selected settings is excluded.
+Evidence: S08 evaluates combinations of release and dispatch rules with ordinal optimization. S18 and S26 establish different rule-based and learned execution approaches. Learning a prediction model alone is not admitted; a controller must output manufacturing actions.
+Template basis: IE workload regulation, WIP control and rule-based fab control. OR simulation optimization or ordinal optimization over discrete controller alternatives. Published learned dispatch is an execution alternative to evaluate later, not presumed industrial best practice.
+Ontology inference: #plan, Primary #select and Secondary #map for controller settings assigned to toolsets/product classes. It prepares how future execution will use capacity; this is not a structural physical resource design.
+Rating inference: Priority High because release and dispatch policies are pervasive, although separate optimization projects are not universal. Relevance High because suitable policies balance flow, WIP and due-date performance. Hardness High because stochastic evaluation, shifting bottlenecks and interaction between controllers make isolated local rule tests unreliable.
+Inputs: STARTPLAN's target mix, output and service objectives. Outputs: thresholds and policy choices to RELEASE and DISPATCH. Descriptors: wip-control, policy-selection, simulation-optimization. Revising a controller is a policy variant; it is not automatically a new #adapt Problem.
+
+KEY MAINTAIN — Production-Coupled Preventive Maintenance Planning
+Decision: place preventive maintenance and cleaning tasks inside permitted windows, coordinating tool unavailability with production demand and available service resources. Scheduled manufacturing qualification jobs can consume the resulting availability calendar but do not redefine it.
+Aliases: PM scheduling; tool downtime planning; operation-dependent maintenance. Variants: recipe-dependent chamber cleaning, fixed/usage-based windows, simultaneous tool outages and production/maintenance integration. Standalone technician routing remains HR/LOG.
+Evidence: S09 searches maintenance start times with discrete-event simulation. S14 includes specialized maintenance in detailed fab schedules. S27 supports integration of production operations and tool condition. The sources do not establish one general condition-based maintenance solver.
+Template basis: IE preventive-maintenance window and manufacturing availability coordination. OR maintenance-window MILP or simulation optimization; integrated production schedules retain maintenance constraints rather than requiring a duplicate maintenance parent for each tool type.
+Ontology inference: #plan, Primary #place. Choice among task alternatives may add #select in variants, but compulsory PM-window placement alone does not require that tag.
+Rating inference: Priority High because planned unavailability is a recurrent fab/test capacity constraint. Relevance High because coordinated downtime can avoid bottleneck production loss. Hardness High because reentrant load, service resources and equipment-condition effects couple maintenance timing.
+Inputs: CAPACITY and STARTPLAN. Outputs: availability calendars to FAB, BATCH, LITHO, CLUSTER, ASSEMBLY, TEST and RESCHEDULE. Descriptors: maintenance, cleaning, availability. Continuous degradation-state estimation is evidence, not a separate ICO decision.
+
+KEY WAFERPLAN — Wafer Exposure and Dicing Planning
+Decision: choose reticle exposure positions and compatible wafer cut plans for fixed released chip/reticle layouts, meeting required die quantities while limiting wasted wafer use. The result is the physical realization plan, not new chip architecture.
+Aliases: wafer shot-map optimization; side-to-side wafer dicing; MPW yield planning. Variants: partial edge shots, different project demand quantities, permitted cut directions and margins, fixed versus jointly chosen exposure maps. Continuous laser-power/process tuning is excluded.
+Evidence: S06 supplies fixed-reticle dicing optimization; S23 identifies the exposure-map stage as a distinct manufacturing-preparation step. The integrated exposure/cut contract is retained because shot arrangement and recoverable die counts directly interact. Fixed-shot cut planning is a restriction within it.
+Template basis: IE exposure utilization and singulation planning. OR integer programming for cut/shot selections and compatible patterns; graph-coloring and floorplanning heuristics are material alternatives for restricted dicing/layout components.
+Ontology inference: #plan; Primary #place, Secondary #select. It positions exposure images and selects permitted exposure/cut patterns. Supplied chip connectivity is not a constructed #link relation.
+Rating inference: Priority Medium because shared-mask/specialized wafer utilization creates this contract but dedicated uniform wafers often use fixed patterns. Relevance High because recoverable-die counts affect manufacturing cost. Hardness High because shot coverage, incompatible cuts and quantity targets interact.
+Inputs: RETICLEPLAN, STARTPLAN. Outputs: executable exposure/dicing requirements to LITHO and ASSEMBLY. Descriptors: shot-map, dicing, multiproject-wafer. Cut-machine scheduling consumes this plan; it is an assembly/singulation scheduling variant, not another parent.
+
+KEY LOAD — Qualified Tool Dedication and Workload Allocation
+Decision: assign product-operation workloads and manufacturing dedication to already capable tools under tool loads and limited secondary-resource sharing. It commits a workload/resource mapping without assigning a detailed start time for every operation.
+Aliases: fab tool loading; photolithography capacity allocation; machine dedication; lot allocation with lot splitting. Variants: alternate tools, dedication windows, reticle sharing, yield-aware assignment and split loads. Creating new product-tool qualifications is QUALIFY; producing a operation calendar is the applicable scheduler.
+Evidence: S10 supports MILP and improved genetic search for qualified photolithography capacity allocation, dedication and reticle sharing. It uses actual Bosch fab data. S04 supplies the upstream permission decision. S28 shows lot splitting as a variant of photolithography allocation.
+Template basis: IE load balancing and tool dedication. OR eligibility/dedication MILP; specialized genetic allocation search is a material large-instance alternative. Capability or reticle constraints are supplied feasibility, not independently chosen links.
+Ontology inference: #allocate; Primary #map. Added lot splitting chooses quantity subdivisions, but it does not force a universal #select tag for a contract whose workloads must all be mapped.
+Rating inference: Priority High because qualified flexible toolsets are recurring manufacturing resources. Relevance High because balanced dedication can release usable bottleneck capacity. Hardness High because restricted eligibility, shared reticles and dedication combine discrete commitments across workloads.
+Inputs: CAPACITY, QUALIFY, STARTPLAN. Outputs: loading restrictions to FAB, BATCH, LITHO, ASSEMBLY and TEST. Descriptors: tool-dedication, eligibility, load-balancing. Reticle placement in stocker slots remains LOG; reticle use with fabrication calendars remains LITHO.
+
+KEY KITS — Test Hardware Kit Configuration and Allocation
+Decision: assemble compatible test-kit configurations from available components and assign the kits to tester/product loads. Installed component quantities are fixed for this allocation contract; new component purchases are CAPACITY.
+Aliases: tester-kit allocation; reconfigurable kit planning; test fixture/probe-card resource allocation. Variants: shared components, component-level qualification, kit reconfiguration, load boards, sockets and product-specific hardware. Eligibility and hardware compatibility are supplied restrictions.
+Evidence: S11 explicitly models product/tester/kit/component qualification and component-level MIP in Intel capacity planning. Its integrated acquisition and loading model is separated here by delivered artifact: physical resource portfolio versus use of available kit components.
+Template basis: IE test-capacity and reconfigurable-fixture management. OR component-level kit configuration/allocation MILP, with the published high-buffer and tight-workload formulations as alternatives for case investigation. These do not establish the best model for every probe-card or tester family.
+Ontology inference: #allocate; Primary #map, Secondary #select. It maps components to valid kit configurations and kits to test loads, selecting the components/configurations used. Assembly of the physical kit is not by itself the structural #link construction.
+Rating inference: Priority Medium because scarce configurable hardware is central in some test facilities but less so in fixed-kit lines. Relevance High because simultaneous hardware/tool feasibility determines usable test capacity. Hardness High because shared components and cross-qualification couple many assignments.
+Inputs: CAPACITY, STARTPLAN. Outputs: assigned kit availability/configurations to TEST. Descriptors: test-kits, secondary-resource, compatibility. Detailed changeover time belongs in TEST. Purchasing and external spare replenishment remain CAPACITY/SCM respectively.
+
+KEY MATCH — Known-Good Die and Wafer Matching
+Decision: assign measured dies or wafers to physical bonding groups for a released multi-die product, satisfying compatibility and parametric performance limits. The result names the physical members of each assembly.
+Aliases: die-to-die matching; wafer-to-wafer matching; yield-aware selective assembly. Variants: heterogeneous die classes, timing/thermal compatibility and measured-wafer alignment. Binning labels and statistical prediction are inputs; customer allocation of available bins is SCM/MKT.
+Evidence: S12 studies die matching to improve parametric yield of bonded 3D ICs. S29 formulates joint die packing, matching and thread mapping; only its physical assembly part supports this manufacturing candidate. Software thread mapping is explicitly excluded.
+Template basis: IE known-good-die selective assembly and yield matching. OR assignment/partition optimization and specialized matching heuristics; joint physical-die MILP is a material formulation alternative. A simple bipartite assignment restriction can be routine; multi-die compatibility is a different scale of search.
+Ontology inference: #allocate; Primary #map. It groups physical dies or wafers into required assembly roles. Bonds specified by the released product do not imply a newly chosen interconnect graph.
+Rating inference: Priority Medium because it is restricted to manufacturing systems that can choose among measured assembly members. Relevance High because compatible groups improve usable assembled-device yield. Hardness High because multi-die constraints and uncertain measured performance can make simple pairwise matching inadequate.
+Inputs: TEST supplies qualified die/wafer measurements. Outputs: named groups to ASSEMBLY. Descriptors: die-matching, selective-assembly, yield. Stage-test information precedes matching and assembly; final test follows assembly. This is a typed pipeline coupling, not a requirement that final test precede its own assembly.
+
+KEY REPAIR — Post-Test Memory Redundancy Allocation
+Decision: choose faulty rows/columns to replace using a fabricated memory device's fixed spare-row/column budget after manufacturing test. The artifact is a valid physical-device repair configuration before acceptance.
+Aliases: memory repair analysis; redundancy analysis; spare-row/column allocation. Variants: block/subarray restrictions, shared spares, fuse programming and multiple repair stages. Spare architecture design is development; ongoing runtime fault recovery in an installed digital system is COMP.
+Evidence: S13 gives Boolean-function/BDD repair search and a precise row/column memory-repair NP-complete restriction. It supports feasibility and optimization over repair choices. It does not prove that every industrial repair instance is intractable or certify BDD search as current universal SOTA.
+Template basis: IE manufacturing memory redundancy analysis. OR exact BDD repair search or bounded combinatorial repair search; SAT/cover formulations require case-specific support before claiming an operational best method.
+Ontology inference: #allocate; Primary #select. It selects rows/columns for replacement under separate spare budgets. Fault-to-line incidence is supplied and does not create #link. No separate #map is required when the selected defective lines determine equivalent spare use.
+Rating inference: Priority Medium because this is commercially important in memory-rich device manufacture but not every semiconductor process. Relevance High because repair decisions can recover otherwise rejected fabricated devices. Hardness Medium because fixed spare budgets bound many practical searches, despite the formal combinatorial class.
+Inputs: TEST's fault maps. Outputs: repair configuration for repeat TEST or subsequent device acceptance. Descriptors: redundancy, memory-repair, covering. The repeat test/repair loop is an intentional industrial cycle. Optional formal statement: the budgeted row/column repair feasibility decision is NP-complete.
+
+KEY FAB — Fab-Wide Reentrant Scheduling
+Decision: assign released lot operations to eligible machines and times across interacting fab toolsets, with repeat visits, setups, batching, maintenance and process-window limits. The artifact is a coordinated multistage operation calendar.
+Aliases: wafer-fab scheduling; complex reentrant job-shop scheduling; global fab scheduling. Variants: rolling horizon, multiobjective due dates/cycle time, split lots, send-ahead wafers, time links, secondary resources and integrated local schedules.
+Evidence: S14 models realistic semiconductor scheduling using ASP with difference logic. It separates large-scale coordinated scheduling from greedy local allocation. S18 supplies dynamic operational alternatives. No single method is certified to solve every complete fab exactly.
+Template basis: IE hierarchical fab scheduling and process-window coordination. OR decomposed or rolling flexible/reentrant job-shop MILP/CP; hybrid ASP with difference logic is a material published alternative. Dispatching rules remain an execution baseline, not an equivalent full calendar output.
+Ontology inference: #operate + #sequence; Primary #place, Secondary #map. It positions operations in time and assigns tools. Supplied operation precedence and fixed fabrication routes do not justify #link. The presence of a future horizon does not make this #plan when it fixes order of work already under operation.
+Rating inference: Priority Critical because coordinated lot progression is a core fab decision. Relevance Critical because calendar quality affects enterprise throughput and long-cycle due-date commitments. Hardness Critical because full-scale stochastic reentry and many resource restrictions require decomposition, aggregation and rolling schedules.
+Inputs: STARTPLAN, LOAD, MAINTAIN, CONTROLPLAN and RELEASE. Outputs: coordinated windows/priorities to BATCH, LITHO, CLUSTER and DISPATCH, plus commitments to RESCHEDULE. Descriptors: reentrant, job-shop, time-window. Independent local schedulers are admitted only when their distinct shop/tool artifacts are requested; they are not counted as extra Problems for each wafer recipe.
+
+KEY BATCH — Parallel-Batch Formation and Scheduling
+Decision: group compatible wafers/lots/devices for simultaneous processing and place those groups on batch equipment in time. Group membership is an additional chosen artifact beyond a normal single-job machine sequence.
+Aliases: diffusion batching; furnace scheduling; burn-in oven scheduling. Variants: incompatible families, minimum/maximum batch size, unequal device sizes, longest-job batch duration, parallel ovens and arrivals/due dates. Recipe-specific diffusion and burn-in names are merged here because they retain the same group-and-calendar contract.
+Evidence: S15 directly models semiconductor burn-in batch grouping and sequencing and supports exact restricted algorithms and approximation methods. S14 separately establishes batching in realistic fab scheduling. Thermal process settings are supplied, not another selected manufacturing graph.
+Template basis: IE batch-equipment loading and family compatibility management. OR batch-assignment MILP/CP and specialized batching heuristics; dynamic programming is a material restricted burn-in baseline. Restricted results do not imply an industrial full-contract complexity classification.
+Ontology inference: #operate + #sequence; Primary #map, Secondary #place. It maps jobs to jointly processed groups and places groups in time. This differs from sequential setup campaigns, where jobs are not processed simultaneously.
+Rating inference: Priority High because parallel batch equipment recurs in front-end fabrication and back-end stress test. Relevance High because group formation affects productive load and waiting time. Hardness High because compatibility, capacity, arrivals and due dates couple grouping and order.
+Inputs: LOAD, MAINTAIN, FAB. Outputs: batch calendars to DISPATCH and RESCHEDULE. Descriptors: batching, compatibility, furnace, burn-in. At specialized facilities this may be the local scheduling contract without a separately implemented FAB scheduler.
+
+KEY LITHO — Photolithography Toolset Scheduling
+Decision: assign and sequence wafer-lot lithography operations on compatible tracks/steppers/scanners and reticles, coordinating setups and process timing. The artifact contains tool and reticle use intervals, not reticle stocker locations.
+Aliases: lithography scheduling; reticle scheduling; track-stepper scheduling. Variants: layer reentry, dedicated tools, scarce reticle copies, send-ahead operations, cluster versus standalone stages and time windows. Same-mask load assignment without operation times is LOAD.
+Evidence: S16 supports a flexible flowshop containing individual and cluster tools; S17 supports reticle-constrained multiobjective scheduling. S10 provides upstream load/dedication decisions. Reticle sharing changes fabrication feasibility rather than making the contract pure logistics.
+Template basis: IE lithography bottleneck and reticle-use coordination. OR flexible-flowshop MILP/CP with secondary-resource constraints; reticle scheduling heuristics are material alternatives where reticle capacity dominates. No worldwide best scheduling method is asserted.
+Ontology inference: #operate + #sequence; Primary #place, Secondary #map. It positions fabrication operations and reticle-use intervals and assigns tools/reticles. Already defined layers/track connections are supplied structure.
+Rating inference: Priority High because this is a recurring constrained toolset contract, while it may be embedded in FAB. Relevance Critical because lithography improvements can change a major fab bottleneck's effective output. Hardness High because machine dedication, setups, reentry and reticle contention interact.
+Inputs: LOAD, MAINTAIN, WAFERPLAN and FAB. Outputs: local commitments to DISPATCH/RESCHEDULE and productive cluster windows to CLUSTER where required. Descriptors: lithography, reticle, secondary-resource. Independent reticle movements and stocker assignment remain LOG.
+
+KEY CLUSTER — Cluster-Tool Wafer and Robot Scheduling
+Decision: choose wafer/module assignments and robot task order/timing within a productive cluster tool under processing, load-lock, robot, cleaning and residence-time limits. The delivered artifact synchronizes processing and internal transfers.
+Aliases: cluster-tool cyclic scheduling; noncyclic cluster scheduling; lot-switch scheduling. Variants: single/dual arms, revisiting wafers, mixed wafer types, transient/startup periods and coupled clusters. These retain one internal processing contract.
+Evidence: S19 supports MIP for noncyclic chosen precedence/order. S30 supports Petri-net/MIP lot switching. S31 explicitly distinguishes fixed-sequence LP timing from selected robot sequences. Fixed-route/fixed-order cases with only continuous waiting-time calculation are useful restrictions, not standalone ICO parents.
+Template basis: IE chamber/robot synchronization and residency control. OR timed Petri-net MILP or precedence-based noncyclic MILP; analytic/LP timing for a fixed sequence is a subordinate restriction. A Petri-net representation is supplied model structure, not ontology #link.
+Ontology inference: #operate + #sequence; Primary #place, Secondary #map. It places synchronized processing/transfer tasks and maps wafers to eligible modules. Do not infer Structure from Petri arcs or claim a routing construction when routes are fixed.
+Rating inference: Priority High because cluster equipment is recurrent in fab operations. Relevance High because internal synchronization can constrain tool throughput and process feasibility. Hardness High for mixed-product/noncyclic restrictions because sequence, cleaning and residence limits tightly interact; some steady-state restrictions have simple solutions.
+Inputs: MAINTAIN, FAB and LITHO when the cluster is in that toolset. Outputs: tool-level commitments to DISPATCH/RESCHEDULE. Descriptors: cluster-tool, synchronization, residency-time. AMHS movement outside the productive tool stays LOG.
+
+KEY ASSEMBLY — Semiconductor Assembly and Packaging Scheduling
+Decision: assign and sequence released lots through singulation, die attach, interconnection, molding and packaging equipment under eligibility, setups and stage-capacity constraints. It produces a physical assembly calendar.
+Aliases: back-end assembly scheduling; OSAT hybrid-flowshop scheduling; die-bond/wire-bond/mold scheduling. Variants: reentrant stages, time links, alternative equipment, batch molding, packaging technologies and integration with burn-in/final test. New package/chiplet architectures remain development.
+Evidence: S21 supplies industrial back-end hybrid-flowshop simulation optimization. S32 adds a recent simulation/learning method for die-bond, wire-bond and mold bottlenecks. S33 supports wire-bond machine scheduling as a localized instance; it does not justify one parent per assembly stage.
+Template basis: IE back-end bottleneck and hybrid-flowshop coordination. OR eligibility/setup-aware hybrid-flowshop MILP/CP or simulation optimization. Learning-assisted simulation search is a published alternative with case-specific comparison, not assumed universal operational practice.
+Ontology inference: #operate + #sequence; Primary #place, Secondary #map. It positions lot operations and assigns productive equipment. Released assembly precedence is supplied. Physical die-to-package matching is an input from MATCH where needed.
+Rating inference: Priority High because assembly coordination is core in back-end manufacture but absent from front-end-only foundries. Relevance Critical because output and package delivery depend on bottleneck stage synchronization. Hardness High because heterogeneous equipment, changing setups and constrained interstage flow require tailored models.
+Inputs: STARTPLAN, LOAD, MAINTAIN, WAFERPLAN and MATCH where selective assembly applies. Outputs: lots to TEST, productive motion jobs to MOTION, tool actions to DISPATCH and commitments to RESCHEDULE. Descriptors: packaging, hybrid-flowshop, setup. Factory-level job scheduling is distinct from the within-job die-attach action sequence.
+
+KEY TEST — Wafer and Final-Test Scheduling
+Decision: assign and sequence specified wafer-sort/final electrical tests on compatible tester/prober/handler resources with required test hardware and temperature/setup conditions. The result is a test operation calendar, not a new test pattern or inspection coverage policy.
+Aliases: wafer test scheduling; wafer-sort scheduling; final-test lot scheduling; tester loading and sequencing. Variants: multiple temperatures, product-specific test stages, shared probe cards/load boards, reentrant retest and interaction with burn-in. Parallel burn-in group formation is BATCH.
+Evidence: S34 models wafer-test machine allocation and scheduling with MIP using Infineon data and explicitly fixes its arrival forecast. S11 supplies kit restrictions. S35 establishes assembly/test scheduling with MIP and dispatch alternatives. These sources support restricted real test contracts, not an all-stages exact fab optimum.
+Template basis: IE tester/prober/handler and test-hardware coordination. OR secondary-resource-constrained parallel-machine or test-flow MILP/CP, with tailored dispatching as a material execution baseline.
+Ontology inference: #operate + #sequence; Primary #place, Secondary #map. It places test operations in time and assigns eligible test resource combinations. An already specified test sequence is a constraint, not a chosen #link graph.
+Rating inference: Priority High because functional test is a recurring manufacturing contract. Relevance High because tester load, setups and late-stage yield affect delivery and cost. Hardness High because scarce qualified hardware, product stages and setups couple calendars.
+Inputs: STARTPLAN, LOAD, MAINTAIN, KITS and ASSEMBLY for final test. CONTROLPLAN can supply production inspection jobs in integrated test areas. Outputs: measured die/wafer attributes to MATCH, fault maps to REPAIR, actions to DISPATCH and commitments to RESCHEDULE. Descriptors: wafer-test, final-test, secondary-resource. TEST–MATCH–ASSEMBLY–TEST is a stage-specific pipeline; repeat TEST–REPAIR–TEST is an intentional validation cycle.
+
+KEY MOTION — Die-Attach Pick-and-Place Sequencing
+Decision: choose the productive pickup/placement visit order for specified good dies and package positions to limit die-attach motion while respecting the supplied assembly plan. It is the within-job action sequence of a transformation machine.
+Aliases: die-attach PAP optimization; die-bonder travel optimization. Variants: multiple pickups, alternating wafer/strip visits, allowable orientation and positioning rules. Selection of package architecture and general carrier-delivery routes are excluded.
+Evidence: S36 establishes integer-programming/heuristic/genetic approaches for die-attach pick-and-place. S37 studies interactive Q-learning for the same action-order contract. Reported comparisons concern their instances; they do not establish that learned control dominates exact or heuristic motion search universally.
+Template basis: IE die-bonder cycle-time and productive motion planning. OR pick-and-place tour/order integer optimization or genetic search; learning-assisted action selection is a published alternative to assess in cases.
+Ontology inference: #operate + #sequence; Primary #place. It positions pickup/placement actions in an ordered productive traversal. A route representation could justify chosen adjacency only if those relations are themselves part of the contract; no #link is inferred merely from distances.
+Rating inference: Priority Medium because this is a specialized within-machine optimization rather than a universal fab contract. Relevance High because recurring motion improvement can release die-attach capacity. Hardness High because pickup/place coupling and industrial cycle-time constraints can limit exhaustive order search.
+Inputs: ASSEMBLY. Outputs: machine-level productive action order. Descriptors: die-attach, pick-and-place, motion. A limited supported complexity statement is NP-hard pick-and-place ordering; it is optional at compilation and not the reason for the industrial Hardness rating.
+
+KEY RELEASE — Live Lot Release
+Decision: select which eligible waiting lots to start into fabrication/assembly now using current WIP, workload and available capacity. The delivered artifact is immediate manufacturing admission.
+Aliases: lot admission; wafer-start activation; workload-regulated release. Variants: hot/engineering lots, product priorities, downstream bottleneck limits and production/dispatch integration. The plan's future lot volumes and the controller's threshold selection are separate upstream artifacts.
+Evidence: S07 supports planned release quantities; S08/S18 support controller and execution distinctions; S38 describes a capacity-based back-end release system. These establish the industrial contract, not a universally best real-time optimizer.
+Template basis: IE workload regulation, CONWIP and finite-capacity release. OR state-based constrained lot selection with simulation-evaluated release policies. Decisions must remain discrete admission choices; a continuous release-rate balance alone is not ICO.
+Ontology inference: #dispatch; Primary #select. Live activation is the defining commitment even if a forecast is used. A selected lot may carry a supplied route; it need not construct a route or full calendar.
+Rating inference: Priority Critical because manufacturing admission determines WIP entering every substantial lot-based operation. Relevance High because excessive or poorly mixed releases increase cycle time and bottleneck congestion. Hardness High because the action's effect depends on downstream stochastic capacity rather than only the current input queue.
+Inputs: STARTPLAN and POLICY. Outputs: activated lots to FAB/ASSEMBLY and DISPATCH. Descriptors: lot-release, wip-control. Repeated online release under feedback is a supported #online/#closedloop context; no arbitrary latency number is claimed.
+
+KEY DISPATCH — Live Toolset Lot Dispatch
+Decision: select ready lots and assign them to currently available eligible productive resources using live queue, setup and priority state. The output names the next productive actions; it does not revise an entire committed schedule by default.
+Aliases: fab dispatching; local toolset dispatch; next-lot assignment; hot-lot control. Variants: dispatch of a preformed batch, recipe-family priorities, setup-aware selection, qualified tools, learning-based control and partial local repair. The scope is live local activation across manufacturing areas.
+Evidence: S18 compares learned control with hierarchical dispatch on its fab model; S26 describes operational toolset scheduling; S39 establishes semiconductor MES real-time dispatching. Published improvements and vendor functionality do not establish transferable uplift.
+Template basis: IE qualified-tool queue prioritization and setup-aware dispatch. OR rolling/local assignment optimization with rule-based execution baselines; learned control is a material published alternative. Simple matching restrictions can be easy, while future bottleneck effects complicate good action selection.
+Ontology inference: #dispatch; Primary #map, Secondary #select. It maps selected ready lots/batches to available tools. Fixed precedence, eligibility and recipe connectivity are supplied constraints, not #link constructions.
+Rating inference: Priority Critical because live productive assignments are core manufacturing control. Relevance Critical because repeated choices affect fab/test/assembly throughput and cycle times. Hardness High because feedback state, process windows and shared-resource contention limit practical local optimization time.
+Inputs: POLICY and RELEASE; detailed calendars from FAB/BATCH/LITHO/CLUSTER/ASSEMBLY/TEST can constrain or guide actions. Outputs: manufacturing actions and changed state; no single mandatory downstream parent is asserted. Descriptors: dispatching, eligibility, setup. #online and #closedloop apply; #realtime applies only where the particular latency contract requires it.
+
+KEY SAMPLE — Live Metrology Sampling Selection
+Decision: select actual wafers/lots or sites to measure now using observed manufacturing risk, prediction uncertainty and inspection limits. It delivers physical measurement requests, not only a virtual estimate or a metrology-machine sequence.
+Aliases: dynamic sampling; adaptive measurement selection; induced-start sampling. Variants: skip-lot decisions, within-wafer site selection, delayed measurements and risk-triggered additional inspection. The static/adaptive controller definition is CONTROLPLAN; scheduling specified requests is FAB or TEST.
+Evidence: S20 gives expected-value-of-measurement-information and multistage decision models validated with CVD process/measurement data. S22 concerns spatial sampling rather than dynamic fab admission. Their distinct levels remain variants of selected physical measurement requests, not separate Domains.
+Template basis: IE risk-based adaptive metrology and sampling control. OR expected-value-of-information selection or multistage dynamic programming under a fixed control plan. Machine-learning predictions are inputs. A pure statistical alarm without a discrete optimized measurement choice is not sufficient ICO.
+Ontology inference: #dispatch; Primary #select. The live risk state triggers chosen inspections before new local action. It does not choose new product specifications or a new inspection-system architecture.
+Rating inference: Priority Medium because advanced sampling optimization is recurring but not universal. Relevance High because measurement effort and missed process excursions both carry manufacturing cost. Hardness High because delayed feedback and uncertainty couple the value of selected observations across wafers/lots.
+Inputs: CONTROLPLAN and observed state. Outputs: specified measurement jobs to FAB or TEST, and updated evidence for manufacturing control. Descriptors: metrology, adaptive-sampling, information-value. #online and #closedloop apply. Risk thresholds require case validation; no generic quality guarantee is compiled.
+
+KEY RESCHEDULE — Manufacturing Disruption Rescheduling
+Decision: revise previously committed manufacturing operations after failures, holds, rework arrivals or material delay while preserving valid process windows and completed/frozen work. The artifact is an adjusted schedule with explicit continuity to previous commitments.
+Aliases: fab schedule repair; back-end rescheduling; disruption recovery. Variants: tool breakdowns, changed qualification, quality holds, rush lots and time-window repair. Emergency next-lot selection alone is DISPATCH; first-time operation scheduling is the applicable scheduler.
+Evidence: S40 directly supports decentralized MILP schedule repair with reentry and time windows, warm-started from a semiconductor assembly master schedule. Extension to other manufacturing areas is an engineering inference supported by their analogous committed calendars, not a demonstrated universal implementation.
+Template basis: IE manufacturing continuity, frozen-window and process-window recovery. OR warm-started rolling/decomposed MILP/CP schedule repair, minimizing infeasibility/delay and commitment changes. Restoring throughput is not a separate controller architecture.
+Ontology inference: #adapt; Primary #place, Secondary #map. It changes operation positions and, where permitted, tool assignments in response to material change. Ordinary recomputation without a changed commitment need not qualify as #adapt.
+Rating inference: Priority High because failures and holds recur but some factories manage them through local dispatch alone. Relevance Critical because cascaded process-window violations and bottleneck loss can affect enterprise output. Hardness Critical because revised constraints, frozen work and propagation through reentrant calendars require rapid decomposition or limited-horizon repair.
+Inputs: committed schedules from FAB, BATCH, LITHO, CLUSTER, ASSEMBLY and TEST, plus MAINTAIN availability. Outputs: revised commitments to the same schedulers and downstream dispatch. Descriptors: rescheduling, disruption, frozen-window. These revision edges form deliberate feedback cycles and are not mathematical reductions.
+
+DEPENDENCY GRAPH AND TYPED LOOPS
+
+Edges are industrial information/commitment dependencies. S04 directly supports QUALIFY → LOAD/scheduling; S11 supports kit availability → test feasibility; S40 directly supports committed schedule → RESCHEDULE. Other edges below are engineering inferences from the documented artifacts and are not claimed as empirically measured causal effects.
+CAPACITY → LAYOUT, QUALIFY, STARTPLAN, LOAD, KITS.
+QUALIFY → STARTPLAN, LOAD.
+RETICLEPLAN → WAFERPLAN.
+CONTROLPLAN → FAB, TEST, SAMPLE.
+STARTPLAN → POLICY, MAINTAIN, WAFERPLAN, LOAD, KITS, FAB, ASSEMBLY, TEST, RELEASE.
+POLICY → RELEASE, DISPATCH.
+MAINTAIN → FAB, BATCH, LITHO, CLUSTER, ASSEMBLY, TEST, RESCHEDULE.
+WAFERPLAN → LITHO, ASSEMBLY.
+LOAD → FAB, BATCH, LITHO, ASSEMBLY, TEST.
+KITS → TEST.
+TEST → MATCH, REPAIR.
+MATCH → ASSEMBLY.
+REPAIR → TEST, restricted to retest/verification after physical repair.
+RELEASE → FAB, ASSEMBLY, DISPATCH.
+FAB → BATCH, LITHO, CLUSTER, DISPATCH, RESCHEDULE.
+BATCH → DISPATCH, RESCHEDULE.
+LITHO → CLUSTER, DISPATCH, RESCHEDULE.
+CLUSTER → DISPATCH, RESCHEDULE.
+ASSEMBLY → TEST, MOTION, DISPATCH, RESCHEDULE.
+TEST → DISPATCH, RESCHEDULE.
+SAMPLE → FAB, TEST, as selected observations become scheduled jobs.
+RESCHEDULE → FAB, BATCH, LITHO, CLUSTER, ASSEMBLY, TEST, DISPATCH.
+No claim is made that every deployment implements every edge. Local schedulers can operate with supplied windows instead of an explicit global FAB module.
+TEST → MATCH → ASSEMBLY → TEST uses stage-typed measurements: wafer/die characterization feeds matching; assembled-device tests follow bonding. It is not a logical contradiction and cannot be made globally acyclic by ignoring stage identity.
+TEST ↔ REPAIR is physical test/repair/retest. Scheduler ↔ RESCHEDULE is committed calendar/revised calendar. Live RELEASE and SAMPLE feed already operating schedules, creating justified backward flow across Regime bands. Regime bands must prevail during compilation; within-band order follows available feed-forward dependencies and stable industrial logic.
+Continuous production feedback may inform later planning and investment. Those broad feedback possibilities are not emitted as every-to-every dependency links.
+
+MERGES, EXCLUSIONS AND DISCOVERY RESIDUALS
+
+Diffusion batching and burn-in batching are merged as BATCH; single/dual-arm, cyclic/noncyclic, startup and lot-switch cluster scheduling are CLUSTER variants. One standalone parent per recipe, package type, tool brand, solver or mathematical formulation would overcount.
+Photolithography load assignment is LOAD; local time/reticle use is LITHO; internal synchronized chamber/robot sequencing is CLUSTER. The chosen artifacts differ despite a coupled deployment. Full fab coordination is FAB. Admission of integrated and local contracts does not imply that they must be optimized independently.
+Wafer sort and final electrical test are merged as TEST. Tester investment is CAPACITY; qualification permissions QUALIFY; available kit configuration/allocation KITS; scheduled tests TEST. Probe-card procurement and external spare availability belong to SCM. Standalone probe/handler movement belongs to LOG only when movement rather than productive test feasibility defines the artifact.
+Lot splitting, alternative routes and queue-time constraints are variants of LOAD/FAB/LITHO/ASSEMBLY. Golden-route statistical ranking (S41) is decision support; it does not by itself establish a separate discrete route-selection contract with a defensible SEMIM Template. Fixed released routes are inputs; stochastic yield-aware machine choice is a LOAD/scheduling refinement.
+Rework jobs, quality holds and return to operation are restrictions of scheduling/recovery here. No unsupported generic quality-disposition parent is forced. Pure pass/fail classification, continuous process setpoints and virtual-metrology estimation are outside the selected ICO inventory.
+Advanced packaging and heterogeneous integration are covered through MATCH, ASSEMBLY, TEST and REPAIR where applicable. Selecting a new chiplet architecture, designing interconnects, partitioning a chip or inserting spare rows remains development.
+AMHS routing/dispatch, reticle stocker assignment, finished-wafer-to-order allocation, standalone workforce/utility control and manufacturing MES compute operation are credible outward transfers. They are recorded in background/000_PROBLEM_marketplace.txt without classifying another Domain's foreground.
+No inbound OPEN marketplace entry names SEMIM or semiconductor manufacturing at retrieval. Existing automotive entries are unaffected.
+Front-end-only equipment schedules, independent burn-in and turnkey OSAT plants instantiate subsets rather than requiring Territory splits. Research and production sharing tools does not turn all fab scheduling into #DEVELOPMENT.
+Additional targeted searches covered reticle copies/stockers, kit components, qualification expiry, dynamic/spatial sampling, wafer/die matching, memory repair, productive pick-and-place, lot splitting and disruption repair. Late results principally added variants, supporting Templates or neighboring-owner candidates. This is practical discovery saturation for this Problem-layer run, not proof of an exhaustive universe. Reticle manufacture/e-beam shot decomposition and product-specific test-flow optimization remain potential deeper manufacturing-preparation refinements; no separate parent is admitted without a sufficiently distinct contracted artifact and primary Template evidence.
+
+SOURCE REGISTER
+
+S01 Current project ontology and domain background, read through GitHub at main.
+https://github.com/integritymachines/combinatorial/blob/main/000_DOMAIN.txt
+https://github.com/integritymachines/combinatorial/blob/main/background/000_DOMAIN_research.txt
+Basis: identity, manufacturing ownership, Territory and canonical decision grammar. Generic older PROD research is discovery support only and does not override these normative inputs.
+
+S02 Tool capacity planning in semiconductor manufacturing. Computers & Operations Research 30 (2003), 1349–1366. DOI 10.1016/S0305-0548(02)00075-8.
+https://www.sciencedirect.com/science/article/pii/S0305054802000758
+Publisher abstract retrieved. Basis: multiperiod equipment acquisition/production MIP under known forecasts. Method existence, not worldwide leadership or universal stochastic validity.
+
+S03 Semiconductor FAB layout design analysis with 300-mm FAB data: 'Is minimum distance-based layout design best for semiconductor FAB design?' (2016).
+https://www.sciencedirect.com/science/article/pii/S0360835216300390
+Publisher indexed text retrieved. Basis: QAP/MIP layout and simulation with actual DRAM fab flow; minimum travel distance is not sufficient evidence of best operational layout.
+
+S04 Stochastic optimization of product–machine qualification in a semiconductor back-end facility. IIE Transactions 47 (2015), 739–750. DOI 10.1080/0740817X.2014.964887.
+https://www.tandfonline.com/doi/abs/10.1080/0740817X.2014.964887
+Publisher abstract retrieved; full publisher page access limited. Basis: costly product-specific qualification and future demand/backorder tradeoff. No current universal solver claim.
+
+S05 Simulation-based optimization of sampling plans to reduce inspections while mastering the risk exposure in semiconductor manufacturing. Journal of Intelligent Manufacturing 27 (2016), 1335–1349. DOI 10.1007/s10845-014-0956-x.
+https://doi.org/10.1007/s10845-014-0956-x
+Author-institution CESI publication record and publisher-indexed abstract retrieved through search. Basis: multiobjective genetic control-plan optimization and metrology/risk tradeoff. Case-specific risk and reproduction remain unverified.
+
+S06 Multi-Project Reticle Floorplanning and Wafer Dicing, Kahng and coauthors.
+https://dna.engr.uconn.edu/bibtexmngr/upload/Kal.04a.pdf
+Author-hosted paper retrieved. Basis: mathematical programming and heuristics for fixed-reticle dicing and compatible reticle layout. Does not authorize alteration of released chip architecture in SEMIM.
+
+S07 Liu, Li, Yang, Wan and Uzsoy. Production Planning for Semiconductor Manufacturing via Simulation Optimization. WSC 2011.
+https://www.informs-sim.org/wsc11papers/321.pdf
+Proceedings full text retrieved. Basis: release quantities, stochastic production evaluation and genetic multiobjective search. This establishes a benchmark method family, not integer feasibility for every continuous relaxation.
+
+S08 Dynamic scheduling rule selection for fab operations (2000).
+https://scholars.lib.ntu.edu.tw/entities/publication/6b9764fe-0815-4c90-b4a5-32a5f3fa1dd3
+Author-institution abstract retrieved. Basis: ordinal-optimization evaluation of discrete release/dispatch rule combinations. Production control-policy choice is distinct from individual lot action.
+
+S09 Darmawan and Sheu. Preventive maintenance scheduling: a simulation-optimization approach (2021). DOI 10.1080/21693277.2021.1978898.
+https://pure.au.dk/portal/en/publications/preventive-maintenance-scheduling-a-simulation-optimization-appro/
+Author-institution abstract read. Basis: PM-window placement in a reentrant wafer fab using genetic/particle-swarm search with DES; restricted method comparison.
+
+S10 Ghasemi, Azzouz, Laipple, Kabak and Heavey. Optimizing capacity allocation in semiconductor manufacturing photolithography area – Case study: Robert Bosch. Journal of Manufacturing Systems 54 (2020), 123–137. DOI 10.1016/j.jmsy.2019.11.012.
+https://pure.ul.ie/en/publications/optimizing-capacity-allocation-in-semiconductor-manufacturing-pho/
+Author-institution abstract read; publisher page blocked on direct opening. Basis: MILP/genetic workload allocation, machine dedication and reticle-sharing constraints with Bosch fab data. A cited complexity proof is not compiled as a broad formal class without its exact restriction.
+
+S11 Zhang and coauthors. Capacity planning with reconfigurable kits in semiconductor test manufacturing. IJPR 44 (2006), 2625–2644. DOI 10.1080/00207540500490954.
+https://www.tandfonline.com/doi/abs/10.1080/00207540500490954
+Publisher abstract retrieved through search; full page blocked. Basis: Intel ACAS component-level MIP, qualification combinations and alternative capacity formulations. Reported deployment savings are not used as a forecast for SEMIM.
+
+S12 Die matching algorithm for enhancing parametric yield of 3D ICs (2012).
+https://snu.elsevierpure.com/en/publications/die-matching-algorithm-for-enhancing-parametric-yield-of-3d-ics/
+Author-institution abstract retrieved. Basis: choosing physical dies for bonding under parametric variation. New architecture/thread mapping is not part of the admitted manufacturing contract.
+
+S13 Lin, Yeh, Chen and Kuo. An efficient perfect algorithm for memory repair problems. DFT 2004. DOI 10.1109/DFTVS.2004.1347853.
+https://pure.lib.cgu.edu.tw/en/publications/an-efficient-perfect-algorithm-for-memory-repair-problems/
+Author-institution abstract read. Basis: row/column redundancy analysis, BDD exact repair search and the precise NP-complete repair-feasibility restriction. Does not establish industrial runtime for every spare architecture.
+
+S14 El-Kholany, Ali and Gebser. Hybrid ASP-based multi-objective scheduling of semiconductor manufacturing processes (extended version), 2023.
+https://arxiv.org/abs/2307.14799
+Author preprint abstract read. Basis: realistic flexible-machine, setup, batch and maintenance constraints, hybrid ASP with difference logic and global versus local scheduling. Reproduction and scope of instances are not claimed here.
+
+S15 Hochbaum and Landy. Scheduling Semiconductor Burn-In Operations to Minimize Total Flowtime. Operations Research 45 (1997), 874–885. DOI 10.1287/opre.45.6.874.
+https://pubsonline.informs.org/doi/abs/10.1287/opre.45.6.874
+Publisher abstract retrieved. Basis: chosen co-processing groups and batch sequence; restricted exact/approximation algorithms. Fixed number of job types differs from an unrestricted industrial batch problem.
+
+S16 Madathil, Nambiar, Mason and Kurz. On Scheduling a Photolithography Process Containing Cluster Tools (2017/2018). Related DOI 10.1016/j.cie.2018.05.036.
+https://arxiv.org/abs/1708.09488
+Author preprint abstract read; publisher indexed text retrieved. Basis: lithography flexible-flowshop scheduling with individual and cluster resources, MIP and weighted-completion/on-time objectives.
+
+S17 Lithography reticle scheduling in semiconductor manufacturing (2024). DOI 10.1080/0305215X.2023.2285416.
+https://scholars.lib.ntu.edu.tw/entities/publication/40e58e05-b524-4305-be1d-15a5d94de7fc
+Author-institution record and publisher indexed abstract retrieved. Basis: scarce reticle use, multiobjective scheduling and a three-phase/genetic framework. Does not make reticle storage or transport a fabrication-owned decision.
+
+S18 Tassel and coauthors. Semiconductor Fab Scheduling with Self-Supervised and Reinforcement Learning (2023).
+https://arxiv.org/abs/2302.07162
+Author preprint abstract read. Basis: dynamic fab control and comparison with hierarchical dispatch on the paper's models. A paper's 'first' or performance claim is not generalized to industrial SOTA.
+
+S19 A Novel Mixed Integer Programming Model with Precedence Relation-Based Decision Variables for Non-Cyclic Scheduling of Cluster Tools (2024).
+https://pure.kaist.ac.kr/en/publications/a-novel-mixed-integer-programming-model-with-precedence-relation-/
+Author-institution abstract retrieved. Basis: noncyclic cluster scheduling with chosen order and MIP. No complete full-text runtime claim.
+
+S20 Kurz, Schirru, Pampuri, Pilz and De Luca. A Sampling Decision System for Semiconductor Manufacturing – Relying on Virtual Metrology and Actual Measurements. WSC 2014.
+https://informs-sim.org/wsc14papers/includes/files/239.pdf
+Proceedings full text read. Basis: actual sampling decisions, expected value of measurement information and multistage dynamic programming, validated on CVD data. The predictor itself is not the manufacturing selection artifact.
+
+S21 Simulation optimization approach for hybrid flow shop scheduling problem in semiconductor back-end manufacturing (2014/2015).
+https://www.sciencedirect.com/science/article/abs/pii/S1569190X14001592
+Publisher abstract/indexed text retrieved; direct full-page opening blocked. Basis: real OSAT die-bond, wire-bond and molding hybrid-flowshop scheduling with simulation optimization. No dataset access or result reproduction claim.
+
+S22 On Optimising Spatial Sampling Plans for Wafer Profile Reconstruction (2018).
+https://www.sciencedirect.com/science/article/pii/S2405896318305664
+Publisher indexed text retrieved. Basis: selected spatial sampling sites and wafer reconstruction. Pure continuous reconstruction is not an ICO parent.
+
+S23 Enhanced Design Flow and Optimizations for Multi-Project Wafers, Kahng and coauthors.
+https://escholarship.org/uc/item/3tw5p9vm
+Author-institution search abstract retrieved; direct landing page returned limited content. Basis: reticle floorplan, shot-map and wafer-dicing stages. Full fabrication preparation differs from chip-internal development.
+
+S24 Capacity planning for cluster tools in the semiconductor industry (2017). DOI 10.1016/j.ijpe.2017.01.005.
+https://doi.org/10.1016/j.ijpe.2017.01.005
+Publisher indexed text retrieved. Basis: cluster-tool internal constraints in effective capacity models. LP capacity restrictions validate parts of CAPACITY/STARTPLAN; they are not themselves proof of ICO.
+
+S25 A concurrent approach for facility layout and AMHS design in semiconductor manufacturing.
+https://pure.korea.ac.kr/en/publications/a-concurrent-approach-for-facility-layout-and-amhs-design-in-semi/
+Author-institution abstract retrieved. Basis: MIP for bay/shortcut/stocker geometry. Pure AMHS network design is transferred to LOG under the current contract test.
+
+S26 Flexciton, autonomous planning and scheduling capability descriptions.
+https://flexciton.com/
+First-party industrial page retrieved. Basis: daily wafer-start planning and local toolset scheduling exist as distinct industrial functions. No independent effectiveness claim or solver-leadership certification.
+
+S27 Operation-dependent maintenance scheduling in flexible manufacturing systems (2012).
+https://www.sciencedirect.com/science/article/abs/pii/S1755581712000582
+Publisher indexed abstract retrieved. Basis: production/condition/maintenance interaction and a generic cluster-tool application. Policy variants are not new problem identities.
+
+S28 Capacity allocation with lot splitting in photolithography area using hybrid genetic algorithm based on self-tuning strategy (2020).
+https://www.sciencedirect.com/science/article/abs/pii/S0360835220303909
+Publisher abstract retrieved. Basis: capability, dedication, reticle limits and lot splitting within allocation. Narrow allocation variant, not separate lot-splitting parent.
+
+S29 Yield-aware joint die packing, die matching and static thread mapping for hard real-time 3D embedded CMPs (2022).
+https://www.sciencedirect.com/science/article/abs/pii/S0141933122000989
+Publisher abstract retrieved. Basis: a MILP coupling physical die matching/packing with software mapping. Only physical measured-die allocation informs MATCH; software-resource mapping is excluded.
+
+S30 Scheduling lot switching operations for cluster tools.
+https://pure.kaist.ac.kr/en/publications/scheduling-lot-switching-operations-for-cluster-tools/
+Author-institution abstract retrieved. Basis: Petri-net and MIP transient operation coordination. Supports merging lot switching into CLUSTER.
+
+S31 A Review of Scheduling Theory and Methods for Semiconductor Manufacturing Cluster Tools. WSC 2008.
+https://www.informs-sim.org/wsc08papers/263.pdf
+Proceedings paper retrieved. Basis: fixed-sequence LP timing versus MIP sequence choice, needed to delimit the discrete cluster contract. Review supplies context; primary S19/S30 supplies chosen-order method evidence.
+
+S32 Integration of deep reinforcement learning with simulation optimization applied to semiconductor backend assembly scheduling problem (2026).
+https://www.sciencedirect.com/science/article/abs/pii/S2210650225004092
+Publisher indexed abstract retrieved. Basis: published learning/simulation optimization for die-bond/wire-bond/mold bottlenecks with an industrial collaborator. Used as a method alternative, not a quantified current-best claim.
+
+S33 A robust optimization model for the wire bonding scheduling problem (2018).
+https://scholar.nycu.edu.tw/zh/publications/a-robust-optimization-model-for-the-wire-bonding-scheduling-probl/
+Author-institution abstract retrieved. Basis: unrelated machine scheduling, uncertain arrivals, eligibility and setups at wire bonding. Merged into ASSEMBLY.
+
+S34 Siess, Gold and Ponsignon. Modelling and Mathematical Optimization for Capacity Planning of a Semiconductor Wafer Test Module. WSC 2020.
+https://informs-sim.org/wsc20papers/202.pdf
+Proceedings full text read. Basis: Infineon wafer-test allocation/scheduling MIP, delivery/setup/capacity objectives and fixed-arrival-model restriction. Does not model all uncertain plant behavior.
+
+S35 Improving performance of dispatch rules for daily scheduling of assembly and test operations (2016).
+https://www.sciencedirect.com/science/article/pii/S0360835215003526
+Publisher abstract/indexed text retrieved. Basis: assembly/test lot assignment and setup rules, contrasted with MIP scheduling. No new canonical identity is inferred from dispatch-rule names.
+
+S36 Optimization of pick-and-place in die attach process using a genetic algorithm (2017).
+https://ntut.elsevierpure.com/en/publications/optimization-of-pick-and-place-in-die-attach-process-using-a-gene/
+Author-institution abstract retrieved. Basis: productive die-attach traversal, integer/heuristic/genetic methods. General warehouse tours remain LOG.
+
+S37 Ahn and coauthors. Interactive Q-Learning Approach for Pick-and-Place Optimization of the Die Attach Process in the Semiconductor Industry (2019). DOI 10.1155/2019/4602052.
+https://onlinelibrary.wiley.com/doi/10.1155/2019/4602052
+Publisher abstract retrieved. Basis: pick-and-place NP-hard restriction and learned versus rule/metaheuristic action-order alternatives. No universal dominance assertion.
+
+S38 An intelligent multi-constraint finite capacity-based lot release system for semiconductor backend assembly environment (2006).
+https://www.sciencedirect.com/science/article/abs/pii/S0736584506000238
+Publisher indexed abstract retrieved. Basis: finite-capacity lot release and tested controller alternatives. The release contract is separate from the future production-volume plan.
+
+S39 Siemens Opcenter Execution Semiconductor.
+https://www.siemens.com/en-us/products/opcenter/execution/semiconductor/
+First-party industrial capability evidence retained from the read generic PROD source register. Supports MES dispatch function only; no new primary-page retrieval or independently measured performance is claimed in this run.
+
+S40 A Decentralized MILP Method for Rescheduling Semiconductor Assembly Systems with Re-Entrance and Time Window Constraints. CASE 2023. DOI 10.1109/CASE56687.2023.10260333.
+https://ieeexplore.ieee.org/document/10260333/
+Publisher abstract retrieved. Basis: machine-failure revision, master-schedule warm start, time-window constraints and delay objective. Front-end extension is an explicit engineering inference.
+
+S41 Ranking routes in semiconductor wafer fabs. Scientific Reports (2023). DOI 10.1038/s41598-023-39187-2.
+https://pmc.ncbi.nlm.nih.gov/articles/PMC10427614/
+Author paper/abstract retrieved. Basis: statistical route-quality decision support, not proof of a separate manufacturing route-selection optimization parent.
+
+S42 Optimizing class-constrained wafer-to-order allocation in semiconductor back-end production (2021).
+https://www.sciencedirect.com/science/article/abs/pii/S0278612520301321
+Publisher abstract retrieved. Basis: lot/wafer assignment to customer demand classes and inventory/overallocation consequences. Credible outward SCM candidate.
+
+S43 Allocating Reticles in an Automated Stocker for Semiconductor Manufacturing Facility (2021), Benzoni and coauthors; linked from Flexciton's first-party technical discussion.
+https://flexciton.com/blog-news/the-reticle-allocation-problem-and-how-to-approach-it
+First-party technical discussion/indexed paper abstract retrieved. Basis: reticle-to-stocker location assignment; outward LOG candidate. No paper-specific solver claim is compiled from the vendor's comparison.
