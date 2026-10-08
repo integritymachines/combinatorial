@@ -1,6 +1,6 @@
 160_AUTOM.txt
 AUTOM — Automotive Manufacturing
-v0.1 | 8 October 2026 | Problem layer
+v0.2 | 8 October 2026 | Problem layer
 
 SCOPE
 Industry: ##AUTOMOTIVE. Primary Domain: 102 #PROD. Territory: #production. Macro Domain anchor: #TRANS.
