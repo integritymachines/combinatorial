@@ -1,0 +1,309 @@
+170_SEMIM.txt
+
+SEMIM — Semiconductor Manufacturing
+v0.1 | 8 October 2026 | Problem layer
+
+SCOPE
+Macro Domain anchor: #TRANS. Primary Domain: 102 #PROD. Industry: ##SEMICONDUCTOR. Territory: #PRODUCTION.
+Fabrication, assembly, manufacturing inspection and test, and physical device repair of released semiconductor designs define this territory. Manufacturing capability configuration and reticle preparation remain production. Chip, circuit and package architecture belong to development.
+Fabrication feasibility determines ownership. Standalone process chemistry, supply commitments, carrier movement, workforce arrangements, utility operation, commercial rights and digital-resource operation remain with PROC, SCM, LOG, HR, ENER, MKT and COMP when those contracts define the decision.
+
+#design | 1##
+
+SEMIM101 Manufacturing Equipment and Capacity Configuration.
+DESCRIPTION Select equipment types, integer counts and capability configurations to meet semiconductor output requirements within investment and effective-capacity limits.
+TEMPLATE Manufacturing capacity and bottleneck engineering | Multiperiod capacity MILP or stochastic integer optimization with throughput simulation.
+REGIME #design | Commits physical manufacturing capability before production plans name its use.
+STRUCTURE #select + #map | Selects equipment and assigns capability configurations to manufacturing stages.
+PRIORITY Critical | Installed capability constrains fabrication, assembly and test.
+RELEVANCE Critical | Better commitments affect enterprise capital use and attainable output.
+HARDNESS High | Lumpy investments, technology eligibility and uncertain effective throughput require tailored capacity models.
+DEPENDENCIES ∅ → SEMIM101 → SEMIM102, SEMIM103, SEMIM301, SEMIM501, SEMIM502.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #design #select #map ##capacity ##equipment ##bottleneck.
+COMMENTS Available test-kit component allocation belongs to SEMIM502; new component capacity belongs here.
+
+SEMIM102 Manufacturing Facility Layout.
+DESCRIPTION Place manufacturing areas and equipment within cleanroom or factory space under area, clearance, access and material-flow limits.
+TEMPLATE Cleanroom and manufacturing layout engineering | Quadratic assignment or geometric MILP with discrete-event simulation.
+REGIME #design | Commits production geometry before equipment operation.
+STRUCTURE #place | Positions manufacturing areas and equipment under nonoverlap and access constraints.
+PRIORITY High | Recurs in new installations, expansions and factory retrofits.
+RELEVANCE High | Better geometry reduces manufacturing interference and space losses.
+HARDNESS High | Unequal areas, anchored equipment and congestion couple layout choices.
+DEPENDENCIES SEMIM101 → SEMIM102 → SEMIM701, SEMIM705.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #design #place ##layout ##geometry ##cleanroom.
+COMMENTS Independent AMHS track-network design and carrier routing belong to LOG.
+
+SEMIM103 Product–Tool Qualification Configuration.
+DESCRIPTION Choose product-operation permissions to establish on available tools under qualification effort and future capacity requirements.
+TEMPLATE Manufacturing qualification and flexibility planning | Stochastic product-machine qualification optimization; deterministic binary models for restricted settings.
+REGIME #design | Establishes manufacturing eligibility before workload allocation and scheduling.
+STRUCTURE #link + #select | Chooses qualified product-tool relations and the actions that establish them.
+PRIORITY High | Product-specific qualification commonly restricts usable fabrication and test capacity.
+RELEVANCE High | Better qualification sets can prevent avoidable production shortages.
+HARDNESS High | Qualification consumes present capacity while future demand determines its value.
+DEPENDENCIES SEMIM101 → SEMIM103 → SEMIM301, SEMIM501.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #design #link #select ##qualification ##flexibility ##eligibility.
+COMMENTS Qualification expiry and requalification are variants. New-product engineering validation is outside this manufacturing contract.
+
+SEMIM104 Inspection and Metrology Control-Plan Design.
+DESCRIPTION Select production inspection steps, measurement sites and discrete sampling frequencies under detection-risk and metrology-capacity requirements.
+TEMPLATE Statistical quality control and risk-exposure planning | Simulation-based multiobjective control-plan search; discrete spatial sampling optimization.
+REGIME #design | Defines recurring measurement coverage before individual production observations are requested.
+STRUCTURE #select + #map | Selects inspection coverage and assigns it to production stages or measurement-site classes.
+PRIORITY High | Manufacturing quality control requires a recurring inspection basis.
+RELEVANCE High | Better coverage limits defect exposure and unnecessary metrology load.
+HARDNESS High | Risk propagation, delayed observations and limited capacity couple sampling choices.
+DEPENDENCIES ∅ → SEMIM104 → SEMIM701, SEMIM707, SEMIM803.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #design #select #map ##metrology ##sampling ##quality ##risk.
+COMMENTS Continuous threshold fitting and virtual-metrology prediction alone are outside this discrete control-plan contract.
+
+SEMIM105 Multi-Project Reticle Floorplanning.
+DESCRIPTION Arrange released chip images within reticle boundaries under alignment, nonoverlap and dicing-compatibility limits.
+TEMPLATE Shared-mask and dicing-compatible fabrication preparation | Mathematical floorplanning optimization or simulated annealing with dicing-yield evaluation.
+REGIME #design | Commits fabrication layout before wafer exposure and cut plans use it.
+STRUCTURE #place | Positions chip images in reticle space under geometric and cut-compatibility constraints.
+PRIORITY Medium | Recurs in shared-mask fabrication and specialized production runs.
+RELEVANCE High | Better reticle layouts can reduce wafer use and shared-mask manufacturing cost.
+HARDNESS High | Image packing and compatible cuts create coupled geometric choices.
+DEPENDENCIES ∅ → SEMIM105 → SEMIM304.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #design #place ##multiproject-wafer ##floorplanning ##dicing.
+COMMENTS Chip-internal circuit layout and architecture changes belong to development.
+
+#plan | 3##
+
+SEMIM301 Wafer-Start and Manufacturing Production Planning.
+DESCRIPTION Select discrete lot starts and period production quantities for released products under manufacturing capacity, yield, WIP and due-date limits.
+TEMPLATE Capacity-feasible master production and wafer-start planning | Lot-based production MILP with load-dependent capacity models; simulation optimization.
+REGIME #plan | Names future manufacturing volumes, start periods and eligible production stages.
+STRUCTURE #place + #map + #select | Places lot starts in periods, maps work to production stages or sites and selects starts.
+PRIORITY Critical | Connects required semiconductor output to constrained manufacturing starts.
+RELEVANCE Critical | Better plans improve output commitments across expensive fabrication pipelines.
+HARDNESS Critical | Reentry, uncertain cycle times and effective capacity require aggregation, decomposition or repeated simulation checks.
+DEPENDENCIES SEMIM101, SEMIM103 → SEMIM301 → SEMIM302, SEMIM303, SEMIM304, SEMIM501, SEMIM502, SEMIM701, SEMIM705, SEMIM707, SEMIM801.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #plan #place #map #select ##wafer-starts ##reentrant ##lot-sizing.
+COMMENTS Engineering lots are a production-load class here. Supplier selection, commercial order acceptance and finished-goods deployment remain separate contracts.
+
+SEMIM302 Release and Dispatch Policy Configuration.
+DESCRIPTION Select release and dispatch policy alternatives and discrete WIP or workload settings for future manufacturing operation.
+TEMPLATE Workload regulation and rule-based fab control | Simulation or ordinal optimization over controller alternatives.
+REGIME #plan | Configures future execution policies before individual lot actions use them.
+STRUCTURE #select + #map | Selects controller alternatives and assigns settings to manufacturing resource or product classes.
+PRIORITY High | Release and dispatch policies govern recurring manufacturing flow.
+RELEVANCE High | Better policies improve WIP, cycle time and due-date performance.
+HARDNESS High | Stochastic evaluation and interacting controllers complicate policy comparison.
+DEPENDENCIES SEMIM301 → SEMIM302 → SEMIM801, SEMIM802.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #plan #select #map ##wip-control ##policy-selection ##simulation-optimization.
+COMMENTS Pure queueing analysis without a selected discrete controller configuration is outside this contract.
+
+SEMIM303 Production-Coupled Preventive Maintenance Planning.
+DESCRIPTION Place preventive maintenance and cleaning tasks within permitted windows while coordinating production loads, tool outages and service resources.
+TEMPLATE Maintenance-window and production-availability coordination | Maintenance-window MILP or simulation optimization.
+REGIME #plan | Commits future tool-unavailability windows before detailed production execution.
+STRUCTURE #place | Positions maintenance tasks in time under availability and service-resource constraints.
+PRIORITY High | Planned tool downtime recurs across fabrication, assembly and test.
+RELEVANCE High | Better timing reduces bottleneck production loss.
+HARDNESS High | Reentrant workload, service resources and equipment-condition effects couple task timing.
+DEPENDENCIES SEMIM301 → SEMIM303 → SEMIM701, SEMIM702, SEMIM703, SEMIM704, SEMIM705, SEMIM707, SEMIM901.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #plan #place ##maintenance ##cleaning ##availability.
+COMMENTS Standalone technician rostering and touring belong to HR or LOG when human availability or movement defines the contract.
+
+SEMIM304 Wafer Exposure and Dicing Planning.
+DESCRIPTION Choose exposure positions and compatible wafer cut plans for fixed chip and reticle layouts to meet required die quantities within wafer-use limits.
+TEMPLATE Exposure utilization and singulation planning | Integer optimization of shot and cut patterns; specialized dicing heuristics.
+REGIME #plan | Prepares the wafer realization plan before exposure and singulation execution.
+STRUCTURE #place + #select | Positions exposure images and selects permitted exposure and cut patterns.
+PRIORITY Medium | Recurs where shared-mask or specialized wafer patterns require optimization.
+RELEVANCE High | Better patterns increase recoverable die output per wafer.
+HARDNESS High | Shot coverage, incompatible cuts and die-quantity targets interact.
+DEPENDENCIES SEMIM105, SEMIM301 → SEMIM304 → SEMIM703, SEMIM705.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #plan #place #select ##shot-map ##dicing ##multiproject-wafer.
+COMMENTS Fixed-shot dicing is a restriction. Continuous laser-power or process-chemistry tuning is outside this contract.
+
+#allocate | 5##
+
+SEMIM501 Qualified Tool Dedication and Workload Allocation.
+DESCRIPTION Assign product-operation workloads and tool dedication under qualified capacity and secondary-resource sharing limits.
+TEMPLATE Tool load balancing and manufacturing dedication | Eligibility and dedication MILP; specialized genetic allocation search.
+REGIME #allocate | Commits manufacturing workloads to available eligible tools.
+STRUCTURE #map | Maps product-operation workloads to tools under supplied qualification and sharing constraints.
+PRIORITY High | Qualified toolsets require recurring workload allocation.
+RELEVANCE High | Better dedication and load balance release usable bottleneck capacity.
+HARDNESS High | Eligibility, reticle sharing and dedication couple discrete assignments.
+DEPENDENCIES SEMIM101, SEMIM103, SEMIM301 → SEMIM501 → SEMIM701, SEMIM702, SEMIM703, SEMIM705, SEMIM707.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #allocate #map ##tool-dedication ##eligibility ##load-balancing.
+COMMENTS New qualification permissions belong to SEMIM103. Detailed operation times belong to the applicable scheduler. Lot splitting is an allocation variant.
+
+SEMIM502 Test Hardware Kit Configuration and Allocation.
+DESCRIPTION Configure test kits from available components and assign compatible kits to tester and product loads under component-sharing limits.
+TEMPLATE Test-capacity and reconfigurable-fixture management | Component-level kit configuration and allocation MILP.
+REGIME #allocate | Assigns available test hardware to named manufacturing loads.
+STRUCTURE #map + #select | Maps selected components into compatible kits and assigns kits to test loads.
+PRIORITY Medium | Scarce configurable hardware constrains particular test facilities.
+RELEVANCE High | Better kit allocation increases usable qualified test capacity.
+HARDNESS High | Shared components and product-tester-kit qualification couple configurations and assignments.
+DEPENDENCIES SEMIM101, SEMIM301 → SEMIM502 → SEMIM707.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #allocate #map #select ##test-kits ##secondary-resource ##compatibility.
+COMMENTS Installed component quantities are inputs. New component capacity belongs to SEMIM101; external spare replenishment belongs to SCM.
+
+SEMIM503 Known-Good Die and Wafer Matching.
+DESCRIPTION Assign measured dies or wafers to physical bonding groups for released products under compatibility and parametric-performance limits.
+TEMPLATE Known-good-die selective assembly and yield matching | Min-cost-flow or bipartite matching with iterative multidie matching; joint physical-die MILP.
+REGIME #allocate | Names physical assembly members before bonding consumes them.
+STRUCTURE #map | Maps dies or wafers to assembly groups and required physical roles.
+PRIORITY Medium | Recurs in production systems that can choose among measured assembly members.
+RELEVANCE High | Better groups improve usable assembled-device yield.
+HARDNESS High | Multidie compatibility and uncertain measured performance can require tailored search | Polynomial two-die bipartite-matching restriction.
+DEPENDENCIES SEMIM707 → SEMIM503 → SEMIM705.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #allocate #map ##die-matching ##selective-assembly ##yield.
+COMMENTS Wafer or die characterization precedes matching; final assembled-device test follows bonding. Customer allocation of available inventory belongs to SCM.
+
+SEMIM504 Post-Test Memory Redundancy Allocation.
+DESCRIPTION Select faulty memory rows or columns for replacement within a fabricated device's fixed spare-resource budgets.
+TEMPLATE Manufacturing memory redundancy analysis | Exact Boolean decision-diagram repair search or bounded combinatorial repair search.
+REGIME #allocate | Commits scarce spare resources to a measured physical-device fault pattern.
+STRUCTURE #select | Chooses rows and columns for replacement under repair-coverage and spare-budget constraints.
+PRIORITY Medium | Recurs in memory-rich semiconductor manufacturing.
+RELEVANCE High | Better repair choices recover otherwise rejected fabricated devices.
+HARDNESS Medium | Fixed spare budgets bound many practical searches, but coupled defect coverage still requires formulation and search control | NP-complete budgeted row/column repair-feasibility restriction.
+DEPENDENCIES SEMIM707 → SEMIM504 → SEMIM707.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #allocate #select ##redundancy ##memory-repair ##covering.
+COMMENTS Spare architecture design belongs to development. Runtime memory recovery belongs to COMP. Retest after physical repair forms a deliberate validation loop.
+
+#operate + #sequence | 7##
+
+SEMIM701 Fab-Wide Reentrant Scheduling.
+DESCRIPTION Assign and sequence released lot operations across fab toolsets under eligibility, setups, batching, maintenance and process-window limits.
+TEMPLATE Hierarchical fab scheduling and process-window coordination | Decomposed or rolling reentrant job-shop MILP/CP; hybrid ASP with difference logic.
+REGIME #operate + #sequence | Fixes coordinated operation order and times for work already under manufacturing execution.
+STRUCTURE #place + #map | Places lot operations in time and assigns eligible productive tools.
+PRIORITY Critical | Coordinated lot progression defines fab operation.
+RELEVANCE Critical | Better calendars improve fab output and long-cycle delivery performance.
+HARDNESS Critical | Full-scale reentry and interacting resources require decomposition, aggregation and rolling schedules.
+DEPENDENCIES SEMIM102, SEMIM104, SEMIM301, SEMIM303, SEMIM501, SEMIM801, SEMIM803, SEMIM901 → SEMIM701 → SEMIM702, SEMIM703, SEMIM704, SEMIM802, SEMIM901.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #operate #sequence #place #map ##reentrant ##job-shop ##time-window.
+COMMENTS Local batching, lithography and cluster-tool calendars remain distinct contracted artifacts; they may be integrated in this schedule.
+
+SEMIM702 Parallel-Batch Formation and Scheduling.
+DESCRIPTION Group compatible wafers, lots or devices for simultaneous processing and schedule the groups on eligible batch equipment.
+TEMPLATE Batch-equipment loading and family compatibility management | Batch-assignment MILP/CP and batching heuristics; dynamic programming for restricted burn-in models.
+REGIME #operate + #sequence | Fixes co-processing groups and batch order for operating equipment.
+STRUCTURE #map + #place | Maps jobs to simultaneous-processing groups and places groups in time.
+PRIORITY High | Batch equipment recurs in front-end fabrication and back-end stress test.
+RELEVANCE High | Better groups improve batch utilization and waiting-time performance.
+HARDNESS High | Compatibility, batch capacity, arrivals and due dates couple grouping and order.
+DEPENDENCIES SEMIM303, SEMIM501, SEMIM701, SEMIM901 → SEMIM702 → SEMIM802, SEMIM901.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #operate #sequence #map #place ##batching ##compatibility ##furnace ##burn-in.
+COMMENTS Diffusion and burn-in are variants. Sequential setup campaigns do not define simultaneous batch membership.
+
+SEMIM703 Photolithography Toolset Scheduling.
+DESCRIPTION Assign and sequence wafer-lot exposure operations with compatible tracks, steppers or scanners and reticles under setup and process-timing limits.
+TEMPLATE Lithography bottleneck and reticle-use coordination | Secondary-resource-constrained flexible-flowshop MILP/CP; reticle scheduling heuristics.
+REGIME #operate + #sequence | Fixes lithography order and productive resource-use intervals.
+STRUCTURE #place + #map | Places fabrication operations and reticle-use intervals in time and assigns tools and reticles.
+PRIORITY High | Lithography provides a recurring constrained toolset contract.
+RELEVANCE Critical | Better scheduling can improve output at a major fab bottleneck.
+HARDNESS High | Reentry, dedication, setups and reticle contention couple local calendars.
+DEPENDENCIES SEMIM303, SEMIM304, SEMIM501, SEMIM701, SEMIM901 → SEMIM703 → SEMIM704, SEMIM802, SEMIM901.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #operate #sequence #place #map ##lithography ##reticle ##secondary-resource.
+COMMENTS Reticle stocker positions and independent delivery belong to LOG. Workload dedication without operation times belongs to SEMIM501.
+
+SEMIM704 Cluster-Tool Wafer and Robot Scheduling.
+DESCRIPTION Assign wafers to processing modules and sequence robot tasks under processing, cleaning, load-lock, robot and residence-time limits.
+TEMPLATE Chamber-robot synchronization and residency control | Timed Petri-net MILP or precedence-based noncyclic MILP.
+REGIME #operate + #sequence | Fixes synchronized processing and internal transfer order within productive equipment.
+STRUCTURE #place + #map | Places processing and transfer tasks in time and assigns wafers to eligible modules.
+PRIORITY High | Cluster equipment recurs in wafer fabrication.
+RELEVANCE High | Better synchronization improves tool throughput and processing feasibility.
+HARDNESS High | Mixed products, chosen order, cleaning and residence limits tightly couple tool-level schedules.
+DEPENDENCIES SEMIM303, SEMIM701, SEMIM703, SEMIM901 → SEMIM704 → SEMIM802, SEMIM901.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #operate #sequence #place #map ##cluster-tool ##synchronization ##residency-time.
+COMMENTS Cyclic, noncyclic, startup and lot-switch operation are variants. Fixed-order cases with only continuous waiting-time calculation are not separate ICO Problems.
+
+SEMIM705 Semiconductor Assembly and Packaging Scheduling.
+DESCRIPTION Assign and sequence released lots through singulation, die attach, interconnection, molding and packaging under eligibility, setup and stage-capacity limits.
+TEMPLATE Back-end bottleneck and hybrid-flowshop coordination | Eligibility and setup-aware hybrid-flowshop MILP/CP or simulation optimization.
+REGIME #operate + #sequence | Fixes physical assembly order and equipment use for operating back-end work.
+STRUCTURE #place + #map | Places lot operations in time and assigns productive assembly equipment.
+PRIORITY High | Assembly coordination is central to back-end manufacture.
+RELEVANCE Critical | Better stage synchronization improves packaging output and delivery.
+HARDNESS High | Heterogeneous equipment, setup changes and constrained interstage flow require tailored schedules.
+DEPENDENCIES SEMIM102, SEMIM301, SEMIM303, SEMIM304, SEMIM501, SEMIM503, SEMIM801, SEMIM901 → SEMIM705 → SEMIM706, SEMIM707, SEMIM802, SEMIM901.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #operate #sequence #place #map ##packaging ##hybrid-flowshop ##setup.
+COMMENTS Package architecture remains development. Matched physical members and released assembly precedence are inputs.
+
+SEMIM706 Die-Attach Pick-and-Place Sequencing.
+DESCRIPTION Choose productive pickup and placement visit order for specified good dies and package positions under die-attach motion and assembly limits.
+TEMPLATE Die-bonder cycle-time and productive motion planning | Pick-and-place order integer optimization or genetic search; learning-assisted action selection.
+REGIME #operate + #sequence | Fixes the within-job productive action order of a die-attach machine.
+STRUCTURE #place | Positions pickup and placement actions in an ordered productive traversal.
+PRIORITY Medium | Provides a specialized within-machine optimization contract.
+RELEVANCE High | Better recurring motion can release die-attach capacity.
+HARDNESS High | Coupled pickup and placement actions limit exhaustive industrial order search | NP-hard pick-and-place ordering restriction.
+DEPENDENCIES SEMIM705 → SEMIM706 → ∅.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #operate #sequence #place ##die-attach ##pick-and-place ##motion.
+COMMENTS General carrier-delivery routing belongs to LOG. Factory lot order belongs to SEMIM705.
+
+SEMIM707 Wafer and Final-Test Scheduling.
+DESCRIPTION Assign and sequence specified wafer-sort and final electrical tests on compatible tester, prober or handler resources with required hardware and temperature conditions.
+TEMPLATE Tester and test-hardware coordination | Secondary-resource-constrained parallel-machine or test-flow MILP/CP; tailored dispatching baselines.
+REGIME #operate + #sequence | Fixes test operation order and productive test-resource intervals.
+STRUCTURE #place + #map | Places tests in time and assigns compatible resource combinations.
+PRIORITY High | Functional test is a recurring manufacturing contract.
+RELEVANCE High | Better test loading and setup order improve delivery and equipment use.
+HARDNESS High | Scarce qualified hardware, product-specific stages and setups couple test calendars.
+DEPENDENCIES SEMIM104, SEMIM301, SEMIM303, SEMIM501, SEMIM502, SEMIM504, SEMIM705, SEMIM803, SEMIM901 → SEMIM707 → SEMIM503, SEMIM504, SEMIM802, SEMIM901.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #operate #sequence #place #map ##wafer-test ##final-test ##secondary-resource.
+COMMENTS Wafer characterization can feed SEMIM503 before assembly; final test follows assembly. SEMIM504 can return repaired devices for verification. Burn-in batch formation belongs to SEMIM702.
+
+#dispatch | 8##
+
+SEMIM801 Live Lot Release.
+DESCRIPTION Select eligible waiting lots to start now using current WIP, workload and available manufacturing capacity.
+TEMPLATE Workload regulation and finite-capacity lot release | State-based constrained lot selection with simulation-evaluated release policies.
+REGIME #dispatch | Activates immediate manufacturing admission under evolving factory state.
+STRUCTURE #select | Chooses the lots admitted into productive operation.
+PRIORITY Critical | Admission determines WIP entering lot-based manufacturing.
+RELEVANCE High | Better releases reduce congestion and avoid poor workload mixtures.
+HARDNESS High | Release effects depend on downstream stochastic capacity and bottleneck state.
+DEPENDENCIES SEMIM301, SEMIM302 → SEMIM801 → SEMIM701, SEMIM705, SEMIM802.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #dispatch #select #online #closedloop ##lot-release ##wip-control.
+COMMENTS Future production quantities belong to SEMIM301; controller configuration belongs to SEMIM302.
+
+SEMIM802 Live Toolset Lot Dispatch.
+DESCRIPTION Select ready lots or batches and assign them to available eligible productive resources using live queue, setup and priority state.
+TEMPLATE Qualified-tool queue prioritization and setup-aware dispatch | Rolling local assignment optimization with rule-based baselines; learned control alternatives.
+REGIME #dispatch | Names the next productive tool actions under evolving execution state.
+STRUCTURE #map + #select | Maps selected ready work to available tools.
+PRIORITY Critical | Live productive assignments define manufacturing control.
+RELEVANCE Critical | Repeated dispatch choices affect throughput and cycle time across the factory.
+HARDNESS High | Process windows, feedback state and shared-resource contention constrain local optimization.
+DEPENDENCIES SEMIM302, SEMIM701, SEMIM702, SEMIM703, SEMIM704, SEMIM705, SEMIM707, SEMIM801, SEMIM901 → SEMIM802 → ∅.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #dispatch #map #select #online #closedloop ##dispatching ##eligibility ##setup.
+COMMENTS Revision of a materially disrupted committed calendar belongs to SEMIM901.
+
+SEMIM803 Live Metrology Sampling Selection.
+DESCRIPTION Select actual wafers, lots or sites to measure now under observed manufacturing risk, prediction uncertainty and inspection limits.
+TEMPLATE Risk-based adaptive metrology and sampling control | Expected-value-of-information selection or multistage dynamic programming.
+REGIME #dispatch | Requests physical observations in response to evolving production risk.
+STRUCTURE #select | Chooses actual measurement requests under the established control plan.
+PRIORITY Medium | Advanced adaptive sampling serves particular manufacturing control systems.
+RELEVANCE High | Better selections balance measurement effort and missed process excursions.
+HARDNESS High | Delayed feedback and uncertain prediction quality couple observation value.
+DEPENDENCIES SEMIM104 → SEMIM803 → SEMIM701, SEMIM707.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #dispatch #select #online #closedloop ##metrology ##adaptive-sampling ##information-value.
+COMMENTS Prediction-only virtual metrology is outside this contract. Scheduling selected physical measurements belongs to the applicable manufacturing scheduler.
+
+#adapt | 9##
+
+SEMIM901 Manufacturing Disruption Rescheduling.
+DESCRIPTION Revise committed manufacturing operations after failures, holds or material delays while preserving process windows and completed or frozen work.
+TEMPLATE Manufacturing continuity and frozen-window recovery | Warm-started rolling or decomposed MILP/CP schedule repair.
+REGIME #adapt | Revises prior manufacturing commitments after material execution change.
+STRUCTURE #place + #map | Revises operation times and permitted productive resource assignments.
+PRIORITY High | Disruptions require recurring commitment repair in constrained production systems.
+RELEVANCE Critical | Better repair reduces cascaded time-window violations and bottleneck losses.
+HARDNESS Critical | Frozen work and reentrant propagation require rapid decomposition or limited-horizon repair.
+DEPENDENCIES SEMIM303, SEMIM701, SEMIM702, SEMIM703, SEMIM704, SEMIM705, SEMIM707 → SEMIM901 → SEMIM701, SEMIM702, SEMIM703, SEMIM704, SEMIM705, SEMIM707, SEMIM802.
+TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #adapt #place #map ##rescheduling ##disruption ##frozen-window.
+COMMENTS Local next-lot activation remains SEMIM802. A revised calendar feeds the affected schedulers and creates a deliberate commitment-repair loop.
