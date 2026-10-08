@@ -353,16 +353,16 @@ Useful refinements: ##cyber-forensics ##investigation ##mdp ##information-gain.
 Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
 
 CANDIDATE mtd | Moving-Target Defense Reconfiguration Scheduling
-Industrial commitment: Choose and order permitted platform reconfigurations during ongoing defense service under exposure, compatibility, transition-cost and service-continuity conditions.
+Industrial commitment: Assign permitted platform alternatives to supplied service intervals during ongoing defense operation under exposure, compatibility and service-continuity conditions.
 Aliases and retrieval terms: dynamic platform defense; moving-target defense; defensive platform switching.
 Supplied substrate: Permitted discrete platforms or configurations, transition alternatives, exposure models, switching costs and service constraints.
-Chosen construction and delivered artifact: Assigns platform alternatives to service intervals and positions reconfiguration actions in time. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Chosen construction and delivered artifact: Assigns platform alternatives to the supplied ordered service intervals. The returned artifact is the committed decision above, not the auxiliary optimization representation.
 Ownership and neighboring contracts: Proactive reconfiguration differs from ordinary COMP migration and incident-triggered containment. Continuous rate-only defense models do not enter the discrete contract.
 Variants and identity control: Platform alternatives and cyber configuration diversity. Stochastic selection probabilities accompany executable discrete transitions.
-Evidence and Template basis [S38]: S38 studies strategic use of dynamic platform defenses. Its game-theoretic method supports the strategy family; explicit interval calendars are an implementation specialization. The Template does not assert a universally deployed schedule optimizer.
+Evidence and Template basis [S38]: S38 studies strategic use of dynamic platform defenses and supplies migration interval d. The chosen platform at each step constructs a configuration-to-interval assignment. No independently chosen migration time is evidenced by this baseline. The Template does not assert a universally deployed schedule optimizer.
 IE/OR reference architecture: Proactive dynamic platform defense | Game-theoretic optimization of discrete platform strategies and switching policies.
 Candidate Regime: #operate + #sequence | Orders recurring protective reconfigurations within an active service.
-Candidate Structure: #map + #place | Assigns platform alternatives to service intervals and positions reconfiguration actions in time.
+Candidate Structure: #map | Assigns platform alternatives to the supplied ordered service intervals.
 Rating synthesis: Priority Medium because reconfiguration schedules are important in specialized defense cyber systems. Relevance High because better switching policies can reduce persistent exposure while limiting service cost. Industrial Hardness High because adversary adaptation and service continuity couple configuration transitions.
 Dependency candidates: upstream controls, segments; downstream none specified. Edges are conditional industrial information or commitment flow, not mathematical reduction.
 Useful refinements: ##moving-target-defense ##reconfiguration ##switching-policy.
@@ -519,7 +519,7 @@ Inspection and limits: Institutional abstract inspected. Source uses NP-complete
 [S09] Lu, Vaidya and Atluri. An optimization framework for role mining (2014).
 https://doi.org/10.3233/JCS-130484
 Evidence: Boolean-matrix decomposition and role-engineering optimization.
-Inspection and limits: Prior INTEL source register supplies the reference; a fresh publisher verification is required before case claims.
+Inspection and limits: Fresh publisher article record inspected during B return; role-mining optimization and Boolean-matrix context verified. Case fit and implementation reproduction remain later work.
 
 [S10] Noel, Swarup and Johnsgard. Optimizing network microsegmentation policy for cyber resilience. JDMS 20(1), 57–79 (2023; online 2021).
 https://doi.org/10.1177/15485129211051386
@@ -579,7 +579,7 @@ Inspection and limits: Publisher abstract documents historical Coast Guard deplo
 [S21] Fang et al. Optimal Patrol Strategy for Protecting Moving Targets with Multiple Mobile Resources. AAMAS (2013).
 https://www.andrew.cmu.edu/user/feif/Publications/2013_AAMAS_Ferry.pdf
 Evidence: Mobile-resource protection of moving assets with executable schedules.
-Inspection and limits: Inherited author-paper reference; independently verify full context before case selection.
+Inspection and limits: Fresh AAMAS primary paper inspected during B return. Discretized defender schedules and a continuous attacker strategy are distinguished; defense installation transfer remains an inference.
 
 [S22] von Stengel. Recursive Inspection Games. Mathematics of Operations Research 41(3), 935–952 (2016).
 https://doi.org/10.1287/moor.2015.0762
@@ -589,7 +589,7 @@ Inspection and limits: Publisher evidence checked; prevents blanket industrial h
 [S23] Efficient distributions of arms-control inspection effort. Naval Research Logistics 51(1), 1–27 (2004).
 https://doi.org/10.1002/nav.10096
 Evidence: Strategic verification and imperfect detection.
-Inspection and limits: Inherited reference supports verification context; continuous effort alone is excluded.
+Inspection and limits: Fresh publisher abstract inspected during B return. Supports arms-control verification context; continuous effort alone is excluded.
 
 [S24] Sato and Royset. Path optimization for the resource-constrained searcher. Naval Research Logistics 57(5), 422–440 (2010).
 https://doi.org/10.1002/nav.20411
@@ -654,7 +654,7 @@ Inspection and limits: Proceedings record checked; civilian screening evidence t
 [S36] Shah et al. Solving Online Threat Screening Games using Constrained Action Space Reinforcement Learning. AAAI (2020).
 https://doi.org/10.1609/aaai.v34i02.5599
 Evidence: Online discrete screening allocation alternative.
-Inspection and limits: Prior INTEL reference; no claim of deployment or universal superiority.
+Inspection and limits: Fresh AAAI proceedings abstract inspected during B return. Confirms online constrained-action allocation; no deployment or universal superiority claim.
 
 [S37] Atefi, Panda, Panaousis and Laszka. Principled Data-Driven Decision Support for Cyber-Forensic Investigations. AAAI 37(4), 5010–5017 (2023).
 https://ojs.aaai.org/index.php/AAAI/article/view/25628
@@ -664,7 +664,7 @@ Inspection and limits: Proceedings abstract inspected; comparison to DISCLOSE is
 [S38] Carter, Riordan and Okhravi. A Game Theoretic Approach to Strategy Determination for Dynamic Platform Defenses. ACM MTD (2014).
 https://doi.org/10.1145/2663474.2663478
 Evidence: Strategic optimization of dynamic platform-defense usage.
-Inspection and limits: Publisher and MIT author records checked; discrete calendar implementation is a specialization.
+Inspection and limits: Publisher and MIT author paper inspected. Migration duration is supplied; discrete platform selection over ordered steps supports map without independent time placement.
 
 [S39] Schlenker et al. Don’t Bury your Head in Warnings: A Game-Theoretic Approach for Intelligent Allocation of Cyber-security Alerts. IJCAI (2017).
 https://www.ijcai.org/proceedings/2017/54
@@ -674,9 +674,9 @@ Inspection and limits: Proceedings abstract inspected; adversary behavior and al
 [S40] Finding Needles in a Moving Haystack: Prioritizing Alerts with Adversarial Reinforcement Learning. AAAI (2020).
 https://doi.org/10.1609/aaai.v34i01.5442
 Evidence: Adaptive alert prioritization alternative.
-Inspection and limits: Prior INTEL source register; production deployment is not established.
+Inspection and limits: Fresh AAAI proceedings abstract inspected during B return. Confirms adaptive adversarial alert prioritization; production deployment is not established.
 
-[S41] Basilico, Gatti and Nittis. A Security Game Combining Patrolling and Alarm-Triggered Responses Under Spatial and Detection Uncertainties. AAAI (2016).
+[S41] Basilico, De Nittis and Gatti. A Security Game Combining Patrolling and Alarm-Triggered Responses Under Spatial and Detection Uncertainties. AAAI (2016).
 https://ojs.aaai.org/index.php/AAAI/article/view/10022
 Evidence: Contingent protective response under uncertain alarm location and detection.
 Inspection and limits: Proceedings record checked; multi-resource extension is a contract inference.
@@ -689,7 +689,7 @@ Inspection and limits: Official project and author institutional records checked
 [S43] Curry et al. DUELMIPs: Optimizing SDN Functionality and Security. CP (2022).
 https://doi.org/10.4230/LIPIcs.CP.2022.17
 Evidence: Security-response MIP and large-neighborhood search.
-Inspection and limits: Prior INTEL primary reference; generic routing is not transferred into DEF.
+Inspection and limits: Fresh Dagstuhl proceedings abstract inspected during B return. Confirms security-response MIP and large-neighborhood search evaluated on synthetic networks; its generic routing stage is not transferred into DEF.
 
 [S44] Davis et al. Maximizing the U.S. Army’s Future Contribution to Global Security Using the Capability Portfolio Analysis Tool (CPAT). Interfaces 46(1), 91–108 (2016).
 https://doi.org/10.1287/inte.2015.0824
