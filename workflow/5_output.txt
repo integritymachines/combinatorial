@@ -27,11 +27,12 @@ O may:
 - normalize dependency notation presentation;
 - normalize COMMENTS presentation;
 - normalize version and file-reference presentation;
+- enforce the supplied canonical Industry Domain mnemonic in filenames and Problem IDs;
 - enforce .txt output.
 
 O must not:
 - add, remove, merge, split, or reorder Problems;
-- change Problem IDs or numbering;
+- change Problem IDs, Industry Domain mnemonic, or numbering;
 - change Industry, Territory, Domain, Regime, Structure, Parameters, or Descriptors;
 - change DESCRIPTION, TEMPLATE, ratings, dependencies, TAGS content, COMMENTS claims, or other substantive text;
 - infer missing content;
