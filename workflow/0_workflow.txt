@@ -15,6 +15,7 @@ workflow/1_research.txt
 workflow/2_background.txt
 workflow/3_compile.txt
 workflow/4_foreground.txt
+workflow/5_output.txt
 
 Output
 Background: background/<NNN>_<D>_research.txt
@@ -24,11 +25,12 @@ Roles
 1. R Researcher: expand.
 2. B Background Controller: check research.
 3. C Compiler: contract.
-4. F Foreground Controller: check compilation.
+4. F Foreground Controller: control content.
+5. O Output: normalize representation.
 
 Workflow
-Problem layer R → B → C → F
-→  Case layer R → B → C → F
+Problem layer R → B → C → F → O
+→  Case layer R → B → C → F → O
 
 
 Problem layer
@@ -46,49 +48,61 @@ Output: controlled problem background v#.2.
 
 3. Compile problem set (C)
 Input: compile.txt with LEVEL=PROBLEM and DOMAIN=D.
-Compile the controlled background into the foreground format defined by 000_DOMAIN.txt.
-Derive the logical problem sequence from the controlled dependency graph. Minimize backward dependency flow subject to industrial logic and Regime. Assign permanent problem numbers only after ordering.
+Compile the controlled background into the foreground content defined by 000_DOMAIN.txt.
+Derive sequence and numbering under 000_DOMAIN.txt.
 Output: numbered problem set in foreground v#.1.
 
 4. Control problem foreground (F)
 Input: foreground.txt with LEVEL=PROBLEM and DOMAIN=D.
-Check faithful contraction, completeness, ordering, numbering, ontology, dependencies, STE, tags, and format against 000_DOMAIN.txt and the controlled background.
-Return representation defects to C. Return substantive evidence defects to R/B.
-Output: controlled numbered problem set in foreground v#.2.
+Check semantic fidelity, completeness, ontology, ownership, ratings, dependencies, sequence, numbering assignments, and claims against 000_DOMAIN.txt and the controlled background.
+Return content-compilation defects to C. Return substantive evidence defects to R/B.
+Output: content-controlled numbered problem set in foreground v#.2.
+
+5. Normalize problem output (O)
+Input: output.txt with LEVEL=PROBLEM and DOMAIN=D.
+Normalize the content-controlled foreground under workflow/5_output.txt.
+Do not change claims, IDs, numbering, classifications, dependencies, ratings, Templates, or tags.
+Output: presentation-controlled foreground v#.2.
 
 STOP -- Human inspection and explicit go-ahead required before case research.
 
 
 Case layer
 
-5. Research cases (R)
+6. Research cases (R)
 Input: research.txt with LEVEL=CASE and DOMAIN=D.
 Use the controlled foreground problem set as the fixed parent set.
 For each problem, research industrial cases, SOTA operational best practices, IE and OR Templates, candidate benchmark cases, baselines, implementations, data, results, and reproducibility.
 Output: case background v#.3.
 
-6. Control case background (B)
+7. Control case background (B)
 Input: background.txt with LEVEL=CASE and DOMAIN=D.
 Check case fidelity, Template evidence, SOTA claims, benchmark relevance, reproducibility, coverage, and competing near-equals.
 Return defects to R until controlled.
 Output: controlled case background v#.4.
 
-7. Compile case set (C)
+8. Compile case set (C)
 Input: compile.txt with LEVEL=CASE and DOMAIN=D.
-Select and describe smallest sufficient starter benchmark set for each problem. Compile it into the foreground format defined by 000_DOMAIN.txt.
+Select and describe smallest sufficient starter benchmark set for each problem. Compile it into the foreground content defined by 000_DOMAIN.txt.
 Assign case IDs according to 000_DOMAIN.txt.
 Output: problem and case set in foreground v#.3.
 
-8. Control case foreground (F)
+9. Control case foreground (F)
 Input: foreground.txt with LEVEL=CASE and DOMAIN=D.
-Check faithful contraction, problem-to-case fit, Template representation, baseline validity, benchmark usefulness, STE, numbering, references, and format.
-Return representation defects to C. Return substantive evidence defects to R/B.
-Output: controlled problem and case set in foreground v#.4.
+Check content fidelity, problem-to-case fit, Template representation, baseline validity, benchmark usefulness, numbering, and claims.
+Return content-compilation defects to C. Return substantive evidence defects to R/B.
+Output: content-controlled problem and case set in foreground v#.4.
+
+10. Normalize case output (O)
+Input: output.txt with LEVEL=CASE and DOMAIN=D.
+Normalize the content-controlled foreground under workflow/5_output.txt.
+Do not change claims, IDs, numbering, classifications, references, Templates, or tags.
+Output: presentation-controlled foreground v#.4.
 
 STOP -- Human inspection and explicit go-ahead required before stabilization.
 
 
-9. Stabilize
+11. Stabilize
 Input: controlled foreground (v#.4), controlled background (v#.4)
 Persist controlled foreground as v(#+1).0.
 Retain controlled research file in background as support for that stable foreground.
@@ -124,14 +138,17 @@ Version labels are workflow codes, not decimal numbers.
 
 Operation rules
 000_DOMAIN.txt is normative.
-Research expands; compilation contracts; control checks.
-R and B work on background file.
-C and F work on foreground file.
+Research expands; compilation contracts; F controls content; O normalizes representation.
+R and B work on background.
+C compiles foreground content.
+F controls foreground content and does not edit it.
+O may change representation only.
 Background is evidentiary and retained in full.
 Foreground is canonical, terse, and version controlled.
-Foreground evidence defects return to R/B.
-Foreground representation defects return to C.
-Do not descend from Problems to Cases before controlled problem foreground and human approval.
+Content defects return to C or R/B.
+Output-format defects return to O.
+O must stop rather than repair a content defect.
+Do not descend from Problems to Cases before presentation-controlled problem foreground and human approval.
 Research establishes dependencies; compilation derives sequence and numbering.
 
 Versioning
