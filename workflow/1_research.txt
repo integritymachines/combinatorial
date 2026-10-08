@@ -27,12 +27,11 @@ For structural checks, distinguish supplied structure, chosen construction, deli
 Record apparent ontology defects; do not modify the ontology.
 
 When D is an Industry Domain:
-- establish Industry, Primary Domain, Territory, and Macro Domain anchor;
-- apply the Primary Domain test before Territory;
-- test whether the default Industry × Primary Domain identity is sufficient;
-- apply the Territory split test when materially distinct same-Domain territories appear;
-- do not create a Territory split from Regime, Structure, horizon, department, specialization, or lifecycle terminology alone;
-- record split, merge, and unresolved Territory evidence explicitly.
+- treat the supplied code, mnemonic, Industry, Primary Domain, Territory, and Macro Domain anchor as fixed inputs;
+- apply that identity consistently to candidate Problems;
+- do not rename, recode, split, or merge the Industry Domain;
+- if material evidence contradicts the supplied identity or indicates a missing Territory split, record the defect for ontology-level review and continue only within the supplied scope where defensible;
+- do not create a Territory split from Regime, Structure, horizon, department, specialization, or lifecycle terminology alone.
 
 When a credible candidate is excluded because another Domain owns it, record it in background/000_PROBLEM_marketplace.txt.
 When D is the proposed owner of an OPEN marketplace candidate, assess it during normal candidate discovery and resolve it as CLAIMED, MERGED, REJECTED, or still OPEN.
