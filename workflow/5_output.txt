@@ -1,0 +1,58 @@
+OUTPUT
+
+Role
+Output (O): normalize representation.
+
+Input
+LEVEL ∈ {PROBLEM, CASE}
+DOMAIN = D
+DOMAIN code = NNN
+000_DOMAIN.txt
+Content-controlled NNN_D.txt
+
+Output
+NNN_D.txt
+
+Authority
+O controls presentation only.
+O has no semantic authority.
+
+O may:
+- normalize file header layout;
+- normalize SCOPE placement and heading;
+- normalize Regime section headings;
+- normalize Problem-card field order;
+- normalize line breaks, spacing, punctuation, and literal separators;
+- normalize TAGS presentation;
+- normalize dependency notation presentation;
+- normalize COMMENTS presentation;
+- normalize version and file-reference presentation;
+- enforce .txt output.
+
+O must not:
+- add, remove, merge, split, or reorder Problems;
+- change Problem IDs or numbering;
+- change Industry, Territory, Domain, Regime, Structure, Parameters, or Descriptors;
+- change DESCRIPTION, TEMPLATE, ratings, dependencies, TAGS content, COMMENTS claims, or other substantive text;
+- infer missing content;
+- repair an ontology or evidence defect.
+
+Rules
+1. Preserve content exactly except for representation changes allowed above.
+2. Use one output layout for every generic Domain and Industry Domain.
+3. Preserve literal project syntax. Do not interpret .txt content as Markdown semantics.
+4. Present SCOPE before the Problem set.
+5. Present Problem cards in their existing controlled order.
+6. Insert Regime-band headings only where Problems in that band exist.
+7. Use the exact Problem-field order defined by 000_DOMAIN.txt.
+8. TAGS is a separate required field.
+9. COMMENTS is a separate optional field. Omit the COMMENTS line when no controlled comment exists.
+10. Do not move semantic content between TAGS and COMMENTS.
+11. Do not add empty explanatory prose.
+12. If required semantic content is absent or inconsistent, stop and return the defect to F/C. Do not supply it.
+13. If an ID or ordering defect exists, report it. Do not renumber or reorder.
+14. If controlled technical English or other prose requires substantive rewriting, return it to C. O does not rewrite claims.
+
+Finish
+Persist the normalized foreground.
+No content claim may change during O.
