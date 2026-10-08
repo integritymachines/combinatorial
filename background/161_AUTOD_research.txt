@@ -1,0 +1,301 @@
+161_AUTOD_research.txt
+
+AUTOD — Automotive Development
+v0.1 | 8 October 2026 | Problem research
+
+IDENTITY AND INPUTS
+
+Industry Domain: 161 AUTOD. Industry: ##AUTOMOTIVE. Primary Domain: 102 #PROD. Territory: #DEVELOPMENT. Macro Domain anchor: #TRANS.
+Identity is fixed by the requested code and mnemonic, the automotive examples in 000_DOMAIN.txt v0.5, and the residual development/manufacturing split discussed in background/000_DOMAIN_research.txt v0.5.
+Inputs read: 000_DOMAIN.txt; background/000_DOMAIN_research.txt; background/000_PROBLEM_marketplace.txt; workflow/0_workflow.txt through workflow/5_output.txt; 102_PROD.txt; 160_AUTOM.txt.
+The generic PROD foreground is an older discovery seed, not the current schema. AUTOM contains lowercase Territory tags; they do not override the uppercase Territory tags in the normative ontology.
+This run researches Problems only. No canonical Cases, instance results, reproduced experiments, or stable release are claimed.
+
+TERRITORY AND OWNERSHIP
+
+AUTOD delivers a new or revised physical vehicle/component definition and the prototype/validation commitments needed to establish that definition before routine realization. Commercial requirements, operating profiles and available technologies are inputs. Product feasibility, physical interfaces, material/geometry compatibility and validation validity define the admitted decisions.
+AUTOM delivers installed manufacturing capability, production programs and the realization of released definitions. A factory capacity design is #design within #PRODUCTION; it is not AUTOD simply because it is called development. Conversely, a prototype validation calendar is #plan within #DEVELOPMENT; not every AUTOD Problem has Primary #design.
+Both territories retain #PROD after the Primary Domain test. Their artifacts differ (product definition and development validation versus manufacturing capability/output); their professional inventories differ (platform, physical design and validation engineering versus industrialization and factory control); neither territory is a horizon, department or solver variant. This supports the supplied residual split. AUTOM's existing SCOPE already excludes product-platform and family-architecture work. This run adds AUTOD without recoding, renaming or narrowing AUTOM.
+Coverage includes passenger cars, commercial vehicles and their supplied components; combustion, hybrid and electric architectures; body, chassis, powertrain, batteries, physical E/E integration and development testing. Specializations are variants unless they change the decision contract. Motorcycle and off-highway applications can share Templates, but no separate industry identity is asserted here.
+Physical E/E package and harness design remain #PROD where a manufacturable vehicle architecture defines feasibility. Software task scheduling, message scheduling, compute-resource placement and standalone observation coverage belong to #COMP. A sensor's physical installation can be a packaging variant; an observation-system design whose promise is sensing coverage must first pass the #COMP test.
+Vehicle propulsion architecture remains product development even when drive-cycle energy consumption is an objective. Installed utility operation is #ENER. Battery chemical formulation is #PROC. Catalog component definition is AUTOD; supplier and purchase quantities are #SCM. Physical test-specimen integrity and required product validation define AUTOD test scheduling; a generic staffing roster is #HR and an independent test-vehicle journey is #LOG.
+Physical variant definitions and commonality commitments are AUTOD. Saleable assortment, prices and commercial launch opportunities are #MKT. Rights, finance and approval routing are administration contracts. Continuous-only shape, sizing, calibration or CFD optimization has no independent ICO admission.
+
+RESEARCH METHOD AND EVIDENCE LIMITS
+
+Search date: 8 October 2026. Discovery covered platform/commonality, modularization, physical system topology, catalog choices, structural and material design, joining, component packaging, harness/duct routing, tolerances, prototype configuration, validation coverage, test scheduling, design changes and test recovery. Additional searches tested assembly/disassembly, battery architecture, E/E design, sensor placement, development-project planning and production launch boundaries.
+Primary publisher pages, author/institution repositories and official industrial product documentation were preferred. Several Elsevier and Taylor & Francis pages refused full-text retrieval; their indexed primary-publisher abstracts supplied only the claims identified below. A blocked full-text page is not evidence that the entire paper or industrial data were inspected. No licensed full-text or benchmark accessibility claim follows from abstract availability.
+Evidence labels: DIRECT = a primary source treats the relevant automotive decision; TRANSFER = a method from a closely corresponding product-engineering contract; INFERENCE = ontology ownership, candidate grouping, dependency or qualitative rating derived here. Published optimization is not automatically deployed industrial practice. No universal current SOTA winner is claimed. Method families are retained when assumptions differ.
+Ratings are comparative judgments under 000_DOMAIN.txt, not reported numerical survey estimates. Priority reflects recurrence within the supplied territory; Relevance reflects cost, performance, reliability and development commitments; Hardness reflects coupled decisions, nonlinear simulation, compatibility and scale. Formal complexity is omitted unless a matching restriction is evidenced. Solver use on a particular case does not establish full-contract complexity or universal industrial difficulty.
+
+SOURCE REGISTER
+
+S01 Fellini, Kokkolaras and Papalambros, Quantitative platform selection in optimal design of product families, with application to automotive engine design, Journal of Engineering Design 17(5), 2006, 429–446. DOI: 10.1080/09544820500287797.
+https://www.tandfonline.com/doi/abs/10.1080/09544820500287797
+Primary indexed abstract: commonality versus individual performance; automotive engine family. Publisher full text unavailable in this session.
+
+S02 Rushton, Zakarian and Grigoryan, Algorithms and Software for Development of Modular Vehicle Architectures, SAE 2002-01-0140.
+https://saemobilus.sae.org/papers/algorithms-software-development-modular-vehicle-architectures-2002-01-0140
+Primary abstract inspected: supplied functional interfaces; clustering functions into physical modules. Distinguishes supplied relations from chosen grouping.
+
+S03 Ing and McPhee, Automated topology optimisation of hybrid electric vehicle powertrains, International Journal of Electric and Hybrid Vehicles, 2015; author manuscript.
+https://dspacemainprd01.lib.uwaterloo.ca/server/api/core/bitstreams/626cd0e9-ac02-4478-a49b-d1f62f091bd1/content
+Author manuscript inspected: graph-based topology generation, feasibility screening and performance evaluation; component sizing/control are conditional evaluation steps.
+
+S04 Shinde et al., A Multi-Objective Power Component Optimal Sizing Model for Battery Electric Vehicles, SAE 2021-01-0724.
+https://saemobilus.sae.org/papers/a-multi-objective-power-component-optimal-sizing-model-battery-electric-vehicles-2021-01-0724
+Primary abstract inspected: choices from commercially available battery, motor and supercapacitor options; quasi-static simulation and genetic search. The design choice is distinct from sourcing the selected item.
+
+S05 Clemente, Salazar and Hofman, Concurrent design optimization of powertrain component modules in a family of electric vehicles, Applied Energy, 2024, 124840; author preprint 2023.
+https://doi.org/10.1016/j.apenergy.2024.124840
+https://arxiv.org/abs/2311.03167
+Author text inspected: integer module multiplicities with continuous sizing and operation in a nested framework; model-specific guarantees. The Tesla-family study is a benchmark design study, not evidence of Tesla deployment.
+
+S06 Ma, Discrete sizing, cross-sectional shape, topology optimization, and material selection of a framed automotive body, Proceedings of the Institution of Mechanical Engineers, Part D, 2022. DOI: 10.1177/09544070211062652.
+https://journals.sagepub.com/doi/10.1177/09544070211062652
+Primary abstract inspected: discrete topology, material, section and sizing variables; modified NSGA-III with structural evaluation. Supports separating topology and property assignment while retaining their integrated variant.
+
+S07 LeFrancois and Kim, Multi-Stage Packaging and Routing Optimization for Automotive Component Layout, Wire Harness and Duct Route Design, SAE 2026-01-0507, 7 April 2026.
+https://saemobilus.sae.org/papers/multi-stage-packaging-routing-optimization-automotive-component-layout-wire-harness-duct-route-design-2026-01-0507
+Primary abstract inspected: automotive dashboard; component packing then A* and geometric route refinement. Packaging and routing have separate delivered artifacts even when solved jointly.
+
+S08 Automatic cable harness layout routing in a customizable 3D environment, author manuscript, arXiv:2311.09061, initially 2023; current served text inspected.
+https://arxiv.org/abs/2311.09061
+Primary text: shared-path routing on a candidate graph; mixed-integer model, routing heuristics and Lagrangian bounds. Bend-radius and clip-position extensions are identified as further work; this does not establish an all-physics production-ready harness solver.
+
+S09 Koppaka, Yoo and Chavare, Optimizing Weld Placement in Automotive Structures Using Topology and Multi-Disciplinary Approaches, SAE 2026-01-0514, 7 April 2026.
+https://saemobilus.sae.org/papers/optimizing-weld-placement-automotive-structures-using-topology-multi-disciplinary-approaches-2026-01-0514
+Primary GM-authored abstract inspected: discrete potential weld sites, structural requirements and surrogate-assisted alternatives. Product joining pattern differs from robot actions that realize it.
+
+S10 Improved algorithm for tolerance allocation based on Monte Carlo simulation and discrete optimization, Computers & Industrial Engineering, 2008.
+https://www.sciencedirect.com/science/article/abs/pii/S0360835208001927
+Primary indexed abstract: discrete tolerance optimization and automotive/aircraft product-design relevance. Full text unavailable.
+
+S11 From tolerance allocation to tolerance-cost optimization: a comprehensive literature review, International Journal of Advanced Manufacturing Technology, 2020. DOI: 10.1007/s00170-020-05254-5.
+https://link.springer.com/article/10.1007/s00170-020-05254-5
+Review text inspected: mostly continuous tolerances; finite tolerance classes create a discrete problem; trial-and-error industrial practice differs from optimization research. Used to qualify S10, not as an unsupported SOTA claim.
+
+S12 Glos, Kundu and Salehi, Optimizing the Production of Test Vehicles using Hybrid Constrained Quantum Annealing, arXiv:2203.15421, 2022; later SN Computer Science publication, 2023.
+https://arxiv.org/abs/2203.15421
+https://doi.org/10.1007/s42979-023-02071-x
+Primary text inspected: BMW challenge configuration contract, Boolean rules, MILP/SAT-related alternatives and greedy coverage. Quantum hybrid results do not establish superiority over classical methods. Build configurations, not manufacturing starts, are the reported core decision.
+
+S13 Ludwig et al., A Schedule Optimization Tool for Destructive and Non-Destructive Vehicle Tests, AAAI 28(2), 2014, 2998–3003. DOI: 10.1609/aaai.v28i2.19030.
+https://ojs.aaai.org/index.php/AAAI/article/view/19030
+Primary abstract inspected: domain-specific scheduling framework; expensive prototypes and test windows; reported comparison with manual planning. No result has been reproduced here.
+
+S14 Scheduling of Tests on Vehicle Prototypes, TU Dortmund dissertation, institutional full-text repository.
+https://eldorado.tu-dortmund.de/server/api/core/bitstreams/c1c976cc-a799-4dff-9f4d-ea6047e59bb1/content
+Relevant primary text inspected: a MILP prototype/variant master and CP test-scheduling subproblem linked through feasibility cuts; physical preparation, incompatibility and degradation restrictions. Repository metadata and exact author/year require verification before later canonical Case citation.
+
+S15 Models and algorithms for configuring and testing prototype cars, Computers & Operations Research, 2024/2025. PII: S030505482400306X.
+https://www.sciencedirect.com/science/article/pii/S030505482400306X
+Primary indexed abstract: option compatibility, joint configuration/testing and NP-hard feasibility of the stated problem. Full text unavailable. Complexity is not transferred to every prototype-scheduling restriction.
+
+S16 Mobin et al., An approach for design Verification and Validation planning and optimization for new product reliability improvement, Reliability Engineering & System Safety 190, 2019, 106518.
+https://www.sciencedirect.com/science/article/abs/pii/S0951832018313231
+Primary indexed abstract: failure-mode coverage with set covering and sequencing; next-generation engine application. The abstract does not establish a passenger-car deployment; method transfer is explicit.
+
+S17 Minimum Critical Test Scenario Set Selection for Autonomous Vehicles Prior to First Deployment and Public Road Testing, Applied Sciences 15(13), 2025, 7031.
+https://www.mdpi.com/2076-3417/15/13/7031
+Primary indexed abstract: minimum critical scenario set for a specified ODD and vehicle capability. Vehicle validation is the relevant boundary; standalone software test optimization remains a separate #COMP candidate.
+
+S18 Stütz et al., Improvement of the Scheduling of Automotive Testing Processes Based on Production Scheduling Methods, SCAP 2022 proceedings, published 5 June 2023, 59–67.
+https://link.springer.com/chapter/10.1007/978-3-031-27933-1_6
+Primary open chapter inspected: MILP with simulated component/system test rigs and disruption/rush-order replanning. The demonstrated setting is a test-field simulation with physical-rig reference context, not a verified enterprise-wide live deployment.
+
+S19 Requirement-driven engineering change management in product design, Computers & Industrial Engineering 168, 2022. PII: S0360835222001231.
+https://www.sciencedirect.com/science/article/pii/S0360835222001231
+Primary indexed abstract: change-solution generation and path optimization. The example is a nursing bed, not automotive. Supports a transferable method family only.
+
+S20 Process and Product Change Management as a Predictor and Innovative Solution for Company Performance: A Case Study on the Optimization Process in the Automotive Industry, Applied System Innovation 6(5), 2023, 75.
+https://www.mdpi.com/2571-5577/6/5/75
+Primary indexed abstract: applied automotive-supplier research and need to manage design-change propagation. Does not establish a best mathematical solver for automotive redesign.
+
+S21 Siemens, Managing change during vehicle development, Capital, 10 March 2020.
+https://blogs.sw.siemens.com/ee-systems/2020/03/10/managing-change-during-vehicle-development/
+Official industrial account: cross-discipline change assessment, propagation and implementation tracking. Industrial need and practice evidence; no independent optimization performance comparison.
+
+S22 Vector, PREEvision — Design and Optimization of the Wiring Harness.
+https://www.vector.com/en/product/preevision/design-and-optimization-of-the-wiring-harness/
+Official industrial documentation: physical topology through harness production definition. Supports engineering workflow relevance; it does not establish internal solver architecture or global optimality.
+
+S23 Demoly et al., An assembly oriented design framework for product structure engineering and assembly sequence planning, Robotics and Computer-Integrated Manufacturing 27(1), 2011.
+https://strathprints.strath.ac.uk/42155/
+Institutional primary record: early product structuring with assembly knowledge; automotive exhaust-system example. Separates product restructuring from a released-design manufacturing route.
+
+CANDIDATE INVENTORY
+
+Candidate keys are research labels, not permanent Problem IDs. Admission, Regime, Structure, ratings and dependencies below are research conclusions to be checked; C derives the final sequence.
+
+FAMILY — Product-family platform and commonality selection
+Decision: determine which product definitions share platforms/modules and which retain distinct parts, under given family requirements and acceptable performance differences. Delivered artifact: commonality commitments and platform-to-variant assignments. Aliases: product-platform selection, family architecture, commonization, generalized commonality. Variants: scalable versus modular families, multi-brand families, shared powertrain modules, carry-over parts.
+DIRECT evidence: S01 and S05. IE: platform engineering and performance-loss/commonality analysis. OR: mixed-discrete family optimization; decomposition, multiobjective search and bounded enumeration with continuous inner optimization when the model supports it. S05's limited multiplicity enumeration is a near-equal specialized Template, not a universal optimum guarantee.
+Primary #design. Primary #map with Secondary #select: map variant requirements to shared or unique platform/module definitions and select retained definitions. The commonality matrix is chosen; drive cycles and requirements are supplied. No #link merely because an assignment is written as a graph.
+Distinct from MODULE, which partitions one product's functions; CONFIG, which chooses a particular bill of components; commercial assortment, which chooses offered opportunities. Family volume/cost inputs do not convert this into #MKT or #SCM. Incoming automotive platform/commonality marketplace candidate is within this scope.
+Ratings INFERENCE: Priority Critical; Relevance Critical; Hardness High. Commonality constrains many products and amortizes engineering/investment, but compatibility and performance tradeoffs need tailored models. No universal family-size or complexity claim.
+Feeds MODULE, ARCH and CONFIG. Iterative module commonality feedback can revise FAMILY. Dependency directions are engineering-flow inference grounded in the definitions and S05's nested architecture; not mathematical reductions.
+
+MODULE — Product modularization
+Decision: partition vehicle functions/components into physical modules given interaction requirements, allowed interfaces and integration limits. Artifact: component/function-to-module grouping. Aliases: modular architecture, DSM clustering, function integration. Variants: physical E/E zones, body modules, supplier-engineered assemblies. Functional software partitioning alone is not admitted.
+DIRECT S02; supporting integrated product-structure boundary S23. IE: function/interface analysis and design-structure matrices. OR: constrained clustering or partition optimization; local/evolutionary grouping. No supplied interface is claimed to be constructed. If interface architecture itself changes, ARCH is also present.
+Primary #design; Primary #map. Each supplied function/component gets a module role. Given interaction weights guide grouping; they do not earn #link. Industrial classification remains #PROD because the output defines physical modules of the vehicle.
+FAMILY defines allowed commonality; MODULE defines product granularity; ARCH connects modules; CONFIG fills module roles. Grouping manufacturing machines and parts into cells is AUTOM, not this contract. Product restructuring for assembly/disassembly is retained as an integrated MODULE/JOIN/TOL variant; no independent route-planning Problem is added on lifecycle terminology alone.
+Ratings INFERENCE: Priority High; Relevance High; Hardness High. Repeated in modular product programs; interface tradeoffs and permitted module boundaries make grouping difficult. Not every vehicle project performs fresh partition optimization.
+FAMILY → MODULE → ARCH, CONFIG. Physical architecture can reveal grouping changes; that iteration is not a second independently numbered modularization Problem.
+
+ARCH — Physical vehicle system architecture synthesis
+Decision: choose participating physical subsystems and their interconnections to realize required modes/functions. Artifact: physical system topology, not its operating trajectory. Aliases: powertrain topology synthesis, system configuration synthesis. Variants: combustion/hybrid/electric powertrains, thermal circuits, battery-module electrical architecture and physical E/E topology where product buildability defines the contract.
+DIRECT S03 for drivetrain topology; S22 supports physical E/E relevance. Extension to other physical systems is INFERENCE of the same component/interconnection contract; their specific laws require later Case evidence. IE: system synthesis, interface compatibility and physical feasibility screening. OR: graph-based topology enumeration/search with simulation or nested performance optimization. Retain admissibility screening alongside search; performance-only ranking of arbitrary graphs is insufficient.
+Primary #design; Primary #link with Secondary #select: construct physical connections and retain participating subsystem alternatives. Supplied requirements/ports define feasibility. Mechanical/energy conservation constrains the artifact; it is not another Structure. Continuous sizes and simulated control are evaluation or coupled refinement, not separate ICO decisions by themselves.
+Distinct from LOADPATH (load-bearing structural skeleton), JOIN (panel attachment sites), ROUTE (spatial realization of supplied endpoint connections) and installed software/communication operation. Battery multiplicity with unchanged topology belongs CONFIG/FAMILY; spatial battery packing belongs PACK.
+Ratings INFERENCE: Priority High; Relevance Critical; Hardness High. Architecture can lock performance, cost and feasible physical layouts; dynamic evaluation and invalid topology elimination require specialized search.
+FAMILY, MODULE → ARCH → CONFIG, PACK, ROUTE, VALIDATE. Product-change selection may reopen ARCH. Bidirectional ARCH/CONFIG refinement is recognized; the forward definitional order is used unless the case supplies a fixed topology.
+
+CONFIG — Catalog component and module configuration
+Decision: assign compatible finite component alternatives and integer module counts to required roles in a specified physical architecture. Artifact: discrete component definition/BOM. Aliases: component selection, catalog sizing, option configuration. Variants: motors, storage modules, suspension components, gears and compatible mechanical options. Evidence is strongest for electrified powertrain components; extensions are contract-level inference, not separate claimed deployments.
+DIRECT S04; S05 supplies integer multiplicities. IE: component matching and catalog-based performance/cost tradeoff analysis. OR: simulation-assisted discrete search; mixed-integer formulation when component/performance models permit it. Genetic search has direct automotive evidence; exhaustive/convex-inner comparison is a material near-equal for small module-count sets.
+Primary #design; Primary #map. Assign chosen catalog definitions and multiplicities to fixed functional roles. This core contract requires no additional #select: identifying the alternatives assigned to roles already captures configuration. Optional component admission that changes the architecture belongs ARCH or a coupled variant.
+Distinct from FAMILY's across-model commonality and ARCH's connectivity. A valid supplier-backed component can be an input; choosing suppliers/quantities is #SCM. Dealer option matching and advertised assortment are #MKT. Continuous-only component dimensions are excluded from independent ICO admission.
+Ratings INFERENCE: Priority Critical; Relevance High; Hardness High. Recurs wherever finite components define a new vehicle; coupled performance and compatibility evaluation require tailored search. Linear catalog assignment without coupled physics is easier and must not inherit this Hardness by name alone.
+FAMILY, MODULE, ARCH → CONFIG → PACK, TOL, PROTOTYPE, VALIDATE. CONFIG and ARCH iterate in integrated product design.
+
+LOADPATH — Discrete structural topology design
+Decision: retain load-bearing candidate members and choose their structural connections under a prescribed envelope and load cases. Artifact: connected structural skeleton. Aliases: frame topology, ground-structure design, member topology. Variants: body/chassis frames, battery enclosure supporting structures, crash load paths where candidate structural alternatives are discrete.
+DIRECT S06. IE: structural concept engineering with finite-element feasibility evaluation. OR: discrete topology search with structural analysis; multiobjective evolutionary optimization. This is not a claim that every density-based topology method is combinatorial or that a finite-element mesh alone constitutes ICO.
+Primary #design; Primary #link with Secondary #select: build load-bearing relations and retain members. Supplied load cases, mesh and material laws are not chosen Structures. Member connections define the structural skeleton rather than mere graph encoding.
+Different from MATERIAL's properties on fixed members and JOIN's attachment pattern on specified mating components. Integrated structural topology/property optimization retains both constituent decisions. Continuous shape optimization and numerical mesh refinement alone are excluded.
+Ratings INFERENCE: Priority High; Relevance High; Hardness High. Relevant in structural concept work; coupled stress, stiffness, modal and manufacturing evaluations constrain many topology alternatives.
+FAMILY → LOADPATH → MATERIAL, PACK, JOIN, VALIDATE. MATERIAL feedback can invalidate member choices; that cycle is retained as an integrated-design relation.
+
+MATERIAL — Discrete material and section assignment
+Decision: assign material grades and finite section/gauge alternatives to specified vehicle structural parts under mass, cost, structural and manufacturing requirements. Artifact: part property schedule; topology can remain fixed. Aliases: multi-material selection, discrete gauge optimization, catalog section sizing. Variants: steel/aluminum/composite alternatives, panel gauges and section catalog choices.
+DIRECT S06. IE: material/section tradeoff engineering with structural response evaluation. OR: mixed-discrete multiobjective search, including simulation-assisted evolutionary optimization. Continuous gauges may be inner variables only; their presence does not remove the discrete material/catalog commitment.
+Primary #design; Primary #map: assign each part an admissible property class. No #link for a supplied structural mesh. Optional part presence belongs LOADPATH or an integrated variant. Procurement volume and supplier selection remain #SCM; bulk alloy/blend chemistry remains #PROC.
+Distinct from CONFIG's functional subsystem options: MATERIAL fixes structural property definitions for already specified parts. The two are integrated only when a case contains both catalogs. This distinction reflects structural/material engineering versus component-system configuration, not separate material types.
+Ratings INFERENCE: Priority High; Relevance High; Hardness High. Recurs in lightweight structure programs; nonlinear load cases and manufacture-compatible alternatives constrain choices. No independent formal complexity classification is asserted.
+LOADPATH → MATERIAL → JOIN, TOL, VALIDATE. Structural/material feedback is possible and not suppressed by final numbering.
+
+PACK — Physical component packaging
+Decision: position and orient specified vehicle components in a permitted physical envelope under nonoverlap, access, mounting and interaction limits. Artifact: component layout. Aliases: vehicle packaging, underhood layout, dashboard layout, component packing. Variants: powertrain, batteries, physical electronic devices, occupants/controls when finite location choices define the design contract.
+DIRECT S07; automotive author dissertation evidence can support future extended layouts but is not needed for initial admission. IE: package engineering and geometric clearance/accessibility analysis. OR: constrained geometric layout search with simulation or surrogate evaluation. Published staged packaging/routing is retained as an integrated alternative rather than made a third Problem.
+Primary #design; Primary #place. Positions/orientations are chosen; component specifications, keep-out geometry and required interfaces are supplied. A component has a position in structured physical space even if coordinates are continuous; the placement/packing contract includes combinatorial spatial relationships. No claim that arbitrary smooth coordinate optimization is always ICO.
+Distinct from ROUTE, which realizes required connections after endpoint locations are supplied. Sensor geometry can be a packaging restriction; dedicated sensing coverage optimization is assessed under #COMP. Stock nesting and production-fixture layout remain AUTOM because they commit manufacturing resources.
+Ratings INFERENCE: Priority Critical; Relevance High; Hardness High. Physical fit and access constrain vehicle integration; geometry, orientation and routing coupling make industrial search discontinuous.
+ARCH, CONFIG, LOADPATH → PACK → ROUTE, JOIN, TOL, VALIDATE. PACK and ROUTE can iterate; a staged contract uses this forward order.
+
+ROUTE — Harness and duct route design
+Decision: choose physical connection paths through a supplied vehicle routing environment for specified endpoint demands, with permissible sharing and exclusion limits. Artifact: routed harness/duct paths. Aliases: cable-harness routing, wire route design, duct layout. Variants: electrical harnesses, fluid pipes and air ducts, subject to appropriate physical rules.
+DIRECT S07 and S08. IE: physical route/bundle engineering with keep-out and connection checks. OR: shared-path graph optimization, routing heuristics and mixed-integer network models; A* and geometric refinement for staged route design. The model choice depends on sharing and physical rules. No universal steering rule or all-physics routing SOTA is asserted.
+Primary #design; Primary #link. Chosen route segments build connection paths on a supplied graph. Continuous centerline refinement can add #place in a coupled geometric variant; it is not required by the core finite routing contract. The supplied graph does not itself earn #link; the chosen paths do.
+Distinct from ARCH's choice of which subsystems connect and PACK's endpoint placement. #LOG movement routing transports entities; this product route defines persistent physical paths. #COMP message routes use installed resources. S08 does not fully optimize bend radii and clip positions; manufacturability validation remains an engineering requirement, not an already solved claim.
+Ratings INFERENCE: Priority High; Relevance High; Hardness High. Harness/duct complexity and shared paths recur; coupled route selection and geometric restrictions need tailored search. Independent single-path restrictions may be standard shortest paths; they do not support Low Hardness for the complete industrial contract.
+ARCH, PACK → ROUTE → VALIDATE. Routing feedback may revise PACK. No new physical #ENER utility-network identity is introduced.
+
+JOIN — Product joining pattern design
+Decision: choose attachment locations/relations between specified mating components under structural performance and join-spacing limits. Artifact: weld/fastener/bond pattern in the product definition. Aliases: spot-weld selection, attachment topology, weld-pattern optimization. Direct evidence is strongest for discrete weld sites; other joint mechanisms are variants requiring their own physical evaluation.
+DIRECT S09. IE: joining engineering and multidisciplinary structural evaluation. OR: discrete joining-topology optimization or surrogate-assisted multidiscipline search. Industrial manual review and numerical design evaluation are distinct from mathematical optimality claims.
+Primary #design; Primary #link. Each retained attachment establishes a physical relation between components. Choosing a subset of joint sites is the representation of this linking contract and does not require redundant #select. Joint coordinates need #place only when continuously repositioned, not merely because fixed candidate sites have coordinates.
+Distinct from LOADPATH's structural member network and MATERIAL's grade/gauge assignments. Robot weld sequence and manufacturing station capacity remain AUTOM. Product join feasibility is an interface input to process engineering; it does not absorb assembly line design.
+Ratings INFERENCE: Priority High; Relevance High; Hardness High. Automotive joining patterns recur; structural load cases and permitted attachment patterns require tailored evaluation.
+LOADPATH, MATERIAL, PACK → JOIN → TOL, VALIDATE. New tolerance requirements may require join-layout revision; joint optimization is recognized.
+
+TOL — Discrete tolerance assignment
+Decision: assign allowed tolerance classes to specified product dimensions/features under assembly-function and achievable-capability requirements. Artifact: tolerance values/classes on the released design. Aliases: tolerance allocation, tolerance-cost optimization, statistical tolerancing. Variants: body gaps/flushness, drivetrain stacks and component families.
+DIRECT S10; qualification S11. IE: tolerance-stack and statistical variation analysis, including Monte Carlo; capability/cost-based design. OR: discrete tolerance-cost optimization with variation simulation or surrogate evaluation; evolutionary search when responses are nonlinear. Conventional engineering trial-and-error remains an industrial baseline; a research algorithm is not assumed universal deployed practice.
+Primary #design; Primary #map. Assign finite classes to dimensions. The word allocation does not make the Regime #allocate: the choice defines the product rather than distributes installed scarce capacity. Continuous-only tolerance optimization is excluded from this card.
+Different from AUTOM's selective component matching, which pairs manufactured instances with measured deviations. Process alternatives that set manufacturing capability belong AUTOM when the artifact is a manufacturing route; joint product/process models preserve that interface.
+Ratings INFERENCE: Priority High; Relevance High; Hardness High. Tolerance commitments affect quality and manufacturing cost; nonlinear stacks and variation evaluation constrain choices. Easier separable/smooth restrictions do not negate industrial coupling.
+CONFIG, MATERIAL, PACK, JOIN → TOL → VALIDATE. Dimensional feedback can require JOIN or CONFIG revision.
+
+PROTOTYPE — Prototype fleet configuration
+Decision: choose how many validation vehicles/specimens to create and configure their finite options so the selected validation demands have compatible buildable specimens. Artifact: prototype fleet definitions, not test start times. Aliases: test-vehicle configuration, pre-production vehicle configuration, prototype variant selection. Variants: coverage of option interactions, minimum fleet size, feasible reuse across tests and jointly scheduled prototypes.
+DIRECT S12; joint planning S14/S15. IE: prototype-buildability and test-coverage planning. OR: SAT/Max-SAT or MILP-compatible configuration and coverage optimization; greedy coverage baseline; decomposition for integrated scheduling. The quantum formulation is an alternative encoding/method, not a new Problem or established superior Template.
+Primary #design; Primary #select with Secondary #map. Select participating prototype slots and map allowed feature choices to them. It creates purpose-built development assets before their named tests are scheduled, rather than allocating an existing fleet to tests. TESTCAL performs that downstream assignment.
+Given test requirements do not imply that the validation tests are selected here; VALIDATE supplies the chosen program where it is an optimized decision. Build quantities and vehicle definitions constrain calendar feasibility. Prototype fabrication start times are not independently admitted from S12's misleading production title.
+Ratings INFERENCE: Priority High; Relevance High; Hardness Medium. Compatibility has many rules, but SAT/MILP and greedy coverage have directly demonstrated practical instances. Tight calendar, degradation and simultaneous configuration may raise Hardness in the integrated variant; formal SAT hardness alone is insufficient for Critical.
+CONFIG, VALIDATE → PROTOTYPE → TESTCAL. Calendar feasibility can force more prototypes or changed variants, giving PROTOTYPE ↔ TESTCAL. This cross-band VALIDATE → PROTOTYPE flow must remain visible after numbering.
+
+VALIDATE — Validation test portfolio selection
+Decision: select optional validation activities/scenarios to cover specified product requirements, failure modes and critical conditions within a fixed development budget, retaining all mandatory checks. Artifact: chosen validation program. Aliases: DVP selection, test suite selection, failure-mode coverage, minimum critical scenario set. Variants: component reliability, vehicle validation, discrete scenario catalogs and risk-weighted coverage.
+TRANSFER S16 for failure-mode covering; DIRECT S17 for vehicle scenario selection. IE: verification/validation and failure-mode/risk coverage planning. OR: weighted set covering or budgeted coverage selection with mandatory-test restrictions. Sample-selection criteria may be information-based rather than set coverage; no one objective is made universal.
+Primary #plan; Primary #select. Chooses future validation actions for the specified evolving product, without designing the laboratory or allocating named specimen instances. A finite scenario catalog is combinatorial; continuous-only adversarial scenario generation is outside this card.
+Separate from PROTOTYPE's coverage by configured vehicles. The selected actions remain product-validating tests; generic software regression coverage is #COMP, and a sensing-only schedule is separately assessed there. Mandatory compliance tests are constraints, not deletable optimization opportunities. No regulatory text has been interpreted or simplified.
+Ratings INFERENCE: Priority High; Relevance High; Hardness Medium. Repeated decisions ration expensive validation, but finite-cover models are tractable at useful sizes with ordinary solver engineering. Claims of proven product safety cannot follow from optimized coverage alone.
+ARCH, CONFIG, LOADPATH, MATERIAL, PACK, ROUTE, JOIN, TOL → VALIDATE → PROTOTYPE, TESTCAL. Test results may trigger CHANGE; TESTCAL deadlines can constrain the selected portfolio in an integrated case.
+
+TESTCAL — Prototype and test-rig scheduling
+Decision: assign required development tests to compatible specimens/rigs and calendar positions subject to preparation, destructive/degradation state, precedence and resource windows. Artifact: executable validation calendar. Aliases: prototype vehicle test scheduling, crash-test scheduling, test-bench scheduling. Variants: rig-only, whole-vehicle and joint fleet/calendar optimization.
+DIRECT S13; method architecture S14; rig context S18; joint feasibility S15. IE: finite-capacity validation scheduling with specimen-state/reuse analysis. OR: CP or MILP with domain-specific heuristics; MILP/CP decomposition when configuration and prototype count are coupled. No solver family universally dominates different destruction and timing assumptions.
+Primary #plan; Primary #place with Secondary #map. Places tests in calendar time and assigns specimens/eligible rigs. Supplied precedence, damage-transition rules and rig calendars constrain the chosen calendar; they do not create #link by themselves. Routine chronological ordering inside a future plan does not earn Secondary #sequence.
+Distinct from production end-of-line tests on released vehicles (AUTOM), generic engineer assignment (#HR) and standalone test-vehicle transport (#LOG). Destruction may prohibit later reuse, or permit directional partial reuse; do not assume every destructive test terminates all later tests in every variant. Prototype count can be optimized jointly but the configuration artifact still belongs PROTOTYPE.
+Ratings INFERENCE: Priority Critical; Relevance High; Hardness High. Development programs recur, and scarce prototypes, state evolution and calendars need custom model/search. S15 establishes NP-hardness for its joint problem, not every fixed-fleet schedule; omit formal-class text in the generic card.
+PROTOTYPE, VALIDATE → TESTCAL → TESTREPAIR. Test outcomes can trigger CHANGE. PROTOTYPE/TESTCAL feasibility feedback is explicit. TESTREPAIR returns a revised calendar, not a new planned test type.
+
+CHANGE — Product design change selection
+Decision: choose a compatible set of physical design revisions that resolves changed requirements or validation failures while controlling cost and propagation through the current product definition. Artifact: revised product definition/change package. Aliases: engineering redesign selection, change-option selection. Variants: interface substitutions, carry-over redesign, coupled component changes and selected propagation routes.
+DIRECT industrial need/practice S20/S21; TRANSFER optimization S19. IE: engineering-change impact analysis and design-structure/interface checking. OR: dependency-aware change-option search; path/ant-colony optimization for generated change alternatives. This Template is a transferable published method family, not evidence of a dominant deployed automotive redesign solver. Universal automotive SOTA and quantified improvement remain unestablished.
+Primary #adapt; Primary #select. Select candidate edits that form a compatible revised physical definition. Supplied propagation relations do not add #link. Explicitly choosing new physical connections invokes ARCH/JOIN; choosing a propagation path is a variant, not mandatory Structure of every change-selection contract.
+Different from commercial approval routing and document sign-off (#HR or administration), and from repairing a manufacturing calendar (AUTOM). A mere predicted change-impact score without chosen alternatives is not ICO. Prototype/calendar replacement that does not alter the product definition belongs TESTREPAIR.
+Ratings INFERENCE: Priority High; Relevance High; Hardness High. Physical design changes recur and can propagate across systems; uncertain impacts and compatibility make tailored search and engineering review necessary. No direct automotive solver performance number is asserted.
+Current FAMILY, MODULE, ARCH, CONFIG, LOADPATH, MATERIAL, PACK, ROUTE, JOIN, TOL definitions and VALIDATE/TESTCAL outcomes → CHANGE → ARCH, CONFIG, LOADPATH, MATERIAL, PACK, ROUTE, JOIN, TOL, VALIDATE, PROTOTYPE. These are revision loops; not initial-definition ordering constraints. Under Cases, prioritize direct automotive alternatives over a generic transfer if available.
+
+TESTREPAIR — Validation schedule repair
+Decision: revise a committed development-test calendar after material rig unavailability, specimen loss, delay or changed validation demands. Artifact: revised assignments and test dates. Aliases: reactive test scheduling, test-program recovery. Variants: rush tests, failed specimens, newly required tests and frozen work.
+DIRECT S18 for disturbance and rush-order replanning. IE: predictive/reactive validation scheduling and test-field state simulation. OR: repeated test-scheduling MILP or CP with completed/frozen work and updated availability; deviation penalties are an extension when stability is required, not a measured feature of S18. Initial calendar and current state must both be inputs to distinguish repair from unconstrained replanning.
+Primary #adapt; Primary #place with Secondary #map. Repositions committed tests and reassigns feasible surviving specimens/rigs. No #select for dropping mandatory tests; dropping optional tests requires an explicit coupled VALIDATE decision. Future tests can be reordered without making Secondary #sequence valid under #adapt.
+Separate from initial TESTCAL and physical product redesign CHANGE. Simple live priority choice without revision of a calendar is a dispatch candidate; this research does not force a standalone dispatch card without adequately supported distinct practice. Manufacturing test repair remains AUTOM if it validates routine output rather than a new design.
+Ratings INFERENCE: Priority High; Relevance High; Hardness High. Changing state and dependency propagation make a custom reaction important. S18 is a limited simulated rig-field demonstration, so enterprise-scale SOTA claims are not supported.
+TESTCAL, CHANGE → TESTREPAIR → TESTCAL, PROTOTYPE. Revised specimen needs feed prototype decisions only when replacement/configuration really changes; this is recovery feedback, not generic mathematical reduction.
+
+DEPENDENCY GRAPH AND CYCLES
+
+Core initial-definition edges:
+FAMILY → MODULE, ARCH, CONFIG, LOADPATH.
+MODULE → ARCH, CONFIG.
+ARCH → CONFIG, PACK, ROUTE, VALIDATE.
+CONFIG → PACK, TOL, PROTOTYPE, VALIDATE.
+LOADPATH → MATERIAL, PACK, JOIN, VALIDATE.
+MATERIAL → JOIN, TOL, VALIDATE.
+PACK → ROUTE, JOIN, TOL, VALIDATE.
+ROUTE → VALIDATE.
+JOIN → TOL, VALIDATE.
+TOL → VALIDATE.
+VALIDATE → PROTOTYPE, TESTCAL.
+PROTOTYPE → TESTCAL.
+TESTCAL → TESTREPAIR.
+
+Meaningful feedback/revision edges:
+TESTCAL → PROTOTYPE (schedule infeasibility revises fleet definition).
+FAMILY, MODULE, ARCH, CONFIG, LOADPATH, MATERIAL, PACK, ROUTE, JOIN, TOL, VALIDATE, TESTCAL → CHANGE (existing commitments and observed shortcomings constrain permitted edits).
+CHANGE → ARCH, CONFIG, LOADPATH, MATERIAL, PACK, ROUTE, JOIN, TOL, VALIDATE, PROTOTYPE, TESTREPAIR (only where the selected change affects that contract).
+TESTREPAIR → TESTCAL, PROTOTYPE (revised calendar and changed replacement-specimen need).
+
+Additional integrated-design cycles FAMILY ↔ MODULE; ARCH ↔ CONFIG; LOADPATH ↔ MATERIAL; PACK ↔ ROUTE; JOIN ↔ TOL are recognized. Do not compile every possible feedback into every card: the explicit edges above give a conservative recurring graph. Which continuous refinement feeds which decision varies with the industrial starting point. No external-domain Problem IDs are invented. Interface transfers are recorded separately in the marketplace.
+Dependencies are INFERENCE from contract inputs/outputs, corroborated by S05's family/design decomposition, S07's package-then-route process, S14's master/subproblem iteration, and S18's reactive test calendar. These sources do not publish this ontology's complete graph. Revision cycles cannot be eliminated by numbering without losing their meaning.
+C must sequence by the current Regime bands first. Within #design, commonality and physical definition precede specimens. Within #plan, portfolio precedes calendar. Within #adapt, product-definition changes can trigger test-calendar repair. VALIDATE → PROTOTYPE and TESTCAL → PROTOTYPE are legitimate backward cross-band flows. Do not silently relabel PROTOTYPE as #plan to make them forward.
+
+IDENTITY, MERGE AND EXCLUSION REGISTER
+
+ADMIT FAMILY, MODULE, ARCH, CONFIG, LOADPATH, MATERIAL, PACK, ROUTE, JOIN, TOL, PROTOTYPE, VALIDATE, TESTCAL, CHANGE, TESTREPAIR subject to B control.
+MERGE shared battery/motor module multiplicity into FAMILY/CONFIG; battery pack interconnection into ARCH and spatial packing into PACK. Electric propulsion alone does not create a different Problem inventory.
+MERGE crash, durability, emissions, thermal, NVH and rig test calendars into TESTCAL where state/eligibility/calendar commitments define the same contract. Their test physics belong later Cases. Test fleet choices remain PROTOTYPE when buildability/coverage, not dates, defines the artifact.
+MERGE weld-site reduction and discrete fastener/attachment patterns into JOIN, retaining different physical laws in variants. Process-time objectives do not move the product joint definition to AUTOM.
+MERGE within-product zoning/function allocation into MODULE when the chosen artifact is physical module grouping. Network bandwidth and software execution allocation are not the same grouping contract.
+MERGE assembly/disassembly-driven product restructuring into MODULE/JOIN/TOL as appropriate. A released-product assembly process or robotic action route belongs AUTOM. S23 establishes an integrated product/process boundary; no independent AUTOD route inventory is admitted merely because planning starts early.
+EXCLUDE continuous-only aerodynamic shape, ride tuning, control gains, battery chemical design and smooth sizing from independent ICO admission. Mixed-discrete forms are covered by the matching physical definition card, subject to adequate evidence.
+EXCLUDE generic R&D project/engineer staffing or task scheduling to #HR when coordinated human work defines the contract. Validation schedules remain AUTOD only when specimen/test validity materially defines feasibility.
+EXCLUDE standalone software regression selection, software task/message deployment and compute scheduling to #COMP. Software-defined vehicle terminology alone does not move a physical package/harness into #COMP or software resource operation into #PROD.
+EXCLUDE commercial assortment/launch selection to #MKT; supplier and purchasing quantities to #SCM; independent prototype/test-vehicle journeys to #LOG; manufacturing capability, industrialization routes and series-production launch plans to AUTOM.
+RETAIN dispatch/release of ready development tests as a possible future extension. S18 shows dynamic scheduling but does not yet establish a separately evidenced short-cycle test-activation Template distinct from calendar repair. No #dispatch card is forced.
+RETAIN laboratory capacity design as an unresolved ownership/identity extension: product-validation equipment capability, standalone instrumentation/sensing, and organizational capacity need contract-level separation. No new Industry Domain or normative classification is invented.
+RETAIN minimum sensing-suite design as a #COMP-versus-product-package boundary. Pure observation coverage belongs #COMP; manufacturable package restrictions can be PACK variants. A material distinct mixed contract needs further evidence before admission.
+Inbound marketplace record Automotive product-platform and module-commonality selection: CLAIMED by FAMILY. Preserve original origin and evidence. Use canonical 161 AUTOD / #PROD / ##AUTOMOTIVE / #DEVELOPMENT identity in the marketplace; no new code is assigned.
+Outbound materially credible candidates excluded to another owner must be retained in background/000_PROBLEM_marketplace.txt with OPEN status. Receiving Domains decide admission/merger; this run does not reclassify their foregrounds.
+
+COVERAGE AND REMAINING UNCERTAINTY
+
+The searches produced repeated aliases and specializations for physical architecture, component/material choices, package/route design and validation. Additional battery and assembly queries mapped to existing contracts or manufacturing boundaries. Additional sensor and software queries principally exposed #COMP boundaries. Additional dynamic testing evidence supported TESTREPAIR, not a separate proven dispatch family. This supports a broad initial problem set; it is not proof of exhaustive absence of missing problems.
+Important evidence limits are CHANGE's transferred OR method, scenario-selection ownership when software rather than physical product validity dominates, direct discrete tolerance evidence versus predominantly continuous practice, and prototype state assumptions across scheduling studies. These qualifications must survive contraction where they affect interpretation.
+The current literature supports defensible Template families for the admitted set. Cases must separately establish actual data availability, licenses, industrial scale, baselines and reproducible results. Public abstracts and challenge mentions are discovery evidence, not canonical Cases.
+Research retains initial-definition and revision cycles. The compiler must not use topological-sort convenience to erase them, or infer Structure from the solver encoding. No permanent Problem numbers were assigned during research.
