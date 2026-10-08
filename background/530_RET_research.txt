@@ -10,7 +10,7 @@ Evidence was retrieved on 8–9 October 2026 UTC. The document date uses Europe/
 
 RESEARCH BASIS AND EVIDENCE LIMITS
 
-Evidence labels S01–S30 identify primary papers, author/institution repositories, or official product documentation. Discovery reviews are used to find literature, not to substantiate a technical result without a primary source.
+Evidence labels S01–S35 identify primary papers, author/institution repositories, or official product documentation. Discovery reviews are used to find literature, not to substantiate a technical result without a primary source.
 EVIDENCE means the retrieved source directly supports the stated decision or architecture.
 INFERENCE means the researcher applies the normative ontology, judges economic scope or hardness, or infers a conditional industrial handoff. Sources do not claim to implement this ontology.
 Ratings are qualitative judgments about the industrial contract. Published complexity and industrial difficulty are separate. A special case that admits sorting, matching, or an LP does not imply that a broader coupled contract has the same complexity.
@@ -151,7 +151,7 @@ S22 Agrawal, Avadhanula, Goyal, and Zeevi, MNL-Bandit: A Dynamic Learning Approa
 https://arxiv.org/abs/1706.03880
 EVIDENCE: choose an offer subset each round, observe choice, and learn while maximizing cumulative revenue. Supports live assortment activation. Bandit learning is one Template, not the industrial Problem identity.
 
-S23 Sinha and related coauthors, Optimizing Revenue while showing Relevant Assortments at Scale, EJOR, 2022; author manuscript 2020.
+S23 Tulabandhula, Sinha, and Karra, Optimizing Revenue while showing Relevant Assortments at Scale, EJOR, 2022; author manuscript 2020.
 https://arxiv.org/abs/2003.04736
 EVIDENCE: fast approximate assortment search over large candidate sets and cardinality-constrained MNL assortments. Supports the latency/scalability distinction between a live offer and a merchandise master range. Reported data experiments are not reproduced.
 
@@ -240,7 +240,7 @@ Evidence/Template: S01 proves current operational rule-based practice. S02 suppo
 INFERENCE — regime: primary #plan because it commits a future offered range. Secondary #adapt is warranted for material changes to a published range after withdrawal or changed demand. Routine repeated model runs do not automatically create an independent recovery Problem.
 INFERENCE — structure: primary #select. A separate #map tag is unnecessary when the card is the subset selected for each already specified commercial context; context dimensions do not themselves change the construction.
 INFERENCE — ratings: Critical priority/relevance, High hardness. This is a defining merchandising contract. Rich heterogeneous choice and thousands of alternatives need formulation or specialized search; simple MNL restrictions can be tractable.
-Dependencies: CATEGORY → ASSORTMENT; ASSORTMENT → PRICE, SHELF, PROMOTION, MARKDOWN, FLYER, COUPON, END CAP, BOX, LIVESET. In integrated shelf models S04, a footprint and facing constraint feeds back into range choice. Represent the coupled solve through Template evidence, not reciprocal cycle boilerplate in every card.
+Dependencies: CATEGORY → ASSORTMENT; ASSORTMENT → PRICE, SHELF, PROMOTION, MARKDOWN, FLYER, COUPON, ENDCAP, BOX, LIVESET. In integrated shelf models S04, a footprint and facing constraint feeds back into range choice. Represent the coupled solve through Template evidence, not reciprocal cycle boilerplate in every card.
 Useful descriptors: assortment, substitution, localization, omnichannel. No blanket NP-hardness claim is needed.
 
 PRICE — Regular Price Assignment
@@ -259,7 +259,7 @@ SHELF — Item Planogram and Facing Optimization
 Decision: position merchandise facings and display blocks on the configured customer-facing shelves under dimensions, integer facings, capacity, contiguity, adjacency and merchandising rules.
 Aliases: micro-space allocation; planogram optimization; product-to-shelf allocation; facing optimization; shelf-space allocation.
 Variants: one/two/three dimensional presentation; vertical shelf effects; display orientation; family blocks; tilted shelves; replenishment-aware facings; store-specific planograms; joint range/facing/price optimization.
-Distinction: item spatial presentation consumes CATEGORY's commercial capacity. END CAP chooses the product that receives a special promotional opportunity. Physical refill tasks are #LOG. Facings imply display inventory capacity, but this does not make every planogram an inventory replenishment Problem.
+Distinction: item spatial presentation consumes CATEGORY's commercial capacity. ENDCAP chooses the product that receives a special promotional opportunity. Physical refill tasks are #LOG. Facings imply display inventory capacity, but this does not make every planogram an inventory replenishment Problem.
 Evidence/Template: S07 supports a two-dimensional IP/placement decomposition with strong NP-hardness for its model. S04 and S08 preserve joint assortment/space/replenishment alternatives. Standard industrial planogram practice is supported by S01.
 INFERENCE — regime: #plan because the future SKU presentation is committed before shelf execution within supplied fixtures and category areas. Shelf module engineering within a released category-space envelope can be a variant; it does not split the retail Territory.
 INFERENCE — structure: primary #place, secondary #select when the number of displayed facings or included display blocks is chosen. Nonoverlap and contiguity are structural laws. A fixed adjacency requirement is a condition on the spatial result, not a chosen #link artifact.
@@ -276,19 +276,19 @@ Evidence/Template: S11 supports general nonlinear promotion planning plus an IP 
 INFERENCE — regime: primary #plan, secondary #adapt for revised issued campaigns after material changes. Secondary #reserve is absent: spend caps and allowed periods are constraints unless the output explicitly earmarks a class entitlement before naming products.
 INFERENCE — structure: primary #place for the selected promotions in calendar periods; secondary #select for participation and #map for assigning price/mechanic alternatives.
 INFERENCE — ratings: High priority/relevance/hardness. Promotional retail is economically material but some everyday-low-price modes use little promotion. Carryover and cross-item interactions matter at category and chain scale.
-Dependencies: ASSORTMENT, BUNDLE, PRICE → PROMOTION; PROMOTION → VEHICLE, FLYER, COUPON, END CAP, LIVEPRICE.
+Dependencies: ASSORTMENT, BUNDLE, PRICE → PROMOTION; PROMOTION → VEHICLE, FLYER, COUPON, ENDCAP, LIVEPRICE.
 Useful descriptors: promotion, carryover, schedule. Formal complexity may state NP-hard for the cited general model and LP-solvable for its specific integral approximation. Industrial High hardness must not be replaced by that formal statement.
 
 VEHICLE — Promotion Vehicle Scheduling
 Decision: schedule supplied retail promotion exposure mechanisms in selling periods, subject to capacity and compatibility limits and their interaction with posted promotions.
 Aliases: feature/display scheduling; promotional-media calendar; promotion vehicle assignment.
 Variants: circular features, in-store signs, special displays, digital merchandise exposure blocks, mutually exclusive vehicle combinations and simultaneous exposure effects.
-Distinction: the vehicle is an exposure mechanism, not a truck. A calendar answers when and which channel/display mechanism is used. FLYER answers what occupies a supplied piece of promotional media. END CAP answers which item gets a supplied display opportunity. No standalone auction or third-party paid-media market is implied.
+Distinction: the vehicle is an exposure mechanism, not a truck. A calendar answers when and which channel/display mechanism is used. FLYER answers what occupies a supplied piece of promotional media. ENDCAP answers which item gets a supplied display opportunity. No standalone auction or third-party paid-media market is implied.
 Evidence/Template: S13 models exposure vehicles assigned to periods using nonlinear matching-type formulations, compact IP and approximations. S12 supports interaction with promotional demand. A simple additive unit-capacity special case can be matching; interaction-rich retail calibration justifies a richer Template.
 INFERENCE — regime: #plan because a future exposure calendar is issued. Execution order of shelf-reset labor belongs to #HR/#LOG and does not earn #sequence.
 INFERENCE — structure: #place + #map. Place exposure events in time and assign them to supplied vehicles/mechanisms. Relations in a matching formulation express assignment, not a #link artifact.
 INFERENCE — ratings: Medium priority, High relevance, High hardness. Important in display- and feature-driven retail; not required in every merchandising deployment. Nonlinear combined effects can require specialized IP or approximation.
-Dependencies: PROMOTION → VEHICLE; VEHICLE → FLYER, END CAP. These handoffs apply when the media calendar defines available editions and display windows.
+Dependencies: PROMOTION → VEHICLE; VEHICLE → FLYER, ENDCAP. These handoffs apply when the media calendar defines available editions and display windows.
 Useful descriptors: promotion-vehicle, feature-display, schedule. Do not use a transport Industry or #LOG tag.
 
 MARKDOWN — Clearance Markdown Planning
@@ -327,7 +327,7 @@ INFERENCE — ratings: High priority/relevance/hardness for coupled personalized
 Dependencies: ASSORTMENT, BUNDLE, PRICE, PROMOTION → COUPON. Offer catalog and campaign scope precede assignment; a category/store coupon may require only some of these inputs.
 Useful descriptors: coupon, targeting, uplift, budget. Estimation of causal uplift remains preprocessing.
 
-END CAP — Promotional Display Product Allocation
+ENDCAP — Promotional Display Product Allocation
 Decision: select the merchandise that gets a supplied special display opportunity and assign selected items to the available displays under capacity, eligibility and category-demand conditions.
 Aliases: endcap allocation; secondary display allocation; promotional display choice; checkout-feature allocation.
 Variants: single endcap; many supplied display sites; promoted and non-discounted goods; demand expansion versus substitution; supplier-funded constraints; category exposure caps. Supplier contracts are supplied unless their commercial award is separately specified.
@@ -336,7 +336,7 @@ Evidence/Template: S29 supports the single-display choice through a nested-choic
 INFERENCE — regime: #allocate because named merchandise receives scarce, already supplied display opportunities. Preparing a multiweek allocation does not by itself change the commitment to #plan.
 INFERENCE — structure: #map + #select. Map items to display opportunities and select participants. Spatial geometry is supplied here; if the contract instead optimizes product positions/facings, it is SHELF.
 INFERENCE — ratings: Medium priority, High relevance, Medium hardness. Important in display-heavy physical retail. The evidence favors an exact analytical single-display baseline; add harder assignment modeling only for genuine shared limits.
-Dependencies: ASSORTMENT, PROMOTION, VEHICLE → END CAP. Non-promoted products can still receive a display; upstream campaigns/calendars are conditional.
+Dependencies: ASSORTMENT, PROMOTION, VEHICLE → ENDCAP. Non-promoted products can still receive a display; upstream campaigns/calendars are conditional.
 Useful descriptors: endcap, promotional-display, demand-shaping. Separate merchandise display selection from retail-media auctions.
 
 BOX — Subscription Box Merchandise Allocation
@@ -404,11 +404,11 @@ DEPENDENCY BASIS
 The following edges express conditional industrial handoffs, not mathematical reductions, mandatory serial solver execution or timing of source publication. The researcher supplies keys and edge reasons; C assigns IDs only after Regime order.
 CATEGORY → ASSORTMENT: category capacity restricts the admitted range (S05).
 CATEGORY → SHELF: category locations/footprints supply the item-display envelope (S05/S06).
-ASSORTMENT → PRICE, SHELF, PROMOTION, MARKDOWN, FLYER, COUPON, END CAP, BOX, LIVESET: an eligible commercial range supplies the offered item universe. S01/S04/S09/S11/S14/S18/S19/S21/S22/S29 support the corresponding consumer decisions; edge direction is ontology/contract INFERENCE.
+ASSORTMENT → PRICE, SHELF, PROMOTION, MARKDOWN, FLYER, COUPON, ENDCAP, BOX, LIVESET: an eligible commercial range supplies the offered item universe. S01/S04/S09/S11/S14/S18/S19/S21/S22/S29 support the corresponding consumer decisions; edge direction is ontology/contract INFERENCE.
 BUNDLE → PRICE, PROMOTION, COUPON, LIVEBUNDLE: component/menu definitions supply saleable offers before price or recipient selection (S27/S28); direction is INFERENCE.
 PRICE → PROMOTION, MARKDOWN, COUPON, LIVEPRICE, LIVEBUNDLE: base prices or price rules constrain temporary, targeted or live actions. S09–S17/S26/S27 support the related decisions; direction is INFERENCE.
-PROMOTION → VEHICLE, FLYER, COUPON, END CAP, LIVEPRICE: approved campaigns supply eligible events, offer terms and restrictions (S11–S13/S18/S19/S29). An independent display or full-price flyer can omit this handoff.
-VEHICLE → FLYER, END CAP: issued exposure calendar supplies editions/windows/opportunities (S13); contract inference.
+PROMOTION → VEHICLE, FLYER, COUPON, ENDCAP, LIVEPRICE: approved campaigns supply eligible events, offer terms and restrictions (S11–S13/S18/S19/S29). An independent display or full-price flyer can omit this handoff.
+VEHICLE → FLYER, ENDCAP: issued exposure calendar supplies editions/windows/opportunities (S13); contract inference.
 LIVESET → DIGITAL: active eligible items supply the ranked display (S24); integrated solution remains valid.
 ASSORTMENT → DIGITAL: merchandise eligibility constrains positions where a live activation service is absent.
 No hard downstream edges are invented for outputs consumed only by external Domains. Retain ∅ at such terminals.
@@ -425,14 +425,14 @@ Integrated assortment-price-inventory-space planning: preserve in the relevant T
 Commercial product innovation / private-label offer selection: ASSORTMENT or BUNDLE if choosing approved offered merchandise. New manufacturable product definition remains #PROD.
 Permanent delisting after a material change: ASSORTMENT with #adapt. No distinct generic merchandising disruption recovery Problem is added without evidence of a separate recovery contract.
 Markdown adjustment after observed sell-through: MARKDOWN's policy/dispatch variant. Do not duplicate it as LIVEPRICE when terminal residual-stock conditions define the industrial contract.
-Feature/endcap configuration: SHELF for detailed position/geometry, END CAP for beneficiary selection, VEHICLE for exposure timing. Preserve these deliverable distinctions instead of counting every word as a separate Problem.
+Feature/endcap configuration: SHELF for detailed position/geometry, ENDCAP for beneficiary selection, VEHICLE for exposure timing. Preserve these deliverable distinctions instead of counting every word as a separate Problem.
 Temporary promotion mechanics, multibuys and funded events: PROMOTION when they choose campaign terms; BUNDLE when they define a reusable composition menu.
 Customer coupon categories, loyalty points offers and category/store discounts: COUPON variants. Full loyalty-program financial liability design is outside retail merchandising.
 Ranked single pages, browsed prefixes, joint subset/positions and multistage displays: DIGITAL or LIVESET variants. Ordered customer presentation is not work sequencing; do not populate a 7## band from that word alone.
 Shopper-specific single-item recommendations: LIVESET/DIGITAL. A newly constructed composite merchandise offer is LIVEBUNDLE.
 Subscription sample boxes: BOX when content is not fixed by an accepted item-level order. Pure fulfillment source assignment is #SCM; physical box assembly is #PROD and transport is #LOG.
 Retail store network location: #SCM when the contract is supply/distribution availability. Land acquisition, real-estate tenant allocation and building project execution require #LAND/#CIVIC contract tests. These broader retail property systems do not enter the merchandising inventory.
-Sponsored retail-media auctions and external ad inventory: another commercial contract, not automatically a merchandise decision. Supplied sponsorship constraints can enter END CAP/FLYER/DIGITAL; no generic retail media auction Problem is claimed.
+Sponsored retail-media auctions and external ad inventory: another commercial contract, not automatically a merchandise decision. Supplied sponsorship constraints can enter ENDCAP/FLYER/DIGITAL; no generic retail media auction Problem is claimed.
 Returns/excess stock disposition: #SCM. Resale discount trajectories enter MARKDOWN once eligible merchandise for sale is supplied.
 Standalone employees, merchandising tasks and shelf-reset crews: #HR. Physical shelf-refill/picking/transport decisions: #LOG. Sales or margin objectives do not displace their contract ownership.
 Continuous data-science and aggregate stochastic-LP alternatives such as S32 can inform integrated planning. Their labels do not alone prove a stand-alone ICO candidate.
@@ -458,11 +458,11 @@ Discovery passes:
 3. Omnichannel pricing, promotion dips, cross-item promotion, vehicle calendars and clearance literature: resolved PRICE, PROMOTION, VEHICLE and MARKDOWN.
 4. Coupon targeting, loyalty offers, printed/digital merchandising and product rankings: resolved COUPON, FLYER, DIGITAL and the analytic-versus-action distinction.
 5. Dynamic assortment, feedback learning, live price response and personalized bundles: resolved LIVESET, LIVEPRICE and LIVEBUNDLE.
-6. Independent omission search found deployed curated subscription allocation and analytical promotional display choice: added BOX and END CAP rather than hiding them under assortment.
+6. Independent omission search found deployed curated subscription allocation and analytical promotional display choice: added BOX and ENDCAP rather than hiding them under assortment.
 7. Current 2026 quick-commerce, replacement-option and integrated-sales work: extended ASSORTMENT/Template evidence; did not multiply Problems for channels or add a generic stochastic planning Problem.
 8. Final broad search on retail merchandising, returns/liquidation, recovery, multi-stage display and switching cost: mainly produced variants, integration papers, behavioral/forecasting work or outside-domain contracts already recorded above.
 
 Coverage result: 16 supported candidate contracts, with candidate alias/variant resolution and meaningful dependencies. This is a broad v0.1 discovery set, not a proof that no future distinct retail decision exists.
-Remaining uncertainty: evidence granularity varies. Some Templates have full public manuscripts; some have abstracts, institution records or product documentation only. Multi-display END CAP and finite-action FLYER exact baselines are explicit formulation inferences, not published implementations attributed to the cited primary paper.
+Remaining uncertainty: evidence granularity varies. Some Templates have full public manuscripts; some have abstracts, institution records or product documentation only. Multi-display ENDCAP and finite-action FLYER exact baselines are explicit formulation inferences, not published implementations attributed to the cited primary paper.
 Missing exact industrial contracts, complete data or confirmed access are Case-layer research questions. Do not fabricate starter benchmarks at this stage.
 The decision boundary deliberately separates recurring supply, labor and logistics work even where product suites combine them. No identity split or code change is proposed. RET is not silently narrowed to grocery, physical stores, pricing alone, or a particular solver method.
