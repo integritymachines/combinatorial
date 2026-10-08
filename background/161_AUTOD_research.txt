@@ -6,6 +6,7 @@ v0.2 | 8 October 2026 | Controlled problem research
 IDENTITY AND INPUTS
 
 Industry Domain: 161 AUTOD. Industry: ##AUTOMOTIVE. Primary Domain: 102 #PROD. Territory: #DEVELOPMENT. Macro Domain anchor: #TRANS.
+Industry cluster: 16x automotive. Split-from reference: 160 AUTOM, the same-Industry same-Primary-Domain manufacturing territory. Its current foreground explicitly excludes product-platform and family-architecture work.
 Identity is fixed by the requested code and mnemonic, the automotive examples in 000_DOMAIN.txt v0.5, and the residual development/manufacturing split discussed in background/000_DOMAIN_research.txt v0.5.
 Inputs read: 000_DOMAIN.txt; background/000_DOMAIN_research.txt; background/000_PROBLEM_marketplace.txt; workflow/0_workflow.txt through workflow/5_output.txt; 102_PROD.txt; 160_AUTOM.txt.
 The generic PROD foreground is an older discovery seed, not the current schema. AUTOM contains lowercase Territory tags; they do not override the uppercase Territory tags in the normative ontology.
