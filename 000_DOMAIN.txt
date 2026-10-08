@@ -135,17 +135,45 @@ XY1-XY9   Members of that Industry cluster.
 - Gaps are allowed.
 - Retired codes are not reused.
 
+**Industry Domain nomenclature**
+
+Each Industry Domain has a canonical short mnemonic used in filenames and Problem IDs.
+
+- Prefer 3-4 letters when an established, unambiguous mnemonic is available.
+- Six letters is the maximum.
+- A stable Industry stem plus one trailing functional letter may be used when it improves discrimination.
+- The trailing letter is nomenclature, not another ontology axis.
+- Use the Territory letter when no narrower functional letter is clearly earned.
+- The initial controlled letter set is:
+
+  #DEVELOPMENT     D development/design | R research
+  #PRODUCTION      P production | M manufacturing | O operations or service production
+  #DISTRIBUTION    X distribution | S sales | C procurement or sourcing | L logistics
+  #ADMINISTRATION  A administration | F finance | H human resources or workforce administration | G governance, legal, or compliance
+
+- Additional one-letter functional discriminators may be admitted case by case if needed.
+- The mnemonic must be globally unique.
+- Do not reuse a generic Domain mnemonic.
+- Do not change a mnemonic merely because the descriptive Industry Domain name changes.
+- Industry Domain Problem IDs use <MNEMONIC><three-digit Problem number>.
+- Industry Domain files use <NNN>_<MNEMONIC>.txt and background/<NNN>_<MNEMONIC>_research.txt.
+
+Examples:
+160 Automotive Manufacturing -> AUTOM.
+161 Automotive Development -> AUTOD.
+
 **Territory**
 
-#development     Defines a new product, system, service, or capability before routine realization.
-#production      Creates, transforms, operates, or directly provides the core industrial output or service.
-#distribution    Moves, positions, supplies, or delivers goods, resources, people, inventory, or service capacity.
-#administration  Governs rights, claims, commercial, financial, workforce, or organizational arrangements around the other territories.
+#DEVELOPMENT     Defines a new product, system, service, or capability before routine realization.
+#PRODUCTION      Creates, transforms, operates, or directly provides the core industrial output or service.
+#DISTRIBUTION    Connects production to upstream supply and downstream demand through procurement, sourcing, movement, positioning, sales, or delivery.
+#ADMINISTRATION  Governs rights, claims, finance, workforce, compliance, or organizational arrangements around the other territories.
 
 - Territory partitions the industrial value chain into mutually exclusive and exhaustive parts.
 - Assign exactly one Territory to every Industry Domain.
 - Apply the Primary Domain test before the Territory test.
 - Territory is determined by the delivered industrial contract, not department name or Regime.
+- #DISTRIBUTION includes both inbound acquisition/procurement and outbound sales/delivery.
 - Maintenance, procurement, service, and similar functions require a contract-level Territory decision.
 - Territory is descriptive unless the Industry Domain split test passes.
 
@@ -276,12 +304,12 @@ How difficult is this problem to solve well at industrial scale using current me
 Closed top-level tags:
 - Macro Domain  #TRANS #DISP #INFRA #INFO #EXCH #HUMAN #RES
 - Domain        #PROC #PROD | #LOG #SCM | #ENER #CIVIC | #COMP #INTEL | #MKT #FIN | #HC #HR | #EXTR #LAND
+- Territory     #DEVELOPMENT #PRODUCTION #DISTRIBUTION #ADMINISTRATION
 
 Open top-level tags:
 - Industry      ##ALLCAPS
 
 Closed subordinate tags:
-- Territory         #development #production #distribution #administration
 - Regime            #design #plan #allocate #operate #dispatch #adapt
 - Secondary Regime  #provision #reserve #sequence
 - Structure         #select #map #link #place
