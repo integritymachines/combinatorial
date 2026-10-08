@@ -174,7 +174,7 @@ COMMENTS Spare architecture design belongs to development. Runtime memory recove
 
 SEMIM701 Fab-Wide Reentrant Scheduling.
 DESCRIPTION Assign and sequence released lot operations across fab toolsets under eligibility, setups, batching, maintenance and process-window limits.
-TEMPLATE Hierarchical fab scheduling and process-window coordination | Decomposed or rolling reentrant job-shop MILP/CP; hybrid ASP with difference logic.
+TEMPLATE Hierarchical fab scheduling and process-window coordination | Decomposed or rolling reentrant job-shop MILP; hybrid ASP with difference logic.
 REGIME #operate + #sequence | Fixes coordinated operation order and times for work already under manufacturing execution.
 STRUCTURE #place + #map | Places lot operations in time and assigns eligible productive tools.
 PRIORITY Critical | Coordinated lot progression defines fab operation.
@@ -186,7 +186,7 @@ COMMENTS Local batching, lithography and cluster-tool calendars remain distinct 
 
 SEMIM702 Parallel-Batch Formation and Scheduling.
 DESCRIPTION Group compatible wafers, lots or devices for simultaneous processing and schedule the groups on eligible batch equipment.
-TEMPLATE Batch-equipment loading and family compatibility management | Batch-assignment MILP/CP and batching heuristics; dynamic programming for restricted burn-in models.
+TEMPLATE Batch-equipment loading and family compatibility management | Batch-assignment MILP and batching heuristics; dynamic programming for restricted burn-in models.
 REGIME #operate + #sequence | Fixes co-processing groups and batch order for operating equipment.
 STRUCTURE #map + #place | Maps jobs to simultaneous-processing groups and places groups in time.
 PRIORITY High | Batch equipment recurs in front-end fabrication and back-end stress test.
@@ -198,7 +198,7 @@ COMMENTS Diffusion and burn-in are variants. Sequential setup campaigns do not d
 
 SEMIM703 Photolithography Toolset Scheduling.
 DESCRIPTION Assign and sequence wafer-lot exposure operations with compatible tracks, steppers or scanners and reticles under setup and process-timing limits.
-TEMPLATE Lithography bottleneck and reticle-use coordination | Secondary-resource-constrained flexible-flowshop MILP/CP; reticle scheduling heuristics.
+TEMPLATE Lithography bottleneck and reticle-use coordination | Secondary-resource-constrained flexible-flowshop MILP; reticle scheduling heuristics.
 REGIME #operate + #sequence | Fixes lithography order and productive resource-use intervals.
 STRUCTURE #place + #map | Places fabrication operations and reticle-use intervals in time and assigns tools and reticles.
 PRIORITY High | Lithography provides a recurring constrained toolset contract.
@@ -222,7 +222,7 @@ COMMENTS Cyclic, noncyclic, startup and lot-switch operation are variants. Fixed
 
 SEMIM705 Semiconductor Assembly and Packaging Scheduling.
 DESCRIPTION Assign and sequence released lots through singulation, die attach, interconnection, molding and packaging under eligibility, setup and stage-capacity limits.
-TEMPLATE Back-end bottleneck and hybrid-flowshop coordination | Eligibility and setup-aware hybrid-flowshop MILP/CP or simulation optimization.
+TEMPLATE Back-end bottleneck and hybrid-flowshop coordination | Eligibility and setup-aware hybrid-flowshop MILP or simulation optimization.
 REGIME #operate + #sequence | Fixes physical assembly order and equipment use for operating back-end work.
 STRUCTURE #place + #map | Places lot operations in time and assigns productive assembly equipment.
 PRIORITY High | Assembly coordination is central to back-end manufacture.
@@ -246,7 +246,7 @@ COMMENTS General carrier-delivery routing belongs to LOG. Factory lot order belo
 
 SEMIM707 Wafer and Final-Test Scheduling.
 DESCRIPTION Assign and sequence specified wafer-sort and final electrical tests on compatible tester, prober or handler resources with required hardware and temperature conditions.
-TEMPLATE Tester and test-hardware coordination | Secondary-resource-constrained parallel-machine or test-flow MILP/CP; tailored dispatching baselines.
+TEMPLATE Tester and test-hardware coordination | Secondary-resource-constrained parallel-machine or test-flow MILP; tailored dispatching baselines.
 REGIME #operate + #sequence | Fixes test operation order and productive test-resource intervals.
 STRUCTURE #place + #map | Places tests in time and assigns compatible resource combinations.
 PRIORITY High | Functional test is a recurring manufacturing contract.
@@ -298,7 +298,7 @@ COMMENTS Prediction-only virtual metrology is outside this contract. Scheduling 
 
 SEMIM901 Manufacturing Disruption Rescheduling.
 DESCRIPTION Revise committed manufacturing operations after failures, holds or material delays while preserving process windows and completed or frozen work.
-TEMPLATE Manufacturing continuity and frozen-window recovery | Warm-started rolling or decomposed MILP/CP schedule repair.
+TEMPLATE Manufacturing continuity and frozen-window recovery | Warm-started rolling or decomposed MILP schedule repair.
 REGIME #adapt | Revises prior manufacturing commitments after material execution change.
 STRUCTURE #place + #map | Revises operation times and permitted productive resource assignments.
 PRIORITY High | Disruptions require recurring commitment repair in constrained production systems.
