@@ -1,4 +1,5 @@
 160_AUTOM.txt
+
 AUTOM — Automotive Manufacturing
 v0.2 | 8 October 2026 | Problem layer
 
@@ -7,7 +8,7 @@ Industry: ##AUTOMOTIVE. Primary Domain: 102 #PROD. Territory: #production. Macro
 Manufacturing capability, fabrication, physical assembly and recovery of released vehicle and component designs define this Domain. Product-platform and family-architecture decisions belong to a separate automotive development territory. Factory capability design remains production.
 Supply commitments, independent movement, workforce arrangements, utility operation, chemical recipes and software operation remain with SCM, LOG, HR, ENER, PROC and COMP when those contracts define the decision.
 
-1## #design
+#design | 1##
 
 AUTOM101 Manufacturing Capacity Configuration.
 DESCRIPTION Select equipment types, counts and station configurations to meet vehicle and component output requirements within investment and capability limits.
@@ -92,7 +93,7 @@ DEPENDENCIES AUTOM106 → AUTOM107 → AUTOM304, AUTOM313, AUTOM504.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #select #map ##inspection ##quality.
 COMMENTS Fixed end-of-line test calendars belong to AUTOM313. Defect estimation alone is excluded.
 
-3## #plan
+#plan | 3##
 
 AUTOM301 Production Capacity Allocation Planning.
 DESCRIPTION Assign vehicle and component production volumes to installed plants, lines and periods under capacity, demand and capability limits.
@@ -249,7 +250,7 @@ DEPENDENCIES AUTOM102, AUTOM103, AUTOM104, AUTOM106, AUTOM107, AUTOM302, AUTOM30
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place #map ##schedule ##precedence ##setup.
 COMMENTS Includes manufacturing-synchronized handling. Independent transport dispatch remains LOG.
 
-5## #allocate
+#allocate | 5##
 
 AUTOM501 Manufacturing Workload Allocation.
 DESCRIPTION Select component jobs and assign their operations to installed machines under workload, capability and tooling limits.
@@ -311,7 +312,7 @@ DEPENDENCIES AUTOM306 → AUTOM505 → AUTOM313.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #allocate #place #map ##additive-manufacturing ##packing ##geometry.
 COMMENTS Includes series-production components and manufacturing aids. Prototypes that define a new vehicle belong to development.
 
-7## #operate + #sequence
+#operate + #sequence | 7##
 
 AUTOM701 Stamping Production Sequencing.
 DESCRIPTION Order committed stamping jobs on assigned press lines under die-change, shared-setup and manufacturing constraints.
@@ -349,7 +350,7 @@ DEPENDENCIES AUTOM105, AUTOM307, AUTOM702, AUTOM901, AUTOM902, AUTOM903 → AUTO
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #operate #sequence #place ##car-sequencing ##model-mix ##succession.
 COMMENTS Car-sequencing and workload-based mixed-model formulations are alternative Templates for this contract. Future complete streams are planning variants.
 
-8## #dispatch
+#dispatch | 8##
 
 AUTOM801 Production Order Release and WIP Control.
 DESCRIPTION Select eligible production orders to enter manufacturing under current workload, component readiness and WIP limits.
@@ -385,7 +386,7 @@ HARDNESS High | Fast decisions must coordinate capabilities and resource content
 DEPENDENCIES AUTOM310, AUTOM313, AUTOM701, AUTOM703, AUTOM801, AUTOM802, AUTOM903 → AUTOM803 → AUTOM903.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #dispatch #select #map #online ##dispatching ##capability.
 
-9## #adapt
+#adapt | 9##
 
 AUTOM901 Assembly Line Rebalancing.
 DESCRIPTION Revise task and executor assignments after demand, product-work-content or station-availability changes while limiting disruption.
