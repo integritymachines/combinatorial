@@ -32,6 +32,12 @@ Purpose
 Compile the controlled domain research into the canonical numbered Problem set.
 
 Tasks
+0. Compile domain scope.
+Contract the controlled territory and ownership conclusions into a short SCOPE introduction.
+Keep only domain-specific information.
+Do not include workflow rules, dependency semantics, rating rules, approval status, or research history.
+For an Industry Domain include Industry, Primary Domain, Territory, and Macro Domain anchor.
+
 1. Decide the Problem set.
 Admit distinct, commercially material ICO decisions supported by the controlled background.
 Exclude aliases, narrow parameter variants, formulations, algorithms, weakly supported candidates, and decisions owned by another Domain.
@@ -57,19 +63,30 @@ Do not invent a Template to preserve a candidate.
 Assign Priority, Relevance, and Hardness from the controlled evidence using the scales in 000_DOMAIN.txt.
 Do not infer Hardness from NP-hardness alone.
 Do not upgrade weak evidence for completeness.
+Compile industrial Hardness in every card.
+Compile formal complexity only when controlled evidence provides an informative class or span.
+Do not compile statements that a formal class is unknown or not established.
 
 6. Derive sequence and numbering.
-Use the controlled dependency graph to derive the logical Problem sequence.
-Minimize backward dependency flow subject to industrial logic and Regime.
-Resolve ties by stable industrial logic, not alphabetical convenience.
-Assign permanent Problem numbers only after the sequence is fixed.
+Assign each Problem to its normative Regime numbering band.
+Regime band is the first ordering criterion.
+Within each band, use the controlled dependency graph to derive logical sequence.
+Minimize backward dependency flow without moving a Problem across its Regime band.
+Resolve remaining ties by stable industrial logic, not alphabetical convenience.
+Assign the three-digit permanent Problem number only after sequence is fixed.
 Rewrite dependencies using final Problem IDs.
 Do not treat mathematical reduction as an industrial dependency.
 
 7. Write Problem cards.
 Use exactly the foreground Problem-card schema and tag semantics in 000_DOMAIN.txt.
 Use controlled technical English.
-Remove duplicated explanation and evidence that belongs only in background.
+Compile TAGS as the compact canonical semantic signature of the Problem.
+Include the required closed ontology tags and only useful supported open tags.
+Compile COMMENTS only when a material controlled boundary, exception, scope condition, or variant distinction would otherwise disappear.
+Do not use COMMENTS to carry tags.
+Do not create explanatory boilerplate.
+Remove research history, generic ontology rules, workflow instructions, approval state, dependency semantics, rating semantics, and other reusable rules from the foreground.
+Persist only conclusions specific to D and its Problems.
 Do not compile Cases at this level.
 
 Finish
