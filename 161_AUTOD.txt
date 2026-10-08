@@ -1,7 +1,7 @@
 161_AUTOD.txt
 
 AUTOD — Automotive Development
-v0.2 | 8 October 2026 | Problem layer
+v0.1 | 8 October 2026 | Problem layer
 
 SCOPE
 Industry: ##AUTOMOTIVE. Primary Domain: 102 #PROD. Territory: #DEVELOPMENT. Macro Domain anchor: #TRANS.

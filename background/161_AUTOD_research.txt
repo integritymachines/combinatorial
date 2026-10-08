@@ -1,7 +1,7 @@
 161_AUTOD_research.txt
 
 AUTOD — Automotive Development
-v0.2 | 8 October 2026 | Controlled problem research
+v0.1 | 8 October 2026 | Controlled problem research
 
 IDENTITY AND INPUTS
 
