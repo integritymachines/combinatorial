@@ -1,0 +1,187 @@
+Combinatorial Optimization in New Vehicle Development (NVD)
+
+Structured by dependency → priority (premium OEM benchmark)
+
+Legend
+Code (NVD## Shorthand)
+Description (1–2 tweet length)
+Template Problem (abstract combinatorial class) | Solution (industrial solver pattern)
+Relevance Priority {Critical, High, Medium, Subsidiary} | Justification (< tweet length)
+Hardness Class {NP-hard, NP-complete,...} | Justification (< tweet length)
+Dependencies Upstream (depends on) | Downstream (depended on)
+Comments (optional, tweet length)
+1. ROOT LAYER
+NVD01 Platform Architecture
+Description Defines modular platform (hardpoints, interfaces, modules) across models; constrains all downstream engineering decisions.
+Template partitioning, facility location, multi-objective selection | MILP (Gurobi/CPLEX), clustering, decomposition
+Relevance Critical | Locks majority of lifecycle cost and engineering degrees of freedom early.
+Hardness NP-hard | Combinatorial module partitioning with cross-domain constraints.
+Dependencies Upstream: — | Downstream: NVD04, NVD05, NVD09, NVD12, NVD13
+Comments Primary architectural lock-in point.
+NVD02 Cost–Performance Frontier
+Description Generates Pareto-optimal configurations across cost, weight, performance; defines feasible product envelope.
+Template multi-objective combinatorial optimization | evolutionary algorithms, MILP + Pareto sampling
+Relevance Critical | Guides all major trade-offs before detailed design.
+Hardness NP-hard | Pareto frontier grows exponentially with discrete variables.
+Dependencies Upstream: — | Downstream: NVD03, NVD04, NVD06, NVD12
+Comments Strategic decision backbone.
+NVD03 Option Bundling
+Description Groups features into packages balancing compatibility, differentiation, and pricing.
+Template clustering, constrained selection | MILP, CP, heuristics
+Relevance High | Drives revenue structure and perceived value.
+Hardness NP-hard | Combinatorial grouping with pricing interactions.
+Dependencies Upstream: NVD02 | Downstream: NVD04
+2. CONCEPT CONFIGURATION
+NVD04 Variant Configuration
+Description Defines all valid vehicle configurations across features and constraints; core of product complexity.
+Template constraint satisfaction, SAT | CP-SAT (OR-Tools), feature models
+Relevance Critical | Variant explosion propagates cost across engineering and validation.
+Hardness NP-complete | Boolean constraint space grows exponentially.
+Dependencies Upstream: NVD01, NVD02, NVD03 | Downstream: NVD08, NVD13, NVD17, NVD23, NVD24
+Comments Central combinatorial explosion source.
+NVD05 Powertrain Matching
+Description Matches propulsion components into valid configurations under compatibility and performance constraints.
+Template compatibility graph selection | CP, rule-based systems
+Relevance High | Defines performance envelope and drivability.
+Hardness NP-complete | Selecting feasible compatible subgraphs.
+Dependencies Upstream: NVD01 | Downstream: NVD13, NVD11
+NVD06 Sensor Suite Selection
+Description Selects ADAS sensor combinations balancing redundancy, cost, and performance.
+Template knapsack, multi-objective selection | MILP, heuristics
+Relevance High | Key trade-off between autonomy capability and cost.
+Hardness NP-hard | Subset selection with multiple objectives.
+Dependencies Upstream: NVD02 | Downstream: NVD09, NVD23
+NVD07 Charging Strategy
+Description Defines EV charging standards, power levels, and usage strategies.
+Template multi-constraint selection | MILP, scenario enumeration
+Relevance High | Directly affects usability and infrastructure compatibility.
+Hardness NP-hard | Discrete decisions with coupled constraints.
+Dependencies Upstream: NVD02 | Downstream: NVD12, NVD11
+NVD08 Regulatory Configuration
+Description Ensures all configurations meet regional compliance requirements.
+Template constraint satisfaction, SAT | SAT/SMT (Z3), rule engines
+Relevance Critical | Non-compliance blocks market access entirely.
+Hardness NP-complete | Large interacting rule systems.
+Dependencies Upstream: NVD04 | Downstream: NVD17
+3. SYSTEM ARCHITECTURE
+NVD09 E/E Architecture
+Description Assigns functions to ECUs/controllers under latency, redundancy, and power constraints.
+Template graph partitioning, assignment | MILP, CP, heuristics
+Relevance Critical | Determines scalability of software-defined vehicle.
+Hardness NP-hard | Constrained graph partitioning problem.
+Dependencies Upstream: NVD01, NVD06 | Downstream: NVD10, NVD23
+NVD10 Wiring Harness
+Description Optimizes routing and grouping of vehicle wiring across architecture.
+Template Steiner tree, network design | heuristics, approximation algorithms
+Relevance High | Major contributor to cost, weight, and assembly complexity.
+Hardness NP-hard | Steiner tree complexity in constrained graphs.
+Dependencies Upstream: NVD09 | Downstream: NVD13, NVD22
+NVD11 Thermal System
+Description Configures cooling networks across subsystems under performance constraints.
+Template network design, flow optimization | MILP + simulation (ANSYS/Simcenter)
+Relevance High | Critical for EV safety and system stability.
+Hardness NP-hard | Coupled combinatorial + nonlinear physics.
+Dependencies Upstream: NVD05, NVD07 | Downstream: NVD13, NVD15
+NVD12 Battery Configuration
+Description Defines battery cell, module, and pack topology under range and thermal constraints.
+Template knapsack, layout optimization | MILP, simulation loop
+Relevance Critical | Dominates EV cost and performance.
+Hardness NP-hard | Discrete layout + physics coupling.
+Dependencies Upstream: NVD01, NVD02, NVD07 | Downstream: NVD13, NVD11
+4. PHYSICAL DESIGN
+NVD13 Packaging
+Description Places all components within spatial constraints while satisfying system requirements.
+Template 3D bin packing, constraint satisfaction | heuristics, GA/SA
+Relevance Critical | Physical feasibility bottleneck for entire design.
+Hardness NP-hard | High-dimensional constrained packing.
+Dependencies Upstream: NVD04, NVD01, NVD10, NVD11, NVD12, NVD05 | Downstream: NVD15, NVD16
+NVD14 Material Selection
+Description Assigns materials balancing cost, weight, safety, and manufacturability.
+Template assignment, multi-objective selection | MILP, heuristics
+Relevance High | Key lever for weight reduction and cost.
+Hardness NP-hard | Multi-objective combinatorial assignment.
+Dependencies Upstream: NVD01 | Downstream: NVD15, NVD19
+NVD15 Crash Topology
+Description Selects structural layouts for crash energy absorption and safety compliance.
+Template topology selection | genetic algorithms, simulation coupling
+Relevance Critical | Mandatory for certification and safety.
+Hardness NP-hard | Discrete topology search with physics constraints.
+Dependencies Upstream: NVD13, NVD11, NVD14 | Downstream: NVD17
+5. VALIDATION
+NVD16 Prototype Planning
+Description Selects minimal prototype builds covering design space under budget constraints.
+Template knapsack, coverage | MILP, greedy heuristics
+Relevance Medium | Reduces expensive physical prototypes.
+Hardness NP-hard | Budgeted coverage optimization.
+Dependencies Upstream: NVD13 | Downstream: NVD17
+NVD17 Test Coverage
+Description Selects minimal test cases covering all requirements and configurations.
+Template set cover | greedy approximation, ILP
+Relevance Critical | Ensures quality with minimal validation cost.
+Hardness NP-hard | Classic set cover problem.
+Dependencies Upstream: NVD04, NVD08, NVD15, NVD16 | Downstream: NVD18
+NVD18 Risk Scenario (FMEA)
+Description Selects combinations of failure modes and interactions for analysis.
+Template combinatorial enumeration | graph pruning, heuristics
+Relevance High | Identifies critical failure risks early.
+Hardness Exponential | Interaction combinations grow explosively.
+Dependencies Upstream: NVD17 | Downstream: —
+6. INDUSTRIALIZATION
+NVD19 Component Portfolio
+Description Minimizes unique parts while preserving product differentiation.
+Template set cover, clustering | MILP, heuristics
+Relevance High | Direct impact on BOM cost and complexity.
+Hardness NP-hard | Overlapping set coverage with constraints.
+Dependencies Upstream: NVD14 | Downstream: NVD20, NVD21
+NVD20 Supplier Allocation
+Description Assigns suppliers under cost, capacity, and risk constraints.
+Template assignment, multi-objective optimization | MILP (CPLEX/Gurobi)
+Relevance High | Locks supply risk and cost structure pre-SOP.
+Hardness NP-hard | Constrained combinatorial allocation.
+Dependencies Upstream: NVD19 | Downstream: —
+NVD21 Tooling Design
+Description Selects tooling concepts enabling manufacturability.
+Template facility/design selection | MILP, heuristics
+Relevance High | Fixes major capital expenditure decisions.
+Hardness NP-hard | Discrete design selection problem.
+Dependencies Upstream: NVD19 | Downstream: NVD22
+NVD22 Assembly Sequence
+Description Defines feasible assembly order under precedence and tooling constraints.
+Template scheduling, precedence constraints | CP, heuristics
+Relevance High | Ensures production feasibility before SOP.
+Hardness NP-hard | Precedence-constrained scheduling.
+Dependencies Upstream: NVD10, NVD21 | Downstream: —
+7. SOFTWARE & FEATURES
+NVD23 Software Configuration
+Description Manages combinations of software features and dependencies across ECUs.
+Template SAT, constraint satisfaction | SAT solvers (Z3), CP-SAT
+Relevance Critical | Core complexity driver in software-defined vehicles.
+Hardness NP-complete | Feature interaction explosion.
+Dependencies Upstream: NVD04, NVD09, NVD06 | Downstream: —
+NVD24 HMI Configuration
+Description Selects UI/UX feature combinations under hardware and usability constraints.
+Template constraint satisfaction | CP, heuristics
+Relevance Medium | Differentiates user experience in premium segment.
+Hardness NP-complete | Constrained feature combinations.
+Dependencies Upstream: NVD04 | Downstream: —
+8. WORKFLOW SEQUENCING
+NVD99 Design Workflow
+Description Optimizes sequencing and routing of all development tasks across domains under constraints and feedback loops.
+Template scheduling, routing, resource allocation | CP, MILP, RL, orchestration heuristics
+Relevance Critical | Directly determines development time and cost.
+Hardness NP-hard | Generalized RCPSP with dynamic dependencies.
+Dependencies Upstream: NVD dependency graph | Downstream: NVD sequencing
+Comments Governs orchestration of entire development system.
+NVD99 Dependency graph
+
+ROOT: NVD01, NVD02, NVD03
+↓
+CONCEPT: NVD04 ↔ NVD08, NVD05, NVD06, NVD07, NVD24
+↓
+SYSTEM: NVD09 ↔ NVD10 ↔ NVD23, NVD11, NVD12
+↓
+PHYSICAL: NVD13 ↔ NVD11 ↔ NVD12 ↔ NVD15, NVD14, NVD05
+↓
+VALIDATION: NVD16, NVD17, NVD18
+↓
+INDUSTRIALIZATION: NVD19 ↔ NVD20 ↔ NVD21, NVD22
