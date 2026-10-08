@@ -1,0 +1,458 @@
+background/210_AIRL_research.txt
+
+AIRL — Airline Operations
+v0.1 | 8 October 2026 | Problem layer
+
+IDENTITY AND RESEARCH BASIS
+
+Code 210; mnemonic AIRL; Industry ##AIRLINE; Primary Domain 201 #LOG; Territory #PRODUCTION; Macro Domain anchor #DISP.
+The user fixes code, mnemonic and industry territory. The remaining classification follows 000_DOMAIN.txt and background/000_DOMAIN_research.txt: airline flight, fleet, journey and integrated disruption operations belong to LOG. Providing airline transport is the core service, so Territory is PRODUCTION even though transport can be DISTRIBUTION in a manufacturer’s value chain. AIRL is the industry mnemonic, not a logistics suffix. No territory split is proposed.
+
+Normative inputs: 000_DOMAIN.txt v0.5; background/000_DOMAIN_research.txt v0.5; background/000_PROBLEM_marketplace.txt; workflow/0_workflow.txt through workflow/5_output.txt. Existing generic LOG, HR and MKT coverage supplies boundary context, not an exhaustive airline inventory.
+The requested published version remains v0.1. R/B/C/F/O stage progression is recorded in commit history without changing that user-specified label. No Cases are researched or compiled.
+
+Scope: scheduled passenger and cargo carriers; hub-and-spoke, point-to-point, regional, long-haul, combination and dedicated freighter operations; charter flights as schedule/routing variants; airline-controlled aircraft stands, ground service and cargo-terminal movement contracts. Outsourced execution can instantiate the same movement decision, but an unrelated airport, forwarding or workforce contract does not become AIRL merely because an airline is a customer.
+Ownership follows the delivered artifact: airline movement capability, flight program, aircraft rotation, journey assignment, aircraft load, airline-controlled handling calendar or revised movement program.
+Material interfaces: HR supplies crew availability, qualification and legality; MKT supplies demand, prices, booked claims and commercial opportunity values; SCM supplies fuel, spare parts and ULD availability; CIVIC supplies shared airport assets and capacity; PROD supplies completed maintenance and aircraft engineering; COMP supplies computation and communications; FIN supplies budgets and financial conditions.
+These inputs can be coupled constraints or Secondary Domains. They do not individually determine AIRL ownership.
+
+EVIDENCE DISCIPLINE
+
+Source keys below identify retrieved primary papers, author/institution pages, official operational descriptions or original challenge specifications. Abstract-only access is sufficient for the limited problem/method claims identified; it does not verify every constraint or implementation. Some publisher opens failed while indexed primary abstracts remained available. Such sources support Template existence, not a claim that full text, code or datasets were inspected.
+Candidate classification, ratings, granularity and dependency edges are ontology applications and engineering inference unless marked as a reported result. No solver was run on industrial instances. No claimed savings, reproduced reference results, global SOTA winner or certified operational approval is inferred.
+Templates distinguish practical framing from published algorithms. MILP, network flow, branch-and-price, CP, decomposition, simulation evaluation and search are alternatives at different scales, not a universal performance ranking.
+Formal complexity is omitted from the proposed foreground unless an exact restriction is useful and evidenced. Industrial Hardness reflects coupled constraints, representation scale and time available for a decision. Polynomial matching or shortest-path restrictions do not imply that full integrated contracts are easy.
+Public benchmark support is uneven. The original ROADEF 2009 specification establishes a public simplified integrated aircraft/passenger contract and explicitly omits crews. It is evidence for a later benchmark investigation, not a compiled Case or a complete industrial baseline.
+
+TERRITORY MAP AND DISCOVERY
+
+Strategic movement capability: service-network topology and hub choices; aircraft composition; ground-service vehicle capability.
+Flight program: flight selection, frequencies, times, connectivity and buffers; maintenance availability calendars; fleet-level rotations; named-aircraft assignment; physical route/level choices.
+Transport claims and loads: cargo paths; operational cabin seating; ULD packing; aircraft stowage and balance.
+Ground movement: gates/stands within airline control; service-vehicle routes; terminal truck appointments and dock use; ULD build-up calendars; turnaround task calendars; boarding release order.
+Execution: dispatch of available ground vehicles; connection-protection holds.
+Disruption: aircraft program recovery; passenger reaccommodation; cargo itinerary recovery; integrated flight/resource/journey recovery; airline reprioritization of supplied ATFM opportunities.
+Other aircraft repositioning, ferrying, spare-tail deployment, diversions and technical stops are routing or recovery variants unless an independent contract can be established.
+
+Search rounds:
+A. Airline scheduling hierarchy, network/fleet integration, load planning and turnaround/ground routing.
+B. Hub network, fleet composition, robust schedule buffers and passenger connections.
+C. Cargo paths, boarding/seating and discrete flight planning.
+D. Aircraft reserve deployment, UDPP/slot substitution, baggage vehicles and passenger recovery.
+E. Tail assignment, ULD palletization, ground fleet sizing and maintenance availability.
+F. Cargo disruption, maintenance checks, ULD circulation and ground recovery.
+G. Terminal throughput, integrated handling and aircraft recovery representations.
+H. Official recovery specification, ULD batching/Benders and fuel-management boundary.
+I. Independent omission check: truck appointments/dock coordination and ULD build-up scheduling.
+New substantive additions in the final omission check were terminal truck scheduling and ULD build-up scheduling. Later hits mainly supplied alternate algorithms, robustness/energy variants, source access or neighboring contracts. This supports broad practical coverage, not a proof of exhaustiveness.
+
+CANDIDATE INVENTORY
+
+Symbolic keys are research labels. Permanent Problem IDs and within-band ordering are reserved for compilation.
+Ratings below are proposed Priority / Relevance / industrial Hardness, with their reasoning. All retained candidates have the fixed AIRL identity.
+
+NETWORK — Airline Service Network Design
+Decision: choose served airport pairs, service connections and airline hubs under travel demand, airport access and operating capability. The artifact is the carrier’s movement network rather than a set of commercial offers.
+Aliases: airline network planning, hub-and-spoke design, route-network design. Variants: point-to-point, gateway hubs, freighter feeders, reliability-aware topology, service frequencies coupled to network decisions.
+Supplied substrate: candidate airports and connections, travel demand, access and fleet envelopes. Construction: choose hubs and service arcs; deliver connected movement opportunities. Primary #design; primary #link with #select. Connectivity concerns delivered service, not every airport necessarily reaching every other airport.
+Boundary: construction or enlargement of the airport is CIVIC; purchase/allocation of access rights is MKT; setting flight departure times on the accepted service network is TIMETABLE. Commercial demand and profit can remain inputs/objectives of this physical service design.
+Template: hub/network planning | capacitated hub-location and network-design MILP, decomposition or constrained network search. Joint fleet/network models are legitimate integrated variants. No single hub formulation covers all carrier types.
+Evidence: S01 supports airline hub/network models; S02 supports joint global network/fleet planning; S03 supports supply/demand-coupled mixed-integer planning. Ratings Critical / Critical / High: topology governs enterprise coverage and downstream scheduling; hub, fleet and demand choices interact. These are engineering assessments.
+Dependency: feeds FLEET, TIMETABLE and CARGO; fleet feasibility can constrain network redesign, but the foreground baseline edge describes accepted network requirements feeding composition.
+Distinction: construction of movement capability precedes commitment to particular dated flights.
+
+FLEET — Airline Fleet Composition
+Decision: choose aircraft types and discrete fleet quantities over an acquisition/replacement plan to support transport requirements within investment and capability limits. Deliver an available aircraft capacity envelope.
+Aliases: fleet planning, fleet mix, acquisition/replacement planning. Variants: passenger, all-cargo, scenario trees, retirement and replacement, owned/leased capability. Individual financing and supplier commitments are external.
+Substrate: network requirements, aircraft alternatives, costs and demand scenarios. Construction: select aircraft options and quantities. Primary #design, primary #select. A lease financing variable does not automatically justify #provision; securing an unnamed contingent right would require a separately evidenced contract.
+Template: fleet-capability planning | multi-period mixed-integer planning; scenario-based stochastic MILP when demand uncertainty matters. S04 establishes scenario-tree composition; S05 establishes an industrial all-cargo fleet/network application.
+Ratings Critical / Critical / High: aircraft capability defines the feasible operation and major investment; future demand and commonality couple discrete choices. Published alternatives do not establish a universal current SOTA winner.
+Dependency: NETWORK feeds FLEET; FLEET feeds FLEETING and MAINTENANCE.
+Distinction: FLEETING uses an existing fleet to cover specific flights; it does not buy or retire aircraft.
+
+GROUND_CAPACITY — Ground Service Fleet Sizing
+Decision: choose the type mix and number of airline-controlled service vehicles needed to meet a supplied flight-service demand profile and reliability requirements. Installed ground movement capability is the artifact.
+Aliases: GSE fleet sizing, ground support fleet planning. Variants: electric vehicles, service-specific fleets, charging as a coupled resource, seasonal demand.
+Substrate: turnaround demand, vehicle alternatives, task duration/travel distributions and availability. Construction: select a discrete vehicle complement. Primary #design, primary #select; no invented vehicle-base placement field.
+Template: service-fleet capacity analysis | discrete sizing search with simulation; coupled procurement/scheduling MILP for electric fleets. S06 supplies a carrier-specific electrification/fleet study; S07 supplies integrated sizing and charging formulations; these do not prove a common commercial deployment method.
+Ratings High / High / High: carriers with substantial self-handling need sufficient vehicle capacity; stochastic service and charging couple fleet counts and peak feasibility.
+Dependency: TIMETABLE demand informs sizing; sizing feeds GROUND_ROUTES and GROUND_DISPATCH. The #design decision can be revisited after a proposed timetable, so the cross-band incoming edge is intentional.
+Boundary: fixed charger civil/electric works and utility supply are CIVIC/ENER contracts; buying staffing capacity is HR.
+
+TIMETABLE — Airline Flight Schedule Design
+Decision: choose dated/periodic flight legs, operating frequencies and departure/arrival times on the permitted service network under fleet, airport and connection conditions.
+Aliases: schedule design, flight timetabling, frequency-and-time planning. Variants: hub banks, point-to-point, cargo cutoffs, incremental or network-wide timetabling, robust buffer placement.
+Substrate: network and access opportunities, travel-demand forecasts and fleet capability. Construction: select flights and position them in time. Primary #plan; primary #place plus #select. Optional connection choices do not make supplied airport graph edges the Primary Structure.
+Template: flight-program and connection planning | time-space/discrete-time MILP with fleet-feasibility integration, decomposition and heuristics. S08 supports network-wide timetabling with passenger choice; S09 supports joint flight selection/timing/fleeting/routing. S10 supports robustness through retiming/routing.
+Ratings Critical / Critical / Critical: the flight program commits core service at carrier scale; demand, connections and subsequent feasibility require multiphase/integrated approximations in published methods.
+Dependency: NETWORK feeds TIMETABLE; TIMETABLE feeds FLEETING, ROTATIONS, GROUND_CAPACITY, GATES, CARGO, GROUND_ROUTES, TRUCKS and integrated RECOVERY.
+Distinction: published literature often calls timetabling “schedule design”; normative Regime is #plan because it commits future flights, not topology. Buffer distribution is a timing variant, not another canonical Problem.
+
+MAINTENANCE — Aircraft Maintenance Visit Scheduling
+Decision: choose aircraft withdrawal windows and maintenance visit locations from approved work-package/due-date requirements while preserving fleet availability and compatible aircraft movements.
+Aliases: fleet maintenance calendar, maintenance-check scheduling. Variants: line or heavy-check visit windows, usage-based limits, uncertain durations, rolling check calendars.
+Substrate: named-aircraft usage state, mandatory approved maintenance requirements and provider capacity. Construction: place visits in time and assign aircraft visits to allowed stations; primary #plan, primary #place plus #map.
+Template: fleet availability and maintenance-window planning | multi-objective MILP; dynamic programming and look-ahead methods are near-equals for check-calendar variants. S11 supports maintenance calendars with tail-assignment coupling; S12 supports airline-data check scheduling. S13 verifies line task assignment/time planning exists, but it must not be used to silently include stand-alone shop work under LOG.
+Ratings High / High / High: serviceable fleet availability and due windows materially constrain operations; tail history and movement compatibility interact.
+Dependency: FLEET feeds MAINTENANCE; MAINTENANCE feeds ROTATIONS, TAILS and AIRCRAFT_RECOVERY. ROTATIONS and TAILS can return feasibility information to later maintenance revisions; this is iterative feedback rather than a compulsory reciprocal edge on every solve.
+Boundary: the AIRL card commits unavailable/available aircraft windows and visits. Detailed repair jobshop calendars, component manufacture and independent technician allocation remain PROD/HR.
+No airworthiness rule or interval is asserted here; approved requirements are inputs.
+
+ROTATIONS — Aircraft Rotation Planning
+Decision: construct station- and time-compatible chains of supplied flight legs for the fleet with maintenance access, overnight position and aircraft availability requirements.
+Aliases: aircraft routing, aircraft maintenance routing, lines-of-flight generation. Variants: daily/weekly, cyclic/noncyclic, robust routing, ferry legs, optional technical stops and coupled fuel policies.
+Substrate: TIMETABLE flights and FLEETING types, maintenance windows, airports and turn times. Construction: choose flight-successor relations to form valid paths/cycles, and assign legs to compatible route groups. Primary #plan; primary #link plus #map.
+Template: aircraft rotation and maintenance-access planning | route-based set partitioning with column generation/branch-and-price; time-space MILP is a material near-equal. S14 establishes branch-and-price for maintenance routing; S15 establishes weekly routing and tail-assignment extensions; S16 supports robustness evaluation.
+Ratings Critical / Critical / High: feasible aircraft circulation is essential; maintenance and endpoint conditions constrain large path sets.
+Dependency: TIMETABLE, FLEETING and MAINTENANCE feed ROTATIONS; ROTATIONS feeds TAILS and AIRCRAFT_RECOVERY.
+Distinction: TAILS maps named aircraft onto already supplied rotations. ROTATIONS constructs those rotations. If a tail-assignment algorithm regenerates routes, it has crossed into the integrated routing/assignment variant, not created a third Problem.
+Supplied time-space arcs are not automatically #link; chosen flight-successor relations are.
+
+FLIGHT_PATH — Flight Route and Level Planning
+Decision: choose a physical path and permitted flight-level transitions for a flight under weather, restricted-route and aircraft-performance conditions. Deliver a dispatchable flight path, not a service-network arc between airports.
+Aliases: operational flight planning, airway routing, discrete-continuous trajectory planning. Variants: time-dependent airway costs, free-route segments, alternate airports and technical-stop choices.
+Substrate: waypoint/airway/level alternatives and flight conditions. Construction: choose successive path segments and position the trajectory at permitted levels/waypoints. Primary #plan; primary #link plus #place.
+Template: performance- and weather-aware flight planning | constrained/time-dependent shortest-path search; discrete-continuous trajectory refinement for free-route variants. S17 provides the method distinction; S18 supplies original error-bound research.
+Ratings High / High / High: fleet operations repeatedly require feasible paths; restrictions and coupled performance/time conditions complicate rich routes. Simple static shortest-path restrictions are routinely solvable and must not inherit this rich-contract rating uncritically.
+Dependency: TAILS supplies aircraft-specific capability to FLIGHT_PATH; FLIGHT_PATH constrains LOAD and AIRCRAFT_RECOVERY.
+Boundary: continuous-only speed/fuel control without a discrete choice is not a standalone ICO Problem. Shared ATC conflict resolution/airspace coordination is not an airline-owned path contract. Fuel amounts alone are excluded from ICO here.
+Structure #place refers to the delivered geometric/level path, not to a shortest-path graph used only for encoding.
+
+PACKING — Air Cargo Unit Load Device Packing
+Decision: assign physical cargo pieces to ULDs and choose their positions/orientations within permitted contours under weight, support and compatibility limits.
+Aliases: air cargo palletization, ULD build-up packing, air-cargo loading at package level. Variants: pallets/containers, irregular contours, dangerous-goods compatibility, staged or joint aircraft loading.
+Substrate: cargo pieces, ULD types/contours and physical limits. Construction: place oriented pieces and map them to ULDs. Primary #plan; primary #place plus #map. Optional exclusion/choice of ULD types can add #select in a scoped variant; not required in the fixed-ULD foreground.
+Template: cargo consolidation and contour packing | three-dimensional packing MILP for restricted sizes; extreme-point/constructive heuristics with improvement for larger instances. S19 supports combinatorial packing/loading; S20 supports practical three-dimensional pallet loading; S21 reports a two-stage packing/build-up-calendar formulation.
+Ratings High / High / High: cargo carriers and combination carriers depend on feasible ULDs; shapes, weight and loading rules make packing scale-sensitive.
+Dependency: CARGO feeds PACKING; PACKING feeds LOAD and BUILDUP.
+Distinction: PACKING defines ULD contents/geometry; BUILDUP defines workstation/time commitments; LOAD places completed ULDs in aircraft hold stations.
+
+LOAD — Aircraft Load and Balance Planning
+Decision: select admissible payload units and assign them to aircraft hold stations while meeting aircraft mass, station load and center-of-gravity-envelope limits.
+Aliases: weight and balance optimization, aircraft stowage, air-cargo load planning. Variants: lateral balance, multi-leg unloading, different aircraft configurations and combined palletization.
+Substrate: completed ULDs/payload, aircraft station geometry/capabilities, flight/fuel conditions and certified limits supplied externally. Construction: map payload to fixed hold stations and select units to transport; primary #plan, primary #map plus #select. Fixed stations do not require an additional geometric #place tag.
+Template: aircraft load control | binary assignment/selection MILP with envelope constraints; multileg unloading order can enter the same load contract. S22 supports cargo selection/weight balance; S23 distinguishes true CG envelopes from target deviation; S24 supports pickup/delivery loading.
+Ratings High / Critical / Medium: feasible loading is operationally mandatory and has direct safety/capacity impact; structured single-aircraft MILP is established, while geometric/multileg restrictions can be harder.
+Dependency: TAILS, FLIGHT_PATH, CARGO and PACKING feed LOAD; LOAD feeds TURNAROUND and AIRCRAFT_RECOVERY.
+Boundary: choosing payload that physically fits/flies is LOG even when revenue weights value the choice. Fare availability, overbooking and sales acceptance without physical stowage are MKT.
+No source-reported optimizer is asserted to certify flight safety.
+
+GROUND_ROUTES — Ground Service Vehicle Routing and Scheduling
+Decision: assign service visits to a supplied heterogeneous ground fleet and construct feasible visit routes/times around flights, stands and turnaround task windows.
+Aliases: ground-handling vehicle scheduling, GSE routing, baggage tractor routing, passenger-bus routing. Variants: towing, catering, refueling visits, baggage trains, charging/reloads, multi-trip pickup/delivery.
+Substrate: flights, gates, service demands, task windows, vehicle capacity and road geometry. Construction: choose vehicle-successor visits, assign tasks and place service starts. Primary #plan; primary #link plus #map plus #place.
+Template: synchronized heterogeneous ground-service routing | VRPTW MILP with routing heuristics/decomposition; multi-trip pickup/delivery for baggage transport. S25 supports ground fleet scheduling; S26 supports baggage transit routing. Service precedence couples routes to turnaround but does not convert this into employee rostering.
+Ratings High / High / High: ground fleets can be a recurring departure bottleneck; synchronization and service-specific capacities require rich routing methods.
+Dependency: GROUND_CAPACITY, TIMETABLE and GATES feed GROUND_ROUTES; routes provide TURNAROUND resource windows and GROUND_DISPATCH initial plans.
+The TURNAROUND calendar can feed revised GROUND_ROUTES; this operational coupling is cyclic across planning iterations, and neither card owns every routing/scheduling variable of a joint model.
+Distinction: a precommitted route/calendar is #plan; selecting the next available vehicle action from live state is GROUND_DISPATCH.
+
+TRUCKS — Air Cargo Terminal Truck Scheduling
+Decision: assign inbound trucks to docks and arrival/unloading times coordinated with airline outbound flights and terminal handling capacity.
+Aliases: cargo terminal truck appointments, dock/arrival scheduling. Variants: direct transfer versus temporary storage, shipment unloading order, confirmed arrival slots.
+Substrate: truck consignments, dock capability, flight cutoffs and unload requirements. Construction: assign trucks to docks and position their arrival/unloading activities. Primary #plan; primary #place plus #map.
+Template: flight-cutoff-coordinated terminal arrivals | time-indexed integer programming with Lagrangian-relaxation or constructive scheduling heuristics. S27 is an original model and algorithm paper; its strong NP-hardness claim applies to its truck-scheduling model, not the entire AIRL territory.
+Ratings Medium / High / High: recurrent mainly at cargo terminals with carrier control over appointments; dock availability and flight cutoffs couple detailed unloading.
+Dependency: TIMETABLE and CARGO feed TRUCKS; TRUCKS feeds BUILDUP.
+Boundary: this is included only for airline-controlled freight-transfer programs. Shared landside infrastructure or independent road-carrier routing remains neighboring CIVIC/LOG territory. Truck inventory is supplied, not designed.
+
+BUILDUP — Air Cargo ULD Build-Up Scheduling
+Decision: assign ULD preparation jobs to compatible terminal workstations and choose their times/order under arriving cargo, limited handling space and departure cutoffs.
+Aliases: pallet build-up scheduling, air freight hub batching. Variants: dynamic batching, rolling look-ahead, break-down/build-up coupling; staffing capacity is supplied or a coupled resource.
+Substrate: cargo readiness, planned ULD contents, flight departure deadlines and workstation capacity. Construction: assign ULD jobs to workstations and place their execution/relative order. Primary #operate with Secondary #sequence; primary #place plus #map.
+Template: flight-cutoff-driven terminal handling | resource-constrained scheduling with MILP/CP; logic-based Benders decomposition for integrated allocation/scheduling variants. S28 identifies original batching and Benders research; S21 supports a parallel-workstation model. Evidence establishes published methods, not enterprise deployment superiority.
+Ratings High / High / High: cargo terminal flow must finish ULDs for flights; arrival, floor-space and workstation interactions constrain calendars.
+Dependency: PACKING, TRUCKS and CARGO feed BUILDUP; BUILDUP feeds TURNAROUND and GROUND_DISPATCH.
+Boundary: ULD geometry is PACKING; employee shifts/skills as the sole artifact are HR. Breaking down and repacking cargo stays physical handling; manufacturing a ULD is PROD.
+No case ID, benchmark instance choice or public-code claim is made.
+
+FLEETING — Aircraft Fleet Assignment
+Decision: assign an available aircraft type to each supplied flight under flow balance, fleet count, range/capacity and maintenance-access conditions.
+Aliases: fleet assignment problem, FAP, fleeting. Variants: itinerary-aware recapture, dynamic up/down-gauging, multiple fleets and integrated schedule/routing.
+Substrate: flights, aircraft type capacities/costs and network continuity. Construction: map flight legs to types; primary #allocate, primary #map. Flow balance constrains assignment but need not be a chosen #link construction in the fixed-flight contract.
+Template: fleet-type-to-flight capacity matching | time-space multicommodity-flow MILP; decomposition and itinerary-aware formulations. S29 is original fleet-assignment research; S30 supplies the established model/algorithm tutorial.
+Ratings Critical / Critical / High: types commit carrier capacity on flights; leg assignments are coupled by fleet circulation and travel demand.
+Dependency: FLEET and TIMETABLE feed FLEETING; FLEETING feeds ROTATIONS, TAILS and CARGO.
+Distinction: purchasing fleet options is FLEET; mapping specific tails to fixed rotations is TAILS.
+
+TAILS — Aircraft Tail Assignment
+Decision: assign individual aircraft to supplied feasible rotations under initial/final location, usage history, configuration and maintenance restrictions.
+Aliases: tail assignment problem, TAP, aircraft-to-line assignment. Variants: daily look-ahead, fixed-route repair and tail-specific compatibility; integrated route regeneration belongs jointly with ROTATIONS.
+Substrate: named tails and pre-generated lines. Construction: map tails to route groups; primary #allocate, primary #map. Primary #link is not needed when rotations are supplied and immutable.
+Template: named-aircraft rotation allocation | constrained assignment MILP; route-based branch-and-price when route regeneration is permitted. S31 explicitly establishes assignment to supplied lines and look-ahead maintenance; S32 supports close-to-operation integrated routing/tail assignment.
+Ratings Critical / High / Medium: each operated rotation requires an actual compatible aircraft; fixed-line variants are structured assignments, with higher difficulty when reassignment changes rotations.
+Dependency: ROTATIONS, FLEETING and MAINTENANCE feed TAILS; TAILS feeds FLIGHT_PATH, LOAD and AIRCRAFT_RECOVERY.
+Distinction: this fixed-route allocation is retained as an independent industrial handoff, rather than treating tail assignment and route construction as synonyms.
+
+GATES — Airline Gate and Stand Assignment
+Decision: assign airline-controlled flights/aircraft to compatible gates or remote stands and permitted occupancy windows under conflict and passenger-transfer requirements.
+Aliases: gate assignment, stand allocation, tactical gate planning. Variants: remote parking, towing, disrupted reassignment and passenger connection walking time.
+Substrate: airline flight plan, available stand opportunities and aircraft/stand compatibility. Construction: map flights to stands and place occupancy intervals where movable. Primary #allocate with Secondary #adapt for disrupted reassignment; primary #map plus #place.
+Template: airline gate/stand occupancy planning | binary assignment and interval-conflict MILP; rolling gate reassignment and local search. S33 explicitly distinguishes an airline-specific gate system; S34 supports passenger-connection-aware disrupted assignments.
+Ratings High / High / High: self-controlled hub stands affect turnaround/transfer reliability; interval conflicts and transfer costs couple choices.
+Dependency: TIMETABLE and TAILS feed GATES; GATES feeds GROUND_ROUTES, TURNAROUND and HOLDING.
+Boundary: airport-wide concession rules, common-use asset design and shared apron-capacity governance are not this airline operating contract.
+Cycle: ground readiness can revise gate windows; after a disruption, integrated recovery can feed an updated stand plan.
+
+CARGO — Air Cargo Itinerary Assignment
+Decision: assign accepted physical shipments to flight or permitted ground-feeder paths under capacity, transfer and delivery-window limits.
+Aliases: cargo routing, cargo flow allocation, shipment-to-flight assignment. Variants: splittable/indivisible orders, freighter/belly mix, through cargo, truck feeders, empty-ULD movement on available flights.
+Substrate: accepted shipments and network flight capacities. Construction: map shipments to leg resources and choose connected travel paths; primary #allocate, primary #map plus #link.
+Template: time-definite cargo movement planning | time-space multicommodity-flow or path-based integer programming with column generation. S35 establishes joint fleet/cargo paths; S36 supports cargo network planning. Commodity path formulations support Template existence; they do not prove every claimed variant uses the same method.
+Ratings High / High / High: cargo carriers and combination fleets must deliver finite-capacity shipment programs; indivisible consignments and transfers complicate routing.
+Dependency: NETWORK, TIMETABLE and FLEETING feed CARGO; CARGO feeds PACKING, LOAD, TRUCKS, BUILDUP and CARGO_RECOVERY.
+Boundary: booking acceptance, prices and overbooking without physical movement construction belong to MKT; stocking/replenishing ULDs belongs to SCM. Empty ULD physical transfer can remain a route commodity here.
+Continuous divisible flow restrictions may be easy; industrial granularity and physical compatibility determine difficulty.
+
+SEATING — Operational Passenger Seat Assignment
+Decision: assign already accepted passengers/groups to physical cabin seats within supplied cabin configuration, fixed seat commitments and movement/grouping constraints.
+Aliases: cabin seat assignment, passenger seat allocation. Variants: families/groups, boarding interference, reserved seats, physical separation conditions supplied by an operating policy.
+Substrate: booked travelers, seat layout and fixed commitments. Construction: map people to seats; primary #allocate, primary #map. Seats already have fixed coordinates; #place is not inferred from that layout.
+Template: group-aware cabin seating | constrained-assignment MILP; boarding-aware simulation evaluation where seating affects boarding. S37 supplies operational group/separation assignment; S38 supplies assignment with carry-on interference. Pandemic separation is a historical variant, not an asserted current requirement.
+Ratings Medium / Medium / Medium: operational reassignment occurs but many seats are preselected commercially; constrained group assignment can be tractable, while interference adds complexity.
+Dependency: TAILS provides physical cabin configuration to SEATING; SEATING feeds BOARDING.
+Boundary: charging for seats, commercial upsell, cabin-product design and revenue availability are MKT/PROD decisions. No commercial preference or medical policy is silently added.
+
+TURNAROUND — Aircraft Turnaround Scheduling
+Decision: assign the starts/order and available service resources for aircraft ground tasks so aircraft become departure-ready within safety precedence and stand/resource conditions.
+Aliases: turn scheduling, airline hub turnaround control. Variants: synchronized loading/fueling/boarding, deicing windows, integrated ground routing, uncertain task durations.
+Substrate: aircraft arrivals, ground-task requirements/precedences, load readiness, stand and vehicle windows. Construction: place tasks in time and assign supplied service resources; primary #operate with Secondary #sequence, primary #place plus #map. Given precedences are constitutive feasibility laws; they are not a constructed #link.
+Template: airline ground-task critical-path coordination | RCPSP/MILP or CP; simulation-supported rolling scheduling. S39 supports airline ground RCPSP recovery; S40 supports integrated aircraft/turnaround assignment.
+Ratings High / High / High: turnaround readiness repeatedly governs departure performance; scarce shared resources, uncertain arrivals and task dependencies interact.
+Dependency: LOAD, GATES, GROUND_ROUTES and BUILDUP feed TURNAROUND; TURNAROUND feeds BOARDING, GROUND_DISPATCH, HOLDING and RECOVERY.
+Boundary: task order is integrated physical service orchestration, not stand-alone employee rosters; detailed repair-work content remains PROD.
+Cycle: routing windows and task starts are solved iteratively or jointly; foreground direction represents baseline route availability consumed by the task calendar.
+
+BOARDING — Passenger Boarding Grouping and Sequencing
+Decision: group checked-in passengers and choose release order to board a supplied aircraft under seat locations, party cohesion and baggage/aisle interference.
+Aliases: boarding policy, boarding groups, boarding order. Variants: outside-in, back-to-front, individual/group releases, dynamic seats as a coupled SEATING decision.
+Substrate: checked-in passengers, assigned seats and cabin/aisle structure. Construction: place groups/people in release order and map people into groups; primary #operate with Secondary #sequence, primary #place plus #map.
+Template: cabin-flow and interference control | sequence/group optimization with simulation; MILP or local search for defined group models. S41 supports group determination; S42 is original boarding-order/simulation research.
+Ratings Medium / Medium / Medium: useful on short turns but compliance and observed behavior limit gains; practical group models and simulation searches are established.
+Dependency: SEATING and TURNAROUND feed BOARDING; BOARDING feeds HOLDING.
+Distinction: publishing a boarding sequence commits the order of work already in turnaround; it is not #design merely because a policy can be reused.
+No laboratory-optimal sequence is asserted to be the universal operational best practice.
+
+GROUND_DISPATCH — Ground Service Vehicle Dispatch
+Decision: choose the next service requests and available vehicles to activate or reposition from live aircraft, request, vehicle and readiness states.
+Aliases: online ground-service dispatch, apron vehicle activation, baggage/tow/bus dispatch. Variants: charging/resource failures, emergent tasks, dispatch priorities.
+Substrate: available fleet, initial routes, task calendar and evolving state. Construction: map requests to vehicles and select actions for immediate release. Primary #dispatch, primary #map plus #select. Full downstream route reconstruction is a GROUND_ROUTES/recovery coupling; the core next-action contract does not require #link.
+Template: event-driven ground-service control | fast sequential assignment/routing heuristics; rolling-horizon MILP for constrained dispatch windows. S43 explicitly supplies a real-time dispatch-oriented heuristic; S25/S26 establish service-specific routing context.
+Ratings High / High / High: short-cycle action affects aircraft readiness; state changes and heterogeneous vehicle compatibility restrict latency.
+Dependency: GROUND_CAPACITY, GROUND_ROUTES, BUILDUP and TURNAROUND feed GROUND_DISPATCH; dispatched service feeds updated turnaround readiness.
+Direction TURNAROUND -> GROUND_DISPATCH records calendar consumption; GROUND_DISPATCH -> TURNAROUND records state feedback. This cycle is intentional.
+Workforce availability is supplied; separate employee activation/rosters belong to HR.
+
+HOLDING — Departure Connection Protection
+Decision: choose whether and how long to hold a ready outgoing flight for connecting passengers while respecting downstream aircraft, stand and crew feasibility.
+Aliases: connection management, departure holding, wait/depart control. Variants: passenger priority, uncertain transfer time, coordinated nearby holds.
+Substrate: current arrival/transfer estimates, outgoing readiness, passenger connections and movement commitments. Construction: select held departures and place release times; primary #dispatch, primary #select plus #place.
+Template: passenger-connection and delay-propagation control | constrained hold/release optimization within a passenger-aware RCPSP or network MILP; local search for integrated variants. S39 and S44 directly establish holding within airline recovery methods; S33 establishes gate holding effects.
+Ratings High / High / High: hubs repeatedly trade missed connections against propagating delay; route and stand effects complicate local choices.
+Dependency: GATES, TURNAROUND and BOARDING feed HOLDING; HOLDING feeds PASSENGER_RECOVERY and RECOVERY.
+Distinction: a localized release decision preserves the movement program where possible; broad flight cancellation/rerouting belongs to #adapt RECOVERY.
+No passenger-rights threshold or mandatory holding rule is asserted.
+
+AIRCRAFT_RECOVERY — Aircraft Schedule Recovery
+Decision: revise flight operation, times and aircraft rotations after aircraft outages, airport restrictions or delay while respecting maintenance and recovery-end positions.
+Aliases: ARP, aircraft recovery, fleet recovery, aircraft schedule repair. Variants: swaps, cancellations, ferrying, diversions, maintenance flexibility and uncertain disruptions.
+Substrate: committed aircraft program and changed availability/capacity. Construction: change flight-successor links, map aircraft to legs and select kept/cancelled flights with revised times. Primary #adapt; primary #link plus #map plus #select plus #place.
+Template: aircraft-centric irregular-operations control | time-space/network MILP; route-column generation and large-neighborhood repair. S45 supports two-stage uncertain recovery; S46 supports capacity/maintenance-aware column generation; S47 supports constraint-specific networks.
+Ratings Critical / Critical / High: moving aircraft back into feasible service is central to irregular operations; large network repairs and time pressure require specialized search/decomposition.
+Dependency: ROTATIONS, TAILS, MAINTENANCE, LOAD and FLIGHT_PATH feed AIRCRAFT_RECOVERY; revised flights/capacities feed PASSENGER_RECOVERY, CARGO_RECOVERY and RECOVERY.
+Boundary: crew feasibility remains an input or integration constraint; a crew-only recovery artifact is HR.
+Independent aircraft recovery does not guarantee a good passenger result; this motivates RECOVERY rather than reclassifying passenger recovery as an alias.
+
+PASSENGER_RECOVERY — Passenger Itinerary Recovery
+Decision: replace disrupted booked passenger journeys with feasible remaining itineraries and allocate available seats, preserving completed travel and group/cabin conditions when specified.
+Aliases: PRP, passenger reaccommodation, passenger rerouting, rebooking after disruption. Variants: preemptive rerouting, other-carrier or air-rail alternatives, split groups under explicit policy.
+Substrate: disrupted journeys, revised flight program, existing bookings and remaining physical capacity. Construction: map people/groups to replacement itineraries and select connected travel legs; primary #adapt, primary #map plus #link.
+Template: disrupted journey completion | integer multicommodity-flow/path assignment; stochastic programming for preemptive rerouting. S48 supports an original passenger-recovery integer-flow model; S49 supports two-stage preemptive rerouting.
+Ratings Critical / Critical / High: affected travelers must compete for residual journey capacity; many linked alternatives and indivisible groups constrain network-wide assignment.
+Dependency: AIRCRAFT_RECOVERY and HOLDING feed PASSENGER_RECOVERY; completion costs/feasibility feed RECOVERY.
+Boundary: recovery completes accepted movement claims. Pricing replacement tickets or solving commercial sales acceptance without transport completion is MKT; financial compensation calculation alone is FIN.
+A path may be supplied as an alternative, but choosing its legs determines the delivered replacement journey; #link reflects that industrial artifact, not just column generation.
+
+CARGO_RECOVERY — Air Cargo Itinerary Recovery
+Decision: revise previously committed cargo paths after flight, capacity, deadline or shipment changes with permitted transshipment and alternative transport.
+Aliases: cargo recovery, air-cargo schedule recovery when shipment scope is fixed. Variants: demand changes, belly/freighter alternatives, trucking, priority orders and indivisible freight.
+Substrate: accepted shipment transport commitments and altered movement opportunities. Construction: map shipments to replacement capacity and choose connected paths. Primary #adapt; primary #map plus #link. Flight-program changes belong jointly to RECOVERY when decisions are cooptimized.
+Template: cargo disruption and delivery-window repair | path-based integer programming and matheuristics; integrated aircraft/cargo column-and-row generation as an extension. S50/S51 establish cargo disruption recovery and a matheuristic; S52 supplies aircraft/cargo integration.
+Ratings High / High / High: time-definite cargo operations need reallocation under scarce capacity; deadline, handling and physical compatibility constrain revisions.
+Dependency: CARGO and AIRCRAFT_RECOVERY feed CARGO_RECOVERY; revised cargo feasibility feeds RECOVERY, PACKING and LOAD.
+Distinction: original cargo path allocation and revision of an accepted path are separate industrial handoffs, although the #adapt algorithm can reuse the allocation formulation.
+Cargo/passenger differences are physical handling and shipment indivisibility, not another Territory.
+
+RECOVERY — Integrated Airline Disruption Recovery
+Decision: jointly revise the flight program, aircraft use, passenger/cargo journeys and material coupled crew/ground commitments after disruption.
+Aliases: IARP/IADRP, integrated schedule recovery, airline disruption management. Variants: aircraft/passenger, aircraft/crew, full multi-resource, passenger or cargo-oriented, uncertain/rolling recovery, speed control as a continuous coupling.
+Substrate: already committed transport program and live disruption. Construction: select flight actions, change movement-successor relations, map resources/claims and revise times. Primary #adapt; primary #select plus #link plus #map plus #place.
+Template: airline operations-control coordination | decomposed network MILP with column generation or large-neighborhood search; conic mixed-integer models for speed-coupled variants. S53/S54 supply original integrated recovery architectures; S55 establishes a public simplified aircraft/passenger contract; S56 supports aircraft/ground-turnaround coupling.
+Ratings Critical / Critical / Critical: joint resource and journey feasibility governs enterprise recovery; model size and short decision windows require restriction, decomposition, aggregation or heuristic repair.
+Dependency: TIMETABLE, TURNAROUND, AIRCRAFT_RECOVERY, PASSENGER_RECOVERY, CARGO_RECOVERY and SLOT_PRIORITY feed RECOVERY; RECOVERY revises flight, tail, gate, cargo and ground movement commitments.
+This is admitted as a distinct joint movement-program contract, not an additional stage that every deployment must run. Stand-alone subproblem outputs can be inputs/warm starts; simultaneous optimization need not impose sequential implementation.
+Boundary: joint crew variables support an airline movement program, consistent with normative LOG/HR interfaces; crew-only repair remains HR. A benchmark without crews is not a full industry model.
+Evidence does not show that one integrated method dominates all airline scales or disruption patterns.
+
+SLOT_PRIORITY — Airline ATFM Slot Reprioritization
+Decision: revise which of an airline’s flights consume supplied delayed arrival/departure opportunities, using approved substitution and prioritization mechanisms.
+Aliases: airline slot substitution, UDPP, airline delay reprioritization. Variants: intra-airline swaps, authorized exchanges, frozen flights, goal-slot priorities.
+Substrate: operator-assigned capacity opportunities, airline flights and delay-cost/feasibility conditions. Construction: remap flights to available times and choose priorities/substitutions. Primary #adapt; primary #map plus #select. Slots are supplied temporal resources; #place is not needed unless new times are generated.
+Template: airspace-user delay-priority management | integer slot-assignment/prioritization optimization; manual or semi-automated operational procedures remain the reported comparator. S57 is official UDPP context; S58 reports an integer-model implementation and explicitly distinguishes current manual/semi-automated practice.
+Ratings High / High / High: regulated carrier networks face materially different delay propagation costs; mechanism restrictions and downstream feasibility complicate reassignment.
+Dependency: TIMETABLE and TAILS feed SLOT_PRIORITY; SLOT_PRIORITY feeds AIRCRAFT_RECOVERY and RECOVERY.
+Boundary: slot ownership auctions, access-right sales and commercial clearing are MKT; network-manager allocation across airlines and shared airport/airspace service coordination require separate ownership.
+No automatic permission to swap slots or an operational deployment level is inferred from an optimization model.
+
+GRANULARITY AND EXCLUSION REGISTER
+
+Confirmed merges:
+- Hub choice, gateways, served arcs and carrier network reliability -> NETWORK variants.
+- Aircraft replacement and retirement -> FLEET; fleet financing is external.
+- Flight frequencies, hub banks, retiming and schedule buffers -> TIMETABLE.
+- Robust flight successors, ferry/positioning legs and maintenance-routing variants -> ROTATIONS.
+- Full route generation is distinct from fixed-route TAILS; integrated formulations instantiate both.
+- Multi-leg aircraft stowage and unloading restrictions -> LOAD.
+- Baggage tractors, passenger buses, towing, catering and fueling vehicle visits -> GROUND_ROUTES/GROUND_DISPATCH.
+- Deicing service windows and departure readiness -> TURNAROUND; shared runway/deicing infrastructure is external.
+- Boarding policy variants -> BOARDING; reusable policy terminology does not alone make #design.
+- Stand reassignment -> GATES with Secondary #adapt; no duplicate gate-recovery card.
+- Cruise-speed control -> FLIGHT_PATH or RECOVERY coupling when discrete decisions remain; pure continuous control is excluded.
+- Optional refueling stops -> FLIGHT_PATH/ROTATIONS routing variants. Fixed-route fuel tankering amounts alone are not a new combinatorial artifact.
+- Empty ULD journeys -> CARGO physical-routing variant; stock/replenishment decisions are excluded to SCM.
+- Airline reserve/spare aircraft positioning -> ROTATIONS/AIRCRAFT_RECOVERY variants. Searches supplied limited independent reservation Template evidence; no unsupported #reserve or #provision Problem is admitted.
+- Charter and ACMI movement operations -> schedule/routing/recovery variants; lease-right and contractual workforce decisions remain external.
+- Aircraft performance/configuration data -> inputs unless the solver actually chooses an operational configuration; aircraft product-design changes are not AIRL.
+
+Transferred material ICO candidates:
+CREW | standalone airline crew pairing, rostering and crew-only recovery | proposed owner #HR | workforce legality/skills are the delivered contract | S32 plus normative airline boundary.
+REVENUE | fare/offer availability, overbooking and sales seat allocation | proposed owner #MKT | commercial claims/offer choice rather than physical journey execution | S08/S30 plus normative ownership.
+ULD_STOCK | ULD stock positioning, replenishment and stock targets | proposed owner #SCM | supply availability rather than specified ULD transfer journeys | S59.
+FUEL_SUPPLY | discrete supplier/station fuel commitments or purchase policies | proposed owner #SCM | procurement/availability commitment; fixed-route continuous tankering is not ICO by itself | S60 and normative contract test.
+REPAIR_SHOP | independent aircraft/component repair jobshop execution | proposed owner #PROD | maintenance work content/resources rather than carrier fleet withdrawal windows | S13/S61 and normative contract test.
+GROUND_WORKFORCE | independent terminal/GSE employee shifts and skills | proposed owner #HR | human capacity is committed separately from vehicle paths or ULD calendars | S62.
+AIRPORT_ASSETS | common-use terminal/apron infrastructure and shared airport service capacity | proposed owner #CIVIC | shared physical-service substrate rather than airline-controlled stand use | S63 and normative contract test.
+AIR_TRAFFIC | shared runway sequencing/airport-wide disruption coordination | proposed owner #LOG or #CIVIC subject to contract | pure movement and shared service coordination require separate territory assessment; not automatically ##AIRLINE | S63; no other Domain foreground is classified here.
+SLOT_RIGHTS | commercial access-right allocation and slot auctions | proposed owner #MKT | market rights rather than carrier remapping within supplied operating opportunities | S57 and normative distinction.
+Carrier treasury, compensation settlement, aircraft financial portfolio, carbon-allowance trade, security and compute-server workloads are neighboring FIN/MKT/INTEL/COMP applications. No separate evidenced ICO claim is forced for them in this run.
+Inbound marketplace review: no pre-existing OPEN record specifically proposes 210 AIRL. Generic automotive or semiconductor movement candidates are not claimed because their industries differ.
+
+DEPENDENCY GRAPH
+
+These edges describe decision/data flow, not mathematical reductions. They are engineering contraction of the scheduling hierarchy in S08/S09/S14/S30/S32, cargo chain in S19/S21/S27/S28/S35, ground coupling in S25/S33/S39/S40 and recovery integration in S44-S58.
+NETWORK -> FLEET, TIMETABLE, CARGO.
+FLEET -> MAINTENANCE, FLEETING.
+TIMETABLE -> GROUND_CAPACITY, FLEETING, ROTATIONS, GATES, CARGO, GROUND_ROUTES, TRUCKS, RECOVERY, SLOT_PRIORITY.
+GROUND_CAPACITY -> GROUND_ROUTES, GROUND_DISPATCH.
+MAINTENANCE -> ROTATIONS, TAILS, AIRCRAFT_RECOVERY.
+FLEETING -> ROTATIONS, TAILS, CARGO.
+ROTATIONS -> TAILS, AIRCRAFT_RECOVERY.
+TAILS -> FLIGHT_PATH, LOAD, SEATING, GATES, AIRCRAFT_RECOVERY, SLOT_PRIORITY.
+FLIGHT_PATH -> LOAD, AIRCRAFT_RECOVERY.
+CARGO -> PACKING, LOAD, TRUCKS, BUILDUP, CARGO_RECOVERY.
+PACKING -> LOAD, BUILDUP.
+TRUCKS -> BUILDUP.
+GATES -> GROUND_ROUTES, TURNAROUND, HOLDING.
+GROUND_ROUTES -> TURNAROUND, GROUND_DISPATCH.
+BUILDUP -> TURNAROUND, GROUND_DISPATCH.
+LOAD -> TURNAROUND, AIRCRAFT_RECOVERY.
+TURNAROUND -> BOARDING, GROUND_DISPATCH, HOLDING, RECOVERY.
+SEATING -> BOARDING.
+BOARDING -> HOLDING.
+GROUND_DISPATCH -> TURNAROUND.
+HOLDING -> PASSENGER_RECOVERY, RECOVERY.
+SLOT_PRIORITY -> AIRCRAFT_RECOVERY, RECOVERY.
+AIRCRAFT_RECOVERY -> PASSENGER_RECOVERY, CARGO_RECOVERY, RECOVERY.
+PASSENGER_RECOVERY -> RECOVERY.
+CARGO_RECOVERY -> RECOVERY, PACKING, LOAD.
+RECOVERY -> TIMETABLE, TAILS, GATES, CARGO, GROUND_ROUTES.
+
+Cycles:
+TURNAROUND <-> GROUND_DISPATCH is calendar/state feedback.
+RECOVERY -> TIMETABLE/TAILS/GATES/CARGO/GROUND_ROUTES -> execution/recovery is revision of previous commitments, not repeated chronological precedence within one iteration.
+CARGO_RECOVERY -> PACKING/LOAD -> AIRCRAFT_RECOVERY -> CARGO_RECOVERY is revised cargo feasibility feedback.
+GROUND_CAPACITY consumes proposed timetable demand although its design band precedes the plan band.
+Allocation outputs FLEETING/GATES/CARGO/TAILS constrain planning outputs ROTATIONS/GROUND_ROUTES/PACKING/LOAD/FLIGHT_PATH. The normative Regime order must not be distorted to hide those cross-band backward edges.
+Within bands, there is an acyclic baseline order except feedback explicitly identified above. No final numerical sequence is assigned in this background.
+Conditional interfaces not made mandatory edges: commercial demand forecasts, crew rosters, airport capacity, maintenance providers, weather data, fuel/ULD supply. A standalone deployment may consume externally supplied values instead of another AIRL optimizer.
+
+KNOWN GAPS AND UNCERTAINTY
+
+No global algorithm ranking is established. Industrial systems use incremental, sequential and integrated methods at different stages; published integration is not proof of ubiquitous deployment.
+The ground-fleet sizing evidence includes carrier/airport case studies and newer electrification models; operational applicability requires matching vehicle duty, charge and reliability assumptions.
+Passenger seating evidence includes special separation/boarding variants. The canonical scope is physical operational allocation; commercial seat choice is excluded, and no historical separation policy is treated as current.
+Terminal handling ownership is conditional on an airline movement contract. General forwarding terminals and independent airport infrastructure remain outside AIRL.
+Spare-aircraft reservation and contingent capacity rights lack a sufficiently distinct supported contract in this search; they remain variants/interfaces rather than forced unused Regime bands.
+Source access varies. Public abstract/institutional evidence establishes problem/method identity; later Case work must verify datasets, license, runnable implementations, complete objective/constraints and reference results.
+Airworthiness, crew-law, dangerous-goods and ATFM rules are supplied operational inputs. This taxonomy does not restate or certify those rules.
+Formal classes are not transferred from a familiar knapsack/VRP submodel to all rich airline contracts.
+Research saturation is a practical coverage judgment. A future industrial contract with a distinct artifact may justify an additional Problem after research/control.
+No case-level work has begun.
+
+SOURCE REGISTER
+
+All accessed 8 October 2026 UTC. E = original evidence; I = ontology/engineering inference in candidate sections. URLs identify exact materials; no source is claimed to have been reproduced.
+
+S01 E. Airline network design and hub location problems. https://www.sciencedirect.com/science/article/pii/S0966834996000162 . Primary abstract: capacitated airline hub/network integer models.
+S02 E. An integrated global airline hub network design with fleet planning. https://www.sciencedirect.com/science/article/pii/S0360835221007877 . Primary abstract: hub/network/fleet integration.
+S03 E. Airline Network Planning: Mixed-integer non-convex optimization with demand–supply interactions. https://www.sciencedirect.com/science/article/pii/S0191261521001703 . Primary abstract: network, frequency and fleet choices.
+S04 E. Scenario tree airline fleet planning for demand uncertainty. https://www.sciencedirect.com/science/article/pii/S0969699717302806 . Primary abstract: scenario-linked fleet composition MILP.
+S05 E. A Mixed-Integer Programming Approach to Air Cargo Fleet Planning. https://pubsonline.informs.org/doi/abs/10.1287/mnsc.26.11.1096 . Primary abstract: all-cargo fleet/network model.
+S06 E. The impact of transitioning to electric Ground Support Equipment on the fleet capacity and energy demand at airports. https://www.sciencedirect.com/science/article/pii/S2213624X2500135X . Primary abstract: KLM ground-fleet capacity/operation study.
+S07 E. Optimal vehicle fleet and charging strategy for electric ground service equipment at airports based on flight schedule. https://www.sciencedirect.com/science/article/pii/S0967070X26001332 . Primary abstract: procurement/sizing/charging integration.
+S08 E. Airline Timetable Development and Fleet Assignment Incorporating Passenger Choice. https://doi.org/10.1287/trsc.2019.0924 . Publisher abstract inspected: integrated MILP, multiphase heuristics and airline study.
+S09 E. An Integrated Approach for Airline Flight Selection and Timing, Fleet Assignment, and Aircraft Routing. https://pubsonline.informs.org/doi/pdf/10.1287/trsc.2013.0460 . Primary abstract: coupled flight/type/route construction.
+S10 E. Planning for Robust Airline Operations: Optimizing Aircraft Routings and Flight Departure Times to Minimize Passenger Disruptions. https://pubsonline.informs.org/doi/abs/10.1287/trsc.1050.0134 . Primary abstract: route and retiming robustness.
+S11 E. An optimisation framework for airline fleet maintenance scheduling with tail assignment considerations. https://www.sciencedirect.com/science/article/pii/S0191261519302000 . Primary abstract: coupled fleet-maintenance MILP.
+S12 E. A practical dynamic programming based methodology for aircraft maintenance check scheduling optimization. https://research.tudelft.nl/en/publications/a-practical-dynamic-programming-based-methodology-for-aircraft-ma/ . Institutional primary record: check scheduling using airline data.
+S13 E. Aircraft line maintenance scheduling and optimisation. https://doi.org/10.1016/j.jairtraman.2020.101914 . Primary abstract: line-task assignment/timetabling and sequential/integrated methods.
+S14 E. A branch-and-price approach for operational aircraft maintenance routing. https://www.sciencedirect.com/science/article/pii/S0377221705004807 . Primary abstract: routing/assignment architecture.
+S15 E. Robust weekly aircraft maintenance routing problem and the extension to the tail assignment problem. https://www.sciencedirect.com/science/article/pii/S0191261515000569 . Primary abstract: routing and assignment relation.
+S16 E. Robust optimization: Lessons learned from aircraft routing. https://www.sciencedirect.com/science/article/pii/S0305054818301023 . Primary abstract: robust route model alternatives.
+S17 E. ZIB, Discrete-Continuous Flight Planning. https://www.zib.de/research/projects/discrete-continuous-shortest-path-problems-flight-planning . Primary research page inspected: airway shortest paths and discrete-continuous refinement.
+S18 E. Error Bounds for Discrete-Continuous Free Flight Trajectory Optimization. https://doi.org/10.1007/s10957-023-02264-7 . Original research: relation between graph approximation and continuous flight paths.
+S19 E. A Combinatorial Optimization Approach for Air Cargo Palletization and Aircraft Loading. https://www.mdpi.com/2227-7390/11/13/2798 . Primary research: packing and load balance.
+S20 E. Development of a decision support system for air-cargo pallets loading problem: A case study. https://www.sciencedirect.com/science/article/pii/S0957417405002617 . Primary abstract: contour/weight-constrained 3D packing and heuristic.
+S21 E. Palletization and Build-up Scheduling Problem from an Air Cargo Application. https://repository.tudelft.nl/record/uuid%3A8c86da8d-fda9-46e0-8bb0-6ccf0665a8d2 . Original thesis record: packing then parallel-workstation scheduling.
+S22 E. Automatic air cargo selection and weight balancing: A mixed integer programming approach. https://www.sciencedirect.com/science/article/pii/S1366554513002159 . Primary abstract: physical cargo choice and balance.
+S23 E. Optimization approach to the aircraft weight and balance problem with the centre of gravity envelope constraints. https://doi.org/10.1049/itr2.12096 . Primary article inspected: fixed-position ULD assignment/selection and envelope restrictions.
+S24 E. The Airline Container Loading Problem with Pickup and Delivery. https://orbi.uliege.be/handle/2268/159811 . Institutional primary record: multi-airport loading and unloading.
+S25 E. A bi-objective approach for scheduling ground-handling vehicles in airports. https://www.sciencedirect.com/science/article/pii/S0305054815002968 . Primary abstract: vehicle calendars under flight and gate windows.
+S26 E. Split-demand multi-trip vehicle routing problem with simultaneous pickup and delivery in airport baggage transit. https://www.sciencedirect.com/science/article/pii/S0377221723005817 . Primary abstract: baggage tractor/dolly routing.
+S27 E. Scheduling Truck Arrivals at an Air Cargo Terminal. https://doi.org/10.1111/j.1937-5956.2009.01068.x . Original abstract: flight-coordinated docks/times, time-indexed IP and Lagrangian heuristic.
+S28 E. ZIB, Air Cargo Ground Handling. https://zib.de/research/projects/air-cargo-ground-handling . Primary project/publication evidence: ULD Build-Up Scheduling with Dynamic Batching (2022) and Logic-Based Benders Decomposition (2024). https://doi.org/10.1007/978-3-031-08623-6_38 .
+S29 E. Advances in the Optimization of Airline Fleet Assignment. https://pubsonline.informs.org/doi/abs/10.1287/trsc.31.2.159 ; https://research.ibm.com/publications/advances-in-the-optimization-of-airline-fleet-assignment . Original paper/author record: type-to-flight multicommodity-flow models.
+S30 E. Airline fleet assignment concepts, models, and algorithms. https://www.sciencedirect.com/science/article/pii/S0377221705002109 . Established tutorial: integrated, itinerary-aware and dynamic assignment alternatives.
+S31 E. The daily tail assignment problem under operational uncertainty using look-ahead maintenance constraints. https://www.sciencedirect.com/science/article/pii/S0377221717305829 . Primary abstract: aircraft-to-supplied-lines allocation and route regeneration.
+S32 E. Integrated Aircraft Routing, Crew Pairing, and Tail Assignment: Branch-and-Price with Many Pricing Problems. https://pubsonline.informs.org/doi/pdf/10.1287/trsc.2015.0664 . Primary abstract: individual-tail and crew integration.
+S33 E. Optimization for gate re-assignment. https://www.sciencedirect.com/science/article/pii/S019126151630594X . Primary abstract: airline-specific gates and operational reassignment.
+S34 E. An aircraft-to-gate reassignment framework for dealing with schedule disruptions. https://www.sciencedirect.com/science/article/pii/S0969699719300080 . Primary abstract: passenger-transfer-aware binary gate assignment.
+S35 E. Joint fleet scheduling and cargo flow allocation for air cargo services. https://research.polyu.edu.hk/en/publications/joint-fleet-scheduling-and-cargo-flow-allocation-for-air-cargo-se/ ; https://www.sciencedirect.com/science/article/pii/S0191261526000810 . Primary institutional/publisher abstract: fleet/cargo routes and column generation.
+S36 E. MIP models and a hybrid method for the capacitated air-cargo network planning and scheduling problems. https://www.sciencedirect.com/science/article/pii/S1366554516304823 . Primary abstract: cargo network/fleet movement.
+S37 E. Social distancing in airplane seat assignments for passenger groups. https://doi.org/10.1080/21680566.2021.2007816 . Primary abstract: group-aware physical seating MILP; historical separation variant only.
+S38 E. Optimization of assigning passengers to seats on airplanes based on their carry-on luggage. https://www.sciencedirect.com/science/article/pii/S0969699715300235 . Primary abstract: operational seating/boarding interference.
+S39 E. Airline ground operations: Schedule recovery optimization approach with constrained resources. https://www.sciencedirect.com/science/article/pii/S0968090X21001480 . Primary abstract: airline RCPSP, connections, stands and vehicles.
+S40 E. Optimizing integrated aircraft assignment and turnaround handling. https://www.sciencedirect.com/science/article/pii/S037722172300262X . Primary abstract: coupled aircraft and ground handling.
+S41 E. Determining airplane boarding groups. https://doi.org/10.1007/s00291-025-00829-8 . Original paper abstract: group-based boarding optimization.
+S42 E. Optimal boarding method for airline passengers. https://arxiv.org/abs/0802.0733 . Original research: boarding-order search with simulation.
+S43 E. A Fast Heuristic for Airport Ground-Service Equipment–and–Staff Allocation. https://www.sciencedirect.com/science/article/pii/S1877042813054578 . Primary abstract: sequential heuristic for real-time ground dispatch support; independent staff allocation remains external.
+S44 E. Towards efficient airline disruption recovery with reinforcement learning. https://www.sciencedirect.com/science/article/pii/S1366554523002831 . Primary abstract: integrated decision set including holding and discrete recovery actions; RL-guided VNS is one published method.
+S45 E. A two-stage approach to aircraft recovery under uncertainty. https://www.sciencedirect.com/science/article/pii/S0969699723000649 . Primary abstract: time-space networks and uncertain recovery.
+S46 E. A column generation-based heuristic for aircraft recovery problem with airport capacity constraints and maintenance flexibility. https://www.sciencedirect.com/science/article/pii/S0191261517310421 . Primary abstract: rich aircraft recovery.
+S47 E. Constraint-specific recovery network for solving airline recovery problems. https://www.sciencedirect.com/science/article/pii/S030505480900210X . Primary abstract: aircraft recovery/maintenance and passenger extension.
+S48 E. A Passenger Recovery Approach for Airline Disruption Management. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2707676 . Original author paper record: passenger integer multicommodity flow.
+S49 E. Preemptive rerouting of airline passengers under uncertain delays. https://www.sciencedirect.com/science/article/pii/S0305054817302253 . Primary abstract: two-stage stochastic passenger rerouting.
+S50 E. Recovering from demand disruptions on an air cargo network. https://www.sciencedirect.com/science/article/pii/S0969699719302479 . Primary abstract: cargo schedule recovery MILP.
+S51 E. A matheuristic approach to the air-cargo recovery problem under demand disruption. https://doi.org/10.1016/j.jairtraman.2020.101939 ; https://pmc.ncbi.nlm.nih.gov/articles/PMC7527289/ . Primary indexed abstract: cargo/flight revision and matheuristic; full PMC open was blocked.
+S52 E. Integrated recovery of air cargo transportation under various abnormal scenarios. https://www.sciencedirect.com/science/article/pii/S0377221725006745 . Primary abstract: aircraft/cargo paths, modes and column-and-row generation.
+S53 E. An Optimization Approach to Airline Integrated Recovery. https://pubsonline.informs.org/doi/pdf/10.1287/trsc.1120.0414 . Primary abstract: integrated flight/aircraft/crew/passenger repair.
+S54 E. Flight Network-Based Approach for Integrated Airline Recovery with Cruise Speed Control. https://doi.org/10.1287/trsc.2016.0716 . Publisher abstract inspected: flow representation, conic mixed-integer model and scale-control methods.
+S55 E. ROADEF 2009 challenge original specification. https://roadef.org/challenge/2009/files/challenge_en.pdf . Original PDF inspected: simplified aircraft/passenger recovery, capacity/maintenance and recovery-end positions; crews explicitly omitted.
+S56 E. Integration of turnaround and aircraft recovery to mitigate delay propagation in airline networks. https://www.sciencedirect.com/science/article/pii/S0305054821003221 . Primary abstract: integrated ground/aircraft recovery.
+S57 E. SESAR, Airspace user fleet prioritisation (UDPP). https://www.sesarju.eu/sesar-solutions/airspace-user-fleet-prioritisation-udpp-0 . Official mechanism description: carrier priorities within constrained capacity.
+S58 E. A User-Driven Prioritisation Process implementation and optimisation for ATFM hotspot resolution. https://doi.org/10.1016/j.trc.2024.104894 . Primary abstract: integer priority optimization and manual/semi-automated operational comparator.
+S59 E. A time–space network model for unit load device stock planning in international airline services. https://www.sciencedirect.com/science/article/pii/S0969699710000852 . Primary abstract: ULD stock and repositioning; ownership separated by delivered contract.
+S60 E. A Fuel Management Model for the Airline Industry. https://doi.org/10.1287/opre.40.2.229 . Original abstract: fuel amounts and station/supplier conditions; standalone continuous amount optimization excluded from ICO.
+S61 E. Using constraint programming to address the operational aircraft line maintenance scheduling problem. https://www.sciencedirect.com/science/article/pii/S0969699724000024 . Primary abstract: detailed maintenance scheduling/CP; different from airline withdrawal calendars.
+S62 E. Scheduling personnel for the build-up of unit load devices at an air cargo terminal with limited space. https://doi.org/10.1007/s00291-020-00580-2 . Primary abstract: workforce MILP and generalized set partitioning; workforce-only contract excluded to HR.
+S63 E. Disruption recovery at airports: Integer programming formulations and polynomial time algorithms. https://www.sciencedirect.com/science/article/pii/S0166218X17305310 . Original abstract explicitly takes airport/service-provider/public perspective rather than one carrier.
