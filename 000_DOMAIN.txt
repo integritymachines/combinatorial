@@ -1,5 +1,5 @@
 *Industrial Combinatorial Optimization* 
-v0.4 Oct 2026
+v0.5 Oct 2026
 
 - Canonical ontology for industrial combinatorial optimization (ICO) systems.
 - Aims at near-exhaustive, minimally overlapping classification of commercially relevant combinatorial optimization systems.
@@ -10,12 +10,13 @@ v0.4 Oct 2026
 1. Macro Domain     Closed grouping of Domains.
 2. Domain           Closed canonical ordering axis; where the decision lives.
 3. Industry         Open context axis; where the decision is instantiated.
-4. Industry Domain  Problem family at one Industry × Primary Domain intersection.
-5. Regime           Commitment stage of the decision.
-6. Structure        Combinatorial construction performed by the solver.
-7. Parameters       Operational and execution qualifiers.
-8. Descriptors      Open refinements.
-9. Problem          Stand-alone industrial combinatorial decision.
+4. Territory        Closed value-chain partition within an Industry.
+5. Industry Domain  Coherent industrial decision territory defined by Industry, Primary Domain, and, when required for identity, Territory.
+6. Regime           Commitment stage of the decision.
+7. Structure        Combinatorial construction performed by the solver.
+8. Parameters       Operational and execution qualifiers.
+9. Descriptors      Open refinements.
+10. Problem         Stand-alone industrial combinatorial decision.
 
 **Macro Domains & Domains**
 
@@ -79,22 +80,122 @@ A Problem belongs to:
 
 **Industry Domains**
 
-- An Industry Domain lies at the intersection of exactly one Industry and exactly one Primary Domain.
+- Every Industry Domain has exactly one Industry, one Primary Domain, and one Territory.
+- The default identity is Industry × Primary Domain.
+- Territory distinguishes Industry Domains only when a Territory split passes the split test below.
 - Secondary Domains are optional.
-- Every Problem within an Industry Domain has the same Primary Domain.
+- Every Problem within an Industry Domain has the same Primary Domain and Territory.
 - A Problem with another Primary Domain belongs to another Industry Domain.
-- Domain remains the canonical ordering principle.
+- Domain remains the canonical Problem-classification axis.
+- Macro Domain is the Industry Domain numbering anchor.
+
+Territory split test
+
+Two territories within one Industry and one Primary Domain are separate Industry Domains only when all four conditions hold:
+
+1. Artifact
+They commit different substrates or deliver different artifacts to the next industrial contract.
+
+2. Practice
+Each has a distinct Problem inventory and professional practice.
+
+3. Domain residual
+The Primary Domain test has already been applied and both remain in the same Primary Domain.
+
+4. Not a variant
+Neither territory is only a Regime, Structure, Parameter, specialization, department, horizon, or module variant of the other.
+
+Fail any condition and retain one Industry Domain.
+
+A later split does not silently narrow a published Industry Domain.
+A new territory receives a new code and a split-from reference.
+If an old code cannot retain its published meaning, retire it and record superseded-by. Never reuse the retired code.
+
+**Industry Domain numbering**
+
+Industry Domain codes share the three-digit Domain number space.
+
+X = Macro Domain anchor.
+
+X00-X09 are reserved for generic Domains.
+Industry Domains use X10-X99.
+
+Within an anchoring Macro Domain:
+
+XY0       Cluster head.
+XY1-XY9   Members of that Industry cluster.
+
+- Cluster membership requires a defensible industrial relationship, not merely a shared Macro Domain.
+- Neighboring Y values do not imply adjacency.
+- Industry × Primary Domain normally identifies one Industry Domain.
+- An earned Territory split takes another free member code in the same Industry cluster.
+- Territory splits do not open a new cluster merely because the Territory differs.
+- Codes encode identity and cluster membership, not Priority or Relevance.
+- Published codes are not renumbered.
+- Gaps are allowed.
+- Retired codes are not reused.
+
+**Territory**
+
+#development     Defines a new product, system, service, or capability before routine realization.
+#production      Creates, transforms, operates, or directly provides the core industrial output or service.
+#distribution    Moves, positions, supplies, or delivers goods, resources, people, inventory, or service capacity.
+#administration  Governs rights, claims, commercial, financial, workforce, or organizational arrangements around the other territories.
+
+- Territory partitions the industrial value chain into mutually exclusive and exhaustive parts.
+- Assign exactly one Territory to every Industry Domain.
+- Apply the Primary Domain test before the Territory test.
+- Territory is determined by the delivered industrial contract, not department name or Regime.
+- Maintenance, procurement, service, and similar functions require a contract-level Territory decision.
+- Territory is descriptive unless the Industry Domain split test passes.
 
 **Regime**
 
 #design    Configure system structure or capacity before downstream commitment.
+#provision Secure a contingent right to designed capacity or capability before a plan names its use.
+
 #plan      Prepare future plans, schedules, campaigns, or policies.
+#reserve   Earmark a planned quantity or window for a class of claims without naming the claimant.
+
 #allocate  Assign scarce resources, opportunities, or obligations.
-#operate   Orchestrate ongoing activities and immediate execution.
+
+#operate   Orchestrate ongoing activities and execution.
+#sequence  Fix the near-term order or batching of work already under operation before evolving state requires local action.
+
 #dispatch  Make short-cycle activation, release, prioritization, relocation, or local-repair decisions under evolving state.
 #adapt     Revise prior commitments in response to material change or disruption.
 
+- Primary Regime is one of #design #plan #allocate #operate #dispatch #adapt.
+- #provision is allowed only as a Secondary Regime under Primary #design.
+- #reserve is allowed only as a Secondary Regime under Primary #plan.
+- #sequence is allowed only as a Secondary Regime under Primary #operate.
+- Other material Primary-Regime tags may appear as Secondary Regimes when supported.
 - Regime is determined by the type of commitment, not horizon alone.
+
+**Problem numbering**
+
+Problem IDs use a three-digit numeric suffix.
+
+The first digit records the ordering Regime:
+
+1##  Primary #design.
+2##  Primary #design with Secondary #provision.
+3##  Primary #plan.
+4##  Primary #plan with Secondary #reserve.
+5##  Primary #allocate.
+6##  Primary #operate.
+7##  Primary #operate with Secondary #sequence.
+8##  Primary #dispatch.
+9##  Primary #adapt.
+
+The remaining two digits give the Problem sequence within that band.
+
+- Regime band is the first ordering criterion.
+- Dependencies order Problems within a band.
+- Minimize backward dependency flow without moving a Problem across its Regime band.
+- Resolve remaining ties by stable industrial logic.
+- Assign permanent numbers only after sequence is fixed.
+- A Secondary Regime other than #provision, #reserve, or #sequence does not change the leading digit.
 
 **Structure**
 
@@ -180,12 +281,31 @@ Open top-level tags:
 - Industry      ##ALLCAPS
 
 Closed subordinate tags:
-- Regime        #design #plan #allocate #operate #dispatch #adapt
-- Structure     #select #map #link #place
-- Parameters    #strategic #tactical #execution #realtime #rolling #offline #online #openloop #closedloop
+- Territory         #development #production #distribution #administration
+- Regime            #design #plan #allocate #operate #dispatch #adapt
+- Secondary Regime  #provision #reserve #sequence
+- Structure         #select #map #link #place
+- Parameters        #strategic #tactical #execution #realtime #rolling #offline #online #openloop #closedloop
 
 Open subordinate tags:
 - Descriptors   ##lowercase
+
+----
+
+**FOREGROUND DOMAIN FILE**
+
+Each foreground Domain or Industry Domain file contains:
+
+1. Identity and version.
+2. SCOPE.
+3. Canonical Problem set.
+
+SCOPE is a short domain-specific introduction.
+It states the decision territory, ownership rule, and material neighboring boundaries.
+For an Industry Domain it also states Industry, Primary Domain, Territory, and Macro Domain anchor.
+
+Do not repeat workflow rules, rating semantics, dependency semantics, approval status, or other generic instructions in SCOPE.
+Those belong in the ontology, workflow, or research background.
 
 ----
 
@@ -215,7 +335,10 @@ TEMPLATE <IE> | <OR>.
 REGIME <PRIMARY> [+ <SECONDARY> ...] | <STE explainer>.
 - Primary required.
 - Secondaries optional.
-- Canonical Regime values: #design #plan #allocate #operate #dispatch #adapt.
+- Primary Regime values: #design #plan #allocate #operate #dispatch #adapt.
+- #provision is allowed only after Primary #design.
+- #reserve is allowed only after Primary #plan.
+- #sequence is allowed only after Primary #operate.
 - Explain why the Problem belongs primarily at the stated commitment stage or stages.
 - Do not infer Regime only from planning horizon; use the type of commitment being made.
 
@@ -232,32 +355,45 @@ PRIORITY <Critical | High | Medium | Low> | <STE centrality explainer>.
 
 RELEVANCE <Critical | High | Medium | Low> | <STE value explainer>.
 
-HARDNESS <Critical | High | Medium | Low> | <Formal computational complexity>; <STE industrial explainer>.
-- Separate formal computational complexity from industrial solution difficulty.
+HARDNESS <Critical | High | Medium | Low> | <STE industrial explainer> [| <Formal class or supported span>].
+- Industrial Hardness is required.
+- Formal complexity is optional.
+- Include formal complexity only when a defensible class or informative span materially sharpens the card.
 - Use terms such as NP-hard only when supported.
-- Explain what makes industrial-scale instances difficult with current methods.
-- Do not infer Hardness from NP-hardness alone.
+- When meaningful variants have different classifications, state the supported span.
+- Do not state that a formal class is unknown, unavailable, or not established.
+- Do not infer industrial Hardness from formal complexity alone.
 
 DEPENDENCIES <UPSTREAM IDs> → <THIS ID> → <DOWNSTREAM IDs>.
 - Use "∅" when no dependency is specified.
 - List only meaningful Problem-level dependencies.
 - Dependencies = industrial decision sequence or information dependency, not mathematical reduction.
 
-COMMENTS <Optional STE explainer> | <Closed tags>, <Optional open tags>.
-- Only for useful information that does not belong naturally in another field.
-- Repeat Macro Domain, Domain, Regime, and Structure tags first.
-- Other tags must add information rather than duplicate dedicated fields.
+TAGS <Closed tags>, <Optional open tags>.
+- Provide the compact canonical semantic signature of the Problem.
+- Repeat Macro Domain, Domain, Regime, and Structure tags.
+- For Industry Domain Problems, also include Industry and Territory.
+- Include Parameters and useful Descriptors when they materially refine identity or retrieval.
+- Duplication of dedicated ontology fields is intentional in TAGS.
 - Prefer extensible ## tags for Industry, industrial specialization, mathematical form, structural laws, decomposition patterns, or established search terms.
+
+COMMENTS <Optional STE explainer>.
+- Preserve only material interpretation not captured adequately by the canonical fields or TAGS.
+- Suitable content includes boundary conditions, exceptions, scope qualifications, and important variant distinctions.
+- Do not restate DESCRIPTION, REGIME, STRUCTURE, ratings, or TAGS.
+- Do not use COMMENTS to carry tags.
+- Omit COMMENTS when no such information is needed.
 
 EXAMPLE
 
-PROC01 Process Network Synthesis & Topology Design. 
+PROC101 Process Network Synthesis & Topology Design. 
 DESCRIPTION Selects and connects processing units, pipelines, headers, and storage to meet capacity and product-slate targets under capital constraints. 
 TEMPLATE Process network synthesis / plant superstructure design | MILP/MINLP network design and decomposition. 
 REGIME #design | Defines plant topology and capacity before detailed planning and operations. 
 STRUCTURE #link + #select | Constructs the process topology and selects the units that participate; connectivity and flow topology are constitutive laws. 
 PRIORITY Critical | Defines the physical structure that constrains major refinery and bulk-chemical operations.  
 RELEVANCE Critical | Better designs can materially change capital cost, capacity, flexibility, and future operating limits.
-HARDNESS High | NP-hard; generalizes fixed-charge network design and facility location; industrial instances can require decomposition because topology, capacity, and process constraints interact. 
-DEPENDENCIES ∅ → PROC01 → PROC02, PROC03, PROC06. 
-COMMENTS Long-term structural decisions constrain later physical operations | #TRANS #PROC #design #link #select ##network-design ##piping. 
+HARDNESS High | Industrial instances can require decomposition because topology, capacity, and process constraints interact | NP-hard for general discrete network-design restrictions.
+DEPENDENCIES ∅ → PROC101 → PROC102, PROC103, PROC106.
+TAGS #TRANS #PROC #design #link #select ##network-design ##piping.
+COMMENTS Long-term structural decisions constrain later physical operations. 
