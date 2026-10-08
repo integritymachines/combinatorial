@@ -1,3 +1,5 @@
+530_RET.txt
+
 RET — Retail Merchandising
 v0.1 | 9 October 2026 | Problem layer
 
@@ -5,6 +7,8 @@ SCOPE
 Macro Domain anchor: #EXCH. Primary Domain: 501 #MKT. Industry: ##RETAIL. Territory: #DISTRIBUTION.
 Merchandise ranges, commercial bundle menus, category and item display space, posted prices, promotions, targeted offers, curated subscription content and live retail presentation define this territory. It covers physical, digital, omnichannel and subscription retail.
 Ownership follows the delivered commercial offer, merchandise presentation or curated content commitment. Stock quantities, sourcing, replenishment and fixed-order fulfillment remain SCM contracts. Physical handling and delivery, workforce schedules, financial positions, manufacturable product definitions and installed digital-resource operation remain with their corresponding Domains.
+
+#design | 1##
 
 RET101 Category Space Configuration.
 DESCRIPTION Configure category selling locations and discrete fixture-space shares within a supplied store layout under category capacity, presentation and demand-response conditions.
@@ -29,6 +33,8 @@ HARDNESS High | Component combinations and customer substitution couple menu com
 DEPENDENCIES ∅ → RET102 → RET302, RET304, RET501, RET804.
 TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #design #select #map ##bundling ##menu-design ##cross-selling.
 COMMENTS Physical product design and kit assembly remain external contracts.
+
+#plan | 3##
 
 RET301 Retail Assortment Selection.
 DESCRIPTION Select products to offer by store or channel under category, range-size, attribute, presentation and supplied availability limits while accounting for customer substitution.
@@ -114,6 +120,8 @@ DEPENDENCIES RET301, RET304, RET305 → RET307 → ∅.
 TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #plan #select #place ##flyer ##feature-space ##cross-category.
 COMMENTS The exact comparator requires finite presentation alternatives and an explicit demand-response model.
 
+#allocate | 5##
+
 RET501 Coupon and Targeted Offer Allocation.
 DESCRIPTION Assign discrete coupon or merchandise-offer alternatives to eligible customers or groups under campaign budget, contact-frequency and offer-interaction limits.
 TEMPLATE Loyalty promotion targeting | Multiple-choice knapsack or assignment MIP; robust aggregate portfolio allocation under compatible segment assumptions.
@@ -149,6 +157,8 @@ HARDNESS High | Many subscribers and possible configurations require formulation
 DEPENDENCIES RET301 → RET503 → ∅.
 TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #allocate #map #select ##subscription-box ##configuration ##personalization.
 COMMENTS Fixed-content order sourcing belongs to SCM. Physical kitting and transport remain external contracts.
+
+#dispatch | 8##
 
 RET801 Live Assortment Activation.
 DESCRIPTION Select the active offer subset from an admitted merchandise range for an arriving customer or current selling state under exposure, eligibility and supplied availability limits.
@@ -197,4 +207,3 @@ HARDNESS High | Customer-specific component combinations and price interactions 
 DEPENDENCIES RET102, RET302 → RET804 → ∅.
 TAGS #EXCH #MKT ##RETAIL #DISTRIBUTION #dispatch #select #online ##personalized-bundle ##recommendation ##cross-selling.
 COMMENTS Continuous prices can accompany the discrete bundle composition.
-
