@@ -125,6 +125,26 @@ S23 Demoly et al., An assembly oriented design framework for product structure e
 https://strathprints.strath.ac.uk/42155/
 Institutional primary record: early product structuring with assembly knowledge; automotive exhaust-system example. Separates product restructuring from a released-design manufacturing route.
 
+S24 Astesana, Cosserat and Fargier, Constraint-based Vehicle Configuration: A Case Study, ICTAI 2010. DOI: 10.1109/ICTAI.2010.19.
+https://www.astesana.net/CBVC.pdf
+Author-hosted full text inspected. Renault represents vehicle ranges with finite feature domains and compatibility constraints. The paper separates range definition, diversity reporting, BOM management and interactive configuration. BOM applicability conditions connect features to parts; rule diagnosis, projection and counting are different queries.
+
+S25 Walter, Zengler and Küchlin, Applications of MaxSAT in Automotive Configuration, Configuration Workshop 2013, 21–28.
+https://ceur-ws.org/Vol-1128/paper3.pdf
+Primary proceedings full text inspected. Boolean option families and cross-family constraints support valid configuration completion. BMW-derived formulas support MaxSAT experiments for order and package repair. These experiments support the solver family, not a claim of deployed engineering optimization or permission to relax physical constraints.
+
+S26 Kübart, Walter and Küchlin, Different Solving Strategies on PBO Problems from Automotive Industry, Configuration Workshop 2015, 67–72.
+https://ceur-ws.org/Vol-1453/11_KuebartWalterKuechlin_DifferentSolvingStrategiesOn_Confws-15_p67.pdf
+Primary proceedings full text inspected. Technically valid configurations optimize weighted options or product properties. Real manufacturer-derived formulas compare SAT-based pseudo-Boolean optimization, core-guided MaxSAT and ILP. Solver effectiveness changes with objective size and instance structure; no universal winner follows. Production forecasting and customer-order repair are industrial contexts, not automatically AUTOD contracts.
+
+S27 Siemens, Teamcenter Product Configurator, official fact sheet, accessed 8 October 2026.
+https://static.sw.cdn.siemens.com/siemens-disw-assets/public/2mMu4TEUXWYOSetAIWHwBC/en-US/Siemens%20SW%20Teamcenter%20Product%20Configurator%20Fact%20Sheet.pdf
+Official full text inspected. Features and compatibility rules define variants separately from detailed content; variant conditions configure BOM and CAD content. Engineering configuration and change-impact analysis share variability information with manufacturing, sales and service. Supports established IE practice and a distinct variability/content interface, not solver performance claims.
+
+S28 Kübler, Zengler and Küchlin, Model Counting in Product Configuration, EPTCS 29, 2010, 44–53. DOI: 10.4204/EPTCS.29.5.
+https://arxiv.org/abs/1007.1024
+Primary abstract inspected. Model counting analyzes numbers of valid Mercedes-Benz configurations and component frequencies. This is evidence for the analysis boundary, not a constructive configuration optimization contract or a reproduced counting result.
+
 CANDIDATE INVENTORY
 
 Candidate keys are research labels, not permanent Problem IDs. Admission, Regime, Structure, ratings and dependencies below are research conclusions to be checked; C derives the final sequence.
@@ -154,7 +174,7 @@ Ratings INFERENCE: Priority High; Relevance Critical; Hardness High. Architectur
 FAMILY, MODULE → ARCH → CONFIG, PACK, ROUTE, VALIDATE. Product-change selection may reopen ARCH. Bidirectional ARCH/CONFIG refinement is recognized; the forward definitional order is used unless the case supplies a fixed topology.
 
 CONFIG — Catalog component and module configuration
-Decision: assign compatible finite component alternatives and integer module counts to required roles in a specified physical architecture. Artifact: discrete component definition/BOM. Aliases: component selection, catalog sizing, option configuration. Variants: motors, storage modules, suspension components, gears and compatible mechanical options. Evidence is strongest for electrified powertrain components; extensions are contract-level inference, not separate claimed deployments.
+Decision: assign compatible finite component alternatives and integer module counts to required roles in a specified physical architecture. Artifact: discrete component definition/BOM. Aliases: component selection, catalog sizing. Variants: motors, storage modules, suspension components, gears and compatible mechanical options. Evidence is strongest for electrified powertrain components; extensions are contract-level inference, not separate claimed deployments.
 DIRECT S04; S05 supplies integer multiplicities. IE: component matching and catalog-based performance/cost tradeoff analysis. OR: simulation-assisted discrete search; mixed-integer formulation when component/performance models permit it. Genetic search has direct automotive evidence; exhaustive/convex-inner comparison is a material near-equal for small module-count sets.
 Primary #design; Primary #map. Assign chosen catalog definitions and multiplicities to fixed functional roles. This core contract requires no additional #select: identifying the alternatives assigned to roles already captures configuration. Optional component admission that changes the architecture belongs ARCH or a coupled variant.
 Distinct from FAMILY's across-model commonality and ARCH's connectivity. A valid supplier-backed component can be an input; choosing suppliers/quantities is #SCM. Dealer option matching and advertised assortment are #MKT. Continuous-only component dimensions are excluded from independent ICO admission.
@@ -209,13 +229,24 @@ Different from AUTOM's selective component matching, which pairs manufactured in
 Ratings INFERENCE: Priority High; Relevance High; Hardness High. Tolerance commitments affect quality and manufacturing cost; nonlinear stacks and variation evaluation constrain choices. Easier separable/smooth restrictions do not negate industrial coupling.
 CONFIG, MATERIAL, PACK, JOIN → TOL → VALIDATE. Dimensional feedback can require JOIN or CONFIG revision.
 
+VARIANT — Vehicle variant configuration
+Decision: choose a complete, technically valid combination of vehicle features and equipment options for an engineering variant under specified requirements, compatibility rules and cost, mass or preference objectives. Artifact: the variant's feature definition and resulting applicability of supplied product content. Aliases: engineering variant configuration, feature configuration, product-line configuration, vehicle buildability configuration. Variants: completion of a partial engineering definition, conditional option groups, trim/market requirements supplied as constraints, and selection of a least-cost or least-mass valid variant.
+DIRECT industrial representation and IE framing: S24 and S27. DIRECT automotive OR family: S25 and S26. Applying weighted configuration methods specifically to a pre-release physical engineering variant is INFERENCE combining those sources; their customer-order/production experiments are not claimed as AUTOD deployments. IE: feature-model and compatibility-rule engineering with variant BOM applicability checks. OR: SAT for feasibility/completion; weighted MaxSAT or pseudo-Boolean optimization for preferences; finite-domain CP and MILP where the constraint form warrants them. No unique SOTA solver or public engineering benchmark is established.
+Primary #design: commits a new physical product variant before routine realization. Primary #select: chooses included feature/option alternatives. The core Boolean-option contract needs no additional #map merely because truth values are assigned; a supplied feature-family or compatibility graph is not chosen #link. Finite-domain attributes can be represented by mutually exclusive option alternatives. Numeric role sizing and module counts are CONFIG; integration that constructs new physical connections invokes ARCH.
+Distinctness INFERENCE: CONFIG chooses detailed catalog definitions and multiplicities for fixed functional roles, often evaluated through physical performance models. VARIANT chooses a vehicle-wide combination across feature families and conditional product content. They exchange admissible alternatives but deliver different professional artifacts. PROTOTYPE selects a fleet to cover validation demands; it consumes variant buildability and is not single-variant definition. FAMILY chooses commonality across variants, not one feature combination. Integrated configuration can contain both VARIANT and CONFIG; a pure catalog-role assignment is not counted twice.
+Hard technical requirements remain hard. Cost, mass and preferences rank feasible variants; no mandatory safety or compatibility rule is weakened to obtain feasibility. Pure rule consistency checking, enumeration, projection and counting are supporting analyses, not separate admitted optimization Problems here (S24, S28). The old NVD04 discovery seed mixes these queries and therefore is not imported verbatim.
+Ownership INFERENCE: physical engineering variant definition belongs to supplied AUTOD / #PROD / #DEVELOPMENT identity. Commercial option/package offers and customer preference handling belong to #MKT when the commercial offer is the artifact. Production variant-mix forecasting and released-order realization belong to AUTOM when manufacturing commitments define the decision. Software-only feature selection belongs to #COMP. Shared configurator software does not merge these contracts.
+Ratings INFERENCE: Priority Critical, because variant compatibility governs valid physical product definitions across the family; Relevance High, because valid combinations prevent incompatible content and downstream rework; industrial Hardness Medium, because standard SAT/PBO/CP/MILP methods solve useful automotive instances but rule integration, objective form and scaling remain important (S25–S27). Arbitrary Boolean feasibility is NP-complete; weighted configuration optimization includes NP-hard cases (S25/S26). This formal statement is not a rating or a claim that every industrial instance is difficult; counting has a different contract and complexity.
+Dependencies INFERENCE: FAMILY, MODULE, ARCH and CONFIG provide eligible platforms, feature realization and component compatibility → VARIANT → PROTOTYPE, VALIDATE. Existing variant definitions constrain CHANGE; selected changes may reopen VARIANT. These are information/engineering flows, not reductions between SAT and catalog optimization. Catalog compatibility can refine variant rules; coupled solution and iteration remain possible without imposing a universal one-pass process.
+Descriptors: ##variant-configuration ##feature-model ##buildability ##product-line.
+
 PROTOTYPE — Prototype fleet configuration
 Decision: choose how many validation vehicles/specimens to create and configure their finite options so the selected validation demands have compatible buildable specimens. Artifact: prototype fleet definitions, not test start times. Aliases: test-vehicle configuration, pre-production vehicle configuration, prototype variant selection. Variants: coverage of option interactions, minimum fleet size, feasible reuse across tests and jointly scheduled prototypes.
 DIRECT S12; joint planning S14/S15. IE: prototype-buildability and test-coverage planning. OR: SAT/Max-SAT or MILP-compatible configuration and coverage optimization; greedy coverage baseline; decomposition for integrated scheduling. The quantum formulation is an alternative encoding/method, not a new Problem or established superior Template.
 Primary #design; Primary #select with Secondary #map. Select participating prototype slots and map allowed feature choices to them. It creates purpose-built development assets before their named tests are scheduled, rather than allocating an existing fleet to tests. TESTCAL performs that downstream assignment.
 Given test requirements do not imply that the validation tests are selected here; VALIDATE supplies the chosen program where it is an optimized decision. Build quantities and vehicle definitions constrain calendar feasibility. Prototype fabrication start times are not independently admitted from S12's misleading production title.
 Ratings INFERENCE: Priority High; Relevance High; Hardness Medium. Compatibility has many rules, but SAT/MILP and greedy coverage have directly demonstrated practical instances. Tight calendar, degradation and simultaneous configuration may raise Hardness in the integrated variant; formal SAT hardness alone is insufficient for Critical.
-CONFIG, VALIDATE → PROTOTYPE → TESTCAL. Calendar feasibility can force more prototypes or changed variants, giving PROTOTYPE ↔ TESTCAL. This cross-band VALIDATE → PROTOTYPE flow must remain visible after numbering.
+CONFIG, VARIANT, VALIDATE → PROTOTYPE → TESTCAL. Calendar feasibility can force more prototypes or changed variants, giving PROTOTYPE ↔ TESTCAL. This cross-band VALIDATE → PROTOTYPE flow must remain visible after numbering.
 
 VALIDATE — Validation test portfolio selection
 Decision: select optional validation activities/scenarios to cover specified product requirements, failure modes and critical conditions within a fixed development budget, retaining all mandatory checks. Artifact: chosen validation program. Aliases: DVP selection, test suite selection, failure-mode coverage, minimum critical scenario set. Variants: component reliability, vehicle validation, discrete scenario catalogs and risk-weighted coverage.
@@ -223,7 +254,7 @@ TRANSFER S16 for failure-mode covering; DIRECT S17 for vehicle scenario selectio
 Primary #plan; Primary #select. Chooses future validation actions for the specified evolving product, without designing the laboratory or allocating named specimen instances. A finite scenario catalog is combinatorial; continuous-only adversarial scenario generation is outside this card.
 Separate from PROTOTYPE's coverage by configured vehicles. The selected actions remain product-validating tests; generic software regression coverage is #COMP, and a sensing-only schedule is separately assessed there. Mandatory compliance tests are constraints, not deletable optimization opportunities. No regulatory text has been interpreted or simplified.
 Ratings INFERENCE: Priority High; Relevance High; Hardness Medium. Repeated decisions ration expensive validation, but finite-cover models are tractable at useful sizes with ordinary solver engineering. Claims of proven product safety cannot follow from optimized coverage alone.
-ARCH, CONFIG, LOADPATH, MATERIAL, PACK, ROUTE, JOIN, TOL → VALIDATE → PROTOTYPE, TESTCAL. Test results may trigger CHANGE; TESTCAL deadlines can constrain the selected portfolio in an integrated case.
+ARCH, CONFIG, LOADPATH, MATERIAL, PACK, ROUTE, JOIN, TOL, VARIANT → VALIDATE → PROTOTYPE, TESTCAL. Test results may trigger CHANGE; TESTCAL deadlines can constrain the selected portfolio in an integrated case.
 
 TESTCAL — Prototype and test-rig scheduling
 Decision: assign required development tests to compatible specimens/rigs and calendar positions subject to preparation, destructive/degradation state, precedence and resource windows. Artifact: executable validation calendar. Aliases: prototype vehicle test scheduling, crash-test scheduling, test-bench scheduling. Variants: rig-only, whole-vehicle and joint fleet/calendar optimization.
@@ -250,6 +281,9 @@ Ratings INFERENCE: Priority High; Relevance High; Hardness High. Changing state 
 TESTCAL, CHANGE → TESTREPAIR → TESTCAL, PROTOTYPE. Revised specimen needs feed prototype decisions only when replacement/configuration really changes; this is recovery feedback, not generic mathematical reduction.
 
 DEPENDENCY GRAPH AND CYCLES
+
+FAMILY, MODULE, ARCH, CONFIG → VARIANT → PROTOTYPE, VALIDATE.
+VARIANT → CHANGE → VARIANT (existing definition and physical revision feedback).
 
 Core initial-definition edges:
 FAMILY → MODULE, ARCH, CONFIG, LOADPATH.
@@ -278,7 +312,7 @@ C must sequence by the current Regime bands first. Within #design, commonality a
 
 IDENTITY, MERGE AND EXCLUSION REGISTER
 
-ADMIT FAMILY, MODULE, ARCH, CONFIG, LOADPATH, MATERIAL, PACK, ROUTE, JOIN, TOL, PROTOTYPE, VALIDATE, TESTCAL, CHANGE, TESTREPAIR subject to B control.
+ADMIT FAMILY, MODULE, ARCH, CONFIG, LOADPATH, MATERIAL, PACK, ROUTE, JOIN, TOL, VARIANT, PROTOTYPE, VALIDATE, TESTCAL, CHANGE, TESTREPAIR subject to B control.
 MERGE shared battery/motor module multiplicity into FAMILY/CONFIG; battery pack interconnection into ARCH and spatial packing into PACK. Electric propulsion alone does not create a different Problem inventory.
 MERGE crash, durability, emissions, thermal, NVH and rig test calendars into TESTCAL where state/eligibility/calendar commitments define the same contract. Their test physics belong later Cases. Test fleet choices remain PROTOTYPE when buildability/coverage, not dates, defines the artifact.
 MERGE weld-site reduction and discrete fastener/attachment patterns into JOIN, retaining different physical laws in variants. Process-time objectives do not move the product joint definition to AUTOM.
@@ -300,3 +334,10 @@ The searches produced repeated aliases and specializations for physical architec
 Important evidence limits are CHANGE's transferred OR method, scenario-selection ownership when software rather than physical product validity dominates, direct discrete tolerance evidence versus predominantly continuous practice, and prototype state assumptions across scheduling studies. These qualifications must survive contraction where they affect interpretation.
 The current literature supports defensible Template families for the admitted set. Cases must separately establish actual data availability, licenses, industrial scale, baselines and reproducible results. Public abstracts and challenge mentions are discovery evidence, not canonical Cases.
 Research retains initial-definition and revision cycles. The compiler must not use topological-sort convenience to erase them, or infer Structure from the solver encoding. No permanent Problem numbers were assigned during research.
+
+VARIANT CONFIGURATION RESEARCH EXTENSION — 8 OCTOBER 2026
+
+The human-requested extension adds VARIANT after targeted automotive configuration, product-line and PLM searches. S24–S28 support the admission and expose the analysis-versus-construction boundary omitted by the original broad CONFIG alias. Other results chiefly repeat these methods or concern software configuration, commercial offers, production forecasting and knowledge-base analysis. This targeted extension does not establish exhaustive coverage or authorize Case research.
+The old 161_AUTOD_old.txt NVD04 Variant Configuration entry is a discovery seed, not controlled evidence. Its all-valid-configurations wording and unqualified NP-complete label do not define one constructive optimization contract. The admitted VARIANT retains valid feature configuration and leaves counting/verification as analyses.
+For compilation, retain the existing order through TOL, then place VARIANT before PROTOTYPE because fleet definitions consume variant validity. This minimizes the new backward flow without disrupting unrelated design cards. At this draft revision, the former prototype position moves one place; dependency references must move with that identity. No Case IDs exist. Number assignment remains Compiler work.
+Version labels remain v0.1 under the user's explicit instruction; workflow-stage promotion and human-revision suffixes do not override it. Full previous research and source records are retained. Commercial feature offers and production variant-mix forecasting are recorded in the marketplace; receiving Domains decide their admission.
