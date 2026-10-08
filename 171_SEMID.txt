@@ -101,7 +101,7 @@ RELEVANCE Critical | Die boundaries and technology choices can materially change
 HARDNESS High | Interface reach, balance, timing and heterogeneous die costs require iterative partition and geometry checks.
 DEPENDENCIES SEMID101, SEMID107 → SEMID108 → SEMID109, SEMID115.
 TAGS #TRANS #PROD ##SEMICONDUCTOR #DEVELOPMENT #design #map #select ##partition ##hypergraph ##chiplet ##technology-assignment.
-COMMENTS For a fixed block set and fixed technologies, the construction reduces to #map.
+COMMENTS For a fixed block set and fixed technologies, the decision assigns components to blocks only.
 
 SEMID109 On-Chip Interconnect Topology Synthesis.
 DESCRIPTION Select routers and physical interconnects that satisfy specified hardware communication demands within bandwidth, latency, area and power limits.
@@ -181,7 +181,7 @@ RELEVANCE Critical | Better geometry affects die area, package cost and attainab
 HARDNESS High | Nonoverlap, shape, routing and thermal tradeoffs require iterative hierarchical search.
 DEPENDENCIES SEMID107, SEMID108, SEMID109, SEMID110, SEMID114 → SEMID115 → SEMID116, SEMID117, SEMID119, SEMID120, SEMID123.
 TAGS #TRANS #PROD ##SEMICONDUCTOR #DEVELOPMENT #design #place #select ##floorplan ##macro-placement ##chiplet ##nonoverlap.
-COMMENTS Fixed-shape variants require only #place. Three-dimensional integration is a floorplanning variant.
+COMMENTS Fixed-shape variants choose positions and orientations only. Three-dimensional integration is a floorplanning variant.
 
 SEMID116 Chip Interface Pin and Bump Assignment.
 DESCRIPTION Assign signals and power connections to permitted pin, pad or bump sites under interface, spacing, grouping and routing limits.
@@ -207,7 +207,7 @@ TAGS #TRANS #PROD ##SEMICONDUCTOR #DEVELOPMENT #design #place ##placement ##lega
 
 SEMID118 Discrete Gate Sizing and Buffer Insertion.
 DESCRIPTION Select library-cell sizes and buffer insertions for a supplied circuit implementation under timing, slew, capacitance, power and area limits.
-TEMPLATE Physical synthesis and electrical timing closure | Timing-driven discrete sizing and buffer-tree dynamic programming with iterative physical refinement.
+TEMPLATE Physical synthesis and electrical timing closure | Timing-driven discrete resizing and buffering with iterative physical refinement.
 REGIME #design | Commits cell implementations and buffer structure before design release.
 STRUCTURE #select + #map + #link | Selects gate and buffer options, assigns them to circuit sites and constructs buffered connections.
 PRIORITY Critical | Electrical closure recurs throughout physical implementation.
