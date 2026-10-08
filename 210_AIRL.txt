@@ -1,0 +1,335 @@
+210_AIRL.txt
+
+AIRL — Airline Operations
+v0.1 | 8 October 2026 | Problem layer
+
+SCOPE
+Macro Domain anchor: #DISP. Primary Domain: 201 #LOG. Industry: ##AIRLINE. Territory: #PRODUCTION.
+Airline transport capability, flight programs, aircraft circulation, physical journey and load assignments, airline-controlled ground movement and disruption recovery define this territory. It covers passenger, combination and cargo carriers.
+Ownership follows the delivered airline movement program. Standalone crew systems, commercial offers and access rights, supply availability, financial claims, detailed repair-work calendars and shared airport service or infrastructure contracts remain with their corresponding Domains.
+Gate, ground-service and cargo-terminal Problems apply when the carrier controls the operating movement contract.
+
+#design | 1##
+
+AIRL101 Airline Service Network Design.
+DESCRIPTION Choose airline hubs, served airport pairs and service connections under demand, access, capacity and operating requirements.
+TEMPLATE Carrier hub and route-network planning | Capacitated hub-location and network-design MILP with decomposition or constrained network search.
+REGIME #design | Defines the carrier's movement network before particular flights are committed.
+STRUCTURE #link + #select | Constructs service connections and selects participating hubs or routes.
+PRIORITY Critical | The service network defines the carrier's operating territory.
+RELEVANCE Critical | Better networks affect enterprise coverage, transport cost and capacity use.
+HARDNESS High | Hub, fleet, demand and reliability choices interact across a large network.
+DEPENDENCIES ∅ → AIRL101 → AIRL102, AIRL301, AIRL504.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #design #link #select ##network-design ##hub-location ##connectivity.
+COMMENTS Airport construction and commercial access-right allocation are separate contracts.
+
+AIRL102 Airline Fleet Composition.
+DESCRIPTION Choose aircraft types and fleet quantities over an acquisition and replacement plan under transport, investment and capability limits.
+TEMPLATE Fleet-capability and replacement planning | Multi-period mixed-integer planning; scenario-based stochastic MILP for uncertain demand.
+REGIME #design | Commits the aircraft capability available to downstream flight planning.
+STRUCTURE #select | Selects aircraft options and discrete quantities for the fleet.
+PRIORITY Critical | Aircraft capability defines which transport programs the carrier can operate.
+RELEVANCE Critical | Better composition affects major investment and recurring operating cost.
+HARDNESS High | Demand uncertainty, replacement timing and fleet commonality couple discrete choices.
+DEPENDENCIES AIRL101 → AIRL102 → AIRL302, AIRL501.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #design #select ##fleet-planning ##fleet-mix ##replacement.
+COMMENTS Aircraft financing and supplier commitments remain external to the transport-capability decision.
+
+AIRL103 Ground Service Fleet Sizing.
+DESCRIPTION Choose the types and quantities of airline-controlled ground service vehicles needed to meet flight-service demand and reliability requirements.
+TEMPLATE Ground-service capacity and reliability analysis | Discrete fleet-sizing search with simulation; coupled sizing and charging MILP for electric fleets.
+REGIME #design | Commits ground-vehicle capability before individual service routes are assigned.
+STRUCTURE #select | Selects a discrete complement of service vehicles.
+PRIORITY High | Carriers with substantial self-handling need sufficient ground-vehicle capacity.
+RELEVANCE High | Better sizing reduces service shortfalls and excess vehicle investment.
+HARDNESS High | Peak service demand, uncertain durations and vehicle charging couple capacity choices.
+DEPENDENCIES AIRL301 → AIRL103 → AIRL307, AIRL801.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #design #select ##gse ##fleet-sizing ##simulation.
+COMMENTS Charger infrastructure and utility-supply decisions require separate asset or utility contracts.
+
+#plan | 3##
+
+AIRL301 Airline Flight Schedule Design.
+DESCRIPTION Choose flights, operating frequencies and departure or arrival times under network, fleet, airport and connection requirements.
+TEMPLATE Flight-program and connection planning | Time-space or discrete-time MILP with fleet integration, decomposition and scheduling heuristics.
+REGIME #plan | Commits a future flight program on the permitted service network.
+STRUCTURE #place + #select | Positions flights in time and selects the flights to operate.
+PRIORITY Critical | The flight schedule commits the carrier's core transport service.
+RELEVANCE Critical | Better schedules affect network revenue, aircraft use and passenger connections.
+HARDNESS Critical | Carrier-scale timing, demand and resource interactions require integrated or multiphase optimization.
+DEPENDENCIES AIRL101, AIRL905 → AIRL301 → AIRL103, AIRL303, AIRL307, AIRL308, AIRL501, AIRL503, AIRL504, AIRL901, AIRL905.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #plan #place #select ##timetable ##frequency-planning ##hub-banks ##schedule.
+COMMENTS Hub-bank timing, flight retiming and robust buffer distribution are schedule variants.
+
+AIRL302 Aircraft Maintenance Visit Scheduling.
+DESCRIPTION Assign aircraft withdrawal windows and maintenance visit locations under approved maintenance requirements, provider capacity and fleet-availability limits.
+TEMPLATE Fleet availability and maintenance-window planning | Coupled maintenance and tail-assignment MILP; dynamic programming for check-calendar variants.
+REGIME #plan | Commits future aircraft withdrawal and return windows.
+STRUCTURE #place + #map | Positions maintenance visits in time and assigns them to permitted stations.
+PRIORITY High | Aircraft maintenance windows materially constrain available transport capacity.
+RELEVANCE High | Better calendars reduce lost aircraft availability and avoid conflicting commitments.
+HARDNESS High | Aircraft history, due windows and movement feasibility couple visit choices.
+DEPENDENCIES AIRL102 → AIRL302 → AIRL303, AIRL502, AIRL902.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #plan #place #map ##maintenance-windows ##fleet-availability ##check-scheduling.
+COMMENTS Detailed repair-task calendars and independent technician allocation are separate production or workforce contracts.
+
+AIRL303 Aircraft Rotation Planning.
+DESCRIPTION Construct aircraft routes through supplied flight legs under station continuity, timing, maintenance access and end-position requirements.
+TEMPLATE Aircraft rotation and maintenance-access planning | Route-based set partitioning with column generation or branch-and-price; time-space MILP.
+REGIME #plan | Commits future aircraft circulation through the flight program.
+STRUCTURE #link + #map | Constructs flight-successor chains and assigns legs to compatible route groups.
+PRIORITY Critical | The flight program requires feasible aircraft circulation.
+RELEVANCE Critical | Better rotations improve utilization and reduce disruption exposure.
+HARDNESS High | Maintenance access and endpoint conditions restrict large sets of flight chains.
+DEPENDENCIES AIRL301, AIRL302, AIRL501 → AIRL303 → AIRL502, AIRL902.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #plan #link #map ##aircraft-routing ##maintenance-routing ##paths ##succession.
+COMMENTS Ferry legs and robust routes are variants. Assigning named aircraft to fixed supplied rotations is a separate allocation.
+
+AIRL304 Flight Route and Level Planning.
+DESCRIPTION Choose a physical flight path and permitted level transitions under weather, route restrictions and aircraft-performance conditions.
+TEMPLATE Performance- and weather-aware flight planning | Constrained time-dependent shortest-path search; discrete-continuous refinement for free-route variants.
+REGIME #plan | Commits a feasible flight path before movement execution.
+STRUCTURE #link + #place | Constructs successive path segments and positions the trajectory at permitted waypoints or levels.
+PRIORITY High | Repeated flight operations require feasible physical routes.
+RELEVANCE High | Better paths reduce travel time, fuel use and exposure to restrictions.
+HARDNESS High | Rich time-dependent restrictions and coupled performance conditions complicate route search.
+DEPENDENCIES AIRL502 → AIRL304 → AIRL306, AIRL902.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #plan #link #place ##flight-planning ##shortest-path ##trajectory ##flight-levels.
+COMMENTS Simple static shortest paths are easier restrictions. Continuous-only flight control and shared ATC coordination are separate scopes.
+
+AIRL305 Air Cargo Unit Load Device Packing.
+DESCRIPTION Assign cargo pieces to unit load devices and place their positions and orientations under contour, weight, support and compatibility limits.
+TEMPLATE Cargo consolidation and contour packing | Three-dimensional packing MILP for restricted instances; constructive or extreme-point heuristics with improvement.
+REGIME #plan | Commits physical cargo packing before unit preparation and aircraft loading.
+STRUCTURE #place + #map | Positions oriented pieces and assigns them to unit load devices.
+PRIORITY High | Cargo and combination carriers require feasible unit load devices.
+RELEVANCE High | Better packing improves usable transport capacity and reduces repacking.
+HARDNESS High | Irregular contours and interacting physical restrictions require specialized packing search.
+DEPENDENCIES AIRL504, AIRL904 → AIRL305 → AIRL306, AIRL701.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #plan #place #map ##uld ##palletization ##three-dimensional-packing ##contours.
+COMMENTS Unit contents and geometry differ from workstation build-up calendars and completed-unit aircraft stowage.
+
+AIRL306 Aircraft Load and Balance Planning.
+DESCRIPTION Select admissible payload units and assign them to aircraft hold stations under mass, station-load and center-of-gravity-envelope limits.
+TEMPLATE Aircraft load control and stowage planning | Binary assignment and selection MILP with aircraft balance-envelope constraints.
+REGIME #plan | Commits the aircraft payload arrangement before loading and departure.
+STRUCTURE #map + #select | Assigns payload units to fixed hold stations and selects units for transport.
+PRIORITY High | Feasible payload loading is required in cargo and combination operations.
+RELEVANCE Critical | Better arrangements preserve safe loading feasibility and usable payload.
+HARDNESS Medium | Structured single-aircraft MILP is established; multileg and physical restrictions increase difficulty.
+DEPENDENCIES AIRL304, AIRL305, AIRL502, AIRL504, AIRL904 → AIRL306 → AIRL702, AIRL902.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #plan #map #select ##weight-and-balance ##stowage ##cg-envelope ##uld.
+COMMENTS Certified limits are supplied inputs. Optimizing cargo value within physical loading remains a movement contract.
+
+AIRL307 Ground Service Vehicle Routing and Scheduling.
+DESCRIPTION Assign ground-service visits to vehicles and choose their routes and start times under flight, stand, capacity and service-precedence requirements.
+TEMPLATE Synchronized heterogeneous ground-service routing | Vehicle-routing MILP with time windows and routing heuristics; multi-trip pickup-and-delivery for baggage.
+REGIME #plan | Commits vehicle routes and service windows for a future flight-service program.
+STRUCTURE #link + #map + #place | Constructs visit-successor routes, assigns visits to vehicles and positions service starts.
+PRIORITY High | Ground vehicle coordination supports recurring aircraft readiness.
+RELEVANCE High | Better routes reduce service delay and unnecessary vehicle movement.
+HARDNESS High | Heterogeneous services and cross-route synchronization require rich routing methods.
+DEPENDENCIES AIRL103, AIRL301, AIRL503, AIRL905 → AIRL307 → AIRL702, AIRL801.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #plan #link #map #place ##gse ##vrptw ##synchronization ##pickup-and-delivery.
+COMMENTS Baggage tractors, passenger buses, towing and refueling vehicles are service variants. Employee rosters are separate workforce decisions.
+
+AIRL308 Air Cargo Terminal Truck Scheduling.
+DESCRIPTION Assign trucks to terminal docks and arrival or unloading times under shipment readiness, handling capacity and outbound flight cutoffs.
+TEMPLATE Flight-cutoff-coordinated terminal arrivals | Time-indexed integer programming with Lagrangian-relaxation or constructive scheduling heuristics.
+REGIME #plan | Commits future truck arrivals and dock-use windows.
+STRUCTURE #place + #map | Positions arrival and unloading activities and assigns trucks to docks.
+PRIORITY Medium | This contract recurs at cargo terminals with carrier-controlled appointments.
+RELEVANCE High | Better arrivals reduce missed flight cutoffs and temporary storage.
+HARDNESS High | Dock capacity and shipment-specific flight cutoffs couple unloading and arrival choices.
+DEPENDENCIES AIRL301, AIRL504 → AIRL308 → AIRL701.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #plan #place #map ##air-cargo-terminal ##truck-scheduling ##dock-assignment ##crossdock.
+COMMENTS Includes airline-controlled freight-transfer programs. Shared landside infrastructure and independent road-carrier routing are separate scopes.
+
+#allocate | 5##
+
+AIRL501 Aircraft Fleet Assignment.
+DESCRIPTION Assign aircraft types to supplied flights under fleet counts, flow balance, capacity, range and maintenance-access requirements.
+TEMPLATE Fleet-type-to-flight capacity matching | Time-space multicommodity-flow MILP with decomposition and itinerary-aware assignment models.
+REGIME #allocate | Commits available aircraft-type capacity to particular flights.
+STRUCTURE #map | Assigns each flight to a compatible aircraft type.
+PRIORITY Critical | Fleet assignment determines which aircraft capacity operates each flight.
+RELEVANCE Critical | Better assignments reduce operating cost and mismatched transport capacity.
+HARDNESS High | Fleet circulation and itinerary demand couple flight-level type choices.
+DEPENDENCIES AIRL102, AIRL301 → AIRL501 → AIRL303, AIRL502, AIRL504.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #allocate #map ##fleet-assignment ##fap ##multicommodity-flow ##capacity.
+COMMENTS Aircraft acquisition defines fleet capability. Named-tail allocation to fixed rotations is a separate handoff.
+
+AIRL502 Aircraft Tail Assignment.
+DESCRIPTION Assign individual aircraft to supplied rotations under location, configuration, usage-history and maintenance restrictions.
+TEMPLATE Named-aircraft rotation allocation | Constrained assignment MILP; branch-and-price when the allocation also permits route regeneration.
+REGIME #allocate | Commits named aircraft to already supplied flight rotations.
+STRUCTURE #map | Assigns individual aircraft to compatible rotations.
+PRIORITY Critical | Each operated rotation requires an actual compatible aircraft.
+RELEVANCE High | Better assignments reduce infeasible aircraft commitments and late substitutions.
+HARDNESS Medium | Fixed rotations admit structured assignment; aircraft history and maintenance complicate feasibility.
+DEPENDENCIES AIRL302, AIRL303, AIRL501, AIRL905 → AIRL502 → AIRL304, AIRL306, AIRL503, AIRL505, AIRL901, AIRL902.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #allocate #map ##tail-assignment ##named-aircraft ##maintenance.
+COMMENTS Generating new flight chains belongs to rotation planning. Integrated routing and tail assignment can combine both contracts.
+
+AIRL503 Airline Gate and Stand Assignment.
+DESCRIPTION Assign airline-controlled flights or aircraft to gates and remote stands with permitted occupancy windows under compatibility, conflict and transfer requirements.
+TEMPLATE Airline stand-occupancy and transfer planning | Binary assignment and interval-conflict MILP; rolling reassignment and local search.
+REGIME #allocate + #adapt | Commits stand use and revises it when disruption invalidates the allocation.
+STRUCTURE #map + #place | Assigns aircraft or flights to stands and positions movable occupancy intervals.
+PRIORITY High | Carrier-controlled stands materially constrain ground service and passenger transfers.
+RELEVANCE High | Better assignments reduce gate conflicts, towing and missed connections.
+HARDNESS High | Occupancy intervals and passenger-transfer costs couple stand choices.
+DEPENDENCIES AIRL301, AIRL502, AIRL905 → AIRL503 → AIRL307, AIRL702, AIRL802.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #allocate #adapt #map #place ##gate-assignment ##stand-allocation ##intervals ##transfers.
+COMMENTS Airport-wide infrastructure and common-use asset governance are separate contracts.
+
+AIRL504 Air Cargo Itinerary Assignment.
+DESCRIPTION Assign accepted cargo shipments to connected flight or permitted ground-feeder paths under transport capacity, transfer and delivery-window limits.
+TEMPLATE Time-definite cargo movement planning | Time-space multicommodity-flow or path-based integer programming with column generation.
+REGIME #allocate | Commits movement capacity and travel paths to accepted shipments.
+STRUCTURE #map + #link | Assigns shipments to transport resources and constructs connected travel paths.
+PRIORITY High | Cargo and combination carriers require feasible shipment itineraries.
+RELEVANCE High | Better assignments improve delivery performance and available-capacity use.
+HARDNESS High | Indivisible shipments and timed transfers couple network capacity assignments.
+DEPENDENCIES AIRL101, AIRL301, AIRL501, AIRL905 → AIRL504 → AIRL305, AIRL306, AIRL308, AIRL701, AIRL904.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #allocate #map #link ##air-cargo ##itinerary ##multicommodity-flow ##time-windows.
+COMMENTS Empty-ULD transfers are a routing variant. ULD stock targets, cargo pricing and sales acceptance are separate contracts.
+
+AIRL505 Operational Passenger Seat Assignment.
+DESCRIPTION Assign accepted passengers and travel groups to physical cabin seats under supplied cabin configuration, fixed commitments and grouping requirements.
+TEMPLATE Group-aware operational cabin seating | Constrained-assignment MILP; simulation evaluation for boarding-interference variants.
+REGIME #allocate | Commits physical seats to passengers whose transport claims are already accepted.
+STRUCTURE #map | Assigns passengers and groups to fixed cabin seats.
+PRIORITY Medium | Operational seating allocation recurs where commercial selections leave unresolved constraints.
+RELEVANCE Medium | Better assignments reduce group separation and boarding interference.
+HARDNESS Medium | Group and fixed-seat restrictions complicate otherwise structured assignments.
+DEPENDENCIES AIRL502 → AIRL505 → AIRL703.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #allocate #map ##seat-assignment ##passenger-groups ##cabin.
+COMMENTS Seat pricing, upsell and cabin-product design are separate commercial or product contracts.
+
+#operate + #sequence | 7##
+
+AIRL701 Air Cargo ULD Build-Up Scheduling.
+DESCRIPTION Assign unit load device preparation jobs to workstations and choose their execution order and times under cargo readiness, space and flight-cutoff limits.
+TEMPLATE Flight-cutoff-driven terminal handling | Resource-constrained MILP or CP; logic-based Benders decomposition for coupled allocation and scheduling.
+REGIME #operate + #sequence | Orders and schedules unit preparation within an active terminal handling program.
+STRUCTURE #place + #map | Positions preparation jobs in execution time and assigns them to workstations.
+PRIORITY High | Cargo carriers must prepare transport units before departing flights.
+RELEVANCE High | Better calendars reduce cargo cutoff failures and handling congestion.
+HARDNESS High | Cargo arrival, floor space and workstation capacity couple preparation choices.
+DEPENDENCIES AIRL305, AIRL308, AIRL504 → AIRL701 → AIRL702, AIRL801.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #operate #sequence #place #map ##uld-build-up ##terminal-handling ##schedule ##batching.
+COMMENTS Packing geometry and independent employee capacity are separate decisions.
+
+AIRL702 Aircraft Turnaround Scheduling.
+DESCRIPTION Choose ground-task times, order and service-resource assignments so aircraft become departure-ready under precedence, stand and resource limits.
+TEMPLATE Airline ground-task and critical-path coordination | Resource-constrained project scheduling with MILP or CP and rolling simulation evaluation.
+REGIME #operate + #sequence | Orders ground-service work already committed to the aircraft turnaround.
+STRUCTURE #place + #map | Positions ground tasks in time and assigns available service resources.
+PRIORITY High | Turnaround readiness repeatedly constrains airline departures.
+RELEVANCE High | Better task coordination reduces aircraft and passenger delay.
+HARDNESS High | Shared resources, uncertain arrivals and task dependencies constrain execution calendars.
+DEPENDENCIES AIRL306, AIRL307, AIRL503, AIRL701, AIRL801 → AIRL702 → AIRL703, AIRL801, AIRL802, AIRL905.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #operate #sequence #place #map ##turnaround ##rcpsp ##precedence ##synchronization.
+COMMENTS Routing provides vehicle availability windows. Independent workforce rosters and detailed repair-work content remain separate contracts.
+
+AIRL703 Passenger Boarding Grouping and Sequencing.
+DESCRIPTION Group checked-in passengers and choose their boarding release order under seat locations, party cohesion and baggage or aisle interference.
+TEMPLATE Cabin-flow and interference control | Sequence or group optimization with simulation; MILP or local search for defined group models.
+REGIME #operate + #sequence | Commits passenger release order within the active aircraft turnaround.
+STRUCTURE #place + #map | Positions passengers or groups in release order and assigns passengers to boarding groups.
+PRIORITY Medium | Boarding control is useful where cabin flow limits turnaround.
+RELEVANCE Medium | Better sequences reduce boarding delay within practical compliance limits.
+HARDNESS Medium | Established group models and simulation search handle many practical policies.
+DEPENDENCIES AIRL505, AIRL702 → AIRL703 → AIRL802.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #operate #sequence #place #map ##boarding ##groups ##sequence ##interference.
+COMMENTS Operational grouping can differ from an ideal individual boarding order.
+
+#dispatch | 8##
+
+AIRL801 Ground Service Vehicle Dispatch.
+DESCRIPTION Assign available ground vehicles to live service requests and select immediate release or repositioning actions under readiness and compatibility limits.
+TEMPLATE Event-driven ground-service control | Fast sequential assignment and routing heuristics; rolling-horizon MILP for constrained dispatch windows.
+REGIME #dispatch | Activates near-term vehicle actions from evolving request and resource states.
+STRUCTURE #map + #select | Assigns live requests to vehicles and selects actions for immediate release.
+PRIORITY High | Short-cycle vehicle control affects aircraft readiness throughout operations.
+RELEVANCE High | Better dispatch reduces avoidable service waits and resource conflicts.
+HARDNESS High | Live state changes and heterogeneous services restrict the time available for coordinated action.
+DEPENDENCIES AIRL103, AIRL307, AIRL701, AIRL702 → AIRL801 → AIRL702.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #dispatch #map #select #execution #online ##gse ##dispatch ##rolling-horizon.
+COMMENTS Full downstream route reconstruction can couple to vehicle routing or disruption recovery.
+
+AIRL802 Departure Connection Protection.
+DESCRIPTION Select departure holds and release times for connecting passengers under current transfer estimates and downstream aircraft, stand and crew feasibility.
+TEMPLATE Passenger-connection and delay-propagation control | Constrained hold/release optimization in passenger-aware ground scheduling or network MILP.
+REGIME #dispatch | Makes a local wait-or-release decision as connection and departure readiness change.
+STRUCTURE #select + #place | Selects flights to hold and positions their release times.
+PRIORITY High | Connecting networks repeatedly trade connection completion against propagated delay.
+RELEVANCE High | Better holds reduce missed connections without excessive downstream disruption.
+HARDNESS High | Aircraft circulation and stand effects couple local release choices.
+DEPENDENCIES AIRL503, AIRL702, AIRL703 → AIRL802 → AIRL903, AIRL905.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #dispatch #select #place #execution #online ##connection-protection ##departure-holding ##delay-propagation.
+COMMENTS Broad flight cancellation or rerouting belongs to disruption recovery.
+
+#adapt | 9##
+
+AIRL901 Airline ATFM Slot Reprioritization.
+DESCRIPTION Reassign supplied delayed arrival or departure opportunities among airline flights under approved substitution and prioritization conditions.
+TEMPLATE Airspace-user delay-priority management | Integer slot-assignment and prioritization optimization; manual or semi-automated operational comparator.
+REGIME #adapt | Revises flight-to-opportunity commitments after traffic restrictions change usable capacity.
+STRUCTURE #map + #select | Remaps flights to supplied time opportunities and selects substitutions or priorities.
+PRIORITY High | Regulated networks face materially different downstream delay costs.
+RELEVANCE High | Better priorities reduce disruption cost within available traffic capacity.
+HARDNESS High | Mechanism restrictions and downstream flight feasibility constrain reassignment.
+DEPENDENCIES AIRL301, AIRL502 → AIRL901 → AIRL902, AIRL905.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #adapt #map #select ##atfm ##udpp ##slot-substitution ##prioritization.
+COMMENTS Commercial slot rights and network-manager allocations across carriers are separate contracts.
+
+AIRL902 Aircraft Schedule Recovery.
+DESCRIPTION Revise operated flights, their times and aircraft rotations after outages or restrictions under maintenance, capacity and recovery-end position requirements.
+TEMPLATE Aircraft-centric irregular-operations control | Time-space network MILP with route-column generation or large-neighborhood repair.
+REGIME #adapt | Revises an existing aircraft movement program after material disruption.
+STRUCTURE #link + #map + #select + #place | Changes flight-successor chains, reassigns aircraft, selects flight actions and revises times.
+PRIORITY Critical | Recovering aircraft circulation is central to airline irregular operations.
+RELEVANCE Critical | Better repairs reduce cancellations and restore usable transport capacity.
+HARDNESS High | Large movement networks and short recovery windows require specialized search or decomposition.
+DEPENDENCIES AIRL302, AIRL303, AIRL304, AIRL306, AIRL502, AIRL901 → AIRL902 → AIRL903, AIRL904, AIRL905.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #adapt #link #map #select #place ##aircraft-recovery ##irp ##maintenance ##network-repair.
+COMMENTS Crew feasibility can constrain aircraft recovery. A crew-only recovery artifact remains a workforce contract.
+
+AIRL903 Passenger Itinerary Recovery.
+DESCRIPTION Assign disrupted passengers to feasible replacement journeys and remaining physical seat capacity while preserving completed travel and specified group or cabin conditions.
+TEMPLATE Disrupted passenger journey completion | Integer multicommodity-flow or path assignment; two-stage stochastic programming for preemptive rerouting.
+REGIME #adapt | Revises accepted passenger journeys after their movement commitments become infeasible.
+STRUCTURE #map + #link | Assigns passengers to replacement capacity and constructs connected travel itineraries.
+PRIORITY High | Passenger carriers require reaccommodation, while dedicated-cargo carriers do not.
+RELEVANCE Critical | Better recovery affects large numbers of disrupted travelers and service obligations.
+HARDNESS High | Residual capacity, linked alternatives and indivisible groups constrain network-wide assignment.
+DEPENDENCIES AIRL802, AIRL902 → AIRL903 → AIRL905.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #adapt #map #link ##passenger-recovery ##reaccommodation ##itinerary ##multimodal.
+COMMENTS Alternative-carrier and air-rail journeys are variants. Pricing and compensation settlement are separate contracts.
+
+AIRL904 Air Cargo Itinerary Recovery.
+DESCRIPTION Revise committed shipment paths after flight, capacity, deadline or shipment changes under permitted transfer and alternative-transport conditions.
+TEMPLATE Cargo disruption and delivery-window repair | Path-based integer programming with matheuristics; aircraft-cargo column-and-row generation for joint variants.
+REGIME #adapt | Revises previously committed cargo movement after material change.
+STRUCTURE #map + #link | Reassigns shipments to replacement capacity and constructs connected transport paths.
+PRIORITY High | Time-definite cargo operations require recovery under changing capacity.
+RELEVANCE High | Better repairs preserve delivery performance and reduce disrupted cargo cost.
+HARDNESS High | Deadlines, handling limits and shipment compatibility restrict feasible revisions.
+DEPENDENCIES AIRL504, AIRL902 → AIRL904 → AIRL305, AIRL306, AIRL905.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #adapt #map #link ##cargo-recovery ##time-definite ##itinerary ##matheuristics.
+COMMENTS Joint changes to flights and aircraft instantiate integrated recovery. Passenger recovery has different claim and handling conditions.
+
+AIRL905 Integrated Airline Disruption Recovery.
+DESCRIPTION Jointly revise the flight program, aircraft use, passenger or cargo journeys and material coupled crew or ground commitments after disruption.
+TEMPLATE Airline operations-control coordination | Decomposed network MILP with column generation or large-neighborhood search; conic mixed-integer models for speed-coupled variants.
+REGIME #adapt | Revises mutually dependent movement commitments after material disruption.
+STRUCTURE #select + #link + #map + #place | Selects flight actions, changes movement chains, reassigns resources and journeys, and revises times.
+PRIORITY Critical | Integrated feasibility governs recovery of major carrier operations.
+RELEVANCE Critical | Better joint decisions reduce enterprise disruption and stranded transport claims.
+HARDNESS Critical | Coupled resources and journeys require restricted models, decomposition or heuristic repair under short decision windows.
+DEPENDENCIES AIRL301, AIRL702, AIRL802, AIRL901, AIRL902, AIRL903, AIRL904 → AIRL905 → AIRL301, AIRL307, AIRL502, AIRL503, AIRL504.
+TAGS #DISP #LOG ##AIRLINE #PRODUCTION #adapt #select #link #map #place #rolling ##integrated-recovery ##disruption-management ##network ##decomposition.
+COMMENTS Joint crew constraints support the movement program. Public aircraft-passenger benchmarks can omit crews and other industrial conditions.
+
