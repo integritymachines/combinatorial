@@ -1,0 +1,957 @@
+background/171_SEMID_research.txt
+
+SEMID — Semiconductor Development
+v0.1 | 8 October 2026 | Problem research
+
+IDENTITY AND TERRITORY
+Macro Domain anchor: #TRANS. Primary Domain: 102 #PROD. Industry: ##SEMICONDUCTOR. Territory: #DEVELOPMENT.
+Code 171 and mnemonic SEMID are fixed user inputs. Production counterpart and split-from reference: 170 SEMIM. The new member does not recode or narrow SEMIM's published production meaning.
+
+Normative basis: 000_DOMAIN.txt, read-only v0.5; background/000_DOMAIN_research.txt; workflow/0_workflow.txt through workflow/5_output.txt. User requires v0.1 for both artifacts despite the workflow's normal controlled-stage suffix. Stage findings and disposition belong in version-control history. This document preserves research, not a control appendix.
+
+The decision territory includes ASIC and SoC architecture, custom analog/mixed-signal circuits, cell-library development, physical chip implementation, heterogeneous integration and package definition, design-for-test, physical fault-test content and first-silicon product validation. A candidate must have a discrete choice that changes or validates a new semiconductor product definition. Being solved by software does not make its Domain COMP.
+
+Territory split evidence:
+Artifact: SEMID delivers a new hardware/netlist/layout/package/test definition or validation commitment; SEMIM delivers manufacturing capability, physical realization and production device dispositions.
+Practice: product architecture, logic/physical design, analog layout, DFT and silicon bring-up have a different recurring inventory from fab loading, reentrant scheduling, assembly and tester calendars.
+Domain residual: both remain PROD because fabricated product/component feasibility defines their contracts.
+Not a variant: the split changes committed substrates and downstream artifacts, not only horizon, department or solver method.
+These are ontology applications to [ARCH], [ABC], [ALIGN], [DFT], [LAB] and the published SEMIM scope; sources do not themselves state this project's ontology.
+
+OWNERSHIP AND INTERFACES
+PROD owns hardware-definition and physical product-validation decisions. COMP owns installed computation/communication operation, EDA/HPC server workloads, software-only regressions and standalone digital verification contracts. A new physical NoC circuit is included; live packets on that NoC are not.
+SEMIM owns released-design realization, production tool capability, reticle image packing/preparation, routine tester calendars and defect-driven physical device repair. Timing inside a designed datapath or embedded test protocol is not a manufacturing calendar.
+SCM owns procurement, supply availability and die inventory-to-order commitments. Selecting a physical chiplet type in a new architecture does not commit its supplier quantities.
+HR owns independent engineering labor, development-project staffing and generic project calendars; LOG owns independent prototype/device journeys; ENER owns installed utility output; MKT owns product offers/assortment; FIN owns funding/financial positions. These boundaries apply after testing the actual promised contract.
+
+DISCOVERY AND EVIDENCE METHOD
+Discovery started from normative domain interfaces, the 170 SEMIM exclusions and the legacy VLSI.md inventory. VLSI.md is a non-normative seed: no old ID, tag, stage or unsupported hardness claim is inherited. Existing 102 PROD and 161 AUTOD were read for nearby product-development and physical-validation boundaries.
+Search axes: architecture/integration; behavioral and Boolean synthesis; pipeline and library implementation; partitioning and NoC circuits; power domains; standard-cell and analog layout; chip/package geometry and pins; sizing/clock/power closure; global/detailed/package conductors; DFM finishing; scan/BIST/ATPG/test access; silicon validation; frozen-design ECO.
+Search families used included OpenROAD module documentation, Yosys/ABC mapping and synthesis, high-level scheduling/binding literature, chiplet cost/floorplan research, analog topology/layout synthesis, SAT/SMT cell generation, voltage-island design, DFT/ATPG industrial tools, physical testpoint research, TAM/MBIST scheduling, post-silicon adaptive selection and ECO rectification.
+Primary evidence consists of official implementation documentation, original research or author-institution records. Abstract-only evidence supports decision identity and method family, not unrestricted algorithm claims, reproducibility or SOTA rankings. Retrieved web dates can refer to crawl dates; publication years/version dates were taken from primary metadata where available.
+No benchmark cases, measured uplift or reproduced runtime are asserted at this layer.
+
+Evidence vs assessment:
+Each source entry states what it establishes. Candidate ownership, Regime, Structure and ratings are analyst assessments under 000_DOMAIN.txt, not claims quoted from a paper.
+Priority reflects centrality across SEMID's inventory; not all Problems appear in every chip program. Relevance reflects the engineering consequences of improving the commitment. Hardness reflects practical coupling and present multistage/custom methods, not a complexity label.
+Most formal classes are deliberately omitted: a broad industrial family cannot inherit a theorem for a restricted graph model. Classical retiming is a verified polynomial exception. The legacy claims that all retiming or all assignment is NP-hard are not accepted.
+An official tool establishes a credible implementation basis. A vendor adjective does not establish comparative optimality. Where there is no dominant architecture, the Template preserves a defensible established family and material near-equals.
+
+CANDIDATE RESEARCH
+Candidate keys below are working labels, not permanent Problem IDs. No Problem sequence is assigned at the Researcher layer.
+
+CANDIDATE ARCH — Semiconductor Architecture Configuration
+Decision and scope: Select hardware blocks, memory organizations, process options and integration schemes that meet semiconductor product requirements within power, performance, area and cost limits.
+Identity, aliases, variants and neighboring contracts: Aliases: architecture design-space exploration, hardware configuration. Variants: monolithic/2.5D/3D integration, physical memory organization, redundancy capacity, discrete process choice. Do not admit runtime task assignment or market product selection. Architecture chooses available block and integration options; partitioning chooses the boundaries and membership of hardware groups. Continuous inner evaluation does not remove the discrete outer decision.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #select + #map; Selects physical implementation options and assigns them to hardware subsystems. Semiconductor Architecture Configuration commits the corresponding product-specific result.
+Constitutive laws and feasibility: Select hardware blocks, memory organizations, process options and integration schemes that meet semiconductor product requirements within power, performance, area and cost limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better choices affect product capability, silicon cost and development investment. Discrete implementation choices interact with uncertain workload, yield and packaging models.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Commits a new hardware architecture before circuit implementation. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Commits a new hardware architecture before circuit implementation.
+Candidate Structure: #select + #map. Reason: Selects physical implementation options and assigns them to hardware subsystems.
+Priority assessment: Critical. Architecture sets the feasible product implementation space.
+Relevance assessment: Critical. Better choices affect product capability, silicon cost and development investment.
+Industrial Hardness assessment: High. Discrete implementation choices interact with uncertain workload, yield and packaging models.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##architecture ##design-space ##chiplet ##memory.
+IE Template: Architecture exploration and hardware cost modeling.
+OR Template: Mixed-discrete design-space optimization with analytical models and simulation.
+Template/evidence basis: [ARCH] Author-institution abstract supports discrete integration-scheme, process-node and architecture alternatives. It establishes a model-based co-design approach, not a universal best configuration.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [ARCH] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE HLS — High-Level Hardware Synthesis
+Decision and scope: Choose hardware resources and assign behavioral operations to resources and clock steps under data dependencies, latency and implementation limits.
+Identity, aliases, variants and neighboring contracts: Aliases: HLS, behavioral synthesis, datapath synthesis. Variants: chained, pipelined and multicycle operators; conditional dataflow. Resource allocation, binding and scheduling form one hardware-construction contract; split implementations are Template variants. Supplied operation dependencies are feasibility input, not a chosen LINK construction. Installed processor workload scheduling is outside SEMID.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #map + #place + #select; Assigns operations to functional units, places them in clock steps and selects resource instances. High-Level Hardware Synthesis commits the corresponding product-specific result.
+Constitutive laws and feasibility: Choose hardware resources and assign behavioral operations to resources and clock steps under data dependencies, latency and implementation limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better sharing and cycle assignments improve hardware area and throughput. Resource sharing, chaining and control conditions couple allocation and cycle timing.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines a hardware implementation and its cycle-level behavior. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines a hardware implementation and its cycle-level behavior.
+Candidate Structure: #map + #place + #select. Reason: Assigns operations to functional units, places them in clock steps and selects resource instances.
+Priority assessment: High. Behavioral synthesis recurs in accelerator and specialized datapath development.
+Relevance assessment: High. Better sharing and cycle assignments improve hardware area and throughput.
+Industrial Hardness assessment: High. Resource sharing, chaining and control conditions couple allocation and cycle timing.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##high-level-synthesis ##binding ##schedule ##precedence.
+IE Template: Datapath and controller synthesis.
+OR Template: Scheduling-and-binding ILP; list scheduling and resource-sharing heuristics.
+Template/evidence basis: [HLS] Author-institution abstract supports ILP operation scheduling, resource binding and chaining to define a hardware implementation.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [HLS] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE LOGIC — Logic Network Restructuring
+Decision and scope: Choose an equivalent logic network that meets circuit area and depth requirements while preserving the specified Boolean behavior.
+Identity, aliases, variants and neighboring contracts: Aliases: Boolean optimization, resynthesis, AIG rewriting. Variants: algebraic restructuring, sharing, redundancy removal and state-machine implementation. Rewriting methods are not separate Problems. This chooses netlist topology; mapping selects library realizations for its logic coverage. Equivalence checking supports the construction and is not itself the admitted optimization output.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #link + #select; Constructs logic connections and selects replacement subcircuits under functional equivalence. Logic Network Restructuring commits the corresponding product-specific result.
+Constitutive laws and feasibility: Choose an equivalent logic network that meets circuit area and depth requirements while preserving the specified Boolean behavior. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better networks reduce implementation area and timing pressure. Local rewrites interact through shared logic and downstream physical cost.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines circuit logic before or alongside library implementation. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines circuit logic before or alongside library implementation.
+Candidate Structure: #link + #select. Reason: Constructs logic connections and selects replacement subcircuits under functional equivalence.
+Priority assessment: Critical. Logic optimization is a central digital implementation step.
+Relevance assessment: High. Better networks reduce implementation area and timing pressure.
+Industrial Hardness assessment: High. Local rewrites interact through shared logic and downstream physical cost.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##logic-synthesis ##boolean-network ##aig ##equivalence.
+IE Template: Technology-independent logic synthesis.
+OR Template: AIG rewriting, refactoring and balancing; equivalence-constrained resynthesis.
+Template/evidence basis: [ABC] Official implementation describes AIG rewriting, refactoring, balancing and mapping. Only circuit-construction functions are admitted; formal verification is not automatically a semiconductor product decision.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [ABC] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE RETIME — Circuit Retiming
+Decision and scope: Move register boundaries through a synchronous circuit to meet cycle-time and register-count requirements while preserving sequential behavior.
+Identity, aliases, variants and neighboring contracts: Aliases: register retiming, minimum-area retiming, pipeline retiming. Keep original behavioral latency and initialization conditions explicit. Register counts on edges encode the chosen boundaries; auxiliary potentials do not imply MAP. Pure classical retiming is not generically NP-hard. Joint logic/physical optimization is broader and receives no blanket complexity class.
+Supplied substrate: Synchronous circuit graph, register initialization and timing model.
+Chosen construction and delivered artifact: #place; Positions register boundaries along the supplied circuit graph under retiming equivalence laws. Circuit Retiming commits the corresponding product-specific result.
+Constitutive laws and feasibility: Move register boundaries through a synchronous circuit to meet cycle-time and register-count requirements while preserving sequential behavior. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better boundaries improve clock period and register use. Classical models have efficient algorithms; resets, enabled registers and physical timing complicate deployment.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines the register distribution of a circuit implementation. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines the register distribution of a circuit implementation.
+Candidate Structure: #place. Reason: Positions register boundaries along the supplied circuit graph under retiming equivalence laws.
+Priority assessment: High. Pipeline balancing recurs in timing-constrained synchronous circuits.
+Relevance assessment: High. Better boundaries improve clock period and register use.
+Industrial Hardness assessment: Medium. Classical models have efficient algorithms; resets, enabled registers and physical timing complicate deployment.
+Formal complexity: Polynomial-time for classical minimum-period and minimum-state retiming.
+Useful descriptors: ##retiming ##registers ##sequential-equivalence.
+IE Template: Pipeline balancing and register retiming.
+OR Template: Difference-constraint and minimum-cost-flow retiming; constrained integer extensions.
+Template/evidence basis: [RET] Primary abstract establishes polynomial algorithms for minimum-period and minimum-state classical retiming. Physical extensions must not inherit either polynomiality or NP-hardness without a separate proof.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [RET] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE TECHMAP — Technology Mapping
+Decision and scope: Cover circuit logic with compatible library cells under functional, area and timing requirements.
+Identity, aliases, variants and neighboring contracts: Aliases: cell mapping, gate mapping, library covering. Tree-cover dynamic programming and DAG search are material near-equals for different substrate assumptions. Discrete drive-strength choices during first mapping belong here; post-placement sizing/buffering is a separately supplied-netlist contract. ASIC library implementation is the reference scope; configuration of installed FPGA resources requires a separate ownership test.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #map + #select; Assigns logic portions to cell realizations and selects a compatible implementation cover. Technology Mapping commits the corresponding product-specific result.
+Constitutive laws and feasibility: Cover circuit logic with compatible library cells under functional, area and timing requirements. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better covers improve area, power and timing before physical closure. Shared logic, multiple cell choices and physical cost make local covers interact.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Commits the library realization of circuit logic. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Commits the library realization of circuit logic.
+Candidate Structure: #map + #select. Reason: Assigns logic portions to cell realizations and selects a compatible implementation cover.
+Priority assessment: Critical. Digital circuits need an implementation in the target library.
+Relevance assessment: High. Better covers improve area, power and timing before physical closure.
+Industrial Hardness assessment: High. Shared logic, multiple cell choices and physical cost make local covers interact.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##technology-mapping ##library-cells ##dag ##covering.
+IE Template: Library-aware gate implementation.
+OR Template: Cut-based DAG covering and dynamic programming; timing-aware mapping search.
+Template/evidence basis: [MAP] Official commands distinguish library mapping from technology-independent optimization. Library-cell covering is the admitted construction.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [MAP] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE PART — Circuit Partitioning and Die Assignment
+Decision and scope: Assign circuit components to hierarchical blocks or physical dies under balance, interface, timing and implementation-cost limits.
+Identity, aliases, variants and neighboring contracts: Aliases: netlist partitioning, hierarchical partitioning, chiplet partitioning. Hierarchical and physical-die partitions share component grouping but have different feasibility and cost models; retain them as variants, not duplicate cards. Physical die count/technology selection is optional SELECT. For fixed blocks and fixed technologies the completed construction is MAP only. Netlist edges are supplied, so a cut objective does not make the chosen structure LINK.
+Supplied substrate: Netlist/hypergraph, component weights, permissible boundaries, die technology options and interface demands.
+Chosen construction and delivered artifact: #map + #select; Assigns components to blocks or dies and selects die technologies when those options are variable. Circuit Partitioning and Die Assignment commits the corresponding product-specific result.
+Constitutive laws and feasibility: Assign circuit components to hierarchical blocks or physical dies under balance, interface, timing and implementation-cost limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Die boundaries and technology choices can materially change product cost and performance. Interface reach, balance, timing and heterogeneous die costs require iterative partition and geometry checks.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Commits circuit boundaries before block or die implementation. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Commits circuit boundaries before block or die implementation.
+Candidate Structure: #map + #select. Reason: Assigns components to blocks or dies and selects die technologies when those options are variable.
+Priority assessment: High. Partitioning supports large hierarchical and multi-die implementations.
+Relevance assessment: Critical. Die boundaries and technology choices can materially change product cost and performance.
+Industrial Hardness assessment: High. Interface reach, balance, timing and heterogeneous die costs require iterative partition and geometry checks.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##partition ##hypergraph ##chiplet ##technology-assignment.
+IE Template: Hierarchical netlist partitioning and chiplet decomposition.
+OR Template: Constrained multilevel hypergraph partitioning; cost-aware technology-assignment search.
+Template/evidence basis: [PART] Official implementation uses constrained multilevel coarsening and refinement with timing, balance, fixed-vertex and grouping constraints.; [CHIP] Primary research adds cost-aware die partitioning and discrete technology assignment, with floorplan feasibility feedback. GA, SA and BO are competing published methods; no blanket SOTA claim is adopted.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [PART; CHIP] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE NOC — On-Chip Interconnect Topology Synthesis
+Decision and scope: Select routers and physical interconnects that satisfy specified hardware communication demands within bandwidth, latency, area and power limits.
+Identity, aliases, variants and neighboring contracts: Aliases: ASNoC synthesis, router topology generation. Variants: fault-tolerant, mesh-derived and custom switch networks. Select physical circuits and endpoint interfaces, not live packet routing. Global/detailed routing construct conductors realizing specified nets downstream, rather than choosing the functional router architecture.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #link + #select + #map; Constructs router links, selects router instances and assigns hardware endpoints to interfaces. On-Chip Interconnect Topology Synthesis commits the corresponding product-specific result.
+Constitutive laws and feasibility: Select routers and physical interconnects that satisfy specified hardware communication demands within bandwidth, latency, area and power limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better topology reduces communication bottlenecks and interconnect power. Bandwidth, latency, topology and physical feasibility couple many alternative interconnects.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines a new on-chip communication circuit. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines a new on-chip communication circuit.
+Candidate Structure: #link + #select + #map. Reason: Constructs router links, selects router instances and assigns hardware endpoints to interfaces.
+Priority assessment: Medium. Custom NoC synthesis is central to communication-intensive SoCs.
+Relevance assessment: High. Better topology reduces communication bottlenecks and interconnect power.
+Industrial Hardness assessment: High. Bandwidth, latency, topology and physical feasibility couple many alternative interconnects.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##noc ##topology ##network ##connectivity.
+IE Template: Application-specific NoC architecture synthesis.
+OR Template: Topology-and-routing MILP with hierarchical or heuristic decomposition.
+Template/evidence basis: [NOC] Author-institution abstract supports MILP synthesis of custom physical NoC architectures under performance requirements.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [NOC] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE VDD — Power-Domain Configuration
+Decision and scope: Assign hardware blocks to voltage and power domains and select required isolation, retention and level-shifting interfaces under operating-mode and timing requirements.
+Identity, aliases, variants and neighboring contracts: Aliases: voltage-island assignment, multivoltage partitioning, power-intent configuration. Voltage-level assignment is a discrete design contract; runtime DVFS is excluded. Isolation and retention requirements refine practical power-domain validity; a restricted dual/triple-voltage model is the published OR basis. Physical contiguous islands are placed by floorplanning; PDN chooses conductors.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #map + #select; Assigns blocks to power domains and selects interface implementations. Power-Domain Configuration commits the corresponding product-specific result.
+Constitutive laws and feasibility: Assign hardware blocks to voltage and power domains and select required isolation, retention and level-shifting interfaces under operating-mode and timing requirements. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better domain assignments reduce power and interface overhead. Timing, mode compatibility and domain crossings constrain discrete choices.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines circuit power domains and their implementation interfaces. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines circuit power domains and their implementation interfaces.
+Candidate Structure: #map + #select. Reason: Assigns blocks to power domains and selects interface implementations.
+Priority assessment: High. Power-domain design recurs in power-constrained SoCs.
+Relevance assessment: High. Better domain assignments reduce power and interface overhead.
+Industrial Hardness assessment: High. Timing, mode compatibility and domain crossings constrain discrete choices.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##voltage-islands ##power-domains ##low-power.
+IE Template: Multivoltage and power-intent engineering.
+OR Template: Discrete voltage-domain assignment ILP; partitioned optimization with timing checks.
+Template/evidence basis: [VDD] Primary paper supports discrete voltage-region assignment with ILP and partitioned ILP. Installed voltage-control operation is a different contract.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [VDD] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE ANAT — Analog Circuit Topology Synthesis
+Decision and scope: Choose analog building blocks and their connections to meet electrical specifications under device, power and area limits.
+Identity, aliases, variants and neighboring contracts: Aliases: analog structural synthesis, topology selection. Variants: amplifier/OTA, converter and mixed-signal block topology. Fixed-topology continuous sizing is excluded; a continuous sizing subproblem inside a discrete topology search is retained. MOJITO is an established published architecture, not a claim that commercial design universally uses automated evolution. Reference code is legacy and simulator integration is not verified.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #link + #select; Constructs circuit connections and selects participating devices or building blocks. Analog Circuit Topology Synthesis commits the corresponding product-specific result.
+Constitutive laws and feasibility: Choose analog building blocks and their connections to meet electrical specifications under device, power and area limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better topologies expand attainable performance and reduce redesign. Topology choices require expensive electrical evaluation across process and operating conditions.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Commits an analog circuit topology before physical layout. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Commits an analog circuit topology before physical layout.
+Candidate Structure: #link + #select. Reason: Constructs circuit connections and selects participating devices or building blocks.
+Priority assessment: Medium. Topology synthesis applies to analog and mixed-signal circuit development.
+Relevance assessment: High. Better topologies expand attainable performance and reduce redesign.
+Industrial Hardness assessment: High. Topology choices require expensive electrical evaluation across process and operating conditions.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##analog ##topology ##mixed-discrete ##simulation-optimization.
+IE Template: Analog topology selection and simulation-based design exploration.
+OR Template: Hierarchical mixed-discrete evolutionary synthesis with SPICE evaluation.
+Template/evidence basis: [ANAT] Author implementation searches analog building-block topologies and sizes using SPICE. It returns tradeoff solutions; legacy simulator integration requires work.
+Practice and benchmark distinction: Published multi-topology search is established research, while manual topology choice remains industrial practice. Legacy code requires simulator and model integration. No current SOTA superiority is established.
+Dependency evidence: [ANAT] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE CELL — Standard-Cell Layout Synthesis
+Decision and scope: Choose transistor folds and place and connect transistors within a reusable standard cell under cell-height, pin-access and fabrication rules.
+Identity, aliases, variants and neighboring contracts: Aliases: standard-cell generation, cell synthesis, transistor place-and-route. Diffusion ordering, folding and in-cell routing are parts of one reusable-library-cell contract. Standard-cell placement positions already defined cells at chip scale and remains separate. Do not present automatic GDS generation as guaranteed signoff-clean output; the official implementation records manual DRC correction.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #place + #link + #select; Positions transistors, constructs intra-cell conductors and selects fold configurations. Standard-Cell Layout Synthesis commits the corresponding product-specific result.
+Constitutive laws and feasibility: Choose transistor folds and place and connect transistors within a reusable standard cell under cell-height, pin-access and fabrication rules. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better cell geometry improves density and pin access across many designs. Folding, diffusion sharing, pin access and restrictive rules require tailored search.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines the physical layout of a new library cell. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines the physical layout of a new library cell.
+Candidate Structure: #place + #link + #select. Reason: Positions transistors, constructs intra-cell conductors and selects fold configurations.
+Priority assessment: Medium. Cell-layout generation is central to library and technology development.
+Relevance assessment: High. Better cell geometry improves density and pin access across many designs.
+Industrial Hardness assessment: High. Folding, diffusion sharing, pin access and restrictive rules require tailored search.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##standard-cell-synthesis ##transistor-folding ##sat ##smt.
+IE Template: Transistor-level cell-library layout generation.
+OR Template: Joint folding and placement search with SAT/SMT in-cell routing.
+Template/evidence basis: [CELL] Official flow supports transistor folding/placement, SMT in-cell routing and GDS generation. README acknowledges possible DRC failures requiring manual correction.
+Practice and benchmark distinction: The public placement/routing flow supports the method family, but generated layouts may need manual rule correction; do not equate solver optimality with full signoff.
+Dependency evidence: [CELL] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE DFT — Testability Architecture Configuration
+Decision and scope: Select scan, compression, built-in self-test, memory-repair and test-access structures under coverage, test-time, area and interface requirements.
+Identity, aliases, variants and neighboring contracts: Aliases: DFT planning, BIST architecture, wrapper/TAM architecture design. Variants: LBIST, MBIST, compression, built-in repair structure and hierarchical wrappers. Select architecture here; detailed test-point membership, scan stitching and protocol resource/time commitments have separate supplied-architecture contracts. Repairing observed memory defects is SEMIM, not this pre-fabrication design decision. Commercial practice and public simple scan implementations are not equivalent.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #select + #map + #link; Selects test structures, assigns circuits to them and constructs test-access connections. Testability Architecture Configuration commits the corresponding product-specific result.
+Constitutive laws and feasibility: Select scan, compression, built-in self-test, memory-repair and test-access structures under coverage, test-time, area and interface requirements. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better testability affects test cost, defect detection and product yield. Coverage, compression, power and physical overhead constrain many architecture alternatives.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines the test capability built into the semiconductor product. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines the test capability built into the semiconductor product.
+Candidate Structure: #select + #map + #link. Reason: Selects test structures, assigns circuits to them and constructs test-access connections.
+Priority assessment: Critical. Test architecture determines whether complex products can be tested economically.
+Relevance assessment: Critical. Better testability affects test cost, defect detection and product yield.
+Industrial Hardness assessment: High. Coverage, compression, power and physical overhead constrain many architecture alternatives.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##dft ##test-compression ##mbist ##test-access.
+IE Template: Hierarchical design-for-test and memory-test architecture.
+OR Template: Discrete architecture exploration with test-cost, coverage and physical-feasibility evaluation.
+Template/evidence basis: [DFT] Official industrial product supports test architectures, compression, core wrapping and scan structures. Vendor superiority and runtime marketing are not treated as comparative evidence.; [EDT] Primary-paper abstract distinguishes compressed test-stimulus generation from on-chip decompressor architecture.
+Practice and benchmark distinction: Commercial architecture breadth exceeds the basic public scan reference. Preserve compression/BIST/access alternatives rather than presenting one minimal scan flow as the full industrial best practice.
+Dependency evidence: [DFT; EDT] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE TP — Test-Point Selection and Assignment
+Decision and scope: Select control and observation points and assign their test functions to improve circuit testability within area, timing and physical-overhead limits.
+Identity, aliases, variants and neighboring contracts: Aliases: TPI, observation/control point insertion. Variants: deterministic ATPG, logic BIST and physical grouping. The selected sites are the combinatorial artifact; connectivity updates implement selected points but do not independently define a chosen circuit-topology contract here. Do not confuse this with manufacturing metrology sampling or software assertions. Physical reclustering is a material refinement, not a new Problem.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #select + #map; Selects circuit sites and assigns control or observation roles. Test-Point Selection and Assignment commits the corresponding product-specific result.
+Constitutive laws and feasibility: Select control and observation points and assign their test functions to improve circuit testability within area, timing and physical-overhead limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better points improve coverage and reduce pattern burden. Coverage gains interact with congestion, timing, leakage and test-point sharing.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Commits test points in the product netlist before test generation. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Commits test points in the product netlist before test generation.
+Candidate Structure: #select + #map. Reason: Selects circuit sites and assigns control or observation roles.
+Priority assessment: Medium. Test-point optimization recurs where baseline testability is insufficient.
+Relevance assessment: High. Better points improve coverage and reduce pattern burden.
+Industrial Hardness assessment: High. Coverage gains interact with congestion, timing, leakage and test-point sharing.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##test-points ##testability ##fault-coverage.
+IE Template: Fault-coverage and physical-aware test-point engineering.
+OR Template: Testability-guided discrete insertion search with ATPG or LBIST evaluation.
+Template/evidence basis: [TP] Official product describes testability analysis and test-point placement to improve ATPG or LBIST.; [TP2] Industrial research supports physical-aware test-point grouping and insertion, with congestion and leakage tradeoffs.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [TP; TP2] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE SCAN — Scan-Chain Configuration
+Decision and scope: Assign scan registers to chains and choose their connections under chain-length, clock-domain, routing and test-power limits.
+Identity, aliases, variants and neighboring contracts: Aliases: scan insertion, scan stitching, scan ordering. Variants: single/multiple clock domains, compressed scan and physical chain reordering. Paths are chosen serial connections, so LINK is primary; a travel-distance objective does not create spatial PLACE if coordinates are supplied. Chain count is inherited from DFT architecture or a variant parameter. Pattern selection and within-device test sessions are separate.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #link + #map; Constructs scan paths and assigns registers to chains under valid clock and endpoint conditions. Scan-Chain Configuration commits the corresponding product-specific result.
+Constitutive laws and feasibility: Assign scan registers to chains and choose their connections under chain-length, clock-domain, routing and test-power limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better chains reduce shift time, routing overhead and test-power pressure. Chain balance, clock mixing and physical distances interact across many scan registers.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines the scan connections of the semiconductor product. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines the scan connections of the semiconductor product.
+Candidate Structure: #link + #map. Reason: Constructs scan paths and assigns registers to chains under valid clock and endpoint conditions.
+Priority assessment: High. Scan chains are a common digital testability implementation.
+Relevance assessment: High. Better chains reduce shift time, routing overhead and test-power pressure.
+Industrial Hardness assessment: High. Chain balance, clock mixing and physical distances interact across many scan registers.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##scan-chain ##paths ##partition ##test-power.
+IE Template: Physical-aware scan insertion and chain balancing.
+OR Template: Constrained partitioning and path-stitching heuristics with local refinement.
+Template/evidence basis: [SCAN] Official implementation supports chain count/length, clock mixing and physical stitching of scan registers. It is a reproducible basic scan implementation, not full commercial DFT equivalence.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [SCAN] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE ANALAYOUT — Analog and Custom Block Layout Synthesis
+Decision and scope: Place and connect analog or custom circuit devices and blocks under matching, symmetry, isolation and fabrication requirements.
+Identity, aliases, variants and neighboring contracts: Aliases: analog layout synthesis, common-centroid layout, custom block assembly. Variants: capacitor/resistor arrays, transistor matching, shielding and symmetric routing. Device sizing and topology are supplied unless jointly optimized by a broader model. Distinct from chip-scale cell placement because the delivered artifact is an electrically constrained reusable custom block. Common-centroid algorithms are refinements, not separate cards.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #place + #link; Positions devices and blocks and constructs conductors under matching and connectivity laws. Analog and Custom Block Layout Synthesis commits the corresponding product-specific result.
+Constitutive laws and feasibility: Place and connect analog or custom circuit devices and blocks under matching, symmetry, isolation and fabrication requirements. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better layouts reduce parasitic mismatch and integration failures. Electrical constraints, geometric matching and parasitic coupling require specialized layout search.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines a new custom circuit layout from a supplied netlist. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines a new custom circuit layout from a supplied netlist.
+Candidate Structure: #place + #link. Reason: Positions devices and blocks and constructs conductors under matching and connectivity laws.
+Priority assessment: High. Analog and mixed-signal products require specialized physical layouts.
+Relevance assessment: High. Better layouts reduce parasitic mismatch and integration failures.
+Industrial Hardness assessment: High. Electrical constraints, geometric matching and parasitic coupling require specialized layout search.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##analog-layout ##matching ##symmetry ##geometry.
+IE Template: Constraint-driven analog and custom layout engineering.
+OR Template: Hierarchical geometric placement and constraint-aware routing search.
+Template/evidence basis: [ALIGN] Official flow maps a supplied analog netlist to hierarchical physical layout under analog constraints; primitive generation and block assembly are distinguished.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [ALIGN] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE FLOOR — Die and Package Floorplanning
+Decision and scope: Place and orient circuit macros or dies and choose permitted block shapes within chip or package outlines under nonoverlap, interface, routing and thermal limits.
+Identity, aliases, variants and neighboring contracts: Aliases: macro placement, package floorplanning, 2.5D/3D die placement. Variants: hard/soft macros, stacked dies and fixed/flexible outlines. Shape alternatives are SELECT; orientation and position are PLACE. Soft-block area models may have continuous inner variables. Chiplet partitioning supplies physical membership; placement feasibility can feed back. Placement of manufacturing tools or reticle product images is SEMIM.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #place + #select; Positions oriented blocks or dies and selects permitted shape configurations. Die and Package Floorplanning commits the corresponding product-specific result.
+Constitutive laws and feasibility: Place and orient circuit macros or dies and choose permitted block shapes within chip or package outlines under nonoverlap, interface, routing and thermal limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better geometry affects die area, package cost and attainable performance. Nonoverlap, shape, routing and thermal tradeoffs require iterative hierarchical search.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Commits product geometry before detailed placement and interconnect realization. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Commits product geometry before detailed placement and interconnect realization.
+Candidate Structure: #place + #select. Reason: Positions oriented blocks or dies and selects permitted shape configurations.
+Priority assessment: Critical. Floorplans constrain the main physical implementation stages.
+Relevance assessment: Critical. Better geometry affects die area, package cost and attainable performance.
+Industrial Hardness assessment: High. Nonoverlap, shape, routing and thermal tradeoffs require iterative hierarchical search.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##floorplan ##macro-placement ##chiplet ##nonoverlap.
+IE Template: Macro and multi-die physical planning.
+OR Template: Hierarchical floorplan search, sequence-pair annealing or geometric MILP with physical evaluation.
+Template/evidence basis: [FLOOR] Official Hier-RTLMP implementation uses hierarchy-aware physical planning with outline, wirelength, channel, halo and fence controls.; [FLOOR2] Primary paper supports package-level chiplet floorplanning with performance, cost and reliability models.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [FLOOR; FLOOR2] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE PIN — Chip Interface Pin and Bump Assignment
+Decision and scope: Assign signals and power connections to permitted pin, pad or bump sites under interface, spacing, grouping and routing limits.
+Identity, aliases, variants and neighboring contracts: Aliases: I/O placement, pad assignment, bump assignment. Variants: edge pins, area arrays, face-to-face bonding and fixed bump grids. Fixed sites reduce the construction to MAP; coordinate selection is PLACE when the solver chooses it. This card produces an interface assignment; package routing consumes it. Joint assignment/routing models preserve the combined construction rather than creating a new card.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #map + #place; Assigns connections to interface sites and positions interface geometries when sites are variable. Chip Interface Pin and Bump Assignment commits the corresponding product-specific result.
+Constitutive laws and feasibility: Assign signals and power connections to permitted pin, pad or bump sites under interface, spacing, grouping and routing limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better interfaces reduce escape congestion and integration cost. Signal groups, power delivery, pin access and package escape feasibility interact.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Commits the physical interface of a chip or die. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Commits the physical interface of a chip or die.
+Candidate Structure: #map + #place. Reason: Assigns connections to interface sites and positions interface geometries when sites are variable.
+Priority assessment: High. Physical interface assignment recurs across chip and multi-die designs.
+Relevance assessment: High. Better interfaces reduce escape congestion and integration cost.
+Industrial Hardness assessment: High. Signal groups, power delivery, pin access and package escape feasibility interact.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##pin-assignment ##bumps ##io ##chip-package.
+IE Template: I/O planning and chip-package interface co-design.
+OR Template: Constrained assignment and pin-placement optimization with routing-cost refinement.
+Template/evidence basis: [PIN] Official implementation positions pins on tracks or inside a die grid, including face-to-face integration interfaces.; [PAD] Official ICeWall documentation supports pad rings, bump arrays and connections.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [PIN; PAD] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE PLACE — Standard-Cell Placement
+Decision and scope: Place library-cell instances at legal chip sites under row, nonoverlap, region, timing and routing requirements.
+Identity, aliases, variants and neighboring contracts: Aliases: global placement, cell legalization, detailed placement. These phases share a completed legal-coordinate artifact and are merged. An analytical continuous relaxation does not by itself produce legal row/site positions. Nonoverlap is a feasibility condition, not a separate structure. Mixed-height, fencing and congestion-driven refinement are variants. Supplied netlist connections do not imply LINK.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #place; Positions cell instances in the chip site and row geometry. Standard-Cell Placement commits the corresponding product-specific result.
+Constitutive laws and feasibility: Place library-cell instances at legal chip sites under row, nonoverlap, region, timing and routing requirements. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better placement affects timing, routing feasibility and silicon area. Large instance sets and coupled density, timing and congestion require multistage approximate optimization.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Commits physical cell positions in a new circuit layout. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Commits physical cell positions in a new circuit layout.
+Candidate Structure: #place. Reason: Positions cell instances in the chip site and row geometry.
+Priority assessment: Critical. Cell placement is a central digital physical-design contract.
+Relevance assessment: Critical. Better placement affects timing, routing feasibility and silicon area.
+Industrial Hardness assessment: Critical. Large instance sets and coupled density, timing and congestion require multistage approximate optimization.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##placement ##legalization ##wirelength ##congestion.
+IE Template: Global placement, legalization and detailed placement.
+OR Template: Analytical placement followed by discrete legalization and local placement refinement.
+Template/evidence basis: [PLACE] Official RePlAce implementation uses analytical placement with timing and routability weighting. This relaxation alone is not a completed legal placement.; [LEGAL] Official legalizer assigns legal row sites and supports mixed cell heights, fences and incremental relegalization. Global and detailed phases are retained within one placement contract.
+Practice and benchmark distinction: Analytical global placement and discrete legalization are complementary stages. The final legal placement, not the relaxation alone, is the industrial artifact.
+Dependency evidence: [PLACE; LEGAL] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE SIZE — Discrete Gate Sizing and Buffer Insertion
+Decision and scope: Select library-cell sizes and buffer insertions for a supplied circuit implementation under timing, slew, capacitance, power and area limits.
+Identity, aliases, variants and neighboring contracts: Aliases: gate resizing, drive-strength selection, Vt swapping, fanout optimization. Variants: setup/hold repair, cloning and power recovery. Cell replacement is SELECT/MAP and inserted branches require LINK. Buffer positions may be supplied/derived by placement; do not require PLACE unless jointly chosen. Restrict to discrete library choices; pure continuous transistor sizing is excluded. Revision of frozen released commitments belongs to ECO.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #select + #map + #link; Selects gate and buffer options, assigns them to circuit sites and constructs buffered connections. Discrete Gate Sizing and Buffer Insertion commits the corresponding product-specific result.
+Constitutive laws and feasibility: Select library-cell sizes and buffer insertions for a supplied circuit implementation under timing, slew, capacitance, power and area limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better choices reduce violations and unnecessary power or area. Multiple timing corners, reconvergent paths and parasitic feedback couple local choices.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Commits cell implementations and buffer structure before design release. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Commits cell implementations and buffer structure before design release.
+Candidate Structure: #select + #map + #link. Reason: Selects gate and buffer options, assigns them to circuit sites and constructs buffered connections.
+Priority assessment: Critical. Electrical closure recurs throughout physical implementation.
+Relevance assessment: High. Better choices reduce violations and unnecessary power or area.
+Industrial Hardness assessment: High. Multiple timing corners, reconvergent paths and parasitic feedback couple local choices.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##gate-sizing ##buffering ##timing-closure ##multi-corner.
+IE Template: Physical synthesis and electrical timing closure.
+OR Template: Timing-driven discrete sizing and buffer-tree dynamic programming with iterative physical refinement.
+Template/evidence basis: [SIZE] Official implementation selects library gates, inserts buffers and repairs timing under area and protected-object limits.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [SIZE] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE CLOCK — Clock Distribution Synthesis
+Decision and scope: Choose clock-distribution connections, buffers and branch positions under skew, latency, slew, load, power and routing requirements.
+Identity, aliases, variants and neighboring contracts: Aliases: CTS, clock-tree synthesis, clock-network synthesis. Tree/mesh and useful-skew designs are variants; the official public reference supports tree synthesis. Do not assume the combinatorial contract is only a Steiner tree: buffer choices and physical timing matter. Functional register retiming is upstream and distinct. Route conductors are realized downstream.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #link + #select + #place; Constructs clock branches, selects buffers and positions branch or buffer sites. Clock Distribution Synthesis commits the corresponding product-specific result.
+Constitutive laws and feasibility: Choose clock-distribution connections, buffers and branch positions under skew, latency, slew, load, power and routing requirements. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better networks improve timing margin and reduce clock power. Skew, electrical loading, obstacles and multiple timing conditions couple topology and geometry.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines the physical clock distribution of a new circuit. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines the physical clock distribution of a new circuit.
+Candidate Structure: #link + #select + #place. Reason: Constructs clock branches, selects buffers and positions branch or buffer sites.
+Priority assessment: Critical. Synchronous circuits depend on feasible clock distribution.
+Relevance assessment: High. Better networks improve timing margin and reduce clock power.
+Industrial Hardness assessment: High. Skew, electrical loading, obstacles and multiple timing conditions couple topology and geometry.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##clock-tree ##clock-network ##skew ##tree.
+IE Template: Clock-tree and clock-network engineering.
+OR Template: Buffered tree synthesis with sink clustering, geometric embedding and timing refinement.
+Template/evidence basis: [CLOCK] Official TritonCTS implementation synthesizes buffered clock distribution with characterization, clustering and electrical controls.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [CLOCK] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE PDN — Power Delivery Network Design
+Decision and scope: Choose on-chip power conductors, layers, vias and grid configurations under connectivity, voltage-drop, current-density and routing-space limits.
+Identity, aliases, variants and neighboring contracts: Aliases: power planning, power-grid synthesis, PDN optimization. Variants: straps, meshes, rings, multi-domain grids and discrete via counts. Policy-driven generation is industrial practice, not proof of optimized electrical design; the Template requires analysis feedback. Fixed-policy generation without a remaining discrete choice is not an ICO instance. Installed fab utility generation and balancing are outside SEMID.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #link + #place + #select; Constructs connected power conductors, positions grid elements and selects layers or via configurations. Power Delivery Network Design commits the corresponding product-specific result.
+Constitutive laws and feasibility: Choose on-chip power conductors, layers, vias and grid configurations under connectivity, voltage-drop, current-density and routing-space limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better grids reduce voltage loss and excess metal consumption. Electrical reliability and signal-routing competition couple discrete grid choices.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines power-delivery structure within a new product layout. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines power-delivery structure within a new product layout.
+Candidate Structure: #link + #place + #select. Reason: Constructs connected power conductors, positions grid elements and selects layers or via configurations.
+Priority assessment: Critical. Physical circuits need feasible power delivery.
+Relevance assessment: High. Better grids reduce voltage loss and excess metal consumption.
+Industrial Hardness assessment: High. Electrical reliability and signal-routing competition couple discrete grid choices.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##pdn ##power-grid ##connectivity ##ir-drop ##electromigration.
+IE Template: Power-grid engineering with electrical signoff evaluation.
+OR Template: Discrete grid and via optimization with circuit-analysis feedback and layout generation.
+Template/evidence basis: [PDN] Official tool creates metal straps/vias from grid policies. Grid generation is an implementation basis; feasible optimal topology still needs electrical evaluation.
+Practice and benchmark distinction: Policy-driven generation supplies a practical baseline; electrical analysis is required to judge discrete grid alternatives. A fixed prescribed grid with no remaining choice is outside ICO.
+Dependency evidence: [PDN] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE GRT — Chip Global Routing
+Decision and scope: Choose coarse net routes and routing-layer use under connectivity, regional capacity, timing and wirelength requirements.
+Identity, aliases, variants and neighboring contracts: Aliases: coarse routing, route-guide generation, layer assignment. The netlist specifies terminal connectivity; the solver chooses conductor paths and layer assignments. Global and detailed routing remain separate because one delivers capacity-feasible guides and the other delivers manufacturable conductor geometry. Net order and rip-up strategy are algorithms, not separate Problems. Flow conservation applies to chosen paths.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #link + #map; Constructs coarse connected net paths and assigns their segments to routing layers. Chip Global Routing commits the corresponding product-specific result.
+Constitutive laws and feasibility: Choose coarse net routes and routing-layer use under connectivity, regional capacity, timing and wirelength requirements. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better guides reduce congestion and downstream routing failures. Many competing nets and limited routing capacities require decomposition and iterative congestion repair.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines chip interconnect guides before track-level realization. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines chip interconnect guides before track-level realization.
+Candidate Structure: #link + #map. Reason: Constructs coarse connected net paths and assigns their segments to routing layers.
+Priority assessment: Critical. Global routing coordinates chip-wide interconnect demand.
+Relevance assessment: High. Better guides reduce congestion and downstream routing failures.
+Industrial Hardness assessment: Critical. Many competing nets and limited routing capacities require decomposition and iterative congestion repair.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##global-routing ##steiner-tree ##congestion ##layers.
+IE Template: Congestion-driven global interconnect planning.
+OR Template: Steiner-tree generation, maze routing and negotiated-congestion refinement.
+Template/evidence basis: [GRT] Official FastRoute/CUGR interfaces create route guides with congestion iteration, layer controls and incremental routing.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [GRT] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE DRT — Chip Detailed Routing
+Decision and scope: Choose conductor paths, tracks and vias that realize chip nets under pin-access, spacing, layer and electrical rules.
+Identity, aliases, variants and neighboring contracts: Aliases: detailed interconnect routing, track routing, pin-access routing. Variants: timing-driven, antenna-constrained and multi-patterning-aware routing. Track/pin-access phases are subcontracts within a final physical-routing artifact and are retained as variants. A route guide is not a final legal conductor. DRC engines check feasibility; their predicates alone do not construct LINK.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #link + #place + #select; Constructs connected conductor paths, positions them on tracks and selects via implementations. Chip Detailed Routing commits the corresponding product-specific result.
+Constitutive laws and feasibility: Choose conductor paths, tracks and vias that realize chip nets under pin-access, spacing, layer and electrical rules. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better realization can determine whether a product meets release requirements. Dense pin access, complex rules and interacting nets require iterative search and repair.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Commits the final physical chip interconnect geometry. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Commits the final physical chip interconnect geometry.
+Candidate Structure: #link + #place + #select. Reason: Constructs connected conductor paths, positions them on tracks and selects via implementations.
+Priority assessment: Critical. Detailed routes are required for a manufacturable chip layout.
+Relevance assessment: Critical. Better realization can determine whether a product meets release requirements.
+Industrial Hardness assessment: Critical. Dense pin access, complex rules and interacting nets require iterative search and repair.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##detailed-routing ##pin-access ##vias ##design-rules.
+IE Template: Track-level interconnect realization and design-rule closure.
+OR Template: Pin-access and track-assignment optimization; maze routing with search and repair.
+Template/evidence basis: [DRT] Official TritonRoute implementation separates pin access, track assignment, detailed paths and DRC repair.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [DRT] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE PKG — Package Interconnect Routing
+Decision and scope: Choose package, interposer or redistribution-layer connections under pin escape, layer, spacing, length-matching and signal-integrity requirements.
+Identity, aliases, variants and neighboring contracts: Aliases: substrate routing, RDL routing, interposer routing, escape routing. Package and chip routes share mathematical motifs but deliver separately controlled layouts with different geometry and interface rules; retain a distinct industrial package contract. Supplied die positions are not changed by this card; joint floorplan-routing refinement is an integration variant. Assembly-machine motion belongs to SEMIM.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #link + #place + #map; Constructs conductors, positions their physical paths and assigns nets to layers or variable interface sites. Package Interconnect Routing commits the corresponding product-specific result.
+Constitutive laws and feasibility: Choose package, interposer or redistribution-layer connections under pin escape, layer, spacing, length-matching and signal-integrity requirements. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better routes reduce layer cost and package integration failures. Dense escapes, cross-die timing and layer constraints require specialized routing methods.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines a new package interconnect layout. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines a new package interconnect layout.
+Candidate Structure: #link + #place + #map. Reason: Constructs conductors, positions their physical paths and assigns nets to layers or variable interface sites.
+Priority assessment: High. Package routing is central to packaged and multi-die products.
+Relevance assessment: High. Better routes reduce layer cost and package integration failures.
+Industrial Hardness assessment: High. Dense escapes, cross-die timing and layer constraints require specialized routing methods.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##package-routing ##rdl ##interposer ##escape-routing.
+IE Template: Chip-package interconnect and escape-routing engineering.
+OR Template: Network-flow or topological routing with pin reassignment and geometric refinement.
+Template/evidence basis: [PKG] Author-institution abstract supports pin assignment and network-flow routing for package-level interconnect.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [PKG] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE FILL — Layout Density Fill Optimization
+Decision and scope: Select and place nonfunctional fill shapes in a product layout under density, spacing and parasitic-coupling requirements.
+Identity, aliases, variants and neighboring contracts: Aliases: dummy metal fill, density fill, layout fill. Finite shape alternatives and permissible sites define the discrete choice. The public rule-based generator is a defensible reproducible baseline, not a claim of globally optimal coupling. Unlike mask assignment on frozen geometry, fill changes the product physical layout. Tap/filler-cell placement is a supplied-grid implementation variant; do not create an extra card for each cell type.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #place + #select; Positions fill shapes and selects permitted shape and layer alternatives. Layout Density Fill Optimization commits the corresponding product-specific result.
+Constitutive laws and feasibility: Select and place nonfunctional fill shapes in a product layout under density, spacing and parasitic-coupling requirements. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better fill meets manufacturing rules with less parasitic and timing impact. Rule-driven insertion is established; dense windows and electrical coupling require careful refinement.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines manufacturable product geometry before release. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines manufacturable product geometry before release.
+Candidate Structure: #place + #select. Reason: Positions fill shapes and selects permitted shape and layer alternatives.
+Priority assessment: Medium. Density fill is required in technology flows with minimum-density rules.
+Relevance assessment: High. Better fill meets manufacturing rules with less parasitic and timing impact.
+Industrial Hardness assessment: Medium. Rule-driven insertion is established; dense windows and electrical coupling require careful refinement.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##metal-fill ##density ##dfm ##parasitics.
+IE Template: Design-for-manufacturability layout finishing.
+OR Template: Rule-constrained discrete shape insertion with electrical-cost refinement.
+Template/evidence basis: [FILL] Official generator selects and inserts floating fill under density and spacing rules. Coupling-aware optimization needs an electrical objective in addition to the generator.
+Practice and benchmark distinction: Rule-based fill is a reproducible implementation basis. No public globally optimal parasitic-aware method is established here.
+Dependency evidence: [FILL] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE ATPG — Physical Circuit Test Pattern Optimization
+Decision and scope: Generate and retain circuit test stimuli that meet physical fault-detection requirements within pattern-count, tester-data and shift or capture power limits.
+Identity, aliases, variants and neighboring contracts: Aliases: ATPG, test-set compaction, test-cube filling. Variants: stuck-at, transition, cell-aware, bridging and compressed patterns. Signal value assignment is MAP; retained pattern membership is SELECT. Logical stimuli are included only because they define a physical defect-detection procedure for a semiconductor product. Software test generation and general formal assertion proving are excluded. Factory calendars and production retest activation remain SEMIM.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #select + #map; Selects retained patterns and assigns logic values to controllable test inputs. Physical Circuit Test Pattern Optimization commits the corresponding product-specific result.
+Constitutive laws and feasibility: Generate and retain circuit test stimuli that meet physical fault-detection requirements within pattern-count, tester-data and shift or capture power limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better pattern sets reduce test cost and defect escape. Fault activation, propagation, compression and unknown states constrain pattern generation and reduction.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines physical fault-test content before repeated device testing. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines physical fault-test content before repeated device testing.
+Candidate Structure: #select + #map. Reason: Selects retained patterns and assigns logic values to controllable test inputs.
+Priority assessment: Critical. Physical fault-test content is central to digital product release.
+Relevance assessment: High. Better pattern sets reduce test cost and defect escape.
+Industrial Hardness assessment: High. Fault activation, propagation, compression and unknown states constrain pattern generation and reduction.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##atpg ##fault-coverage ##test-compaction ##test-power.
+IE Template: Fault-model ATPG and test-set compaction.
+OR Template: Constraint-based test generation, fault simulation and coverage-driven pattern compaction.
+Template/evidence basis: [ATPG] Official product establishes pattern generation, reduction, fault models, fault simulation and power-aware shift/capture. Vendor performance claims are not benchmarked here.; [EDT] Primary-paper abstract distinguishes compressed test-stimulus generation from on-chip decompressor architecture.
+Practice and benchmark distinction: The cited method family establishes a credible Template. Source-specific results do not establish universal optimality; public implementation availability is not proof of signoff or of a reusable industrial benchmark.
+Dependency evidence: [ATPG; EDT] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE TAM — Embedded Test Access and Protocol Design
+Decision and scope: Assign cores or memories to test-access resources and place test sessions within a repeatable device test protocol under bandwidth, power and thermal limits.
+Identity, aliases, variants and neighboring contracts: Aliases: core test scheduling, TAM co-optimization, memory grouping and MBIST scheduling. This consumes a DFT architecture and commits detailed resource membership and a reusable test-session sequence. The configurable-architecture model integrates upstream choices but does not create another Problem. RCPSP and thermal-aware packing are near-equals under different thermal assumptions. Runtime self-test adaptation on installed compute needs a separate COMP scope test.
+Supplied substrate: Product specification, relevant circuit or physical substrate, candidate implementation options and the stated industrial feasibility limits.
+Chosen construction and delivered artifact: #map + #place; Assigns test subjects to access or controller groups and positions their sessions in protocol time. Embedded Test Access and Protocol Design commits the corresponding product-specific result.
+Constitutive laws and feasibility: Assign cores or memories to test-access resources and place test sessions within a repeatable device test protocol under bandwidth, power and thermal limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better access and concurrency reduce test time within power limits. Access sharing, unequal durations and thermal or power limits couple grouping and session timing.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Defines an embedded or repeatable product test protocol before routine test execution. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #design. Reason: Defines an embedded or repeatable product test protocol before routine test execution.
+Candidate Structure: #map + #place. Reason: Assigns test subjects to access or controller groups and positions their sessions in protocol time.
+Priority assessment: High. Integrated test protocols recur in multi-core and memory-rich products.
+Relevance assessment: High. Better access and concurrency reduce test time within power limits.
+Industrial Hardness assessment: High. Access sharing, unequal durations and thermal or power limits couple grouping and session timing.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##tam ##mbist ##protocol ##schedule ##power-constrained.
+IE Template: Core-wrapper and MBIST grouping with test-session design.
+OR Template: Resource-constrained scheduling or packing with access assignment; physical grouping heuristics.
+Template/evidence basis: [TAM] Primary paper distinguishes fixed and configurable DFT and co-optimizes TAM allocation/test sessions with thermal evaluation. This is a within-device protocol, not a factory equipment calendar.; [MBIST] Primary paper supports physical memory grouping plus RCPSP-like test scheduling. Its experiments compare selected industrial schedules; they do not prove universal dominance.
+Practice and benchmark distinction: Published thermal-aware packing and RCPSP-style memory protocols cover different assumptions. Their relative performance is case-specific; grouping and scheduling can be separated or integrated.
+Dependency evidence: [TAM; MBIST] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE VALIDATE — Silicon Validation Test Selection
+Decision and scope: Select and prioritize physical silicon validation tests within available validation effort, using product requirements and observed failures.
+Identity, aliases, variants and neighboring contracts: Aliases: post-silicon test prioritization, validation campaign selection. Physical voltage/timing/interface characterization is included. The published method ranks tests using failure data; constrained selection is the decision interpretation, not a claim that the paper supplies an exact optimizer. No portable validation dataset or current universally dominant method was established. Scheduling engineers and generic software regressions are outside scope. Pure continuous PVT sweep calibration is not admitted.
+Supplied substrate: New silicon design, available physical tests, required coverage, effort budget and observed failures.
+Chosen construction and delivered artifact: #select + #place; Chooses validation tests and positions them in a priority order. Silicon Validation Test Selection commits the corresponding product-specific result.
+Constitutive laws and feasibility: Select and prioritize physical silicon validation tests within available validation effort, using product requirements and observed failures. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better selection reduces release delay and the risk of costly design escapes. Rare failures, uncertain test value and limited validation effort require adaptive prioritization.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Commits a validation campaign and revises its content when silicon evidence changes. The output is a new product definition or its physical validation commitment.
+Candidate Regime: #plan + #adapt. Reason: Commits a validation campaign and revises its content when silicon evidence changes.
+Candidate Structure: #select + #place. Reason: Chooses validation tests and positions them in a priority order.
+Priority assessment: High. First-silicon validation supports release of new semiconductor products.
+Relevance assessment: Critical. Better selection reduces release delay and the risk of costly design escapes.
+Industrial Hardness assessment: High. Rare failures, uncertain test value and limited validation effort require adaptive prioritization.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##post-silicon ##validation ##test-selection ##adaptive-testing.
+IE Template: Requirement-driven post-silicon validation and adaptive test refinement.
+OR Template: Failure-data-driven test ranking and constrained subset selection.
+Template/evidence basis: [VAL] Author-institution abstract supports adaptive test prioritization from observed silicon timing failures. Full implementation and reusable dataset were not verified.; [LAB] Official industrial account distinguishes physical silicon characterization and validation before production release.
+Practice and benchmark distinction: Failure-driven adaptive ranking is directly supported; an exact optimizer, portable instance set and universal dominant validation policy are not established.
+Dependency evidence: [VAL; LAB] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+CANDIDATE ECO — Semiconductor Engineering Change Optimization
+Decision and scope: Revise a committed circuit or layout to meet changed functional or electrical requirements under frozen-layer, spare-resource and disruption limits.
+Identity, aliases, variants and neighboring contracts: Aliases: engineering change order, metal-only ECO, functional rectification, timing ECO. Frozen cell locations can remove PLACE from a restricted metal-only variant; the family includes general layout revisions. Ordinary unfrozen pre-release physical optimization is sizing/routing, not automatically ADAPT. ECO is separate because an already committed product definition and change limits define the contract. No mathematical reduction is treated as a dependency.
+Supplied substrate: Committed product definition, revised specification, permitted layers/edits and available spare resources.
+Chosen construction and delivered artifact: #select + #map + #link + #place; Selects edits, assigns replacement or spare cells, changes connections and revises permitted geometry. Semiconductor Engineering Change Optimization commits the corresponding product-specific result.
+Constitutive laws and feasibility: Revise a committed circuit or layout to meet changed functional or electrical requirements under frozen-layer, spare-resource and disruption limits. Supplied relations and model auxiliaries do not create additional Structure classes.
+Objectives and tradeoffs: Better edits can avoid full redesign and reduce respin or remasking cost. Frozen geometry, scarce spares, timing and functional equivalence constrain feasible local changes.
+Ownership assessment: #PROD / ##SEMICONDUCTOR / #DEVELOPMENT. Revises existing product-definition commitments after a material defect or requirement change. The revised design is distinct from repair of a fabricated device.
+Candidate Regime: #adapt. Reason: Revises existing product-definition commitments after a material defect or requirement change.
+Candidate Structure: #select + #map + #link + #place. Reason: Selects edits, assigns replacement or spare cells, changes connections and revises permitted geometry.
+Priority assessment: High. Late product-definition changes recur in semiconductor programs.
+Relevance assessment: Critical. Better edits can avoid full redesign and reduce respin or remasking cost.
+Industrial Hardness assessment: High. Frozen geometry, scarce spares, timing and functional equivalence constrain feasible local changes.
+Formal complexity: No full-family class is compiled. Restricted formulations do not establish a blanket family classification..
+Useful descriptors: ##eco ##rectification ##spare-cells ##incremental-design.
+IE Template: Functional and physical ECO with incremental signoff.
+OR Template: Equivalence-constrained rectification; spare-cell matching and iterative MILP with local rerouting.
+Template/evidence basis: [ECO] Author-institution abstract supports spare-cell matching and iterative MILP for constrained functional and timing changes.; [ECO2] Primary industrial research defines ECO updates through quantified Boolean rectification; it supports a formal alternative to physical spare-cell optimization.
+Practice and benchmark distinction: Logical rectification and physical spare-cell MILP/matching are complementary approaches under different frozen-resource conditions.
+Dependency evidence: [ECO; ECO2] and the official RTL-to-GDS/test flow; the edges below are industrial handoff inferences from those flow stages, not mathematical reductions.
+Admission: ADMIT as a distinct commercially material product-definition or physical-validation commitment.
+Later case research: seek source-matched implementation data and baselines; validate licensing, complete constraint coverage and reproducibility before selecting a Case. No Case ID is assigned.
+
+DIRECTED DEPENDENCY GRAPH
+
+ARCH → HLS.
+ARCH → ANAT.
+ARCH → DFT.
+ARCH → PART.
+HLS → LOGIC.
+LOGIC → RETIME.
+RETIME → TECHMAP.
+CELL → TECHMAP.
+CELL → SIZE.
+CELL → CLOCK.
+ANAT → ANALAYOUT.
+TECHMAP → PART.
+TECHMAP → VDD.
+TECHMAP → DFT.
+TECHMAP → TP.
+TECHMAP → SCAN.
+TECHMAP → FLOOR.
+TECHMAP → PLACE.
+PART → NOC.
+PART → FLOOR.
+NOC → FLOOR.
+NOC → GRT.
+VDD → FLOOR.
+VDD → SIZE.
+VDD → PDN.
+DFT → TP.
+DFT → SCAN.
+DFT → TAM.
+DFT → ATPG.
+TP → SCAN.
+TP → PLACE.
+TP → ATPG.
+SCAN → PLACE.
+SCAN → ATPG.
+ANALAYOUT → FLOOR.
+FLOOR → PIN.
+FLOOR → PLACE.
+FLOOR → PDN.
+FLOOR → CLOCK.
+FLOOR → PKG.
+PIN → GRT.
+PIN → PKG.
+PLACE → SIZE.
+PLACE → CLOCK.
+PLACE → PDN.
+PLACE → GRT.
+PLACE → TAM.
+SIZE → CLOCK.
+SIZE → GRT.
+CLOCK → GRT.
+PDN → GRT.
+PDN → TAM.
+GRT → DRT.
+DRT → FILL.
+DRT → ATPG.
+DRT → ECO.
+PKG → VALIDATE.
+PKG → ECO.
+FILL → VALIDATE.
+FILL → ECO.
+ATPG → TAM.
+ATPG → VALIDATE.
+TAM → VALIDATE.
+VALIDATE → ECO.
+
+Feedback after a changed commitment:
+ECO → LOGIC.
+ECO → TECHMAP.
+ECO → PLACE.
+ECO → SIZE.
+ECO → CLOCK.
+ECO → PDN.
+ECO → GRT.
+ECO → DRT.
+ECO → PKG.
+ECO → ATPG.
+ECO → VALIDATE.
+
+Dependency interpretation and cycles:
+Architecture feeds hardware synthesis, circuit partitioning and test architecture. A supplied behavioral design becomes an equivalent logic network, then register boundaries and a library implementation. Reusable cell definitions feed library implementation and subsequent discrete sizing.
+Circuit partitioning and NoC architecture feed chip/package geometry. Analog topology feeds custom layout; custom block geometry joins the floorplan. Power domains constrain physical regions and power conductors. Test points and scan connections change the netlist before final placement.
+Floorplans and I/O interfaces feed physical placement and package routing. Placement feeds electrical optimization, clocks and power networks, then global route guides and detailed conductors. Completed conductors permit fill and physically informed fault-pattern generation. DFT and patterns feed test-access/session protocols; finalized product/test definitions feed silicon validation.
+ECO consumes validation defects or layout/signoff failures and returns revised product definitions to affected synthesis, geometry, routing and tests. This is a real cross-Regime feedback cycle and must remain visible.
+Within initial design closure, placement ↔ sizing, placement ↔ scan ordering, floorplan ↔ partitioning, pin assignment ↔ package routing and placement/PDN ↔ test grouping are iterative interfaces. The graph records the principal initial handoff once; a changed frozen commitment is routed through ECO. No claim is made that every design flow is a unique acyclic chronological sequence.
+Compiler must group by normative Regime first and then topologically order the initial design-handoff graph. Validation plans remain #plan even though they consume a designed product. ECO remains #adapt even though it returns information to earlier design Problems.
+
+MERGES, EXCLUSIONS AND OPEN EVIDENCE GAPS
+Global and detailed standard-cell placement: MERGE into PLACE. Both construct the same completed legal cell-position artifact. Keep continuous optimization and legalization in the Template.
+Chip global and detailed routing: KEEP DISTINCT. Coarse capacity/layer guides and final rule-compliant conductor geometry are independently controlled artifacts.
+Circuit hierarchy and physical die partitioning: MERGE into PART with retained cost/technology variants. Chiplet partitioning does not become a new Structure or Territory.
+Clock sink clustering, topology search and buffer insertion: MERGE into CLOCK. Different tree/mesh methods are variants of clock distribution.
+NoC topology generation vs global conductor routing: KEEP DISTINCT. Functional router/link architecture differs from the physical paths that realize specified nets.
+Analog topology, standard-cell synthesis and analog/custom layout: KEEP DISTINCT. They deliver an electrical topology, a reusable legal library cell, and an electrically constrained custom-block layout.
+DFT architecture, test-point membership, scan stitching, physical test patterns and embedded protocols: KEEP DISTINCT at their supplied-architecture/output boundaries. Compression methods and fault models remain variants.
+MBIST grouping and resource/power-constrained sessions: MERGE into TAM. Static embedded protocol definition is distinct from a calendar assigning manufactured products to external testers.
+ATPG generation and compaction: MERGE into ATPG. Generation/value assignment and retained-pattern choice jointly define usable fault-test content; solver SAT/ML encoding is not a separate Problem.
+Physical timing/voltage/interface validation test selection: ADMIT VALIDATE. Software-only regression selection or generic assertions do not enter solely because the target is a chip.
+Reticle image packing, mask-set commitments and exposure/dicing plans: EXCLUDE to SEMIM, already scoped there.
+Multiple-patterning assignment/stitches on a fixed released layout and OPC/assist-feature preparation: EXCLUDE to SEMIM when the deliverable is fabrication mask data. MPLD [MPLD] is materially combinatorial. If it changes a still-developing product layout, route the design variant to physical layout/routing rather than creating a new SEMID Problem.
+Defect-map redundancy allocation and known-good physical die matching: EXCLUDE to SEMIM; already SEMIM504 and SEMIM503. Designing redundancy capacity is ARCH; designing BIST/repair hardware is DFT.
+Standalone wafer/die supply procurement and customer-order allocation: EXCLUDE to SCM. Hardware type selection is an architecture choice until it commits supply quantities.
+Standalone engineering staffing/project calendars: EXCLUDE to HR. A hardware clock schedule or test-session protocol is not a human project calendar.
+Independent prototype device movement: EXCLUDE to LOG.
+EDA server placement/compute scheduling, installed NoC traffic and FPGA digital-resource operation: EXCLUDE to COMP. A new FPGA fabric architecture is a semiconductor product-definition variant; mapping a workload to an installed FPGA is not automatically SEMID.
+Commercial semiconductor assortment/offer selection: EXCLUDE to MKT. A technical compatible product architecture is not an offer portfolio.
+Pure continuous circuit simulation, fixed-topology device sizing, extraction, timing analysis and thermal analysis: not standalone ICO Problems. They supply evaluation or feasibility information to admitted discrete choices.
+Analog transistor/device topology beyond circuit-level block choices, package thermal hardware selection, silicon validation lab equipment calendars and process-development experiment design: discovery leads retained for further evidence. Do not admit a separate card without a distinct contract and established discrete Template. Package thermal constraints refine floorplanning; equipment calendars alone do not establish a product-development contract.
+
+COVERAGE AND UNCERTAINTY
+Independent omission searches beyond the legacy list found analog topology search, transistor-level standard-cell synthesis, physical test-point design, MBIST grouping, voltage-domain assignments and package RDL routing. They were assessed explicitly rather than silently folded into generic placement.
+Follow-up discoveries were mainly implementation phases already retained, alternative methods, fault/process variants, or production/COMP contracts. This supports a broad v0.1 inventory of recurring ICO commitments, not a proof that all possible industry decisions are exhausted.
+Underrepresented evidence: proprietary analog/RF and memory design optimization, enterprise silicon-validation instance data, foundry-specific DFM tradeoffs, and current comparative rankings across commercial EDA products. These limits prevent universal SOTA or completeness claims, not the admission of supported recurring Problems.
+No #provision, #reserve, live #dispatch or ongoing #operate commitment is required by the admitted product-definition contracts. Do not force Problems into empty bands for visual coverage. Clock-step and protocol ordering do not imply the #sequence commitment stage.
+No ontology identity defect was found requiring a code, mnemonic, Domain or Territory change. No canonical ontology file is modified.
+
+SOURCE REGISTER
+Retrieved/checked 8 October 2026. URLs identify primary evidence; summaries distinguish source support from analyst assessment. GitHub implementation content was read through the authenticated connector. Some publication records provide abstracts only; full benchmark reproduction is deferred.
+
+[ARCH] Cost–performance co-optimization for heterogeneous semiconductor integration
+https://www.imec-publications.be/entities/publication/56353377-0626-4255-878a-cd67c40aeb90
+Support: Author-institution abstract supports discrete integration-scheme, process-node and architecture alternatives. It establishes a model-based co-design approach, not a universal best configuration.
+
+[HLS] Timing variation-aware scheduling and resource binding in high-level synthesis
+https://www.research.ed.ac.uk/en/publications/timing-variation-aware-scheduling-and-resource-binding-in-high-le/
+Support: Author-institution abstract supports ILP operation scheduling, resource binding and chaining to define a hardware implementation.
+
+[ABC] Berkeley ABC: sequential synthesis and verification
+https://people.eecs.berkeley.edu/~alanmi/abc/abc.htm
+Support: Official implementation describes AIG rewriting, refactoring, balancing and mapping. Only circuit-construction functions are admitted; formal verification is not automatically a semiconductor product decision.
+
+[RET] Leiserson and Saxe: Retiming synchronous circuitry
+https://dspace.mit.edu/entities/publication/f3476d6e-5651-41e5-a2fd-61d9695562e7
+Support: Primary abstract establishes polynomial algorithms for minimum-period and minimum-state classical retiming. Physical extensions must not inherit either polynomiality or NP-hardness without a separate proof.
+
+[MAP] Yosys technology-mapping documentation
+https://yosyshq.readthedocs.io/projects/yosys/en/stable/cmd/index_passes_techmap.html
+Support: Official commands distinguish library mapping from technology-independent optimization. Library-cell covering is the admitted construction.
+
+[PART] OpenROAD TritonPart partition manager
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/par/README.md
+Support: Official implementation uses constrained multilevel coarsening and refinement with timing, balance, fixed-vertex and grouping constraints.
+
+[CHIP] ChipletPart, arXiv version 3, March 2026
+https://arxiv.org/abs/2507.19819v3
+Support: Primary research adds cost-aware die partitioning and discrete technology assignment, with floorplan feasibility feedback. GA, SA and BO are competing published methods; no blanket SOTA claim is adopted.
+
+[NOC] Srinivasan, Chatha and Konjevod: NoC architecture synthesis
+https://asu.elsevierpure.com/en/publications/linear-programming-based-techniques-for-synthesis-of-network-on-c-2/
+Support: Author-institution abstract supports MILP synthesis of custom physical NoC architectures under performance requirements.
+
+[VDD] Power minimization for dual- and triple-supply circuits
+https://www.jstage.jst.go.jp/article/transfun/E92.A/9/E92.A_9_2318/_article
+Support: Primary paper supports discrete voltage-region assignment with ILP and partitioned ILP. Installed voltage-control operation is a different contract.
+
+[DFT] Synopsys TestMAX DFT
+https://www.synopsys.com/implementation-and-signoff/test-automation/testmax-dft.html
+Support: Official industrial product supports test architectures, compression, core wrapping and scan structures. Vendor superiority and runtime marketing are not treated as comparative evidence.
+
+[TP] Synopsys TestMAX Advisor
+https://www.synopsys.com/implementation-and-signoff/test-automation/testmax-advisor.html
+Support: Official product describes testability analysis and test-point placement to improve ATPG or LBIST.
+
+[TP2] Google Research: physically aware testpoint reclustering
+https://research.google/pubs/optimizing-ppa-with-atpg-qor-a-custom-testpoints-reclustering-approach-for-reduced-congestion-and-leakage-with-improved-test-qor/
+Support: Industrial research supports physical-aware test-point grouping and insertion, with congestion and leakage tradeoffs.
+
+[SCAN] OpenROAD design-for-test implementation
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/dft/README.md
+Support: Official implementation supports chain count/length, clock mixing and physical stitching of scan registers. It is a reproducible basic scan implementation, not full commercial DFT equivalence.
+
+[ANAT] MOJITO author repository
+https://github.com/trentmc/mojito
+Support: Author implementation searches analog building-block topologies and sizes using SPICE. It returns tradeoff solutions; legacy simulator integration requires work.
+
+[CELL] AutoCellGen official implementation
+https://github.com/The-OpenROAD-Project/AutoCellGen/blob/main/README.md
+Support: Official flow supports transistor folding/placement, SMT in-cell routing and GDS generation. README acknowledges possible DRC failures requiring manual correction.
+
+[ALIGN] ALIGN analog-layout synthesis flow
+https://align-analoglayout.github.io/ALIGN-public/notes/flow.html
+Support: Official flow maps a supplied analog netlist to hierarchical physical layout under analog constraints; primitive generation and block assembly are distinguished.
+
+[FLOOR] OpenROAD hierarchical macro placement
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/mpl/README.md
+Support: Official Hier-RTLMP implementation uses hierarchy-aware physical planning with outline, wirelength, channel, halo and fence controls.
+
+[FLOOR2] Floorplet: chiplet floorplan framework
+https://www.cse.cuhk.edu.hk/~byu/papers/J107-TCAD2024-Floorplet.pdf
+Support: Primary paper supports package-level chiplet floorplanning with performance, cost and reliability models.
+
+[PIN] OpenROAD pin placer
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/ppl/README.md
+Support: Official implementation positions pins on tracks or inside a die grid, including face-to-face integration interfaces.
+
+[PAD] OpenROAD chip-level connections
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/pad/README.md
+Support: Official ICeWall documentation supports pad rings, bump arrays and connections.
+
+[PLACE] OpenROAD global placement
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/gpl/README.md
+Support: Official RePlAce implementation uses analytical placement with timing and routability weighting. This relaxation alone is not a completed legal placement.
+
+[LEGAL] OpenROAD detailed placement
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/dpl/README.md
+Support: Official legalizer assigns legal row sites and supports mixed cell heights, fences and incremental relegalization. Global and detailed phases are retained within one placement contract.
+
+[SIZE] OpenROAD gate resizer
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/rsz/README.md
+Support: Official implementation selects library gates, inserts buffers and repairs timing under area and protected-object limits.
+
+[CLOCK] OpenROAD clock tree synthesis
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/cts/README.md
+Support: Official TritonCTS implementation synthesizes buffered clock distribution with characterization, clustering and electrical controls.
+
+[PDN] OpenROAD power distribution network generator
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/pdn/README.md
+Support: Official tool creates metal straps/vias from grid policies. Grid generation is an implementation basis; feasible optimal topology still needs electrical evaluation.
+
+[GRT] OpenROAD global routing
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/grt/README.md
+Support: Official FastRoute/CUGR interfaces create route guides with congestion iteration, layer controls and incremental routing.
+
+[DRT] OpenROAD detailed routing
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/drt/README.md
+Support: Official TritonRoute implementation separates pin access, track assignment, detailed paths and DRC repair.
+
+[PKG] Adaptive RDL routing for chiplet-package co-design
+https://research.cuhk.edu.hk/en/publications/adaptive-redistribution-layer-routing-for-chiplet-package-co-desi/
+Support: Author-institution abstract supports pin assignment and network-flow routing for package-level interconnect.
+
+[FILL] OpenROAD metal fill
+https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/fin/README.md
+Support: Official generator selects and inserts floating fill under density and spacing rules. Coupling-aware optimization needs an electrical objective in addition to the generator.
+
+[ATPG] Synopsys TestMAX ATPG
+https://www.synopsys.com/implementation-and-signoff/test-automation/testmax-atpg.html
+Support: Official product establishes pattern generation, reduction, fault models, fault simulation and power-aware shift/capture. Vendor performance claims are not benchmarked here.
+
+[EDT] Rajski et al.: Embedded deterministic test
+https://ieee-ceda.org/media/embedded-deterministic-test
+Support: Primary-paper abstract distinguishes compressed test-stimulus generation from on-chip decompressor architecture.
+
+[TAM] Thermal-aware test schedule and TAM co-optimization
+https://onlinelibrary.wiley.com/doi/10.1155/2012/763572
+Support: Primary paper distinguishes fixed and configurable DFT and co-optimizes TAM allocation/test sessions with thermal evaluation. This is a within-device protocol, not a factory equipment calendar.
+
+[MBIST] Integrated memory grouping and power-aware MBIST scheduling, 2026
+https://drops.dagstuhl.de/storage/01oasics/oasics-vol140-ng-res2026/html/OASIcs.NG-RES.2026.3/OASIcs.NG-RES.2026.3.html
+Support: Primary paper supports physical memory grouping plus RCPSP-like test scheduling. Its experiments compare selected industrial schedules; they do not prove universal dominance.
+
+[VAL] Adaptive test selection for post-silicon timing validation
+https://researchportal.hkust.edu.hk/en/publications/adaptive-test-selection-for-post-silicon-timing-validation-a-data/
+Support: Author-institution abstract supports adaptive test prioritization from observed silicon timing failures. Full implementation and reusable dataset were not verified.
+
+[LAB] NI post-silicon validation
+https://www.ni.com/en/solutions/semiconductor/validation-lab-innovations/how-modern-lab-approaches-optimize-post-silicon-validation.html
+Support: Official industrial account distinguishes physical silicon characterization and validation before production release.
+
+[ECO] Metal-only ECO optimization, NTU dissertation
+https://scholars.lib.ntu.edu.tw/entities/publication/ae90560c-9f37-48a3-87bb-c18a73cbf927
+Support: Author-institution abstract supports spare-cell matching and iterative MILP for constrained functional and timing changes.
+
+[ECO2] IBM: Formalization of rectification learning for economic design updates, 2026
+https://research.ibm.com/publications/formalization-of-rectification-learning-for-economic-design-updates
+Support: Primary industrial research defines ECO updates through quantified Boolean rectification; it supports a formal alternative to physical spare-cell optimization.
+
+[MPLD] Layout decomposition for triple patterning lithography
+https://arxiv.org/abs/1402.2459
+Support: Primary paper supports mask assignment and stitch selection, with ILP/decomposition and approximation. Used here to record manufacturing-preparation ownership, not an admitted SEMID card.
