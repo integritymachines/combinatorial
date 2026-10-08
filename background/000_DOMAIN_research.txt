@@ -1,7 +1,7 @@
 000_DOMAIN_research.txt
 
 Industrial Combinatorial Optimization Domain Research
-v0.4 | October 2026
+v0.5 | October 2026
 
 LEGEND
 
@@ -11,7 +11,7 @@ DOMAIN <-> DOMAIN    recurring interface / possible secondary-domain relationshi
 
 ONTOLOGY REFERENCE
 
-000_DOMAIN.txt is the single source of truth for Macro Domains, Domains, Industries, Industry Domains, Regime, Structure, and tag semantics.
+000_DOMAIN.txt is the single source of truth for Macro Domains, Domains, Industries, Territory, Industry Domains, Regime, Structure, and tag semantics.
 This document supplies research coverage, interfaces, and boundary reasoning only.
 
 Within this document:
@@ -666,6 +666,28 @@ PRELIMINARY INDUSTRY REGISTRY
 ##PULPPAPER ##QUARRYING ##RAIL ##REALESTATE ##REFINING ##RETAIL
 ##SEMICONDUCTOR ##SHIPBUILDING ##SPORTS ##STEEL ##TELECOM ##WAREHOUSING ##WATER
 
+
+INDUSTRY DOMAIN TERRITORY
+
+Territory partitions the industrial value chain into four mutually exclusive and exhaustive parts:
+
+#development
+#production
+#distribution
+#administration
+
+Apply Primary Domain before Territory.
+
+Every Industry Domain receives one Territory.
+Industry × Primary Domain remains the default identity.
+Territory creates another Industry Domain only when the normative split test in 000_DOMAIN.txt passes.
+
+Most apparent value-chain splits are already separated by Primary Domain.
+Examples include airline movement, commercial allocation, and crew systems; retail supply, commercial assortment, and staffing; oil and gas extraction and transmission.
+
+Residual same-Industry same-Domain Territory splits require explicit research.
+Initial high-value candidates include automotive development versus manufacturing and semiconductor design versus manufacturing.
+A lifecycle label alone does not establish a split.
 
 SCOPED BOUNDARY RESOLUTIONS
 
