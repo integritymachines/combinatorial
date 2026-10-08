@@ -98,7 +98,7 @@ TAGS #DISP #LOG ##AIRLINE #PRODUCTION #plan #link #place ##flight-planning ##sho
 COMMENTS Simple static shortest paths are easier restrictions. Continuous-only flight control and shared ATC coordination are separate scopes.
 
 AIRL305 Air Cargo Unit Load Device Packing.
-DESCRIPTION Assign cargo pieces to unit load devices and place their positions and orientations under contour, weight, support and compatibility limits.
+DESCRIPTION Assign cargo pieces to unit load devices and choose their positions and orientations under contour, weight, support and compatibility limits.
 TEMPLATE Cargo consolidation and contour packing | Three-dimensional packing MILP for restricted instances; constructive or extreme-point heuristics with improvement.
 REGIME #plan | Commits physical cargo packing before unit preparation and aircraft loading.
 STRUCTURE #place + #map | Positions oriented pieces and assigns them to unit load devices.
@@ -161,7 +161,7 @@ COMMENTS Aircraft acquisition defines fleet capability. Named-tail allocation to
 
 AIRL502 Aircraft Tail Assignment.
 DESCRIPTION Assign individual aircraft to supplied rotations under location, configuration, usage-history and maintenance restrictions.
-TEMPLATE Named-aircraft rotation allocation | Constrained assignment MILP; branch-and-price when the allocation also permits route regeneration.
+TEMPLATE Named-aircraft rotation allocation | Constrained assignment MILP.
 REGIME #allocate | Commits named aircraft to already supplied flight rotations.
 STRUCTURE #map | Assigns individual aircraft to compatible rotations.
 PRIORITY Critical | Each operated rotation requires an actual compatible aircraft.
@@ -249,7 +249,7 @@ COMMENTS Operational grouping can differ from an ideal individual boarding order
 
 AIRL801 Ground Service Vehicle Dispatch.
 DESCRIPTION Assign available ground vehicles to live service requests and select immediate release or repositioning actions under readiness and compatibility limits.
-TEMPLATE Event-driven ground-service control | Fast sequential assignment and routing heuristics; rolling-horizon MILP for constrained dispatch windows.
+TEMPLATE Event-driven ground-service control | Fast sequential assignment and routing heuristics.
 REGIME #dispatch | Activates near-term vehicle actions from evolving request and resource states.
 STRUCTURE #map + #select | Assigns live requests to vehicles and selects actions for immediate release.
 PRIORITY High | Short-cycle vehicle control affects aircraft readiness throughout operations.
