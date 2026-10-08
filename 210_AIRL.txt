@@ -332,4 +332,3 @@ HARDNESS Critical | Coupled resources and journeys require restricted models, de
 DEPENDENCIES AIRL301, AIRL702, AIRL802, AIRL901, AIRL902, AIRL903, AIRL904 → AIRL905 → AIRL301, AIRL307, AIRL502, AIRL503, AIRL504.
 TAGS #DISP #LOG ##AIRLINE #PRODUCTION #adapt #select #link #map #place #rolling ##integrated-recovery ##disruption-management ##network ##decomposition.
 COMMENTS Joint crew constraints support the movement program. Public aircraft-passenger benchmarks can omit crews and other industrial conditions.
-
