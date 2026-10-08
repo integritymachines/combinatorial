@@ -1,0 +1,767 @@
+LAND PROBLEM RESEARCH
+v0.1 | Problem layer | Research 2026-10-07–08
+
+MANDATE AND INPUT BASIS
+Domain LAND, code 702, Macro Domain RES. 000_DOMAIN.txt v0.4 is normative; background/000_DOMAIN_research.txt and workflow/0_workflow.txt through workflow/4_foreground.txt are read-only support. The two LAND files did not exist when the run began. Existing EXTR foreground was read to control water-extraction and mine-restoration boundaries. No .md bundle, prior conversation artifact, or uncoded industry list is treated as an input ontology. No new domain or tag vocabulary is introduced.
+
+This file is evidentiary Problem-level background. Candidate keys below are research handles, not permanent Problem IDs or a prescribed final sequence. The Compiler derives sequence from the directed handoffs after Background Control. Source records retain access limitations, methods and uncertainty. Commit history contains role reviews and responses; this file contains no QC appendix. v0.1 labels are retained at the user's request; review status is in version-control history. Cases, benchmarks and reference-result reproduction are not authorized at this stage.
+
+TERRITORY AND ADMISSION
+LAND owns the decision when land, geospatial assets, renewable resources, water rights, basins or land-use allocation dominate. The primary test is the promised industrial output and its feasibility contract. A GIS representation, agricultural industry tag, public owner, or mathematical assignment formulation does not establish ownership.
+
+Principal territories are: urban/rural land zoning and readjustment; physical real-estate development and occupancy; conservation and ecological connections; forestry and renewable biomass; annual/perennial crops and protected cultivation; pasture and biological livestock stocks; fisheries and aquaculture; basin resource access and irrigation turns; catchment intervention and ecological recovery. Forestry, fisheries, real estate, retail and water use established industry contexts. Agriculture, orchard, livestock and protected cultivation use open lowercase refinements rather than inventing a closed Industry registry entry.
+
+ICO admission requires a genuine discrete commitment: candidate inclusion, physical assignment, constructed connections, or spatial/temporal placement. Continuous water, nutrient, biomass, flow, financial and yield quantities may accompany a discrete contract. Purely continuous balances, regression, forecasting and simulation alone are not admitted. A binary approximation variable is not proof of an intrinsically combinatorial industrial decision. Conversely an MDP action choice does not become continuous because an occupation-measure LP can represent its policy.
+
+Neighboring-domain ownership follows 000_DOMAIN.txt:
+EXTR: prospecting, extraction/depletion, mine blocks and well withdrawal. LAND: resource access rights, basin rationing, renewable harvesting and ecological land recovery. Mine waste emplacement remains EXTR; a separate ecological restoration portfolio is LAND.
+ENER: installed utility production/distribution and pump/tank/valve operation. LAND: basin rights/resource access and agronomic irrigation-turn commitments. Mere reservoir imagery does not determine ownership; a basin rationing policy and utility dispatch are distinct contracts.
+CIVIC: shared service-asset operation, public works and construction execution. LAND: permitted land uses, physical geospatial development phases and ecological recovery. Integrated forest access design is LAND only when renewable-resource access defines its value and feasible output.
+LOG: vehicle journeys, visits, field coverage routes, equipment movement and harvest haulage when movement defines the service. LAND: agronomic or forest work where crop, soil, maturity, stand or renewable-stock conditions define feasibility. Travel constraints do not automatically transfer an integrated biological work calendar to LOG.
+SCM: feed/input sourcing, availability, harvested inventory and replenishment. LAND: crop-land, pasture, herd/cohort and resource-harvest commitments. Biological growth-state decisions are not inventory policy merely because states are carried between periods.
+PROC/PROD: process recipes/material transformation and manufacturing/assembly respectively. LAND: the renewal and harvesting of biological resources. Food/fish processing stays outside LAND; feed formulation can be PROC.
+MKT: pricing, offers, auctions, commercial rights allocation and trading mechanisms. LAND: physical tenant-space allocation and resource-use commitments under supplied rights. FIN: financing structure, property-backed claims, settlement, liquidity and risk positions. Financial limits and discounted objectives do not redefine physical land development as FIN.
+HR: standalone workforce skills/capacity/rosters. LAND: integrated field or forest resource execution where biological conditions define the work. HC: clinical/veterinary direct-care conditions when care is promised. COMP: sensing/computation/storage operation; forecasts and GIS supply information. INTEL: adversarial/protective response where those conditions dominate, not every natural threat.
+
+DISCOVERY AND SEARCH RECORD
+Searches proceeded by territory rather than by a pre-existing card count. Initial rounds searched spatial forest planning, crop choice/rotation, conservation software and basin allocation; then real-estate phasing/tenants/readjustment, watershed restoration, irrigation/field work, fisheries and aquaculture. Follow-up rounds tested perennial replacement, pasture, livestock replacement, nursery/protected cultivation, corridor networks and continuous water-right alternatives. Control searches checked basin rationing, formal complexity and landscape biological threats.
+
+Queries included forest harvest spatial adjacency MILP; forest road and landing network; crop rotation integer programming; crop allocation discrete plots; greenhouse seeding scheduling; farm machinery weather work windows; irrigation outlet turns; conservation prioritizr/Marxan; corridor MILP; land consolidation/readjustment; property phasing; tenant-space synergy; basin water rights and discrete hedging; watershed BMP selection; restoration over space/time; grazing paddock sequence; herd replacement MDP/MILP; fishing area/species period allocation; and aquaculture stocking/harvest decomposition. Primary articles, author-institution research records, official decision-support documentation and official research implementations were preferred. A review was a discovery aid, not independent proof of all method claims.
+
+Search saturation is local and qualified. Several rounds returned existing aliases, constraint refinements, mostly continuous models, or neighboring-domain problems. Protected/nursery batch scheduling, multi-zone reserves, marine spatial zoning, maximum forest opening size, green-up, repeated crop harvest and joint road/harvest planning are covered as variants. This supports a broad v0.1 set, not a proof of exhaustive global coverage. New commercially material contracts must be returned to Problem research rather than inserted during Case selection.
+
+IDENTITY AND STRUCTURAL METHOD
+For each candidate, distinguish: supplied substrate; chosen construction; delivered artifact; constitutive laws; feasibility conditions; objectives; auxiliary variables. Priority, Relevance and Hardness are separate judgment axes. Ratings below are synthesis from recurrence, stakes, model coupling and documented solution methods; sources do not themselves award ontology ratings. Evidence-based existence of a Template is required for admission, but a unique global SOTA method is not required. Industrial work-window budgeting, forestry prescriptions and systematic conservation practice can differ from the strongest formal method or a public implementation.
+
+Selection of a treatment subset can accompany assignment of those treatments and their timing when the output explicitly includes all three commitments. Link selection is not duplicated with #select merely because a link variable is binary. Supplied adjacency does not make zoning, crop rotation, reserve selection or fuel scheduling #link. A corridor or access network explicitly promises chosen connections. Scheduling is #place; assignment is #map. The baseline Structure is not a demand to add every Structure used by every integrated variant.
+
+Regime follows the commitment. System configuration and permitted-use patterns are #design. Future crop, stand, cohort, recovery and work calendars are #plan. Physical occupancy allocation is #allocate. Ongoing pasture/irrigation coordination can add #operate. Immediate reassignments add #dispatch where a rolling work-calendar variant is explicitly included. Material revision can add #adapt. Long horizon alone does not imply #design, and repeated solution alone does not imply #realtime.
+
+COMPLEXITY AND RATINGS BASIS
+Formal statements apply only to supported variants. General integer programming is not a blanket complexity proof for a particular industrial Problem. A source-specific NP-hard result is not inherited by every special case. For RESERVE, the budgeted coverage subclass contains ordinary budgeted maximum coverage: features are elements, sites cover element sets, costs constrain the subset, and covered feature count is the objective. This is a first-principles classification argument, not a claimed theorem about all ecological models. For FIELD, nonpreemptive renewable-resource task scheduling with precedence contains RCPSP; the formal result applies to that flexible-resource scheduling variant. Restricting resource needs or tasks can yield easier models.
+
+High Hardness denotes recurring custom formulation/search burdens, not merely NP-hardness. Spatial neighborhood interaction, long biological state propagation and expensive hydrological evaluations provide practical reasons. Medium denotes standard MILP/DP architectures that provide defensible routine starting points, with scope-dependent formulation and forecast issues. Where deployment adoption is unverified, that limitation remains explicit. No runtime, optimality gap, financial uplift, crop-yield increase or hazard reduction is invented.
+
+DEPENDENCY EVIDENCE CONVENTION
+Edges below are applicable handoffs, not universal prerequisites. E denotes a handoff directly reflected in the described source model or source scope. I denotes industrial/information-flow synthesis across sourced contracts. N denotes a normative ownership or decision-boundary basis. Combined codes preserve inference. No edge is asserted as a formal mathematical reduction. External inputs, including EXTR release dates and SCM demand, remain named interfaces rather than unvalidated external Problem IDs.
+
+CANDIDATE RESEARCH
+
+ZONE — Spatial Land-Use and Resource Zoning
+Admission basis: One spatial allocation contract covers urban, rural, coastal and marine units. The solution changes the permitted or committed use of identified spatial units. Assigning uses is distinct from computing suitability scores or predicting uncontrolled land change.
+Decision scope: Assigns land parcels or spatial units to permitted uses under suitability, area, adjacency and environmental limits.
+Aliases: Land-use allocation; spatial zoning; marine spatial planning; master-plan allocation.
+Supplied substrate and delivered artifact: GIS polygons/cells, allowable uses, incumbents, suitability scores, area targets and neighborhood relations are supplied. The delivered artifact is a unit-to-use assignment. Compactness and neighborhood compatibility constrain or value it; the solver does not create neighborhood edges.
+Candidate Regime: #design | Commits the spatial use pattern before development and resource operations.
+Candidate Structure: #map | Assigns spatial units to use classes; supplied adjacency constrains the resulting pattern.
+Variants and integrated alternatives: Raster and irregular parcels; conversion costs; single and multiple objectives; compatible multi-use zones; land-sea interfaces. Optional land acquisition remains a secondary selection when the promised output includes it.
+Primary ownership: #LAND. Material interfaces: Urban land allocation is LAND. Construction tasks are CIVIC. Generic facility service coverage follows its operating domain. Marine energy operation is ENER. A geospatial layer does not make all downstream decisions LAND.
+IE and OR Template basis: Spatial master planning and land suitability analysis | Multiobjective integer programming and spatial search.
+Template evidence: S01: Raster land-use assignment with cost and compactness objectives supports integer programming. Test scales do not establish universal industrial scalability. S39: Multiobjective zoning ILP supports marine-space allocation as a zoning variant, without introducing another Domain.
+Priority inference: Critical | Spatial resource allocation defines the domain's main decision territory.
+Relevance inference: Critical | Use patterns determine durable resource access and development opportunities.
+Industrial Hardness and formal qualification: High | No general complexity claim; large spatial grids and competing compactness and suitability goals require tailored formulations.
+Useful descriptors: ##land-use ##spatial-allocation ##adjacency
+Evidence limits and uncertainty: Some zoning is qualitative or regulatory rather than ICO. Admit only explicit discrete allocation contracts with a credible Template. No law or planning approval procedure is assumed universal.
+Admission condition / boundary conclusion: Marine spatial zoning shares this contract. Pure continuous acreage balances are excluded.
+Source references: S01 S39.
+
+PARCEL — Land Consolidation and Parcel Readjustment
+Admission basis: Reallocating physical holdings differs from assigning permitted uses. Owners' entitlements, parcel value and resulting geometry define feasibility. A land market may supply eligible exchanges without changing the physical reallocation contract.
+Decision scope: Reassigns discrete land units or ownership interests to consolidated holdings under entitlement, value, access and parcel-shape conditions.
+Aliases: Land reallocation; plot consolidation; cadastral readjustment.
+Supplied substrate and delivered artifact: Original parcels, owners, value/area entitlements, candidate blocks and access conditions are inputs. The output allocates discrete units or interests to resulting holdings. Valuation is supplied evidence, not the combinatorial output.
+Candidate Regime: #design | Defines the land holdings available to later development and cultivation.
+Candidate Structure: #map | Assigns land units to resulting holdings or entitled owners.
+Variants and integrated alternatives: Rural consolidation; urban reallocation after public-space deductions; discrete whole parcels; divisible ownership interests assigned to indivisible destination lots; owner preferences and shape objectives.
+Primary ownership: #LAND. Material interfaces: Commercial brokerage alone is MKT. Mortgage or land-backed claim portfolios are FIN. Survey data processing is COMP support. Constructing access roads is CIVIC unless subordinate to a consolidated-holding design.
+IE and OR Template basis: Cadastral land consolidation and readjustment | Mixed-integer allocation and geometric optimization.
+Template evidence: S02: LP and MIP allocate cadastral interests into subdivision lots after public-use deductions. Supports reallocation identity, not every legal system. S03: Binary parcel choices extend consolidation beyond divisible area balances.
+Priority inference: High | Fragmented agricultural and urban holdings require recurring reallocation.
+Relevance inference: High | Consolidation can reduce access costs and improve usable land value.
+Industrial Hardness and formal qualification: High | No general complexity claim; indivisible parcels, owner preferences and geometric conditions complicate standard assignment.
+Useful descriptors: ##land-consolidation ##readjustment ##entitlement
+Evidence limits and uncertainty: Entitlement and deduction rules vary by jurisdiction. A purely divisible area-balancing LP lacks the required discrete contract. Geometric land partition design can need further research if the optimizer chooses new boundaries rather than using candidate units.
+Admission condition / boundary conclusion: Transfers of financial land-backed claims belong to FIN.
+Source references: S02 S03.
+
+RESERVE — Conservation Area Selection
+Admission basis: The commitment is which sites receive conservation protection. Species targets, management budgets and opportunity costs distinguish it from a real-estate investment portfolio. Selecting connected sites is not automatically corridor network construction.
+Decision scope: Selects conservation sites under habitat-representation targets, resource budgets and required spatial conditions.
+Aliases: Reserve design; protected-area selection; conservation prioritization; marine reserve planning.
+Supplied substrate and delivered artifact: Planning units, habitat-feature amounts, costs, incumbents and optional adjacency are supplied. The chosen protected subset is the artifact. Auxiliary network flows in a connectivity formulation do not automatically add a #link construction.
+Candidate Regime: #design | Commits the protected-site portfolio before management implementation.
+Candidate Structure: #select | Chooses planning units from a supplied landscape.
+Variants and integrated alternatives: Minimum-cost representation; budgeted coverage; boundary penalties; connected sites; multiple protection zones; staged acquisition. A temporal acquisition variant can add #place without changing the core protected-site identity.
+Primary ownership: #LAND. Material interfaces: Price-setting and auctions for rights are MKT. Adversarial exclusion zones are INTEL. Habitat conservation retains LAND when a public agency implements it. Forestry and fishing plans receive protection constraints rather than become conservation Problems.
+IE and OR Template basis: Systematic conservation prioritization | Binary planning-unit optimization, prioritizr ILP and Marxan-style spatial search.
+Template evidence: S04: Binary planning-unit prioritization, alternative objectives, spatial penalties and solver interfaces establish a conservation ILP Template. Marxan-style inputs are supported. S40: Budgeted connected-site acquisition across periods is a staged reserve-design variant. S41: Reserve selection trades habitat, area, compactness and foregone fishing revenue. It is conservation rather than vessel routing.
+Priority inference: High | Reserve selection recurs across terrestrial and marine resource management.
+Relevance inference: Critical | Site choices can determine enduring biodiversity protection and resource-use limits.
+Industrial Hardness and formal qualification: High | Budgeted coverage variants are NP-hard; multiple features and spatial requirements require strong formulations or spatial search.
+Useful descriptors: ##conservation ##coverage ##FORESTRY ##FISHERIES
+Evidence limits and uncertainty: prioritizr ILP and Marxan-style search are defensible alternatives. Documentation distinguishes hard target constraints from soft penalties; solutions must be compared under matched target semantics. Feature uncertainty can matter more than small objective differences.
+Admission condition / boundary conclusion: Connected and staged acquisition are variants; explicit corridor construction is separate.
+Source references: S04 S40 S41.
+
+CORRIDOR — Habitat Corridor Network Design
+Admission basis: An explicit connection system is the promised output. A reserve with only a compactness penalty is not equivalent. Corridor geometry and redundant connection requirements can remain material even after habitat cores are fixed.
+Decision scope: Connects habitat patches through feasible corridors under conservation budgets, habitat quality and corridor geometry requirements.
+Aliases: Wildlife corridor design; ecological network design; least-cost corridor system.
+Supplied substrate and delivered artifact: Habitat cores, parcel geometry, quality, costs and candidate connections are supplied. The solver constructs the corridor system. A single-corridor implementation may select parcels on a supplied graph; the corridor-system foreground contract emphasizes the delivered interconnections.
+Candidate Regime: #design | Defines ecological connections before land acquisition or restoration work.
+Candidate Structure: #link | Constructs the corridor connections between habitat patches.
+Variants and integrated alternatives: Single corridor; multiple habitat cores; width/length conditions; redundant corridors; joint corridor geometry and land selection. Land acquisition is a supporting commitment when sites are not already controlled.
+Primary ownership: #LAND. Material interfaces: Physical wildlife crossing construction is CIVIC when project execution dominates. Ecological connection design remains LAND. Freight and passenger connectivity belong to LOG; supplied GIS proximity is supporting data.
+IE and OR Template basis: Landscape connectivity and wildlife corridor planning | Connectivity-constrained MILP and corridor-system decomposition.
+Template evidence: S05: MILP designs corridors with habitat quality, resource and geometric requirements. A corridor is distinct from generic reserve coverage. S06: Two-stage corridor generation and least-cost corridor-system MILP support chosen connections among habitat patches.
+Priority inference: Medium | Connectivity design is essential in fragmented habitat systems.
+Relevance inference: High | Better connections improve feasible movement between protected habitats.
+Industrial Hardness and formal qualification: High | No general complexity claim; corridor geometry, overlapping parcels and network requirements complicate large designs.
+Useful descriptors: ##connectivity ##corridor ##network-design
+Evidence limits and uncertainty: Connectivity is not proof of biological success. Habitat and movement models remain assumptions. The 2023 two-stage construction establishes a network Template, not dominance over every integrated corridor model.
+Admission condition / boundary conclusion: Fixed-path parcel selection is a corridor variant; supplied landscape adjacency alone does not imply #link.
+Source references: S05 S06.
+
+ACCESS — Forest Harvest Access Network Design
+Admission basis: Admit integrated renewable-resource access design whose feasible output and value depend on harvest availability. The forest industry tag does not move all its road work into LAND. A previously fixed network creates a downstream schedule substrate.
+Decision scope: Connects harvest areas to exit points through logging roads, landings and access spurs under terrain, access and cost limits.
+Aliases: Forest road network design; logging access design; road and landing planning.
+Supplied substrate and delivered artifact: Candidate road/spur links, terrain, landing options, harvest volumes and exit points are supplied. The delivered topology determines reachable timber. Accessibility flow variables do not create another independent construction.
+Candidate Regime: #design | Defines the access topology that enables later timber harvesting.
+Candidate Structure: #link | Constructs the road and spur connections that give access to harvest areas.
+Variants and integrated alternatives: Fixed harvest set; joint stand activation; landing selection; road opening calendars; smallholder cooperation. Selecting optional landings can add #select in an integrated variant, while choosing road edges is already #link.
+Primary ownership: #LAND. Material interfaces: Road engineering and public-road asset management are CIVIC. Truck journeys are LOG. Integrated access and timber activation stay LAND when the resource decision defines feasibility and benefit.
+IE and OR Template basis: Integrated forest harvest-access planning | Fixed-charge network MILP and joint road-harvest optimization.
+Template evidence: S07: Joint logging-road and skidding-spur design establishes harvest-access topology. Pure truck routing is separate. S08: MILP couples road decisions, landing selection and timber access. Joint optimization is an alternative to fixed-access planning.
+Priority inference: Medium | Access design is fundamental in road-constrained forest operations.
+Relevance inference: High | Access topology changes recoverable timber and development cost.
+Industrial Hardness and formal qualification: High | No general complexity claim; terrain, discrete road costs and harvest-value coupling require tailored models.
+Useful descriptors: ##FORESTRY ##network-design ##landing
+Evidence limits and uncertainty: Permanent topology and temporary opening are different commitments. Joint access/harvest optimization creates feedback rather than a universal one-way sequence. The foreground records only the practical access-to-harvest handoff.
+Admission condition / boundary conclusion: Standalone road construction is CIVIC; timber-transport routing is LOG.
+Source references: S07 S08.
+
+PERENNIAL — Perennial Crop Establishment and Replacement Planning
+Admission basis: Long-lived productive blocks incur establishment expenditure and delayed yield. This irreversibility distinguishes renewal from annual crop allocation. Replacement includes preserving existing blocks as an alternative.
+Decision scope: Selects crop-block establishment or replacement and assigns varieties and planting options under land, investment and yield-development limits.
+Aliases: Orchard reconversion; perennial planting plan; variety replacement; plantation renewal.
+Supplied substrate and delivered artifact: Block ages, varieties, feasible density options, candidate replacements, capital limits and yield-age curves are supplied. The delivered block configurations and renewal dates change physical productive potential.
+Candidate Regime: #design + #plan | Defines perennial block configuration and commits its establishment or replacement calendar.
+Candidate Structure: #map + #place + #select | Assigns varieties and planting options to selected blocks and schedules establishment or replacement.
+Variants and integrated alternatives: Fruit orchards; vineyards and plantations when the same block contract applies; minimum reconversion units; staged funding; disease-driven replacement; variety change and density options.
+Primary ownership: #LAND. Material interfaces: Plantation securities are FIN. Crop inputs and product inventory are SCM. Crop-processing recipes are PROC. Biological block configuration remains LAND, with downstream field work supplied by the new block plan.
+IE and OR Template basis: Orchard and perennial plantation renewal planning | Multiperiod MILP and investment-policy optimization.
+Template evidence: S09: MILP reconversion decisions include varieties, planting densities and minimum land units. Supports perennial replacement rather than annual crop rotation.
+Priority inference: Medium | Perennial crops require recurring establishment and reconversion decisions.
+Relevance inference: High | Renewal choices determine productive capacity over many seasons.
+Industrial Hardness and formal qualification: Medium | No general complexity claim; juvenile yield and block indivisibility couple multiple years, while standard MILP provides a defensible starting point.
+Useful descriptors: ##perennial-crops ##orchard ##replacement
+Evidence limits and uncertainty: The retrieved pome-fruit model establishes Template existence. It does not establish a current universal best deployment. Maturation and disease/yield forecasts require sensitivity checks, not a new Problem for every forecast model.
+Admission condition / boundary conclusion: Annual crop rotation is separate; purely financial plantation holdings belong to FIN.
+Source references: S09.
+
+DEVELOP — Real-Estate Development Phasing
+Admission basis: Master-plan phases have indivisible openings and use-release dates. The primary output is physical site availability, rather than financial claim selection or construction-worker task scheduling.
+Decision scope: Schedules the development and release of property phases under site-use commitments, capacity, investment and market-absorption limits.
+Aliases: Property development sequencing; building opening schedule; phased land development.
+Supplied substrate and delivered artifact: Planned buildings/subdivisions, durations, capacity, development costs and absorption forecasts are supplied. The artifact is a phase opening/release calendar. Construction start dates can be implied by fixed durations; this is not detailed construction scheduling.
+Candidate Regime: #plan | Commits when physical property phases become available for use.
+Candidate Structure: #place | Positions development phases and space releases in time.
+Variants and integrated alternatives: Office parks; residential subdivisions; industrial parks; dependent enabling phases; optional phases; changed absorption forecasts. Phase capacities and use classes can be chosen in broader integrated variants.
+Primary ownership: #LAND. Material interfaces: CIVIC owns activity-level construction resource and precedence networks. MKT owns pricing and offers. FIN owns debt structure, taxes and claims. LAND owns geospatial asset development timing.
+IE and OR Template basis: Property master-plan phasing and absorption planning | Multiperiod mixed-integer development scheduling.
+Template evidence: S10: Integer opening-year decisions interact with absorption and building capacity. Its financing simplification must not be generalized to complete financial optimization.
+Priority inference: Medium | Large property developments require coordinated phase commitments.
+Relevance inference: Critical | Phasing controls major capital exposure and usable-space availability.
+Industrial Hardness and formal qualification: Medium | No general complexity claim; commercial MILP can handle standard phase calendars, while uncertain absorption requires scenario analysis.
+Useful descriptors: ##REALESTATE ##development-phasing ##absorption
+Evidence limits and uncertainty: The classical source simplifies financing. Investment limits are admissible instance inputs but its economic model is not a full financial optimizer. Scenario analysis is justified; no present market forecasts or price assumptions are imported.
+Admission condition / boundary conclusion: Detailed construction-task schedules belong to CIVIC; financing structure belongs to FIN.
+Source references: S10.
+
+TENANT — Tenant-to-Space Allocation
+Admission basis: Scope requires physical tenant-to-unit assignment. Category counts without a physical estate, rent prices and campaign offers are insufficient for LAND ownership. This is the explicit real-estate boundary in foundational research.
+Decision scope: Assigns tenants or tenant categories to physical units under space compatibility, category balance and spatial interaction requirements.
+Aliases: Tenant mix layout; tenant location allocation; commercial unit allocation.
+Supplied substrate and delivered artifact: Existing units, areas, tenant candidates/categories, anchor positions, compatibility rules and interactions are supplied. The artifact occupies specific physical space. Layout redesign is optional; the baseline assignment uses a fixed unit layout.
+Candidate Regime: #allocate | Commits available physical units to tenants or tenant categories.
+Candidate Structure: #map | Assigns tenants or categories to units in a supplied property layout.
+Variants and integrated alternatives: Named tenants and categories; fixed or selected anchors; multiple floors; vacancies; compatible unit aggregation; occupancy periods. Optional admission adds #select; changing unit geometry adds #place only in those variants.
+Primary ownership: #LAND. Material interfaces: MKT can supply commercial forecasts and FIN can supply valuation limits. Neither displaces the physical-space contract. Tenancy claim settlement alone is FIN; offer matching without physical space is MKT.
+IE and OR Template basis: Physical tenant-mix and occupancy planning | Assignment MILP, nonlinear integer layout models and spatial heuristics.
+Template evidence: S11: Spatial category allocation uses nonlinear integer optimization and a genetic algorithm. Supplementary availability is reported, not tested. S12: Integer programming retains tenant synergy and physical placement. No universal method dominance follows.
+Priority inference: Medium | Retail and commercial estates require recurring physical occupancy allocation.
+Relevance inference: High | Placement affects occupancy value and tenant compatibility.
+Industrial Hardness and formal qualification: High | No general complexity claim; tenant synergy and unit compatibility complicate otherwise simple matching.
+Useful descriptors: ##REALESTATE ##RETAIL ##tenant-mix ##assignment
+Evidence limits and uncertainty: Published synergy coefficients and rental objectives are context-specific. Exact integer models and genetic/spatial search are retained as alternatives. Reported supplementary availability is not a verified benchmark result or a license audit.
+Admission condition / boundary conclusion: Offer pricing and commercial assortment without physical-space assignment belong to MKT.
+Source references: S11 S12.
+
+WATER — Basin Water Allocation and Rationing Commitment
+Admission basis: Admit only genuine resource-access commitments involving discrete service states, rationing classes or policy alternatives. A MILP label caused solely by continuous-response approximation is insufficient. Legal priority order alone is also insufficient.
+Decision scope: Selects water-service or rationing modes for basin users under water availability, entitlement priorities and environmental flow requirements.
+Aliases: Discrete water allocation; basin rationing; drought hedging policy; service-priority allocation.
+Supplied substrate and delivered artifact: Rights/priority inputs, user groups, inflow states, water stocks, environmental flows and feasible rationing levels are supplied. The output commits policy or service modes. Continuous volumes accompany these choices but are not the core discrete construction.
+Candidate Regime: #allocate + #adapt | Commits resource access and revises rationing modes as basin availability changes.
+Candidate Structure: #select + #map | Chooses discrete service modes and assigns them to water users or user groups.
+Variants and integrated alternatives: Single-reservoir resource rationing; multiple-source basin allocation; multistage drought modes; priority-sensitive user classes; policy revision. Physical reservoir operation may instead be ENER when utility balance is the promised output.
+Primary ownership: #LAND. Material interfaces: MKT owns water trading and auction mechanisms. EXTR owns well activation and withdrawal. ENER owns installed pump, valve, tank and hydraulic distribution operation. LAND owns basin resource access and rationing policy.
+IE and OR Template basis: Rights-constrained basin allocation and discrete drought hedging | Mixed-integer hydro-economic allocation and stochastic policy optimization.
+Template evidence: S13: Mixed-integer basin allocation exists. A formulation label alone does not prove that any water-allocation contract is intrinsically discrete. S14: Mixed-integer reservoir drought planning supports discrete hedging. Resource-rationing commitments differ from installed utility switching. S15: Priority-preserving multiperiod network allocation is a strong continuous comparator. Legal priority alone does not create a combinatorial decision.
+Priority inference: High | Scarce basin resources require allocation across competing uses.
+Relevance inference: Critical | Allocation changes agricultural output, ecosystem flows and essential supply.
+Industrial Hardness and formal qualification: High | No general complexity claim; discrete rationing choices interact with uncertain inflows and resource balances.
+Useful descriptors: ##WATER ##water-rights ##basin ##drought
+Evidence limits and uncertainty: The broad basin allocation literature includes mostly continuous models. Admission remains conditional on intrinsically discrete choices. Jurisdictional water-law rules are supplied parameters, not universal normative claims.
+Admission condition / boundary conclusion: Continuous water-right balances alone are excluded. Utility pump switching is ENER; groundwater withdrawal is EXTR.
+Source references: S13 S14 S15.
+
+WATERSHED — Watershed Intervention Selection and Allocation
+Admission basis: The contract changes land management to meet catchment outcomes. Each selected intervention has a type and eligible site. This is distinct from protecting an existing reserve and from controlling installed urban drainage equipment.
+Decision scope: Selects catchment interventions and assigns them to eligible land units under budgets, land compatibility and water-quality or runoff targets.
+Aliases: Best-management-practice placement; catchment treatment targeting; riparian buffer allocation.
+Supplied substrate and delivered artifact: Hydrological units, eligible actions, existing uses, costs and modeled runoff/pollutant responses are supplied. Output allocates interventions to units. Hydrological topology and quality balances are evaluation structures, not necessarily constructed links.
+Candidate Regime: #design | Defines the catchment intervention portfolio before implementation.
+Candidate Structure: #map + #select | Assigns selected intervention types to land units.
+Variants and integrated alternatives: Buffers, nutrient management, erosion controls, wetlands and retention practices; target versus budget objectives; uncertainty; multiple intervention types. Action implementation generates restoration or field-task requirements.
+Primary ownership: #LAND. Material interfaces: Urban sewer/stormwater asset configuration can be CIVIC; installed utility operation is ENER. Farm agronomic calendars remain LAND. Cross-domain ownership is decided per promised output, rather than by the acronym BMP.
+IE and OR Template basis: Catchment best-management-practice targeting | Hydrological simulation-optimization, multiobjective search and surrogate MILP.
+Template evidence: S16: SWAT-linked multiobjective genetic search selects catchment practices for nutrient and sediment reduction. Simulation cost and response estimates matter. S17: Official watershed decision support establishes cost-effective intervention selection and optimization. Urban service-asset implementations need an ownership check.
+Priority inference: High | Catchment resource management repeatedly requires spatial intervention choices.
+Relevance inference: High | Targeting can reduce pollutant loads and protect water-resource function.
+Industrial Hardness and formal qualification: High | No general complexity claim; response simulation and interacting intervention effects make portfolio evaluation expensive.
+Useful descriptors: ##WATER ##watershed ##nonpoint-source ##simulation-optimization
+Evidence limits and uncertainty: Simulation response is uncertain and repeated evaluations can be expensive. Published multiobjective search and mixed-integer surrogate formulations are alternatives. No global solver ranking or precise pollutant reduction is inferred.
+Admission condition / boundary conclusion: Urban drainage asset decisions belong to CIVIC or ENER when that service-asset contract dominates.
+Source references: S16 S17.
+
+CROP — Seasonal Crop-to-Plot Allocation
+Admission basis: This contract decides current-season physical crop assignment. Historical soil and prior crop states can be fixed inputs. Chosen succession across seasons is the rotation contract. Integrated crop/rotation models need not be represented as duplicate industrial decisions in an instance.
+Decision scope: Assigns crops or crop plans to land units for a season under suitability, acreage, demand and farm-resource limits.
+Aliases: Crop selection; seasonal crop mix; whole-farm plot planning.
+Supplied substrate and delivered artifact: Plot identities, suitability, candidate crop plans, yields, labor/machinery resources, water access and demand limits are supplied. Output assigns whole plots or discrete patterns. Continuous acreage choices alone do not satisfy admission.
+Candidate Regime: #plan | Commits the seasonal crop mix before field work.
+Candidate Structure: #map | Assigns crops or crop plans to discrete land units.
+Variants and integrated alternatives: One crop per plot; feasible intercropping or split patterns; organic eligibility; scenario yields; discrete minimum planting areas. Crop varieties are variants unless long-lived block replacement changes the commitment.
+Primary ownership: #LAND. Material interfaces: Purchasing inputs and supply positions are SCM. Product price determination is MKT and crop-processing recipes PROC. Physical crop-land allocation remains LAND; commercial demand is a constraint or objective input.
+IE and OR Template basis: Whole-farm crop budgeting and plot planning | Crop-selection MILP and discrete pattern allocation.
+Template evidence: S18: Crop choices, acreage and resources motivate crop-selection models. Discrete plot/pattern assignment is admitted; divisible acreage LP alone is not.
+Priority inference: High | Seasonal crop allocation is a recurring agricultural planning decision.
+Relevance inference: High | Better allocation improves scarce land and resource use.
+Industrial Hardness and formal qualification: Medium | No general complexity claim; standard MILP handles many discrete plot plans, while shared resources and large pattern sets need formulation care.
+Useful descriptors: ##agriculture ##crop-selection ##plot-allocation
+Evidence limits and uncertainty: The crop-selection source includes divisible-area context. A benchmark later must contain actual plot/pattern integrality. A strong LP comparator can be relevant but is not itself proof of a combinatorial Problem.
+Admission condition / boundary conclusion: Multi-season succession is a separate rotation contract; pure continuous acreage LP is excluded.
+Source references: S18.
+
+ROTATION — Crop Rotation and Planting Calendar Planning
+Admission basis: Endogenous crop succession is the identity criterion. Historical soil state is consumed and changed by the selected calendar. Crop families, fallow and soil recovery constrain viable patterns; they are not separately numbered Problems.
+Decision scope: Assigns crop sequences and planting periods to plots under crop-family succession, soil recovery, seasonal windows and required spatial conditions.
+Aliases: Crop rotation problem; planting calendar; organic crop planning; multi-season crop scheduling.
+Supplied substrate and delivered artifact: Plots, history, eligible family sequences, planting windows, nutrient state and demand are supplied. Output is a timed crop calendar per plot. Succession arises from placement and assignment; #link is not added for every modeled transition variable.
+Candidate Regime: #plan | Commits crop succession and planting calendars before cultivation.
+Candidate Structure: #place + #map | Positions crop activities in time and assigns them to plots.
+Variants and integrated alternatives: Green manure/fallow; multiple plantings per year; repeated harvests; plot adjacency; nutrient carryover; uncertain yields. Direct time-indexed models and feasible-sequence columns are meaningful near-equals.
+Primary ownership: #LAND. Material interfaces: Land-use zoning constrains agricultural areas. Field work executes the chosen calendar. Input replenishment is SCM, workforce-only rostering HR and crop chemical/processing recipes PROC.
+IE and OR Template basis: Agronomic rotation and crop calendar design | Multiperiod MILP, feasible-rotation pattern models and decomposition.
+Template evidence: S19: Crop-family succession, neighboring plots and soil nutrients support rotation-specific integer planning. S20: MILP chooses crop, location and planting time under organic-farming conditions. Independently supports rotation identity. S21: Integrated rotation and harvest timing support coupled calendar variants, including repeated harvests. This is not a new solver-defined Problem.
+Priority inference: High | Rotation and planting calendars govern recurring multi-season agriculture.
+Relevance inference: High | Feasible succession protects productive soil and coordinates harvest availability.
+Industrial Hardness and formal qualification: High | No general complexity claim; multi-year patterns, neighboring plots and nutrient state require tailored scheduling models.
+Useful descriptors: ##agriculture ##crop-rotation ##succession ##schedule
+Evidence limits and uncertainty: No universal crop succession rule is inferred. Multiobjective and uncertainty refinements remain variants. Identity is preserved even when a polynomial network formulation exists for a restricted rotation model.
+Admission condition / boundary conclusion: Succession restrictions are supplied agronomic laws; they do not alone create a #link construction.
+Source references: S19 S20 S21.
+
+PROTECTED — Protected-Cultivation Crop Batch Scheduling
+Admission basis: Biological growth changes occupied capacity across the batch life. This distinguishes protected cultivation from open-field rotation and from manufactured-product assembly. The contract can include transfers between growth stages.
+Decision scope: Schedules crop batches and assigns growing space under crop growth, space occupancy, seeding and harvest-window limits.
+Aliases: Greenhouse production planning; plant-factory scheduling; vertical-farm seeding calendar.
+Supplied substrate and delivered artifact: Crop varieties, growth curves, shelves/beds, changing size/height capacity and seed/harvest windows are supplied. Output is a crop batch-space calendar. Continuous climate or soil-water control is excluded from this discrete scope.
+Candidate Regime: #plan | Commits batch starts and growing-space use before cultivation.
+Candidate Structure: #place + #map | Positions crop batches in time and assigns them to growing spaces.
+Variants and integrated alternatives: Adaptive shelves; fixed beds; staggered transplants; multiple harvests; mixed crop sizes; rolling replanning. Nursery cultivation is a biological occupancy variant when batches consume indivisible growing spaces.
+Primary ownership: #LAND. Material interfaces: ENER owns temperature, lighting and water distribution operation. COMP owns sensing and computation. SCM owns finished-produce fulfillment; LOG owns transport. Crop-space commitments retain LAND.
+IE and OR Template basis: Greenhouse and vertical-farm crop occupancy planning | Crop-growth and space-constrained MILP scheduling.
+Template evidence: S22: Seeding schedules use shelf and crop-height capacity. Establishes protected-cultivation scheduling distinct from open-field rotation.
+Priority inference: Medium | Protected cultivation requires coordinated growing-space calendars.
+Relevance inference: High | Better calendars improve usable capacity and crop availability.
+Industrial Hardness and formal qualification: Medium | No general complexity claim; commercial MILP supports batch calendars, while changing crop size requires careful capacity models.
+Useful descriptors: ##agriculture ##greenhouse ##vertical-farm ##batch-scheduling
+Evidence limits and uncertainty: The vertical-farm record establishes a MILP model and simulation evaluation, not ubiquitous adoption. A protected-cultivation Template does not imply that canal turn scheduling is its mandatory downstream dependency.
+Admission condition / boundary conclusion: Installed climate and utility controls belong to ENER or COMP; crop-space commitments remain LAND.
+Source references: S22.
+
+FOREST — Forest Harvest and Silvicultural Scheduling
+Admission basis: Forest-level commitments allocate treatments to stands and periods under renewable yield and habitat conditions. Opening size, green-up, adjacency and even flow are constraints or variants, not independent Problem identities.
+Decision scope: Selects stand treatments and harvest periods under forest growth, timber targets, opening-size, adjacency and habitat requirements.
+Aliases: Spatial harvest scheduling; forest management scheduling; stand-prescription allocation; silvicultural planning.
+Supplied substrate and delivered artifact: Stands, growth/yield forecasts, eligible prescriptions, ages, neighbors, environmental limits and timber targets are supplied. Output chooses prescriptions and dates. Regeneration and thinning are treatment variants; selecting an untreated prescription can represent omission.
+Candidate Regime: #plan | Commits stand-treatment and harvest calendars before harvest execution.
+Candidate Structure: #place + #map + #select | Schedules treatments, assigns prescriptions to stands and selects treated stands.
+Variants and integrated alternatives: Unit/area restriction models; selective treatments; endogenous harvest blocks; even-flow policies; habitat retention; stochastic fire or prices. Optional access changes create an integrated network-schedule variant.
+Primary ownership: #LAND. Material interfaces: Access topology belongs to ACCESS. Mill processes are PROC, timber stock positions SCM and transport LOG. Stand-level renewable-resource use stays LAND even when managed by a public body.
+IE and OR Template basis: Spatial forest management and sustainable-yield planning | Prescription-based MILP, spatial cuts and optimization-based heuristics.
+Template evidence: S23: Endogenous harvest blocks and maximum opening areas require stronger formulations than predefined blocks. Adjacency constrains the harvest pattern. S24: Additional spatial harvest formulation evidence. Reported performance is instance-specific and was not reproduced here. S38: Dynamic stand-treatment scheduling establishes silvicultural variants with forest-level constraints.
+Priority inference: High | Harvest and treatment schedules coordinate substantial forestry operations.
+Relevance inference: Critical | Calendars determine sustained timber value and landscape resource outcomes.
+Industrial Hardness and formal qualification: High | No general complexity claim; spatial openings, stand prescriptions and long growth horizons require strong formulations or spatial search.
+Useful descriptors: ##FORESTRY ##harvest-scheduling ##adjacency ##silviculture
+Evidence limits and uncertainty: Exact spatial formulations and heuristics serve different scales. Classical continuous sustainable-yield planning is background context. No blanket formal hardness claim follows solely from the forestry label or the presence of integer variables.
+Admission condition / boundary conclusion: Supplied stand adjacency constrains treatments; it is not a chosen connection network.
+Source references: S23 S24 S38.
+
+FORESTOP — Forest Harvest Operation Scheduling
+Admission basis: Stand readiness, timber assortments and log deterioration define the service. It is an execution calendar constrained by forest resources, not solely a workforce roster. Resource crews can be treated as fixed team capacities.
+Decision scope: Schedules harvest-area work and assigns harvesting resources under access, stand readiness, assortment demand and log-quality conditions.
+Aliases: Short-term harvest planning; harvest-team scheduling; harvesting machine allocation.
+Supplied substrate and delivered artifact: Available stands, resource skills/capacities, access state, timber composition and downstream requirements are supplied. The output assigns and times harvest work. Road availability is a supplied state or coupled recourse, not automatically topology construction.
+Candidate Regime: #plan + #dispatch | Commits harvest work and updates immediate resource assignments as conditions change.
+Candidate Structure: #place + #map | Schedules harvest activities and assigns resource teams or machines to areas.
+Variants and integrated alternatives: Machine and team resources; short-cycle rescheduling; opening constraints; weather; log deterioration; integrated harvest and haulage. Preselected long-term harvest areas need not be reselected in the baseline contract.
+Primary ownership: #LAND. Material interfaces: HR owns workforce-only rosters and LOG vehicle journeys. SCM owns downstream stock policies. Harvest-resource execution remains LAND when stand and biological-material conditions define feasibility.
+IE and OR Template basis: Short-term timber harvesting and resource coordination | Schedule-pattern MILP and harvest scheduling heuristics.
+Template evidence: S25: Crew-specific stand schedules, log deterioration and road availability support MIP and heuristics in a Swedish forest-company application.
+Priority inference: Medium | Operational harvest coordination recurs in managed timber systems.
+Relevance inference: High | Better coordination reduces idle resources and harvest-related quality loss.
+Industrial Hardness and formal qualification: High | No general complexity claim; access changes, resource-specific schedules and assortment demand require custom schedules or heuristics.
+Useful descriptors: ##FORESTRY #execution #rolling ##harvest-operations
+Evidence limits and uncertainty: The source includes transport/storage costs. Integrated cost accounting does not move all subordinate activities into LAND. Large schedule sets motivate heuristics; no universally superior runtime claim is retained.
+Admission condition / boundary conclusion: Standalone crew rosters belong to HR; standalone timber haulage belongs to LOG.
+Source references: S25.
+
+FUEL — Landscape Fuel Treatment Scheduling
+Admission basis: Pre-event vegetation modification is renewable-land management. Active-fire suppression deployment is excluded, even when it uses the same map. Treatment efficacy depends on fuel age and later regrowth.
+Decision scope: Selects and schedules fuel-reduction treatments under budgets, vegetation recovery, habitat and wildfire-spread conditions.
+Aliases: Fuel treatment scheduling; prescribed burn planning; fuel-break maintenance.
+Supplied substrate and delivered artifact: Units, vegetation/fuel ages, eligible actions, annual budgets, habitat requirements and spread relationships are supplied. Output is a selected treatment calendar. Supplied fire pathways evaluate it; they do not imply constructed #link.
+Candidate Regime: #plan | Commits landscape treatments before wildfire response.
+Candidate Structure: #place + #select | Schedules selected treatment units and actions in time.
+Variants and integrated alternatives: Mechanical treatment and prescribed fire; repeat treatments; annual budget; maintained habitat; uncertain treatment effects; risk objectives. Treatments can be coordinated with timber plans without merging fire-risk and harvest-output contracts.
+Primary ownership: #LAND. Material interfaces: CIVIC coordinates emergency service execution; INTEL applies when protective/adversarial response defines the contract. LAND owns pre-event vegetation decisions. Workforce and transport subproblems retain their own domains.
+IE and OR Template basis: Landscape fuel and prescribed-treatment planning | Spatial multiperiod MILP and treatment search.
+Template evidence: S26: Budgeted landscape treatment models support stronger ILP formulations; fire-spread connectivity motivates treatment placement. S27: MIP treatment calendars retain fire and habitat requirements. They do not establish emergency-response deployment methods.
+Priority inference: Medium | Fire-prone landscapes require recurring fuel management.
+Relevance inference: Critical | Treatment choices can materially affect exposure of lives, assets and ecosystems.
+Industrial Hardness and formal qualification: High | No general complexity claim; vegetation ageing and spatial fire pathways couple treatment choices across periods.
+Useful descriptors: ##FORESTRY ##wildfire ##fuel-treatment ##spatial-interaction
+Evidence limits and uncertainty: Models predict or proxy hazard reduction; they do not prove fire prevention. Improved ILP and treatment search are alternatives. Future fire/weather uncertainty requires cautious interpretation of ecological response.
+Admission condition / boundary conclusion: Emergency response coordination belongs to CIVIC or INTEL when response conditions dominate.
+Source references: S26 S27.
+
+FIELD — Agricultural Field Operation Scheduling
+Admission basis: Sowing, cultivation, crop protection and harvest share a biologically constrained work-calendar contract. Soil readiness and weather must define actual eligibility, rather than appear solely as routing cost adjustments.
+Decision scope: Schedules cultivation and harvest tasks and assigns machinery under crop readiness, soil trafficability, weather windows and task precedences.
+Aliases: Farm operation scheduling; cultivation scheduling; machinery scheduling; harvest coordination.
+Supplied substrate and delivered artifact: Crop calendars, precedences, field state, work windows, machine eligibility and work rates are supplied. Output times and assigns agronomic tasks. Travel can constrain the plan without making the promised output a journey program.
+Candidate Regime: #plan + #dispatch | Commits field work and revises immediate assignments as field conditions evolve.
+Candidate Structure: #place + #map | Schedules field tasks and assigns compatible machines.
+Variants and integrated alternatives: Heterogeneous/shared machines; support vehicles; harvest timing; weather forecasts; online repair after rainfall or failure. Long crop calendars and short dispatch commitments are distinct Regime refinements of the same operation contract.
+Primary ownership: #LAND. Material interfaces: Standalone route construction and field coverage paths are LOG. Workforce-only allocation is HR. Crop and soil work stay LAND. Machine purchase is not silently included in the execution schedule.
+IE and OR Template basis: Agronomic work-window and machinery coordination | Resource-constrained scheduling, simulation-supported search and rolling repair.
+Template evidence: S28: Machinery coordination is commercially material. Used for discovery; original field-operation studies supply formulation support. S29: Simulation scheduling retains weather, machinery and material state. Relaxed calendars can overstate feasible capacity. S30: Joint sequencing, harvest assignment and truck service reflect field execution. Transport-only subproblems retain LOG ownership.
+Priority inference: High | Field-work coordination connects crop plans to agricultural execution.
+Relevance inference: High | Timely work protects yield and productive machine use.
+Industrial Hardness and formal qualification: High | Resource-constrained scheduling variants are NP-hard; weather and crop-state changes require rapid schedule repair.
+Useful descriptors: ##agriculture #execution #rolling ##weather-windows ##trafficability
+Evidence limits and uncertainty: Published methods span simulation, heuristics and optimization. The source-backed work-window framing is established; resource-constrained scheduling is the formal baseline. Practical weather uncertainty is not represented as solved.
+Admission condition / boundary conclusion: Pure between-field or within-field routing belongs to LOG when movement defines the contract.
+Source references: S28 S29 S30.
+
+IRRIGATE — Irrigation Turn Scheduling
+Admission basis: A turn is an indivisible calendar commitment for a user or field. It allocates temporal delivery capacity after resource access and crop demands are established. This differs from deciding a basin rationing policy.
+Decision scope: Schedules irrigation turns for fields or users under crop water needs, delivery capacity, required durations and access to water.
+Aliases: Canal irrigation scheduling; rotational irrigation; outlet-turn scheduling.
+Supplied substrate and delivered artifact: Outlets, desired starts, flow durations, crop/user demands, canal delivery limits and seasonal water access are inputs. The artifact is the turn calendar. Continuous volume and hydraulic feasibility accompany temporal placement.
+Candidate Regime: #plan + #operate | Commits delivery turns and coordinates their execution against crop needs.
+Candidate Structure: #place | Positions irrigation turns in time.
+Variants and integrated alternatives: Fixed/flexible duration; farmer start preferences; simultaneous outlet limits; canal cycles; rolling updates. Assigning flexible outlets adds #map only where such assignment is genuinely chosen.
+Primary ownership: #LAND. Material interfaces: Water-right/rationing commitments are upstream LAND. Well activation is EXTR. Distribution equipment operation is ENER. Agronomic water-service timing defines this LAND contract, rather than pump-energy minimization.
+IE and OR Template basis: Rotational irrigation and agronomic delivery planning | Mixed-integer outlet-turn scheduling and rolling calendar optimization.
+Template evidence: S31: Canal outlet turns have requested starts and durations. Establishes a discrete irrigation calendar.
+Priority inference: High | Irrigated agriculture repeatedly requires coordinated water-delivery turns.
+Relevance inference: High | Feasible delivery calendars protect yield and scarce water use.
+Industrial Hardness and formal qualification: Medium | No general complexity claim; standard MILP supports outlet-turn models, while timing conflicts and delivery limits require formulation care.
+Useful descriptors: ##WATER ##agriculture ##irrigation ##schedule
+Evidence limits and uncertainty: Retrieved evidence supports canal turns with user-specified durations. Do not generalize the Template to full hydraulic-network control or purely continuous soil-water optimal control. Protected-farm utility operation is not an automatic dependency.
+Admission condition / boundary conclusion: Pump, valve and pressure optimization without an agronomic turn contract belongs to ENER.
+Source references: S31.
+
+GRAZE — Rotational Grazing Allocation and Scheduling
+Admission basis: The scarce resource is usable pasture with biological renewal. Regrowth, grazing duration and stocking define feasibility, distinguishing this from livestock movement routing. Herd size is an upstream demand commitment when separately optimized.
+Decision scope: Assigns livestock groups to paddocks and schedules grazing under pasture availability, regrowth, stocking and land-condition limits.
+Aliases: Paddock rotation; grazing allocation; pasture scheduling.
+Supplied substrate and delivered artifact: Pasture states, growth assumptions, paddocks, herd/group needs and land conditions are supplied. Output assigns groups and grazing periods, consuming forage while allowing recovery. Movement can be a feasibility term without being the primary artifact.
+Candidate Regime: #plan + #operate | Commits grazing rotations and coordinates pasture use as growth changes.
+Candidate Structure: #map + #place | Assigns groups to paddocks and positions grazing periods in time.
+Variants and integrated alternatives: Single herd; multiple groups; wet-soil exclusions; variable stocking; forage integration; uncertain growth; rolling decisions. A fixed rotation with only continuous feed quantities is not the admitted baseline.
+Primary ownership: #LAND. Material interfaces: LOG owns animal routing, SCM feed procurement/inventory and PROC feed blending. Biological herd replacement is a separate LAND decision. Pasture use retains LAND regardless of the transport method.
+IE and OR Template basis: Pasture budgeting and rotational grazing management | Discrete dynamic optimization and pasture-response scheduling.
+Template evidence: S32: Discrete paddock sequences interact with regrowth and intake. Dynamic search supports the biological land-use contract, without a universal hardness proof.
+Priority inference: Medium | Grazing systems require recurring pasture-use coordination.
+Relevance inference: High | Better rotations can improve usable forage and animal production.
+Industrial Hardness and formal qualification: High | No general complexity claim; pasture recovery and uncertain growth couple paddock choices through time.
+Useful descriptors: ##agriculture ##pasture ##grazing ##state-propagation
+Evidence limits and uncertainty: The primary thesis supports dynamic discrete sequences. Industrial methods may use simulation and farmer intervention. Universal exact scalability and uniform performance gains are not established.
+Admission condition / boundary conclusion: Animal movement routing alone belongs to LOG; pasture use defines this scope.
+Source references: S32.
+
+HERD — Livestock Herd Replacement and Production Planning
+Admission basis: Biological animals/cohorts are renewable productive resources. Retain, replace, cull and breeding-timing actions define this contract. That admission does not move every processing or supply-chain task in livestock industries into LAND.
+Decision scope: Selects animal retention, replacement and breeding actions under biological state, herd capacity and feed-resource limits.
+Aliases: Dairy replacement; herd development; biological cohort retention.
+Supplied substrate and delivered artifact: Animals/cohorts, age/reproductive state, capacity, expected yield and feed resources are supplied. Output selects and times animal/cohort actions. Choosing a mating graph is a different construction and is not silently included.
+Candidate Regime: #plan | Commits herd changes before future production periods.
+Candidate Structure: #select + #place | Chooses animal or cohort actions and positions them in time.
+Variants and integrated alternatives: Individuals/cohorts; dairy/beef; finite-horizon development; stationary replacement policy; uncertain fertility and yield. Existing state can be modeled through an MDP whose occupation-measure LP still chooses discrete actions.
+Primary ownership: #LAND. Material interfaces: SCM owns procurement contracts/inventory, MKT sales allocation and PROC/PROD processing. Veterinary direct care is HC when care conditions define the promised service. LAND owns biological stock development.
+IE and OR Template basis: Biological herd development and replacement planning | Multiperiod MILP and Markov decision or dynamic-programming policies.
+Template evidence: S33: Herd dynamics, breeding, replacement, capacity and resources establish integer herd planning. Widespread MILP adoption is not established. S34: Animal retain/replace policies have established DP and MDP approaches. An LP over state occupancy does not make the action contract continuous.
+Priority inference: Medium | Livestock enterprises require recurring herd renewal commitments.
+Relevance inference: High | Herd choices affect productive capacity and resource demand.
+Industrial Hardness and formal qualification: Medium | No general complexity claim; standard replacement-policy and MILP models provide useful solutions, while herd coupling and uncertainty need care.
+Useful descriptors: ##agriculture ##livestock ##replacement ##biological-state
+Evidence limits and uncertainty: Recent integer planning and established replacement-policy evidence support Template existence. Widespread adoption and a uniquely best method are unverified. Mate-pair network design needs separate identity and coverage research before admission.
+Admission condition / boundary conclusion: Standalone feed inventory is SCM and feed formulation is PROC.
+Source references: S33 S34.
+
+FISH — Fishery Spatial and Seasonal Harvest Planning
+Admission basis: The output commits where, when and what renewable resource to harvest. Vessel routing and landing movement are separate execution contracts. Vessel time constraints alone do not determine Primary Domain.
+Decision scope: Assigns fishing effort to areas and target species over periods under quota, bycatch, season and renewable-stock conditions.
+Aliases: Fishing effort allocation; seasonal trawl harvest plan; area-species schedule.
+Supplied substrate and delivered artifact: Quota holdings, feasible areas/seasons, species availability, catch-rate forecasts and effort limits are inputs. Output chooses area/species-period actions plus continuous effort. Stock/bycatch conditions determine resource feasibility.
+Candidate Regime: #plan | Commits resource harvesting opportunities before individual voyages.
+Candidate Structure: #map + #place | Assigns harvest effort to area-species choices and places it in seasonal periods.
+Variants and integrated alternatives: Representative vessel/fleets; multiple stocks; bycatch; spatial closures; uncertain catches; revised resource plans. Quota holdings are supplied; buying or auctioning them is outside the admitted contract.
+Primary ownership: #LAND. Material interfaces: Conservation restricts usable areas. Quota trading is MKT, voyage routing LOG, processing PROC/PROD and harvested stocks SCM. Renewable harvest allocation retains LAND.
+IE and OR Template basis: Quota-constrained fishery harvest and effort planning | Mixed-integer multiperiod bioeconomic allocation.
+Template evidence: S35: Integer region/species-period choices accompany continuous effort under quotas and time restrictions. Representative-vessel assumptions limit generalization.
+Priority inference: Medium | Commercial fisheries require coordinated seasonal resource use.
+Relevance inference: Critical | Plans affect harvest value, bycatch exposure and renewable-stock pressure.
+Industrial Hardness and formal qualification: High | No general complexity claim; uncertain catch rates and nonlinear quota interactions complicate discrete harvest choices.
+Useful descriptors: ##FISHERIES ##quota ##bycatch ##harvest-planning
+Evidence limits and uncertainty: The opened study uses a representative vessel with nonlinear effort-selection coupling. No fleet-wide dominance, sustainable catch guarantee or benchmark replication is inferred. Limits must be set from instance-specific stock evidence.
+Admission condition / boundary conclusion: Individual vessel voyage routing belongs to LOG; quota trading mechanisms belong to MKT.
+Source references: S35.
+
+AQUA — Aquaculture Stocking and Harvest Scheduling
+Admission basis: Biological cohorts, growth and rearing capacity define feasibility. The word production does not transfer this renewable-resource contract to manufactured-product scheduling. Cohort events are discrete even when biomass growth is continuous.
+Decision scope: Schedules stocking, transfer and harvest of fish cohorts and assigns rearing capacity under growth, biomass and biological compatibility limits.
+Aliases: Fish-farm production schedule; salmon stocking plan; aquaculture cohort planning.
+Supplied substrate and delivered artifact: Initial ages/weights, tank modules, biomass capacity, growth forecasts and stocking/harvest opportunities are inputs. Output is a cohort-resource calendar. Continuous biomass accompanies discrete stocking, transfer and harvest.
+Candidate Regime: #plan | Commits cohort development and harvest calendars before rearing operations.
+Candidate Structure: #place + #map | Schedules cohort events and assigns cohorts to rearing units.
+Variants and integrated alternatives: Tanks, ponds or cages with the same cohort contract; whole/partial harvest; staged transfers; rolling initial-state updates; empty periods. Engineering of cages is not silently included.
+Primary ownership: #LAND. Material interfaces: ENER owns utility operation, COMP sensing/computation, SCM feed logistics and PROC/PROD processing. LAND owns biological stocking and harvesting. Fish transport remains LOG.
+IE and OR Template basis: Biological cohort and rearing-capacity planning | Multiperiod MILP and production-cycle decomposition.
+Template evidence: S36: Salmon cohort/tank calendars use full MIP and production-cycle decomposition, including DP subproblems. No execution or benchmark audit here.
+Priority inference: Medium | Fish farms require recurring biological capacity planning.
+Relevance inference: High | Feasible cohort calendars improve biomass capacity and harvest supply.
+Industrial Hardness and formal qualification: High | No general complexity claim; growth-dependent occupancy and cohort transfers can require cycle decomposition.
+Useful descriptors: ##FISHERIES ##aquaculture ##cohort ##decomposition
+Evidence limits and uncertainty: The official implementation supports full MIP and cycle decomposition, with DP subproblems. This is Problem-level Template evidence. License/instance audits, results and reruns belong to the Case layer and are not claimed here.
+Admission condition / boundary conclusion: Installed water and energy utility operation belongs to ENER; fish processing belongs to PROC or PROD.
+Source references: S36.
+
+RESTORE — Land Restoration and Reclamation Scheduling
+Admission basis: The output is a spatial-temporal ecological recovery plan. This differs from protecting intact sites and from generic construction of a graded landform. Treatment choice and delayed recovery matter independently of physical task duration.
+Decision scope: Selects restoration actions and schedules ecological recovery across land units under budgets, access and recovery-state requirements.
+Aliases: Ecological restoration scheduling; revegetation planning; post-use reclamation; recovery investment planning.
+Supplied substrate and delivered artifact: Land units, damage/recovery states, feasible treatments, cost, access dates and recovery trajectories are supplied. Output chooses action type, unit and date. Transition equations evaluate consequences rather than add #link by themselves.
+Candidate Regime: #plan | Commits restoration actions and recovery stages before implementation.
+Candidate Structure: #place + #select + #map | Schedules selected actions and assigns them to land units.
+Variants and integrated alternatives: Native forest; wetland; mine-land revegetation when ecological recovery defines feasibility; active/natural regeneration; uncertain recovery/background decline. Mine release dates are exogenous or coupled upstream inputs.
+Primary ownership: #LAND. Material interfaces: EXTR supplies extraction/waste release dates, CIVIC executes earthworks and FIN handles closure security. LAND owns ecological restoration commitments. Stand-specific routine regeneration remains a FOREST variant unless a separate recovery portfolio is promised.
+IE and OR Template basis: Landscape restoration and reclamation investment planning | Multiperiod ecological-transition ILP and spatial prioritization.
+Template evidence: S37: ILP schedules ecological recovery under budgets, access and time lags. Supports temporal restoration beyond static site selection. S42: LP and land-change simulation support post-mining restoration context. Alone they do not establish a discrete mine-reclamation schedule Template.
+Priority inference: High | Damaged landscapes require recurring recovery and reclamation planning.
+Relevance inference: High | Better timing improves resource recovery within limited restoration budgets.
+Industrial Hardness and formal qualification: High | No general complexity claim; recovery lags, spatial interactions and uncertain ecological transitions complicate long schedules.
+Useful descriptors: ##reclamation ##restoration ##ecological-transition
+Evidence limits and uncertainty: Strong scheduling evidence concerns landscape restoration. Mine-specific ecological reclamation is an industrial analogue, not an audited open benchmark. A pure LP land-change simulation alone does not establish discrete reclamation scheduling.
+Admission condition / boundary conclusion: Mine extraction and waste emplacement remain EXTR; standalone earthworks execution belongs to CIVIC.
+Source references: S37 S42.
+
+DIRECTED DEPENDENCY GRAPH — SYMBOLIC RESEARCH KEYS
+ZONE -> PARCEL: Permitted uses and public-space commitments restrict readjusted holdings. Basis N; S01 S02.
+ZONE -> RESERVE: The permitted spatial use pattern constrains sites available for protection. Basis N; S01 S04.
+ZONE -> ACCESS: Forest-use and exclusion zones bound feasible harvest-access corridors. Basis I; S01 S07.
+ZONE -> PERENNIAL: Agricultural use permissions restrict perennial blocks available for establishment. Basis I; S01 S09.
+ZONE -> DEVELOP: The site master plan supplies the building/phase set and allowed uses. Basis E; S10.
+ZONE -> WATERSHED: Existing or planned uses determine eligible land-management interventions. Basis E/I; S16.
+ZONE -> CROP: Crop production can use only land assigned to compatible agricultural use. Basis I; S01 S18.
+ZONE -> FOREST: Management zones restrict harvest and treatment prescriptions. Basis I; S01 S38.
+PARCEL -> PERENNIAL: Consolidated blocks supply the physical renewal units. Basis I; S02 S09.
+PARCEL -> DEVELOP: Readjusted development lots supply the physical phase substrate. Basis I; S02 S10.
+PARCEL -> CROP: Reallocated holdings supply cultivable plot units and access. Basis I; S03 S18.
+RESERVE -> CORRIDOR: Protected core habitats supply the sites to be connected. Basis E; S05 S06.
+RESERVE -> FOREST: Protection commitments restrict allowable harvest/treatment areas. Basis I; S04 S23.
+RESERVE -> FUEL: Protected habitats constrain treatment eligibility and timing. Basis E/I; S27.
+RESERVE -> FISH: Protected marine areas remove or constrain fishing opportunities. Basis E/I; S41 S35.
+RESERVE -> RESTORE: Protected units and habitat targets bound restoration priorities. Basis E/I; S37.
+CORRIDOR -> FUEL: Required habitat connections restrict fuel-treatment patterns. Basis E/I; S27.
+CORRIDOR -> RESTORE: Chosen ecological connections identify restoration locations and requirements. Basis I; S05 S37.
+ACCESS -> FOREST: Road and spur availability restrict accessible stand-treatment choices. Basis E; S07 S08.
+ACCESS -> FORESTOP: Available access constrains harvest-area resource schedules. Basis E; S25.
+PERENNIAL -> FIELD: Renewed crop blocks and maturation stages generate field-work requirements. Basis I; S09 S29.
+DEVELOP -> TENANT: Phase openings determine which property units can be occupied. Basis E/I; S10 S11.
+WATER -> CROP: Committed basin water-service levels constrain feasible crop plans. Basis I; S13 S18.
+WATER -> ROTATION: Water commitments restrict crop calendars and seasonal resource availability. Basis I; S13 S20.
+WATER -> IRRIGATE: Rationing decisions restrict water available for irrigation turns. Basis N/I; S14 S31.
+WATERSHED -> CROP: Adopted catchment practices constrain compatible crop-use patterns. Basis E/I; S16.
+WATERSHED -> FIELD: Chosen land-management practices create or constrain field tasks. Basis E/I; S16 S29.
+WATERSHED -> RESTORE: Catchment treatment choices supply recovery actions and target locations. Basis I; S16 S37.
+CROP -> ROTATION: When separately scoped, committed current-season crops fix the rotation's initial stage. Basis I; S18 S20.
+CROP -> FIELD: Plot crop plans supply the agronomic task set and work windows. Basis E/I; S18 S29.
+CROP -> IRRIGATE: Crop requirements supply field-specific irrigation demands. Basis E/I; S18 S31.
+ROTATION -> FIELD: Planting and harvest calendars supply time-dependent field tasks. Basis E/I; S21 S29.
+ROTATION -> IRRIGATE: Crop-period decisions supply timed irrigation requirements. Basis I; S20 S31.
+FOREST -> FORESTOP: Stand treatment and harvest commitments supply operational harvest areas. Basis E/I; S23 S25.
+FOREST -> FUEL: Harvest and regeneration calendars constrain compatible fuel treatment. Basis I; S38 S27.
+FOREST -> RESTORE: Post-harvest recovery and conservation commitments supply restoration opportunities. Basis I; S38 S37.
+HERD -> GRAZE: Herd size and biological composition supply pasture demand and stocking constraints. Basis I; S33 S32.
+
+EXCLUSIONS, MERGES AND OPEN QUESTIONS
+Urban, rural and marine spatial zoning share the unit-to-use contract; keep one Problem with context variants. Cadastral consolidation has owners and entitlements and remains distinct. Generic land-change simulation is not an optimization commitment.
+Reserve selection, explicit corridor connections and ecological restoration differ by artifact: protected subset; connection system; action/recovery calendar. Connected-site acquisition is a reserve variant. Wetlands and riparian restoration are recovery/intervention variants, not separate Problems merely because the ecosystem changes.
+Seasonal crop assignment is distinct from chosen multi-season succession. Integrated models can instantiate both, but an industrial instance should not be counted twice when it promises one integrated calendar. Greenhouse/vertical-farm occupancy needs a separate contract because biological space capacity changes during growth. Nursery stock allocation without biological capacity decisions is SCM or a continuous allocation context.
+Plantation renewal is a perennial block replacement variant. Forestry thinning/regeneration are stand-prescription variants. Biomass harvesting under a forest/crop-resource calendar uses the corresponding harvest/field contract; standalone biomass supply networks are SCM and transport LOG.
+Forest long-range stand prescriptions and near-term harvest-resource execution are distinct commitments. Green-up, maximum opening areas and even flow are constraints. A road/harvest joint model can couple ACCESS and FOREST; it does not create a new solver-method Problem. A routing-only harvester path belongs to LOG even when performed inside a field.
+Crop harvest timing is retained in FIELD or ROTATION when it is part of the timed crop contract. Protected batch harvest and aquaculture cohort harvest remain biologically capacity-defined calendars. Fishery harvest allocation is not the same as quota auction/trading or vessel routing.
+Pure water quantities and water-right priority balances are outside ICO without discrete policy/service commitments. Detailed groundwater abstraction is EXTR. Installed reservoir/pump/valve balance and distribution operation are ENER. Basin rights auctions are MKT. A proposed dam portfolio requires an asset/infrastructure ownership test and is not forced into LAND merely because it influences water resources.
+Generic farm capital machinery selection is not automatically LAND. Hardware fabrication configuration may be PROD, financial investment FIN, and physical service capacity follows the relevant operational contract. Feed blending is PROC; feed inventory SCM. Animal mating-network design is a potential distinct biological resource contract; current replacement sources do not justify silently adding chosen mate pairs to HERD.
+Mine extraction/backfill/waste emplacement retain EXTR. Geotechnical landform construction alone is CIVIC. Ecological post-use recovery is RESTORE only when recovery states and land function define feasibility. The mine-land LP/simulation source supplies industrial context, not a validated discrete scheduling benchmark.
+Insurance, carbon-credit trading, land-backed claims and rent pricing remain FIN/MKT according to contract. Habitat or forest-use allocation under a supplied carbon target is a LAND variant, not a financial claim decision.
+Public-service emergency coordination and active-fire resource dispatch are CIVIC/INTEL by contract. Pre-event fuel modification is LAND. Pest/invasive threat management must be checked separately from routine field protection because landscape spread and continuing intervention choices can define a stand-alone decision.
+
+Known gaps: geospatial parcel-boundary generation rather than candidate-lot allocation; species-specific mate-pair selection; wildlife culling/translocation portfolios; detailed biological disease-control deployments; highly integrated basin/energy/market systems. None is given a fabricated Template or permanent ID. These are future discovery targets unless adequate distinctness, commercial materiality and ownership evidence is supplied. Source access gaps are recorded, not hidden. Background Control must decide whether a gap blocks the current canonical set.
+
+FEEDBACK, CYCLES AND CONDITIONAL DIRECTIONS
+ZONE <-> PARCEL: desired uses constrain holdings, while feasible readjustment can revise zoning. The commitment pass records ZONE -> PARCEL.
+RESERVE <-> CORRIDOR: selected habitat cores define connection demand; infeasible/expensive corridors can revise the reserve portfolio. Joint models are valid; the initial protection-to-connection handoff is recorded forward.
+ACCESS <-> FOREST: roads enable stands; chosen harvest value and dates can revise access investments. Integrated sources support the coupling, not a universal acyclic system. Initial access availability feeds stand planning.
+PERENNIAL <-> FIELD: block renewal creates operations, while machine/weather capacity can revise renewal timing. Initial configuration feeds execution.
+DEVELOP <-> TENANT: phase openings supply units; tenant demand and anchor commitments can revise development. Future commercial forecasts are inputs, not automatically backward dependencies to MKT IDs.
+WATER <-> CROP/ROTATION/IRRIGATE: resource policy limits crop choices and delivery, while crop demand can revise policy. Initial resource access feeds the calendar. A coupled policy/crop solve can remove the one-way decomposition without changing Problem identity.
+CROP <-> ROTATION: when separately scoped, an already committed season supplies the rotation's initial conditions. In integrated planning, the rotation instead determines annual crops. This is conditional rather than a universal precedence law.
+FOREST <-> FUEL/RESTORE: harvest and recovery states limit compatible treatments; environmental treatments can revise harvest choices. The initial harvest/state commitment is shown forward.
+HERD <-> GRAZE: herd composition supplies forage demand, while pasture capacity can revise herd size. Initial herd commitments feed the rotation schedule.
+FORESTOP/FIELD/IRRIGATE observations can revise upstream plans, especially after disruption. Such execution feedback is not rewritten as an acyclic initial-commitment edge. No continuous feedback cycle is claimed absent merely because the foreground sequence is forward.
+
+EVIDENCE LIMITS AND CASE HANDOFF
+Source dates refer to publications or official records, not to reproduced experiments. Indexed primary abstracts were used where direct retrieval failed; they establish stated scope and model family but cannot support unseen equations, licenses, implementation details or result reproduction. Official repositories demonstrate method availability, not production adoption. Stronger formulation evidence and open implementations are retained as near-equals rather than ranking methods across incomparable datasets.
+Case research must follow human approval of the controlled foreground. It should test physical-resource ownership, genuine discrete action, exact Template match, data access/license, baseline validity, objectives and constraints, scale and reproducibility. No final Case IDs, selected benchmark sets, performance reference values or uplift calculations appear here. A public nearby LP or logistics dataset is not a substitute for an unverified LAND benchmark.
+
+SOURCE REGISTER
+
+S01 Aerts et al. (2003), Using linear integer programming for multi-site land-use allocation
+https://research.vu.nl/en/publications/using-linear-integer-programming-for-multi-site-land-use-allocati/
+Access: Opened author-institution abstract.
+Supports and limits: Raster land-use assignment with cost and compactness objectives supports integer programming. Test scales do not establish universal industrial scalability.
+
+S02 Optimization models for urban land readjustment practices in Turkey (2016)
+https://research.itu.edu.tr/en/publications/optimization-models-for-urban-land-readjustment-practices-in-turk/
+Access: Opened author-institution abstract.
+Supports and limits: LP and MIP allocate cadastral interests into subdivision lots after public-use deductions. Supports reallocation identity, not every legal system.
+
+S03 Shape and size of parcels and transport costs as a mixed integer programming problem in optimization of land consolidation
+https://www.sciencedirect.com/science/article/abs/pii/S0168169917301497
+Access: Indexed publisher abstract.
+Supports and limits: Binary parcel choices extend consolidation beyond divisible area balances.
+
+S04 prioritizr package overview
+https://prioritizr.net/articles/package_overview.html
+Access: Opened official documentation.
+Supports and limits: Binary planning-unit prioritization, alternative objectives, spatial penalties and solver interfaces establish a conservation ILP Template. Marxan-style inputs are supported.
+
+S05 Wang et al. (2022), An optimisation approach for designing wildlife corridors with ecological and spatial considerations
+https://experts.illinois.edu/en/publications/an-optimisation-approach-for-designing-wildlife-corridors-with-ec/
+Access: Opened author-institution abstract.
+Supports and limits: MILP designs corridors with habitat quality, resource and geometric requirements. A corridor is distinct from generic reserve coverage.
+
+S06 Wang et al. (2023), Optimal configuration of a wildlife corridor system
+https://experts.illinois.edu/en/publications/optimal-configuration-of-a-wildlife-corridor-system/
+Access: Opened author-institution abstract.
+Supports and limits: Two-stage corridor generation and least-cost corridor-system MILP support chosen connections among habitat patches.
+
+S07 Najafi and Richards (2013), Designing a Forest Road Network Using Mixed Integer Programming
+https://hrcak.srce.hr/en/116726?lang=en
+Access: Opened publisher abstract.
+Supports and limits: Joint logging-road and skidding-spur design establishes harvest-access topology. Pure truck routing is separate.
+
+S08 Road network, landing location, and routing optimization for forest smallholders landscapes (2025)
+https://researchportal.ulisboa.pt/en/publications/road-network-landing-location-and-routing-optimization-for-forest/
+Access: Indexed author-institution abstract.
+Supports and limits: MILP couples road decisions, landing selection and timber access. Joint optimization is an alternative to fixed-access planning.
+
+S09 Mathematical model for strategic planning optimization in the pome fruit industry (2013)
+https://www.sciencedirect.com/science/article/abs/pii/S0308521X12001485
+Access: Indexed publisher abstract; direct open failed.
+Supports and limits: MILP reconversion decisions include varieties, planting densities and minimum land units. Supports perennial replacement rather than annual crop rotation.
+
+S10 Peiser and Andrus (1983), Phasing of Income-Producing Real Estate
+https://s2.smu.edu/emis/design2017/wp-content/uploads/peiser83.pdf
+Access: Opened primary article.
+Supports and limits: Integer opening-year decisions interact with absorption and building capacity. Its financing simplification must not be generalized to complete financial optimization.
+
+S11 Lv and Wang (2020), Development of a Nonlinear Integer Optimization Model for Tenant Mix Layout in a Shopping Centre
+https://onlinelibrary.wiley.com/doi/10.1155/2020/2787351
+Access: Opened publisher article.
+Supports and limits: Spatial category allocation uses nonlinear integer optimization and a genetic algorithm. Supplementary availability is reported, not tested.
+
+S12 A Multi-Objective Integer Programming approach for synergistic Tenant Mix optimization in shopping centers (2025)
+https://upcommons.upc.edu/entities/publication/ea88bfef-e0f4-4ceb-a497-b24a9d83b85e
+Access: Indexed author-institution record.
+Supports and limits: Integer programming retains tenant synergy and physical placement. No universal method dominance follows.
+
+S13 Type-2 fuzzy mixed-integer bi-level programming approach for multi-source multi-user water allocation under future climate change (2020)
+https://www.sciencedirect.com/science/article/pii/S0022169420307927
+Access: Indexed publisher abstract; direct open failed.
+Supports and limits: Mixed-integer basin allocation exists. A formulation label alone does not prove that any water-allocation contract is intrinsically discrete.
+
+S14 Water supply operations during drought: A discrete hedging rule (1995)
+https://www.sciencedirect.com/science/article/pii/0377221793E0237R
+Access: Indexed publisher abstract; direct open failed.
+Supports and limits: Mixed-integer reservoir drought planning supports discrete hedging. Resource-rationing commitments differ from installed utility switching.
+
+S15 Mathematical Programming Approaches for Modeling Water Rights Allocation (2007)
+https://ascelibrary.org/doi/10.1061/%28ASCE%290733-9496%282007%29133%3A1%2850%29
+Access: Indexed publisher abstract.
+Supports and limits: Priority-preserving multiperiod network allocation is a strong continuous comparator. Legal priority alone does not create a combinatorial decision.
+
+S16 Maringanti et al. (2009), Development of a multiobjective optimization tool for the selection and placement of best management practices for nonpoint source pollution control
+https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008WR007094
+Access: Opened primary publisher article.
+Supports and limits: SWAT-linked multiobjective genetic search selects catchment practices for nutrient and sediment reduction. Simulation cost and response estimates matter.
+
+S17 EPA (2009), SUSTAIN framework for BMP placement
+https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1005IFG.TXT
+Access: Indexed official technical report.
+Supports and limits: Official watershed decision support establishes cost-effective intervention selection and optimization. Urban service-asset implementations need an ownership check.
+
+S18 Filippi et al. (2017), Mixed integer linear programming models for optimal crop selection
+https://www.sciencedirect.com/science/article/pii/S0305054816303033
+Access: Indexed publisher abstract; direct open failed.
+Supports and limits: Crop choices, acreage and resources motivate crop-selection models. Discrete plot/pattern assignment is admitted; divisible acreage LP alone is not.
+
+S19 Improving Farmers' Revenue in Crop Rotation Systems with Plot Adjacency Constraints in Organic Farms with Nutrient Amendments (2021)
+https://www.mdpi.com/2076-3417/11/15/6775
+Access: Indexed publisher abstract; direct open failed.
+Supports and limits: Crop-family succession, neighboring plots and soil nutrients support rotation-specific integer planning.
+
+S20 Optimization model of crop planning considering crop rotation with adjacency plots and nutrient cycling
+https://li01.tci-thaijo.org/index.php/anres/article/view/260446
+Access: Indexed publisher abstract.
+Supports and limits: MILP chooses crop, location and planting time under organic-farming conditions. Independently supports rotation identity.
+
+S21 A computational approach for crop production of organic vegetables
+https://www.sciencedirect.com/science/article/abs/pii/S0168169916309784
+Access: Indexed publisher abstract; direct open failed.
+Supports and limits: Integrated rotation and harvest timing support coupled calendar variants, including repeated harvests. This is not a new solver-defined Problem.
+
+S22 Mixed-Integer Linear Programming for the Scheduling of Seedings in an Industrial Adaptive Vertical Farm
+https://unige.iris.cineca.it/handle/11567/1188581
+Access: Indexed author-institution abstract; direct open failed.
+Supports and limits: Seeding schedules use shelf and crop-height capacity. Establishes protected-cultivation scheduling distinct from open-field rotation.
+
+S23 Goycoolea et al. (2005), Harvest scheduling subject to maximum area restrictions: Exploring exact approaches
+https://research.ibm.com/publications/harvest-scheduling-subject-to-maximum-area-restrictions-exploring-exact-approaches
+Access: Opened author research abstract.
+Supports and limits: Endogenous harvest blocks and maximum opening areas require stronger formulations than predefined blocks. Adjacency constrains the harvest pattern.
+
+S24 A New Mixed-Integer Programming Model for Harvest Scheduling Subject to Maximum Area Restrictions (2008)
+https://pubsonline.informs.org/doi/10.1287/opre.1070.0472
+Access: Indexed publisher abstract.
+Supports and limits: Additional spatial harvest formulation evidence. Reported performance is instance-specific and was not reproduced here.
+
+S25 Karlsson et al. (2003), Short-term harvest planning including scheduling of harvest crews
+https://onlinelibrary.wiley.com/doi/abs/10.1111/1475-3995.00419
+Access: Opened publisher abstract.
+Supports and limits: Crew-specific stand schedules, log deterioration and road availability support MIP and heuristics in a Swedish forest-company application.
+
+S26 An improved solution approach for the Budget constrained Fuel Treatment Scheduling problem (2020)
+https://arxiv.org/abs/2005.06225
+Access: Opened author manuscript record.
+Supports and limits: Budgeted landscape treatment models support stronger ILP formulations; fire-spread connectivity motivates treatment placement.
+
+S27 Fuel treatment planning: fragmenting high fuel load areas while maintaining availability and connectivity of faunal habitat (2016)
+https://arxiv.org/abs/1602.00348
+Access: Indexed primary manuscript abstract.
+Supports and limits: MIP treatment calendars retain fire and habitat requirements. They do not establish emergency-response deployment methods.
+
+S28 Scheduling of Robotics or Machinery Operations in Agricultural Fields: A Review (2024)
+https://elibrary.asabe.org/abstract.asp?aid=54815&redir=&redirType=&t=2
+Access: Indexed publisher review abstract.
+Supports and limits: Machinery coordination is commercially material. Used for discovery; original field-operation studies supply formulation support.
+
+S29 Heuristic strategy for scheduling farm operations (1977)
+https://research.wur.nl/en/publications/heuristic-strategy-for-scheduling-farm-operations/
+Access: Indexed author-institution primary study.
+Supports and limits: Simulation scheduling retains weather, machinery and material state. Relaxed calendars can overstate feasible capacity.
+
+S30 A Multi-Objective Cooperative Scheduling Framework for Harvesters and Grain Trucks Considering Carbon Emissions and Weather-Dependent Operational Efficiency (2026)
+https://www.mdpi.com/2077-0472/16/14/1526
+Access: Indexed publisher abstract.
+Supports and limits: Joint sequencing, harvest assignment and truck service reflect field execution. Transport-only subproblems retain LOG ownership.
+
+S31 Irrigation Scheduling Using Mixed-Integer Linear Programming (2001)
+https://eprints.soton.ac.uk/39377/
+Access: Indexed author-institution abstract; direct open failed.
+Supports and limits: Canal outlet turns have requested starts and durations. Establishes a discrete irrigation calendar.
+
+S32 A dynamical systems model for optimizing rotational grazing
+https://mro.massey.ac.nz/server/api/core/bitstreams/7ca52d65-6c6b-4b4b-9d06-ee7fc0bfc5b8/content
+Access: Opened primary thesis.
+Supports and limits: Discrete paddock sequences interact with regrowth and intake. Dynamic search supports the biological land-use contract, without a universal hardness proof.
+
+S33 A Mixed Integer Linear Programming Model for Livestock Planning (2025)
+https://repositorio.utdt.edu/items/08d38340-1420-41b0-96f2-f016789d8d3e
+Access: Indexed author-institution abstract; direct open failed.
+Supports and limits: Herd dynamics, breeding, replacement, capacity and resources establish integer herd planning. Widespread MILP adoption is not established.
+
+S34 A linear programming formulation of the Markovian decision process approach to modelling the dairy replacement problem (1999)
+https://www.sciencedirect.com/science/article/abs/pii/S0308521X98000547
+Access: Indexed publisher abstract; direct open failed.
+Supports and limits: Animal retain/replace policies have established DP and MDP approaches. An LP over state occupancy does not make the action contract continuous.
+
+S35 A Multi-Region and Multi-Period Harvest Schedule of the Trawl Fleet (2021)
+https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2021.738912/full
+Access: Opened publisher article.
+Supports and limits: Integer region/species-period choices accompany continuous effort under quotas and time restrictions. Representative-vessel assumptions limit generalization.
+
+S36 SINTEF-Optimization/fiskologisk
+https://github.com/SINTEF-Optimization/fiskologisk
+Access: Opened official research implementation.
+Supports and limits: Salmon cohort/tank calendars use full MIP and production-cycle decomposition, including DP subproblems. No execution or benchmark audit here.
+
+S37 Shoo et al. (2021), Smart allocation of restoration funds over space and time
+https://esajournals.onlinelibrary.wiley.com/doi/10.1002/eap.2448
+Access: Opened publisher abstract.
+Supports and limits: ILP schedules ecological recovery under budgets, access and time lags. Supports temporal restoration beyond static site selection.
+
+S38 Model for multi-stand management based on structural attributes of individual stands (1996)
+https://research.fs.usda.gov/treesearch/14207
+Access: Indexed official primary-study record.
+Supports and limits: Dynamic stand-treatment scheduling establishes silvicultural variants with forest-level constraints.
+
+S39 Exact Zoning Optimization Model for Marine Spatial Planning (2021)
+https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2021.726187/full
+Access: Indexed publisher abstract.
+Supports and limits: Multiobjective zoning ILP supports marine-space allocation as a zoning variant, without introducing another Domain.
+
+S40 USGS, Achieving full connectivity of sites in the multiperiod reserve network design problem (2017)
+https://www.usgs.gov/publications/achieving-full-connectivity-sites-multiperiod-reserve-network-design-problem
+Access: Indexed official primary-study abstract.
+Supports and limits: Budgeted connected-site acquisition across periods is a staged reserve-design variant.
+
+S41 Understanding biological and socioeconomic tradeoffs of marine reserve planning via a flexible integer linear programming approach (2019)
+https://repository.library.noaa.gov/view/noaa/59003
+Access: Indexed official research repository abstract.
+Supports and limits: Reserve selection trades habitat, area, compactness and foregone fishing revenue. It is conservation rather than vessel routing.
+
+S42 Exploring an Ecologically Sustainable Scheme for Landscape Restoration of Abandoned Mine Land (2016)
+https://www.mdpi.com/1660-4601/13/4/354
+Access: Indexed publisher abstract.
+Supports and limits: LP and land-change simulation support post-mining restoration context. Alone they do not establish a discrete mine-reclamation schedule Template.
