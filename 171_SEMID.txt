@@ -53,7 +53,7 @@ REGIME #design | Defines the register distribution of a circuit implementation.
 STRUCTURE #place | Positions register boundaries along the supplied circuit graph under retiming equivalence laws.
 PRIORITY High | Pipeline balancing recurs in timing-constrained synchronous circuits.
 RELEVANCE High | Better boundaries improve clock period and register use.
-HARDNESS Medium | Classical models have efficient algorithms; resets, enabled registers and physical timing complicate deployment. | Polynomial-time for classical minimum-period and minimum-state retiming.
+HARDNESS Medium | Classical models have efficient algorithms; resets, enabled registers and physical timing complicate deployment | Polynomial-time for classical minimum-period and minimum-state retiming.
 DEPENDENCIES SEMID103 → SEMID104 → SEMID107.
 TAGS #TRANS #PROD ##SEMICONDUCTOR #DEVELOPMENT #design #place ##retiming ##registers ##sequential-equivalence.
 
