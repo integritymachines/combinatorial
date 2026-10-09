@@ -1,0 +1,199 @@
+110_REF.txt
+
+REF — Refining
+v0.1 | 9 October 2026 | Problem layer
+
+SCOPE
+Macro Domain anchor: #TRANS. Primary Domain: 101 #PROC. Industry: ##REFINING. Territory: #PRODUCTION.
+REF covers refinery transformation capability, feed preparation, process-unit production, material-state storage, product blending and process-coupled maintenance. It includes process heat recovery, reactant hydrogen reuse and contaminant-based water integration.
+Ownership follows process capability, recipe validity or material-state feasibility. Independent transport, procurement, supply positions, utility production, workforce rosters, construction, extraction and trading remain with their corresponding Domains. Designing refinery production assets remains within this production territory.
+
+REF101 Refinery Process Configuration Design.
+DESCRIPTION Selects refining technologies, unit capacities and material connections to deliver a target product slate under feedstock, investment and process limits.
+TEMPLATE Refinery flowsheet synthesis and retrofit screening | Superstructure MILP or MINLP with technology-selection logic.
+REGIME #design | Commits installed transformation capability before production planning.
+STRUCTURE #link + #select | Constructs material-processing connections and selects participating technologies and capacity options.
+PRIORITY Critical | Process configuration defines the refinery's feasible transformations.
+RELEVANCE Critical | Configuration commits capital and long-lived conversion capability.
+HARDNESS High | Technology alternatives, recycles and nonlinear yields require careful model reduction.
+DEPENDENCIES ∅ → REF101 → REF102, REF103, REF104, REF105, REF106, REF301.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #design #link #select ##process-synthesis ##retrofit.
+
+REF102 Refinery Tank-Farm Configuration.
+DESCRIPTION Selects process-storage tanks, capacity options and material services to support refinery receipts, intermediate buffering and blending.
+TEMPLATE Tankage configuration and process-buffer design | Discrete configuration search with simulation; integrated storage-design MINLP.
+REGIME #design | Commits tank capacity and permitted services before operational assignments.
+STRUCTURE #select + #map | Selects tank configurations and assigns their permitted material services.
+PRIORITY High | Process storage constrains crude preparation and product blending.
+RELEVANCE High | Tankage choices affect capital, blocking and material segregation.
+HARDNESS High | Capacity choices must remain feasible across variable receipts and production schedules.
+DEPENDENCIES REF101 → REF102 → REF103, REF501.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #design #select #map ##tank-farm ##capacity ##segregation.
+
+REF103 Refinery Process Equipment Layout.
+DESCRIPTION Positions refining units and process tanks under piping, access, separation and process-hazard constraints.
+TEMPLATE Process layout and quantitative risk assessment | MILP or MINLP spatial layout optimization.
+REGIME #design | Commits physical equipment positions before installation.
+STRUCTURE #place | Positions equipment in physical space subject to non-overlap and separation constraints.
+PRIORITY Medium | Layout is required for new facilities and substantial physical retrofits.
+RELEVANCE High | Equipment positions affect piping cost, access and hazard exposure.
+HARDNESS High | Spatial disjunctions and risk interactions constrain feasible arrangements.
+DEPENDENCIES REF101, REF102 → REF103 → ∅.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #design #place ##layout ##process-safety.
+
+REF104 Refinery Heat-Recovery Network Design.
+DESCRIPTION Selects heat-exchanger matches and retrofit actions to recover heat between refinery process streams under thermal and investment limits.
+TEMPLATE Pinch targeting and preheat-train retrofit | MILP match selection or stage-wise MINLP network synthesis.
+REGIME #design | Commits process heat-recovery connections and exchanger modifications.
+STRUCTURE #link + #select | Chooses hot-to-cold stream connections and participating exchanger modifications.
+PRIORITY High | Heat recovery shapes energy use in major refining units.
+RELEVANCE High | Improved recovery reduces furnace duty and operating cost.
+HARDNESS High | Existing connections, temperature feasibility and nonlinear area costs interact.
+DEPENDENCIES REF101 → REF104 → REF304.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #design #link #select ##heat-integration ##preheat-train.
+
+REF105 Refinery Hydrogen-Recovery Network Design.
+DESCRIPTION Selects recovery and purification equipment and hydrogen reuse connections under refinery consumer purity, pressure and capacity limits.
+TEMPLATE Hydrogen integration and network retrofit | Superstructure MINLP with purification and connection choices.
+REGIME #design | Commits process hydrogen recovery and reuse capability.
+STRUCTURE #link + #select | Constructs source-to-consumer and purification connections and selects equipment.
+PRIORITY High | Hydrogen integration constrains hydroprocessing refineries.
+RELEVANCE High | Recovery choices reduce fresh hydrogen demand and protect conversion capacity.
+HARDNESS High | Purity, pressure and nonlinear mixing couple network and equipment choices.
+DEPENDENCIES REF101 → REF105 → REF309.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #design #link #select ##hydrogen ##process-integration.
+
+REF106 Refinery Process Water-Reuse Network Design.
+DESCRIPTION Selects treatment units and water reuse, recycle and discharge connections under process-water and contaminant limits.
+TEMPLATE Water integration and treatment-network synthesis | Superstructure MINLP or mixed-integer quadratic optimization.
+REGIME #design | Commits process treatment and reuse pathways.
+STRUCTURE #link + #select | Constructs water-treatment connections and selects participating treatment units.
+PRIORITY Medium | Water integration matters where refinery water or effluent constraints bind.
+RELEVANCE High | Better networks reduce water demand and treatment loads.
+HARDNESS High | Multiple contaminants and nonlinear treatment and mixing constrain topology choices.
+DEPENDENCIES REF101 → REF106 → REF301.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #design #link #select ##water-reuse ##wastewater.
+
+REF301 Refinery Production Planning.
+DESCRIPTION Selects processing modes and allocates production to refining units and periods under capacity, material, quality and demand constraints.
+TEMPLATE Refinery-wide production planning | Multiperiod MILP or MINLP; planning-scheduling decomposition.
+REGIME #plan | Commits future refinery production targets and operating modes.
+STRUCTURE #select + #map + #place | Selects modes, assigns production to units and places commitments in planning periods.
+PRIORITY Critical | Production plans coordinate the refinery's transformation system.
+RELEVANCE Critical | Plan quality affects refinery-wide throughput and margin.
+HARDNESS High | Unit yields, material pooling and detailed scheduling feasibility require integrated models.
+DEPENDENCIES REF101, REF106 → REF301 → REF302, REF303, REF306, REF308.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #plan #select #map #place ##production-planning ##operating-mode ##pooling.
+COMMENTS Purely continuous product-slate optimization is outside the ICO subset.
+
+REF302 Refinery Feedstock Selection and Blend Planning.
+DESCRIPTION Selects available crude or alternative feedstock lots and assigns them to planned refinery feeds under assay, compatibility and conversion constraints.
+TEMPLATE Crude evaluation and process-feasible feed selection | Mixed-integer nonlinear crude-selection and pooling optimization.
+REGIME #plan + #allocate | Commits a future feed mix and assigns selected material to planned processing.
+STRUCTURE #select + #map | Chooses feedstock lots and assigns them to refinery feed blends.
+PRIORITY High | Feed choice links crude quality to refining capability.
+RELEVANCE Critical | Feed choices affect conversion yield, quality and material cost.
+HARDNESS High | Lot selection interacts with uncertain assays and nonlinear quality pooling.
+DEPENDENCIES REF301 → REF302 → REF307, REF501.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #plan #allocate #select #map ##crude-selection ##blending ##feedstock.
+
+REF303 Refinery Turnaround Planning and Scheduling.
+DESCRIPTION Selects shutdown groupings and schedules turnaround work under process isolation, production, precedence and maintenance-resource constraints.
+TEMPLATE Refinery turnaround planning and resource-constrained project scheduling | MILP outage scheduling with resource-constrained task scheduling.
+REGIME #plan | Commits shutdown windows and their maintenance-work calendars.
+STRUCTURE #place + #select + #map | Places outages and work intervals, selects shutdown groupings and assigns required work resources.
+PRIORITY High | Refineries require recurring coordinated process shutdowns.
+RELEVANCE Critical | Turnaround duration and coordination affect major production capacity.
+HARDNESS High | Coupled outages, task precedence and scarce maintenance resources restrict calendars.
+DEPENDENCIES REF301 → REF303 → REF304, REF305, REF306.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #plan #place #select #map ##turnaround ##maintenance ##precedence.
+
+REF304 Refinery Fouling-Cleaning Scheduling.
+DESCRIPTION Selects cleaning actions and their timing for fouling-prone process equipment under degradation, availability and throughput constraints.
+TEMPLATE Preheat-train fouling management | MINLP cleaning scheduling or mixed-integer optimal control; rolling MILP approximation.
+REGIME #plan | Commits cleaning interventions from predicted equipment condition.
+STRUCTURE #select + #place | Chooses cleaning interventions and places them in time.
+PRIORITY High | Fouling management recurs in refinery preheat trains.
+RELEVANCE High | Cleaning decisions affect heat recovery and throughput.
+HARDNESS High | Nonlinear degradation and uncertain cleaning recovery couple decisions across time.
+DEPENDENCIES REF104, REF303 → REF304 → REF306.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #plan #select #place ##fouling ##cleaning ##mixed-integer-optimal-control.
+
+REF305 Refinery Catalyst Changeout Planning.
+DESCRIPTION Selects catalyst replacement or regeneration actions and their timing under activity decay, production and outage constraints.
+TEMPLATE Catalyst cycle and changeout planning | Dynamic programming; multiperiod MINLP or mixed-integer optimal control.
+REGIME #plan | Commits future catalyst interventions and operating-cycle boundaries.
+STRUCTURE #select + #place | Chooses replacement or regeneration actions and places them in time.
+PRIORITY Medium | Discrete catalyst interventions matter in fixed-bed refining processes.
+RELEVANCE High | Cycle decisions affect conversion performance and lost production.
+HARDNESS High | Activity decay, operating severity and shared outage windows couple intervention choices.
+DEPENDENCIES REF303 → REF305 → REF306.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #plan #select #place ##catalyst ##replacement ##regeneration.
+
+REF306 Refinery Unit Campaign and Mode Scheduling.
+DESCRIPTION Schedules refining-unit modes and campaigns under transition, residence, material and product-quality constraints.
+TEMPLATE Process-unit campaign and transition scheduling | Transition-aware MILP or MINLP; decomposition and scheduling heuristics.
+REGIME #plan | Commits a future timetable of process-unit operating states.
+STRUCTURE #place + #select | Places campaigns and transitions in time and selects operating modes.
+PRIORITY Critical | Coordinated unit states make refinery production plans executable.
+RELEVANCE High | Better transitions reduce lost output and off-specification production.
+HARDNESS High | Dynamic transitions and shared intermediate material create large coupled schedules.
+DEPENDENCIES REF301, REF303, REF304, REF305, REF901 → REF306 → REF307, REF308, REF309.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #plan #place #select ##campaign ##mode-switching ##transition.
+
+REF307 Refinery Crude Receipt and Charging Scheduling.
+DESCRIPTION Schedules crude receipts, tank use, transfers and distillation feeds under settling, mixing, inventory and unit-feed constraints.
+TEMPLATE Crude unloading, storage and charging scheduling | Discrete-time or continuous-time MILP/MINLP; decomposition and scheduling heuristics.
+REGIME #plan | Commits a future process-feasible crude-handling and charging calendar.
+STRUCTURE #place + #map | Places receipt and charging operations in time and assigns crude to tanks and distillation units.
+PRIORITY Critical | Crude scheduling supplies the refinery's primary processing units.
+RELEVANCE Critical | Feasible charging protects throughput and feed quality.
+HARDNESS High | Tank state, settling and nonlinear mixing tightly couple operation choices.
+DEPENDENCIES REF302, REF306, REF501, REF901 → REF307 → REF901.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #plan #place #map ##crude-scheduling ##tank-switching ##material-state.
+
+REF308 Refinery Product Blending Scheduling.
+DESCRIPTION Schedules product blends, component use, blenders and product tanks under recipe, quality, inventory, changeover and delivery constraints.
+TEMPLATE Multi-blend recipe and production scheduling | Slot-based or event-based MILP; MINLP with nonlinear blend properties.
+REGIME #plan | Commits future blend runs and material-use calendars.
+STRUCTURE #place + #map + #select | Places blend runs in time, assigns blenders and tanks and selects run activations.
+PRIORITY Critical | Blending converts intermediate streams into saleable refinery products.
+RELEVANCE Critical | Blend scheduling protects product quality and valuable component use.
+HARDNESS High | Nonlinear properties, shared components and tank changeovers constrain schedules.
+DEPENDENCIES REF301, REF306, REF501, REF901 → REF308 → ∅.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #plan #place #map #select ##blending ##quality ##changeover.
+
+REF309 Refinery Hydrogen-System Scheduling.
+DESCRIPTION Schedules source and compressor states and consumer-source assignments under hydrogen purity, pressure and process-demand constraints.
+TEMPLATE Process hydrogen-network operating schedules | Multiperiod MINLP with switching and start-stop decisions.
+REGIME #plan | Commits future hydrogen equipment states and source assignments.
+STRUCTURE #select + #map + #place | Selects equipment states, assigns sources to consumers and places commitments in time.
+PRIORITY Medium | Discrete hydrogen scheduling matters in complex hydroprocessing networks.
+RELEVANCE High | Better schedules reduce switching cost and hydrogen-related production limits.
+HARDNESS High | Purity and pressure coupling complicate discrete equipment and source schedules.
+DEPENDENCIES REF105, REF306 → REF309 → ∅.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #plan #select #map #place ##hydrogen ##switching.
+
+REF501 Refinery Material-to-Tank Allocation.
+DESCRIPTION Assigns crude, intermediate or product lots to installed tanks over required occupancy windows under quality, capacity and segregation constraints.
+TEMPLATE Process tank allocation and material segregation | MILP tank assignment; MINLP when mixing determines feasibility.
+REGIME #allocate | Commits installed process-storage capacity to named materials.
+STRUCTURE #map + #place | Assigns materials to tanks and places their occupancy intervals.
+PRIORITY High | Tank assignments couple refinery processing and blend preparation.
+RELEVANCE High | Feasible segregation protects quality and prevents process blocking.
+HARDNESS High | Reuse windows, mixing and linked production calendars couple assignments.
+DEPENDENCIES REF102, REF302 → REF501 → REF307, REF308.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #allocate #map #place ##tank-assignment ##segregation ##occupancy.
+COMMENTS Integrated crude and blend schedules may solve these assignments internally.
+
+REF901 Refinery Crude Schedule Repair.
+DESCRIPTION Revises committed crude receipt, tank-use and charging schedules after arrival, equipment or quality disruptions while preserving completed operations.
+TEMPLATE Predictive-reactive crude scheduling | State-consistent MILP/MINLP rescheduling; partial-repair heuristics.
+REGIME #adapt | Revises commitments invalidated by observed disruptions.
+STRUCTURE #place + #map + #select | Repositions operations, reassigns available resources and selects retained or deferred runs.
+PRIORITY High | Arrival and tank disruptions recurrently invalidate crude schedules.
+RELEVANCE High | Timely repair limits lost throughput and infeasible material movements.
+HARDNESS High | Frozen work and evolving tank qualities constrain acceptable revisions.
+DEPENDENCIES REF307 → REF901 → REF307, REF308, REF306.
+TAGS #TRANS #PROC ##REFINING #PRODUCTION #adapt #place #map #select #online ##rescheduling ##disruption ##stability.
+COMMENTS Repairs the crude-operation commitment; downstream production and blending receive the revised material availability.
