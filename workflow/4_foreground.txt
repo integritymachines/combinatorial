@@ -45,6 +45,8 @@ PASS only when all BLOCK findings are resolved or successfully rebutted.
 LEVEL=PROBLEM
 
 Check:
+- The foreground contains controlled Problems rather than deployment variants, broad archetypes, mathematical families, or unresolved integrated bundles.
+- The Candidates shortlist is supported by controlled ratings, Template evidence, and current-practice evidence; no obviously stronger structural-analysis candidate is omitted without defensible reason.
 
 1. Canonical set
 - Every admitted Problem is supported by controlled background.

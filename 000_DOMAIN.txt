@@ -1,5 +1,5 @@
 *Industrial Combinatorial Optimization* 
-v0.5 Oct 2026
+v0.6 Oct 2026
 
 - Canonical ontology for industrial combinatorial optimization (ICO) systems.
 - Aims at near-exhaustive, minimally overlapping classification of commercially relevant combinatorial optimization systems.
@@ -139,19 +139,12 @@ XY1-XY9   Members of that Industry cluster.
 
 Each Industry Domain has a canonical short mnemonic used in filenames and Problem IDs.
 
+- Prefer the natural Industry or Industry Domain shorthand.
 - Prefer 3-4 letters when an established, unambiguous mnemonic is available.
 - Six letters is the maximum.
-- A stable Industry stem plus one trailing functional letter may be used when it improves discrimination.
-- The trailing letter is nomenclature, not another ontology axis.
-- Use the Territory letter when no narrower functional letter is clearly earned.
-- The initial controlled letter set is:
-
-  #DEVELOPMENT     D development/design | R research
-  #PRODUCTION      P production | M manufacturing | O operations or service production
-  #DISTRIBUTION    X distribution | S sales | C procurement or sourcing | L logistics
-  #ADMINISTRATION  A administration | F finance | H human resources or workforce administration | G governance, legal, or compliance
-
-- Additional one-letter functional discriminators may be admitted case by case if needed.
+- Do not append a Territory or functional suffix merely because the Industry Domain has a Territory.
+- Use a trailing discriminator only when an actual split into sibling Industry Domains sharing the same natural base shorthand requires it.
+- The trailing discriminator is nomenclature, not another ontology axis.
 - The mnemonic must be globally unique.
 - Do not reuse a generic Domain mnemonic.
 - Do not change a mnemonic merely because the descriptive Industry Domain name changes.
@@ -159,8 +152,11 @@ Each Industry Domain has a canonical short mnemonic used in filenames and Proble
 - Industry Domain files use <NNN>_<MNEMONIC>.txt and background/<NNN>_<MNEMONIC>_research.txt.
 
 Examples:
+210 Airline -> AIRL.
 160 Automotive Manufacturing -> AUTOM.
 161 Automotive Development -> AUTOD.
+170 Semiconductor Manufacturing -> SEMIM.
+171 Semiconductor Development -> SEMID.
 
 **Territory**
 
@@ -199,6 +195,8 @@ Examples:
 - #sequence is allowed only as a Secondary Regime under Primary #operate.
 - Other material Primary-Regime tags may appear as Secondary Regimes when supported.
 - Regime is determined by the type of commitment, not horizon alone.
+- An incumbent artifact, updated information, frozen decisions, or change costs do not by themselves establish #adapt.
+- #adapt requires a materially distinct recovery or revision commitment rather than an ordinary rerun of the underlying Problem.
 
 **Problem numbering**
 
@@ -233,8 +231,24 @@ The remaining two digits give the Problem sequence within that band.
 #place   Position entities or activities in a structured spatial, temporal, metric, or ordered space.
 
 - Structure describes the combinatorial construction performed by the solver.
+- #map includes chosen membership in groups or partitions.
+- Use #link when chosen adjacency, succession, transition, path, or connectivity is constitutive.
+- Use #place when position in an independently meaningful spatial, temporal, metric, or ordered domain is constitutive.
+- Equivalent mathematical encodings do not determine Structure.
+- Do not add #place merely because a #link construction can be encoded by ranks or coordinates.
+- Do not add #link merely because a #place construction induces adjacency or precedence.
 - Do not infer Structure from supplied relations, formulation artifacts, feasibility conditions, objectives, or solver encoding.
 - A Problem has one Primary Structure and may have Secondary Structures required to construct the complete solution.
+
+**Problem identity**
+
+- A Problem is a recurring industrial combinatorial decision, not merely a deployment contract, mathematical family, or software module.
+- Determine identity jointly from the bound object or substrate, discrete commitment, defining industrial feasibility or state semantics, materially relevant information timing, and committed artifact.
+- Multiple deployment decision contracts may instantiate one Problem.
+- Do not merge Problems merely because they share artifact shape, Structure, formulation, or solver encoding.
+- Do not split Problems merely because owner, department, recipient, approval process, or implementation differs.
+- Mathematical co-optimization alone does not create an integrated Problem.
+- Retain one integrated Problem when coupled choices form one recurring jointly committed industrial decision and materially affect one another's feasibility, value, or accepted commitment; otherwise retain component Problems and their interfaces.
 
 **Parameters**
 
@@ -257,6 +271,14 @@ Examples:
 ##precedence ##synchronization ##lot-sizing ##crew-pairing ##blending ##stn ##rtn
 ##service-chaining ##inventory-positioning ##rolling-horizon ##coverage ##setup
 ##network ##routing ##assignment
+##arrange (relative order or position)
+##relate (chosen relations among entities)
+##contract (deployment-specific committed decision)
+##archetype (cross-industry decision analogue)
+##transition (committed path between states)
+##compose (externally recognized composite artifact)
+##policy (contingent action rule artifact)
+##satisfaction (feasible committed artifact)
 
 **Priority**
 
@@ -294,6 +316,15 @@ How difficult is this problem to solve well at industrial scale using current me
  4.  Low        Routinely solved exactly or near-exactly using standard methods at industrial scale.
                 eg Standard assignment, bipartite matching, min-cost flow
 
+**Candidates**
+
+Candidates is the provisional shortlist of admitted Problems most likely to benefit from structural analysis.
+
+- Normally select approximately the top 20% within the Domain or Industry Domain.
+- Use controlled comparative judgment; no fixed score is normative in v0.2.
+- Strong signals include Critical Priority, Relevance, and Hardness; a current industrial benchmark no better than heuristic or strongly manually mediated practice; and evidence that structural analysis could materially change the solution approach.
+- Candidates is a file-level shortlist, not a Problem-card field.
+
 **Tags**
 
 - '#' prefix   closed tag.
@@ -326,7 +357,9 @@ Each foreground Domain or Industry Domain file contains:
 
 1. Identity and version.
 2. SCOPE.
-3. Canonical Problem set.
+3. Problem and populated-Regime count.
+4. Candidates shortlist.
+5. Canonical Problem set.
 
 SCOPE is a short domain-specific introduction.
 It states the decision territory, ownership rule, and material neighboring boundaries.
@@ -405,12 +438,12 @@ TAGS <Closed tags>, <Optional open tags>.
 - Duplication of dedicated ontology fields is intentional in TAGS.
 - Prefer extensible ## tags for Industry, industrial specialization, mathematical form, structural laws, decomposition patterns, or established search terms.
 
-COMMENTS <Optional STE explainer>.
+COMMENTS <STE explainer or —>.
 - Preserve only material interpretation not captured adequately by the canonical fields or TAGS.
 - Suitable content includes boundary conditions, exceptions, scope qualifications, and important variant distinctions.
 - Do not restate DESCRIPTION, REGIME, STRUCTURE, ratings, or TAGS.
 - Do not use COMMENTS to carry tags.
-- Omit COMMENTS when no such information is needed.
+- Use COMMENTS — when no such information is needed.
 
 EXAMPLE
 

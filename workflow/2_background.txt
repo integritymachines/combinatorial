@@ -52,12 +52,17 @@ Check:
 - Material recurring ICO problems are not obviously missing.
 - Claimed near-exhaustive coverage is supported by search saturation, not assertion.
 - Existing lists were not treated as exhaustive.
-- Material candidates owned elsewhere are recorded in background/000_PROBLEM_marketplace.txt.
+- Material borderline or transferred Domain-ownership candidates are recorded in background/000_PROBLEM_marketplace.txt.
+- Ordinary exclusions and ordinary uncertainty remain in domain research rather than the marketplace.
 - Inbound marketplace candidates for D are explicitly resolved.
 
 3. Problem identity
-- Each candidate is a distinct industrial decision, not merely an alias, narrow parameter variant, formulation, or algorithm.
-- Synonyms, variants, integrated problems, uncertain merges/splits, and exclusions are handled explicitly.
+- Discovery records, deployment contracts, mathematical families, and software modules are not presumed canonical Problems.
+- Each admitted candidate is a distinct industrial decision, not merely an alias, narrow parameter variant, formulation, algorithm, broad archetype, or deployment-specific label.
+- Identity is supported jointly by the bound object or substrate, discrete commitment, defining feasibility or state semantics, materially relevant information timing, and committed artifact.
+- Common artifact shape, Structure, formulation, owner, department, recipient, or implementation alone did not determine merge or split.
+- Synonyms, variants, integrated problems, family/archetype groupings, uncertain merges/splits, and exclusions are handled explicitly.
+- Integrated candidates use the same semantic identity test as ordinary candidates; mathematical co-optimization alone does not determine identity.
 - Domain ownership and important interfaces are defensible.
 - For Industry Domains, the supplied code, mnemonic, Industry, Primary Domain, Territory, and Macro Domain anchor are applied consistently.
 - Any material evidence against the supplied identity is flagged for ontology-level review rather than silently resolved.

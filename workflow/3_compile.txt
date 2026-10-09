@@ -39,9 +39,13 @@ Do not include workflow rules, dependency semantics, rating rules, approval stat
 For an Industry Domain include Industry, Primary Domain, Territory, and Macro Domain anchor.
 
 1. Decide the Problem set.
+Compile recurring industrial Problems, not deployment-specific contracts, broad archetypes, mathematical families, or software modules.
 Admit distinct, commercially material ICO decisions supported by the controlled background.
 Exclude aliases, narrow parameter variants, formulations, algorithms, weakly supported candidates, and decisions owned by another Domain.
-Merge only controlled synonyms.
+Merge only where the controlled background establishes the same underlying industrial Problem.
+Do not merge merely because candidates share artifact shape, Structure, formulation, or solver encoding.
+Do not split merely because owner, department, recipient, approval process, or implementation differs.
+Preserve the controlled integrated-Problem boundary; neither one mathematical model nor multiple Structures alone determine merge or split.
 Do not hide unresolved material merge/split or ownership defects; return them to R/B.
 
 2. Choose canonical identity.
@@ -88,6 +92,13 @@ Do not create explanatory boilerplate.
 Remove research history, generic ontology rules, workflow instructions, approval state, dependency semantics, rating semantics, and other reusable rules from the foreground.
 Persist only conclusions specific to D and its Problems.
 Do not compile Cases at this level.
+
+8. Compile Candidates shortlist.
+After final Problem IDs are assigned, select approximately the top 20% most likely to benefit from structural analysis.
+Use controlled comparative judgment from Priority, Relevance, Hardness, Template evidence, and current industrial practice.
+Strong signals include a triple Critical rating, a current industrial benchmark no better than heuristic or strongly manually mediated practice, and evidence that structural analysis could materially change the solution approach.
+Do not invent a new score.
+Write one file-level line: Candidates: <Problem IDs>.
 
 Finish
 Output the complete numbered foreground Problem set for D in NNN_D.txt.

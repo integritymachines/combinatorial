@@ -1,7 +1,7 @@
 PROBLEM MARKETPLACE
 
 Purpose
-Preserve materially credible Problem candidates transferred between Domains.
+Preserve materially credible Problem candidates used as the routing fallback for borderline or transferred Domain ownership.
 
 Record
 CANDIDATE | ORIGIN | PROPOSED OWNER | REASON | EVIDENCE | STATUS
@@ -9,12 +9,15 @@ CANDIDATE | ORIGIN | PROPOSED OWNER | REASON | EVIDENCE | STATUS
 Status
 OPEN      Origin excludes the candidate but considers it materially ICO and plausibly owned elsewhere.
 CLAIMED   Proposed owner admits it as a distinct Problem.
-MERGED    Proposed owner absorbs it into an admitted Problem.
+MERGED    Proposed owner absorbs it as a variant, specialization, component, or duplicate of an admitted Problem.
 REJECTED  Proposed owner determines that it is not a separate Problem or not owned there.
 
 Rules
+- Use the marketplace only after the Origin considers the candidate materially credible ICO but Domain ownership is transferred or remains borderline.
+- Ordinary exclusions and ordinary uncertainty stay in the Origin research background.
 - Origin records the transfer but does not classify another Domain's foreground.
-- Proposed owner resolves the candidate during normal research and control.
+- Proposed owner reruns Problem identity and integration control during normal research and resolves the candidate as CLAIMED, MERGED, REJECTED, or still OPEN.
+- For an integrated cross-Domain candidate, propose one Primary owner and retain material neighboring Domains as interfaces rather than splitting solely by Domain contact.
 - Keep the record when resolved.
 - Do not use the marketplace as a substitute for evidence in the receiving Domain's research background.
 

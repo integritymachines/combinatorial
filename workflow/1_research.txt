@@ -7,6 +7,8 @@ Input
 LEVEL ∈ {PROBLEM, CASE}
 DOMAIN = D
 DOMAIN code = NNN
+For an Industry Domain: Industry, Primary Domain, Territory, and Macro Domain anchor.
+Supplied research reports.
 000_DOMAIN.txt
 background/000_DOMAIN_research.txt
 background/000_PROBLEM_marketplace.txt
@@ -33,14 +35,17 @@ When D is an Industry Domain:
 - if material evidence contradicts the supplied identity or indicates a missing Territory split, record the defect for ontology-level review and continue only within the supplied scope where defensible;
 - do not create a Territory split from Regime, Structure, horizon, department, specialization, or lifecycle terminology alone.
 
-When a credible candidate is excluded because another Domain owns it, record it in background/000_PROBLEM_marketplace.txt.
+When a materially credible candidate is plausibly owned elsewhere or Domain ownership remains borderline, route it through background/000_PROBLEM_marketplace.txt.
+Ordinary exclusions and ordinary uncertainty stay in D's research background.
 When D is the proposed owner of an OPEN marketplace candidate, assess it during normal candidate discovery and resolve it as CLAIMED, MERGED, REJECTED, or still OPEN.
 Do not classify another Domain's foreground on its behalf.
 
 LEVEL=PROBLEM
 
 Purpose
-Establish a controlled knowledge base from which the canonical problem set can be compiled.
+Draw on the supplied research reports and relevant existing evidence.
+Produce one consolidated research background from which the canonical Problem set can be compiled.
+Resolve material disagreements and omissions rather than treating any individual report as authoritative.
 
 Tasks
 1. Map the domain territory.
@@ -48,15 +53,19 @@ Identify principal industries, applications, operating systems, interfaces, excl
 
 2. Discover candidate problems.
 Search broadly by industry, operating function, Regime, IE literature, OR literature, benchmark tradition, and established terminology.
+Search explicitly for integrated decisions, digital production, financial and rights-based decisions, reverse and circular flows, transition and migration decisions, information-producing decisions, and credible ontology-stress cases.
 Target near-exhaustive practical coverage of commercially material ICO decisions.
-Treat existing lists as discovery seeds, not limits.
+Treat existing lists and supplied reports as discovery seeds, not limits.
 
 3. Resolve problem identity.
 For each candidate, record:
 - decision and scope;
-- aliases;
-- variants;
-- distinction from neighboring problems;
+- bound object or substrate;
+- discrete commitment and committed artifact;
+- defining feasibility, state-transition or conservation semantics;
+- material information timing where it changes the decision;
+- aliases and variants;
+- distinction from neighboring Problems, families, archetypes, and deployment contracts;
 - Domain ownership and material interfaces;
 - candidate Regime and Structure;
 - Priority, Relevance, industrial Hardness evidence;
@@ -64,7 +73,10 @@ For each candidate, record:
 - useful descriptors;
 - Template evidence.
 
-Merge only clear synonyms. Preserve uncertain merges, splits, exclusions, and integrated-problem questions for control.
+Merge only when controlled evidence shows the same underlying industrial Problem.
+Do not merge merely because candidates share artifact shape, Structure, formulation, or solver encoding.
+For an integrated candidate, test whether coupled choices form one recurring jointly committed industrial decision. Mathematical co-optimization alone is insufficient; multiple Structures, functions, or interfaces alone do not force a split.
+Preserve uncertain merges, splits, exclusions, broad family/archetype groupings, and integrated-problem questions for control.
 Do not spend foreground effort proving absence of a full-contract complexity classification. Record uncertainty in background when useful.
 
 4. Establish dependencies.
