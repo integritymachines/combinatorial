@@ -8,6 +8,8 @@ Macro Domain anchor: #TRANS. Primary Domain: 101 #PROC. Industry: ##REFINING. Te
 REF covers refinery transformation capability, feed preparation, process-unit production, material-state storage, product blending and process-coupled maintenance. It includes process heat recovery, reactant hydrogen reuse and contaminant-based water integration.
 Ownership follows process capability, recipe validity or material-state feasibility. Independent transport, procurement, supply positions, utility production, workforce rosters, construction, extraction and trading remain with their corresponding Domains. Designing refinery production assets remains within this production territory.
 
+#design | 1##
+
 REF101 Refinery Process Configuration Design.
 DESCRIPTION Selects refining technologies, unit capacities and material connections to deliver a target product slate under feedstock, investment and process limits.
 TEMPLATE Refinery flowsheet synthesis and retrofit screening | Superstructure MILP or MINLP with technology-selection logic.
@@ -73,6 +75,8 @@ RELEVANCE High | Better networks reduce water demand and treatment loads.
 HARDNESS High | Multiple contaminants and nonlinear treatment and mixing constrain topology choices.
 DEPENDENCIES REF101 → REF106 → REF301.
 TAGS #TRANS #PROC ##REFINING #PRODUCTION #design #link #select ##water-reuse ##wastewater.
+
+#plan | 3##
 
 REF301 Refinery Production Planning.
 DESCRIPTION Selects processing modes and allocates production to refining units and periods under capacity, material, quality and demand constraints.
@@ -174,6 +178,8 @@ HARDNESS High | Purity and pressure coupling complicate discrete equipment and s
 DEPENDENCIES REF105, REF306 → REF309 → ∅.
 TAGS #TRANS #PROC ##REFINING #PRODUCTION #plan #select #map #place ##hydrogen ##switching.
 
+#allocate | 5##
+
 REF501 Refinery Material-to-Tank Allocation.
 DESCRIPTION Assigns crude, intermediate or product lots to installed tanks over required occupancy windows under quality, capacity and segregation constraints.
 TEMPLATE Process tank allocation and material segregation | MILP tank assignment; MINLP when mixing determines feasibility.
@@ -185,6 +191,8 @@ HARDNESS High | Reuse windows, mixing and linked production calendars couple ass
 DEPENDENCIES REF102, REF302 → REF501 → REF307, REF308.
 TAGS #TRANS #PROC ##REFINING #PRODUCTION #allocate #map #place ##tank-assignment ##segregation ##occupancy.
 COMMENTS Integrated crude and blend schedules may solve these assignments internally.
+
+#adapt | 9##
 
 REF901 Refinery Crude Schedule Repair.
 DESCRIPTION Revises committed crude receipt, tank-use and charging schedules after arrival, equipment or quality disruptions while preserving completed operations.
