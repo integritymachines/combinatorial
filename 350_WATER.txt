@@ -1,0 +1,149 @@
+350_WATER.txt
+
+WATER — Water Utility Operations
+v0.1 | 9 October 2026 | Problem layer
+
+SCOPE
+Macro Domain anchor: #INFRA. Primary Domain: 301 #ENER. Industry: ##WATER. Territory: #PRODUCTION.
+WATER covers installed water-service capability, pumping, storage, hydraulic districting, pressure control, network disinfectant capability, service scheduling and hydraulic or quality recovery. It includes wastewater-transfer pumping when equipment actions and hydraulic service define the contract.
+Ownership follows the installed utility-service commitment. Basin rights, extraction, treatment-process transformation, civic asset maintenance, construction, standalone sensing, workforce and vehicle journeys remain neighboring contracts.
+
+#design | 1##
+
+WATER101 Water Network Configuration and Pipe Sizing.
+DESCRIPTION Chooses permitted pipe connections and assigns catalogue sizes to pipe reaches under demand, pressure and investment limits.
+TEMPLATE Hydraulic network capacity design | Mixed-integer convex design for supported resistance models; MINLP or hydraulic simulation with evolutionary search for extensions.
+REGIME #design | Commits pipe capacity and connections before operating plans.
+STRUCTURE #map + #link | Assigns pipe sizes to reaches and constructs permitted new connections.
+PRIORITY Critical | Pipe capacity and connectivity define the core service envelope.
+RELEVANCE Critical | Network choices commit long-lived capacity and capital.
+HARDNESS High | Discrete pipe options interact with nonconvex hydraulic feasibility.
+DEPENDENCIES ∅ → WATER101 → WATER102, WATER103, WATER104, WATER105, WATER106, WATER302.
+TAGS #INFRA #ENER ##WATER #PRODUCTION #design #map #link #strategic ##network-design ##pipe-sizing.
+COMMENTS Fixed-topology sizing omits connection choices. Condition-based renewal portfolios and construction work belong to civic asset management.
+
+WATER102 Pumping and Service-Storage Configuration.
+DESCRIPTION Selects pump configurations, equipment counts, tank sites and capacity options under hydraulic service, storage and redundancy requirements.
+TEMPLATE Pumping-station and service-storage design | Hydraulic simulation with genetic configuration search and continuous sizing refinement.
+REGIME #design | Commits installed pumping and storage capability.
+STRUCTURE #select + #place | Selects equipment and capacity options and places equipment or tanks at permitted sites.
+PRIORITY High | Pumping and storage constrain many water-service systems.
+RELEVANCE Critical | Installed capability sets long-lived service and energy limits.
+HARDNESS High | Equipment choices must remain feasible across demand patterns and operating cycles.
+DEPENDENCIES WATER101 → WATER102 → WATER302, WATER801.
+TAGS #INFRA #ENER ##WATER #PRODUCTION #design #select #place #strategic ##pump-station ##storage.
+COMMENTS Basin reservoirs and extraction-resource activation are separate contracts.
+
+WATER103 District Metered Area Design.
+DESCRIPTION Partitions a water network into service districts and selects open, metered or closed boundary connections under hydraulic and water-quality limits.
+TEMPLATE Hydraulic districting and boundary-meter design | Graph partitioning with hydraulic simulation and multiobjective search.
+REGIME #design | Commits the normal service partition and its boundary configuration.
+STRUCTURE #map + #link | Assigns demand nodes to districts and constructs their permitted boundary connections.
+PRIORITY High | Districting supports many leakage-managed distribution systems.
+RELEVANCE High | District boundaries affect service pressure, leakage management and operability.
+HARDNESS High | Graph partitions must satisfy coupled hydraulic and quality conditions.
+DEPENDENCIES WATER101 → WATER103 → WATER105, WATER301, WATER302.
+TAGS #INFRA #ENER ##WATER #PRODUCTION #design #map #link #tactical ##partition ##dma.
+COMMENTS Observation-only sensor placement is a separate digital-resource contract.
+
+WATER104 Isolation Valve Placement.
+DESCRIPTION Chooses isolation-valve sites to limit service loss when failed pipe segments must be disconnected.
+TEMPLATE Segment isolation and demand-shortfall design | Genetic layout search with segment or hydraulic evaluation; coupled pipe-and-valve optimization.
+REGIME #design | Commits isolation capability before failure response.
+STRUCTURE #place + #select | Positions isolation valves and selects installation sites.
+PRIORITY High | Failure isolation is a recurring network capability requirement.
+RELEVANCE High | Valve placement changes the service loss caused by segment isolation.
+HARDNESS High | Many site combinations and failure consequences require evaluation.
+DEPENDENCIES WATER101 → WATER104 → WATER901, WATER902.
+TAGS #INFRA #ENER ##WATER #PRODUCTION #design #place #select ##isolation ##resilience.
+COMMENTS Graph vulnerability proxies do not establish full hydraulic service feasibility.
+
+WATER105 Pressure-Control Valve Placement.
+DESCRIPTION Chooses pressure-regulating device sites and design settings under downstream service-pressure and leakage conditions.
+TEMPLATE Pressure-management zone and valve design | Placement MINLP with convex relaxation and rounding; hydraulic genetic search with embedded setting optimization.
+REGIME #design | Commits installed pressure-control capability.
+STRUCTURE #place + #select | Positions regulating devices and selects participating installations.
+PRIORITY High | Pressure management is material across many distribution systems.
+RELEVANCE High | Device locations affect leakage and delivered pressure.
+HARDNESS High | Placement choices interact with nonlinear hydraulic conditions.
+DEPENDENCIES WATER101, WATER103 → WATER105 → WATER302, WATER801, WATER901.
+TAGS #INFRA #ENER ##WATER #PRODUCTION #design #place #select ##pressure-management ##leakage.
+COMMENTS Continuous settings of fixed devices alone do not define this combinatorial problem.
+
+WATER106 Disinfectant Booster Placement.
+DESCRIPTION Selects network booster stations and their locations to maintain disinfectant residuals under dose and water-quality limits.
+TEMPLATE Distribution residual-management design | Siting MINLP and convex-relaxation heuristics with hydraulic and quality simulation.
+REGIME #design | Commits distributed disinfectant-control capability.
+STRUCTURE #place + #select | Positions booster stations and selects installations.
+PRIORITY Medium | Distributed rechlorination is required in particular network configurations.
+RELEVANCE High | Locations determine residual-control capability across the network.
+HARDNESS High | Site choices couple hydraulic transport, reaction and dosing.
+DEPENDENCIES WATER101 → WATER106 → WATER902.
+TAGS #INFRA #ENER ##WATER #PRODUCTION #design #place #select ##booster-chlorination ##water-quality.
+COMMENTS Treatment-train synthesis and process chemistry are separate transformation contracts.
+
+#plan | 3##
+
+WATER301 Intermittent Water Supply Scheduling.
+DESCRIPTION Chooses zone service windows and rotations when continuous supply is infeasible under water availability, pressure and service-equity requirements.
+TEMPLATE Zone service rotation and equitable delivery scheduling | Integer supply scheduling with hydraulic constraints or simulation evaluation.
+REGIME #plan | Commits future consumer service windows.
+STRUCTURE #place + #select | Places service windows in time and selects the zones supplied in each window.
+PRIORITY Medium | Rotation applies to shortage and intermittent-supply systems.
+RELEVANCE Critical | Service windows determine access to essential water.
+HARDNESS High | Hydraulic coupling, network filling and equity restrict feasible rotations.
+DEPENDENCIES WATER103 → WATER301 → WATER302.
+TAGS #INFRA #ENER ##WATER #PRODUCTION #plan #place #select ##intermittent-supply ##equity.
+COMMENTS Basin rights and resource allocation remain separate from installed-network service calendars.
+
+WATER302 Pump and Valve Scheduling.
+DESCRIPTION Schedules pump starts, stops and valve states with storage under demand or inflow forecasts, hydraulic limits, switching restrictions and terminal storage requirements.
+TEMPLATE Forecast-based pumping and storage scheduling | MINLP; strengthened MILP approximations with hydraulic validation; simulation-based search.
+REGIME #plan | Commits a future equipment-state calendar.
+STRUCTURE #place + #select | Places operating intervals in time and selects active equipment or modes.
+PRIORITY Critical | Equipment calendars coordinate recurring water-service operation.
+RELEVANCE High | Schedules affect recurring energy cost and service feasibility.
+HARDNESS High | Nonlinear hydraulics, storage trajectories and equipment switching couple periods.
+DEPENDENCIES WATER101, WATER102, WATER103, WATER105, WATER301, WATER901, WATER902 → WATER302 → WATER801, WATER901.
+TAGS #INFRA #ENER ##WATER #PRODUCTION #plan #place #select #rolling ##pump-scheduling ##storage.
+COMMENTS Includes dynamic boundary-valve switching and wastewater-transfer pumping with actual discrete controls. Continuous flow or dosing optimization alone is outside this scope.
+
+#dispatch | 8##
+
+WATER801 Feedback Pump and Valve Dispatch.
+DESCRIPTION Chooses immediate pump and valve actions from observed storage, demand or inflow and equipment availability under hydraulic service limits.
+TEMPLATE State-feedback pumping control | Mixed-integer predictive control or hydraulic simulation with mixed discrete-continuous search.
+REGIME #dispatch | Commits the next equipment action under evolving observed state.
+STRUCTURE #select | Chooses active equipment and valve actions.
+PRIORITY High | Feedback action selection recurs in automated utility operation.
+RELEVANCE High | Timely actions maintain service as actual conditions depart from forecasts.
+HARDNESS High | Response time, forecast error and nonlinear feasibility restrict the search.
+DEPENDENCIES WATER102, WATER105, WATER302, WATER901, WATER902 → WATER801 → WATER901, WATER902.
+TAGS #INFRA #ENER ##WATER #PRODUCTION #dispatch #select #online #closedloop #rolling ##predictive-control.
+COMMENTS Includes wastewater-transfer equipment actions. Binaries that only encode overflow or hydraulic regimes do not establish a discrete operating decision.
+
+#adapt | 9##
+
+WATER901 Hydraulic Failure Isolation and Service Recovery.
+DESCRIPTION Revises network operation after a burst or equipment outage by selecting isolation, valve, pump and available bypass interventions that restore feasible service.
+TEMPLATE Hydraulic isolation and service-recovery response | Multiobjective hydraulic simulation-optimization; screened intervention heuristics.
+REGIME #adapt | Revises the operating configuration after failure invalidates service commitments.
+STRUCTURE #select + #link | Selects interventions and constructs temporary service connections where available.
+PRIORITY High | Network failures recurrently invalidate normal service.
+RELEVANCE Critical | Effective recovery limits major service interruptions.
+HARDNESS High | Disrupted hydraulics and intervention combinations require screened or heuristic search.
+DEPENDENCIES WATER104, WATER105, WATER302, WATER801 → WATER901 → WATER302, WATER801.
+TAGS #INFRA #ENER ##WATER #PRODUCTION #adapt #select #link #online ##service-restoration.
+COMMENTS Independent excavation, repair tasks and crew schedules belong to civic asset management.
+
+WATER902 Water-Quality Incident Flushing.
+DESCRIPTION Selects and times hydrant openings and valve operations to remove a specified water-quality impairment under hydraulic service and intervention limits.
+TEMPLATE Quality-incident isolation and flushing response | Hydraulic-quality simulation with multiobjective genetic search; mixed-integer device scheduling.
+REGIME #adapt | Revises operation to recover delivered water quality after an incident.
+STRUCTURE #select + #place | Selects flushing and isolation actions and places their activation times.
+PRIORITY Medium | Incident flushing applies to specific quality-recovery situations.
+RELEVANCE Critical | Response protects essential delivered water quality.
+HARDNESS High | Quality transport, uncertain incident state and action timing interact.
+DEPENDENCIES WATER104, WATER106, WATER801 → WATER902 → WATER302, WATER801.
+TAGS #INFRA #ENER ##WATER #PRODUCTION #adapt #select #place #online ##flushing ##water-quality.
+COMMENTS Routine asset-cleaning campaigns and adversarial protection policies are separate contracts.
