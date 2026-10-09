@@ -336,7 +336,7 @@ Dependency candidates: upstream none specified; downstream none specified. Edges
 Useful refinements: ##threat-screening ##inspection-allocation ##security-game.
 Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
 
-CANDIDATE forensics | Cyber-Forensic Investigation Sequencing
+CANDIDATE forensics | Cyber-Forensic Investigation Action Selection
 Industrial commitment: Choose the next discrete investigation steps during an active defense cyber incident under evidence, effort and information-dependency conditions.
 Aliases and retrieval terms: forensic action prioritization; cyber incident investigation; investigation decision support.
 Supplied substrate: Active case evidence, admissible investigation actions, effort costs, historical incident knowledge and supplied transition estimates.
@@ -345,9 +345,9 @@ Ownership and neighboring contracts: Chooses investigative evidence acquisition 
 Variants and identity control: Fixed action orders are narrower offline variants. Observation-dependent action policies are retained within this investigation contract.
 Evidence and Template basis [S37]: S37 formulates investigation as an MDP and evaluates Monte Carlo tree search against DISCLOSE. The source supplies discrete action choice rather than a fixed calendar; therefore primary select is defensible, and a solver search tree is not automatically link construction.
 IE/OR reference architecture: Evidence-driven cyber-forensic investigation | Markov decision process with Monte Carlo tree search over discrete investigation actions.
-Candidate Regime: #operate + #sequence | Orders investigation work within an active incident investigation.
+Candidate Regime: #dispatch | Issues the next investigation action from the current incident evidence state.
 Candidate Structure: #select | Chooses investigation actions from the admissible action set using current evidence.
-Rating synthesis: Priority Medium because investigation sequencing is important within defense incident analysis. Relevance High because better actions can improve compromise discovery from limited analyst effort. Industrial Hardness High because uncertain evidence and a large conditional action space require adaptive search.
+Rating synthesis: Priority Medium because investigation action selection is important within defense incident analysis. Relevance High because better actions can improve compromise discovery from limited analyst effort. Industrial Hardness High because uncertain evidence and a large conditional action space require adaptive search.
 Dependency candidates: upstream alerts; downstream response. Edges are conditional industrial information or commitment flow, not mathematical reduction.
 Useful refinements: ##cyber-forensics ##investigation ##mdp ##information-gain.
 Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
