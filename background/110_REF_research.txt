@@ -26,7 +26,7 @@ Read generic PROC and foundational research as seeds, then searched independentl
 
 Sources establish decision/model existence and plausible Templates. Analyst judgments under 000_DOMAIN.txt establish ownership, identity, ratings, Structure and the modular dependency graph. Those judgments are not claimed as classifications supplied by the papers. There is no universal SOTA ranking: commercial systems, published algorithms and reproducible public models differ. MILP/MINLP is a supported architecture, not evidence of superiority by itself. Public repository existence does not establish a refinery benchmark fit.
 
-The second sweep mostly returned integrated versions, formulation improvements and material-specific variants of the retained contracts. It also found coker modeling without sufficient standalone combinatorial scheduling evidence. This supports practical coverage for the present problem layer, not mathematical exhaustiveness. Known gaps remain explicit below. No Problem is admitted simply to fill a Regime band.
+The second sweep mostly returned integrated versions, formulation improvements and material-specific variants of the retained contracts. It also found coker modeling without sufficient standalone combinatorial scheduling evidence. This supports practical coverage for the present problem layer, not mathematical exhaustiveness. Known gaps remain explicit below. A further omission search found lube-section production planning (S47), process-shutdown stability (S49) and a refinery/petrochemical planning benchmark with explicitly continuous and integer variants (S48). These reinforce existing contracts and the ICO admission boundary. S46 adds process-buffer design evidence. No Problem is admitted simply to fill a Regime band.
 
 MARKETPLACE INPUT
 
@@ -53,12 +53,12 @@ TANKDES — Refinery Tank-Farm Configuration
 Decision: Selects process-storage tanks, capacity options and material services to support refinery receipts, intermediate buffering and blending.
 Aliases and variants: Tankage sizing; storage expansion; tank-service configuration.
 Boundary and identity: Includes storage that enables material transformation and blend segregation. A standalone distribution terminal is LOG or SCM by contract. Continuous tank-volume sizing alone is not admitted.
-Construction analysis: Supplied substrate: candidate tanks, permitted capacities, material classes and operating scenarios. Chosen artifact: installed storage configuration and service assignments. Unlike TANK, these decisions alter installed capability rather than assign current lots. The published multiproduct MINLP provides a transferable formal Template, not a verified refinery benchmark. The industrial refinery report provides application evidence for tankage alternatives and simulation. Combined Template use is an explicit inference; no claim that the two sources describe the same implementation.
+Construction analysis: Supplied substrate: candidate tanks, permitted capacities, material classes and operating scenarios. Chosen artifact: installed storage configuration and service assignments. Unlike TANK, these decisions alter installed capability rather than assign current lots. The published multiproduct MINLP provides a transferable formal Template, not a verified refinery benchmark. The industrial refinery report provides application evidence for tankage alternatives and simulation. Combined Template use is an explicit inference; no claim that the two sources describe the same implementation. S46 separately studies refinery inventory-tank location and sizing to mitigate process-unit shutdowns, strengthening the process-buffer design application. A case must retain discrete location or configuration choices to qualify as ICO.
 Candidate Regime: #design | Commits tank capacity and permitted services before operational assignments.
 Candidate Structure: #select + #map | Selects tank configurations and assigns their permitted material services.
 Rating judgments: Priority High | Process storage constrains crude preparation and product blending. Relevance High | Tankage choices affect capital, blocking and material segregation. Industrial Hardness High | Capacity choices must remain feasible across variable receipts and production schedules.
 Template basis: Tankage configuration and process-buffer design | Discrete configuration search with simulation; integrated storage-design MINLP.
-Evidence: S03 S04. See source register for access and support limits.
+Evidence: S03 S04 S46. See source register for access and support limits.
 Descriptors: ##tank-farm ##capacity ##segregation
 Input dependencies: CONFIG. Output dependencies: LAYOUT, TANK.
 
@@ -175,7 +175,7 @@ Candidate Regime: #plan | Commits future catalyst interventions and operating-cy
 Candidate Structure: #select + #place | Chooses replacement or regeneration actions and places them in time.
 Rating judgments: Priority Medium | Discrete catalyst interventions matter in fixed-bed refining processes. Relevance High | Cycle decisions affect conversion performance and lost production. Industrial Hardness High | Activity decay, operating severity and shared outage windows couple intervention choices.
 Template basis: Catalyst cycle and changeout planning | Dynamic programming; multiperiod MINLP or mixed-integer optimal control.
-Evidence: S23 S24. See source register for access and support limits.
+Evidence: S23 S24 S50. See source register for access and support limits.
 Descriptors: ##catalyst ##replacement ##regeneration
 Input dependencies: TURN. Output dependencies: MODE.
 
@@ -190,7 +190,7 @@ Rating judgments: Priority Critical | Coordinated unit states make refinery prod
 Template basis: Process-unit campaign and transition scheduling | Transition-aware MILP or MINLP; decomposition and scheduling heuristics.
 Evidence: S25 S26 S27. See source register for access and support limits.
 Descriptors: ##campaign ##mode-switching ##transition
-Input dependencies: PLAN, TURN, CLEAN, CATALYST, REPAIR. Output dependencies: CRUDE, BLEND, H2OPS, REPAIR.
+Input dependencies: PLAN, TURN, CLEAN, CATALYST, REPAIR. Output dependencies: CRUDE, BLEND, H2OPS.
 
 CRUDE — Refinery Crude Receipt and Charging Scheduling
 Decision: Schedules crude receipts, tank use, transfers and distillation feeds under settling, mixing, inventory and unit-feed constraints.
@@ -216,7 +216,7 @@ Rating judgments: Priority Critical | Blending converts intermediate streams int
 Template basis: Multi-blend recipe and production scheduling | Slot-based or event-based MILP; MINLP with nonlinear blend properties.
 Evidence: S31 S32 S33. See source register for access and support limits.
 Descriptors: ##blending ##quality ##changeover
-Input dependencies: PLAN, MODE, TANK, REPAIR. Output dependencies: REPAIR.
+Input dependencies: PLAN, MODE, TANK, REPAIR. Output dependencies: none specified.
 
 H2OPS — Refinery Hydrogen-System Scheduling
 Decision: Schedules source and compressor states and consumer-source assignments under hydrogen purity, pressure and process-demand constraints.
@@ -229,7 +229,7 @@ Rating judgments: Priority Medium | Discrete hydrogen scheduling matters in comp
 Template basis: Process hydrogen-network operating schedules | Multiperiod MINLP with switching and start-stop decisions.
 Evidence: S34 S35. See source register for access and support limits.
 Descriptors: ##hydrogen ##switching
-Input dependencies: H2DES, MODE, REPAIR. Output dependencies: REPAIR.
+Input dependencies: H2DES, MODE. Output dependencies: none specified.
 
 TANK — Refinery Material-to-Tank Allocation
 Decision: Assigns crude, intermediate or product lots to installed tanks over required occupancy windows under quality, capacity and segregation constraints.
@@ -244,18 +244,18 @@ Evidence: S17 S36. See source register for access and support limits.
 Descriptors: ##tank-assignment ##segregation ##occupancy
 Input dependencies: TANKDES, FEED. Output dependencies: CRUDE, BLEND.
 
-REPAIR — Refinery Production Schedule Repair
-Decision: Revises committed process schedules and material assignments after arrival, equipment or quality disruptions while preserving completed operations.
+REPAIR — Refinery Crude Schedule Repair
+Decision: Revises committed crude receipt, tank-use and charging schedules after arrival, equipment or quality disruptions while preserving completed operations.
 Aliases and variants: Reactive crude scheduling; partial rescheduling; disruption recovery.
 Boundary and identity: Retain the previous schedule as an explicit commitment. Recomputing an uncommitted rolling plan is not automatically #adapt. Emergency operating procedures are not inferred from economic repair models.
-Construction analysis: Supplied substrate: old schedule, completed work, current material state and disruption. Chosen artifact: revised operational commitments. Evidence is strongest for crude operations; extension to process and blend calendars is an architectural generalization supported by the same state-consistency contract, not a claim of one validated refinery-wide implementation. Ordinary local next-action dispatch lacks a separately verified Template in this run and is not invented to populate a numbering band.
+Construction analysis: Supplied substrate: old crude schedule, completed work, current tank states and disruption. Chosen artifact: revised crude-operation commitments. Evidence supports crude repair; a general refinery-wide recovery Problem is not inferred. Revised charging schedules change feed availability for MODE and intermediate availability for BLEND. Ordinary local next-action dispatch lacks a separately verified Template in this run and is not invented to populate a numbering band.
 Candidate Regime: #adapt | Revises commitments invalidated by observed disruptions.
 Candidate Structure: #place + #map + #select | Repositions operations, reassigns available resources and selects retained or deferred runs.
-Rating judgments: Priority High | Disruptions recurrently invalidate refinery production commitments. Relevance High | Timely repair limits lost throughput and infeasible material movements. Industrial Hardness High | Frozen work and evolving tank qualities constrain acceptable revisions.
-Template basis: Predictive-reactive refinery scheduling | State-consistent MILP/MINLP rescheduling; partial-repair heuristics.
+Rating judgments: Priority High | Arrival and tank disruptions recurrently invalidate crude schedules. Relevance High | Timely repair limits lost throughput and infeasible material movements. Industrial Hardness High | Frozen work and evolving tank qualities constrain acceptable revisions.
+Template basis: Predictive-reactive crude scheduling | State-consistent MILP/MINLP rescheduling; partial-repair heuristics.
 Evidence: S37 S38 S39. See source register for access and support limits.
 Descriptors: #online ##rescheduling ##disruption ##stability
-Input dependencies: CRUDE, BLEND, MODE, H2OPS. Output dependencies: CRUDE, BLEND, MODE, H2OPS.
+Input dependencies: CRUDE. Output dependencies: CRUDE, BLEND, MODE.
 
 DEPENDENCY GRAPH AND INTERPRETATION
 
@@ -340,3 +340,8 @@ S42 | Multiperiod Planning Model for Integrated Optimization of a Refinery Produ
 S43 | Modeling of an Industrial Delayed Coker Unit (2021) | https://proceedings.aiche.org/conferences/aiche-spring-meeting-and-global-congress-on-process-safety/2021/proceeding/paper/133a-modeling-industrial-delayed-coker-unit | Primary conference abstract: dynamic unit modeling and optimization. Insufficient alone for a discrete drum-calendar Template.
 S44 | A scalable optimization framework for refinery operation and management (2023) | https://research.monash.edu/en/publications/a-scalable-optimization-framework-for-refinery-operation-and-mana/ | Author institution abstract: heuristic/MILP decomposition of refinery front-end scheduling.
 S45 | A unified continuous-time model for integrated crude scheduling and refinery planning optimization (2026) | https://doi.org/10.1016/j.ces.2026.123709 | Publisher abstract: newer integrated planning/crude formulation; retained as an alternative, not a universal method ranking.
+S46 | Multiperiod refinery optimization for mitigating the impact of process unit shutdowns (2022) | https://experts.mcmaster.ca/scholarly-works/2315222 | Author institution abstract: operating and inventory-tank retrofit formulations for process shutdown mitigation.
+S47 | Production planning through Flow Network Optimisation and Mixed Integer Linear Programming models in a petroleum refinery (2008) | https://www.inderscience.com/info/inarticle.php?artid=17535 | Primary publisher abstract: lube-section production planning supports a product-specific PLAN/MODE variant, not a new identity.
+S48 | A production planning benchmark for real-world refinery-petrochemical complexes (2025) | https://arxiv.org/abs/2503.22057 | Author preprint abstract: distinguishes a continuous refinery instance from other cases with integer decisions. Benchmark lead only; no Cases selected.
+S49 | A stability-oriented stochastic optimization strategy for refinery scheduling during unit shutdowns | https://www.sciencedirect.com/science/article/abs/pii/S0098135425005058 | Publisher abstract: production/inventory stability under planned unit shutdowns; a TURN/MODE variant, not proof of a separate emergency restart contract.
+S50 | An optimal control approach to scheduling and production in a process using decaying catalysts (2020) | https://www.sciencedirect.com/science/article/abs/pii/S0098135419310415 | Publisher abstract: general-process catalyst-changeover mixed-integer optimal control. Transferable alternative to the refinery-specific dynamic-programming example.
