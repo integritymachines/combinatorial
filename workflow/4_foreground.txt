@@ -97,7 +97,7 @@ Check:
 - TAGS contain the required canonical classification and supported useful refinements.
 - Material qualifications not represented elsewhere are preserved in COMMENTS.
 - Tags are not displaced into COMMENTS.
-- COMMENTS are not required when the canonical fields and TAGS are sufficient.
+- Every Problem card has COMMENTS; use COMMENTS — when no material comment is needed.
 - Numbering assignments follow the normative Regime bands.
 - No generic workflow or ontology boilerplate is compiled into the foreground.
 

@@ -86,7 +86,8 @@ Use exactly the foreground Problem-card schema and tag semantics in 000_DOMAIN.t
 Use controlled technical English.
 Compile TAGS as the compact canonical semantic signature of the Problem.
 Include the required closed ontology tags and only useful supported open tags.
-Compile COMMENTS only when a material controlled boundary, exception, scope condition, or variant distinction would otherwise disappear.
+Compile a material controlled boundary, exception, scope condition, or variant distinction in COMMENTS when it would otherwise disappear.
+Otherwise compile COMMENTS —.
 Do not use COMMENTS to carry tags.
 Do not create explanatory boilerplate.
 Remove research history, generic ontology rules, workflow instructions, approval state, dependency semantics, rating semantics, and other reusable rules from the foreground.
