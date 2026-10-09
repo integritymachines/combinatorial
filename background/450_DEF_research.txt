@@ -438,7 +438,7 @@ alerts → forensics, response: triaged alert evidence initiates investigation o
 forensics → response: investigation evidence updates the known compromise and allowed response choices [S37, S42].
 Inspection has no necessary within-set dependency. It can consume external treaties and verification requirements.
 Potential feedback cycles: collection/search/mission; mission/effect allocation; triage/forensics/response; response/installed-policy revision. The compiled graph represents the initial or current commitment pass, not the entire feedback history. Feedback is not silently treated as an acyclic universal prerequisite. Direction and presence depend on integration; no mathematical reduction is used as an industrial edge.
-Regime bands will govern compilation first. Fixed-task unit allocation precedes a richer mission program industrially but belongs to a later numbering band; alert triage can precede ongoing investigation for the same reason. These backward inter-band references cannot be removed by in-band reordering. Within-band design configuration and search/interdiction/mission flows have a defensible order.
+Regime bands will govern compilation first. Fixed-task unit allocation precedes a richer mission program industrially but belongs to a later numbering band. That backward inter-band reference cannot be removed by in-band reordering. Alert triage and evidence-triggered forensic action selection share the dispatch band, where triage precedes investigation. Within-band design configuration and search/interdiction/mission flows have a defensible order.
 
 MERGE, EXCLUSION AND TERRITORY LEDGER
 
