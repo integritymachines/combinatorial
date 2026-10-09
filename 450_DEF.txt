@@ -1,0 +1,300 @@
+450_DEF.txt
+
+DEF — Defense
+v0.1 | 9 October 2026 | Problem layer
+
+SCOPE
+Macro Domain anchor: #INFO. Primary Domain: 402 #INTEL. Industry: ##DEFENSE. Territory: #PRODUCTION.
+DEF covers the configuration and operation of defense services whose adversarial, protective, denial or strategic-response conditions define the decision. It includes operational force configuration, readiness, military collection, mission commitments, protective security and cyber defense.
+Ownership follows the delivered defense service commitment. Military context alone does not transfer ordinary transport, inventory, workforce, manufacturing, utility or digital-resource decisions into DEF. New weapon and platform development, acquisition-program portfolios, procurement transactions and financial administration remain outside this operational service territory.
+
+#design | 1##
+
+DEF101 Operational Force Configuration.
+DESCRIPTION Select admissible force components and assign them to operational formations under capability requirements, compatibility, force-size and scenario conditions.
+TEMPLATE Capability-based force design | Robust integer allocation of modular force components; simulation-supported configuration evaluation.
+REGIME #design | Commits the composition of the operational force before readiness and mission assignments.
+STRUCTURE #map + #select | Groups components into formations and selects the component configurations included.
+PRIORITY High | Force composition constrains readiness and major defense service commitments.
+RELEVANCE Critical | Better configurations can change long-lived capability sufficiency and resource commitments.
+HARDNESS High | Scenario requirements and interacting component capabilities require tailored configuration models.
+DEPENDENCIES ∅ → DEF101 → DEF301, DEF501.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #design #map #select ##force-design ##capability ##modularity ##robust-optimization.
+COMMENTS Selects operational force components. New weapon or platform product definitions remain outside this territory.
+
+DEF102 Protective Sensor and Defense Asset Deployment.
+DESCRIPTION Select protective sensor or defense asset alternatives and position them at admissible sites under coverage, resource, access and adversarial-response conditions.
+TEMPLATE Protective coverage and defensive footprint design | Discrete location and coverage optimization; bilevel or trilevel game formulations with decomposition.
+REGIME #design | Commits protective capacity and its footprint before collection or response operation.
+STRUCTURE #place + #select | Positions protective resources and selects the deployed resource alternatives.
+PRIORITY High | Protective footprints constrain installation security and air or area defense systems.
+RELEVANCE Critical | Better footprints can reduce protection gaps for critical assets and services.
+HARDNESS High | Coverage interactions and opponent responses complicate discrete location decisions.
+DEPENDENCIES ∅ → DEF102 → DEF302, DEF303, DEF502, DEF503, DEF802.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #design #place #select ##defensive-location ##sensor-placement ##coverage ##security-game.
+
+DEF103 Defense Infrastructure Protection Investment.
+DESCRIPTION Select protective interventions for defense-critical assets under budgets, adversarial disruption scenarios and required residual mission service.
+TEMPLATE Mission assurance and infrastructure vulnerability assessment | Defender–attacker–operator optimization with mixed-integer reformulation and decomposition.
+REGIME #design | Commits protective interventions before disruption and operating recourse.
+STRUCTURE #select | Chooses the protection actions applied to a supplied service network.
+PRIORITY High | Infrastructure protection recurs across defense installations and mobilization systems.
+RELEVANCE Critical | Better protection can preserve essential defense service during disruption.
+HARDNESS High | Discrete protection, opponent choices and service recourse interact across the network.
+DEPENDENCIES ∅ → DEF103 → DEF303.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #design #select ##mission-assurance ##infrastructure-protection ##interdiction ##trilevel.
+COMMENTS Ordinary service-capacity investment belongs to its physical-service Domain when adversarial protection does not define the contract.
+
+DEF104 Cybersecurity Control Portfolio Selection.
+DESCRIPTION Select compatible preventive security controls for defense systems under budgets, mission-access requirements and modeled cyber exposure.
+TEMPLATE Security risk treatment and control investment planning | Scenario-based portfolio MILP; attack-graph defender–attacker optimization.
+REGIME #design | Commits preventive safeguards before cyber defense operation.
+STRUCTURE #select | Chooses a compatible subset of available security controls.
+PRIORITY High | Preventive safeguard selection recurs across defense information systems.
+RELEVANCE Critical | Better portfolios can protect mission services and sensitive information.
+HARDNESS High | Shared vulnerabilities, control interactions and uncertain exposure couple investment choices.
+DEPENDENCIES ∅ → DEF104 → DEF105, DEF106, DEF107, DEF308, DEF701, DEF901.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #design #select ##countermeasure-selection ##attack-graph ##risk-treatment.
+COMMENTS A supplied attack graph does not imply that the solution constructs links.
+
+DEF105 Defense Access-Control Role Engineering.
+DESCRIPTION Define permission roles and assign users to roles under required access, least-privilege and separation-of-duty conditions.
+TEMPLATE Least-privilege authorization engineering | Constrained role mining and Boolean-matrix decomposition; integer optimization for explicit policy constraints.
+REGIME #design | Defines the authorization configuration before access decisions use it.
+STRUCTURE #map | Assigns permissions and users to roles to construct the authorization relation.
+PRIORITY Medium | Role engineering is important within defense identity and access systems.
+RELEVANCE High | Better role definitions can reduce excess privilege and policy administration effort.
+HARDNESS High | Many permission combinations and coupled policy rules require constrained search.
+DEPENDENCIES DEF104 → DEF105 → DEF106, DEF901.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #design #map ##role-mining ##least-privilege ##authorization ##boolean-matrix.
+
+DEF106 Mission-Network Security Segmentation.
+DESCRIPTION Assign defense network resources to security zones and choose permitted inter-zone access relations under mission-access and cyber-exposure conditions.
+TEMPLATE Mission-aware microsegmentation | Security-policy optimization with evolutionary search; defender–attacker–operator decomposition for explicit service-recourse models.
+REGIME #design | Commits security zones and their allowed communication policy before routine use.
+STRUCTURE #map + #link | Groups resources into zones and chooses permitted relations between zones.
+PRIORITY High | Segmentation is a recurring defense network protection decision.
+RELEVANCE Critical | Better policies can limit cyber spread while preserving mission access.
+HARDNESS High | Attack reachability, access needs and operating recourse couple many policy choices.
+DEPENDENCIES DEF104, DEF105 → DEF106 → DEF107, DEF701, DEF901.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #design #map #link ##microsegmentation ##partition ##access-policy ##cyber-resilience.
+COMMENTS Links are permitted access relations. Physical cabling and ordinary traffic-resource operation remain external contracts.
+
+DEF107 Cyber Deception Resource Deployment.
+DESCRIPTION Select deception resource alternatives and assign them to defense network locations under resource, compatibility and modeled attacker-response conditions.
+TEMPLATE Defensive deception and honeypot deployment | Attack-graph security games with attacker-policy search and pruning.
+REGIME #design | Commits a deception deployment before the protected network is used.
+STRUCTURE #place + #select | Positions deception resources in the network and selects which alternatives are deployed.
+PRIORITY Medium | Deception deployment is important in specialized defense cyber protection systems.
+RELEVANCE High | Better deception can reduce successful compromise and improve defensive observation.
+HARDNESS High | Attacker beliefs and multistage response make deployment evaluation difficult.
+DEPENDENCIES DEF104, DEF106 → DEF107 → DEF801.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #design #place #select ##honeypot ##deception ##attack-graph ##security-game.
+
+#plan | 3##
+
+DEF301 Force Readiness and Rotation Planning.
+DESCRIPTION Assign operational units to deployment, preparation and recovery periods under mission demand, availability, rotation and readiness-cycle conditions.
+TEMPLATE Force generation and readiness-cycle planning | Multiperiod unit-assignment IP; crisis rescheduling with disruption penalties.
+REGIME #plan + #adapt | Commits future readiness cycles and revises issued cycles after a material demand change.
+STRUCTURE #place + #map | Places unit phases in time and assigns units to demand and readiness states.
+PRIORITY Critical | Readiness cycles define the available force for recurring defense commitments.
+RELEVANCE Critical | Better cycles can improve mission coverage and sustainable unit availability.
+HARDNESS High | Long-lived commitments and readiness-state transitions couple units across many periods.
+DEPENDENCIES DEF101 → DEF301 → DEF302, DEF303, DEF501, DEF307.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #plan #adapt #place #map ##readiness ##force-generation ##rotation ##multiperiod.
+
+DEF302 Military Intelligence Collection Tasking.
+DESCRIPTION Select collection requests, assign defense sensing resources and schedule acquisition opportunities under information priority, availability, capacity and temporal conditions.
+TEMPLATE Collection requirements and ISR management | Eligibility filtering followed by resource-assignment and scheduling optimization; MIQP for the documented multi-satellite model.
+REGIME #plan + #dispatch + #adapt | Commits a collection plan, issues immediate tasking and revises issued commitments after change.
+STRUCTURE #map + #place + #select | Assigns sensing resources to requests, places acquisitions in time and selects the serviced requests.
+PRIORITY Critical | Collection tasking defines the use of scarce military observation resources.
+RELEVANCE Critical | Better collection can improve timely information available for defense decisions.
+HARDNESS High | Resource suitability, observation windows and changing priorities couple acquisition choices.
+DEPENDENCIES DEF102, DEF301 → DEF302 → DEF305, DEF306, DEF307, DEF502, DEF503.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #plan #dispatch #adapt #map #place #select ##isr ##collection-tasking ##observation-scheduling ##satellite.
+COMMENTS Prediction and data fusion provide inputs. They are not separate combinatorial decisions in this card.
+
+DEF303 Defense Security Coverage and Patrol Scheduling.
+DESCRIPTION Construct protective patrol schedules for supplied assets and areas under resource, movement, timing and adversarial-observation conditions.
+TEMPLATE Protective coverage and randomized patrol planning | Stackelberg security-game optimization with executable schedule generation; bounded-rational response models when supported.
+REGIME #plan | Commits future protective coverage before patrol execution.
+STRUCTURE #place + #link + #map | Places patrol visits in time, connects feasible route legs and assigns schedules to resources.
+PRIORITY High | Patrol coverage recurs in installation, maritime and asset protection.
+RELEVANCE High | Better schedules can reduce exploitable protection gaps.
+HARDNESS High | Executable routes and uncertain opponent responses complicate randomized coverage.
+DEPENDENCIES DEF102, DEF103, DEF301 → DEF303 → DEF802.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #plan #place #link #map ##patrol ##coverage ##security-game ##randomization.
+
+DEF304 Strategic Verification Inspection Scheduling.
+DESCRIPTION Select verification visits or discrete inspection opportunities and schedule them under inspection budgets, access, detection and strategic-compliance conditions.
+TEMPLATE Arms-control and safeguards verification planning | Discrete sequential inspection games; recursive solution under supported assumptions and schedule optimization for coupled visits.
+REGIME #plan | Commits the inspection schedule or contingent visit policy before verification.
+STRUCTURE #place + #select | Places visits in inspection periods and chooses the inspected opportunities.
+PRIORITY Medium | Strategic verification is central to specialized defense and safeguards programs.
+RELEVANCE Critical | Better inspections can improve detection and treaty verification confidence.
+HARDNESS Medium | Restricted recursive models are tractable; coupled visits require tailored schedule models.
+DEPENDENCIES ∅ → DEF304 → ∅.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #plan #place #select ##inspection ##verification ##arms-control ##inspection-game.
+COMMENTS Continuous inspection effort alone is excluded. Restricted recursive models do not establish hardness for every richer inspection contract.
+
+DEF305 Security Search Path Planning.
+DESCRIPTION Choose a search path through admissible locations under searcher capacity, movement and uncertain-object-location conditions.
+TEMPLATE Probabilistic constrained search planning | Specialized branch-and-bound with path bounds and network reduction.
+REGIME #plan + #dispatch | Commits a search path and can choose the next search transition from updated observations.
+STRUCTURE #link | Connects chosen search transitions into a feasible path.
+PRIORITY Medium | Path-constrained search is important in specialized defense surveillance systems.
+RELEVANCE High | Better search paths can improve detection from limited search resources.
+HARDNESS High | Path restrictions and changing location probabilities complicate search evaluation.
+DEPENDENCIES DEF302 → DEF305 → DEF307.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #plan #dispatch #link ##search-path ##probabilistic-search ##route ##resource-constraint.
+
+DEF306 Defense Network Interdiction Planning.
+DESCRIPTION Select admissible denial interventions on a supplied network under intervention budgets and modeled adversary service response.
+TEMPLATE Resource-limited network denial planning | Network interdiction IP and attacker–operator decomposition.
+REGIME #plan | Commits the intervention plan before execution and opponent recourse.
+STRUCTURE #select | Chooses network components or actions to interdict; the network is supplied.
+PRIORITY Medium | Network denial planning is important within specialized defense analyses.
+RELEVANCE High | Better intervention choices can materially change adversary service availability.
+HARDNESS High | Discrete interventions interact with the opponent network response.
+DEPENDENCIES DEF302 → DEF306 → DEF307.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #plan #select ##network-interdiction ##denial ##bilevel.
+COMMENTS The supplied network is not a solution topology. Interdiction selects interventions on it.
+
+DEF307 Integrated Defense Mission Scheduling.
+DESCRIPTION Assign required mission tasks to available platforms and construct synchronized activity schedules and feasible mission routes under compatibility, precedence and support conditions.
+TEMPLATE Integrated mission-package planning | Generalized vehicle-routing MILP with synchronization and precedence; task-package decomposition where required.
+REGIME #plan + #adapt | Commits a future integrated mission program and revises it after disruption.
+STRUCTURE #place + #map + #link | Places activities in time, assigns platforms to tasks and connects mission route legs.
+PRIORITY Critical | Integrated mission commitments coordinate major defense service resources.
+RELEVANCE Critical | Better integration can improve mission feasibility and use of scarce platforms.
+HARDNESS Critical | Assignment, routing, synchronization and support interactions require decomposition at large scale.
+DEPENDENCIES DEF301, DEF302, DEF305, DEF306, DEF501 → DEF307 → DEF502, DEF503.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #plan #adapt #place #map #link ##mission-planning ##synchronization ##precedence ##route.
+COMMENTS Fixed-task unit allocation and weapon–target assignment remain separate when route and schedule feasibility are supplied.
+
+DEF308 Defense Vulnerability Remediation Planning.
+DESCRIPTION Select vulnerability remediation work and place it in permitted service periods under exposure priorities, resources and defense service-availability conditions.
+TEMPLATE Exposure-based vulnerability management | Multiobjective mixed-integer prioritization and resource-constrained remediation scheduling.
+REGIME #plan + #adapt | Commits preventive remediation work and revises issued commitments after exposure changes.
+STRUCTURE #select + #place | Chooses the work admitted and positions it in the remediation calendar.
+PRIORITY High | Remediation planning recurs across operational defense cyber services.
+RELEVANCE High | Better work priorities can reduce exposure while controlling service disruption.
+HARDNESS High | Asset criticality, shared resources and acceptable outage windows couple work choices.
+DEPENDENCIES DEF104 → DEF308 → DEF901.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #plan #adapt #select #place ##vulnerability-remediation ##patching ##exposure ##schedule.
+COMMENTS Calendar and mission-outage constraints extend the documented vulnerability-prioritization baseline.
+
+#allocate | 5##
+
+DEF501 Mission Unit Assignment.
+DESCRIPTION Assign available operational units to supplied mission tasks under capability, eligibility, resource and mission-demand conditions.
+TEMPLATE Force-to-task capability allocation | Capability-constrained assignment IP; phased greedy assignment as a limited decision-support comparator.
+REGIME #allocate | Commits named units to supplied mission obligations.
+STRUCTURE #map | Assigns each unit or unit configuration to a mission task.
+PRIORITY High | Unit allocation recurs across defense tasking systems.
+RELEVANCE Critical | Better assignments can improve capability coverage from the available force.
+HARDNESS High | Complementary capabilities and coupled mission requirements need tailored assignment models.
+DEPENDENCIES DEF101, DEF301 → DEF501 → DEF307.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #allocate #map ##force-to-task ##assignment ##capability.
+COMMENTS Mission times and route feasibility are supplied. Choosing them creates the integrated mission scheduling contract.
+
+DEF502 Weapon–Target Assignment.
+DESCRIPTION Assign available effect resources to admissible modeled targets under compatibility, capacity and interacting-effect conditions.
+TEMPLATE Threat evaluation and effect-resource allocation | Branch-price-and-cut for supported static WTA; branch-and-bound and large-neighborhood search as established comparators.
+REGIME #allocate + #dispatch | Commits effect resources to named modeled targets and can issue an immediate assignment.
+STRUCTURE #map | Assigns discrete effect resources to eligible modeled targets.
+PRIORITY High | Effect-resource assignment is central to major defense allocation systems.
+RELEVANCE Critical | Better assignments can improve protective effectiveness and resource use.
+HARDNESS High | Coupled effects and dynamic extensions require specialized methods; static models have strong exact algorithms.
+DEPENDENCIES DEF102, DEF302, DEF307 → DEF502 → ∅.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #allocate #dispatch #map ##weapon-target-assignment ##nonlinear-assignment ##effect-allocation.
+COMMENTS The 2025 exact method applies to its supported model. Dynamic operational variants require separate method validation.
+
+DEF503 Electronic Countermeasure Allocation.
+DESCRIPTION Assign available electronic countermeasure resources to modeled threat tasks under compatibility, shared capacity and interacting-effect conditions.
+TEMPLATE Electronic protection resource management | Discrete combinatorial assignment optimization; permutation-based differential evolution for the documented cooperative model.
+REGIME #allocate + #dispatch | Commits electronic resources to threat tasks and can issue current assignments.
+STRUCTURE #map | Assigns discrete countermeasure resources to compatible threat tasks.
+PRIORITY Medium | Electronic assignment is central to specialized electronic defense systems.
+RELEVANCE High | Better allocations can improve protection from limited electronic resources.
+HARDNESS High | Coupled effects and limited public operational data complicate method validation.
+DEPENDENCIES DEF102, DEF302, DEF307 → DEF503 → ∅.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #allocate #dispatch #map ##electronic-countermeasure ##jamming-allocation ##assignment.
+COMMENTS Continuous waveform design and ordinary communication-channel allocation remain outside this contract.
+
+DEF504 Defense Threat Screening Allocation.
+DESCRIPTION Assign admitted flows, items or access claims to available screening actions under screening capacity, risk and mission-access conditions.
+TEMPLATE Risk-based protective screening | Threat-screening game optimization with implementable discrete allocations and decomposition.
+REGIME #allocate + #dispatch | Commits screening actions to claims and can allocate actions as claims arrive.
+STRUCTURE #map | Assigns eligible claims to discrete screening actions or resource combinations.
+PRIORITY Medium | Threat screening is important in defense access and transport-security interfaces.
+RELEVANCE High | Better allocations can improve protection without excessive access delay.
+HARDNESS High | Uncertain threat behavior and implementable resource combinations complicate screening.
+DEPENDENCIES ∅ → DEF504 → ∅.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #allocate #dispatch #map ##threat-screening ##inspection-allocation ##security-game.
+
+#operate + #sequence | 7##
+
+DEF701 Moving-Target Defense Reconfiguration Scheduling.
+DESCRIPTION Assign permitted platform alternatives to supplied service intervals during ongoing defense operation under exposure, compatibility and service-continuity conditions.
+TEMPLATE Proactive dynamic platform defense | Game-theoretic optimization of discrete platform strategies and switching policies.
+REGIME #operate + #sequence | Orders recurring protective reconfigurations within an active service.
+STRUCTURE #map | Assigns platform alternatives to the supplied ordered service intervals.
+PRIORITY Medium | Reconfiguration schedules are important in specialized defense cyber systems.
+RELEVANCE High | Better switching policies can reduce persistent exposure while limiting service cost.
+HARDNESS High | Adversary adaptation and service continuity couple configuration transitions.
+DEPENDENCIES DEF104, DEF106 → DEF701 → ∅.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #operate #sequence #map ##moving-target-defense ##reconfiguration ##switching-policy.
+COMMENTS Migration intervals are supplied. Optimized switching times require a separately supported extension.
+
+#dispatch | 8##
+
+DEF801 Defense Security Alert Triage and Assignment.
+DESCRIPTION Select current security alerts for investigation and assign admitted alerts to qualified analyst resources under effort, backlog and modeled adversarial-risk conditions.
+TEMPLATE Security operations alert triage | Cyber-screening game optimization with expert-to-alert assignment; adaptive prioritization for evolving queues.
+REGIME #dispatch | Commits immediate investigation effort from the current security alert queue.
+STRUCTURE #map + #select | Assigns alerts to analyst resources and selects which alerts are investigated now.
+PRIORITY High | Alert triage recurs in major defense security operations services.
+RELEVANCE High | Better triage can improve timely investigation from scarce analyst capacity.
+HARDNESS High | High alert volumes and adversarial behavior require scalable allocation methods.
+DEPENDENCIES DEF107 → DEF801 → DEF803, DEF901.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #dispatch #map #select ##alert-triage ##security-operations ##assignment ##backlog.
+
+DEF802 Alarm-Triggered Protective Response Routing.
+DESCRIPTION Assign available protective responders and construct immediate response routes after an alarm under access, arrival-time and uncertain incident-location conditions.
+TEMPLATE Alarm-conditioned protective response | Spatial security-game optimization with feasible response-route generation.
+REGIME #dispatch | Issues immediate response commitments from the observed alarm state.
+STRUCTURE #link + #map | Connects feasible response route legs and assigns responders to alarm service.
+PRIORITY High | Contingent response is common in defended installation and asset protection.
+RELEVANCE Critical | Better responses can improve timely protection during a suspected incident.
+HARDNESS High | Uncertain location and tight response conditions couple route alternatives.
+DEPENDENCIES DEF102, DEF303 → DEF802 → ∅.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #dispatch #link #map ##alarm-response ##response-routing ##uncertainty.
+
+DEF803 Cyber-Forensic Investigation Action Selection.
+DESCRIPTION Choose the next discrete investigation steps during an active defense cyber incident under evidence, effort and information-dependency conditions.
+TEMPLATE Evidence-driven cyber-forensic investigation | Markov decision process with Monte Carlo tree search over discrete investigation actions.
+REGIME #dispatch | Issues the next investigation action from the current incident evidence state.
+STRUCTURE #select | Chooses investigation actions from the admissible action set using current evidence.
+PRIORITY Medium | Investigation action selection is important within defense incident analysis.
+RELEVANCE High | Better actions can improve compromise discovery from limited analyst effort.
+HARDNESS High | Uncertain evidence and a large conditional action space require adaptive search.
+DEPENDENCIES DEF801 → DEF803 → DEF901.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #dispatch #select ##cyber-forensics ##investigation ##mdp ##information-gain.
+COMMENTS The solver tree is an auxiliary search representation. It is not a constructed industrial network.
+
+#adapt | 9##
+
+DEF901 Defense Cyber Incident Containment and Recovery.
+DESCRIPTION Select compatible containment and secure recovery actions after observed compromise under mission continuity, response-resource and system-invariant conditions.
+TEMPLATE Security-aware incident response and recovery | Game-theoretic response-action search; security-response MIP with large-neighborhood search for supported network models.
+REGIME #adapt + #dispatch | Revises prior service and protection commitments after compromise and issues immediate response actions.
+STRUCTURE #select | Chooses a feasible set or conditional policy of containment and recovery actions.
+PRIORITY High | Incident response is central to major defense cyber protection services.
+RELEVANCE Critical | Better actions can limit compromise while restoring critical mission service.
+HARDNESS High | Uncertain compromise and interacting service and security consequences require tailored response models.
+DEPENDENCIES DEF104, DEF105, DEF106, DEF308, DEF801, DEF803 → DEF901 → ∅.
+TAGS #INFO #INTEL ##DEFENSE #PRODUCTION #adapt #dispatch #select ##incident-response ##containment ##secure-recovery ##recourse.
+COMMENTS Routine restoration without a defining security condition belongs to the operated service Domain.

@@ -1,0 +1,702 @@
+450_DEF_research.txt
+
+DEF — Defense Research
+v0.1 | 9 October 2026 | LEVEL=PROBLEM | DOMAIN=DEF | DOMAIN code=450
+Normative inputs: 000_DOMAIN.txt v0.5; background/000_DOMAIN_research.txt v0.5.
+Process inputs: workflow/0_workflow.txt through workflow/5_output.txt; background/000_PROBLEM_marketplace.txt.
+Discovery seeds: 402_INTEL.txt and background/402_INTEL_research.txt. Their older IDs and presentation are not normative inputs to DEF compilation.
+User instruction fixes both deliverables at v0.1 after R → B → C → F → O. No Cases or stabilization are included.
+
+IDENTITY AND TERRITORY
+
+450 and DEF are supplied identity inputs. Industry ##DEFENSE is present in the research registry. #INTEL and #INFO follow the normative protective/adversarial ownership test. #PRODUCTION follows the delivered operational defense service, not whether a decision is called design or planning. These omitted identity axes are explicit scope inferences, not a new territory split. The operational service scope permits design of an installed force or security configuration. It excludes the design of a new weapon/platform product and new-capability development portfolios. No Industry Domain is renamed, recoded, split or merged in this run.
+This is a defense-specific Industry Domain within INTEL, not a replacement for the generic INTEL catalog. Civilian security, generic privacy release, conservation enforcement and commercial cybersecurity contexts remain in the generic Domain or other Industry contexts. Shared problem families may recur across Industries without duplicating Primary Domain ownership.
+
+EVIDENCE AND INFERENCE
+
+Primary publications and official institution descriptions establish decision existence and method families. Ownership, Regime, Structure, ratings, dependencies, admission and variants are project synthesis under 000_DOMAIN.txt, not source-authored ontology claims. Defense applicability of general cyber and security methods is stated as an inference when no military deployment is documented. Historical deployment, research evaluation and current commercial practice are distinguished. No classified access, live defense instance, performance reproduction or universal SOTA ranking is claimed.
+Source-register inspection records distinguish fresh retrieval from inherited supporting references and failed direct opens. Freshly inspected sources carry the core existence and Template claims; inherited references preserve near-equals and context without being promoted to current deployment evidence. The 2025 exact WTA method supersedes the older exact-only seed as a principal static comparator; learning alternatives are retained without a blanket dominance claim.
+Priority measures centrality within operational defense services. Relevance measures improvement value, not institutional importance alone. Industrial Hardness is qualitative engineering judgment from coupling, uncertainty, scale, latency and demonstrated method architecture. Formal complexity is not necessary to the cards and is not inferred from model appearance. Prototype performance does not justify universal operational hardness. Restricted inspection and assignment models remain easier than rich coupled contracts.
+
+DISCOVERY AND COVERAGE
+
+Research on 8 October UTC / 9 October Europe/Berlin covered force mix and modular design; force readiness and rotation; military ISR and satellite collection; protective sensor and defense-asset location; infrastructure mission assurance; patrol, escort, screening and verification; search, interdiction, mission packages and fixed-task assignment; kinetic and electronic resource allocation; controls, authorization, segmentation, deception, dynamic platforms, remediation, alert queues, forensic investigation and incident recovery. Final current-method searches included 2024–2026 assignment, segmentation and readiness literature. Additional results mainly supplied model variants, method changes or neighboring-Domain contracts.
+Coverage is a broad publicly supported initial inventory, not proof of exhaustive classified practice. Important evidence limits remain for electronic allocation, dynamic integrated missions and military production deployment of general cyber methods. Templates are sufficient at Problem level; benchmark accessibility and fit remain Case-layer work after human inspection.
+
+STRUCTURAL AUDIT
+
+Supplied networks, adversary models, precedence, observations and effect estimates are substrates. The chosen artifact determines Structure: selection of interventions is select; assignments and groups are map; chosen route or permission relations are link; independent temporal or spatial positioning is place. Feasibility conditions, scenario indices, linearization, dual variables, search trees and attack-graph representations do not automatically add Structure.
+Discrete policies and schedules enter ICO when their realizations choose finite actions, visits, configurations, assignments or transitions. Pure continuous effort, signal design, prediction and simulation without a combinatorial commitment are excluded. A selected probabilistic mixture does not erase the executable discrete construction. Secondary Structures are used only when the delivered contract requires them.
+
+CANDIDATE DOSSIERS
+
+Handles are research identities, not permanent Problem numbers. They do not establish final foreground sequence.
+
+CANDIDATE force | Operational Force Configuration
+Industrial commitment: Select admissible force components and assign them to operational formations under capability requirements, compatibility, force-size and scenario conditions.
+Aliases and retrieval terms: force mix; modular force design; capability-based force configuration.
+Supplied substrate: Available component types or candidate configurations, scenario requirements, aggregation rules, budgets and force-size limits.
+Chosen construction and delivered artifact: Groups components into formations and selects the component configurations included. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: The delivered contract is an operational service configuration. New equipment architecture, research portfolios and procurement transactions are separate contracts.
+Variants and identity control: Army formations, naval fleet mix and air-force composition are service-specific variants when they deliver the same operational force configuration.
+Evidence and Template basis [S01]: S01 optimizes the assignment of modular building blocks to larger formations under uncertain adversary capability. Its military application supports operational force design; it does not establish deployed production software. Expert configuration and simulation remain useful comparators.
+IE/OR reference architecture: Capability-based force design | Robust integer allocation of modular force components; simulation-supported configuration evaluation.
+Candidate Regime: #design | Commits the composition of the operational force before readiness and mission assignments.
+Candidate Structure: #map + #select | Groups components into formations and selects the component configurations included.
+Rating synthesis: Priority High because force composition constrains readiness and major defense service commitments. Relevance Critical because better configurations can change long-lived capability sufficiency and resource commitments. Industrial Hardness High because scenario requirements and interacting component capabilities require tailored configuration models.
+Dependency candidates: upstream none specified; downstream readiness, units. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##force-design ##capability ##modularity ##robust-optimization.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE layout | Protective Sensor and Defense Asset Deployment
+Industrial commitment: Select protective sensor or defense asset alternatives and position them at admissible sites under coverage, resource, access and adversarial-response conditions.
+Aliases and retrieval terms: security sensor placement; defense battery location; protective asset positioning.
+Supplied substrate: Candidate sites, resource types, admissible placement alternatives, protected assets and a supplied exposure or threat model.
+Chosen construction and delivered artifact: Positions protective resources and selects the deployed resource alternatives. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Persistent protective footprint differs from assignment of available resources to named threats. Civilian sensing and ordinary basing capacity without a defining protection contract remain external.
+Variants and identity control: Ground, maritime, airborne and fixed-installation protective coverage; detection-only and defensive-effect assets retain modality-specific feasibility.
+Evidence and Template basis [S02, S03]: S02 provides a bilevel exposure-oriented location model with a military air-defense illustration. S03 provides two-sided optimization for defensive interceptor pre-positioning. Their model families support a coverage/defensive-location Template without implying one formulation works for all modalities.
+IE/OR reference architecture: Protective coverage and defensive footprint design | Discrete location and coverage optimization; bilevel or trilevel game formulations with decomposition.
+Candidate Regime: #design | Commits protective capacity and its footprint before collection or response operation.
+Candidate Structure: #place + #select | Positions protective resources and selects the deployed resource alternatives.
+Rating synthesis: Priority High because protective footprints constrain installation security and air or area defense systems. Relevance Critical because better footprints can reduce protection gaps for critical assets and services. Industrial Hardness High because coverage interactions and opponent responses complicate discrete location decisions.
+Dependency candidates: upstream none specified; downstream collection, patrol, weapons, electronic, alarm. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##defensive-location ##sensor-placement ##coverage ##security-game.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE protection | Defense Infrastructure Protection Investment
+Industrial commitment: Select protective interventions for defense-critical assets under budgets, adversarial disruption scenarios and required residual mission service.
+Aliases and retrieval terms: asset hardening; critical infrastructure defense; mission-assurance investment.
+Supplied substrate: Supplied transport, utility or mission-support network, protective options, costs, disruption scenarios and service-recourse model.
+Chosen construction and delivered artifact: Chooses the protection actions applied to a supplied service network. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Protection investment is distinct from ordinary utility dispatch, transport execution or routine reliability improvement.
+Variants and identity control: Defense transport corridors, utilities and communications support are consequence-model variants. Protection can reduce exposure without making an asset invulnerable.
+Evidence and Template basis [S04, S05]: S04 establishes defender–attacker–operator protection modeling. S05 applies the architecture to a military force-deployment support network. The operator may solve a LOG contract, but the selected defensive interventions are an INTEL commitment.
+IE/OR reference architecture: Mission assurance and infrastructure vulnerability assessment | Defender–attacker–operator optimization with mixed-integer reformulation and decomposition.
+Candidate Regime: #design | Commits protective interventions before disruption and operating recourse.
+Candidate Structure: #select | Chooses the protection actions applied to a supplied service network.
+Rating synthesis: Priority High because infrastructure protection recurs across defense installations and mobilization systems. Relevance Critical because better protection can preserve essential defense service during disruption. Industrial Hardness High because discrete protection, opponent choices and service recourse interact across the network.
+Dependency candidates: upstream none specified; downstream patrol. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##mission-assurance ##infrastructure-protection ##interdiction ##trilevel.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE controls | Cybersecurity Control Portfolio Selection
+Industrial commitment: Select compatible preventive security controls for defense systems under budgets, mission-access requirements and modeled cyber exposure.
+Aliases and retrieval terms: security safeguard selection; countermeasure portfolio; cyber hardening.
+Supplied substrate: Candidate safeguards, costs, compatibility, exposure scenarios, supplied attack relations and mission-service requirements.
+Chosen construction and delivered artifact: Chooses a compatible subset of available security controls. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Portfolio selection decides which controls to install. Detailed authorization roles, segmentation topology and deception deployment have separate delivered artifacts.
+Variants and identity control: Risk-neutral, risk-averse and robust scenarios are model variants. Attack-graph construction and vulnerability prediction are analytical inputs, not additional Structures.
+Evidence and Template basis [S06, S07]: S06 establishes scenario-based mixed-integer countermeasure selection. S07 establishes preventive control selection on attack graphs. Defense applicability follows the safeguarding contract; these sources do not establish defense-wide deployment.
+IE/OR reference architecture: Security risk treatment and control investment planning | Scenario-based portfolio MILP; attack-graph defender–attacker optimization.
+Candidate Regime: #design | Commits preventive safeguards before cyber defense operation.
+Candidate Structure: #select | Chooses a compatible subset of available security controls.
+Rating synthesis: Priority High because preventive safeguard selection recurs across defense information systems. Relevance Critical because better portfolios can protect mission services and sensitive information. Industrial Hardness High because shared vulnerabilities, control interactions and uncertain exposure couple investment choices.
+Dependency candidates: upstream none specified; downstream roles, segments, deception, remediation, mtd, response. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##countermeasure-selection ##attack-graph ##risk-treatment.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE roles | Defense Access-Control Role Engineering
+Industrial commitment: Define permission roles and assign users to roles under required access, least-privilege and separation-of-duty conditions.
+Aliases and retrieval terms: RBAC optimization; role mining; authorization refactoring.
+Supplied substrate: Users, permissions, required entitlement matrix and supplied security-policy constraints.
+Chosen construction and delivered artifact: Assigns permissions and users to roles to construct the authorization relation. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Security authorization differs from generic HR job-role assignment and COMP execution scheduling. New role definitions do not define a new Industry Territory.
+Variants and identity control: Hierarchical roles, administrative role refactoring and separation-of-duty restrictions are authorization variants. Hierarchical role-link selection is only an extra Structure when that relation is chosen explicitly.
+Evidence and Template basis [S08, S09]: S08 establishes combinatorial role mining and heuristic search for weighted authorization complexity. S09 develops an optimization framework using Boolean-matrix decomposition. Policy constraints must be made explicit rather than presumed to be covered by every role-mining algorithm.
+IE/OR reference architecture: Least-privilege authorization engineering | Constrained role mining and Boolean-matrix decomposition; integer optimization for explicit policy constraints.
+Candidate Regime: #design | Defines the authorization configuration before access decisions use it.
+Candidate Structure: #map | Assigns permissions and users to roles to construct the authorization relation.
+Rating synthesis: Priority Medium because role engineering is important within defense identity and access systems. Relevance High because better role definitions can reduce excess privilege and policy administration effort. Industrial Hardness High because many permission combinations and coupled policy rules require constrained search.
+Dependency candidates: upstream controls; downstream segments, response. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##role-mining ##least-privilege ##authorization ##boolean-matrix.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE segments | Mission-Network Security Segmentation
+Industrial commitment: Assign defense network resources to security zones and choose permitted inter-zone access relations under mission-access and cyber-exposure conditions.
+Aliases and retrieval terms: network segmentation; mission-aware microsegmentation; security-zone design.
+Supplied substrate: Installed network, mission access relations, vulnerabilities, zone alternatives and policy-rule candidates.
+Chosen construction and delivered artifact: Groups resources into zones and chooses permitted relations between zones. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Security access-policy configuration differs from physical network construction and ordinary traffic engineering. Inter-zone links denote permission relations, not necessarily new cables.
+Variants and identity control: Partition-only restrictions use map alone; explicit access-rule synthesis also constructs links. Operational technology and mission information networks are service-context variants.
+Evidence and Template basis [S10, S11, S12]: S10 supports an explicit tradeoff between cyberattack risk and mission access, using evolutionary programming. S11 supplies a trilevel partition/decomposition architecture with service recourse. S12 confirms policy optimization as an institutional capability. The power-grid model is a transferable Template, not evidence of defense-system installation.
+IE/OR reference architecture: Mission-aware microsegmentation | Security-policy optimization with evolutionary search; defender–attacker–operator decomposition for explicit service-recourse models.
+Candidate Regime: #design | Commits security zones and their allowed communication policy before routine use.
+Candidate Structure: #map + #link | Groups resources into zones and chooses permitted relations between zones.
+Rating synthesis: Priority High because segmentation is a recurring defense network protection decision. Relevance Critical because better policies can limit cyber spread while preserving mission access. Industrial Hardness High because attack reachability, access needs and operating recourse couple many policy choices.
+Dependency candidates: upstream controls, roles; downstream deception, mtd, response. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##microsegmentation ##partition ##access-policy ##cyber-resilience.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE deception | Cyber Deception Resource Deployment
+Industrial commitment: Select deception resource alternatives and assign them to defense network locations under resource, compatibility and modeled attacker-response conditions.
+Aliases and retrieval terms: honeypot placement; cyber decoy deployment; network security hardening by deception.
+Supplied substrate: Installed network, eligible deception locations, decoy alternatives, budgets and a supplied attacker-response model.
+Chosen construction and delivered artifact: Positions deception resources in the network and selects which alternatives are deployed. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Deception changes the adversary information environment. It is not a synonym for preventive hardening or security-network segmentation.
+Variants and identity control: Decoy host types and deception-resource capacity are deployment variants. Continuous mixed-strategy probabilities accompany discrete deployments and do not replace the ICO contract.
+Evidence and Template basis [S13]: S13 models limited defensive resources used to add honeypots and solves attacker policy search with pruning. Research evaluations support the method family; production effectiveness and defense deployment are not established.
+IE/OR reference architecture: Defensive deception and honeypot deployment | Attack-graph security games with attacker-policy search and pruning.
+Candidate Regime: #design | Commits a deception deployment before the protected network is used.
+Candidate Structure: #place + #select | Positions deception resources in the network and selects which alternatives are deployed.
+Rating synthesis: Priority Medium because deception deployment is important in specialized defense cyber protection systems. Relevance High because better deception can reduce successful compromise and improve defensive observation. Industrial Hardness High because attacker beliefs and multistage response make deployment evaluation difficult.
+Dependency candidates: upstream controls, segments; downstream alerts. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##honeypot ##deception ##attack-graph ##security-game.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE readiness | Force Readiness and Rotation Planning
+Industrial commitment: Assign operational units to deployment, preparation and recovery periods under mission demand, availability, rotation and readiness-cycle conditions.
+Aliases and retrieval terms: deployment-cycle scheduling; force generation; unit employment scheduling.
+Supplied substrate: Operational units, capability classes, periodic mission demand, phase-transition rules, deployment limits and available support windows.
+Chosen construction and delivered artifact: Places unit phases in time and assigns units to demand and readiness states. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: The contract promises deployable mission-capable units. Individual personnel training rosters are HR; transport to an assignment is LOG; repair-work content is PROD.
+Variants and identity control: Army rotations, naval employment calendars and air-unit readiness are service-specific variants. Crisis repair remains in the same family because it revises the same cycle artifact.
+Evidence and Template basis [S14, S15, S16]: S14 provides IP for unit deployment cycles and a crisis-rescheduling extension. S15 documents unit alignment to mission demand over time. S16 documents naval employment scheduling. Together they support a recurring force-generation family across services; neither an AFIT prototype nor historical naval use proves current service-wide adoption.
+IE/OR reference architecture: Force generation and readiness-cycle planning | Multiperiod unit-assignment IP; crisis rescheduling with disruption penalties.
+Candidate Regime: #plan + #adapt | Commits future readiness cycles and revises issued cycles after a material demand change.
+Candidate Structure: #place + #map | Places unit phases in time and assigns units to demand and readiness states.
+Rating synthesis: Priority Critical because readiness cycles define the available force for recurring defense commitments. Relevance Critical because better cycles can improve mission coverage and sustainable unit availability. Industrial Hardness High because long-lived commitments and readiness-state transitions couple units across many periods.
+Dependency candidates: upstream force; downstream collection, patrol, units, mission. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##readiness ##force-generation ##rotation ##multiperiod.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE collection | Military Intelligence Collection Tasking
+Industrial commitment: Select collection requests, assign defense sensing resources and schedule acquisition opportunities under information priority, availability, capacity and temporal conditions.
+Aliases and retrieval terms: ISR resource allocation; sensor tasking; military satellite observation scheduling.
+Supplied substrate: Information requests, supplied priorities, eligible sensor carriers, opportunity windows, capacities and service-feasibility rules.
+Chosen construction and delivered artifact: Assigns sensing resources to requests, places acquisitions in time and selects the serviced requests. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: The contract supplies information for an adversarial or protective defense decision. Civilian remote observation and independent downlink or compute allocation remain COMP.
+Variants and identity control: Satellite, airborne, maritime and ground collection are modality variants. Retasking and disrupted collection are plan revisions, not extra Problems.
+Evidence and Template basis [S17, S18, S19]: S17 describes a subject-expert eligibility stage followed by OR assignment and temporal scheduling, with deliberate, ad-hoc and dynamic use. S18 documents a deterministic multi-satellite decision model. S19 supports the architecture and dynamic planning context. The official application description limits solver detail, so no universal deployed solver is asserted.
+IE/OR reference architecture: Collection requirements and ISR management | Eligibility filtering followed by resource-assignment and scheduling optimization; MIQP for the documented multi-satellite model.
+Candidate Regime: #plan + #dispatch + #adapt | Commits a collection plan, issues immediate tasking and revises issued commitments after change.
+Candidate Structure: #map + #place + #select | Assigns sensing resources to requests, places acquisitions in time and selects the serviced requests.
+Rating synthesis: Priority Critical because collection tasking defines the use of scarce military observation resources. Relevance Critical because better collection can improve timely information available for defense decisions. Industrial Hardness High because resource suitability, observation windows and changing priorities couple acquisition choices.
+Dependency candidates: upstream layout, readiness; downstream search, interdiction, mission, weapons, electronic. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##isr ##collection-tasking ##observation-scheduling ##satellite.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE patrol | Defense Security Coverage and Patrol Scheduling
+Industrial commitment: Construct protective patrol schedules for supplied assets and areas under resource, movement, timing and adversarial-observation conditions.
+Aliases and retrieval terms: security patrol scheduling; protective escort scheduling; randomized coverage.
+Supplied substrate: Protected assets, patrol resources, admissible visits and travel transitions, service times and a supplied adversary-response model.
+Chosen construction and delivered artifact: Places patrol visits in time, connects feasible route legs and assigns schedules to resources. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Protection coverage distinguishes this contract from pure LOG route completion. Alarm-conditioned response is a separate contingent decision; escort is a patrol variant.
+Variants and identity control: Static facilities, moving-asset escorts and maritime patrols. Mixed strategy probabilities must correspond to executable discrete schedules; a purely divisible effort model is outside ICO.
+Evidence and Template basis [S20, S21]: S20 documents PROTECT deployment for Coast Guard port security using quantal response. S21 documents mobile-resource protection of moving assets. Military installation transfer follows the shared protective contract; published or historical deployment must not be generalized to every patrol system.
+IE/OR reference architecture: Protective coverage and randomized patrol planning | Stackelberg security-game optimization with executable schedule generation; bounded-rational response models when supported.
+Candidate Regime: #plan | Commits future protective coverage before patrol execution.
+Candidate Structure: #place + #link + #map | Places patrol visits in time, connects feasible route legs and assigns schedules to resources.
+Rating synthesis: Priority High because patrol coverage recurs in installation, maritime and asset protection. Relevance High because better schedules can reduce exploitable protection gaps. Industrial Hardness High because executable routes and uncertain opponent responses complicate randomized coverage.
+Dependency candidates: upstream layout, protection, readiness; downstream alarm. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##patrol ##coverage ##security-game ##randomization.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE inspection | Strategic Verification Inspection Scheduling
+Industrial commitment: Select verification visits or discrete inspection opportunities and schedule them under inspection budgets, access, detection and strategic-compliance conditions.
+Aliases and retrieval terms: arms-control inspection; safeguards inspection allocation; strategic compliance verification.
+Supplied substrate: Candidate visits or sampling opportunities, allowed periods, inspectee behavior assumptions, discrete inspection budgets and detection evidence.
+Chosen construction and delivered artifact: Places visits in inspection periods and chooses the inspected opportunities. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Retains discrete visit decisions, not continuous verification effort alone. Administrative audit without a defining strategic-response or security contract requires a separate ownership test.
+Variants and identity control: Single or multiple inspectees, imperfect detection and contingent inspection policies; do not assign blanket high Hardness to tractable restrictions.
+Evidence and Template basis [S22, S23]: S22 provides a sequential game with an integer inspection budget and closed-form or recursive solutions under specified payoff assumptions. S23 supports arms-control verification with imperfect detection. Rich travel-coupled models are a modeling extension rather than a claimed deployed best practice.
+IE/OR reference architecture: Arms-control and safeguards verification planning | Discrete sequential inspection games; recursive solution under supported assumptions and schedule optimization for coupled visits.
+Candidate Regime: #plan | Commits the inspection schedule or contingent visit policy before verification.
+Candidate Structure: #place + #select | Places visits in inspection periods and chooses the inspected opportunities.
+Rating synthesis: Priority Medium because strategic verification is central to specialized defense and safeguards programs. Relevance Critical because better inspections can improve detection and treaty verification confidence. Industrial Hardness Medium because restricted recursive models are tractable; coupled visits require tailored schedule models.
+Dependency candidates: upstream none specified; downstream none specified. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##inspection ##verification ##arms-control ##inspection-game.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE search | Security Search Path Planning
+Industrial commitment: Choose a search path through admissible locations under searcher capacity, movement and uncertain-object-location conditions.
+Aliases and retrieval terms: moving-object search; constrained search path; security search routing.
+Supplied substrate: Admissible location-transition graph, searcher resources, discrete search opportunities and supplied object-location probabilities.
+Chosen construction and delivered artifact: Connects chosen search transitions into a feasible path. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Search chooses where to observe an uncertain object; collection tasking services specified requests. Civilian rescue with direct-care feasibility belongs to HC; pure movement belongs to LOG.
+Variants and identity control: Air, maritime and area search; online updates retain the same search-path identity. Divisible search effort without discrete path or visit choices is excluded.
+Evidence and Template basis [S24]: S24 formulates discrete-time resource-constrained search paths and supports specialized branch-and-bound and reduction. Path timing supplied by discrete transitions does not automatically constitute an additional place construction.
+IE/OR reference architecture: Probabilistic constrained search planning | Specialized branch-and-bound with path bounds and network reduction.
+Candidate Regime: #plan + #dispatch | Commits a search path and can choose the next search transition from updated observations.
+Candidate Structure: #link | Connects chosen search transitions into a feasible path.
+Rating synthesis: Priority Medium because path-constrained search is important in specialized defense surveillance systems. Relevance High because better search paths can improve detection from limited search resources. Industrial Hardness High because path restrictions and changing location probabilities complicate search evaluation.
+Dependency candidates: upstream collection; downstream mission. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##search-path ##probabilistic-search ##route ##resource-constraint.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE interdiction | Defense Network Interdiction Planning
+Industrial commitment: Select admissible denial interventions on a supplied network under intervention budgets and modeled adversary service response.
+Aliases and retrieval terms: network denial; network interdiction; resource-constrained interdiction.
+Supplied substrate: Supplied network, admissible intervention alternatives, resource limits and service-response model.
+Chosen construction and delivered artifact: Chooses network components or actions to interdict; the network is supplied. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: This contract selects denial actions. Protection investment selects defended assets. Neither a supplied graph nor removal of links makes link construction the primary Structure.
+Variants and identity control: Node or arc interventions and deterministic or scenario-based response. Vulnerability analysis with no committed intervention is an analytical input.
+Evidence and Template basis [S25]: S25 establishes integer programming for deterministic resource-limited network interdiction. It supports the Template at problem-class level; uncertainty and multiperiod constraints require additional modeling.
+IE/OR reference architecture: Resource-limited network denial planning | Network interdiction IP and attacker–operator decomposition.
+Candidate Regime: #plan | Commits the intervention plan before execution and opponent recourse.
+Candidate Structure: #select | Chooses network components or actions to interdict; the network is supplied.
+Rating synthesis: Priority Medium because network denial planning is important within specialized defense analyses. Relevance High because better intervention choices can materially change adversary service availability. Industrial Hardness High because discrete interventions interact with the opponent network response.
+Dependency candidates: upstream collection; downstream mission. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##network-interdiction ##denial ##bilevel.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE mission | Integrated Defense Mission Scheduling
+Industrial commitment: Assign required mission tasks to available platforms and construct synchronized activity schedules and feasible mission routes under compatibility, precedence and support conditions.
+Aliases and retrieval terms: mission package planning; military aircraft mission planning; integrated mission scheduling.
+Supplied substrate: Required tasks, available platforms, mission eligibility, route alternatives, windows, precedence and supplied support resources.
+Chosen construction and delivered artifact: Places activities in time, assigns platforms to tasks and connects mission route legs. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Adversarial mission feasibility defines the contract. Generic transport-only routing remains LOG. A fixed-task unit assignment and an effect-resource assignment can be independent upstream or downstream contracts.
+Variants and identity control: Air, maritime and joint mission packages require service-specific feasibility. Repair revises the same delivered mission program and does not earn a separate Problem.
+Evidence and Template basis [S26, S27, S28]: S26 supplies a generalized routing MILP with synchronization and precedence. S27 supplies an established mission-package MIP. S28 documents the limitations of a simplified unit utility model, supporting retention of full mission feasibility rather than treating all mission planning as scalar assignment.
+IE/OR reference architecture: Integrated mission-package planning | Generalized vehicle-routing MILP with synchronization and precedence; task-package decomposition where required.
+Candidate Regime: #plan + #adapt | Commits a future integrated mission program and revises it after disruption.
+Candidate Structure: #place + #map + #link | Places activities in time, assigns platforms to tasks and connects mission route legs.
+Rating synthesis: Priority Critical because integrated mission commitments coordinate major defense service resources. Relevance Critical because better integration can improve mission feasibility and use of scarce platforms. Industrial Hardness Critical because assignment, routing, synchronization and support interactions require decomposition at large scale.
+Dependency candidates: upstream readiness, collection, search, interdiction, units; downstream weapons, electronic. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##mission-planning ##synchronization ##precedence ##route.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE remediation | Defense Vulnerability Remediation Planning
+Industrial commitment: Select vulnerability remediation work and place it in permitted service periods under exposure priorities, resources and defense service-availability conditions.
+Aliases and retrieval terms: patch prioritization; vulnerability management; exposure reduction planning.
+Supplied substrate: Discovered vulnerabilities, remediation alternatives, asset criticality, effort estimates, resource capacity and permitted service periods.
+Chosen construction and delivered artifact: Chooses the work admitted and positions it in the remediation calendar. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Plans known vulnerability work before an incident. Emergency containment chooses response to an observed compromise. Routine nonsecurity software maintenance belongs to COMP.
+Variants and identity control: Monthly remediation batches, patch windows and risk-averse priorities. Vulnerability scoring alone is an input; selecting work is the ICO decision.
+Evidence and Template basis [S29]: S29 documents VULCON mixed-integer multiobjective prioritization on real security-operations scan data. Calendar and mission-availability constraints are explicit industrial extensions of that baseline, not a claim that the source proves all deployment-window features.
+IE/OR reference architecture: Exposure-based vulnerability management | Multiobjective mixed-integer prioritization and resource-constrained remediation scheduling.
+Candidate Regime: #plan + #adapt | Commits preventive remediation work and revises issued commitments after exposure changes.
+Candidate Structure: #select + #place | Chooses the work admitted and positions it in the remediation calendar.
+Rating synthesis: Priority High because remediation planning recurs across operational defense cyber services. Relevance High because better work priorities can reduce exposure while controlling service disruption. Industrial Hardness High because asset criticality, shared resources and acceptable outage windows couple work choices.
+Dependency candidates: upstream controls; downstream response. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##vulnerability-remediation ##patching ##exposure ##schedule.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE units | Mission Unit Assignment
+Industrial commitment: Assign available operational units to supplied mission tasks under capability, eligibility, resource and mission-demand conditions.
+Aliases and retrieval terms: force-to-task assignment; unit-task allocation; mission resource allocation.
+Supplied substrate: Available units with capability vectors, supplied tasks, demand, eligibility and known mission windows.
+Chosen construction and delivered artifact: Assigns each unit or unit configuration to a mission task. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: This contract fixes unit responsibility with mission timing supplied. Integrated mission scheduling also chooses routes and temporal synchronization. Standalone person-to-duty rosters remain HR.
+Variants and identity control: Joint capability packages and phased assignments. A pure one-to-one linear assignment is easier than complementary-capability unit allocation.
+Evidence and Template basis [S15, S28]: S15 establishes unit-to-mission-demand integer assignment. S28 specifically studies simultaneous and phased greedy mission task allocation in 2026 and reports mixed results. The greedy comparator is therefore retained with its limits rather than promoted to universal practice.
+IE/OR reference architecture: Force-to-task capability allocation | Capability-constrained assignment IP; phased greedy assignment as a limited decision-support comparator.
+Candidate Regime: #allocate | Commits named units to supplied mission obligations.
+Candidate Structure: #map | Assigns each unit or unit configuration to a mission task.
+Rating synthesis: Priority High because unit allocation recurs across defense tasking systems. Relevance Critical because better assignments can improve capability coverage from the available force. Industrial Hardness High because complementary capabilities and coupled mission requirements need tailored assignment models.
+Dependency candidates: upstream force, readiness; downstream mission. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##force-to-task ##assignment ##capability.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE weapons | Weapon–Target Assignment
+Industrial commitment: Assign available effect resources to admissible modeled targets under compatibility, capacity and interacting-effect conditions.
+Aliases and retrieval terms: WTA; effect-target allocation; defensive interceptor assignment.
+Supplied substrate: Available effect resources, admissible modeled targets, supplied effect estimates and compatibility or capacity restrictions.
+Chosen construction and delivered artifact: Assigns discrete effect resources to eligible modeled targets. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: The catalog records a standard problem class. Threat evaluation produces inputs; platform product engineering, continuous control and detailed integrated mission routing are separate contracts.
+Variants and identity control: Protective interception, static allocation and rolling reassignment are assignment variants. Nonlinear interacting effects distinguish richer WTA from ordinary linear matching.
+Evidence and Template basis [S30, S31, S32]: S30 establishes exact and heuristic static WTA baselines. S31 supplies a 2025 branch-price-and-cut exact method and discusses extensions. S32 supplies a 2025 attention-based learning alternative. Published comparison gains are reported by authors and not reproduced here; neither paper establishes all dynamic operational performance.
+IE/OR reference architecture: Threat evaluation and effect-resource allocation | Branch-price-and-cut for supported static WTA; branch-and-bound and large-neighborhood search as established comparators.
+Candidate Regime: #allocate + #dispatch | Commits effect resources to named modeled targets and can issue an immediate assignment.
+Candidate Structure: #map | Assigns discrete effect resources to eligible modeled targets.
+Rating synthesis: Priority High because effect-resource assignment is central to major defense allocation systems. Relevance Critical because better assignments can improve protective effectiveness and resource use. Industrial Hardness High because coupled effects and dynamic extensions require specialized methods; static models have strong exact algorithms.
+Dependency candidates: upstream layout, collection, mission; downstream none specified. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##weapon-target-assignment ##nonlinear-assignment ##effect-allocation.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE electronic | Electronic Countermeasure Allocation
+Industrial commitment: Assign available electronic countermeasure resources to modeled threat tasks under compatibility, shared capacity and interacting-effect conditions.
+Aliases and retrieval terms: jamming allocation; TEJA; electronic countermeasure assignment.
+Supplied substrate: Discrete electronic-resource alternatives, modeled threat tasks, supplied compatibility and effectiveness estimates, and shared capacity.
+Chosen construction and delivered artifact: Assigns discrete countermeasure resources to compatible threat tasks. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Electronic interference interactions and resource management distinguish this family from independent kinetic-effect assignments. Continuous waveform synthesis and ordinary radio channel operation are excluded.
+Variants and identity control: Single and cooperative resource assignment. Continuous signal parameters can accompany a discrete allocation but do not alone establish an ICO problem.
+Evidence and Template basis [S33, S34]: S33 establishes threat evaluation and jamming allocation. S34 documents a cooperative combinatorial assignment implementation using a permutation-search approach. Public research-system results support a benchmark method family but not a universal deployed best practice.
+IE/OR reference architecture: Electronic protection resource management | Discrete combinatorial assignment optimization; permutation-based differential evolution for the documented cooperative model.
+Candidate Regime: #allocate + #dispatch | Commits electronic resources to threat tasks and can issue current assignments.
+Candidate Structure: #map | Assigns discrete countermeasure resources to compatible threat tasks.
+Rating synthesis: Priority Medium because electronic assignment is central to specialized electronic defense systems. Relevance High because better allocations can improve protection from limited electronic resources. Industrial Hardness High because coupled effects and limited public operational data complicate method validation.
+Dependency candidates: upstream layout, collection, mission; downstream none specified. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##electronic-countermeasure ##jamming-allocation ##assignment.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE screening | Defense Threat Screening Allocation
+Industrial commitment: Assign admitted flows, items or access claims to available screening actions under screening capacity, risk and mission-access conditions.
+Aliases and retrieval terms: security screening allocation; access screening; risk-based threat screening.
+Supplied substrate: Admitted claims or claim classes, threat-risk evidence, discrete screening alternatives, capacity and service requirements.
+Chosen construction and delivered artifact: Assigns eligible claims to discrete screening actions or resource combinations. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Screening assigns a present claim to a check; strategic verification chooses visits and periods. Generic queue staffing remains HR, and cybersecurity alert triage has a different alert-evidence contract.
+Variants and identity control: Personnel access, cargo and passenger protection are flow-context variants. Continuous capacity fractions must be realized by discrete screening assignments to enter ICO.
+Evidence and Template basis [S35, S36]: S35 establishes threat-screening games and scalable optimization. S36 develops an online constrained-action alternative. Transfer to defense installation access is a contract-based inference; the sources do not prove deployment at a particular military installation.
+IE/OR reference architecture: Risk-based protective screening | Threat-screening game optimization with implementable discrete allocations and decomposition.
+Candidate Regime: #allocate + #dispatch | Commits screening actions to claims and can allocate actions as claims arrive.
+Candidate Structure: #map | Assigns eligible claims to discrete screening actions or resource combinations.
+Rating synthesis: Priority Medium because threat screening is important in defense access and transport-security interfaces. Relevance High because better allocations can improve protection without excessive access delay. Industrial Hardness High because uncertain threat behavior and implementable resource combinations complicate screening.
+Dependency candidates: upstream none specified; downstream none specified. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##threat-screening ##inspection-allocation ##security-game.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE forensics | Cyber-Forensic Investigation Action Selection
+Industrial commitment: Choose the next discrete investigation steps during an active defense cyber incident under evidence, effort and information-dependency conditions.
+Aliases and retrieval terms: forensic action prioritization; cyber incident investigation; investigation decision support.
+Supplied substrate: Active case evidence, admissible investigation actions, effort costs, historical incident knowledge and supplied transition estimates.
+Chosen construction and delivered artifact: Chooses investigation actions from the admissible action set using current evidence. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Chooses investigative evidence acquisition after triage. It does not select analyst shifts or implement containment. Predicting adversary techniques alone is not the ICO commitment.
+Variants and identity control: Fixed action orders are narrower offline variants. Observation-dependent action policies are retained within this investigation contract.
+Evidence and Template basis [S37]: S37 formulates investigation as an MDP and evaluates Monte Carlo tree search against DISCLOSE. The source supplies discrete action choice rather than a fixed calendar; therefore primary select is defensible, and a solver search tree is not automatically link construction.
+IE/OR reference architecture: Evidence-driven cyber-forensic investigation | Markov decision process with Monte Carlo tree search over discrete investigation actions.
+Candidate Regime: #dispatch | Issues the next investigation action from the current incident evidence state.
+Candidate Structure: #select | Chooses investigation actions from the admissible action set using current evidence.
+Rating synthesis: Priority Medium because investigation action selection is important within defense incident analysis. Relevance High because better actions can improve compromise discovery from limited analyst effort. Industrial Hardness High because uncertain evidence and a large conditional action space require adaptive search.
+Dependency candidates: upstream alerts; downstream response. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##cyber-forensics ##investigation ##mdp ##information-gain.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE mtd | Moving-Target Defense Reconfiguration Scheduling
+Industrial commitment: Assign permitted platform alternatives to supplied service intervals during ongoing defense operation under exposure, compatibility and service-continuity conditions.
+Aliases and retrieval terms: dynamic platform defense; moving-target defense; defensive platform switching.
+Supplied substrate: Permitted discrete platforms or configurations, transition alternatives, exposure models, switching costs and service constraints.
+Chosen construction and delivered artifact: Assigns platform alternatives to the supplied ordered service intervals. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Proactive reconfiguration differs from ordinary COMP migration and incident-triggered containment. Continuous rate-only defense models do not enter the discrete contract.
+Variants and identity control: Platform alternatives and cyber configuration diversity. Stochastic selection probabilities accompany executable discrete transitions.
+Evidence and Template basis [S38]: S38 studies strategic use of dynamic platform defenses and supplies migration interval d. The chosen platform at each step constructs a configuration-to-interval assignment. No independently chosen migration time is evidenced by this baseline. The Template does not assert a universally deployed schedule optimizer.
+IE/OR reference architecture: Proactive dynamic platform defense | Game-theoretic optimization of discrete platform strategies and switching policies.
+Candidate Regime: #operate + #sequence | Orders recurring protective reconfigurations within an active service.
+Candidate Structure: #map | Assigns platform alternatives to the supplied ordered service intervals.
+Rating synthesis: Priority Medium because reconfiguration schedules are important in specialized defense cyber systems. Relevance High because better switching policies can reduce persistent exposure while limiting service cost. Industrial Hardness High because adversary adaptation and service continuity couple configuration transitions.
+Dependency candidates: upstream controls, segments; downstream none specified. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##moving-target-defense ##reconfiguration ##switching-policy.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE alerts | Defense Security Alert Triage and Assignment
+Industrial commitment: Select current security alerts for investigation and assign admitted alerts to qualified analyst resources under effort, backlog and modeled adversarial-risk conditions.
+Aliases and retrieval terms: SOC alert allocation; security warning prioritization; cyber alert screening.
+Supplied substrate: Current alerts, supplied evidence or scores, analyst qualifications, effort budgets and pending work.
+Chosen construction and delivered artifact: Assigns alerts to analyst resources and selects which alerts are investigated now. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Protective evidence and strategic adversary behavior define this contract; generic analyst shift scheduling remains HR. Subsequent forensic action choice is a separate investigation decision.
+Variants and identity control: Static backlog and arriving-alert queues. The method choice depends on whether response models and arrival dynamics are represented.
+Evidence and Template basis [S39, S40]: S39 supplies expert-to-alert allocation with exact and scalable heuristic approaches. S40 supplies an adaptive adversarial-prioritization alternative. Detection and learned risk scoring remain inputs and must not be treated as combinatorial allocation.
+IE/OR reference architecture: Security operations alert triage | Cyber-screening game optimization with expert-to-alert assignment; adaptive prioritization for evolving queues.
+Candidate Regime: #dispatch | Commits immediate investigation effort from the current security alert queue.
+Candidate Structure: #map + #select | Assigns alerts to analyst resources and selects which alerts are investigated now.
+Rating synthesis: Priority High because alert triage recurs in major defense security operations services. Relevance High because better triage can improve timely investigation from scarce analyst capacity. Industrial Hardness High because high alert volumes and adversarial behavior require scalable allocation methods.
+Dependency candidates: upstream deception; downstream forensics, response. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##alert-triage ##security-operations ##assignment ##backlog.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE alarm | Alarm-Triggered Protective Response Routing
+Industrial commitment: Assign available protective responders and construct immediate response routes after an alarm under access, arrival-time and uncertain incident-location conditions.
+Aliases and retrieval terms: security alarm response; contingent protection routing; alarm-conditioned response.
+Supplied substrate: Current alarm signals, available responders, supplied travel graph, possible incident locations and response-time limits.
+Chosen construction and delivered artifact: Connects feasible response route legs and assigns responders to alarm service. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Protection under adversarial alarm uncertainty distinguishes this from generic vehicle dispatch. Integrated casualty care remains HC.
+Variants and identity control: False alarms, uncertain location and missed detection. Initial patrol coverage supplies availability; immediate response remains a distinct commitment.
+Evidence and Template basis [S41]: S41 explicitly combines patrolling and alarm-triggered response under spatial and detection uncertainty. It supports route-based contingent response rather than a claim of a universal response system. Multi-responder assignment is the industrial extension when more than one resource is available.
+IE/OR reference architecture: Alarm-conditioned protective response | Spatial security-game optimization with feasible response-route generation.
+Candidate Regime: #dispatch | Issues immediate response commitments from the observed alarm state.
+Candidate Structure: #link + #map | Connects feasible response route legs and assigns responders to alarm service.
+Rating synthesis: Priority High because contingent response is common in defended installation and asset protection. Relevance Critical because better responses can improve timely protection during a suspected incident. Industrial Hardness High because uncertain location and tight response conditions couple route alternatives.
+Dependency candidates: upstream layout, patrol; downstream none specified. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##alarm-response ##response-routing ##uncertainty.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+CANDIDATE response | Defense Cyber Incident Containment and Recovery
+Industrial commitment: Select compatible containment and secure recovery actions after observed compromise under mission continuity, response-resource and system-invariant conditions.
+Aliases and retrieval terms: intrusion response; cyber containment; secure mission-service restoration.
+Supplied substrate: Observed compromise evidence, installed service dependencies, allowed discrete response actions, operating invariants and mission-service priorities.
+Chosen construction and delivered artifact: Chooses a feasible set or conditional policy of containment and recovery actions. The returned artifact is the committed decision above, not the auxiliary optimization representation.
+Ownership and neighboring contracts: Secure response to compromise is INTEL. Routine compute restoration and physical utility repair retain their own Domain contracts. Preventive patch planning has a different trigger.
+Variants and identity control: Containment, isolation and secure restoration are action variants within one incident-revision contract. Subsequent investigation and reconfiguration can provide feedback across decision episodes.
+Evidence and Template basis [S42, S43]: S42 establishes game-theoretic intrusion response and recovery. S43 supplies a security-response MIP with large-neighborhood search in SDN research. Defense service use is inferred from mission continuity and safeguarding, not claimed as a documented deployment. Generic routing components of the latter remain COMP.
+IE/OR reference architecture: Security-aware incident response and recovery | Game-theoretic response-action search; security-response MIP with large-neighborhood search for supported network models.
+Candidate Regime: #adapt + #dispatch | Revises prior service and protection commitments after compromise and issues immediate response actions.
+Candidate Structure: #select | Chooses a feasible set or conditional policy of containment and recovery actions.
+Rating synthesis: Priority High because incident response is central to major defense cyber protection services. Relevance Critical because better actions can limit compromise while restoring critical mission service. Industrial Hardness High because uncertain compromise and interacting service and security consequences require tailored response models.
+Dependency candidates: upstream controls, roles, segments, remediation, alerts, forensics; downstream none specified. Edges are conditional industrial information or commitment flow, not mathematical reduction.
+Useful refinements: ##incident-response ##containment ##secure-recovery ##recourse.
+Admission: retain as a stand-alone operational defense decision. General-purpose source applications are transferred by the specified defense contract, not by institutional naming alone.
+
+DEPENDENCY EVIDENCE AND QUALIFICATIONS
+
+The directed edges below are project synthesis. None is claimed as a universal source-reported operating sequence. Sources establish the consuming contracts; the supplied committed artifacts explain each edge.
+force → readiness, units: configured operational formations supply eligible units and capability classes [S01, S14, S15].
+layout → collection, patrol, weapons, electronic, alarm: installed protective resources supply availability or eligibility to tasking, coverage and response [S02, S03, S17, S33, S41]. A purely fixed sensor footprint does not constrain all effect resources; edges apply only to the integrated protective configuration.
+protection → patrol: selected protection changes the residual exposure and protective coverage requirement [S04, S20].
+controls → roles, segments, deception, remediation, mtd, response: selected safeguard requirements constrain detailed installed policies, recurring protection and allowed response alternatives [S06–S13, S29, S38, S42]. These are conditional configuration interfaces, not a requirement that every system implements all controls.
+roles → segments, response: authorized access requirements constrain zone policies and service-preserving response [S08, S10, S42].
+segments → deception, mtd, response: permitted access and zone membership constrain where deception or platform changes operate and which response actions preserve access [S10–S13, S38, S42].
+deception → alerts: installed defensive observation can produce alerts for triage [S13, S39]; only deployments that emit investigation evidence use this edge.
+readiness → collection, patrol, units, mission: readiness commitments supply resource availability [S14–S17, S20, S26, S28].
+collection → search, interdiction, mission, weapons, electronic: collection supplies permitted information updates to the consuming decisions [S17–S19, S24–S27, S30, S33]. Collection is not the exclusive possible input source.
+patrol → alarm: the issued patrol program supplies responder positions and availability to alarm-conditioned response [S20, S41].
+search → mission: search results can update mission task eligibility [S24, S26].
+interdiction → mission: an admitted denial plan can supply tasks to an integrated mission program [S25, S26].
+units → mission: committed force-to-task responsibility can constrain detailed platform timing and support feasibility [S15, S26, S28].
+mission → weapons, electronic: committed platform participation and activity windows constrain effect and electronic assignments [S26, S27, S30, S33]. These later allocations can also inform a new mission revision, but that feedback is a new decision episode.
+remediation → response: planned controls and remaining known exposure constrain allowed containment and secure recovery alternatives [S29, S42].
+alerts → forensics, response: triaged alert evidence initiates investigation or protective response [S37, S39, S42].
+forensics → response: investigation evidence updates the known compromise and allowed response choices [S37, S42].
+Inspection has no necessary within-set dependency. It can consume external treaties and verification requirements.
+Potential feedback cycles: collection/search/mission; mission/effect allocation; triage/forensics/response; response/installed-policy revision. The compiled graph represents the initial or current commitment pass, not the entire feedback history. Feedback is not silently treated as an acyclic universal prerequisite. Direction and presence depend on integration; no mathematical reduction is used as an industrial edge.
+Regime bands will govern compilation first. Fixed-task unit allocation precedes a richer mission program industrially but belongs to a later numbering band. That backward inter-band reference cannot be removed by in-band reordering. Alert triage and evidence-triggered forensic action selection share the dispatch band, where triage precedes investigation. Within-band design configuration and search/interdiction/mission flows have a defensible order.
+
+MERGE, EXCLUSION AND TERRITORY LEDGER
+
+Readiness crisis rescheduling → merge with readiness. Same returned unit-cycle artifact [S14].
+Satellite and airborne collection; ad-hoc ISR tasking; disrupted retasking → collection variants, not Territory splits [S17–S19].
+Installation, maritime and moving-asset escort protection → patrol variants. Alarm-conditioned response remains distinct because an observed alarm commits a contingent route [S20, S21, S41].
+Air/maritime/joint mission packages and disruption repair → integrated mission variants. Do not create one Problem per vehicle or military service [S26, S27].
+Static, immediate and rolling effect-resource assignment → weapons variants. Dynamic time-linked models require specific Template validation; ordinary matching is a restricted case [S30–S32].
+Electronic allocation → retain separately from WTA because shared interference and electronic resource compatibility define a distinct professional contract [S33, S34].
+Cyber control portfolios, roles, segmentation, deception, dynamic platforms, remediation, triage, investigation and response → retain distinct delivered protection artifacts and decision triggers. A single tool may integrate them; that does not make their contracts synonymous [S06–S13, S29, S37–S43].
+CBRN protection, mine countermeasure service, counter-drone protection and space defense → no unsupported specialty cards. Test protective deployment, search, collection, screening, effect assignment and mission contracts first. Specialized operating constraints are background variants; material missing contracts may be revisited during human inspection.
+General access anomaly detection, threat scoring, image fusion, adversary behavior prediction and combat simulation → input analytics or validation, not ICO without a discrete commitment.
+Continuous waveform synthesis, trajectory control and fractional search/inspection effort alone → outside discrete ICO.
+Standalone privacy release and civilian enterprise security → not automatically defense service Problems. Authorization and cyber defense enter DEF only for the specified defense safeguarding contract.
+New weapon/platform architecture, product validation and equipment production → PROD or PROC by contract; outside DEF operational territory.
+Modernization/acquisition capability program portfolios → potential INTEL × DEFENSE development or administration territory at ontology level. CPAT establishes a credible candidate [S44]. Do not silently widen #PRODUCTION or invent a new Industry Domain code.
+Generic force-closure cargo movement, connectors, ordinary airlift and replenishment journeys → LOG [S45]. Security constraints must define the delivered mission before ownership can change.
+War-reserve stock positioning, military spare-parts availability and replenishment → SCM under the normative contract test. Protective availability may be an interface but military ownership is insufficient.
+Individual personnel shifts, training rosters and generic workforce allocation → HR. Mission-capable unit readiness remains DEF because it commits the force service [S14, S15].
+Equipment repair task scheduling and manufacturing → PROD. Carrier withdrawal windows can be a readiness input; this does not transfer shop work to DEF.
+Installed radio, downlink, compute and ordinary network traffic resources → COMP unless adversarial protection defines the chosen contract.
+Military medical response → HC when clinical or patient conditions define feasibility; ordinary casualty transport needs a LOG/HC contract test.
+Base construction and routine public-asset upkeep → CIVIC; utility balance and dispatch → ENER; financial claims → FIN; market rights and procurement mechanisms → MKT.
+
+MARKETPLACE HANDOFF
+
+Existing marketplace entries were read. No inbound OPEN entry explicitly proposes DEF as owner. Generic INTEL and DEFENSE service references were assessed as discovery seeds rather than silently resolving other Domains' records.
+New material neighboring contracts and the modernization territory question are recorded in background/000_PROBLEM_marketplace.txt. This research does not classify or edit another Domain foreground. Exact receiving Industry Domain codes are not invented.
+
+KNOWN LIMITS AND CASE-LAYER RETURN CONDITIONS
+
+Public evidence is sufficient for a first Problem-layer canonical inventory and method-family Templates. It does not establish exhaustive classified coverage, universal service deployment, real-time performance of every integrated variant or independent reproducibility. No Cases, reference results, access-license guarantees or benchmark IDs are compiled. Source or contract mismatches found during later Case research must return to Problem control rather than silently redefining a parent.
+
+SOURCE REGISTER
+
+Retrieved 8 October 2026 UTC / 9 October Europe/Berlin unless explicitly marked as an inherited supporting reference. Publication years are distinguished from search crawl dates. Exact sources are retained for later validation; no source discussion is compiled into the foreground.
+
+[S01] Robust capabilities design and optimization for a modular block-based organization (2024).
+https://www.sciencedirect.com/science/article/pii/S0360835224002420
+Evidence: Modular force-component allocation under capability uncertainty. Publisher-indexed abstract and excerpts inspected; direct full-page access returned 403.
+Inspection and limits: Research force-design model; no universal operational deployment claim.
+
+[S02] A bilevel exposure-oriented sensor location problem for border security (2018).
+https://www.sciencedirect.com/science/article/pii/S0305054818301400
+Evidence: Discrete protective sensor location with an adversarial route response and military illustration.
+Inspection and limits: Publisher-indexed model description; modality-specific coverage assumptions.
+
+[S03] A Two-Sided Optimization for Theater Ballistic Missile Defense (2005).
+https://doi.org/10.1287/opre.1050.0231
+Evidence: Defensive resource pre-positioning with a two-sided optimization model.
+Inspection and limits: Published planning model, not evidence of present deployment.
+
+[S04] Brown, Carlyle, Salmerón and Wood. Defending Critical Infrastructure (2006).
+https://doi.org/10.1287/inte.1060.0252
+Evidence: Protection selection with sequential defender, attacker and service operator.
+Inspection and limits: Foundational protection architecture; utility operation remains a separate contract.
+
+[S05] Brown and Craparo. Implementing Defender-Attacker-Operator (DAO) Optimization, with a Military Force Deployment Example (2023).
+https://faculty.nps.edu/emcrapar/docs/Brown-ImplementingDefenderAttackerOperatorDAO-2023.pdf
+Evidence: Military movement-support network protection using DAO optimization.
+Inspection and limits: Author-hosted paper inspected through indexed evidence; not a route-execution Template.
+
+[S06] Sawik. Selection of optimal countermeasure portfolio in IT security planning (2013).
+https://www.sciencedirect.com/science/article/pii/S0167923613000109
+Evidence: Scenario-based mixed-integer preventive control selection with risk tradeoffs.
+Inspection and limits: Publisher indexed evidence; direct page open returned 403.
+
+[S07] Interdicting attack graphs to protect organizations from cyber attacks: A bi-level defender-attacker model (2017).
+https://www.sciencedirect.com/science/article/pii/S0305054816301113
+Evidence: Budgeted preventive controls selected over a supplied attack graph.
+Inspection and limits: Publisher-indexed evidence; direct open returned 403. No defense-specific deployment assertion.
+
+[S08] Li et al. Role Mining for Engineering and Optimizing Role Based Access Control Systems. CERIAS TR 2007-60.
+https://www.cerias.purdue.edu/apps/reports_and_papers/view/3329
+Evidence: Authorization role mining, weighted complexity and constrained combinatorial search.
+Inspection and limits: Institutional abstract inspected. Source uses NP-complete language for optimization; do not copy this imprecision into a formal optimization-class claim.
+
+[S09] Lu, Vaidya and Atluri. An optimization framework for role mining (2014).
+https://doi.org/10.3233/JCS-130484
+Evidence: Boolean-matrix decomposition and role-engineering optimization.
+Inspection and limits: Fresh publisher article record inspected during B return; role-mining optimization and Boolean-matrix context verified. Case fit and implementation reproduction remain later work.
+
+[S10] Noel, Swarup and Johnsgard. Optimizing network microsegmentation policy for cyber resilience. JDMS 20(1), 57–79 (2023; online 2021).
+https://doi.org/10.1177/15485129211051386
+Evidence: Mission-access and cyber-exposure tradeoff using evolutionary policy search.
+Inspection and limits: Publisher-indexed abstract checked; online-first and volume years distinguished.
+
+[S11] Johnson et al. A covering decomposition algorithm for power grid cyber-network segmentation (2021 preprint).
+https://optimization-online.org/2021/12/8725/
+Evidence: Trilevel cyber segmentation with service recourse and covering decomposition.
+Inspection and limits: Author research abstract inspected; transfer to defense mission networks is an explicit Template inference.
+
+[S12] MITRE. Optimizing network microsegmentation policy for cyber resilience.
+https://www.mitre.org/our-impact/intellectual-property/optimizing-network-microsegmentation-policy-cyber-resilience
+Evidence: Institutional description of security-policy optimization.
+Inspection and limits: Official capability evidence; intellectual-property listing is not an operational effectiveness comparison.
+
+[S13] Durkota, Lisý, Bošanský and Kiekintveld. Optimal Network Security Hardening Using Attack Graph Games. IJCAI (2015).
+https://www.ijcai.org/Abstract/15/080
+Evidence: Defensive honeypot deployment with attacker-policy search and pruning.
+Inspection and limits: Proceedings abstract inspected; supplied attack graph is not chosen link Structure.
+
+[S14] Engel. An Integer Programming Model to Optimize US Army Deployment Cycle and Maximize Unit Availability. AFIT thesis (2024).
+https://scholar.afit.edu/etd/7713/
+Evidence: Readiness-cycle IP and explicit crisis-rescheduling extension.
+Inspection and limits: Institutional abstract inspected; research prototype with mixed crisis-response results.
+
+[S15] Gargin, Boardman and LaCasse. A Workforce Optimization Model for U.S. Army Force Structure Optimization and Sufficiency Analysis. Military Operations Research 29(4), 5–24 (2024).
+https://scholar.afit.edu/facpub/1837/
+Evidence: Integer alignment of operational units with mission demand over periods.
+Inspection and limits: Official author record inspected; complete article is subscription access. Title does not by itself establish HR ownership.
+
+[S16] Annual Scheduling of Atlantic Fleet Naval Combatants. Operations Research 38(2), 249–259 (1990).
+https://doi.org/10.1287/opre.38.2.249
+Evidence: Operational naval employment scheduling.
+Inspection and limits: Publisher-indexed abstract checked; historical practice evidence, not a current product audit.
+
+[S17] Fraunhofer IOSB. ISR Manager Application – Resource-optimal sensor deployment planning.
+https://www.iosb.fraunhofer.de/en/projects-and-products/resource-optimal_sensor_deployment_planning.html
+Evidence: Expert eligibility filtering followed by resource assignment and temporal scheduling, with deliberate, ad-hoc and dynamic planning modes.
+Inspection and limits: Official application page inspected; exact underlying production algorithm is not fully disclosed.
+
+[S18] Berger. Multi-satellite intelligence collection scheduling: decision model. DRDC D68-2/214-2018E-PDF (2018).
+https://publications.gc.ca/site/eng/9.881134/publication.html
+Evidence: Deterministic multi-satellite intelligence collection model.
+Inspection and limits: Official government record and indexed report evidence; mathematical architecture is MIQP as documented in the existing INTEL research.
+
+[S19] An ISR asset planning application: Software architecture and components (2022). Fraunhofer.
+https://publica.fraunhofer.de/entities/publication/714d9a78-f256-4bcb-8f15-73d70745578c
+Evidence: Collection requirements, resource suitability and response to dynamic mission changes.
+Inspection and limits: Institutional research description checked; no disclosed independent benchmark reproduction.
+
+[S20] Shieh et al. A Deployed Quantal Response-Based Patrol Planning System for the U.S. Coast Guard (2013).
+https://doi.org/10.1287/inte.2013.0700
+Evidence: PROTECT protective patrol scheduling with bounded-rational response.
+Inspection and limits: Publisher abstract documents historical Coast Guard deployment; deployment claim is restricted to that system.
+
+[S21] Fang et al. Optimal Patrol Strategy for Protecting Moving Targets with Multiple Mobile Resources. AAMAS (2013).
+https://www.andrew.cmu.edu/user/feif/Publications/2013_AAMAS_Ferry.pdf
+Evidence: Mobile-resource protection of moving assets with executable schedules.
+Inspection and limits: Fresh AAMAS primary paper inspected during B return. Discretized defender schedules and a continuous attacker strategy are distinguished; defense installation transfer remains an inference.
+
+[S22] von Stengel. Recursive Inspection Games. Mathematics of Operations Research 41(3), 935–952 (2016).
+https://doi.org/10.1287/moor.2015.0762
+Evidence: Integer inspection budgets, sequential decisions and recursive or closed-form solutions under specified assumptions.
+Inspection and limits: Publisher evidence checked; prevents blanket industrial hardness claims.
+
+[S23] Efficient distributions of arms-control inspection effort. Naval Research Logistics 51(1), 1–27 (2004).
+https://doi.org/10.1002/nav.10096
+Evidence: Strategic verification and imperfect detection.
+Inspection and limits: Fresh publisher abstract inspected during B return. Supports arms-control verification context; continuous effort alone is excluded.
+
+[S24] Sato and Royset. Path optimization for the resource-constrained searcher. Naval Research Logistics 57(5), 422–440 (2010).
+https://doi.org/10.1002/nav.20411
+Evidence: Discrete constrained search paths and specialized branch-and-bound.
+Inspection and limits: Publisher record and indexed evidence checked; not a generic fractional effort allocation.
+
+[S25] Wood. Deterministic network interdiction. Mathematical and Computer Modelling 17(2), 1–18 (1993).
+https://www.sciencedirect.com/science/article/pii/089571779390236R
+Evidence: Integer programming for selecting resource-limited network interventions.
+Inspection and limits: Publisher record checked; model-specific extensions need later validation.
+
+[S26] Military aircraft mission planning: a generalized vehicle routing model with synchronization and precedence (2013).
+https://www.sciencedirect.com/science/article/pii/S2192437620600255
+Evidence: Integrated assignment, route and schedule MILP.
+Inspection and limits: Publisher-indexed abstract checked; direct full-page open returned 403.
+
+[S27] An Air Mission Planning Algorithm Using Decision Analysis and Mixed Integer Programming (1997).
+https://doi.org/10.1287/opre.45.5.662
+Evidence: Established mission-package allocation MIP.
+Inspection and limits: Publisher abstract checked. Used only at problem-class level; no operational instance is created.
+
+[S28] Scharine et al. Task Assignment Optimization in Operational Mission Planning for Scalable Cross-Echelon Command and Control of the Future. ARL-TR-10252 (5 January 2026).
+https://arl.devcom.army.mil/arlreport/arl-tr-10252/
+Evidence: Simultaneous and phased greedy unit-to-task allocation with explicit model limitations.
+Inspection and limits: Official public-release abstract inspected; reports mixed results and omitted mission considerations.
+
+[S29] Farris et al. VULCON – A System for Vulnerability Prioritization, Mitigation, and Management. ACM TOPS 21(4), 16 (2018).
+https://www.pnnl.gov/publications/vulcon-system-vulnerability-prioritization-mitigation-and-management
+Evidence: Multiobjective mixed-integer prioritization using real security-operations scan data.
+Inspection and limits: Official abstract inspected; published performance is not reproduced or generalized to defense.
+
+[S30] Ahuja, Kumar, Jha and Orlin. Exact and Heuristic Algorithms for the Weapon-Target Assignment Problem (2007).
+https://doi.org/10.1287/opre.1070.0440
+Evidence: Exact static methods, flow-based bounds and large-neighborhood search.
+Inspection and limits: Publisher page inspected; retained as an established comparator rather than the latest exact default.
+
+[S31] Bertsimas and Paskov. Solving Large-Scale Weapon Target Assignment Problems in Seconds Using Branch-Price-And-Cut. Naval Research Logistics 72(5), 735–749 (2025).
+https://doi.org/10.1002/nav.22249
+Evidence: Exact branch-price-and-cut for nonlinear WTA with discussion of variants.
+Inspection and limits: Open-access primary paper inspected. Author-reported computational gains are not reproduced; operational dynamic guarantees are not inferred.
+
+[S32] Yoon, Lee and Cho. A transformer-based reinforcement learning approach for scalable weapon target assignment (2025).
+https://doi.org/10.1177/15485129251335043
+Evidence: Attention-based learning assignment alternative.
+Inspection and limits: Publisher page inspected; reported comparisons do not establish dominance over every exact method or feasible constraint set.
+
+[S33] Osner. Threat evaluation and jamming allocation (2017).
+https://doi.org/10.1049/iet-rsn.2016.0277
+Evidence: Discrete electronic-countermeasure assignment.
+Inspection and limits: Existing INTEL reference and current indexed research evidence; operational details are not reproduced.
+
+[S34] You et al. Implementation of a combinatorial-optimisation-based threat evaluation and jamming allocation system (2019).
+https://doi.org/10.1049/iet-rsn.2019.0001
+Evidence: Cooperative electronic-resource allocation with permutation-based differential evolution.
+Inspection and limits: Publisher-indexed primary evidence checked; field-data limits remain explicit.
+
+[S35] Brown et al. One Size Does Not Fit All: A Game-Theoretic Approach for Dynamically and Effectively Screening for Threats. AAAI (2016).
+https://ojs.aaai.org/index.php/AAAI/article/view/10023
+Evidence: Threat-screening game with implementable assignments and scalable optimization.
+Inspection and limits: Proceedings record checked; civilian screening evidence transfers by protective contract, not by institution name.
+
+[S36] Shah et al. Solving Online Threat Screening Games using Constrained Action Space Reinforcement Learning. AAAI (2020).
+https://doi.org/10.1609/aaai.v34i02.5599
+Evidence: Online discrete screening allocation alternative.
+Inspection and limits: Fresh AAAI proceedings abstract inspected during B return. Confirms online constrained-action allocation; no deployment or universal superiority claim.
+
+[S37] Atefi, Panda, Panaousis and Laszka. Principled Data-Driven Decision Support for Cyber-Forensic Investigations. AAAI 37(4), 5010–5017 (2023).
+https://ojs.aaai.org/index.php/AAAI/article/view/25628
+Evidence: MDP and Monte Carlo tree search for discrete investigation action choice.
+Inspection and limits: Proceedings abstract inspected; comparison to DISCLOSE is reported, not reproduced.
+
+[S38] Carter, Riordan and Okhravi. A Game Theoretic Approach to Strategy Determination for Dynamic Platform Defenses. ACM MTD (2014).
+https://doi.org/10.1145/2663474.2663478
+Evidence: Strategic optimization of dynamic platform-defense usage.
+Inspection and limits: Publisher and MIT author paper inspected. Migration duration is supplied; discrete platform selection over ordered steps supports map without independent time placement.
+
+[S39] Schlenker et al. Don’t Bury your Head in Warnings: A Game-Theoretic Approach for Intelligent Allocation of Cyber-security Alerts. IJCAI (2017).
+https://www.ijcai.org/proceedings/2017/54
+Evidence: Expert-to-alert assignment with exact and scalable heuristic methods.
+Inspection and limits: Proceedings abstract inspected; adversary behavior and alert scarcity define the protective contract.
+
+[S40] Finding Needles in a Moving Haystack: Prioritizing Alerts with Adversarial Reinforcement Learning. AAAI (2020).
+https://doi.org/10.1609/aaai.v34i01.5442
+Evidence: Adaptive alert prioritization alternative.
+Inspection and limits: Fresh AAAI proceedings abstract inspected during B return. Confirms adaptive adversarial alert prioritization; production deployment is not established.
+
+[S41] Basilico, De Nittis and Gatti. A Security Game Combining Patrolling and Alarm-Triggered Responses Under Spatial and Detection Uncertainties. AAAI (2016).
+https://ojs.aaai.org/index.php/AAAI/article/view/10022
+Evidence: Contingent protective response under uncertain alarm location and detection.
+Inspection and limits: Proceedings record checked; multi-resource extension is a contract inference.
+
+[S42] Zonouz et al. RRE: A Game-Theoretic Intrusion Response and Recovery Engine (2009; journal extension 2014).
+https://smartgrid.illinois.edu/publications/rre-game-theoretic-intrusion-response-and-recovery-engine.html
+Evidence: Security-aware response action selection and recovery.
+Inspection and limits: Official project and author institutional records checked; no defense deployment claim.
+
+[S43] Curry et al. DUELMIPs: Optimizing SDN Functionality and Security. CP (2022).
+https://doi.org/10.4230/LIPIcs.CP.2022.17
+Evidence: Security-response MIP and large-neighborhood search.
+Inspection and limits: Fresh Dagstuhl proceedings abstract inspected during B return. Confirms security-response MIP and large-neighborhood search evaluated on synthetic networks; its generic routing stage is not transferred into DEF.
+
+[S44] Davis et al. Maximizing the U.S. Army’s Future Contribution to Global Security Using the Capability Portfolio Analysis Tool (CPAT). Interfaces 46(1), 91–108 (2016).
+https://doi.org/10.1287/inte.2015.0824
+Evidence: Modernization program selection and implementation periods.
+Inspection and limits: Territory exclusion evidence: new-capability development/programming is not silently compiled into the operational service inventory.
+
+[S45] NPS. EABO Connector Optimization Model Reformulation and Improvement 2024.
+https://nps.edu/web/research/-/eabo-connector-optimization-model-reformulation-and-improvement-2024
+Evidence: Connector movement schedules for cargo force closure.
+Inspection and limits: Official research description checked; supports LOG transfer rather than automatic INTEL admission.
