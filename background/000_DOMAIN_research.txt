@@ -1,7 +1,7 @@
 000_DOMAIN_research.txt
 
 Industrial Combinatorial Optimization Domain Research
-v0.5 | October 2026
+v0.6 | October 2026
 
 LEGEND
 
@@ -19,7 +19,7 @@ Within this document:
 DOMAIN -> X records researched coverage or operational territory, not taxonomic parentage.
 DOMAIN <-> DOMAIN records a recurring interface or possible Secondary-Domain relationship.
 Industry examples are contextual. Industry-Domain relationships are interpreted through Industry Domains as defined in 000_DOMAIN.txt.
-Primary-Domain ownership is evaluated at the decision-contract level and does not change merely because representation, formulation, Regime, or Structure changes.
+Primary-Domain ownership is evaluated at the industrial Problem level and follows the committed decision, not its formulation or deployment-specific contract.
 
 
 MACRO DOMAINS : DOMAINS
@@ -180,7 +180,7 @@ Open specialization candidates:
 #SCM -> Multi-echelon inventory
 #SCM -> Facility location
 #SCM -> Inventory positioning
-#SCM -> ATP/CTP
+#SCM -> ATP/CTP promise commitments
 #SCM -> Deployment planning
 #SCM -> Replenishment optimization
 #SCM -> Allocation under shortage
@@ -306,7 +306,7 @@ Information = systems where sensing, computation, coordination, or adversarial i
 
 #COMP -> Cluster scheduling
 #COMP -> Placement
-#COMP -> Autoscaling
+#COMP -> Discrete capacity activation / autoscaling
 #COMP -> Traffic engineering
 #COMP -> Service chaining
 #COMP -> Replica placement
@@ -600,6 +600,18 @@ Open specialization candidates:
 #LAND -> Water management systems
 
 
+PROBLEM IDENTITY & INTEGRATION FINDINGS
+
+Shared formulation, Structure, artifact shape, or solver encoding supports analogy, not Problem identity.
+
+Problem identity is materially informed by the bound object or substrate, committed artifact, defining feasibility or state mechanism, information timing, industrial acceptance, and material interfaces.
+
+Integrated decisions may remain one Problem when coupled choices materially determine one recurring joint commitment.
+Mathematical co-optimization alone does not establish one Problem.
+
+Cross-industry families and archetypes are useful research groupings but do not by themselves establish operational Problem identity.
+
+
 SCOPED PRIMARY / SECONDARY DOMAIN TAGGING EXAMPLES
 
 Secondary lists are possible material interfaces, not mandatory tags on every instance.
@@ -655,6 +667,13 @@ Cross-domain industrial motifs:
 - Multiobjective tradeoffs
 - Human override / repair
 - Realtime recourse
+- Integrated joint commitments
+- Transition, migration, and cutover
+- Information acquisition / experiment selection
+- Genealogy, containment, and recall
+- Reverse / circular recovery
+- Rights, consent, and external commitment
+- Construct-and-commit satisfaction
 
 
 PRELIMINARY INDUSTRY REGISTRY
@@ -690,9 +709,13 @@ Residual same-Industry same-Domain Territory splits require explicit research.
 Initial high-value candidates include automotive development versus manufacturing and semiconductor design versus manufacturing.
 A lifecycle label alone does not establish a split.
 
+Utility-network service remains a Territory stress case.
+For installed water and similar network utilities, direct provision of the core service can support #PRODUCTION while network delivery can support #DISTRIBUTION.
+Resolve from the committed industrial contract; do not infer Territory merely from physical distribution through a network.
+
 SCOPED BOUNDARY RESOLUTIONS
 
-Industry does not determine Primary Domain. Ownership follows the decision contract.
+Industry does not determine Primary Domain. Ownership follows the industrial Problem and its committed decision.
 
 Examples:
 ##SEMICONDUCTOR:
