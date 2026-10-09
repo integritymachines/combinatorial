@@ -21,7 +21,7 @@ TAGS #TRANS #PROC ##REFINING #PRODUCTION #design #link #select ##process-synthes
 
 REF102 Refinery Tank-Farm Configuration.
 DESCRIPTION Selects process-storage tanks, capacity options and material services to support refinery receipts, intermediate buffering and blending.
-TEMPLATE Tankage configuration and process-buffer design | Discrete configuration search with simulation; integrated storage-design MINLP.
+TEMPLATE Tankage configuration and process-buffer design | Discrete configuration search with simulation; transferable multiproduct storage-design MINLP.
 REGIME #design | Commits tank capacity and permitted services before operational assignments.
 STRUCTURE #select + #map | Selects tank configurations and assigns their permitted material services.
 PRIORITY High | Process storage constrains crude preparation and product blending.
@@ -121,7 +121,7 @@ TAGS #TRANS #PROC ##REFINING #PRODUCTION #plan #select #place ##fouling ##cleani
 
 REF305 Refinery Catalyst Changeout Planning.
 DESCRIPTION Selects catalyst replacement or regeneration actions and their timing under activity decay, production and outage constraints.
-TEMPLATE Catalyst cycle and changeout planning | Dynamic programming; multiperiod MINLP or mixed-integer optimal control.
+TEMPLATE Catalyst cycle and changeout planning | Refinery catalyst dynamic programming; transferable general-process MINLP or mixed-integer optimal control.
 REGIME #plan | Commits future catalyst interventions and operating-cycle boundaries.
 STRUCTURE #select + #place | Chooses replacement or regeneration actions and places them in time.
 PRIORITY Medium | Discrete catalyst interventions matter in fixed-bed refining processes.
