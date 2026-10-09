@@ -1,0 +1,309 @@
+350_WATER_research.txt
+
+WATER — Water Utility Operations
+v0.1 | 9 October 2026 | Problem research
+
+IDENTITY AND RESEARCH BASIS
+
+Input identity: code 350; mnemonic WATER; descriptive name Water Utility Operations.
+Applied ontology identity: Industry ##WATER; Primary Domain 301 #ENER; Territory #PRODUCTION; Macro Domain anchor #INFRA.
+The latter fields follow the supplied name and the explicit ##WATER boundary in background/000_DOMAIN_research.txt. No new Territory split is proposed. Configuring the assets used to provide water service remains this production contract; an earlier commitment does not by itself create a development Industry Domain.
+Normative source: 000_DOMAIN.txt v0.5, blob 71728706b69ceaafcad07a31ea37adddfb0f5e19. Foundational background: blob e61f0e7e338724b700f78e1a8017caf24af6c422. Read workflow/0_workflow.txt through workflow/5_output.txt and background/000_PROBLEM_marketplace.txt.
+The user explicitly requests v0.1 for both deliverables. Retain that release label through the requested problem-layer controls; record stage activity and findings in version-control history.
+No Cases are selected. Model and dataset mentions below establish problem and Template existence only.
+
+TERRITORY AND OWNERSHIP
+
+WATER commits installed water-service capability and its physical operation: pressurized conveyance, pumping, service storage, hydraulic districting, valve configurations, network residual disinfectant capability, supply calendars, live equipment actions and hydraulic/quality recovery. Bulk transmission and local distribution belong together when the promised output is pressure/quality-feasible utility service.
+Installed wastewater-transfer pumping is included where the contract is pumping, wet-well storage and hydraulic service. Wastewater biological/chemical treatment recipes, treatment-train synthesis, membranes, filter backwash and process regeneration belong to PROC when transformation feasibility defines the output. Sewer civil works, drainage asset construction and maintenance belong to CIVIC. Basin-scale flood, catchment, irrigation-right and river-allocation decisions belong to LAND. A water utility's corporate organization does not override these contract boundaries.
+Withdrawal permits, well activation and depletion belong to EXTR or LAND according to the resource contract. Supplied source inflows, permitted withdrawals and treatment-output qualities are boundary data for WATER.
+Pipe capacity and connection configuration remain WATER when hydraulic service capability is delivered. Choosing which deteriorated assets to renew and when crews excavate them is CIVIC. The same replacement can appear in two coupled models with different delivered commitments; do not merge their contracts.
+Districting is admitted only when it commits a hydraulic service partition and its boundary connections. Observation-only meter/sensor placement and leak localization are COMP interfaces. Adversarial protection and attack-response policies are INTEL. Restoring pressure or clearing accidental quality impairment from a specified observed network state remains WATER.
+Water tanker journeys belong to LOG. Spare-parts and treatment-chemical replenishment belong to SCM. Standalone operating/repair rosters belong to HR. Tariffs and commercial rights belong to MKT; financing belongs to FIN.
+Continuous flows, pressures, chlorine doses and tank levels may accompany an ICO decision. Their numerical discretization, nonlinear equations or mixed-integer approximation do not establish a separate combinatorial Problem.
+
+EVIDENCE CONVENTIONS
+
+Source references S01-S31 resolve in the ledger. Access level is explicit; indexed primary-source abstracts support only their stated content. No reported performance was reproduced.
+Ratings and ontology classifications are research judgments using the normative scales, not quotations or measured market shares. Dependency edges are industrial handoff inferences from supported model inputs/outputs unless stated otherwise.
+IE Templates identify engineering practice or framing. OR Templates identify supported solution architectures. Established hydraulic simulation and operator rules are evaluators or comparators, not evidence that one optimization method is universal industrial SOTA.
+There is no supported universal winner among hydraulic simulation-based search, mixed-integer nonlinear optimization and strengthened approximations. Retain material alternatives and require physical feasibility checks for approximations.
+Do not assert full-contract NP-hardness merely because a model contains integer variables. Formal complexity is not needed to sharpen the admitted cards and is not compiled.
+
+CANDIDATE INVENTORY
+
+PIPE — Water Network Configuration and Pipe Sizing
+Decision: choose permitted pipe connections and assign catalogue sizes to proposed or upgraded pipe reaches. Deliver a hydraulic network configuration that meets service demand and pressure constraints within investment limits.
+Aliases: least-cost network design, discrete pipe sizing, hydraulic network reinforcement. Fixed-topology diameter choice is a specialization; topology additions, parallel pipes and hydraulic upsizing are supported variants. Ordinary condition-based replacement prioritization is excluded.
+Construction audit: existing geography, candidate corridors and demand points are supplied. The solver assigns sizes (#map) and constructs optional connections (#link). Flow direction and head loss are physical consequences; they do not independently establish Structure.
+Candidate classification: #design; #map + #link; #strategic, ##network-design, ##pipe-sizing. Priority Critical because conveyance capability constrains the core service; Relevance Critical because capacity persists for long asset lives; Hardness High because discrete options interact with nonconvex hydraulic feasibility.
+IE: hydraulic network capacity design and pressure verification. OR: exact mixed-integer convex design for its supported fixed-resistance model; MINLP and hydraulic simulation with evolutionary search for extensions (S01-S03, S08).
+Admission: retain. Separate from PUMPSTORE because pipe diameter/connectivity and installed pump/storage capacity can be procured and optimized independently. Integrated design remains an allowed coupling, not another parent.
+Uncertainty: the exact formulation in S02 must not be generalized to arbitrary pumps, water quality or investment staging.
+
+PUMPSTORE — Pumping and Service-Storage Configuration
+Decision: select pump configurations, pump counts, tank sites and discrete capacity options for an installed utility system. Continuous size refinement can accompany the discrete choices.
+Aliases: pump-station configuration, tank siting and sizing, service-reservoir design. Emergency storage and redundant pump options are variants. Basin reservoirs and new withdrawal-resource portfolios are not.
+Supplied: pipe network, terrain, service envelope and equipment catalogues. Chosen: equipment/capacity options (#select) and physical tank/equipment sites (#place). Pump curves and tank balances are constitutive conditions.
+Classification: #design; #select + #place; #strategic, ##pump-station, ##storage. Priority High: pumping and storage recur widely but gravity-only systems exist. Relevance Critical: capacity and redundancy set long-lived service and energy limits. Hardness High: designs must work across operating cycles, demand patterns and nonlinear pump characteristics.
+IE: pumping-station and service-storage sizing under extended-period hydraulics. OR: hydraulic simulation with genetic configuration search and continuous sizing refinement (S03, S04).
+Admission: retain; co-design with PIPE is material. Pure continuous tank sizing without a siting, count or catalogue choice is outside the ICO subset. Wastewater wet-well/pump configuration is a hydraulic variant where the same contract holds; do not claim that potable-water design benchmarks validate every wastewater detail.
+
+DISTRICT — District Metered Area Design
+Decision: partition a supplied water network into service districts and choose which boundary links are closed or metered/open. Deliver a hydraulically feasible district structure.
+Aliases: water network partitioning, DMA design, sectorization. Pressure-zone and dynamic-DMA design are variants when the output remains a district service configuration.
+Supplied: graph, demand, elevations, available boundary equipment. Chosen: node-to-district membership (#map) and interdistrict connection arrangement (#link). Mere clustering of measurement data is not this contract.
+Classification: #design; #map + #link; #tactical, ##partition, ##dma. Priority High: common in leakage-managed distribution systems. Relevance High: district organization affects leakage management, service pressure and operability. Hardness High: graph partitions must satisfy hydraulic and water-quality conditions.
+IE: hydraulic districting and boundary-meter design. OR: graph partitioning with hydraulic simulation and multiobjective search; integrated valve-setting optimization where required (S05, S06).
+Admission: retain. This is not observation-only meter placement. Temporary opening of existing boundaries is an operational variant under SCHEDULE or DISPATCH, not a new design problem.
+
+ISOLATION — Isolation Valve Placement
+Decision: choose isolation-valve sites to limit service loss when failed pipe segments must be disconnected.
+Aliases: isolation-valve system design, segmentation for burst isolation. Adding valves to an installed network and complete redesign are variants; valve inspection and replacement-work calendars belong to CIVIC.
+Supplied: pipe layout and failure scenarios. Chosen: physical valve positions (#place) and selected installation sites (#select). The segment graph is induced by the design; it is not automatically a chosen link construction.
+Classification: #design; #place + #select; ##isolation, ##resilience. Priority High because segment isolation is a recurring requirement. Relevance High because placement changes the number of affected consumers. Hardness High because many site combinations and failure consequences must be evaluated.
+IE: segment isolation and demand-shortfall design. OR: genetic layout search with segment or hydraulic evaluation; coupled pipe/valve optimization is a material alternative (S07, S08).
+Admission: retain. DISTRICT delivers normal hydraulic service partitions; ISOLATION delivers failure-isolation capability. A shutoff valve can participate in both, but the decision contracts remain distinct.
+Limit: graph vulnerability proxies are screening tools, not hydraulic service guarantees.
+
+PRESSURE — Pressure-Control Valve Placement
+Decision: choose pressure-regulating device sites and design settings while maintaining required downstream service pressure.
+Aliases: PRV placement, pressure-management design, leakage-control valve siting. New installations and retrofits are variants. Continuous settings of fixed devices alone are excluded from ICO admission.
+Supplied: hydraulic network and demand scenarios. Chosen: installed device locations (#place) and participating installations (#select). Leakage and head constraints evaluate the result.
+Classification: #design; #place + #select; ##pressure-management, ##leakage. Priority High: pressure management is material across many distribution systems. Relevance High: settings and locations affect leakage and service. Hardness High: placement interacts with nonlinear hydraulics.
+IE: pressure-management zone and PRV design. OR: placement MINLP with convex relaxation/rounding; hydraulic genetic search with embedded setting optimization (S06, S09, S10).
+Admission: retain. It may be integrated with DISTRICT or BOOSTER; independent pressure-capability commitments remain identifiable. Energy-recovery devices can be a variant when water-service pressure management dominates; a separate electricity-generation commitment needs ENER contract review.
+
+BOOSTER — Disinfectant Booster Placement
+Decision: select network booster stations and their locations to maintain distribution-system disinfectant residuals under dose and quality limits.
+Aliases: booster chlorination design, booster station siting. Species/byproduct models and joint valve siting are variants; standalone treatment chemistry or treatment-plant flowsheet synthesis are PROC.
+Supplied: candidate network nodes, hydraulic transport and quality requirements. Chosen: booster sites (#place) and installations (#select). Doses and reaction/transport dynamics determine feasibility.
+Classification: #design; #place + #select; ##booster-chlorination, ##water-quality. Priority Medium: relevant to networks that need distributed rechlorination. Relevance High: location determines residual-control capability. Hardness High: site choices couple hydraulic transport, decay and dosing.
+IE: distribution residual-management design. OR: siting MINLP and convex-relaxation heuristics, with hydraulic/quality simulation (S09-S11).
+Admission: retain as utility network quality capability. It is not a new treatment-process design. Continuous dosing at installed stations remains an accompanying control decision, not another ICO card.
+
+SCHEDULE — Pump and Valve Scheduling
+Decision: schedule installed pump starts/stops and controllable valve states with service storage. Meet water demand or wastewater inflow requirements, pressure/capacity limits, permitted switching and terminal storage conditions.
+Aliases: optimal pump scheduling, optimal water flow with discrete controls, energy-aware pumping. Fixed/variable-speed pumps, tariff response, joint tank-level planning, operational source switching, dynamic boundary valves and wet-well pumping are variants.
+Supplied: equipment and network, demand/inflow forecasts, source limits and electricity conditions. Chosen: operating intervals (#place) and active equipment/modes (#select). Water levels, pressures and continuous speeds are state/control variables, not separate structures.
+Classification: #plan; #place + #select; #rolling, ##pump-scheduling, ##storage. Priority Critical: the recurring core operating calendar. Relevance High: energy and service feasibility recur daily. Hardness High: nonlinear network equations, storage trajectories and switches require formulation engineering.
+IE: forecast-based pumping and storage scheduling. OR: MINLP; strengthened MILP/polyhedral approximation with nonlinear feasibility validation; simulation-based search as a material alternative (S12-S14, S18, S19).
+Admission: retain. Distinguish an issued future equipment calendar from DISPATCH's immediate action under observed state. Rolling recomputation alone does not create a new Problem.
+Sewer limit: only real pump/gate choices qualify. Overflow-indicator or piecewise hydraulic binaries alone do not qualify (S20, S21).
+
+ROTATION — Intermittent Water Supply Scheduling
+Decision: choose service windows and rotations for zones when available hydraulic supply cannot provide continuous service. Respect pressure, available quantity and service-equity conditions.
+Aliases: rotational supply, rationing schedule, intermittent distribution scheduling. Rural/urban systems and planned shortage regimes are variants.
+Supplied: districts, admissible valve actions, water availability and service requirements. Chosen: service windows (#place) and zones supplied in each window (#select). Basin allocation and rights setting remain outside WATER.
+Classification: #plan; #place + #select; ##intermittent-supply, ##equity. Priority Medium: restricted to shortage or intermittent systems. Relevance Critical: choices can materially change access to essential water. Hardness High for hydraulically coupled systems with equity and network filling; simpler fixed-capacity ILP models can be easier.
+IE: zone service rotation and equitable delivery scheduling. OR: integer supply scheduling with hydraulic constraints or simulation evaluation (S15, S16).
+Admission: retain. Unlike SCHEDULE, it commits consumer service availability; pump scheduling implements the accepted calendar. Integrated models may solve both.
+No separate #allocate card for continuous zone flow quantities; discreteness must come from named service windows or admitted discrete service blocks.
+
+DISPATCH — Feedback Pump and Valve Dispatch
+Decision: choose the next pump/valve activation actions from observed tank levels, demand/inflow and equipment availability while protecting short-cycle hydraulic service.
+Aliases: closed-loop pumping control, operational water-network MPC with discrete actuation. Potable supply and wastewater transfer are variants where actual equipment-state choices remain.
+Supplied: installed assets, current state and any issued schedule. Chosen: active units and valve actions (#select); continuous settings are coordinated controls. A supplied pipe graph does not add #link by itself.
+Classification: #dispatch; #select; #online, #closedloop, #rolling, ##predictive-control. Priority High: feedback action selection recurs in automated systems. Relevance High: it maintains service as actual conditions depart from forecasts. Hardness High: latency, forecast error and nonlinear feasibility restrict search.
+IE: state-feedback pumping control. OR: mixed-integer predictive control or simulation-based mixed discrete/continuous search (S17-S19, S31). Clock/tank-level rules remain operational comparators.
+Admission: retain. Broad sewer-MPC membership requires further checking: some apparently discrete models optimize only continuous setpoints, with binaries representing physics (S20). Do not infer an independent flood-control Problem from formulation alone.
+
+FAILURE — Hydraulic Failure Isolation and Service Recovery
+Decision: revise the current network operating configuration after a burst or equipment outage; isolate damage and select valve, pump and available bypass interventions that restore feasible service.
+Aliases: burst response, network failure recovery, service restoration. Power loss and treatment-works outages are external failure causes when the response commits network operation.
+Supplied: failure location, current state, remaining equipment and feasible intervention candidates. Chosen: intervention set (#select) and temporary service connections where allowed (#link). Excavation, repair tasks and work crews are not the output.
+Classification: #adapt; #select + #link; #online, ##service-restoration. Priority High: failures recurrently invalidate service commitments. Relevance Critical: response limits large service interruptions. Hardness High: disrupted hydraulics and intervention combinations require screened or heuristic search.
+IE: hydraulic isolation and service-recovery response. OR: multiobjective hydraulic simulation-optimization; screened intervention heuristics (S22, S23).
+Admission: retain. Temporary bypass selection is included, but independent construction/repair execution is CIVIC (S29). No universal real-time completion claim.
+The result changes the network state used by subsequent schedules and dispatch.
+
+QUALITY — Water-Quality Incident Flushing
+Decision: select and time hydrant openings and valve operations to remove a specified quality impairment while respecting hydraulic service and intervention limits.
+Aliases: contaminant flushing response, quality-incident hydraulic recovery. Accidental contamination and off-specification water are in scope; a strategic attacker/defender contract is not.
+Supplied: observed or scenario-estimated impairment, existing network and device availability. Chosen: active flushing/isolation actions (#select) and activation times (#place); transport and mixing are feasibility/evaluation dynamics.
+Classification: #adapt; #select + #place; #online, ##flushing, ##water-quality. Priority Medium: an incident-specific operating mode. Relevance Critical: response protects essential delivered water quality. Hardness High: hydraulic-quality simulation, possible source uncertainty and action order interact.
+IE: quality-incident isolation and flushing response. OR: hydraulic-quality simulation with multiobjective genetic search; mixed-integer device scheduling where activation timing is explicit (S24-S26).
+Admission: retain. Routine pipe-cleaning campaigns in S27 are an unresolved boundary item: assess whether they are the same WATER contract or asset-maintenance work before compilation. Medical/public-health decisions remain outside WATER.
+Separate from FAILURE because the restored artifact must satisfy transported-quality criteria, not only pressure and delivered quantity.
+
+DEPENDENCY GRAPH — RESEARCH KEYS, NOT PERMANENT IDS
+
+PIPE -> PUMPSTORE, DISTRICT, ISOLATION, PRESSURE, BOOSTER, SCHEDULE.
+Rationale: installed pipe capacities/connectivity supply the hydraulic substrate and candidate locations (S01-S04, S06-S12). Independent redesign can use an existing network instead.
+PUMPSTORE -> SCHEDULE, DISPATCH.
+Rationale: selected equipment and storage define available operating modes and balances (S03, S04, S12, S18).
+DISTRICT -> PRESSURE, ROTATION, SCHEDULE.
+Rationale: districts and boundary devices constrain pressure-device design, service windows and operational switching (S05, S06, S14-S16).
+ISOLATION -> FAILURE, QUALITY.
+Rationale: available isolation locations constrain physical response actions (S07, S08, S22, S24).
+PRESSURE -> SCHEDULE, DISPATCH, FAILURE.
+Rationale: installed regulators and allowed states/settings constrain schedules and response options (S06, S14, S17, S22).
+BOOSTER -> QUALITY.
+Rationale: installed quality-control capability and background residual behavior inform response evaluation. This handoff is an engineering inference, not a requirement that flushing uses booster selection (S11, S24-S26).
+ROTATION -> SCHEDULE.
+Rationale: a committed service-window calendar determines which demand must be supported in each period (S15, S16).
+SCHEDULE -> DISPATCH, FAILURE.
+Rationale: an issued calendar is a reference for immediate execution and for recovery when the commitment is disrupted (S12, S17, S22).
+DISPATCH -> FAILURE, QUALITY.
+Rationale: the last executed equipment configuration forms part of the incident initial state (S17, S22, S24).
+FAILURE -> SCHEDULE, DISPATCH; QUALITY -> SCHEDULE, DISPATCH.
+Rationale: restored or temporarily restricted states change subsequent feasible operation. These are explicit event-driven feedback edges, not mathematical reductions or unconditional linear process steps.
+The graph contains normal-operation/recovery cycles. Keep them visible; do not force an acyclic ontology. Regime bands take precedence during compilation. Within #plan, ROTATION precedes SCHEDULE if both occur. Within #design, PIPE precedes dependent configurations; DISTRICT precedes PRESSURE. Remaining ties follow assets, segmentation, control, then quality capability. Within #adapt, hydraulic failure recovery precedes quality recovery as a stable presentation tie; neither must cause the other.
+
+ALIASES, EXCLUSIONS AND COVERAGE DISPOSITIONS
+
+- Pure flow, tank-level, blending and chlorine-dose optimization: outside the combinatorial subset. Source-water mixing evidence S30 does not justify a separate discrete source-allocation parent.
+- Optimal water flow: SCHEDULE or DISPATCH only when the contract includes actual discrete controls; otherwise continuous optimization.
+- Dynamic DMA operation: merge scheduled boundary-valve choices into SCHEDULE and immediate state choices into DISPATCH. S28 studies continuous settings, so it cannot alone support another ICO parent.
+- Leakage minimization: objective of PRESSURE, DISTRICT or operating controls. Leak detection and sensor placement are distinct observation contracts owned by COMP.
+- General sewer MPC: retain only actual activation decisions in SCHEDULE/DISPATCH. Switching overflow regimes in S20 are model physics, not automatically chosen operations.
+- Routine unidirectional flushing: boundary unresolved at initial research stage; S27 establishes a credible cleaning campaign, but maintenance ownership requires explicit disposition.
+- Basin rights, catchment allocation and irrigation entitlement: LAND. Installed distribution feasibility does not transfer resource ownership to WATER.
+- Well/prospect selection and extraction/depletion: EXTR. Existing permitted source output can feed WATER.
+- Pipe rehabilitation portfolios, maintenance calendars, repair sequencing and construction work: CIVIC; S29 provides a repair-scheduling template. WATER can receive outage windows and return hydraulic effects.
+- Chemical/biological treatment, desalination-process selection and filter/regeneration schedules: PROC when process state defines feasibility. Finished treated-water availability can feed WATER.
+- Standalone sensor/meter placement and inspection-data collection: COMP unless protective/adversarial conditions define an INTEL contract.
+- Standalone labor rosters: HR. Tanker delivery: LOG. Stock replenishment: SCM. Commercial allocation: MKT. Financing: FIN.
+- Fire-flow capacity: hydraulic stress scenario in PIPE/PUMPSTORE, not a new parent.
+- Electricity tariffs, carbon prices and flexibility provision: objectives or constraints in SCHEDULE. A separate electricity-market offer is not this water-service contract.
+- Water reuse: network hydraulic distribution fits existing candidates; contaminant treatment/reuse-process synthesis is PROC. No new Industry Domain is created.
+
+MARKETPLACE
+
+Read the marketplace present on main before research. No OPEN entry proposes 350 WATER as owner. Generic ENER's water-design, water-operation and recovery material supplies discovery seeds; this Industry Domain specializes those contracts without modifying the generic foreground.
+Record credible exclusions for resource allocation, extraction, civic rehabilitation/repair, treatment-process configuration, standalone sensing, workforce, tanker movement and replenishment in the marketplace. Preserve all pre-existing rows. Boundary proposals do not assign final IDs or rewrite another Domain's foreground.
+
+SEARCH COVERAGE AND LIMITS
+
+Pass 1 covered hydraulic supply design, pump/tank operation, intermittent supply and wastewater-transfer control. It established genuine discrete actions and highlighted continuous-only models.
+Pass 2 covered valve siting, hydraulic districting, booster chlorination, failure isolation, recovery and flushing. It added distinct capability and incident-response contracts.
+Pass 3 tested omissions through source blending, planned maintenance, dynamic topology, sewer MPC, treatment interfaces and energy response. Findings mostly mapped to existing contracts, continuous subcases or neighboring owners.
+Pass 4 checked stronger counterevidence: S28 continuous valve optimization cannot prove a separate discrete topology parent; S20 hybrid sewer equations cannot prove selectable physical modes; S29 repair schedules are not WATER hydraulic recovery.
+Practical coverage is broad at the selected contract granularity; no claim of globally exhaustive discovery or universal SOTA is made. The largest evidence limitation is full-text accessibility for several publisher sources. The sources still establish the stated decisions and Template families; specific industrial-scale comparisons, licenses and reproducible baselines require later case research.
+No dataset, executable benchmark, performance uplift or guarantee is promoted to a canonical Case. Specialized reclaimed-water configurations, emergency blending and integrated drainage/service models need a fresh contract test if later evidence exposes a distinct decision.
+
+SOURCE LEDGER
+
+S01 EPA — EPANET
+https://www.epa.gov/water-research/epanet
+Official page read. Hydraulic and water-quality simulation; network elements, pressure-dependent demands and control rules. An evaluator, not a standalone optimizer.
+
+S02 Tasseff et al. — Exact Mixed-integer Convex Programming Formulation for Optimal Water Network Design (2020)
+https://arxiv.org/abs/2010.03422
+Author abstract read. Discrete resistance design, exact convex reformulation for the stated model, outer approximation and feasibility cuts. Does not certify all extensions.
+
+S03 Improved design of Anytown distribution network using structured messy genetic algorithms (1999)
+https://www.sciencedirect.com/science/article/abs/pii/S1462075899000059
+Publisher indexed abstract inspected; page fetch failed. Joint pipe options, pump counts/status and tank locations with continuous tank volumes. Supports configuration search, not deployment-wide superiority.
+
+S04 Design of Pumped Water Distribution Networks with Storage (2010)
+https://ascelibrary.org/doi/10.1061/%28ASCE%290733-9496%282010%29136%3A1%28129%29
+Publisher indexed abstract. Storage and pumped-network design evaluated with a steady-state genetic algorithm.
+
+S05 Brentan et al. — District metered area design through multicriteria and multiobjective optimization (2022)
+https://doi.org/10.1002/mma.7090
+Publisher record and author-hosted manuscript search excerpts inspected. District partitioning, valve configurations and hydraulic/quality criteria. Author PDF retrieval failed.
+
+S06 Multiobjective Optimization of Control Valve Installation and DMA Creation for Reducing Leakage in Water Distribution Networks (2019)
+https://ascelibrary.org/doi/10.1061/%28ASCE%29WR.1943-5452.0001114
+Publisher indexed abstract; page fetch failed. Genetic valve-site search with embedded LP settings and graph partitioning. Joint district/pressure design is supported.
+
+S07 Weber, Huzsvar and Hos — Isolation Valve Placement Optimization of Water Distribution Networks to Reduce Vulnerability (2023)
+https://pp.bme.hu/me/article/view/20694
+Journal page read. Segment vulnerability and genetic valve-layout search. Topological proxies need not reproduce full hydraulic consequences.
+
+S08 Mottahedin et al. — Multiobjective Approach for Water Distribution Network Design Combining Pipe Sizing and Isolation Valve Placement (2024)
+https://iris.unipv.it/handle/11571/1508474
+Author institutional abstract read. Joint pipe/valve design with a biobjective genetic algorithm; compares conventional node-based valve rules.
+
+S09 Pecci, Stoianov and Ostfeld — Relax-Tighten-Round Algorithm for Optimal Placement and Control of Valves and Chlorine Boosters in Water Networks (2021)
+https://arxiv.org/abs/2007.15532
+Author abstract read. Joint valve/booster siting MINLP, convex relaxations and rounding. Joint formulation does not erase distinct pressure and disinfectant contracts.
+
+S10 Pecci, Stoianov and Ostfeld — Convex Heuristics for Optimal Placement and Operation of Valves and Chlorine Boosters in Water Networks (2022)
+https://ascelibrary.org/doi/abs/10.1061/%28ASCE%29WR.1943-5452.0001509
+Publisher indexed record. A material convex-heuristic alternative to exact global search.
+
+S11 Optimal design and operation of booster chlorination stations layout in water distribution systems (2014)
+https://www.sciencedirect.com/science/article/pii/S004313541400270X
+Publisher indexed abstract. Booster locations and dosing with residual chlorine and byproduct criteria. Supports network residual-control design, not treatment-train synthesis.
+
+S12 Tasseff et al. — Polyhedral Relaxations for Optimal Pump Scheduling of Potable Water Distribution Networks (2022)
+https://arxiv.org/abs/2208.03551
+Author abstract read. MINLP operational controls and intertemporal storage; strengthened polyhedral relaxations and bounds.
+
+S13 Janus, Ulanicki and Diao — Optimal Scheduling of Variable Speed Pumps Using Mixed Integer Linear Programming (2023)
+https://arxiv.org/abs/2309.04715
+Author abstract read. Piecewise-linear MILP around operating points; demonstration on a small network. Linearized optimality is not a general nonlinear feasibility guarantee.
+
+S14 Distributed solution of the day-ahead pump and valve scheduling problem for dynamically adaptive water distribution networks with storage (2025)
+https://www.sciencedirect.com/science/article/pii/S0377221724009044
+Publisher indexed abstract/excerpts; full-page fetch failed. Joint pump/valve schedules and storage in a nonconvex mixed-integer model.
+
+S15 Multi-criteria optimization of supply schedules in intermittent water supply systems (2016)
+https://www.sciencedirect.com/science/article/pii/S0377042716302266
+Publisher indexed abstract; full-page fetch failed. Integer linear supply scheduling with multicriteria evaluation.
+
+S16 Equitable supply in intermittently operated rural water networks in emerging economies (2023)
+https://doi.org/10.2166/ws.2023.268
+Publisher indexed abstract/equation excerpts; page fetch failed. Valve-state decisions and flow/pressure conditions support discrete supply scheduling.
+
+S17 A systematic mixed-integer differential evolution approach for water network operational optimization (2018)
+https://pmc.ncbi.nlm.nih.gov/articles/PMC6189597/
+Author article indexed text inspected; direct page showed a browser challenge. Feedback predictive control selects discrete pump/valve actions with continuous settings.
+
+S18 Optimal Regulation of Variable Speed Pumps in Sewer Systems (2020)
+https://www.mdpi.com/2673-4931/2/1/58/xml
+Publisher indexed abstract/text inspected; direct requests failed. Wastewater wet-well operation chooses daily on/off states and speeds using BONMIN or hybrid genetic/local search.
+
+S19 Optimal scheduling and control of a sewer pump under stochastic inflow pattern (2021)
+https://www.tandfonline.com/doi/abs/10.1080/1573062X.2021.1893358
+Publisher indexed abstract; page fetch failed. Mixed-integer pump operation with variable inflow; classical control is a comparator.
+
+S20 Joseph-Duran et al. — Hybrid modeling and receding horizon control of sewer networks (2014)
+https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2013WR015119
+Publisher indexed text. Some binaries encode overflow/weir regimes while gate setpoints remain continuous. MIP syntax alone does not establish a combinatorial industrial decision.
+
+S21 EPA — Storm Water Management Model (SWMM)
+https://www.epa.gov/water-research/storm-water-management-model-swmm
+Official page read. Drainage/sewer hydraulic simulation and control evaluation. This source does not establish an optimizer.
+
+S22 Mahmoud, Kapelan and Savic — Real-time operational response methodology for reducing failure impacts in water distribution systems (2018)
+https://research.tudelft.nl/en/publications/real-time-operational-response-methodology-for-reducing-failure-i/
+Author institutional abstract read. Hydraulic service recovery using selected valve interventions, pressure settings and temporary bypasses.
+
+S23 Nikoloudi et al. — Heuristic-Based Approach for Near-Optimal Response to Water Distribution Network Failures in Near Real Time (2022)
+https://research.tudelft.nl/en/publications/heuristic-based-approach-for-near-optimal-response-to-water-distr/
+Author institutional abstract read. Offline intervention screening and online heuristic response; NSGA-II comparator. Reported response computation is not an unconditional real-time guarantee.
+
+S24 Near-optimal activation device scheduling to react to intentional or accidental contaminations in water distribution systems
+https://sfera.unife.it/handle/11392/1402965
+Author institutional indexed abstract; direct fetch failed. Valve/hydrant activation scheduling with a genetic algorithm and mixed-integer solver. Use only the physical service-recovery contract.
+
+S25 Multiobjective Optimization of Operational Responses for Contaminant Flushing in Water Distribution Networks (2010)
+https://ascelibrary.org/doi/10.1061/%28ASCE%290733-9496%282010%29136%3A1%2848%29
+Publisher indexed record. Supports the established contaminant-flushing response problem; detailed claims rely on S24/S26.
+
+S26 Multi-objective optimization of hydrant flushing in a water distribution system using a fast hybrid technique (2023)
+https://www.sciencedirect.com/science/article/abs/pii/S0301479723002517
+Publisher indexed abstract. Hydraulic-quality simulation with multiobjective genetic search over flushing hydrants.
+
+S27 Flushing Planner: A Tool for Planning and Optimization of Unidirectional Flushing (2014)
+https://www.sciencedirect.com/science/article/pii/S1877705814000575
+Publisher and author-manuscript indexed text; full fetch failed. Periodic pipe cleaning with graph decomposition, hydrants and valve manipulations. Routine asset cleaning is a CIVIC boundary candidate.
+
+S28 Wright et al. — Optimized control of pressure reducing valves in water distribution networks with dynamic topology (2015)
+https://research.tudelft.nl/en/publications/optimized-control-of-pressure-reducing-valves-in-water-distributi/
+Author institutional abstract read. Sequential convex optimization of valve settings in an operational network. Not by itself proof of discrete topology optimization.
+
+S29 Nayak et al. — Optimal Recovery from Disruptions in Water Distribution Networks (2016)
+https://onlinelibrary.wiley.com/doi/10.1111/mice.12200
+Publisher indexed abstract. Repair-task scheduling with embedded hydraulic flow; simulated annealing and nonlinear flow optimization. The repair-work contract is CIVIC.
+
+S30 Modeling and optimization of water quality in a large-scale regional water supply system
+https://escholarship.org/uc/item/091242t2
+Author institutional indexed abstract. Multicommodity blending and flow model. Continuous flow optimization does not establish a discrete source-allocation card.
+
+S31 Baayen and Marecek — Mixed-Integer Path-Stable Optimisation, with Applications in Model-Predictive Control of Water Systems (2020)
+https://arxiv.org/abs/2001.08121
+Author abstract read. Fixed-speed pump and gate-state choices distinguish physical actions from continuous hydraulic states. Guarantees are limited to its defined model family.
