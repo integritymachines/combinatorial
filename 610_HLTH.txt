@@ -8,6 +8,8 @@ Macro Domain anchor: #HUMAN. Primary Domain: 601 #HC. Industry: ##HEALTHCARE. Te
 HLTH covers direct healthcare services whose clinical, patient or care conditions define feasible decisions. It spans clinical service and response-system configuration, hospital and ambulatory care, patient-specific radiation delivery, transplantation, transfusion, home care and public-health treatment access.
 Ownership follows the delivered clinical service or patient-care commitment. Standalone workforce duties, supply and replenishment, generic transport, billing, construction, manufacturing and digital-resource operation remain with their corresponding Domains. Clinical trials that develop new efficacy evidence are outside this service-production territory.
 
+
+
 #design | 1##
 
 HLTH101 Health Intervention Portfolio Selection.
@@ -22,6 +24,7 @@ DEPENDENCIES ∅ → HLTH101 → HLTH102, HLTH501, HLTH502.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #design #select ##publichealth ##intervention-selection ##multiobjective.
 COMMENTS Health gains and clinical eligibility define this scope; insurance pricing belongs to FIN.
 
+
 HLTH102 Clinical Service Network and Capacity Design.
 DESCRIPTION Selects clinical facilities, service capabilities and capacity levels and assigns patient catchments under access, referral and congestion limits.
 TEMPLATE Healthcare location-allocation and service-network design | Capacitated facility-location MILP or MINLP; congestion and user-choice models.
@@ -33,6 +36,7 @@ HARDNESS High | Patient choice, congestion and service complementarities couple 
 DEPENDENCIES HLTH101 → HLTH102 → HLTH103, HLTH301, HLTH307, HLTH308, HLTH505.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #design #select #map ##healthsystems ##facility-location ##congestion.
 COMMENTS Medical access defines ownership; generic warehouses and civic buildings belong elsewhere.
+
 
 HLTH103 Clinical Care-Space Layout.
 DESCRIPTION Places care equipment and materials within a clinical workspace under access, reach, separation and physical-fit requirements.
@@ -46,6 +50,7 @@ DEPENDENCIES HLTH102 → HLTH103 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #design #place ##emergencymedicine ##layout ##ergonomics.
 COMMENTS Includes mobile intensive-care workspaces where clinical access defines the layout.
 
+
 HLTH104 EMS Station and Fleet Deployment Design.
 DESCRIPTION Selects emergency medical service bases and assigns ambulance types and numbers to them under demand coverage and response requirements.
 TEMPLATE EMS location and coverage planning | Location-allocation MIP; expected-covering and scenario models.
@@ -58,6 +63,7 @@ DEPENDENCIES ∅ → HLTH104 → HLTH802, HLTH803, HLTH804.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #design #select #map ##ems ##coverage ##facility-location.
 COMMENTS Live repositioning of available ambulances is a separate operating decision.
 
+
 HLTH105 Organ Sharing District Design.
 DESCRIPTION Assigns donation service areas to sharing districts under permitted geographic groupings and clinically relevant organ-access targets.
 TEMPLATE Transplant sharing-region design and geographic equity analysis | Set-partitioning IP with geographic decomposition and patient-level allocation simulation.
@@ -69,6 +75,8 @@ HARDNESS High | Many geographic groupings and patient-level allocation effects r
 DEPENDENCIES ∅ → HLTH105 → HLTH503.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #design #map ##transplantation ##partition ##geographic-equity.
 COMMENTS This card covers disjoint sharing districts. Donor-circle radius policies are related geographic variants. Neither model specifies the currently enacted policy.
+
+
 
 #plan | 3##
 
@@ -84,6 +92,7 @@ DEPENDENCIES HLTH102 → HLTH301 → HLTH302, HLTH303, HLTH307, HLTH308, HLTH311
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #map #place ##hospitals ##patient-mix ##care-pathway #tactical.
 COMMENTS Generic staff-to-shift rostering is HR; this contract allocates clinical service capacity.
 
+
 HLTH302 Master Surgical Block Allocation.
 DESCRIPTION Assigns surgical specialties or teams to recurring operating-room blocks under workload, availability and recovery-capacity limits.
 TEMPLATE Master surgical scheduling and downstream workload levelling | Block-allocation MIP with occupancy forecasting and simulation.
@@ -95,6 +104,7 @@ HARDNESS High | Surgical mix and uncertain recovery stays connect operating room
 DEPENDENCIES HLTH301 → HLTH302 → HLTH309.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #map ##perioperative ##master-surgical-schedule ##downstream-capacity.
 COMMENTS Individual surgery sequence and start-time decisions belong to surgical case scheduling.
+
 
 HLTH303 Outpatient Appointment Blueprint Design.
 DESCRIPTION Constructs recurring visit-type slots and booking capacity under provider availability, service durations and shared-resource limits.
@@ -108,6 +118,7 @@ DEPENDENCIES HLTH301 → HLTH303 → HLTH311, HLTH313, HLTH315, HLTH508.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map ##outpatient ##blueprint ##appointment-template ##simulation.
 COMMENTS A template defines capacity by visit type; patient booking consumes that capacity.
 
+
 HLTH304 Radiotherapy Beam Configuration Selection.
 DESCRIPTION Selects treatment beams and delivery configurations under prescribed target-dose and organ-at-risk limits.
 TEMPLATE Inverse radiation treatment planning with discrete beam selection | Mixed-integer dose planning; beam-selection heuristics with continuous fluence subproblems.
@@ -119,6 +130,7 @@ HARDNESS High | Each configuration can require a large dose-evaluation subproble
 DEPENDENCIES ∅ → HLTH304 → HLTH305, HLTH312.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #select ##radiotherapy ##beam-angle ##dose-planning.
 COMMENTS Pure continuous fluence optimization with fixed beams is outside this discrete selection scope.
+
 
 HLTH305 Multileaf Collimator Delivery Planning.
 DESCRIPTION Constructs radiation aperture patterns, leaf positions and exposures for a prescribed patient fluence map under machine movement and dose-delivery limits.
@@ -132,6 +144,7 @@ DEPENDENCIES HLTH304 → HLTH305 → HLTH312.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #select ##radiotherapy ##aperture ##fluence-map ##leaf-sequencing.
 COMMENTS The prescribed fluence map is input. Leaf sequencing here prepares the treatment configuration; it is not the near-term clinical work-sequencing Regime.
 
+
 HLTH306 Brachytherapy Seed Placement.
 DESCRIPTION Positions permanent radioactive seeds at permitted implant sites under prescribed target-dose, organ-at-risk, needle-access and spatial-distribution limits.
 TEMPLATE Inverse permanent-seed planning with dosimetric and expert spatial rules | Seed-site IP or MILP with branch-and-bound or model-specific search.
@@ -143,6 +156,7 @@ HARDNESS High | Dose-coupled positions and spatial constraints create many inter
 DEPENDENCIES ∅ → HLTH306 → HLTH309.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place ##brachytherapy ##seed-placement ##dosimetry.
 COMMENTS Fixed-catheter continuous dwell-time adjustment and image-based seed localization are separate contracts.
+
 
 HLTH307 Elective Patient Admission Scheduling.
 DESCRIPTION Selects elective patients for admission and assigns admission dates under clinical priority, readiness and forecast resource occupancy.
@@ -156,6 +170,7 @@ DEPENDENCIES HLTH102, HLTH301 → HLTH307 → HLTH308, HLTH506.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #select ##hospitals ##admission-control ##occupancy #rolling.
 COMMENTS The historical PAS label often denotes bed assignment; that meaning belongs to patient-room allocation.
 
+
 HLTH308 Hospital-Wide Care Pathway Coordination.
 DESCRIPTION Schedules patient care activities and ward stays across departments under clinical precedence, transfer, resource and discharge-readiness requirements.
 TEMPLATE Integrated care-pathway and hospital patient-flow planning | Hierarchical or monolithic MILP; rolling multi-resource scheduling.
@@ -167,6 +182,7 @@ HARDNESS Critical | Many linked clinical stages, uncertain durations and departm
 DEPENDENCIES HLTH102, HLTH301, HLTH307 → HLTH308 → HLTH309, HLTH310, HLTH315, HLTH506, HLTH701.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #operate #place #map ##hospitals ##care-pathway ##precedence ##patient-flow ##decomposition.
 COMMENTS Clinical precedence is supplied; scheduling it does not by itself construct #link.
+
 
 HLTH309 Surgical Case Scheduling.
 DESCRIPTION Selects surgical cases and assigns rooms, clinical teams and start times under availability, urgency, turnover and recovery-capacity limits.
@@ -180,6 +196,7 @@ DEPENDENCIES HLTH302, HLTH306, HLTH308, HLTH503, HLTH504 → HLTH309 → HLTH901
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map #select ##perioperative ##schedule ##turnover ##stochastic.
 COMMENTS The template concerns actual cases; the master block schedule supplies capacity entitlements.
 
+
 HLTH310 Clinical Diagnostic Resource Scheduling.
 DESCRIPTION Schedules patient diagnostic activities on eligible equipment and clinical resources under urgency, preparation and result-timing requirements.
 TEMPLATE Diagnostic service and laboratory patient scheduling | Flexible open-shop or multi-resource MILP; stochastic batch-activation MIQP with simulation.
@@ -191,6 +208,7 @@ HARDNESS High | Multiple tests, resource eligibility and clinical priority coupl
 DEPENDENCIES HLTH308, HLTH508 → HLTH310 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #dispatch #place #map ##diagnostics ##laboratory ##open-shop ##priority.
 COMMENTS Patient-priority laboratory batching is a variant. Pure specimen processing without patient-service conditions requires a transformation-domain assessment.
+
 
 HLTH311 Dialysis Course and Session Scheduling.
 DESCRIPTION Schedules recurring dialysis sessions and assigns treatment stations and connection staff under treatment intervals, patient availability and equipment limits.
@@ -204,6 +222,7 @@ DEPENDENCIES HLTH301, HLTH303, HLTH508 → HLTH311 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map ##dialysis ##recurring-treatment ##branch-and-price.
 COMMENTS Home-dialysis visit routing is a home-care variant.
 
+
 HLTH312 Radiotherapy Treatment-Course Scheduling.
 DESCRIPTION Schedules prescribed radiation fractions on eligible treatment units under course spacing, preparation, machine continuity and patient time requirements.
 TEMPLATE Radiotherapy course and fraction scheduling | Treatment-course MILP; stochastic scheduling with simulation evaluation.
@@ -215,6 +234,7 @@ HARDNESS High | Course coupling, preparation and variable durations restrict loc
 DEPENDENCIES HLTH301, HLTH304, HLTH305, HLTH508 → HLTH312 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map ##radiotherapy ##fraction-scheduling ##continuity ##stochastic.
 COMMENTS The treatment prescription is input; beam configuration and clinical fraction-size design are separate decisions.
+
 
 HLTH313 Multidisciplinary Rehabilitation Therapy Scheduling.
 DESCRIPTION Schedules recurring rehabilitation therapy sessions and assigns therapists, groups and rooms under clinical frequency, continuity and combination-appointment requirements.
@@ -228,6 +248,7 @@ DEPENDENCIES HLTH301, HLTH303, HLTH508 → HLTH313 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map ##rehabilitation ##continuity-of-care ##group-therapy ##synchronization.
 COMMENTS The blueprint supplies reusable session capacity; this card schedules actual patient programmes.
 
+
 HLTH314 Home Healthcare Visit Coordination.
 DESCRIPTION Assigns caregivers to patient visits and constructs visit routes and times under clinical skills, continuity, time windows and synchronized-care requirements.
 TEMPLATE Home-care routing and scheduling | Synchronized routing MILP; robust models, branch-and-price-and-cut, column-generation heuristics and neighbourhood search.
@@ -240,6 +261,7 @@ DEPENDENCIES ∅ → HLTH314 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #operate #link #map #place ##homecare ##route ##synchronization ##continuity-of-care.
 COMMENTS Clinical visit requirements define HC; generic service routing belongs to LOG or HR.
 
+
 HLTH315 Infusion Treatment Scheduling.
 DESCRIPTION Schedules patient infusion treatments and assigns chairs and clinical staff under prescribed cycles, changing nursing demand and uncertain treatment durations.
 TEMPLATE Acuity-aware infusion centre scheduling | Infusion scheduling MILP; robust optimization and template-assisted scheduling.
@@ -251,6 +273,8 @@ HARDNESS High | Nursing peaks and variable durations limit chair-only planning.
 DEPENDENCIES HLTH303, HLTH308, HLTH507, HLTH508 → HLTH315 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #plan #place #map ##infusion ##oncology ##acuity ##robust.
 COMMENTS Chemotherapy is a major context; medicine production and stock replenishment remain outside this card.
+
+
 
 #allocate | 5##
 
@@ -266,6 +290,7 @@ DEPENDENCIES HLTH101 → HLTH501 → HLTH508.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #map ##publichealth ##screening ##risk-stratification.
 COMMENTS This decision consumes risk predictions; it does not build the predictive model.
 
+
 HLTH502 Vaccination Allocation.
 DESCRIPTION Allocates available vaccine doses or complete courses to eligible populations and service areas under clinical priorities, capacity and access requirements.
 TEMPLATE Public-health vaccination allocation with eligibility and equity rules | Integer allocation models; epidemic-model coupling and scenario analysis.
@@ -277,6 +302,7 @@ HARDNESS High | Multiple doses, uptake uncertainty and interacting population ou
 DEPENDENCIES HLTH101 → HLTH502 → HLTH508.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #map ##publichealth ##vaccination ##equity ##multi-dose.
 COMMENTS Inventory replenishment and cold-chain shipment execution belong to SCM and LOG.
+
 
 HLTH503 Deceased-Donor Organ Matching.
 DESCRIPTION Assigns available deceased-donor organs to eligible recipients under supplied compatibility, clinical priority, viability and receiving-capacity conditions.
@@ -290,6 +316,7 @@ DEPENDENCIES HLTH105 → HLTH503 → HLTH309.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #map ##transplantation ##organ-allocation ##compatibility.
 COMMENTS Fixed-policy match runs use compatibility filters and supplied ranking. The research MILP does not authorize replacement of those rules.
 
+
 HLTH504 Kidney Paired Exchange Construction.
 DESCRIPTION Constructs compatible donor-recipient exchange cycles and chains under participation, length and clinical priority rules.
 TEMPLATE Kidney paired donation clearing | Cycle or position-indexed ILP; branch-and-price and hierarchical objective methods.
@@ -301,6 +328,7 @@ HARDNESS High | Long chains, failure risk and hierarchical goals increase model 
 DEPENDENCIES ∅ → HLTH504 → HLTH309.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #link ##transplantation ##kidney-exchange ##cycle ##chain ##compatibility.
 COMMENTS The compatibility graph is supplied; the solution chooses the transplant relations.
+
 
 HLTH505 Critical-Care Admission and Scarce Treatment Allocation.
 DESCRIPTION Selects patients for available intensive or intermediate care and assigns care capacity under clinical eligibility, risk priority and occupancy limits.
@@ -314,6 +342,7 @@ DEPENDENCIES HLTH102 → HLTH505 → HLTH506, HLTH802.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #dispatch #select #map ##criticalcare ##admission-control ##scarcity ##queueing.
 COMMENTS Clinical eligibility and priority rules must be supplied; bed location alone is a different assignment decision.
 
+
 HLTH506 Patient-to-Room and Bed Allocation.
 DESCRIPTION Assigns admitted patients to rooms or beds over their care stays under specialty, isolation, compatibility and transfer requirements.
 TEMPLATE Clinical bed management and patient-room assignment | Patient-room MIP; local search, matheuristics and rolling assignment.
@@ -325,6 +354,17 @@ HARDNESS High | Shared rooms, uncertain stays and transfer costs create strong i
 DEPENDENCIES HLTH307, HLTH308, HLTH505 → HLTH506 → HLTH507, HLTH701, HLTH802.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #operate #map ##hospitals ##patient-room-assignment ##isolation ##occupancy.
 COMMENTS Generic bed stock or purchasing decisions are separate from patient-compatible occupancy.
+
+HLTH506c Patient-to-Room and Bed Allocation Benchmark.
+CASE Assign admitted inpatients to clinically compatible rooms or beds under live occupancy, specialty, isolation, room-capability and transfer constraints.
+STAGE Researched INDUSTRY | Current industry practice is established as predictive/prescriptive command-center support with expert human placement; deployed combinatorial assignment logic is not publicly transparent.
+SOTA EHR-integrated capacity command center with real-time bed state, admission/discharge and census forecasts, clinical placement rules, prescriptive prioritization and expert bed managers retaining final placement control.
+CONTEXT Acute-care inpatient operations | High occupancy; ED, surgery, direct and internal flows; uncertain LOS; specialty, level-of-care, isolation and room-capability restrictions; bed-turnover delay and transfer costs.
+GAP Industry platforms provide strong real-time state, forecasting and placement workflow, while published OR shows explicit optimization gains on confidential or legacy data; no common public benchmark reproduces a modern command-center event stream and supports comparison against both expert/rule and strong optimization baselines | Proposed uplift direction: test v10 structural assignment/decomposition on a rolling-event benchmark calibrated to real occupancy, arrivals, LOS uncertainty, compatibility and bed-readiness conditions.
+ATTEMPTS Current practice combines 24/7 expert bed management, capacity huddles, EHR command centers, predictive census/discharge analytics and prescriptive placement support; published MIP, ALNS, matheuristic and ML-plus-hyper-heuristic approaches provide stronger explicit optimization but limited reproducible industrial data.
+TAGS ##command-center ##human-in-loop ##rolling-assignment ##real-time-state ##benchmark-gap.
+COMMENTS Clinical admission priority and eligibility are inputs; nurse assignment remains HLTH507 and hospital-wide care-pathway coordination remains HLTH308.
+
 
 HLTH507 Clinical Staff-to-Patient Assignment.
 DESCRIPTION Assigns available clinical staff to patients or care groups under acuity, skill, continuity and workload requirements.
@@ -338,6 +378,7 @@ DEPENDENCIES HLTH506 → HLTH507 → HLTH315.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #operate #map ##hospitals ##acuity ##continuity-of-care ##assignment.
 COMMENTS Generic clinician shift rostering belongs to HR; patient-specific care feasibility defines this contract.
 
+
 HLTH508 Patient Appointment Booking.
 DESCRIPTION Assigns patient requests to eligible provider, mode and time slots under clinical urgency, visit type and booking-capacity limits.
 TEMPLATE Outpatient appointment booking and template-based online scheduling | Slot-assignment integer programming; stochastic or dynamic booking policies.
@@ -350,6 +391,7 @@ DEPENDENCIES HLTH303, HLTH501, HLTH502 → HLTH508 → HLTH310, HLTH311, HLTH312
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #dispatch #map #select ##outpatient #online ##appointment-booking ##no-show.
 COMMENTS Constructing the underlying recurring slot pattern is a separate blueprint decision.
 
+
 HLTH509 Patient-Compatible Blood Unit Allocation.
 DESCRIPTION Assigns available blood units to transfusion requests under antigen compatibility, patient-specific mismatch risk and unit expiry.
 TEMPLATE Extended antigen matching and clinical blood issuing | Minimum-cost flow for fixed compatible-unit allocation; integer extensions for coupled requirements.
@@ -361,6 +403,8 @@ HARDNESS Medium | Rare phenotypes, clinical priorities and uncertain future dema
 DEPENDENCIES ∅ → HLTH509 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #allocate #map ##transfusion ##antigen-matching ##min-cost-flow ##perishability.
 COMMENTS Blood ordering, inventory targets and collection supply planning belong to SCM.
+
+
 
 #operate + #sequence | 7##
 
@@ -376,6 +420,8 @@ DEPENDENCIES HLTH308, HLTH506 → HLTH701 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #operate #sequence #place #execution ##discharge ##bed-release ##stochastic.
 COMMENTS Medical readiness is supplied. Post-acute facility matching is not established by the discharge-scheduling evidence.
 
+
+
 #dispatch | 8##
 
 HLTH801 Emergency Department Care Sequencing.
@@ -390,6 +436,7 @@ DEPENDENCIES ∅ → HLTH801 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #dispatch #operate #place #map ##emergencymedicine ##triage #online ##multi-resource.
 COMMENTS Triage categories are clinical inputs; this problem schedules permitted care actions.
 
+
 HLTH802 Clinical EMS Dispatch and Hospital Destination Assignment.
 DESCRIPTION Assigns response vehicles and receiving hospitals to emergency patients under medical capability, severity, response and receiving-capacity requirements.
 TEMPLATE Severity-aware ambulance dispatch and destination choice | State-dependent dispatch policies; approximate dynamic programming and integrated MILP.
@@ -401,6 +448,7 @@ HARDNESS High | Live availability, severity uncertainty and hospital congestion 
 DEPENDENCIES HLTH104, HLTH505, HLTH506 → HLTH802 → HLTH803.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #dispatch #map ##ems #online ##severity ##destination-assignment.
 COMMENTS Generic shortest-path execution is LOG; clinical response capability defines this contract.
+
 
 HLTH803 Ambulance Standby Relocation.
 DESCRIPTION Reassigns available ambulances to standby locations under live demand, medical coverage and relocation limits.
@@ -414,6 +462,7 @@ DEPENDENCIES HLTH104, HLTH802 → HLTH803 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #dispatch #map ##ems ##coverage #rolling ##relocation.
 COMMENTS Response-time evidence does not by itself establish improved patient outcomes.
 
+
 HLTH804 Mass-Casualty Medical Treatment and Evacuation Coordination.
 DESCRIPTION Assigns casualties to medical facilities and schedules evacuation and treatment under severity, survival, transport and clinical-capacity limits.
 TEMPLATE Medical mass-casualty response and regional preparedness | Integrated evacuation, destination and treatment-order MIP; uncertainty analysis.
@@ -425,6 +474,8 @@ HARDNESS Critical | Rapidly changing casualties and multiple scarce resources re
 DEPENDENCIES HLTH104 → HLTH804 → ∅.
 TAGS #HUMAN #HC ##HEALTHCARE #PRODUCTION #dispatch #adapt #place #map #select ##disastermedicine ##triage ##evacuation ##surge.
 COMMENTS General civilian evacuation is LOG or CIVIC; adversarial response is INTEL when it defines the decision.
+
+
 
 #adapt | 9##
 
