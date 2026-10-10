@@ -740,3 +740,71 @@ C: compile SEMIM701c only.
 F: PASS. Proposed uplift direction remains in GAP; STAGE summarizes evidentiary posture; Case tags are case-specific.
 O: add the Case under SEMIM701 and preserve controlled Problem content.
 
+CANDIDATE DEEP DIVE — SEMIM701dsim
+10 October 2026 | Derived from SEMIM701c | FIRST target
+
+IDENTITY
+The target is D-SIMLAB Technologies.
+Foreground code uses the client shorthand dsim and does not name the target in the Case text.
+
+PUBLICLY SUPPORTED STATE
+D-SIMCON is a semiconductor-specific digital-twin and decision-support suite spanning capacity planning, WIP forecasting, scheduling/dispatching and AI training/evaluation [D01-D04].
+The Scheduler & Dispatcher can synchronize lot schedules across several subsequent work centers, add a real-time dispatch layer between schedule generations, expose tool-level schedules and critical-event alerts, and track schedule adherence [D02].
+D-SIMLAB states that its production-ready solutions are deployed across numerous 6-, 8- and 12-inch wafer fabs operated by IDMs and foundries, at reported capacities from 40,000 to 200,000 wafers per month [D03].
+Its optimization approach is described as smart-heuristic and parallel-computing based, with automated model generation/calibration and near-real-time response to changing fab conditions [D03].
+Its AI Training and Evaluation Platform can evaluate any scheduling system against simulated future WIP scenarios generated from fab process-flow, equipment, dedication and historical failure data [D04].
+The company publicly frames 2026 work around comparison of AI-based real-time dispatching with optimized scheduling [D05].
+
+CANDIDATE CONTEXT
+A semiconductor-specific software and engineering vendor with deployed digital-twin, scheduling, dispatching and WIP-flow products.
+The relevant SEMIM701 surface is not a greenfield scheduling problem. It is an existing simulation-enabled decision stack with productized data ingestion, fab modeling, schedule generation, real-time dispatch and evaluation infrastructure.
+
+CANDIDATE GAP
+Public material demonstrates multi-work-center schedule synchronization and local/critical-equipment performance gains, but does not establish that the current Scheduler & Dispatcher optimizes one explicit fab-wide global objective over all interacting bottlenecks.
+The most concrete published customer gains are reported at critical equipment groups: 8% tool-capacity gain, 10% transportation-capacity gain, 25% operator-workload reduction, and 7% more lots within a critical queue-time limiting area; these are company-reported outcomes, not a reproducible public benchmark [D03].
+The public record does not disclose the scheduler objective, decomposition, neighborhood/heuristic architecture, benchmark data, or how local schedule gains propagate through the full fab.
+Proposed uplift direction: use a simulation-enabled common event stream to compare the incumbent multi-work-center scheduler against a v10 global/local coordination layer that explicitly prices downstream bottleneck, WIP-wave and due-date consequences before local schedule changes are committed.
+
+CANDIDATE ATTEMPTS / TECHNOLOGY HISTORY
+- Simulation-based semiconductor digital twins with automated generation, calibration and maintenance [D01-D04].
+- Multi-objective Scheduler & Dispatcher with local and multi-work-center synchronization [D02, D03].
+- Real-time dispatch between scheduled updates [D02].
+- WIP forecasting used to coordinate preventive-maintenance timing with material flow [D03].
+- AI/RL training and evaluation against future fab scenarios [D04].
+- Current public comparison theme: AI-based real-time dispatching versus optimized scheduling [D05].
+These establish a mature evaluation and execution stack but do not reveal whether current decision logic already solves the v10 global/local coordination problem.
+
+BENCHMARK PATH
+Phase A: reproduce the public architecture on the SEMIM701 purpose-built benchmark using strong multi-work-center heuristic/scheduling and real-time dispatch baselines.
+Phase B: if engaged, run v10 and the incumbent Scheduler & Dispatcher through the same D-SIMCON-style digital-twin event streams and KPI harness.
+The strongest service proposition may be benchmark design plus structural coordination analysis rather than replacement of the vendor's simulation/data platform.
+
+CANDIDATE DISPOSITION
+R: sufficient public evidence for one CANDIDATE Case.
+B: PASS. Product capabilities and deployments are public; algorithm internals and full-fab objective coverage remain unknown.
+C: compile SEMIM701dsim.
+F: PASS. STATE is public-evidence based, the foreground is unnamed, and the uplift direction is confined to GAP.
+O: add the terse CANDIDATE card after SEMIM701c.
+
+D-SIMLAB DEEP-DIVE SOURCES
+
+D01 D-SIMLAB — D-SIMCON
+https://d-simlab.com/d-simcon/
+SUPPORTED OBSERVATION Semiconductor decision-support suite covers capacity, WIP, scheduling/dispatching and AI evaluation; modules are integrated in one digital-twin framework and are designed for scalable deployment.
+
+D02 D-SIMLAB — Scheduler & Dispatcher
+https://d-simlab.com/d-simcon/scheduler-dispatcher/
+SUPPORTED OBSERVATION Scheduler synchronizes and optimizes lot schedules across several subsequent work centers, adds real-time dispatch between schedule generations, exposes tool schedules and tracks adherence.
+
+D03 SEMI — D-SIMLAB Technologies
+https://www.semi.org/en/about/D-SIMLAB_Technologies
+SUPPORTED OBSERVATION D-SIMLAB reports deployments in numerous 6-, 8- and 12-inch fabs; describes automated model calibration, smart heuristics and parallel computing; reports customer gains at critical equipment groups.
+
+D04 D-SIMLAB — AI Training and Evaluation Platform
+https://d-simlab.com/d-simcon/ai-training-and-evaluation-platform/
+SUPPORTED OBSERVATION Platform generates simulation scenarios from process flow, equipment, dedication and historical stochastic data and can evaluate an AI agent or any scheduling system against fab KPIs.
+
+D05 D-SIMLAB — AI-Based Real-Time Dispatching as Compared to Optimized Scheduling
+https://d-simlab.com/news-events/
+SUPPORTED OBSERVATION 2026 public presentation topic explicitly compares AI-based real-time dispatching with optimized scheduling in semiconductor manufacturing.
+
