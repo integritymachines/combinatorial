@@ -500,13 +500,13 @@ Part 1 — researched Case
 
 <ID> <CASE SHORTHAND>.
 CASE <case-specific statement of the parent industrial decision>.
-STAGE <Researched | Verified | Analyzed | Structured | Benchmarked> | <INDUSTRY | CANDIDATE | CLIENT>.
+STAGE <Researched | Verified | Analyzed | Structured | Benchmarked> <INDUSTRY | CANDIDATE | CLIENT> | <controlled status/evidence note>.
 SOTA <strongest researched industry technology state>.          [INDUSTRY]
 STATE <prospect or client technology state>.                    [CANDIDATE | CLIENT]
 CONTEXT <operating setting, scale, and defining constraint regime>.
 GAP <material performance, capability, solution-quality, or benchmark gap> [| <proposed uplift direction>].
 ATTEMPTS <material remedies already used and their outcomes, or —>.
-TAGS <useful supported tags>.
+TAGS <case-specific open tags>.
 COMMENTS <material qualification or —>.
 
 Part 2 — proprietary Case analysis
@@ -523,6 +523,10 @@ COMMENTS <updated material qualification or —>.
 - Part 1 can stand alone.
 - GAP carries any proposed uplift direction. Do not add a generic "can v10 improve this?" QUESTION field.
 - Part 2 is added only from controlled proprietary analysis.
+- STAGE context is a terse controlled status or evidence qualifier contracted from the Case background.
+- Case TAGS are case-specific open descriptors. Do not repeat the parent Problem's Macro Domain, Domain, Industry, Territory, Regime, Structure, or Parameters merely for inheritance.
+- Prefer tags that distinguish the Case's technology state, operating context, benchmark condition, evidence posture, or commercial setting.
+- Do not repeat Case type or maturity in TAGS when STAGE already carries them.
 - TAGS and COMMENTS are shared fields and may be updated when Part 2 is added.
 - INDUSTRY SOTA is not weakened to make a proprietary uplift appear larger.
 - CANDIDATE inference from public evidence remains qualified in background research and must not be presented as client fact.
