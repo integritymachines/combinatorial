@@ -119,9 +119,8 @@ Establish:
 - the case-specific industrial decision;
 - strongest defensible current industry SOTA;
 - operating context, commercial scale, and defining constraint regime;
-- material gap relative to a credible reference;
+- material gap relative to a credible reference and, when useful, the proposed uplift direction;
 - remedies or approaches already tried and their observed outcomes;
-- the unresolved structural or optimization question;
 - evidence supporting each claim.
 
 The INDUSTRY Case is an unnamed benchmark technology holder.
@@ -158,7 +157,7 @@ OUTLIER   non-obvious target that tests whether the opportunity generalizes.
 4. Derive CANDIDATE Cases.
 Research public information about selected prospects.
 The research background may name the organization.
-Create a CANDIDATE only when public evidence supports a useful prospect-specific hypothesis about STATE, CONTEXT, GAP, ATTEMPTS, or QUESTION.
+Create a CANDIDATE only when public evidence supports a useful prospect-specific hypothesis about STATE, CONTEXT, GAP, or ATTEMPTS.
 Separate sourced facts from inference.
 Do not assert an inferred STATE as client fact.
 The foreground CANDIDATE uses the client shorthand in its Case ID but does not name the client.
@@ -179,6 +178,7 @@ Research and support:
 - NEXT.
 
 The required technical claim is uplift beyond the strongest defensible relevant SOTA, not merely uplift beyond a weak client STATE.
+Before proprietary analysis, any proposed uplift direction belongs in GAP; do not create a generic QUESTION field merely asking whether v10 can improve the incumbent.
 Distinguish measured results from predictions.
 Keep formal models, structural probes, experiments, and narrative evidence in background or report material; do not force them into the terse foreground card.
 

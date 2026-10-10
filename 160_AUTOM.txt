@@ -8,6 +8,8 @@ Industry: ##AUTOMOTIVE. Primary Domain: 102 #PROD. Territory: #production. Macro
 Manufacturing capability, fabrication, physical assembly and recovery of released vehicle and component designs define this Domain. Product-platform and family-architecture decisions belong to a separate automotive development territory. Factory capability design remains production.
 Supply commitments, independent movement, workforce arrangements, utility operation, chemical recipes and software operation remain with SCM, LOG, HR, ENER, PROC and COMP when those contracts define the decision.
 
+
+
 #design | 1##
 
 AUTOM101 Manufacturing Capacity Configuration.
@@ -22,6 +24,7 @@ DEPENDENCIES ∅ → AUTOM101 → AUTOM102, AUTOM103, AUTOM104, AUTOM105, AUTOM3
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #select #map ##capacity ##equipment.
 COMMENTS Use of installed capacity belongs to AUTOM301; equipment investment belongs here.
 
+
 AUTOM102 Manufacturing Cell Formation.
 DESCRIPTION Group component families and machines into production cells under capability, capacity and intercell-flow limits.
 TEMPLATE Group technology and cellular manufacturing | Machine-part grouping MILP or constrained grouping search.
@@ -34,6 +37,7 @@ DEPENDENCIES AUTOM101 → AUTOM102 → AUTOM103, AUTOM313, AUTOM501.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #map ##cellular ##partition.
 COMMENTS Cell membership, factory geometry and station work content remain distinct decisions.
 
+
 AUTOM103 Factory Layout.
 DESCRIPTION Place manufacturing areas, cells and equipment within factory space, clearance and access limits.
 TEMPLATE Factory block and equipment layout | Geometric MILP or layout search with discrete-event simulation.
@@ -44,6 +48,7 @@ RELEVANCE High | Better layouts reduce space use and manufacturing interference.
 HARDNESS High | Unequal areas, access corridors and coupled flow distances impede large layout searches.
 DEPENDENCIES AUTOM101, AUTOM102 → AUTOM103 → AUTOM313.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #place ##layout ##geometry.
+
 
 AUTOM104 Production Buffer Capacity Design.
 DESCRIPTION Choose buffer installations and discrete capacities to limit line blocking and starvation within space and cost limits.
@@ -57,6 +62,7 @@ DEPENDENCIES AUTOM101 → AUTOM104 → AUTOM307, AUTOM313, AUTOM801, AUTOM802.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #map #select ##buffer ##blocking ##starvation.
 COMMENTS Installed-buffer operation belongs to AUTOM802.
 
+
 AUTOM105 Assembly Line Balancing.
 DESCRIPTION Assign manufacturing tasks to stations and eligible robots or work positions under precedence, cycle-time and access limits.
 TEMPLATE Work measurement and mixed-model line balancing | Task-assignment MILP or CP; exact and heuristic balancing search.
@@ -68,6 +74,7 @@ HARDNESS High | Model-dependent times, shared zones and robotic access require c
 DEPENDENCIES AUTOM101, AUTOM303 → AUTOM105 → AUTOM310, AUTOM703, AUTOM901.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #map ##line-balancing ##precedence ##takt.
 COMMENTS Equipment purchases belong to AUTOM101; assigned robot-action order belongs to AUTOM310.
+
 
 AUTOM106 Fixture Configuration.
 DESCRIPTION Choose locating and clamping elements and their feasible positions for released parts under access, deformation and dimensional-quality requirements.
@@ -81,6 +88,7 @@ DEPENDENCIES AUTOM303 → AUTOM106 → AUTOM107, AUTOM310, AUTOM313.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #select #place ##fixture ##tolerancing ##geometry.
 COMMENTS Choose discrete elements or candidate positions with fixed released-part datums. Product datum redesign and continuous-only tuning are excluded.
 
+
 AUTOM107 Manufacturing Inspection Configuration.
 DESCRIPTION Select inspection stages, technologies and coverage classes under detection, outgoing-quality and capacity requirements.
 TEMPLATE Manufacturing quality and inspection planning | Robust inspection-allocation MILP; simulation-based discrete plan search.
@@ -92,6 +100,8 @@ HARDNESS High | Imperfect detection, propagation and competing quality objective
 DEPENDENCIES AUTOM106 → AUTOM107 → AUTOM304, AUTOM313, AUTOM504.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #design #select #map ##inspection ##quality.
 COMMENTS Fixed end-of-line test calendars belong to AUTOM313. Defect estimation alone is excluded.
+
+
 
 #plan | 3##
 
@@ -107,6 +117,7 @@ DEPENDENCIES AUTOM101 → AUTOM301 → AUTOM305, AUTOM306, AUTOM307, AUTOM308.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place #map ##capacity ##model-mix.
 COMMENTS Supplier procurement and distribution commitments remain SCM. Individual accepted vehicle orders belong to AUTOM307.
 
+
 AUTOM302 Component Process Planning.
 DESCRIPTION Select fabrication operations, manufacturing alternatives and their order for released component designs under capability and access requirements.
 TEMPLATE Computer-aided process planning | Alternative-plan CP or MILP; integrated process planning and scheduling.
@@ -118,6 +129,7 @@ HARDNESS High | Feature coverage, operation alternatives and machining access re
 DEPENDENCIES ∅ → AUTOM302 → AUTOM306, AUTOM313, AUTOM501, AUTOM503.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #select #place ##process-planning ##precedence.
 COMMENTS Product geometry is an input. A fixed catalogue-route variant selects a route and inherits its order.
+
 
 AUTOM303 Assembly Process Planning.
 DESCRIPTION Choose assembly operations and their order for released vehicles or subassemblies under geometry, accessibility and joining requirements.
@@ -131,6 +143,7 @@ DEPENDENCIES ∅ → AUTOM303 → AUTOM105, AUTOM106, AUTOM310, AUTOM313.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place #select ##assembly-planning ##precedence.
 COMMENTS Operation order within one assembly differs from vehicle order on a line.
 
+
 AUTOM304 Selective Disassembly Planning.
 DESCRIPTION Select recovery targets and disassembly operations and order them under accessibility, condition and recovery-value limits.
 TEMPLATE Selective disassembly and recovery engineering | Quality-dependent disassembly optimization or AND/OR-state search.
@@ -143,6 +156,7 @@ DEPENDENCIES AUTOM107 → AUTOM304 → AUTOM308, AUTOM313.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #select #place ##disassembly ##recovery ##precedence.
 COMMENTS Core supply and reverse transport are inputs from SCM and LOG.
 
+
 AUTOM305 Press Toolkit Allocation Planning.
 DESCRIPTION Assign stamping toolkits and part programs to compatible press lines and periods under workload and assignment-continuity limits.
 TEMPLATE Press-network utilization planning | Toolkit-allocation optimization with tabu, greedy and local search; MILP alternatives.
@@ -153,6 +167,7 @@ RELEVANCE High | Better loading reduces capacity imbalance and unnecessary exter
 HARDNESS High | Toolkit compatibility, assignment persistence and period capacity need tailored search.
 DEPENDENCIES AUTOM301 → AUTOM305 → AUTOM306, AUTOM701.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #map #place ##stamping ##toolkit ##capacity.
+
 
 AUTOM306 Capacitated Production Lot Sizing.
 DESCRIPTION Choose production-lot activations and quantities by period under component requirements, setups and finite capacity.
@@ -166,6 +181,7 @@ DEPENDENCIES AUTOM301, AUTOM302, AUTOM305 → AUTOM306 → AUTOM311, AUTOM312, A
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #select #place ##lot-sizing ##multilevel ##setup.
 COMMENTS Transfer-sublot choice and lot streaming are variants.
 
+
 AUTOM307 Vehicle Master Production Scheduling.
 DESCRIPTION Select vehicle orders and assign them to production shifts under model-mix, capability, lead-time and component-availability limits.
 TEMPLATE Vehicle order-pool and master scheduling | Order-to-period MILP with sequencing-feasibility anticipation and simulation evaluation.
@@ -177,6 +193,7 @@ HARDNESS High | Equipment options, component blocks and downstream sequence effe
 DEPENDENCIES AUTOM104, AUTOM301, AUTOM903 → AUTOM307 → AUTOM702, AUTOM703, AUTOM801.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place #select #map ##master-scheduling ##model-mix.
 COMMENTS Use accepted orders. Commercial order acceptance and promise setting remain external inputs; immediate physical entry belongs to AUTOM801.
+
 
 AUTOM308 Remanufacturing Production Planning.
 DESCRIPTION Choose core-processing and recovery quantities across disassembly, reprocessing and reassembly periods under yields and finite capacity.
@@ -190,6 +207,7 @@ DEPENDENCIES AUTOM301, AUTOM304 → AUTOM308 → AUTOM313, AUTOM501, AUTOM504, A
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #select #place ##remanufacturing ##recovery ##uncertain-yield.
 COMMENTS Core availability and purchased replacements are SCM inputs.
 
+
 AUTOM309 Production and Maintenance Scheduling.
 DESCRIPTION Schedule manufacturing work and maintenance actions together under equipment-condition, downtime and production-capacity limits.
 TEMPLATE Reliability-centered production and maintenance coordination | Risk-aware maintenance MILP or joint production-maintenance CP; simulation evaluation.
@@ -201,6 +219,7 @@ HARDNESS High | Failure risk, intervention grouping and throughput effects need 
 DEPENDENCIES ∅ → AUTOM309 → AUTOM313, AUTOM801, AUTOM903.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place #select ##maintenance ##reliability ##schedule.
 COMMENTS Choose maintenance interventions. A supplied fixed downtime calendar is a AUTOM313 restriction; standalone crew rosters remain HR.
+
 
 AUTOM310 Robotic Manufacturing Cycle Planning.
 DESCRIPTION Order and time assigned robotic manufacturing actions under reach, collision, process and shared-zone constraints.
@@ -214,6 +233,7 @@ DEPENDENCIES AUTOM105, AUTOM106, AUTOM303, AUTOM901 → AUTOM310 → AUTOM313, A
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place ##robotic-cycle ##welding ##synchronization.
 COMMENTS Consumes task-to-robot assignments from AUTOM105. Repetition of an offline program does not change its planning contract.
 
+
 AUTOM311 Electronic Assembly Setup Planning.
 DESCRIPTION Assign component feeders and order pickup and placement actions for automotive boards under machine and setup constraints.
 TEMPLATE Surface-mount setup and placement engineering | Feeder-assignment and placement-sequencing optimization with machine-specific search.
@@ -225,6 +245,7 @@ HARDNESS High | Pickup-head architecture and shared feeders require machine-spec
 DEPENDENCIES AUTOM306 → AUTOM311 → AUTOM313.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #map #place ##smt ##feeder ##placement ##setup.
 COMMENTS The feeder and mounting architecture is transferable from board-assembly methods. Vehicle software operation remains COMP.
+
 
 AUTOM312 Manufacturing Batch Formation and Scheduling.
 DESCRIPTION Group compatible component jobs for simultaneous processing and assign batches to equipment and times under load and recipe-class limits.
@@ -238,6 +259,7 @@ DEPENDENCIES AUTOM306 → AUTOM312 → AUTOM313.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #map #place ##batching ##compatibility ##heat-treatment.
 COMMENTS Discrete component workpieces define this contract. Chemical recipes and bulk-material transformation remain PROC.
 
+
 AUTOM313 Component and Assembly Shop Scheduling.
 DESCRIPTION Assign manufacturing operations to resources and times under precedence, setups, tooling and capacity limits.
 TEMPLATE Finite-capacity automotive production scheduling | Interval CP or scheduling MILP; decomposition and neighborhood search.
@@ -249,6 +271,8 @@ HARDNESS High | Large operation sets and coupled tools, setups and reentry need 
 DEPENDENCIES AUTOM102, AUTOM103, AUTOM104, AUTOM106, AUTOM107, AUTOM302, AUTOM303, AUTOM304, AUTOM306, AUTOM308, AUTOM309, AUTOM310, AUTOM311, AUTOM312, AUTOM501, AUTOM502, AUTOM503, AUTOM504, AUTOM505, AUTOM902, AUTOM903 → AUTOM313 → AUTOM801, AUTOM803, AUTOM903.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #plan #place #map ##schedule ##precedence ##setup.
 COMMENTS Includes manufacturing-synchronized handling. Independent transport dispatch remains LOG.
+
+
 
 #allocate | 5##
 
@@ -264,6 +288,7 @@ DEPENDENCIES AUTOM102, AUTOM302, AUTOM306, AUTOM308 → AUTOM501 → AUTOM313, A
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #allocate #map #select ##fms ##workload ##assignment.
 COMMENTS Produces machine-workload commitments without operation start times. AUTOM301 chooses plant or line volumes; AUTOM305 preserves toolkit continuity.
 
+
 AUTOM502 Blank and Trim Nesting.
 DESCRIPTION Assign component blanks to suitable stock and place cutting patterns under material, geometry and production restrictions.
 TEMPLATE Blank development and material-yield planning | Coil grouping and geometric nesting optimization; pattern-based integer optimization.
@@ -275,6 +300,7 @@ HARDNESS High | Irregular geometry, periodic patterns and restricted material co
 DEPENDENCIES AUTOM306 → AUTOM502 → AUTOM313, AUTOM701.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #allocate #place #map #select ##nesting ##cutting-stock ##geometry.
 COMMENTS Uses specified stock and released-part geometry; supplier choice remains SCM.
+
 
 AUTOM503 Tool Loading and Change Planning.
 DESCRIPTION Assign required tools to capacity-limited machine magazines and plan tool replacements for specified production work.
@@ -288,6 +314,7 @@ DEPENDENCIES AUTOM302, AUTOM501 → AUTOM503 → AUTOM313.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #allocate #map #select ##tool-loading ##setup ##magazine.
 COMMENTS The core contract uses a supplied work order. Joint job ordering adds temporal placement.
 
+
 AUTOM504 Selective Component Matching.
 DESCRIPTION Assign measured components to assembly groups that meet dimensional or functional compatibility requirements.
 TEMPLATE Selective assembly and tolerance matching | Min-cost matching for pairwise cases; integer assignment or evolutionary matching for multipart assemblies.
@@ -300,6 +327,7 @@ DEPENDENCIES AUTOM107, AUTOM308 → AUTOM504 → AUTOM313.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #allocate #map ##selective-assembly ##tolerancing ##assignment.
 COMMENTS Matches physical component instances. Core traceability and commercial product matching are separate contracts.
 
+
 AUTOM505 Additive Manufacturing Build Planning.
 DESCRIPTION Group automotive parts into builds and choose orientations and placements under build-space and machine-compatibility limits.
 TEMPLATE Additive build preparation and packing | Packing-and-build assignment MILP or two-stage packing and scheduling heuristics.
@@ -311,6 +339,8 @@ HARDNESS High | Orientation, packing and machine suitability create coupled geom
 DEPENDENCIES AUTOM306 → AUTOM505 → AUTOM313.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #allocate #place #map ##additive-manufacturing ##packing ##geometry.
 COMMENTS Includes series-production components and manufacturing aids. Prototypes that define a new vehicle belong to development.
+
+
 
 #operate + #sequence | 7##
 
@@ -326,6 +356,7 @@ DEPENDENCIES AUTOM305, AUTOM306, AUTOM502 → AUTOM701 → AUTOM803, AUTOM903.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #operate #sequence #place ##stamping ##setup ##succession.
 COMMENTS Future press calendars are planning variants; toolkit allocation belongs to AUTOM305.
 
+
 AUTOM702 Paint-Shop Vehicle Sequencing.
 DESCRIPTION Order committed vehicle bodies for painting under color-run, product and downstream production requirements.
 TEMPLATE Paint color batching and vehicle-stream sequencing | Multiobjective sequence optimization; CP or MILP with local search.
@@ -337,6 +368,7 @@ HARDNESS High | Color objectives compete with model, due-date and downstream wor
 DEPENDENCIES AUTOM307 → AUTOM702 → AUTOM703, AUTOM802, AUTOM903.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #operate #sequence #place ##paint ##color-batching ##succession.
 COMMENTS Coating chemistry remains PROC. Future streams are planning variants; integrated paint, buffer and assembly decisions retain their constituent contracts.
+
 
 AUTOM703 Mixed-Model Assembly Sequencing.
 DESCRIPTION Order committed vehicles on final assembly lines under option-installation capacity, workload and parts-consumption limits.
@@ -350,30 +382,28 @@ DEPENDENCIES AUTOM105, AUTOM307, AUTOM702, AUTOM901, AUTOM902, AUTOM903 → AUTO
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #operate #sequence #place ##car-sequencing ##model-mix ##succession.
 COMMENTS Car-sequencing and workload-based mixed-model formulations are alternative Templates for this contract. Future complete streams are planning variants.
 
-
 AUTOM703c Mixed-Model Assembly Sequencing Benchmark.
 CASE Order committed vehicles on a variant-rich final assembly line under workload, option, paint, material-flow and delivery constraints.
 STAGE Researched | INDUSTRY.
 SOTA Plant-data-driven multi-objective sequencing and resequencing using constraint-rich exact or constraint models with large-neighborhood, metaheuristic or simulation-optimization search.
 CONTEXT Automotive final assembly | High variant mix; option-ratio and workload constraints, paint or setup objectives, just-in-sequence material conditions, delivery objectives and disruption-driven resequencing.
-GAP Current industrial and published systems show substantial plant-specific KPI gains, but no common public industrial-scale benchmark establishes the residual gap of the strongest deployed methods to the best attainable sequence across the combined industrial constraint set.
+GAP Current industrial and published systems show substantial plant-specific KPI gains, but no common public industrial-scale benchmark establishes the residual gap of the strongest deployed methods to the best attainable sequence across the combined industrial constraint set | Proposed uplift direction: test v10 structural operator design across variant-mix, workload-tightness and option-restriction regimes against strong modern sequencing baselines.
 ATTEMPTS Deployed multi-objective resequencing reduced Ford Saarlouis color changeovers 23% and planned-date spread 10%; robust sequencing research reports 72% lower expected overload than industry solutions; dynamic simulation-optimization is reported for a Fiat Powertrain case.
-QUESTION Can v10 identify structural limits in current sequencing neighborhoods and deliver repeatable uplift beyond the strongest available SOTA on reproducible industrial-scale instances?
 TAGS #TRANS #PROD ##AUTOMOTIVE #PRODUCTION #operate #sequence #place ##car-sequencing ##model-mix ##benchmark ##resequence.
 COMMENTS Public benchmark coverage is narrower than the strongest deployed industrial constraint set.
-
-
 
 AUTOM703mbz Mixed-Model Assembly Sequencing Candidate.
 CASE Order committed vehicles on a high-variant final assembly line under vehicle-specific station processes and times.
 STAGE Researched | CANDIDATE.
 STATE Public evidence supports custom vehicle-sequencing algorithms that account for vehicle-specific station processes and times, within a broader real-time digital production, simulation and optimization ecosystem.
 CONTEXT Global premium-vehicle production | Flexible multi-powertrain assembly, high variant diversity and digitally integrated production planning.
-GAP Public evidence does not disclose the current solver architecture, exact objective weights, reproducible plant instances or residual gap to the best attainable sequence.
+GAP Public evidence does not disclose the current solver architecture, exact objective weights, reproducible plant instances or residual gap to the best attainable sequence | Proposed uplift direction: benchmark vehicle-specific station-process and processing-time constraints on a purpose-built dataset against strong public SOTA before any private-data comparison to the actual incumbent.
 ATTEMPTS Custom sequencing replaced coarse model-mix criteria; earlier rule-based blocked-vehicle resequencing left an acknowledged gap to theoretical potential; production planning now operates within an expanded digital-twin and data platform.
-QUESTION Can v10 use a purpose-built benchmark and later internal plant data to identify a structural incumbent limitation and demonstrate uplift beyond the relevant industry SOTA?
 TAGS #TRANS #PROD ##AUTOMOTIVE #PRODUCTION #operate #sequence #place ##car-sequencing ##model-mix ##candidate ##benchmark-gap.
 COMMENTS STATE is inferred from public evidence; the current proprietary sequencing algorithm and residual performance gap are not public.
+
+
+
 #dispatch | 8##
 
 AUTOM801 Production Order Release and WIP Control.
@@ -387,6 +417,7 @@ HARDNESS Medium | Standard policies work well, but interacting bottlenecks need 
 DEPENDENCIES AUTOM104, AUTOM306, AUTOM307, AUTOM308, AUTOM309, AUTOM313, AUTOM903 → AUTOM801 → AUTOM803, AUTOM903.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #dispatch #select ##order-release ##wip ##workload-control.
 
+
 AUTOM802 Production Buffer Resequencing.
 DESCRIPTION Assign bodies to available buffer lanes or slots and choose a reachable outgoing sequence under current arrivals and assembly requirements.
 TEMPLATE Selectivity-bank and painted-body-store control | Buffer-constrained rolling sequence optimization or online resequencing search.
@@ -399,6 +430,7 @@ DEPENDENCIES AUTOM104, AUTOM702, AUTOM703 → AUTOM802 → AUTOM803, AUTOM902, A
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #dispatch #place #map #online ##resequencing ##buffer.
 COMMENTS FIFO-lane access and slot reachability restrict attainable permutations. Repair of a committed production program belongs to AUTOM903.
 
+
 AUTOM803 Real-Time Manufacturing Dispatching.
 DESCRIPTION Select ready manufacturing actions and assign them to available resources under current capability, tooling and WIP constraints.
 TEMPLATE MES priority and capability-based production control | Priority-rule baseline or rolling local CP and assignment optimization.
@@ -409,6 +441,8 @@ RELEVANCE High | Better local decisions reduce idle time and blocked manufacturi
 HARDNESS High | Fast decisions must coordinate capabilities and resource contention.
 DEPENDENCIES AUTOM310, AUTOM313, AUTOM701, AUTOM703, AUTOM801, AUTOM802, AUTOM903 → AUTOM803 → AUTOM903.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #dispatch #select #map #online ##dispatching ##capability.
+
+
 
 #adapt | 9##
 
@@ -424,6 +458,7 @@ DEPENDENCIES AUTOM105 → AUTOM901 → AUTOM310, AUTOM703, AUTOM903.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #adapt #map ##rebalancing ##stability.
 COMMENTS Uses installed capability; changes to equipment types or counts add AUTOM101 decisions.
 
+
 AUTOM902 Order-to-Body Reassignment.
 DESCRIPTION Revise accepted-order assignments to compatible manufactured bodies after component or sequence disruptions while preserving completed manufacturing work.
 TEMPLATE Postponed configuration and body-order reassignment | Compatibility-constrained assignment optimization; joint matching and resequencing models.
@@ -435,6 +470,7 @@ HARDNESS Medium | Compatibility pools and coupled sequence requirements complica
 DEPENDENCIES AUTOM802 → AUTOM902 → AUTOM313, AUTOM703, AUTOM903.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #adapt #map ##order-reassignment ##compatibility ##postponement.
 COMMENTS Uses compatible unfinished bodies. Reassignment of saleable finished vehicles to dealers or commercial claims remains MKT.
+
 
 AUTOM903 Production Schedule Repair.
 DESCRIPTION Revise committed production calendars and vehicle sequences after material failures, shortages or quality disruptions while limiting deviation.

@@ -119,7 +119,8 @@ Tasks
 1. Compile the INDUSTRY Case.
 The first Case for P is INDUSTRY.
 Use SOTA, not STATE.
-Compile only the controlled case decision, SOTA, CONTEXT, GAP, ATTEMPTS, QUESTION, TAGS, and COMMENTS.
+Compile only the controlled case decision, SOTA, CONTEXT, GAP, ATTEMPTS, TAGS, and COMMENTS.
+Compile any controlled proposed uplift direction inside GAP. Do not add a generic QUESTION field.
 The foreground does not include the target landscape.
 
 2. Compile CANDIDATE Cases.

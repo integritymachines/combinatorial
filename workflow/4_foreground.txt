@@ -123,7 +123,8 @@ Check:
 3. Part 1 fidelity
 - INDUSTRY uses SOTA and does not use a weaker convenient baseline.
 - CANDIDATE and CLIENT use STATE.
-- CONTEXT, GAP, ATTEMPTS, and QUESTION faithfully contract controlled evidence.
+- CONTEXT, GAP, and ATTEMPTS faithfully contract controlled evidence.
+- Any proposed uplift direction appears only in GAP; no generic QUESTION field is present.
 - CANDIDATE text does not name the prospect.
 - Public inference is not presented as client fact.
 

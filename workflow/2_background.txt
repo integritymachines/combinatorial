@@ -105,7 +105,8 @@ Check:
 2. INDUSTRY Case
 - The first Case is INDUSTRY.
 - SOTA is the strongest defensible relevant industry technology state, not a convenient weak baseline.
-- CONTEXT, GAP, ATTEMPTS, and QUESTION are supported and commercially meaningful.
+- CONTEXT, GAP, and ATTEMPTS are supported and commercially meaningful.
+- Any proposed uplift direction is stated inside GAP and is specific enough to guide later analysis without claiming a result.
 - Industry evidence is broad enough that the unnamed benchmark holder is not merely one vendor or one paper presented as the industry.
 
 3. Benchmark support

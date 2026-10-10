@@ -6,6 +6,7 @@ Industry Domain code: 160.
 Industry: ##AUTOMOTIVE. Primary Domain: 102 #PROD. Territory: #production. Macro Domain anchor: #TRANS.
 Normative inputs: 000_DOMAIN.txt v0.5 and background/000_DOMAIN_research.txt v0.5.
 Workflow: workflow/0_workflow.txt through workflow/5_output.txt.
+Case-layer normative input: 000_DOMAIN.txt v0.8.
 Read-only input basis: main commit 8fab83ca9a3ed56b18dd08cf1c90d2ca63ab7d25.
 The requested automotive foreground and background did not exist at that head. The marketplace contained its schema and no candidates.
 Generic 102_PROD and its retained research are discovery and transferable-method inputs. Their old two-digit IDs and COMMENTS-tag layout are not normative.
@@ -788,6 +789,7 @@ The public ROADEF 2005 Renault challenge remains a strong reproducible car-seque
 The v10 test therefore needs both:
 - a reproducible public benchmark against strong current algorithms; and
 - explicit qualification of any industrial constraints absent from that benchmark.
+Proposed uplift direction: construct benchmark regimes spanning variant mix, workload tightness and option restrictions, then test whether v10 structural operator design produces repeatable objective uplift over strong modern neighborhood, LNS or metaheuristic baselines.
 
 ATTEMPTS / CURRENT METHOD FAMILIES
 - Option-ratio car sequencing and workload-based mixed-model sequencing.
@@ -799,8 +801,6 @@ ATTEMPTS / CURRENT METHOD FAMILIES
 - Integrated sequencing with adjacent routing or material-flow decisions.
 These are competing or complementary SOTA families, not evidence for separate Problems.
 
-QUESTION
-Can v10 identify structural limits in current sequencing neighborhoods and deliver repeatable objective uplift beyond the strongest available SOTA on reproducible industrial-scale instances, while stating exactly which industrial constraints the benchmark omits?
 
 BENCHMARK SUPPORT
 ROADEF 2005 Renault car-sequencing challenge [C05].
@@ -1015,6 +1015,7 @@ CANDIDATE GAP
 Public sources establish that custom algorithms and digital production infrastructure exist, but they do not publish a reproducible current plant instance or a quantified residual gap to the best attainable sequence.
 Therefore no candidate-specific v10 uplift claim is yet defensible.
 The immediate gap is evidentiary and benchmark-related: construct a faithful benchmark that can stress the disclosed station-process/time structure without pretending to reproduce undisclosed proprietary logic.
+Proposed uplift direction: benchmark vehicle-specific station-process and processing-time constraints with a purpose-built dataset, compare v10 first against strong public AUTOM703 SOTA, and reserve any claim against the actual incumbent for a later private-data phase.
 
 CANDIDATE ATTEMPTS / TECHNOLOGY HISTORY
 - Custom sequencing algorithms replacing coarse model-mix criteria [M01].
@@ -1023,8 +1024,6 @@ CANDIDATE ATTEMPTS / TECHNOLOGY HISTORY
 - Current AI, MB.OS and digital-twin expansion of the production ecosystem [M04, M05].
 These are evidence of continuing optimization investment, not proof that the current AUTOM703 implementation has a known structural defect.
 
-CANDIDATE QUESTION
-Can v10, first on a purpose-built benchmark calibrated to publicly disclosed station-process and mixed-model conditions and later on internal plant data, identify a structural limitation in the incumbent sequencing approach and demonstrate uplift beyond the relevant industry SOTA without relying on a weak proxy baseline?
 
 BENCHMARK PATH
 Phase A: purpose-built public/reproducible AUTOM703 benchmark using the benchmark brief above.

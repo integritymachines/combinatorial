@@ -1,5 +1,5 @@
 *Industrial Combinatorial Optimization* 
-v0.7 Oct 2026
+v0.8 Oct 2026
 
 - Canonical ontology for industrial combinatorial optimization (ICO) systems.
 - Aims at near-exhaustive, minimally overlapping classification of commercially relevant combinatorial optimization systems.
@@ -504,9 +504,8 @@ STAGE <Researched | Verified | Analyzed | Structured | Benchmarked> | <INDUSTRY 
 SOTA <strongest researched industry technology state>.          [INDUSTRY]
 STATE <prospect or client technology state>.                    [CANDIDATE | CLIENT]
 CONTEXT <operating setting, scale, and defining constraint regime>.
-GAP <material performance, capability, or solution-quality gap>.
+GAP <material performance, capability, solution-quality, or benchmark gap> [| <proposed uplift direction>].
 ATTEMPTS <material remedies already used and their outcomes, or —>.
-QUESTION <specific unresolved structural or optimization question>.
 TAGS <useful supported tags>.
 COMMENTS <material qualification or —>.
 
@@ -522,6 +521,7 @@ TAGS <updated useful supported tags>.
 COMMENTS <updated material qualification or —>.
 
 - Part 1 can stand alone.
+- GAP carries any proposed uplift direction. Do not add a generic "can v10 improve this?" QUESTION field.
 - Part 2 is added only from controlled proprietary analysis.
 - TAGS and COMMENTS are shared fields and may be updated when Part 2 is added.
 - INDUSTRY SOTA is not weakened to make a proprietary uplift appear larger.

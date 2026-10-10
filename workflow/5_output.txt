@@ -60,6 +60,9 @@ Rules
 16. If required semantic content is absent or inconsistent, stop and return the defect to F/C. Do not supply it.
 17. If an ID or ordering defect exists, report it. Do not renumber or reorder.
 18. If controlled technical English or other prose requires substantive rewriting, return it to C. O does not rewrite claims.
+19. Use two empty lines between Problem blocks within a Regime.
+20. Use one empty line between a parent Problem card and its first Case, and one empty line between sibling Case cards.
+21. Use three empty lines before every Regime-band heading.
 
 Finish
 Persist the normalized foreground.
