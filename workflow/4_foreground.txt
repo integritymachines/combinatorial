@@ -125,6 +125,7 @@ Check:
 - CANDIDATE and CLIENT use STATE.
 - CONTEXT, GAP, and ATTEMPTS faithfully contract controlled evidence.
 - Any proposed uplift direction appears only in GAP; no generic QUESTION field is present.
+- STAGE includes a controlled status/evidence note that accurately reflects the background.
 - CANDIDATE text does not name the prospect.
 - Public inference is not presented as client fact.
 
@@ -140,6 +141,7 @@ Check:
 5. Contraction quality
 - Case cards are terse.
 - Target lists, evidence history, formal models, structural probes, experiment tables, and publication narrative remain outside the foreground.
+- TAGS contain only useful case-specific open descriptors and do not mechanically repeat inherited Problem classification or STAGE.
 - TAGS and COMMENTS are updated only when supported.
 - COMMENTS — is used when no material comment is needed.
 
