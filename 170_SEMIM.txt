@@ -203,7 +203,7 @@ TAGS #TRANS #PROD ##SEMICONDUCTOR #PRODUCTION #operate #sequence #place #map ##r
 COMMENTS Local batching, lithography and cluster-tool calendars remain distinct contracted artifacts; they may be integrated in this schedule.
 
 SEMIM701c Fab-Wide Reentrant Scheduling Benchmark.
-CASE Assign and sequence released wafer-lot operations across an interacting fab under reentry, qualification, batching, setup, time-link, maintenance and WIP-flow constraints.
+CASE Coordinate the assignment and sequencing of released wafer-lot operations across interacting fab areas under reentry, qualification, batching, setup, time-link, maintenance and WIP-flow constraints.
 STAGE Researched INDUSTRY | Hierarchical fab-wide plus local scheduling is deployed and current; public testbeds do not reproduce the full industrial state and constraint system.
 SOTA Rolling hierarchical scheduling combines live MES/factory state, fab-wide look-ahead and local toolset optimization, with dispatch or rule logic retained as an execution or fallback layer.
 CONTEXT Front-end wafer fabrication | Thousands of lots, hundreds or more productive tools, long reentrant routes, sparse qualifications, batching, setups, reticles or secondary resources, time links, maintenance, failures and priority classes.
@@ -213,7 +213,7 @@ TAGS ##hierarchical-scheduling ##global-local ##reentrant ##rolling-horizon ##be
 COMMENTS Local batch, lithography and cluster-tool calendars remain SEMIM702-704 when separately contracted; live lot release and immediate tool dispatch remain SEMIM801-802.
 
 SEMIM701dsim Fab-Wide Reentrant Scheduling Candidate.
-CASE Coordinate wafer-lot schedules across multiple work centers with simulation-based fab state, rolling schedule generation and real-time dispatch between schedule updates.
+CASE Coordinate wafer-lot schedules across multiple work centers from simulation-based fab state, with rolling regeneration while real-time dispatch executes between schedule updates.
 STAGE Researched CANDIDATE | Public evidence supports a mature deployed scheduling, dispatch and simulation stack; full-fab objective coverage and proprietary decision logic remain undisclosed.
 STATE Semiconductor-specific digital-twin suite with automated model calibration, WIP forecasting, multi-work-center schedule synchronization, real-time dispatch and simulation-based evaluation of scheduling or AI policies.
 CONTEXT Semiconductor software and engineering vendor | Deployed across multiple 6-, 8- and 12-inch fabs; integrated scheduling, dispatch, WIP-flow and AI-evaluation infrastructure.
