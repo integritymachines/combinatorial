@@ -119,7 +119,7 @@ Tasks
 1. Compile the INDUSTRY Case.
 The first Case for P is INDUSTRY.
 Use SOTA, not STATE.
-Compile only the controlled case decision, SOTA, CONTEXT, GAP, ATTEMPTS, TAGS, and COMMENTS.
+Compile only the controlled case decision, STAGE context, SOTA, CONTEXT, GAP, ATTEMPTS, TAGS, and COMMENTS.
 Compile any controlled proposed uplift direction inside GAP. Do not add a generic QUESTION field.
 The foreground does not include the target landscape.
 
@@ -148,11 +148,15 @@ PRESCRIPTION is short-run | long-run.
 Do not fabricate a measured RESULT from a prediction.
 Do not create a second Case merely because proprietary analysis was performed.
 
-6. Keep foreground terse.
+6. Compile Case tags.
+Use case-specific open descriptors only.
+Do not repeat inherited Problem classification tags or duplicate Case type or maturity.
+
+7. Keep foreground terse.
 Do not compile target lists, source history, formal models, probe coordinates, experiment tables, or publication narrative into the Case card.
 Those remain in background or a separate report.
 
-7. Apply the normative Case schema.
+8. Apply the normative Case schema.
 Use only Case fields and identifier rules defined by 000_DOMAIN.txt.
 If the schema is insufficient, stop and report the normative gap rather than inventing a local field.
 
