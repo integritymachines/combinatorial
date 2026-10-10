@@ -1,13 +1,14 @@
 170_SEMIM_research.txt
 
 SEMIM — Semiconductor Manufacturing
-v0.1 | 8 October 2026 | Problem layer
+v0.1 | 10 October 2026 | LEVEL=CASE
 
 IDENTITY AND RESEARCH BASIS
 
 Code 170. Mnemonic SEMIM. Macro Domain anchor #TRANS. Primary Domain 102 #PROD. Industry ##SEMICONDUCTOR. Territory #PRODUCTION.
 The user fixes the code, mnemonic, manufacturing scope and v0.1 output label. The remaining identity fields follow 000_DOMAIN.txt and background/000_DOMAIN_research.txt. They are not new ontology classes. The two requested paths were absent from main at retrieval; this is a new Problem-layer inventory.
 000_DOMAIN.txt v0.5 is normative. Its current boundary explicitly assigns semiconductor fabrication to #PROD. This background covers fabrication and assembly of released device designs, manufacturing-system configuration, production inspection and test, and physical device repair before shipment. A manufacturing-system design commitment stays in #PRODUCTION; #design is a Regime, not a Territory.
+Case-layer normative input: 000_DOMAIN.txt v0.7. Problem research below remains the controlled basis for the existing Problem set; Case research is appended for selected Problems.
 Chip architecture, netlist synthesis, standard-cell placement, circuit routing, package architecture and design-for-test insertion deliver new product definitions. They are outside this manufacturing territory even where their Primary Domain is #PROD. Installed compute-resource operation is #COMP. Earlier generic PROD research contains a conflicting older VLSI boundary; the current normative ontology and domain background prevail. No ontology or existing foreground is changed here.
 
 OPERATING TERRITORY
@@ -474,3 +475,268 @@ Publisher abstract retrieved. Basis: lot/wafer assignment to customer demand cla
 S43 Allocating Reticles in an Automated Stocker for Semiconductor Manufacturing Facility (2021), Benzoni and coauthors; linked from Flexciton's first-party technical discussion.
 https://flexciton.com/blog-news/the-reticle-allocation-problem-and-how-to-approach-it
 First-party technical discussion/indexed paper abstract retrieved. Basis: reticle-to-stocker location assignment; outward LOG candidate. No paper-specific solver claim is compiled from the vendor's comparison.
+
+CASE RESEARCH — SEMIM701 FAB-WIDE REENTRANT SCHEDULING
+10 October 2026 | Fourth calibration Case | INDUSTRY first
+
+PARENT
+SEMIM701 Fab-Wide Reentrant Scheduling.
+The parent Problem is fixed.
+
+INDUSTRY CASE — SEMIM701c
+
+CASE
+Assign and sequence released wafer-lot operations across an interacting fab under reentry, tool qualification, batching, setup, time-link, maintenance and WIP-flow constraints.
+
+SOTA
+The strongest defensible current industry state is hierarchical, rolling fab scheduling that combines live MES/factory state with global look-ahead and local toolset optimization, while retaining dispatch or rule logic as an execution/fallback layer.
+SEMI's smart-manufacturing guidance explicitly contrasts tool-centric rule dispatching with fab-centric scheduling that uses the state of every tool and lot to optimize global objectives over the next 12-24 hours [C01].
+Applied SmartFactory markets an optimization-based semiconductor scheduling system that continuously consumes real-time factory data, updates lot/reticle schedules and reports >1% lithography-utilization and 2.1% throughput improvement as product claims [C02].
+Flexciton has published a hierarchical fab-wide/toolset scheduling deployment at Seagate Springtown; the framework uses fab-wide look-ahead to guide local schedulers and reports substantial cycle-time improvement versus dispatch-rule methods [C03, C04].
+TSMC publicly states that AI is integrated into dispatching and scheduling computation to improve equipment productivity, demonstrating the maturity of AI-assisted execution at leading fabs [C05].
+Infineon/University of Klagenfurt 2026 research shows a critical limit of local optimization: CP-based local schedules can beat expert heuristics locally while producing inconsistent fab-wide effects, motivating injection of global information into local formulations [C06].
+Current RL research remains a frontier rather than a settled deployed SOTA; a 2025 review found strong academic performance but a lack of validation and deployment guidance for real fabs [C07].
+No single universal fab-wide scheduler is established as dominant.
+
+CONTEXT
+Front-end wafer fabrication with thousands of released lots, hundreds or more productive tools and long reentrant routes.
+Material conditions include product/tool qualifications and dedications, batching, sequence-dependent setups, reticle or secondary-resource constraints, queue/time links, preventive maintenance, tool failures, hot/priority lots, WIP-control mechanisms and uncertain processing or arrival conditions.
+SEMIM701 commits a coordinated rolling operation calendar across interacting toolsets.
+Local batch, lithography and cluster-tool calendars remain SEMIM702-704 when separately contracted; live lot release and immediate tool dispatch remain SEMIM801-802.
+
+GAP
+Real deployments and commercial systems demonstrate hierarchical/global scheduling gains, but reproducible public benchmark support remains materially weaker than the industrial problem.
+Common open models such as MiniFab, MIMAC and SMT2020 are valuable research testbeds, yet recent semiconductor research explicitly finds that open-source models such as MiniFab and SMT2020 lack the complexity and constraints present in real industry datasets [C08].
+SMT2020 itself was created because older MIMAC/MiniFab-era models dominated research and required a more modern simulation testbed, but it still remains a model rather than a current production event stream [C09].
+The strongest deployment evidence at Seagate, Renesas, Infineon and other fabs depends on proprietary or confidential factory data, making independent comparison against current industrial SOTA difficult [C03, C06, C10].
+Proposed uplift direction: construct a purpose-built rolling fab benchmark with explicit global/local hierarchy and realistic reentry, qualification, batching, time-link, maintenance and stochastic-state regimes, then test whether v10 can identify a superior decomposition or coordination structure that improves global cycle-time, throughput and due-date performance over strong dispatch, local-optimization and hierarchical scheduling baselines.
+
+ATTEMPTS / CURRENT METHOD FAMILIES
+- Expert and configurable dispatch rules using current WIP/tool state.
+- Local toolset optimization with CP, MIP, heuristics or specialized schedulers.
+- Hierarchical fab-wide look-ahead coupled to local schedulers.
+- Simulation-enabled scheduling and WIP-flow optimization.
+- Optimization-based APS using live factory data.
+- AI/RL dispatching and adaptive policies.
+- Hybrid mathematical optimization plus heuristic/decomposition methods.
+These methods are complementary or competing architectures; published local gains do not imply fab-wide uplift.
+
+BENCHMARK SUPPORT
+- MIMAC and MiniFab remain canonical open semiconductor testbeds but are decades old [C09, C11].
+- SMT2020 is a newer semiconductor manufacturing testbed and includes multiple fab characteristics, but recent work still finds that it lacks real-industry complexity and constraint detail [C08, C09].
+- Generic reentrant/job-shop datasets are useful for algorithm mechanics but do not establish semiconductor industrial fidelity.
+- Seagate Springtown provides a published real large-scale fab-wide deployment case, but the underlying plant data are not a reusable public benchmark [C03, C04].
+- Infineon 2026 work uses a high-fidelity simulation environment to evaluate local CP schedules at fab scale; the industrial environment is not a general public benchmark [C06].
+Therefore a purpose-built benchmark is required before v10 uplift can be demonstrated credibly against current SEMIM701 SOTA.
+
+PURPOSE-BUILT BENCHMARK BRIEF — SEMIM701
+
+CLAIM TO TEST
+Can v10 improve fab-wide rolling schedules beyond strong hierarchical/global scheduling and local-optimization baselines without sacrificing operational feasibility under stochastic reentrant fab conditions?
+
+CORE INSTANCE AND EVENT DATA
+- product routes with repeated visits and operation precedence;
+- released lot/WIP state at benchmark start;
+- tool groups, individual tools and capacities;
+- product/step/tool qualification and dedication;
+- processing times and setup/campaign rules;
+- parallel-batch equipment and compatible batch families where used;
+- reticles or other material secondary resources where they constrain operations;
+- queue/time-link windows;
+- planned preventive-maintenance windows;
+- tool-failure and repair distributions or replay events;
+- lot priorities/hot-lot classes;
+- product mix and release profile;
+- WIP-flow controls or supplied kanban/flow limits where used;
+- current tool and WIP state updates over the rolling horizon;
+- KPI definitions and objective weights required to reproduce each baseline.
+
+REGIME AXES
+Vary:
+- fab scale and route depth;
+- reentry intensity;
+- utilization/bottleneck tightness;
+- qualification sparsity;
+- batching prevalence;
+- setup/campaign pressure;
+- time-link density and tightness;
+- maintenance/failure intensity;
+- product-mix diversity;
+- hot-lot share;
+- WIP imbalance;
+- horizon length and rescheduling cadence.
+
+BOUNDARIES
+Do not make SEMIM701 choose wafer starts, qualification design, maintenance policy, batch identity, lithography-local artifacts or live release/dispatch decisions unless those are explicitly supplied interfaces or embedded subdecisions of the coordinated schedule.
+Benchmark layers should record when a local SEMIM702-704 or SEMIM802 mechanism is simulated as an execution interface rather than silently reclassifying the parent Case.
+
+BASELINES
+At minimum:
+- strong expert/configurable dispatch-rule baseline;
+- local CP/MIP or other exact/near-exact toolset optimization;
+- hierarchical fab-wide plus local-scheduler architecture;
+- simulation-enabled heuristic/decomposition baseline;
+- AI/RL dispatching baseline where enough training/evaluation infrastructure exists.
+Use the same stochastic event stream or common-random-number design across methods.
+
+EVALUATION
+Primary global outcomes:
+- throughput/wafer outs;
+- mean and percentile cycle time;
+- on-time delivery or tardiness;
+- WIP/linearity;
+- time-link violations;
+- bottleneck utilization and starvation/blocking.
+Secondary outcomes:
+- schedule stability;
+- rescheduling latency;
+- manual-intervention requirement;
+- local versus global KPI divergence.
+
+CONSTRUCTION AND VALIDATION
+Prefer de-identified partner-fab routes, tool qualifications, WIP snapshots and event distributions.
+Where unavailable, build on an open semiconductor testbed but reconstruct modern qualification, batching, maintenance, time-link and stochastic layers explicitly and disclose every added assumption.
+Calibrate aggregate distributions against partner or published industrial evidence.
+Reserve hidden event streams and product-mix scenarios for final uplift evaluation.
+Publish the generator, simulation kernel/version, baseline implementations, checker and seed policy where confidentiality permits.
+
+DELIVERABLE
+A purpose-built SEMIM701 benchmark can itself be a service artifact:
+- public benchmark core;
+- confidential fab-calibrated extension;
+- replay/simulation environment;
+- baseline scheduler suite;
+- local/global KPI decomposition;
+- reproducible evidence linking any v10 uplift to structural coordination rather than an easier event stream or weaker comparator.
+
+TARGET LANDSCAPE — FIRST DOZEN
+
+1. Infineon Technologies | ENTERPRISE | 2026 joint research explicitly tests CP-based local semiconductor scheduling at realistic fab scale and finds inconsistent fab-wide impact without global information; the new Smart Power Fab adds a highly digitalized production environment [C06, C12].
+2. Seagate Technology | ENTERPRISE | Springtown is the published industrial reference for deployed hierarchical fab-wide plus toolset scheduling and has documented advanced-scheduling collaboration with Flexciton [C03, C04].
+3. Renesas Electronics | ENTERPRISE | Public industrial work covers constrained diffusion scheduling, time-link handling and live deployment of multi-objective optimization, supplying a mature local-scheduling comparator [C10, C13].
+4. TSMC | ENTERPRISE | Leading mega-fab operator publicly describes AI-integrated dispatching/scheduling computation and fab-wide intelligent operations; highest-scale environment but least transparent benchmark access [C05].
+5. D-SIMLAB Technologies | BOUTIQUE CONSULTANT | Semiconductor-specific simulation/optimization specialist; D-SIMCON includes fab scheduling/dispatch, WIP forecasting and digital-twin evaluation, with production deployments in 6-, 8- and 12-inch fabs [C14, C15].
+6. Fabmatics | BOUTIQUE CONSULTANT | Semiconductor automation specialist offering fab assessments, simulation/digital-twin modelling and optimization of material-flow systems; useful bridge between schedule and physical automation feasibility [C16].
+7. Applied SmartFactory / Applied Materials | SOFTWARE VENDOR | Explicit optimization-based semiconductor advanced scheduling using real-time factory data, fab/assembly schedulers and documented product-level KPI claims [C02].
+8. Siemens Opcenter | SOFTWARE VENDOR | Semiconductor MES supports event-based dispatch, digital-twin simulation and validation of dispatch/scheduling strategies before live deployment [C17].
+9. INFICON FabTime | SOFTWARE VENDOR | Widely semiconductor-specific dispatch platform with configurable dispatch factors and reservation logic; useful strong rule/dispatch comparator below full fab-wide optimization [C18].
+10. Flexciton | FUNDED STARTUP | Series-A autonomous semiconductor planning/scheduling company with deployments across 25+ fabs and named customers including Seagate, Renesas and Microchip; directly aligned with hierarchical/local scheduling [C19, C20].
+11. Arch Systems | FUNDED STARTUP | Recently funded manufacturing-intelligence platform with deep electronics-factory integration and agentic decision support; less exact scheduling fit but relevant as an execution-data/intelligence layer [C21].
+12. Phantasma Labs | FUNDED STARTUP | 2026-funded AI-native APS company for high-complexity disruption-prone factories; not semiconductor-specific in the inspected evidence, making it a useful transfer/outlier target [C22].
+
+TOP FOUR
+
+FIRST — D-SIMLAB Technologies
+Exact semiconductor scheduling/digital-twin fit, production deployments, specialist scale and an explicit 2026 focus on comparing AI dispatching with optimized scheduling make D-SIMLAB the cleanest first conversation around a benchmark-plus-v10 structural coordination service [C14, C15].
+
+PEAK — Infineon Technologies
+The 2026 Infineon/Klagenfurt evidence exposes precisely the structural issue v10 should attack: strong local CP optimization can improve local schedules while fab-wide outcomes remain inconsistent unless global information enters the formulation. A successful uplift here would be unusually credible [C06].
+
+FALLBACK — Flexciton
+Direct SEMIM701 incumbent with transparent hierarchical architecture, named industrial deployments and strong optimization expertise. It is both a formidable comparator and a plausible benchmark/technology partner if v10 can add a demonstrable structural layer rather than merely replicate scheduling functionality [C03, C19, C20].
+
+OUTLIER — Phantasma Labs
+Funded AI-native APS platform outside semiconductor specialization. It tests whether the v10 decomposition/benchmark method can transfer into another high-complexity scheduling product and then be brought back into semiconductor as a differentiated structural engine [C22].
+
+CANDIDATE CASES
+None promoted in this first SEMIM701 pass.
+The target landscape is retained for later return; this calibration round stops at INDUSTRY.
+
+CASE SOURCES
+
+C01 SEMI — Smart Manufacturing and Digital Twins for the Semiconductor Industry
+https://www.semi.org/en/blogs/technology-trends/smart-manufacturing-and-digital-twins-for-the-semiconductor-industry
+SUPPORTED OBSERVATION Contrasts tool-centric rule dispatching with fab-centric smart scheduling using factory-wide data and a 12-24 hour future view.
+
+C02 Applied SmartFactory — Advanced Scheduling
+https://appliedsmartfactory.com/productivity-solutions/advanced-scheduling/
+SUPPORTED OBSERVATION Optimization-based semiconductor scheduling consumes real-time factory data and updates lot/reticle schedules; >1% lithography-utilization and 2.1% throughput figures are vendor product claims.
+
+C03 Flexciton — Fab-Wide Scheduling of Semiconductor Plants
+https://flexciton.com/blog-news/fab-wide-scheduling-of-semiconductor-plants-case-study
+SUPPORTED OBSERVATION Hierarchical Fab-Wide Scheduler plus Toolset Scheduler architecture; fab-wide look-ahead guides local scheduling at Seagate Springtown.
+
+C04 Flexciton — ASMC 2023 deployment paper
+https://flexciton.com/resources/technical-paper-asmc-2023
+SUPPORTED OBSERVATION Deployed integrated fab-wide/toolset scheduler framework at Seagate Springtown and reported substantial cycle-time improvement versus dispatch-rule methods.
+
+C05 TSMC — Agile and Intelligent Operations
+https://www.cld.tsmc.com/english/dedicatedFoundry/manufacturing/intelligent_operations
+SUPPORTED OBSERVATION TSMC publicly states AI is integrated into dispatching and expands scheduling-processing/computational scope to improve equipment productivity.
+
+C06 Stöckermann et al. — Quantifying the Global Impact of Constraint Programming Based Local Scheduling in Semiconductor Manufacturing
+https://semiengineering.com/cp-based-lot-scheduling-solutions-for-a-semiconductor-manufacturing-infineon-u-of-klagenfurt/
+https://doi.org/10.1109/TSM.2026.3678175
+SUPPORTED OBSERVATION Local CP scheduling significantly improves over expert heuristics locally, while fab-wide effects are inconsistent; authors motivate injection of global information into local formulations.
+
+C07 Wegmann et al. — Reinforcement learning based dispatching solutions in semiconductor manufacturing: review on validation and deployment
+https://www.tandfonline.com/doi/full/10.1080/21693277.2025.2582472
+SUPPORTED OBSERVATION Academic RL performance is strong, but public literature lacks validation/deployment approaches and guidance for real fabs.
+
+C08 Immordino et al. — Scalability of reinforcement learning methods for dispatching in semiconductor frontend fabs
+https://link.springer.com/article/10.1007/s00170-025-16117-2
+SUPPORTED OBSERVATION Common open-source models including MiniFab and SMT2020 lack complex details and constraints found in a real industry dataset.
+
+C09 Hassoun et al. — SMT2020: A Semiconductor Manufacturing Testbed
+https://www.researchgate.net/publication/342136212_SMT2020-A_Semiconductor_Manufacturing_Testbed
+SUPPORTED OBSERVATION Reviews MIMAC, MiniFab and SEMATECH testbeds and introduces a newer semiconductor manufacturing simulation testbed.
+
+C10 Flexciton / Renesas — Industrial diffusion scheduling
+https://flexciton.com/resources/technical-paper-journal-of-manufacturing-systems-2022
+SUPPORTED OBSERVATION Industrial Renesas diffusion scheduling uses MILP decomposition plus heuristics with batching and time-link constraints and evaluates schedules under uncertainty against historical rule-based dispatching.
+
+C11 NIST — Framework for Standard Modular Simulation: Semiconductor Wafer Fabrication
+https://www.nist.gov/publications/framework-standard-modular-simulation-application-semiconductor-wafer-fabrication
+SUPPORTED OBSERVATION Historical semiconductor simulation benchmarking includes MiniFab and MIMAC models.
+
+C12 Infineon — Smart Power Fab Dresden
+https://www.infineon.com/press-release/2026/ifxpr202607-117
+SUPPORTED OBSERVATION New 2026 Smart Power Fab is strongly digitalized and linked with Villach as one virtual fab.
+
+C13 Flexciton — Renesas scheduling case
+https://flexciton.com/blog-news/flexcitons-software-trial-at-renesas-fab-tackles-one-of-the-most-complex-aspects-of-fab-scheduling
+SUPPORTED OBSERVATION Reports industrial time-link/batching scheduling trial and subsequent implementation path; improvement figures are vendor/customer case evidence.
+
+C14 D-SIMLAB — D-SIMCON
+https://d-simlab.com/d-simcon/
+SUPPORTED OBSERVATION Semiconductor-specific digital-twin suite includes WIP forecasting, scheduling/dispatching and AI training/evaluation.
+
+C15 SEMI — D-SIMLAB Technologies
+https://www.semi.org/en/about/D-SIMLAB_Technologies
+SUPPORTED OBSERVATION D-SIMLAB reports deployments in multiple 6-, 8- and 12-inch fabs and production scheduling/dispatching gains; figures are company evidence.
+
+C16 Fabmatics — Semiconductor Fab Consulting
+https://www.fabmatics.com/solutions/services/
+SUPPORTED OBSERVATION Fabmatics provides semiconductor fab assessment, simulation/digital-twin modelling and optimization services centered on automation/material flow.
+
+C17 Siemens — Opcenter Execution Semiconductor
+https://www.siemens.com/de-de/products/opcenter/execution/semiconductor/
+SUPPORTED OBSERVATION Semiconductor MES provides event-based dispatch, real-time WIP tracking, digital-twin simulation and validation of dispatch/scheduling strategies.
+
+C18 INFICON — FabTime Dispatch
+https://www.inficon.com/en/products/intelligent-manufacturing-systems/fabtime-dispatch
+SUPPORTED OBSERVATION Semiconductor dispatch platform ranks qualified lots by standard or custom dispatch logic and can export lists to MES.
+
+C19 Flexciton — Autonomous semiconductor planning and scheduling
+https://flexciton.com/
+SUPPORTED OBSERVATION Current product suite includes Planner, Local and Global scheduling; site reports 25+ fab engagements and named customers including Seagate and Renesas.
+
+C20 Flexciton — funding
+https://flexciton.com/blog-news/flexciton-announces-15m-series-a-funding
+SUPPORTED OBSERVATION Series-A backed company with more than £21m reported funding and semiconductor-specific optimization focus.
+
+C21 Arch Systems — 2026 investment
+https://archsys.io/hub/news/investment-vistara-accelerates-arch-agentic-ai-roadmap/
+SUPPORTED OBSERVATION $30m 2026 growth investment; manufacturing-intelligence/agentic-AI platform with large electronics-manufacturing deployments.
+
+C22 Phantasma Labs — 2026 funding
+https://www.phantasma.global/blogs/phantasma-labs-raises-investment-to-advance-ai-powered-production-scheduling
+SUPPORTED OBSERVATION €2.6m 2026 funding for AI-native production planning and scheduling in complex manufacturing; inspected evidence is not semiconductor-specific.
+
+CASE RESEARCH DISPOSITION
+R: sufficient for one INDUSTRY Case, a purpose-built benchmark brief and a first-dozen/top-four target landscape.
+B: PASS for calibration stage. The industry SOTA distinguishes hierarchical scheduling from local dispatch; benchmark limitations and industrial-data confidentiality are explicit.
+C: compile SEMIM701c only.
+F: PASS. Proposed uplift direction remains in GAP; STAGE summarizes evidentiary posture; Case tags are case-specific.
+O: add the Case under SEMIM701 and preserve controlled Problem content.
+
