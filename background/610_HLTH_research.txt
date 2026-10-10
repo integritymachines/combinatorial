@@ -879,3 +879,233 @@ URL https://pubmed.ncbi.nlm.nih.gov/33400050/
 Primary indexed abstract retrieved 2026-10-09. Two-stage stochastic MILP for recurring primary-care appointment templates; evidence for BLUEPRINT, not a new specialty-labelled problem.
 
 Additional discovery exclusions: biomarker/diagnostic feature selection is analytical model design, not routine care construction; continuous treatment optimization without genuine discrete choices is outside ICO. Sterile processing must pass #PROC/#PROD versus patient-service ownership before admission. Clinical trial capability development remains outside the supplied production scope and would require ontology identity review rather than an in-workflow split.
+
+CASE RESEARCH — HLTH506 PATIENT-TO-ROOM AND BED ALLOCATION
+10 October 2026 | Third calibration Case | INDUSTRY first
+
+PARENT
+HLTH506 Patient-to-Room and Bed Allocation.
+The parent Problem is fixed.
+
+INDUSTRY CASE — HLTH506c
+
+CASE
+Assign admitted inpatients to clinically compatible rooms or beds under live occupancy, specialty, isolation, room-capability and transfer constraints.
+
+SOTA
+The strongest defensible current industrial state is a hybrid command-center and EHR-integrated bed-management process.
+Real-time platforms expose occupied, assigned, unassigned and blocked beds; forecast census, admissions and discharge; aggregate clinical and operational placement data; and provide prescriptive prioritization or matching support [H01-H05].
+Experienced bed managers or patient-placement teams still retain a central operational role in mature deployments. Johns Hopkins explicitly staffs bed management 24/7 with experienced nurses who assign the right patient to the right bed [H01].
+UCHealth uses predictive and prescriptive inpatient-flow software across 12 hospitals to balance capacity and support placement decisions [H02].
+Humber River combines bed-allocation staff, real-time bed/census views, AI-supported command-center analytics and patient-flow interventions [H03].
+Commercial platforms from TeleTracking, Epic, GE HealthCare and LeanTaaS expose patient placement, capacity, forecast and workflow capabilities, but the public material inspected does not disclose a common combinatorial assignment formulation, objective or solver that can be reproduced as the industrial SOTA [H04-H07].
+Published OR is technically more explicit: current research combines ML arrival forecasting with hyper-heuristic bed assignment on real hospital data, and recent PAS/PASU work uses MIP, large-neighborhood and matheuristic methods [H08-H10].
+The industrial SOTA is therefore best represented as real-time predictive/prescriptive decision support plus expert human placement, with optimization evidence stronger in research than in transparent deployed product descriptions.
+
+CONTEXT
+Acute-care inpatient operations at high occupancy.
+Incoming patients can arrive from ED, surgery, direct admission, transfers or step-up/step-down care.
+Material feasibility includes specialty and level-of-care eligibility, isolation/cohorting, room or equipment capability, current occupancy and bed readiness.
+Operational quality depends on boarding delay, off-service placement, avoidable internal transfers and preservation of scarce specialized beds.
+Length of stay and emergency demand are uncertain.
+Clinical eligibility, admission priority and staffing availability are supplied constraints for HLTH506; choosing nurse responsibility remains HLTH507.
+
+GAP
+Industry deployments are strong at real-time state visibility, demand/census forecasting, command-center coordination and placement workflow, while research demonstrates explicit optimization gains.
+The two evidence streams do not meet in a common public industrial benchmark.
+Legacy PAS/PASU families introduced in 2010-2012 remain heavily used in current research; 2024 work still evaluates matheuristics on those benchmark families [H09].
+They capture useful room, specialty, equipment, gender, capacity and length-of-stay conditions, but they are synthetic/legacy rather than calibrated to a modern command-center event stream.
+A 2023 operational patient-bed study used real data from a large German hospital and reported up to 3.3% overall improvement from ML forecasting plus a hyper-heuristic, but the hospital data are confidential [H08].
+No inspected public dataset jointly supplies current occupancy state, timestamped arrivals and bed readiness, modern compatibility/clinical placement rules, forecast uncertainty, transfer history and a reproducible expert or deployed-software baseline.
+Proposed uplift direction: build a rolling-event HLTH506 benchmark from de-identified or calibrated synthetic hospital states, then test whether v10 structural assignment/decomposition produces repeatable reductions in boarding, off-service placement and transfers beyond strong PAS/PASU optimization and expert/rule-based placement baselines.
+
+ATTEMPTS / CURRENT METHOD FAMILIES
+- 24/7 expert bed-management teams and daily capacity huddles.
+- EHR-integrated command centers with real-time capacity views, alerts and escalation.
+- Predictive admission, discharge and census analytics.
+- Rule-based and prescriptive prioritization of patient placement.
+- MIP and reduced/aggregated integer models for patient-room assignment.
+- Adaptive large-neighborhood, matheuristic and hyper-heuristic search.
+- ML forecasting coupled to rolling operational bed assignment.
+These are alternative or complementary methods for HLTH506; system-wide care-pathway orchestration remains HLTH308.
+
+BENCHMARK SUPPORT
+Public benchmark support exists but is structurally dated.
+- The Demeester/Ceschia-Schaerf PAS/PASU families supply hundreds of standard patient-room instances and remain active research references [H09, H10].
+- Dynamic PAS research includes emergency arrivals and uncertain stay lengths, but public instances are generated rather than operational event histories [H09].
+- A 2024 integrated patient-room/nurse study provides artificial instance generation plus real-world experiments, but the integrated nurse decision crosses into HLTH507 and is not the baseline identity for HLTH506 [H11].
+- The 2023 real-hospital ML/optimization study is especially relevant operationally, but its underlying case-hospital data cannot be released [H08].
+Therefore a purpose-built benchmark is warranted.
+
+PURPOSE-BUILT BENCHMARK BRIEF — HLTH506
+
+CLAIM TO TEST
+Can v10 improve rolling patient-to-room/bed assignment beyond strong current optimization and expert/rule-based placement while preserving every clinical compatibility and capacity requirement?
+
+CORE EVENT AND STATE DATA
+- de-identified patient request identifier and arrival timestamp;
+- arrival source and supplied clinical priority;
+- specialty and level-of-care eligibility;
+- isolation/cohorting requirements;
+- required room or bed capabilities/equipment;
+- current room/bed occupancy and blocked status;
+- bed-cleaning/readiness timestamps where they affect availability;
+- expected discharge and LOS distribution or scenarios;
+- current patient location and permissible transfer set;
+- room/bed capabilities and specialty ownership;
+- supplied unit staffing/capacity limits when they restrict usable beds;
+- actual or simulated emergency-arrival stream;
+- timestamps for assignment, bed-ready and occupancy events;
+- objective weights or KPI definitions used by each baseline.
+
+REGIME AXES
+Vary:
+- hospital/ward scale;
+- occupancy tightness;
+- emergency-arrival share;
+- LOS forecast error;
+- specialty/acuity heterogeneity;
+- isolation prevalence;
+- scarcity of specialized beds;
+- room/bed turnover delay;
+- transfer penalty;
+- proportion of patients with multiple feasible units.
+
+BOUNDARIES
+Do not make HLTH506 choose admissions, discharge readiness, nurse-to-patient responsibility or hospital-wide clinical pathway actions.
+Those can be supplied state or interfaces.
+A benchmark extension may expose their impact as fixed scenarios without silently merging HLTH505, HLTH507 or HLTH308.
+
+BASELINES
+At minimum:
+- transparent expert/rule placement policy reflecting realistic clinical priorities;
+- strong MIP or constraint-aggregation approach where scale permits;
+- strong ALNS/matheuristic/hyper-heuristic PAS/PASU baseline;
+- rolling version with forecast uncertainty;
+- current commercial decision-support output when a partner can export it.
+Do not claim superiority to a proprietary platform if its assignment decision cannot be reproduced.
+
+CONSTRUCTION AND VALIDATION
+Prefer de-identified event and bed-state extracts from a partner hospital.
+Where unavailable, use a calibrated generator whose arrival, LOS, occupancy, compatibility, bed-readiness and transfer distributions match audited hospital summaries.
+Separate training/calibration periods from held-out evaluation windows.
+Use clinical/bed-management review to certify that every generated assignment constraint is operationally plausible.
+Publish the generator, schema, baseline implementations and checker where privacy and licensing permit.
+
+DELIVERABLE
+A purpose-built HLTH506 benchmark can itself be a service artifact:
+- public synthetic/calibrated core;
+- private hospital-specific event overlay;
+- baseline and replay harness;
+- KPI mapping from optimization objective to bed-management operations;
+- reproducible validation of any claimed v10 uplift.
+
+TARGET LANDSCAPE — FIRST DOZEN
+
+1. Johns Hopkins Health System | ENTERPRISE | Its Capacity Command Center staffs a 24/7 bed-management team of experienced nurses explicitly responsible for assigning the right patient to the right bed; strong human-in-the-loop benchmark and access/capacity operation [H01].
+2. Humber River Health | ENTERPRISE | Mature AI-enabled command center with bed-allocation staff, bed summary, census forecast, boarder and unit-pressure workflows; reports substantial capacity and flow gains [H03].
+3. UCHealth | ENTERPRISE | Twelve-hospital deployment of predictive/prescriptive inpatient-flow tooling used to balance beds and support right-patient/right-bed decisions; published results include shorter admission and ICU-transfer times [H02].
+4. ECG Management Consultants | BOUTIQUE CONSULTANT | Dedicated capacity-management and patient-flow practice with transfer-center/command-center design experience and direct health-system access [H12].
+5. Chartis | BOUTIQUE CONSULTANT | Capacity and throughput practice designs and implements custom patient-flow, resource and technology solutions for hospitals [H13].
+6. TeleTracking | SOFTWARE VENDOR | Hospital command-center and patient-placement product explicitly focuses on placing patients in the right bed and managing throughput [H04].
+7. Epic | SOFTWARE VENDOR | Grand Central provides hospital-wide real-time capacity, predictive LOS/admission/census analytics and patient-flow workflows inside the EHR [H05].
+8. GE HealthCare | SOFTWARE VENDOR | Command Center exposes bed-capacity state, bed matching, boarder management, census forecasting and modular AI; used across a large hospital ecosystem [H06].
+9. LeanTaaS | SOFTWARE VENDOR | iQueue for Inpatient Flow combines real-time, predictive and prescriptive capacity management; deployed across 100+ hospitals and explicitly supports patient-placement prioritization [H02, H07].
+10. Auta Health | FUNDED STARTUP | Munich seed-stage company whose first occupancy-management module explicitly automates allocation of patients to beds; unusually exact HLTH506 alignment [H14].
+11. Qventus | FUNDED STARTUP | Venture-backed AI care-operations platform with a current inpatient-capacity product embedded in EHR workflows; stronger on discharge/care-flow orchestration than explicit room assignment but commercially adjacent [H15].
+12. DEPTH Health | FUNDED STARTUP | 2026 seed-funded patient-flow platform explicitly targets smarter patient placement and uses retrospective flow simulation plus real-time decision support [H16].
+
+TOP FOUR
+
+FIRST — Auta Health
+The narrowest public product fit in the landscape: automated occupancy management is explicitly described as allocating patients to beds. Seed-stage scale and recent funding make a technical benchmark or embedded-v10 conversation more plausible than with a large incumbent [H14].
+
+PEAK — UCHealth
+A large multi-hospital deployment already uses predictive and prescriptive inpatient-flow technology for real placement and capacity decisions. It provides a demanding commercial environment where any v10 value must clear both mature workflow and modern analytics [H02].
+
+FALLBACK — ECG Management Consultants
+A specialist capacity-management and patient-flow adviser can introduce benchmark construction or structural optimization as a service component across multiple health systems without requiring displacement of an installed software platform [H12].
+
+OUTLIER — DEPTH Health
+A newly funded patient-flow platform combines simulation, clinical intelligence and real-time placement guidance. It tests whether v10 can become an optimization layer inside an emerging AI operating model rather than competing with established command-center vendors [H16].
+
+CANDIDATE CASES
+None promoted in this first HLTH506 pass.
+The target landscape is retained for later return; the next calibration step is another INDUSTRY Case, not a target deep dive.
+
+CASE SOURCES
+
+H01 Johns Hopkins Medicine — Judy Reitz Capacity Command Center
+https://www.hopkinsmedicine.org/emergency-medicine/c3
+SUPPORTED OBSERVATION Bed-management nurses staff the function 24/7 and assign the right patient to the right bed; the command center integrates capacity-management roles and regular huddles.
+
+H02 LeanTaaS — UCHealth inpatient-flow deployment
+https://leantaas.com/success-stories/uchealth-decreased-overall-time-to-admit-by-16/
+SUPPORTED OBSERVATION Twelve-hospital system uses predictive/prescriptive inpatient-flow technology to balance capacity and support right-patient/right-bed placement; vendor case reports measurable flow improvements.
+
+H03 Humber River Health — Command Centre
+https://www.humbercommandcentre.ca/
+SUPPORTED OBSERVATION Real-time command center includes bed allocation, bed summary, census forecast and boarder/unit-pressure workflows; reported capacity gains are hospital self-reported outcomes.
+
+H04 TeleTracking — Hospital Command Center
+https://try.teletracking.com/hospital-command-center/
+SUPPORTED OBSERVATION Patient-placement function is described as ensuring patients are placed in the right bed while coordinating discharge and capacity.
+
+H05 Epic — Hospital Patient Flow
+https://www.epic.com/software/hospital-patient-flow/
+SUPPORTED OBSERVATION Grand Central exposes real-time capacity and predictive LOS/admission/census information within hospital patient-flow workflows.
+
+H06 GE HealthCare — Command Center
+https://www.gehealthcare.com/en-us/products/software/command-center
+SUPPORTED OBSERVATION Current platform includes automated bed-capacity state, boarder/bed matching, census forecasting and modular AI-enabled tiles; company reports use across hundreds of hospitals.
+
+H07 LeanTaaS — iQueue for Inpatient Flow
+https://leantaas.com/products/inpatient-flow/
+SUPPORTED OBSERVATION Product uses predictive/prescriptive analytics to anticipate capacity constraints, prioritize patient placement and coordinate inpatient flow.
+
+H08 Schäfer et al. — Combining machine learning and optimization for the operational patient-bed assignment problem
+https://link.springer.com/article/10.1007/s10729-023-09652-5
+SUPPORTED OBSERVATION Real hospital data; ML emergency-arrival forecasting plus hyper-heuristic bed assignment; reports up to 5.3% objective improvement over a benchmark approach and up to 3.3% overall improvement; underlying hospital data are confidential.
+
+H09 Guido — Patient admission scheduling problems with uncertain length of stay
+https://onlinelibrary.wiley.com/doi/10.1111/itor.13272
+SUPPORTED OBSERVATION 2024 publication uses 250 literature PASU benchmark instances and a large-neighborhood/fix-and-optimize matheuristic; benchmark lineage originates in earlier PAS/PASU work.
+
+H10 Liu, Wang and Hao — Solving the patient admission scheduling problem using constraint aggregation
+https://doi.org/10.1016/j.ejor.2024.02.009
+SUPPORTED OBSERVATION 2024 EJOR work uses reduced integer models and two-stage optimization on patient-admission benchmark instances.
+
+H11 Brandt et al. — Integrated patient-to-room and nurse-to-patient assignment
+https://doi.org/10.1007/s00291-024-00800-z
+SUPPORTED OBSERVATION MIP plus heuristic on artificial and real-world instances; parametrized artificial instance generator is public; integrated nurse decision is broader than HLTH506 alone.
+
+H12 ECG Management Consultants — Lanie Crow
+https://www.ecgmc.com/about/team/lbcrow
+SUPPORTED OBSERVATION ECG practice includes patient-flow, transfer-center, system capacity-management and command-center design work.
+
+H13 Chartis — Capacity & Throughput Improvement
+https://www.chartis.com/expertise/capacity-throughput-improvement
+SUPPORTED OBSERVATION Consulting practice addresses hospital patient flow, operational bottlenecks, resource alignment and technology-enabled throughput improvement.
+
+H14 OHA / Auta Health
+https://www.oha.healthcare/en/startups
+https://www.munich-startup.de/en/startups/auta-health/
+SUPPORTED OBSERVATION Seed-stage Munich startup; occupancy-management module explicitly allocates patients to beds and automates hospital capacity management.
+
+H15 Qventus — Inpatient Capacity
+https://www.qventus.com/solutions/discharge-planning/
+https://www.qventus.com/company/newsroom/qventus-announces-105-million-investment-series-d-led-by-kkr/
+SUPPORTED OBSERVATION AI inpatient-capacity platform embedded in EHR workflows; substantial recent growth funding; public emphasis is discharge/care-flow orchestration rather than explicit room-assignment optimization.
+
+H16 DEPTH Health — Seed investment and platform
+https://www.depthhealth.com/2004-2/
+https://depthhealth.com/
+SUPPORTED OBSERVATION 2026 seed funding; platform describes smarter patient placement, retrospective flow simulation and real-time AI decision support.
+
+CASE RESEARCH DISPOSITION
+R: sufficient for one INDUSTRY Case, a purpose-built benchmark brief and a first-dozen/top-four landscape.
+B: PASS for calibration stage. Industrial SOTA is separated from explicit published OR; current commercial solver internals are not inferred.
+C: compile HLTH506c only.
+F: PASS. Proposed uplift direction remains in GAP; STAGE summarizes evidentiary posture; Case tags are case-specific.
+O: add the Case under HLTH506 and preserve controlled Problem content.
+
