@@ -121,7 +121,8 @@ Establish:
 - operating context, commercial scale, and defining constraint regime;
 - material gap relative to a credible reference and, when useful, the proposed uplift direction;
 - remedies or approaches already tried and their observed outcomes;
-- evidence supporting each claim.
+- evidence supporting each claim;
+- a terse STAGE status/evidence note supported by the research background.
 
 The INDUSTRY Case is an unnamed benchmark technology holder.
 Do not weaken SOTA to create an easier proprietary comparison.
