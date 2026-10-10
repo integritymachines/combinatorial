@@ -113,6 +113,8 @@ Check:
 - Reported, reproduced, synthetic, overlaid, and predicted results are distinguished.
 - Scale, objective, constraints, baseline, access, reproducibility, and material mismatches are controlled where relevant.
 - Genuine benchmark gaps remain explicit.
+- When public benchmarks are missing, outdated, or materially inadequate, the background contains a purpose-built benchmark brief sufficient to design a dataset that tests the intended SOTA-uplift claim.
+- Benchmark construction requirements are industrially grounded and do not encode the desired proprietary result into the data.
 
 4. Target landscape
 - The first dozen are credible commercial targets supported by concrete reasons.

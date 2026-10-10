@@ -132,6 +132,13 @@ Identify public or constructible benchmark material that can later test uplift b
 Record source, scale, objective, material constraints, baseline, reference result, reproducibility, access limits, and material mismatch.
 A benchmark gap does not invalidate a commercially strong Case; record it.
 
+If available benchmarks are missing, outdated, or materially inadequate, define a purpose-built benchmark brief:
+- the industrial claim the dataset must test;
+- required scale, instance diversity, constraints, state or disruption conditions, and objective measures;
+- the strongest SOTA or incumbent baseline it must support;
+- source, reconstruction, synthetic-generation, validation, reproducibility, and disclosure requirements.
+Treat purpose-built benchmark construction as a legitimate Case-research deliverable and potential service offering, not as a reason to reject the Case.
+
 3. Research the target landscape.
 Identify approximately twelve credible organizations across:
 - enterprises;
