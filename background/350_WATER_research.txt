@@ -1,7 +1,7 @@
 350_WATER_research.txt
 
 WATER — Water Utility Operations
-v0.1 | 9 October 2026 | Problem research
+v0.1 | 10 October 2026 | LEVEL=CASE
 
 IDENTITY AND RESEARCH BASIS
 
@@ -10,7 +10,8 @@ Applied ontology identity: Industry ##WATER; Primary Domain 301 #ENER; Territory
 The latter fields follow the supplied name and the explicit ##WATER boundary in background/000_DOMAIN_research.txt. No new Territory split is proposed. Configuring the assets used to provide water service remains this production contract; an earlier commitment does not by itself create a development Industry Domain.
 Normative source: 000_DOMAIN.txt v0.5, blob 71728706b69ceaafcad07a31ea37adddfb0f5e19. Foundational background: blob e61f0e7e338724b700f78e1a8017caf24af6c422. Read workflow/0_workflow.txt through workflow/5_output.txt and background/000_PROBLEM_marketplace.txt.
 The user explicitly requests v0.1 for both deliverables. Retain that release label through the requested problem-layer controls; record stage activity and findings in version-control history.
-No Cases are selected. Model and dataset mentions below establish problem and Template existence only.
+Problem research below remains the controlled basis for the existing Problem set.
+Case research is appended for selected Problems under 000_DOMAIN.txt v0.7.
 
 TERRITORY AND OWNERSHIP
 
@@ -315,3 +316,197 @@ Author abstract read. Economic predictive control with integer programming suppo
 S33 Joseph-Duran et al. — A control-oriented hybrid modelling approach for sewer networks: Barcelona case study
 https://www.iri.upc-csic.es/publications/show/1425
 Author institutional record checked independently during B. Logical variables approximate overflow and weir behavior; this reinforces the requirement to identify actual discrete equipment actions.
+
+CASE RESEARCH — WATER302 PUMP AND VALVE SCHEDULING
+10 October 2026 | Second calibration Case | INDUSTRY first
+
+PARENT
+WATER302 Pump and Valve Scheduling.
+The parent Problem is fixed.
+
+INDUSTRY CASE — WATER302c
+
+CASE
+Schedule installed pump starts, stops, speeds and material valve states over a forecast horizon while maintaining storage and hydraulic service constraints.
+
+SOTA
+The strongest defensible current industry state combines a calibrated hydraulic digital twin with current operating state, short-horizon demand/source/energy forecasts, mathematical or simulation-based optimization, and hydraulic look-ahead validation.
+TwinOptPRO is a current exemplar: a 24-hour pump-control schedule is computed from forecasts plus current tank and valve state; it specifies transport flows and individual pump speeds or on/off states and is checked with a 24-hour look-ahead simulation [W01, W02].
+Commercial platforms also expose pump scheduling, SCADA integration and digital-twin workflows [W06, W07].
+Current research extends objectives beyond energy cost to hydraulic safety and equipment life and still uses multi-objective/metaheuristic or predictive-control architectures where nonlinear hydraulic fidelity limits monolithic exact optimization [W03, W15].
+No single universal implementation is established as dominant.
+
+CONTEXT
+Drinking-water production, transmission and distribution systems with multiple pump stations, tanks and controllable valves.
+Material conditions include nonlinear head-flow relations, tank trajectories, fixed-speed and variable-speed pumps, electricity prices or renewable availability, switching restrictions, terminal storage targets and forecast uncertainty.
+Issued day-ahead or other forecast-horizon equipment calendars belong here. Immediate feedback actions remain WATER801.
+
+GAP
+Public pump-scheduling benchmarks exist, but canonical sets are largely inherited from older academic networks such as Van Zyl, Richmond and Anytown [W04, W05].
+They remain useful for algorithm comparison but do not jointly represent current industrial conditions: multi-station fixed/VFD equipment, current pump efficiency or degradation, material valve actions, live state initialization, forecast uncertainty, dynamic energy/renewable signals, switch wear, terminal-state requirements and multi-objective safety conditions.
+Reported utility and research gains are normally measured against conventional operation, local rules or a previous controller rather than against the strongest current SOTA on a common industrial-scale dataset [W03, W08, W09, W15].
+Proposed uplift direction: build a purpose-designed multi-regime WATER302 benchmark preserving nonlinear hydraulic feasibility and current operating realism, then test whether v10 structural decomposition or move design produces repeatable cost/energy/service uplift over strong hierarchical, MILP/relaxation, predictive-control and simulation-optimization baselines.
+
+ATTEMPTS / CURRENT METHOD FAMILIES
+- Nonlinear or mixed-integer pump scheduling with hydraulic equations.
+- MILP/polyhedral or surrogate approximations followed by nonlinear hydraulic validation.
+- Hierarchical decomposition between network/tank planning and individual pump-group operation.
+- Simulation-based evolutionary and other metaheuristic scheduling.
+- Rolling or predictive-control schedules using updated forecasts and current state.
+- Digital-twin scheduling combining SCADA, forecasts, hydraulic models and optimization.
+- Pump-level efficiency optimization as an adjacent WATER801 comparator.
+
+BENCHMARK SUPPORT
+The public benchmark base is stronger than in AUTOM703 but still inadequate for a current industrial SOTA claim.
+Van Zyl and Richmond remain established public pump-scheduling references [W04, W05].
+The public Richmond skeleton is explicitly schematic rather than hydraulically equivalent to the real system [W05].
+Recent public EPANET-derived state datasets can support stress construction but are not themselves validated day-ahead pump-scheduling benchmark suites [W16].
+TwinOptPRO supplies a current industrial architecture and pilot setting, but its utility data are not a general public benchmark [W01, W02].
+
+PURPOSE-BUILT BENCHMARK BRIEF — WATER302
+
+CLAIM TO TEST
+Can v10 improve on strong modern day-ahead pump/valve scheduling while preserving nonlinear hydraulic feasibility and operationally credible equipment use?
+
+CORE INSTANCE DATA
+- hydraulic network topology and parameters;
+- multiple pump stations with calibrated pump curves;
+- fixed-speed and variable-speed equipment where applicable;
+- tanks and initial storage levels;
+- material controllable valves;
+- demand/source forecasts and realizations;
+- time-varying electricity tariff and, where relevant, renewable availability;
+- switching limits or minimum run/off restrictions where used;
+- terminal storage or cyclic-balance requirements;
+- objective terms needed to reproduce each baseline.
+
+REGIME AXES
+Vary network and pump-station scale, storage flexibility, forecast error, tariff/renewable volatility, hydraulic tightness, pump/valve discreteness, switching limits, efficiency-curve heterogeneity and terminal-state tightness.
+
+OPTIONAL EXTENSIONS
+Add equipment degradation, transient-pressure penalty, outage scenarios or water-quality restrictions only when they preserve WATER302 rather than silently changing the Problem.
+
+BASELINES
+At minimum:
+- strong MILP/polyhedral or other tractable approximation with hydraulic validation;
+- hierarchical current architecture comparable to TwinOptPRO where reconstructible;
+- strong simulation-optimization/metaheuristic baseline;
+- rolling/predictive-control baseline when forecast updates are part of the instance.
+Legacy trigger-level or manual schedules are operational comparators, not sufficient SOTA baselines.
+
+CONSTRUCTION AND VALIDATION
+Prefer anonymized partner-utility models where available.
+Otherwise extend public hydraulic models with explicitly reconstructed modern pump, valve, tariff and uncertainty layers.
+Validate hydraulic, storage, switch-count, energy and objective distributions against current utility evidence.
+Keep generation code, hydraulic-engine version, units and baseline implementations reproducible.
+Use held-out instances and hidden parameter draws for final uplift claims.
+
+DELIVERABLE
+A purpose-built WATER302 benchmark can itself be a service artifact: public core benchmark where licensing permits, private calibrated utility extension, baseline suite, validation harness and an explicit map from benchmark conditions to client operating constraints.
+
+TARGET LANDSCAPE — FIRST DOZEN
+
+1. Global Omnium | ENTERPRISE | Long-running Valencia digital twin; about 1.7 million people, 47 pumps and 219 operating valves; daily operations and near-future scenario support [W07].
+2. Stadtwerke Bühl | ENTERPRISE | TwinOptPRO pilot utility with live state, forecasts and optimized 24-hour pump schedules [W01, W02].
+3. Fernwasserversorgung Thüringen | ENTERPRISE | TwinOptPRO associated utility used to study pump-use optimization under renewable-electricity availability [W02].
+4. Murfreesboro Water Resources Department | ENTERPRISE | Public records document Specific Energy pump and distribution optimization used by operators [W09].
+5. 3S Consult | BOUTIQUE CONSULTANT | Core TwinOptPRO developer working directly on hydraulic digital twins, forecast integration and 24-hour pump-control optimization [W01].
+6. Aqua Consultants | BOUTIQUE CONSULTANT | Clean-water hydraulic modelling practice explicitly includes pump-scheduling and pressure-management optimization [W13].
+7. Bentley Systems | SOFTWARE VENDOR | OpenFlows Water/WaterSight combine hydraulic modelling, SCADA/digital-twin integration and pump-scheduling optimization [W06].
+8. Xylem | SOFTWARE VENDOR | Xylem Vue / GoAigua supports operational digital twins at utility scale, including Global Omnium [W07].
+9. Specific Energy | SOFTWARE VENDOR | Dynamic Pump Optimizer continuously recomputes efficient pump combinations and speeds from changing system conditions [W08, W09].
+10. SUEZ / Optimatics | SOFTWARE VENDOR | Optimization stack covers time-indexed production and supply-system operating strategies across sources, pump stations and reservoirs [W10].
+11. HydroTrek | FUNDED STARTUP | SBIR-funded drinking-water digital twin integrates SCADA/IoT and advertises pump-operation optimization [W11].
+12. Confluency | FUNDED STARTUP | NSF SBIR-backed water software combines trusted simulators, analytics and optimization for planning and operational decisions [W12].
+
+TOP FOUR
+
+FIRST — 3S Consult
+Exact WATER302 alignment, current TwinOptPRO implementation, direct utility exposure and specialist scale make this the cleanest first technical/commercial conversation. It also offers a plausible route to benchmark collaboration rather than a cold comparison against an opaque incumbent [W01].
+
+PEAK — Global Omnium
+Large operational digital-twin footprint, many pumps and valves, mature data infrastructure and documented daily decision support make this the highest-value utility target in the first landscape [W07].
+
+FALLBACK — Specific Energy
+Focused pump-optimization vendor with concrete utility deployments and measured pump-efficiency data. It is easier to approach and benchmark than a large utility, although its strongest public material is closer to WATER801 than the day-ahead WATER302 contract [W08, W09].
+
+OUTLIER — HydroTrek
+SBIR-funded digital-twin SaaS already positioned around pump-operation optimization. It tests whether v10 and a benchmark service can become an embedded optimization layer for a younger platform [W11].
+
+CANDIDATE CASES
+None promoted in this first WATER302 pass.
+The target landscape is retained for human review before prospect-specific research is contracted into CANDIDATE cards.
+
+CASE SOURCES
+
+W01 3S Consult — TwinOptPRO
+https://www.3sconsult.de/twinoptpro/
+SUPPORTED OBSERVATION 24-hour optimized pump-control schedules from forecasts and live state; individual pump speeds/on-off states; online look-ahead validation.
+
+W02 Fraunhofer IOSB — TwinOpt-Pro
+https://www.iosb.fraunhofer.de/en/projects-and-products/TwinOpt-Pro-digital-technologies-and-platform.html
+SUPPORTED OBSERVATION Project partners include 3S Consult, Stadtwerke Bühl and Fernwasser Thüringen; digital twin, forecasting and optimization are integrated.
+
+W03 Liu et al. — Digital twin optimization of water supply pump stations
+https://www.nature.com/articles/s41598-026-57786-7
+SUPPORTED OBSERVATION Multi-objective digital-twin/NSGA-II pump-station optimization jointly considers energy, water-hammer peak and equipment life; reported gains are versus conventional operation.
+
+W04 Simulation-based optimization of pump scheduling for drinking water distribution systems
+https://www.researchgate.net/publication/359459164_Simulation-based_optimization_of_pump_scheduling_for_drinking_water_distribution_systems
+SUPPORTED OBSERVATION Van Zyl, Richmond skeleton, Richmond standard and Florianópolis are used as literature benchmark instances.
+
+W05 University of Exeter Centre for Water Systems — benchmarks
+https://www.exeter.ac.uk/research/centres/cws/resources/benchmarks/
+SUPPORTED OBSERVATION Richmond skeleton is a schematic test model and explicitly not an equivalent hydraulic model.
+
+W06 Bentley — OpenFlows Water
+https://www.bentley.com/products/openflows-water/
+SUPPORTED OBSERVATION Hydraulic modelling, SCADA integration and pump-scheduling optimization are available in the product stack.
+
+W07 Xylem — Global Omnium digital twin
+https://www.xylem.com/en-us/resources/white-papers/xylem-vue-global-omnium-digital-twin/
+SUPPORTED OBSERVATION Valencia digital twin covers about 1.7 million residents, 28 tanks, 47 pumps and 219 operating valves and supports daily operations and forecast scenarios.
+
+W08 Specific Energy — Dynamic Pump Optimizer
+https://www.specificenergy.com/dpo-links/dpo-save-energy.html
+SUPPORTED OBSERVATION DPO continuously recomputes efficient pump combinations and speeds as system conditions change.
+
+W09 Murfreesboro Water Resources Board
+https://www.murfreesborotn.gov/AgendaCenter/ViewFile/Minutes/1261
+SUPPORTED OBSERVATION Public utility record documents use of Specific Energy optimization to select pumps for required flow at low specific energy and within pump curves.
+
+W10 SUEZ / Optimatics — production planning
+https://optimatics.com/production-planning/
+SUPPORTED OBSERVATION Optimization platform produces time-indexed operating strategies across supply-system assets including pump stations and reservoirs.
+
+W11 HydroTrek
+https://hydrotrek.com/platform
+SUPPORTED OBSERVATION SBIR-funded drinking-water digital twin integrates SCADA/IoT and includes pump-operation optimization.
+
+W12 NSF SBIR — Confluency
+https://nsf.elsevierpure.com/en/projects/sbir-phase-i-human-centered-augmented-intelligence-software-for-w-2/
+SUPPORTED OBSERVATION Confluency received NSF SBIR support for hybrid simulation/data software aimed at water and wastewater planning and operational decisions.
+
+W13 Aqua Consultants — clean-water infrastructure modelling
+https://www.aquaconsultants.com/services/engineering/clean-water-infrastructure-modelling
+SUPPORTED OBSERVATION Hydraulic-modelling services explicitly include pump-scheduling and pressure-management optimization.
+
+W14 Qatium / Specific Energy
+https://qatium.com/blog/operations-optimized-through-collaborative-digital-twins/
+SUPPORTED OBSERVATION Integration combines pump-level optimization data with a network digital twin in utility operations.
+
+W15 Southern Nevada nonlinear predictive control
+https://www.iahr.org/library/infor?pid=30073
+SUPPORTED OBSERVATION 2024 NMPC framework integrates digital twin, SCADA and forecasts for pumping/storage optimization.
+
+W16 Water Distribution Network state snapshots
+https://zenodo.org/records/10458197
+SUPPORTED OBSERVATION Public EPANET-derived state datasets cover multiple networks including C-Town and Richmond but are snapshots rather than validated day-ahead scheduling benchmark suites.
+
+CASE RESEARCH DISPOSITION
+R: sufficient for one INDUSTRY Case, a purpose-built benchmark brief and a first-dozen/top-four target landscape.
+B: PASS for calibration stage. WATER302 remains distinct from WATER801; benchmark limitations are explicit.
+C: compile WATER302c only.
+F: PASS. Proposed uplift direction remains in GAP; no proprietary Part 2 fields are present.
+O: add the Case under WATER302 and preserve controlled Problem content.
+
