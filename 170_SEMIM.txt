@@ -212,6 +212,17 @@ ATTEMPTS Current practice spans expert/configurable dispatch rules, local CP/MIP
 TAGS ##hierarchical-scheduling ##global-local ##reentrant ##rolling-horizon ##benchmark-gap.
 COMMENTS Local batch, lithography and cluster-tool calendars remain SEMIM702-704 when separately contracted; live lot release and immediate tool dispatch remain SEMIM801-802.
 
+SEMIM701dsim Fab-Wide Reentrant Scheduling Candidate.
+CASE Coordinate wafer-lot schedules across multiple work centers with simulation-based fab state, rolling schedule generation and real-time dispatch between schedule updates.
+STAGE Researched CANDIDATE | Public evidence supports a mature deployed scheduling, dispatch and simulation stack; full-fab objective coverage and proprietary decision logic remain undisclosed.
+STATE Semiconductor-specific digital-twin suite with automated model calibration, WIP forecasting, multi-work-center schedule synchronization, real-time dispatch and simulation-based evaluation of scheduling or AI policies.
+CONTEXT Semiconductor software and engineering vendor | Deployed across multiple 6-, 8- and 12-inch fabs; integrated scheduling, dispatch, WIP-flow and AI-evaluation infrastructure.
+GAP Public evidence reports local and critical-equipment gains but does not show whether the incumbent scheduler optimizes one explicit fab-wide global objective or how local gains propagate across interacting bottlenecks | Proposed uplift direction: add and benchmark a v10 global/local coordination layer that prices downstream bottleneck, WIP-wave and due-date consequences before local schedule changes are committed.
+ATTEMPTS Existing methods include multi-objective scheduling/dispatching, smart heuristics with parallel computing, automated digital-twin calibration, WIP forecasting, preventive-maintenance synchronization and simulation-based AI/scheduler evaluation.
+TAGS ##simulation-enabled ##multi-work-center ##scheduler-dispatcher ##ai-evaluation ##global-local.
+COMMENTS Reported customer gains are company evidence; the scheduler objective, decomposition and benchmark data are not public.
+
+
 
 SEMIM702 Parallel-Batch Formation and Scheduling.
 DESCRIPTION Group compatible wafers, lots or devices for simultaneous processing and schedule the groups on eligible batch equipment.
