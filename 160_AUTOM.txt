@@ -1,7 +1,7 @@
 160_AUTOM.txt
 
 AUTOM — Automotive Manufacturing
-v0.1 | 8 October 2026 | Problem layer
+v0.1 | 10 October 2026 | Case layer
 
 SCOPE
 Industry: ##AUTOMOTIVE. Primary Domain: 102 #PROD. Territory: #production. Macro Domain anchor: #TRANS.
@@ -349,6 +349,18 @@ HARDNESS High | Many option ratios and conflicting workload goals require tailor
 DEPENDENCIES AUTOM105, AUTOM307, AUTOM702, AUTOM901, AUTOM902, AUTOM903 → AUTOM703 → AUTOM802, AUTOM803, AUTOM903.
 TAGS #TRANS #PROD ##AUTOMOTIVE #production #operate #sequence #place ##car-sequencing ##model-mix ##succession.
 COMMENTS Car-sequencing and workload-based mixed-model formulations are alternative Templates for this contract. Future complete streams are planning variants.
+
+
+AUTOM703c Mixed-Model Assembly Sequencing Benchmark.
+CASE Order committed vehicles on a variant-rich final assembly line under workload, option, paint, material-flow and delivery constraints.
+STAGE Researched | INDUSTRY.
+SOTA Plant-data-driven multi-objective sequencing and resequencing using constraint-rich exact or constraint models with large-neighborhood, metaheuristic or simulation-optimization search.
+CONTEXT Automotive final assembly | High variant mix; option-ratio and workload constraints, paint or setup objectives, just-in-sequence material conditions, delivery objectives and disruption-driven resequencing.
+GAP Current industrial and published systems show substantial plant-specific KPI gains, but no common public industrial-scale benchmark establishes the residual gap of the strongest deployed methods to the best attainable sequence across the combined industrial constraint set.
+ATTEMPTS Deployed multi-objective resequencing reduced Ford Saarlouis color changeovers 23% and planned-date spread 10%; robust sequencing research reports 72% lower expected overload than industry solutions; dynamic simulation-optimization is reported for a Fiat Powertrain case.
+QUESTION Can v10 identify structural limits in current sequencing neighborhoods and deliver repeatable uplift beyond the strongest available SOTA on reproducible industrial-scale instances?
+TAGS #TRANS #PROD ##AUTOMOTIVE #PRODUCTION #operate #sequence #place ##car-sequencing ##model-mix ##benchmark ##resequence.
+COMMENTS Public benchmark coverage is narrower than the strongest deployed industrial constraint set.
 
 #dispatch | 8##
 

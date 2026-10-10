@@ -1,7 +1,7 @@
 160_AUTOM_research.txt
 
-AUTOM — Automotive Manufacturing problem research
-v0.1 | 8 October 2026 | LEVEL=PROBLEM
+AUTOM — Automotive Manufacturing research
+v0.1 | 10 October 2026 | LEVEL=CASE
 Industry Domain code: 160.
 Industry: ##AUTOMOTIVE. Primary Domain: 102 #PROD. Territory: #production. Macro Domain anchor: #TRANS.
 Normative inputs: 000_DOMAIN.txt v0.5 and background/000_DOMAIN_research.txt v0.5.
@@ -9,7 +9,8 @@ Workflow: workflow/0_workflow.txt through workflow/5_output.txt.
 Read-only input basis: main commit 8fab83ca9a3ed56b18dd08cf1c90d2ca63ab7d25.
 The requested automotive foreground and background did not exist at that head. The marketplace contained its schema and no candidates.
 Generic 102_PROD and its retained research are discovery and transferable-method inputs. Their old two-digit IDs and COMMENTS-tag layout are not normative.
-No Cases are researched or compiled. No permanent Problem suffixes are assigned here.
+Problem research below remains the controlled basis for the existing Problem set.
+Case research is appended for selected Problems under the v0.7 Case calibration workflow.
 
 EVIDENCE DISCIPLINE
 Source observations are confined to the source register. Candidate contracts, ontology assignments, qualitative ratings, admission reasoning and dependency edges are analytical inferences unless explicitly identified as source facts.
@@ -753,3 +754,197 @@ SUPPORTED OBSERVATION The model selects jobs and assigns operations to installed
 
 METHOD-TRANSFER VERIFICATION
 Primary records for S32, S34, S36, S44, S46, S48, S49, S54 were additionally inspected during this run (author paper, official documentation, author abstract or primary indexed publication record, as accessible). Their source labels retain the origin in generic PROD research. S47 was checked through its author-hosted indexed PDF record after its landing page failed. This does not convert transferable methods into automotive deployment claims.
+
+CASE RESEARCH — AUTOM703 MIXED-MODEL ASSEMBLY SEQUENCING
+10 October 2026 | First calibration Case | INDUSTRY first
+
+PARENT
+AUTOM703 Mixed-Model Assembly Sequencing.
+The parent Problem is fixed. This Case work does not reopen its identity, Regime, Structure, ratings, dependencies or numbering.
+
+INDUSTRY CASE — AUTOM703c
+
+CASE
+Order committed vehicles on a variant-rich final assembly line under workload, option, paint, material-flow and delivery constraints.
+
+SOTA
+The strongest defensible industry state is plant-data-driven multi-objective sequencing and resequencing using constraint-rich exact or constraint models together with large-neighborhood, metaheuristic or simulation-optimization search.
+Evidence is heterogeneous rather than one universal product:
+- Ford-Werke reports deployment of a multi-objective resequencing algorithm at Saarlouis using four weeks of recorded production-event data. Reported effects versus the old control software include about 30% larger paint batches, 23% fewer color changeovers and 10% lower spread of vehicles planned for a date [C01].
+- Fiat Powertrain research reports a real-world dynamic mixed-model line with parallel stations and walking workers, solved with a mathematical model, hyper-heuristic and simulation-optimization; the authors report particular effectiveness of the simulation approach in the dynamic case [C02].
+- Robust car-sequencing research reports expected work-overload reductions of 72% relative to industry solutions by incorporating failure probabilities and a tailored metaheuristic [C03].
+- Renault plant evidence shows that workload-oriented mixed-model sequencing and option-ratio car sequencing expose materially different feasible spaces; real scheduling rules can still admit sequences with work overload [C04].
+- Commercial automotive APS products now advertise constraint-rich order sequencing, digital-twin scenario evaluation and dynamic replanning [C06-C10].
+This supports a SOTA description centered on multi-objective, plant-data-driven constrained sequencing with sophisticated heuristic/search support. It does not establish one universally strongest implementation.
+
+CONTEXT
+Automotive final assembly with high product variety.
+Material conditions can include option-ratio and station-workload constraints, paint or setup objectives, just-in-sequence material conditions, delivery-date objectives, and disruption-driven removal/reinsertion or resequencing.
+The exact mix differs by plant. Do not fuse every known condition into one benchmark instance merely for completeness.
+
+GAP
+Current industrial and published systems demonstrate substantial plant-specific KPI gains, but no common public industrial-scale benchmark found in this sweep establishes the residual gap of the strongest deployed multi-objective sequencing methods to the best attainable sequence across the combined industrial constraint set.
+The public ROADEF 2005 Renault challenge remains a strong reproducible car-sequencing tradition, but its option-ratio and paint criteria are narrower than current deployed multi-objective plant scope [C05].
+The v10 test therefore needs both:
+- a reproducible public benchmark against strong current algorithms; and
+- explicit qualification of any industrial constraints absent from that benchmark.
+
+ATTEMPTS / CURRENT METHOD FAMILIES
+- Option-ratio car sequencing and workload-based mixed-model sequencing.
+- Exact MILP/CP or dynamic-programming methods on restricted instances.
+- Adaptive local search, variable-neighborhood and large-neighborhood methods.
+- Robust and stochastic sequencing for vehicle failures.
+- Simulation-optimization for dynamic line behavior.
+- Multi-objective resequencing using live or recorded production data.
+- Integrated sequencing with adjacent routing or material-flow decisions.
+These are competing or complementary SOTA families, not evidence for separate Problems.
+
+QUESTION
+Can v10 identify structural limits in current sequencing neighborhoods and deliver repeatable objective uplift beyond the strongest available SOTA on reproducible industrial-scale instances, while stating exactly which industrial constraints the benchmark omits?
+
+BENCHMARK SUPPORT
+ROADEF 2005 Renault car-sequencing challenge [C05].
+Useful because it is a public, established automotive sequencing benchmark with option-ratio restrictions and paint-batch criteria.
+Limitation: it does not represent the full current plant-data-driven, multi-objective and disruption-aware industrial scope.
+Ford Saarlouis deployment [C01] supplies a strong industrial SOTA reference but not, from the inspected public record, a reusable public instance set.
+Fiat Powertrain [C02] supplies a dynamic real-world case and data reported as available with the article/supplementary material; reproducibility must be checked before proprietary benchmarking.
+No benchmark is promoted yet as a complete industrial surrogate.
+
+TARGET LANDSCAPE — FIRST DOZEN
+
+1. Mercedes-Benz | ENTERPRISE | Documented mixed-model final-assembly sequencing engagement with COMPLEVO; custom algorithms use vehicle-specific station processes and times and reportedly improve assembly-hall capacity utilization while reducing body-buffer space [C11].
+2. BMW | ENTERPRISE | SEQUIQ states that its Order Preview was developed with BMW; the product sits directly in order sequencing and short-term capacity visibility [C12].
+3. Renault Group | ENTERPRISE | Longstanding public car-sequencing benchmark tradition plus recent real-plant research on sequencing rules and feasible spaces [C04, C05].
+4. Porsche | ENTERPRISE | TAKTIQ publicly cites a Porsche vehicle-production planner and positions its automotive product around variant mix, order sequencing and workload simulation [C13].
+5. COMPLEVO | BOUTIQUE CONSULTANT | Public Mercedes-Benz case is narrowly aligned with AUTOM703 and uses custom vehicle-sequence algorithms rather than generic planning only [C11].
+6. OPTANO | BOUTIQUE CONSULTANT | Mathematical-optimization consultancy/software with automotive production-planning practice and a documented Daimler Truck production-program project [C14].
+7. Blue Yonder / flexis | SOFTWARE VENDOR | Dedicated automotive Order Sequencing and APS stack; flexis is now part of Blue Yonder and exposes sequencing, scenario and dynamic-replanning functionality [C06, C07].
+8. SEQUIQ | SOFTWARE VENDOR | Specialist order-sequencing product with BMW- and Daimler Truck-developed modules and rule-based automatic sequencing [C12].
+9. PSI | SOFTWARE VENDOR | OEM/Tier-1 planning product combines production planning, real-time monitoring, scheduling and sequencing algorithms; historical company evidence reports sequencing use across more than 30 automotive sites [C15].
+10. TAKTIQ | SOFTWARE VENDOR | Automotive production-planning product explicitly covers variant mix, sequence optimization, line balancing and scenario simulation, with Porsche reference evidence [C13].
+11. Zentio | FUNDED STARTUP | HTGF-backed AI-native production-planning startup; current automotive offering explicitly targets mixed-model sequencing, changeover minimization and live rescheduling [C16, C17].
+12. Phantasma Labs | FUNDED STARTUP | Berlin AI production-scheduling startup raised a €2.6M round in 2026; product focuses on rapid plan/replan under machine, changeover, priority and due-date constraints [C18, C19].
+
+TOP FOUR
+
+FIRST — COMPLEVO
+Exact Problem alignment, documented Mercedes-Benz sequencing implementation, boutique delivery model and custom algorithms make this the cleanest first commercial conversation around a structural uplift thesis [C11].
+
+PEAK — Mercedes-Benz
+Highest-value direct enterprise target in this sweep with public evidence that custom sequencing algorithms already address millions of variants and station-specific process times. Any v10 proposition must clear a strong incumbent bar [C11].
+
+FALLBACK — SEQUIQ
+A focused sequencing vendor with a mature product and BMW/Daimler Truck collaboration evidence. More accessible than an OEM and close enough to the Problem for a concrete benchmark or embedded-method discussion [C12].
+
+OUTLIER — Zentio
+Funded AI-native planning startup with an automotive mixed-model sequencing proposition. Tests whether v10 can add a structural layer beneath an agentic/AI scheduling product rather than competing only with classical OR stacks [C16, C17].
+
+CANDIDATE CASES
+None promoted in this first pass.
+The target landscape is sufficient for human review before prospect-specific public research is contracted into CANDIDATE cards.
+
+CASE SOURCES
+
+C01 Ford-Werke Saarlouis deployed multi-objective resequencing
+https://arxiv.org/abs/2507.17422
+INSPECTED indexed record and abstract.
+SUPPORTED OBSERVATION Deployed on four weeks of recorded plant event data; reports about 30% larger batches, 23% fewer color changeovers and 10% lower planned-date spread versus old control software.
+
+C02 Fiat Powertrain dynamic mixed-model sequencing case
+https://doi.org/10.1080/00207543.2021.2022801
+INSPECTED indexed article page and abstract.
+SUPPORTED OBSERVATION Real-world dynamic sequencing case with parallel stations and walking workers; mathematical model, hyper-heuristic and simulation-optimization; article states supporting data are available with article/supplementary material.
+
+C03 Robust car sequencing for automotive assembly
+https://doi.org/10.1016/j.ejor.2020.10.004
+INSPECTED indexed abstract/highlights.
+SUPPORTED OBSERVATION Data-driven robust sequencing incorporating vehicle failure probabilities; reports expected work-overload reduction of 72% compared with industry solutions.
+
+C04 Mixed-model sequencing versus car sequencing
+https://doi.org/10.1080/00207543.2022.2082896
+INSPECTED indexed abstract.
+SUPPORTED OBSERVATION Real-life Renault Group manufacturing features; MMS and CS have different feasible spaces, and real-life scheduler rules can admit work-overload situations.
+
+C05 ROADEF 2005 car sequencing challenge
+https://roadef.org/challenge/2005/en/
+RETAINED controlled source S07.
+SUPPORTED OBSERVATION Public Renault challenge with option-ratio restrictions and paint-batch criteria.
+
+C06 Blue Yonder automotive production planning and sequencing
+https://blueyonder.com/solutions/supply-chain-planning/advanced-planning-and-scheduling/industry/automotive
+INSPECTED company product page.
+SUPPORTED OBSERVATION Dedicated automotive APS includes detailed scheduling and order sequencing with digital-twin scenario analysis and dynamic planning claims.
+
+C07 flexis Order Sequencing
+https://www.flexis.com/en/sequencing
+INSPECTED company product page.
+SUPPORTED OBSERVATION Automated order sequencing for variant-rich manufacturing; configurable sequence rules, scenario evaluation and manual rescheduling support.
+
+C08 PSI OEM and Tier-1 production optimization
+https://www.psi.de/en/solutions/industries/oems-and-tier-1-suppliers
+INSPECTED company product page.
+SUPPORTED OBSERVATION PSI offers production planning/monitoring with scheduling and sequencing algorithms for OEM and Tier-1 users.
+
+C09 INFORM serial-production planning
+https://www.inform-software.com/de/loesungen/produktion/simultane-produktionsplanung-fuer-serienfertiger
+INSPECTED company product page.
+SUPPORTED OBSERVATION Simultaneous production planning for high-variant serial manufacture with production constraints considered jointly.
+
+C10 Asprova APS
+https://www.asprova.eu/advanced-planning-scheduling-software/
+INSPECTED company product page.
+SUPPORTED OBSERVATION Finite-capacity sequence planning and cross-process production scheduling.
+
+C11 COMPLEVO Mercedes-Benz optimized production scheduling
+https://complevo.de/en/portfolio-item/optimized-production-scheduling/
+INSPECTED company case page.
+SUPPORTED OBSERVATION Mercedes-Benz customer; custom sequencing algorithms use vehicle-specific processes and times across stations; page reports improved assembly capacity utilization and reduced body-buffer space.
+
+C12 SEQUIQ order sequencing
+https://www.sequiq.de/en/
+INSPECTED company product page.
+SUPPORTED OBSERVATION Automatic rule-based order sequencing; Order Preview developed with BMW and Aggregated View developed with Daimler Truck.
+
+C13 TAKTIQ automotive production planning
+https://www.taktiq.de/en/automotive/
+INSPECTED company product page.
+SUPPORTED OBSERVATION Automotive variant, sequencing and workload simulation product; Porsche production-planner reference is displayed.
+
+C14 OPTANO production optimization / Daimler Truck
+https://optano.com/en/success-stories/daimler-truck-ag/
+https://optano.com/en/usecases/production-planning/
+INSPECTED company case and product pages.
+SUPPORTED OBSERVATION Mathematical optimization in automotive production/program planning, including a documented Daimler Truck project.
+
+C15 PSI automotive sequencing history
+https://www.psi.de/fileadmin/downloads/en/company/investor_relations/Reports/annual_reports/PSI_2010e.pdf
+INSPECTED indexed annual-report excerpt.
+SUPPORTED OBSERVATION Historical company evidence states an optimization core used at more than 30 automotive production sites for sequencing across production levels.
+
+C16 Zentio funding
+https://www.htgf.de/en/zentio-pre-seed/
+INSPECTED HTGF announcement.
+SUPPORTED OBSERVATION €1.4M pre-seed led by HTGF; platform combines production data, mathematical optimization, ML and agent-based automation.
+
+C17 Zentio automotive
+https://zentio.ai/industries/automotive
+INSPECTED company industry page.
+SUPPORTED OBSERVATION Automotive proposition includes mixed-model sequencing, changeover minimization and live rescheduling under OEM call-off changes. Performance figures are company claims, not independent evidence.
+
+C18 Phantasma Labs 2026 funding
+https://ebs.publicnow.com/view/E73C32080661B30943D85074175C15E6AFB79635
+INSPECTED distributed investor press release.
+SUPPORTED OBSERVATION €2.6M 2026 funding round for AI production planning and scheduling.
+
+C19 Phantasma AiPS
+https://www.phantasma.global/
+INSPECTED company product page.
+SUPPORTED OBSERVATION AI production scheduling and rapid replanning under changing orders, machine availability, priorities and other factory constraints. Displayed performance figures are company claims.
+
+CASE RESEARCH DISPOSITION
+R: sufficient for one INDUSTRY Case and a first-dozen/top-four landscape.
+B: PASS for first calibration stage. SOTA is synthesized from multiple industrial evidence types and is not reduced to a weak baseline. Vendor performance claims are not used as verified uplift. Target reasons are evidence-backed. No CANDIDATE Case is forced from the landscape.
+C: compile AUTOM703c only.
+F: PASS. Parent Problem unchanged; INDUSTRY Case uses SOTA; no proprietary Part 2 fields are present.
+O: Case card only; existing controlled Problem content is preserved.
+
