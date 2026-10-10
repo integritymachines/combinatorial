@@ -120,12 +120,12 @@ COMMENTS Includes dynamic boundary-valve switching and wastewater-transfer pumpi
 
 WATER302c Pump and Valve Scheduling Benchmark.
 CASE Schedule installed pump starts, stops, speeds and material valve states over a forecast horizon while maintaining storage and hydraulic service constraints.
-STAGE Researched | INDUSTRY.
+STAGE Researched INDUSTRY | Current digital-twin scheduling practice is supported; legacy public benchmarks do not span the full operating regime.
 SOTA Calibrated hydraulic digital twin with current operating state and short-horizon demand, source and energy forecasts; mathematical or simulation-based optimization produces an equipment schedule that is checked by hydraulic look-ahead simulation.
 CONTEXT Drinking-water production, transmission and distribution | Multiple pump stations, tanks and controllable valves; fixed/VFD equipment, nonlinear hydraulics, time-varying energy conditions, switching restrictions and terminal storage requirements.
 GAP Public benchmarks are established but largely based on older simplified EPANET networks and do not jointly represent current digital-twin state initialization, mixed fixed/VFD equipment, material valve actions, forecast uncertainty, dynamic energy signals, switch wear and multi-objective safety conditions | Proposed uplift direction: test v10 structural decomposition or move design on a purpose-built multi-regime hydraulic benchmark against strong hierarchical, MILP/relaxation, predictive-control and simulation-optimization baselines.
 ATTEMPTS Current methods include hierarchical digital-twin scheduling, nonlinear or mixed-integer optimization, hydraulic relaxations with validation, simulation-based metaheuristics and predictive control; reported gains are mostly against conventional operation or local rules rather than common SOTA baselines.
-TAGS #INFRA #ENER ##WATER #PRODUCTION #plan #place #select #rolling ##pump-scheduling ##digital-twin ##benchmark.
+TAGS ##digital-twin ##day-ahead ##hydraulic-feasibility ##benchmark-gap.
 COMMENTS Day-ahead or issued equipment calendars belong here; immediate state-feedback pump and valve actions remain WATER801.
 
 
