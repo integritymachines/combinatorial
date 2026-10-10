@@ -223,6 +223,17 @@ TAGS ##simulation-enabled ##multi-work-center ##scheduler-dispatcher ##ai-evalua
 COMMENTS Reported customer gains are company evidence; the scheduler objective, decomposition and benchmark data are not public.
 
 
+SEMIM701infi Fab-Wide Reentrant Scheduling Candidate.
+CASE Coordinate local bottleneck schedules so that improvements propagate to fab-wide throughput, tardiness and WIP flow under stochastic reentrant operation.
+STAGE Researched CANDIDATE | Public research exposes a concrete global/local scheduling failure mode; experimental local CP is not assumed to be the production-wide incumbent.
+STATE Expert-drafted hierarchical dispatching remains the public operational baseline; current research adds local CP optimization in a high-fidelity stochastic fab simulation, while the wider manufacturing environment is strongly digitalized.
+CONTEXT Large-scale front-end semiconductor fab | More than a thousand simulated tools, historical load-mix scenarios, stochastic failures, local lithography/wet-area control and global throughput/tardiness evaluation.
+GAP Local CP improves controlled-area KPIs but propagates inconsistently to fab-wide performance and can worsen downstream tardiness as WIP moves into the next bottleneck | Proposed uplift direction: use v10 to inject downstream global information into local objectives and coordinate multiple bottleneck schedulers under one stochastic replay, evaluating only fab-wide KPI uplift.
+ATTEMPTS Public work compares hierarchical expert rules with local CP scheduling under multiple objectives, load scenarios and stochastic seeds; current digital-fab investment adds digital twins, AI-supported qualification and virtual-fab integration.
+TAGS ##local-cp ##global-impact ##bottleneck-coordination ##stochastic-replay ##high-fidelity-simulation.
+COMMENTS The experimental CP method is publicly documented research; production-wide deployment and the internal fab dataset are not public.
+
+
 
 SEMIM702 Parallel-Batch Formation and Scheduling.
 DESCRIPTION Group compatible wafers, lots or devices for simultaneous processing and schedule the groups on eligible batch equipment.
