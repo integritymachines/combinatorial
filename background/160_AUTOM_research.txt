@@ -948,3 +948,125 @@ C: compile AUTOM703c only.
 F: PASS. Parent Problem unchanged; INDUSTRY Case uses SOTA; no proprietary Part 2 fields are present.
 O: Case card only; existing controlled Problem content is preserved.
 
+PURPOSE-BUILT BENCHMARK BRIEF — AUTOM703
+
+CLAIM TO TEST
+Can v10 produce repeatable sequencing uplift beyond a strong modern AUTOM703 SOTA baseline under industrially credible mixed-model constraints, rather than merely outperforming a weak legacy heuristic?
+
+DATASET REQUIREMENTS
+Core instances should represent one fixed parent Problem: vehicle sequence construction for a supplied order pool.
+Required data dimensions:
+- vehicle/order pool and variant attributes;
+- vehicle-specific station processes or processing times;
+- takt and station-workload limits;
+- option or feature-spacing restrictions where industrially material;
+- supplied production-date or delivery commitments when used by the objective;
+- objective components and weights needed to reproduce the baseline comparison.
+
+Optional controlled overlays may add paint/setup attributes, material availability, disruptions, or supplied resequencing/buffer restrictions.
+Do not merge neighboring AUTOM702 paint sequencing or AUTOM802 buffer-control decisions into the parent merely to make the benchmark richer.
+
+SCALE AND DIVERSITY
+Use plant-scale day or shift order pools calibrated from public industrial evidence or partner data.
+Do not assume a fixed N before evidence.
+Include multiple variant-mix, workload-tightness and option-restriction regimes so that a structural uplift is not demonstrated on one favorable configuration only.
+
+BASELINES
+At minimum:
+- a transparent option-ratio or workload-based exact/constraint baseline where scale permits;
+- a strong modern neighborhood, LNS or metaheuristic baseline;
+- a simulation-optimization or plant-specific comparator when the instance has dynamic conditions.
+A reconstructed public approximation of a proprietary incumbent must be labeled as such.
+Do not claim uplift beyond a named client's undisclosed proprietary algorithm without direct benchmark access.
+
+CONSTRUCTION AND VALIDATION
+Prefer anonymized real order pools or process-time distributions when available.
+Otherwise reconstruct or generate instances from controlled public ranges and disclose the generation process.
+Validate aggregate workload, variant, constraint-tightness and objective distributions against industrial evidence.
+Use held-out instances for final uplift claims.
+
+DELIVERABLE
+A purpose-built AUTOM703 benchmark may itself be a service output:
+- public/reproducible core where disclosure permits;
+- controlled private extensions for client-specific constraints and data;
+- baseline implementations and evaluation protocol sufficient to separate algorithmic uplift from dataset construction choices.
+
+
+CANDIDATE DEEP DIVE — AUTOM703mbz
+10 October 2026 | Derived from AUTOM703c | PEAK target
+
+IDENTITY
+The target is Mercedes-Benz.
+Foreground code uses the client shorthand mbz and does not name the target in the Case text.
+
+PUBLICLY SUPPORTED STATE
+- COMPLEVO documents a Mercedes-Benz AG production-scheduling project in which newly developed vehicle-sequencing algorithms account for vehicle-specific processes and process times at all stations rather than rough model-mix criteria. The case page reports improved assembly-hall capacity utilization and reduced body-buffer space [M01].
+- Mercedes-Benz states that its MO360 production ecosystem links roughly 30 plants and combines assembly, production planning, logistics, supply-chain and quality information; virtual simulation and optimization are used before factory implementation [M02, M03].
+- Current Mercedes-Benz production is increasingly drive-flexible: electric, hybrid and combustion vehicles can share lines, increasing variant and process heterogeneity [M04, M05].
+- Historical Mercedes-Benz Cars research separated order selection, daily mixed-model sequencing and blocked-vehicle resequencing. A simple rule-based resequencing approach was described as leaving an undesired gap to theoretical potential [M06].
+These sources support a high-maturity STATE with custom sequencing and a strong digital production substrate.
+They do not establish the exact current solver architecture, current neighborhood design, objective weights, site-by-site deployment, or residual optimality gap.
+
+CANDIDATE CONTEXT
+A global premium-vehicle production network with flexible multi-powertrain assembly, high variant diversity and a production ecosystem that supports real-time data integration, simulation and optimization.
+The most relevant candidate setting is final-assembly vehicle sequencing or resequencing where vehicle-specific station processes and times materially constrain effective capacity.
+
+CANDIDATE GAP
+Public sources establish that custom algorithms and digital production infrastructure exist, but they do not publish a reproducible current plant instance or a quantified residual gap to the best attainable sequence.
+Therefore no candidate-specific v10 uplift claim is yet defensible.
+The immediate gap is evidentiary and benchmark-related: construct a faithful benchmark that can stress the disclosed station-process/time structure without pretending to reproduce undisclosed proprietary logic.
+
+CANDIDATE ATTEMPTS / TECHNOLOGY HISTORY
+- Custom sequencing algorithms replacing coarse model-mix criteria [M01].
+- Historical rule-based blocked-vehicle resequencing with acknowledged gap to theoretical potential [M06].
+- MO360 data integration, digital simulation and optimization across production planning and adjacent functions [M02, M03].
+- Current AI, MB.OS and digital-twin expansion of the production ecosystem [M04, M05].
+These are evidence of continuing optimization investment, not proof that the current AUTOM703 implementation has a known structural defect.
+
+CANDIDATE QUESTION
+Can v10, first on a purpose-built benchmark calibrated to publicly disclosed station-process and mixed-model conditions and later on internal plant data, identify a structural limitation in the incumbent sequencing approach and demonstrate uplift beyond the relevant industry SOTA without relying on a weak proxy baseline?
+
+BENCHMARK PATH
+Phase A: purpose-built public/reproducible AUTOM703 benchmark using the benchmark brief above.
+Phase B: confidential client overlay using actual station process times, order pools, objective weights and buffer/material interfaces if an engagement begins.
+Only Phase B can support a claim against the actual proprietary incumbent.
+
+CANDIDATE DISPOSITION
+R: sufficient public evidence for one CANDIDATE Case.
+B: PASS. STATE is explicitly inferred from public evidence; undisclosed algorithmic details and residual gap remain unknown. The target is not credited with or accused of methods not in the evidence.
+C: compile AUTOM703mbz.
+F: PASS. Foreground remains unnamed and uses STATE rather than SOTA.
+O: add the terse CANDIDATE card under AUTOM703.
+
+MERCEDES-BENZ DEEP-DIVE SOURCES
+
+M01 COMPLEVO — Optimized production scheduling
+https://complevo.de/en/portfolio-item/optimized-production-scheduling/
+INSPECTED company case page.
+SUPPORTED OBSERVATION Customer Mercedes Benz AG; newly developed sequencing algorithms use vehicle-specific processes and production times at all stations rather than rough model-mix criteria; page reports higher assembly capacity utilization and reduced body-buffer space.
+
+M02 Mercedes-Benz / Microsoft — MO360 Data Platform
+https://group.mercedes-benz.com/unternehmen/produktion/produktionsnetzwerk/mo360-data-platform.html
+INSPECTED official company page.
+SUPPORTED OBSERVATION MO360 links production and supply-chain information across roughly 30 plants; virtual representation, simulation and optimization are used to improve operational efficiency.
+
+M03 Mercedes-Benz MO360 production ecosystem
+https://media.mercedes-benz.com/en/article/abc9fd0b-edf2-4edd-901a-8bd5a294804a
+INSPECTED official company page.
+SUPPORTED OBSERVATION MO360 integrates production-process and IT information across more than 30 passenger-car plants and supports KPI-based production control and real-time information.
+
+M04 Mercedes-Benz Next Level Production
+https://media.mercedes-benz.com/en/article/07f682b4-b3af-4f5a-9844-481c1efc11d3
+INSPECTED official company page.
+SUPPORTED OBSERVATION MO360, MB.OS, digital twins and AI are being expanded across the global production network to increase production flexibility and efficiency.
+
+M05 Mercedes-Benz Rastatt GLA production start
+https://media.mercedes-benz.com/en/article/55f347d5-2d36-4f6b-94a3-cd840efcee46
+INSPECTED official company page.
+SUPPORTED OBSERVATION Rastatt produces electric and hybrid/combustion variants on flexible lines and uses AI, digital twins and MB.OS within MO360.
+
+M06 Rescheduling blocked vehicles at Daimler AG / Mercedes-Benz Cars
+https://liu.diva-portal.org/smash/get/diva2%3A552581/FULLTEXT01.pdf
+INSPECTED thesis text.
+SUPPORTED OBSERVATION Mercedes-Benz Cars research distinguished order selection, daily mixed-model sequencing and blocked-vehicle resequencing; a simple rule-based resequencing implementation was described as leaving an undesired gap to theoretical potential.
+

@@ -362,6 +362,18 @@ QUESTION Can v10 identify structural limits in current sequencing neighborhoods 
 TAGS #TRANS #PROD ##AUTOMOTIVE #PRODUCTION #operate #sequence #place ##car-sequencing ##model-mix ##benchmark ##resequence.
 COMMENTS Public benchmark coverage is narrower than the strongest deployed industrial constraint set.
 
+
+
+AUTOM703mbz Mixed-Model Assembly Sequencing Candidate.
+CASE Order committed vehicles on a high-variant final assembly line under vehicle-specific station processes and times.
+STAGE Researched | CANDIDATE.
+STATE Public evidence supports custom vehicle-sequencing algorithms that account for vehicle-specific station processes and times, within a broader real-time digital production, simulation and optimization ecosystem.
+CONTEXT Global premium-vehicle production | Flexible multi-powertrain assembly, high variant diversity and digitally integrated production planning.
+GAP Public evidence does not disclose the current solver architecture, exact objective weights, reproducible plant instances or residual gap to the best attainable sequence.
+ATTEMPTS Custom sequencing replaced coarse model-mix criteria; earlier rule-based blocked-vehicle resequencing left an acknowledged gap to theoretical potential; production planning now operates within an expanded digital-twin and data platform.
+QUESTION Can v10 use a purpose-built benchmark and later internal plant data to identify a structural incumbent limitation and demonstrate uplift beyond the relevant industry SOTA?
+TAGS #TRANS #PROD ##AUTOMOTIVE #PRODUCTION #operate #sequence #place ##car-sequencing ##model-mix ##candidate ##benchmark-gap.
+COMMENTS STATE is inferred from public evidence; the current proprietary sequencing algorithm and residual performance gap are not public.
 #dispatch | 8##
 
 AUTOM801 Production Order Release and WIP Control.
