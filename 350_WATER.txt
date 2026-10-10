@@ -1,12 +1,14 @@
 350_WATER.txt
 
 WATER — Water Utility Operations
-v0.1 | 9 October 2026 | Problem layer
+v0.1 | 10 October 2026 | Case layer
 
 SCOPE
 Macro Domain anchor: #INFRA. Primary Domain: 301 #ENER. Industry: ##WATER. Territory: #PRODUCTION.
 WATER covers installed water-service capability, pumping, storage, hydraulic districting, pressure control, network disinfectant capability, service scheduling and hydraulic or quality recovery. It includes wastewater-transfer pumping when equipment actions and hydraulic service define the contract.
 Ownership follows the installed utility-service commitment. Basin rights, extraction, treatment-process transformation, civic asset maintenance, construction, standalone sensing, workforce and vehicle journeys remain neighboring contracts.
+
+
 
 #design | 1##
 
@@ -22,6 +24,7 @@ DEPENDENCIES ∅ → WATER101 → WATER102, WATER103, WATER104, WATER105, WATER1
 TAGS #INFRA #ENER ##WATER #PRODUCTION #design #map #link #strategic ##network-design ##pipe-sizing.
 COMMENTS Fixed-topology sizing omits connection choices. Condition-based renewal portfolios and construction work belong to civic asset management.
 
+
 WATER102 Pumping and Service-Storage Configuration.
 DESCRIPTION Selects pump configurations, equipment counts, tank sites and capacity options under hydraulic service, storage and redundancy requirements.
 TEMPLATE Pumping-station and service-storage design | Hydraulic simulation with genetic configuration search and continuous sizing refinement.
@@ -33,6 +36,7 @@ HARDNESS High | Equipment choices must remain feasible across demand patterns an
 DEPENDENCIES WATER101 → WATER102 → WATER302, WATER801.
 TAGS #INFRA #ENER ##WATER #PRODUCTION #design #select #place #strategic ##pump-station ##storage.
 COMMENTS Basin reservoirs and extraction-resource activation are separate contracts.
+
 
 WATER103 District Metered Area Design.
 DESCRIPTION Partitions a water network into service districts and selects open, metered or closed boundary connections under hydraulic and water-quality limits.
@@ -46,6 +50,7 @@ DEPENDENCIES WATER101 → WATER103 → WATER105, WATER301, WATER302.
 TAGS #INFRA #ENER ##WATER #PRODUCTION #design #map #link #tactical ##partition ##dma.
 COMMENTS Observation-only sensor placement is a separate digital-resource contract.
 
+
 WATER104 Isolation Valve Placement.
 DESCRIPTION Chooses isolation-valve sites to limit service loss when failed pipe segments must be disconnected.
 TEMPLATE Segment isolation and demand-shortfall design | Genetic layout search with segment or hydraulic evaluation; coupled pipe-and-valve optimization.
@@ -57,6 +62,7 @@ HARDNESS High | Many site combinations and failure consequences require evaluati
 DEPENDENCIES WATER101 → WATER104 → WATER901, WATER902.
 TAGS #INFRA #ENER ##WATER #PRODUCTION #design #place #select ##isolation ##resilience.
 COMMENTS Graph vulnerability proxies do not establish full hydraulic service feasibility.
+
 
 WATER105 Pressure-Control Valve Placement.
 DESCRIPTION Chooses pressure-regulating device sites and design settings under downstream service-pressure and leakage conditions.
@@ -70,6 +76,7 @@ DEPENDENCIES WATER101, WATER103 → WATER105 → WATER302, WATER801, WATER901.
 TAGS #INFRA #ENER ##WATER #PRODUCTION #design #place #select ##pressure-management ##leakage.
 COMMENTS Continuous settings of fixed devices alone do not define this combinatorial problem.
 
+
 WATER106 Disinfectant Booster Placement.
 DESCRIPTION Selects network booster stations and their locations to maintain disinfectant residuals under dose and water-quality limits.
 TEMPLATE Distribution residual-management design | Siting MINLP and convex-relaxation heuristics with hydraulic and quality simulation.
@@ -81,6 +88,8 @@ HARDNESS High | Site choices couple hydraulic transport, reaction and dosing.
 DEPENDENCIES WATER101 → WATER106 → WATER902.
 TAGS #INFRA #ENER ##WATER #PRODUCTION #design #place #select ##booster-chlorination ##water-quality.
 COMMENTS Treatment-train synthesis and process chemistry are separate transformation contracts.
+
+
 
 #plan | 3##
 
@@ -96,6 +105,7 @@ DEPENDENCIES WATER103 → WATER301 → WATER302.
 TAGS #INFRA #ENER ##WATER #PRODUCTION #plan #place #select ##intermittent-supply ##equity.
 COMMENTS Basin rights and resource allocation remain separate from installed-network service calendars.
 
+
 WATER302 Pump and Valve Scheduling.
 DESCRIPTION Schedules pump starts, stops and valve states with storage under demand or inflow forecasts, hydraulic limits, switching restrictions and terminal storage requirements.
 TEMPLATE Forecast-based pumping and storage scheduling | MINLP; strengthened MILP approximations with hydraulic validation; simulation-based search.
@@ -107,6 +117,18 @@ HARDNESS High | Nonlinear hydraulics, storage trajectories and equipment switchi
 DEPENDENCIES WATER101, WATER102, WATER103, WATER105, WATER301, WATER901, WATER902 → WATER302 → WATER801, WATER901.
 TAGS #INFRA #ENER ##WATER #PRODUCTION #plan #place #select #rolling ##pump-scheduling ##storage.
 COMMENTS Includes dynamic boundary-valve switching and wastewater-transfer pumping with actual discrete controls. Continuous flow or dosing optimization alone is outside this scope.
+
+WATER302c Pump and Valve Scheduling Benchmark.
+CASE Schedule installed pump starts, stops, speeds and material valve states over a forecast horizon while maintaining storage and hydraulic service constraints.
+STAGE Researched | INDUSTRY.
+SOTA Calibrated hydraulic digital twin with current operating state and short-horizon demand, source and energy forecasts; mathematical or simulation-based optimization produces an equipment schedule that is checked by hydraulic look-ahead simulation.
+CONTEXT Drinking-water production, transmission and distribution | Multiple pump stations, tanks and controllable valves; fixed/VFD equipment, nonlinear hydraulics, time-varying energy conditions, switching restrictions and terminal storage requirements.
+GAP Public benchmarks are established but largely based on older simplified EPANET networks and do not jointly represent current digital-twin state initialization, mixed fixed/VFD equipment, material valve actions, forecast uncertainty, dynamic energy signals, switch wear and multi-objective safety conditions | Proposed uplift direction: test v10 structural decomposition or move design on a purpose-built multi-regime hydraulic benchmark against strong hierarchical, MILP/relaxation, predictive-control and simulation-optimization baselines.
+ATTEMPTS Current methods include hierarchical digital-twin scheduling, nonlinear or mixed-integer optimization, hydraulic relaxations with validation, simulation-based metaheuristics and predictive control; reported gains are mostly against conventional operation or local rules rather than common SOTA baselines.
+TAGS #INFRA #ENER ##WATER #PRODUCTION #plan #place #select #rolling ##pump-scheduling ##digital-twin ##benchmark.
+COMMENTS Day-ahead or issued equipment calendars belong here; immediate state-feedback pump and valve actions remain WATER801.
+
+
 
 #dispatch | 8##
 
@@ -122,6 +144,8 @@ DEPENDENCIES WATER102, WATER105, WATER302, WATER901, WATER902 → WATER801 → W
 TAGS #INFRA #ENER ##WATER #PRODUCTION #dispatch #select #online #closedloop #rolling ##predictive-control.
 COMMENTS Includes wastewater-transfer equipment actions. Binaries that only encode overflow or hydraulic regimes do not establish a discrete operating decision.
 
+
+
 #adapt | 9##
 
 WATER901 Hydraulic Failure Isolation and Service Recovery.
@@ -135,6 +159,7 @@ HARDNESS High | Disrupted hydraulics and intervention combinations require scree
 DEPENDENCIES WATER104, WATER105, WATER302, WATER801 → WATER901 → WATER302, WATER801.
 TAGS #INFRA #ENER ##WATER #PRODUCTION #adapt #select #link #online ##service-restoration.
 COMMENTS Independent excavation, repair tasks and crew schedules belong to civic asset management.
+
 
 WATER902 Water-Quality Incident Flushing.
 DESCRIPTION Selects and times hydrant openings and valve operations to remove a specified water-quality impairment under hydraulic service and intervention limits.
