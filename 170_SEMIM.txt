@@ -222,7 +222,6 @@ ATTEMPTS Existing methods include multi-objective scheduling/dispatching, smart 
 TAGS ##simulation-enabled ##multi-work-center ##scheduler-dispatcher ##ai-evaluation ##global-local.
 COMMENTS Reported customer gains are company evidence; the scheduler objective, decomposition and benchmark data are not public.
 
-
 SEMIM701infi Fab-Wide Reentrant Scheduling Candidate.
 CASE Coordinate local bottleneck schedules so that improvements propagate to fab-wide throughput, tardiness and WIP flow under stochastic reentrant operation.
 STAGE Researched CANDIDATE | Public research exposes a concrete global/local scheduling failure mode; experimental local CP is not assumed to be the production-wide incumbent.
@@ -232,7 +231,6 @@ GAP Local CP improves controlled-area KPIs but propagates inconsistently to fab-
 ATTEMPTS Public work compares hierarchical expert rules with local CP scheduling under multiple objectives, load scenarios and stochastic seeds; current digital-fab investment adds digital twins, AI-supported qualification and virtual-fab integration.
 TAGS ##local-cp ##global-impact ##bottleneck-coordination ##stochastic-replay ##high-fidelity-simulation.
 COMMENTS The experimental CP method is publicly documented research; production-wide deployment and the internal fab dataset are not public.
-
 
 
 SEMIM702 Parallel-Batch Formation and Scheduling.
