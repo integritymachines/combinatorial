@@ -808,3 +808,67 @@ D05 D-SIMLAB — AI-Based Real-Time Dispatching as Compared to Optimized Schedul
 https://d-simlab.com/news-events/
 SUPPORTED OBSERVATION 2026 public presentation topic explicitly compares AI-based real-time dispatching with optimized scheduling in semiconductor manufacturing.
 
+CANDIDATE DEEP DIVE — SEMIM701infi
+10 October 2026 | Derived from SEMIM701c | PEAK target
+
+IDENTITY
+The target is Infineon Technologies.
+Foreground code uses the client shorthand infi and does not name the target in the Case text.
+
+PUBLICLY SUPPORTED STATE
+A 2026 Infineon/University of Klagenfurt study evaluates local CP-based lot scheduling inside a high-fidelity stochastic semiconductor-fab simulation and compares it with advanced expert-drafted dispatching heuristics currently used in the fab [I01-I03].
+The local CP model handles batching constraints, complex dedications, machine availability, alternative processing times, priorities and due dates; experiments use six historical loading scenarios and ten stochastic seeds per scenario [I01, I02].
+The study finds significant local gains over the expert heuristics, but only partial and inconsistent propagation to fab-wide throughput and tardiness. The authors explicitly identify injection of global information into local formulations as the next requirement [I01-I03].
+The public evidence therefore establishes a mature local-optimization research capability and a concrete structural failure mode, but it does not establish that the CP approach is the current production scheduler across the enterprise.
+Infineon's 2026 Smart Power Fab in Dresden is strongly digitalized, uses digital twins and AI-supported process/equipment qualification, and is linked with Villach as one virtual fab [I04]. This establishes a high-maturity digital manufacturing context but not a public fab-wide scheduling architecture.
+
+CANDIDATE CONTEXT
+Large-scale front-end semiconductor manufacturing with more than a thousand pieces of equipment represented in the high-fidelity study environment, stochastic tool downtime and changing product/load scenarios [I01, I02].
+The public scheduling experiment controls local bottleneck areas such as lithography or wet processing while the rest of the fab continues under existing expert heuristics.
+This makes the candidate especially relevant to SEMIM701's central global/local coordination problem.
+
+CANDIDATE GAP
+The 2026 study demonstrates that strong local CP schedules can improve local throughput and batch efficiency yet fail to deliver consistent fab-wide improvement; global tardiness can worsen because locally accelerated WIP can queue at downstream bottlenecks [I01-I03].
+The study's own conclusion is that local formulations need global information and that multiple bottleneck areas or broader coordinated control should be investigated [I01, I02].
+The underlying high-fidelity industrial simulation and fab dataset are not a reusable public benchmark.
+Proposed uplift direction: use v10 to construct a global coordination layer that selects which bottlenecks to optimize, feeds downstream congestion/tardiness signals into local objectives, and coordinates multiple local schedulers under one stochastic replay; measure uplift only at fab-wide throughput, tardiness, cycle-time and WIP-flow KPIs.
+
+CANDIDATE ATTEMPTS / TECHNOLOGY HISTORY
+- Expert-drafted hierarchical dispatching heuristics currently used in the fab [I01, I02].
+- Local CP optimization for lithography, wet/batch and other bottleneck areas [I01-I03].
+- Multiple objective variants including makespan- and tardiness-oriented local formulations [I01, I02].
+- High-fidelity stochastic simulation with historical loading scenarios and random tool-failure/quality-event streams [I01, I02].
+- Digital-twin and AI-supported manufacturing infrastructure in the new Smart Power Fab and virtual-fab linkage with Villach [I04].
+These show strong local optimization and simulation capability; they do not demonstrate a solved fab-wide coordination layer.
+
+BENCHMARK PATH
+Phase A: reconstruct the published experiment on the SEMIM701 purpose-built benchmark: expert hierarchical heuristics, local CP controls, historical-style load scenarios and common stochastic event streams.
+Phase B: add v10 global-information injection and multi-bottleneck coordination while leaving local CP mechanics unchanged where possible, isolating the value of structural coordination from a wholesale solver replacement.
+Phase C: if engaged, replay the comparison in the target's high-fidelity internal simulation or equivalent private digital-twin environment.
+The cleanest proof is not local objective improvement; it is a repeatable fab-wide KPI gain over the strongest local-optimization baseline.
+
+CANDIDATE DISPOSITION
+R: sufficient public evidence for one CANDIDATE Case.
+B: PASS. The public research directly exposes a material SEMIM701 failure mode. Production use of the experimental CP scheduler is not inferred.
+C: compile SEMIM701infi.
+F: PASS. STATE distinguishes current expert heuristics, experimental local CP and broader digital-fab capability; uplift direction remains in GAP.
+O: add the terse CANDIDATE card after SEMIM701dsim.
+
+INFINEON DEEP-DIVE SOURCES
+
+I01 Stöckermann et al. — Quantifying the Global Impact of Constraint Programming-Based Local Scheduling in Semiconductor Manufacturing
+https://doi.org/10.1109/TSM.2026.3678175
+SUPPORTED OBSERVATION Infineon/University of Klagenfurt study compares local CP scheduling with expert-drafted fab heuristics in a high-fidelity stochastic semiconductor simulation and measures local and fab-wide throughput/tardiness effects.
+
+I02 ResearchGate full-text record of the 2026 IEEE paper
+https://www.researchgate.net/publication/403186769_Quantifying_the_Global_Impact_of_Constraint_Programming-Based_Local_Scheduling_in_Semiconductor_Manufacturing
+SUPPORTED OBSERVATION Experiments use six load scenarios and ten random seeds; expert rules are hierarchical and include FIFO, EDD, batch waiting and priority logic; local CP gains propagate only partially and can worsen global tardiness.
+
+I03 Semiconductor Engineering — CP-Based Lot Scheduling Solutions
+https://semiengineering.com/cp-based-lot-scheduling-solutions-for-a-semiconductor-manufacturing-infineon-u-of-klagenfurt/
+SUPPORTED OBSERVATION Summarizes the Infineon/Klagenfurt result: significant local improvement, inconsistent global effects and explicit need to inject global information into local formulations.
+
+I04 Infineon — Smart Power Fab Dresden
+https://www.infineon.com/press-release/2026/ifxpr202607-117
+SUPPORTED OBSERVATION New fab is strongly digitalized; digital twin supported factory/machine planning, AI assists equipment/process qualification, and Dresden/Villach operate as one virtual fab.
+
