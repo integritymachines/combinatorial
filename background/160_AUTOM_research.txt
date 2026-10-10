@@ -6,7 +6,7 @@ Industry Domain code: 160.
 Industry: ##AUTOMOTIVE. Primary Domain: 102 #PROD. Territory: #production. Macro Domain anchor: #TRANS.
 Normative inputs: 000_DOMAIN.txt v0.5 and background/000_DOMAIN_research.txt v0.5.
 Workflow: workflow/0_workflow.txt through workflow/5_output.txt.
-Case-layer normative input: 000_DOMAIN.txt v0.8.
+Case-layer normative input: 000_DOMAIN.txt v0.7.
 Read-only input basis: main commit 8fab83ca9a3ed56b18dd08cf1c90d2ca63ab7d25.
 The requested automotive foreground and background did not exist at that head. The marketplace contained its schema and no candidates.
 Generic 102_PROD and its retained research are discovery and transferable-method inputs. Their old two-digit IDs and COMMENTS-tag layout are not normative.
