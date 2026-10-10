@@ -10,6 +10,7 @@ background/000_DOMAIN_research.txt
 Input
 DOMAIN D = canonical generic Domain mnemonic or canonical Industry Domain mnemonic.
 DOMAIN code = NNN.
+PROBLEM P = controlled Problem ID when LEVEL=CASE.
 For an Industry Domain, code, mnemonic, Industry, Primary Domain, Territory, and Macro Domain anchor are fixed before the workflow starts.
 
 Workflow prompts (read only)
@@ -83,37 +84,45 @@ STOP -- Human inspection and explicit go-ahead required before case research.
 
 Case layer
 
+Case work is selective and runs one controlled Problem P at a time.
+The first Case for P is always INDUSTRY.
+The Case layer may be rerun as CANDIDATE or CLIENT evidence is added or as a Case advances through proprietary analysis.
+
 6. Research cases (R)
-Input: research.txt with LEVEL=CASE and DOMAIN=D.
-Use the controlled foreground problem set as the fixed parent set.
-For each problem, research industrial cases, SOTA operational best practices, IE and OR Templates, candidate benchmark cases, baselines, implementations, data, results, and reproducibility.
-Output: case background v#.3.
+Input: research.txt with LEVEL=CASE, DOMAIN=D, and PROBLEM=P.
+Use P as the fixed parent.
+Research the INDUSTRY Case first: SOTA, context, gap, attempts, question, benchmark basis, and supporting evidence.
+Research a first-dozen target landscape and select FIRST, PEAK, FALLBACK, and OUTLIER.
+Derive CANDIDATE Cases only where public evidence supports a useful prospect-specific STATE.
+When proprietary analysis is authorized, research the Part 2 fields for the controlled Case.
+Output: updated case background v#.3 or human-revision successor.
 
 7. Control case background (B)
-Input: background.txt with LEVEL=CASE and DOMAIN=D.
-Check case fidelity, Template evidence, SOTA claims, benchmark relevance, reproducibility, coverage, and competing near-equals.
+Input: background.txt with LEVEL=CASE, DOMAIN=D, and PROBLEM=P.
+Check parent fidelity, industry SOTA, Case type, evidence status, target selection, candidate inference, benchmark basis, and any proprietary claims.
 Return defects to R until controlled.
-Output: controlled case background v#.4.
+Output: controlled case background v#.4 or human-revision successor.
 
 8. Compile case set (C)
-Input: compile.txt with LEVEL=CASE and DOMAIN=D.
-Select and describe smallest sufficient starter benchmark set for each problem. Compile it into the foreground content defined by 000_DOMAIN.txt.
-Assign case IDs according to 000_DOMAIN.txt.
-Output: problem and case set in foreground v#.3.
+Input: compile.txt with LEVEL=CASE, DOMAIN=D, and PROBLEM=P.
+Compile controlled Case cards under 000_DOMAIN.txt and add them to the existing foreground under P.
+Do not require Cases for other Problems.
+When proprietary analysis is controlled, update the same Case card rather than creating a second Case.
+Output: updated problem-and-case foreground v#.3 or human-revision successor.
 
 9. Control case foreground (F)
-Input: foreground.txt with LEVEL=CASE and DOMAIN=D.
-Check content fidelity, problem-to-case fit, Template representation, baseline validity, benchmark usefulness, numbering, and claims.
+Input: foreground.txt with LEVEL=CASE, DOMAIN=D, and PROBLEM=P.
+Check Case fidelity, type, stage, anonymity, SOTA or STATE, gap, question, identifiers, and any proprietary Part 2 claims.
 Return content-compilation defects to C. Return substantive evidence defects to R/B.
-Output: content-controlled problem and case set in foreground v#.4.
+Output: content-controlled foreground v#.4 or human-revision successor.
 
 10. Normalize case output (O)
-Input: output.txt with LEVEL=CASE and DOMAIN=D.
-Normalize the content-controlled foreground under workflow/5_output.txt.
-Do not change claims, IDs, numbering, classifications, references, Templates, or tags.
-Output: presentation-controlled foreground v#.4.
+Input: output.txt with LEVEL=CASE, DOMAIN=D, and PROBLEM=P.
+Normalize the content-controlled Case cards under workflow/5_output.txt.
+Do not change claims, IDs, type, stage, SOTA, STATE, proprietary findings, references, or tags.
+Output: presentation-controlled foreground v#.4 or human-revision successor.
 
-STOP -- Human inspection and explicit go-ahead required before stabilization.
+STOP -- Human inspection and explicit go-ahead required after each Case run and before proprietary analysis, another Case, or stabilization.
 
 
 11. Stabilize
@@ -163,6 +172,8 @@ Content defects return to C or R/B.
 Output-format defects return to O.
 O must stop rather than repair a content defect.
 Do not descend from Problems to Cases before presentation-controlled problem foreground and human approval.
+Run Case work only for selected Problems; do not force a Case for every Problem.
+Review the Case taxonomy and workflow after each calibration Case and amend only when an observed defect earns a rule change.
 Research establishes dependencies; compilation derives Problem sequence and numbering.
 Industry Domain identity and code are inputs to the workflow. If research exposes an identity defect, flag it for ontology-level review; do not rename, recode, split, or merge the Industry Domain inside R → B → C → F → O.
 The Problem Marketplace is the fallback for materially credible borderline or transferred Domain-ownership cases; ordinary exclusions and ordinary uncertainty stay in domain research.

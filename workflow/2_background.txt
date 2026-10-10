@@ -98,33 +98,49 @@ LEVEL=CASE
 Check:
 
 1. Parent fidelity
-- Every case belongs to an existing controlled foreground problem.
-- Cases do not silently redefine, merge, split, or extend parent problems.
-- Any parent-set defect is flagged for return to the Problem layer.
+- Every Case belongs to the fixed controlled Problem P.
+- Case research does not redefine, merge, split, or reclassify P.
+- Parent-set defects are returned to the Problem layer.
 
-2. Industrial cases
-- Research includes representative real or realistic operating contexts.
-- Cases materially instantiate the parent decision rather than merely share terminology.
+2. INDUSTRY Case
+- The first Case is INDUSTRY.
+- SOTA is the strongest defensible relevant industry technology state, not a convenient weak baseline.
+- CONTEXT, GAP, ATTEMPTS, and QUESTION are supported and commercially meaningful.
+- Industry evidence is broad enough that the unnamed benchmark holder is not merely one vendor or one paper presented as the industry.
 
-3. Best practice
-- SOTA or strongest established IE, OR, and operational approaches are supported by current evidence.
-- Material competing or near-equal approaches are retained.
-- Foreground Templates are tested rather than assumed.
+3. Benchmark support
+- Available public or constructible benchmark material is relevant to P and the Case constraint regime.
+- Reported, reproduced, synthetic, overlaid, and predicted results are distinguished.
+- Scale, objective, constraints, baseline, access, reproducibility, and material mismatches are controlled where relevant.
+- Genuine benchmark gaps remain explicit.
 
-4. Benchmark candidates
-- Candidates instantiate the problem and relevant Template.
-- Public access, reproducibility, scale, objective, baseline, reference result, and limitations are established where applicable.
-- Toy, inaccessible, weakly matched, or non-reproducible cases are not treated as strong benchmarks without qualification.
-- Benchmark gaps are explicit.
+4. Target landscape
+- The first dozen are credible commercial targets supported by concrete reasons.
+- Enterprises, boutique consultants, software vendors, and funded startups were considered; equal representation is not required.
+- FIRST, PEAK, FALLBACK, and OUTLIER are distinct, defensible roles rather than a generic ranking.
 
-5. Sufficiency
-- There are enough credible candidates to let compilation select a small starter set for each problem.
-- The research does not prematurely select or number the final cases.
+5. CANDIDATE Cases
+- Each CANDIDATE derives from the industry research and has enough public evidence to support a useful prospect-specific STATE or other material field.
+- Client identity may appear in background but not in the foreground CANDIDATE text.
+- Public fact and inference are separated.
+- Weakly evidenced prospects remain targets rather than being forced into Cases.
 
-6. Evidence quality
-- Material benchmark and SOTA claims are traceable to strong sources.
-- Reported results are distinguished from reproduced results.
-- Access, license, implementation, and reproducibility claims are not inferred without support.
+6. CLIENT Cases
+- Internal or supplied evidence is distinguished from observation, reproduction, and inference.
+- Named-client treatment is used only when authorized.
+
+7. Proprietary Part 2
+- DIAGNOSIS and BREAKPOINT follow from controlled proprietary evidence.
+- PRESCRIPTION is no stronger than the diagnosis supports and separates short-run from long-run action.
+- BENCHMARK tests the relevant claim.
+- RESULT distinguishes measured uplift from prediction.
+- The comparison demonstrates or tests uplift against relevant industry SOTA, not merely against a weaker candidate or client STATE.
+- NEXT follows from the controlled result and remaining uncertainty.
+
+8. Evidence quality
+- Material SOTA, state, gap, attempt, benchmark, and proprietary claims are traceable to strong evidence.
+- Important uncertainty and disagreement are preserved.
+- Formal models and structural analysis support the Case conclusions but do not substitute for industrial evidence.
 
 PASS criteria
-The background is sufficient to select defensible starter benchmark cases for every parent problem, or to state a genuine benchmark gap.
+The background is sufficient to compile the applicable terse Case card, target landscape, and derived CANDIDATE Cases without unsupported inference.

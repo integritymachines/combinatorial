@@ -106,42 +106,80 @@ Do not assign permanent problem numbers or final sequence.
 LEVEL=CASE
 
 Purpose
-For each controlled foreground problem, establish the industrial cases, current best practices, and benchmark candidates needed for case compilation.
+Build the controlled commercial and technical research record for one selected parent Problem P.
 
 Parent set
-Use the controlled foreground problem set as fixed input. Do not add, merge, remove, or rename parent problems. If case research reveals a parent-set defect, flag it for return to the Problem layer.
+P is fixed.
+Do not add, merge, remove, rename, renumber, or reclassify the parent Problem.
+If Case research exposes a parent-set defect, flag it for return to the Problem layer.
 
 Tasks
-1. Research industrial cases.
-Find representative real or realistic applications of the problem across relevant industries and operating contexts.
+1. Research the INDUSTRY Case first.
+Establish:
+- the case-specific industrial decision;
+- strongest defensible current industry SOTA;
+- operating context, commercial scale, and defining constraint regime;
+- material gap relative to a credible reference;
+- remedies or approaches already tried and their observed outcomes;
+- the unresolved structural or optimization question;
+- evidence supporting each claim.
 
-2. Research best practice.
-Identify current SOTA or strongest established operational, IE, and OR approaches.
-Test the foreground Template against current evidence.
-Record material competing or near-equal approaches.
+The INDUSTRY Case is an unnamed benchmark technology holder.
+Do not weaken SOTA to create an easier proprietary comparison.
 
-3. Research benchmark candidates.
-Prefer public, reproducible cases that instantiate the problem and its Template and can support a meaningful baseline and later uplift calculation.
-For each candidate record:
-- source;
-- case or dataset;
-- industrial analogue;
-- scale;
-- objective and principal constraints;
-- method or implementation used as baseline;
-- reported reference result when defensible;
-- reproducibility;
-- access or license constraints;
-- limitations.
+2. Research benchmark support.
+Identify public or constructible benchmark material that can later test uplift beyond SOTA.
+Record source, scale, objective, material constraints, baseline, reference result, reproducibility, access limits, and material mismatch.
+A benchmark gap does not invalidate a commercially strong Case; record it.
 
-4. Filter evidentially.
-Reject cases that are toy-only, weakly matched, inaccessible, non-reproducible, or unsupported unless their limitation is itself useful evidence.
-If no adequate public benchmark exists, record a benchmark gap.
+3. Research the target landscape.
+Identify approximately twelve credible organizations across:
+- enterprises;
+- boutique consultants;
+- software vendors;
+- funded startups.
 
-5. Assess sufficiency.
-Research enough candidates to let compilation select a small, strong starter set for every problem.
-Do not assign final case IDs or select the canonical starter set.
+Representation need not be equal.
+For each target record the organization, category, and concrete reason it belongs in the landscape.
+
+Select:
+FIRST     best initial approach.
+PEAK      highest-value target if the thesis holds.
+FALLBACK  lower-risk alternative.
+OUTLIER   non-obvious target that tests whether the opportunity generalizes.
+
+4. Derive CANDIDATE Cases.
+Research public information about selected prospects.
+The research background may name the organization.
+Create a CANDIDATE only when public evidence supports a useful prospect-specific hypothesis about STATE, CONTEXT, GAP, ATTEMPTS, or QUESTION.
+Separate sourced facts from inference.
+Do not assert an inferred STATE as client fact.
+The foreground CANDIDATE uses the client shorthand in its Case ID but does not name the client.
+
+5. Research CLIENT Cases when authorized.
+Use internal or client-supplied evidence.
+Record what is supplied, observed, reproduced, and inferred.
+Client-specific confidentiality controls may be added later.
+
+6. Proprietary Case research when authorized.
+Start from the controlled Part 1 Case card.
+Research and support:
+- DIAGNOSIS;
+- BREAKPOINT;
+- PRESCRIPTION, short-run | long-run;
+- BENCHMARK;
+- RESULT;
+- NEXT.
+
+The required technical claim is uplift beyond the strongest defensible relevant SOTA, not merely uplift beyond a weak client STATE.
+Distinguish measured results from predictions.
+Keep formal models, structural probes, experiments, and narrative evidence in background or report material; do not force them into the terse foreground card.
+
+7. Assess sufficiency.
+Stop when the evidence can support the applicable Case card fields and the target landscape without unsupported completion.
+Do not create a Case merely to fill coverage.
 
 Finish
-Write the research background densely and clearly enough for independent Background Control and later compilation.
+Write the research background densely enough for independent Background Control and later compilation.
+For each selected Problem keep the INDUSTRY Case, its target landscape, and derived CANDIDATE Cases together.
 Do not imitate the final foreground merely for convenience.

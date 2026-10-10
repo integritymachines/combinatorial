@@ -109,36 +109,42 @@ LEVEL=CASE
 Check:
 
 1. Parent fidelity
-- Every Case belongs to an existing controlled parent Problem.
-- Parent Problems were not silently added, merged, removed, renamed, renumbered, or reclassified.
+- Every Case belongs to the fixed controlled parent Problem P.
+- P was not silently added, merged, removed, renamed, renumbered, or reclassified.
 - Parent-set defects discovered during Case work were returned to the Problem layer.
 
-2. Case selection
-- The selected set is small but sufficient.
-- Each Case represents a material industrial context, Template, or benchmark condition rather than a redundant variant.
-- Weak, toy-only, inaccessible, or poorly matched candidates were not promoted without explicit justification.
-- Genuine benchmark gaps remain gaps.
+2. Case type and identity
+- The first Case for P is INDUSTRY.
+- INDUSTRY uses a 1-2 letter lowercase Case suffix.
+- CANDIDATE and CLIENT use a stable 3-4 letter lowercase client shorthand.
+- A numeric suffix appears only when a real variant needs discrimination.
+- Case identity is stable across later proprietary analysis.
 
-3. Benchmark fidelity
-- Source, dataset/instance, scale, objective, principal constraints, baseline, reference result, reproducibility, and access/license limits are represented accurately where required.
-- Reported results are not presented as reproduced results.
-- Baseline methods match the actual benchmark evidence.
+3. Part 1 fidelity
+- INDUSTRY uses SOTA and does not use a weaker convenient baseline.
+- CANDIDATE and CLIENT use STATE.
+- CONTEXT, GAP, ATTEMPTS, and QUESTION faithfully contract controlled evidence.
+- CANDIDATE text does not name the prospect.
+- Public inference is not presented as client fact.
 
-4. Template and best-practice fidelity
-- Cases instantiate the parent Problem and its controlled Template.
-- Material case-specific SOTA or implementation differences are supported.
-- A convenient public method was not silently substituted for the strongest supported practice.
+4. Proprietary Part 2
+- Part 2 is absent unless controlled proprietary analysis exists.
+- DIAGNOSIS and BREAKPOINT are supported.
+- PRESCRIPTION is short-run | long-run and follows from the diagnosis.
+- BENCHMARK matches the claim being tested.
+- RESULT distinguishes measurement from prediction.
+- Any uplift claim is against the relevant controlled SOTA or clearly identified baseline.
+- NEXT reflects remaining validation or engagement work.
 
-5. Case schema and identifiers
-- Case representation follows only the normative schema and identifier rules in 000_DOMAIN.txt.
-- No local Case schema or numbering convention was invented.
-- If 000_DOMAIN.txt lacks the required Case schema or identifier rule, Case foreground cannot PASS; issue a BLOCK-RB or ontology-return finding rather than accepting an improvised format.
+5. Contraction quality
+- Case cards are terse.
+- Target lists, evidence history, formal models, structural probes, experiment tables, and publication narrative remain outside the foreground.
+- TAGS and COMMENTS are updated only when supported.
+- COMMENTS — is used when no material comment is needed.
 
-6. Contraction quality
-- Case entries preserve only the facts needed for canonical benchmark use.
-- Evidence history and candidate-selection discussion remain in background.
-- References resolve.
-- No generic workflow or ontology boilerplate is compiled into the foreground.
+6. Schema
+- Case fields, order, types, stages, and identifiers follow 000_DOMAIN.txt.
+- No local Case field or numbering convention was invented.
 
 PASS criteria
-The foreground content contains a defensible minimal starter Case set for every parent Problem that has an adequate benchmark and can proceed to output normalization.
+The foreground contains a faithful, terse Case representation for P and can proceed to output normalization without reopening Case research.

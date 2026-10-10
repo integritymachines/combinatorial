@@ -108,47 +108,54 @@ Do not modify controlled background.
 LEVEL=CASE
 
 Purpose
-Compile controlled case research into the smallest sufficient canonical starter set for each controlled foreground Problem.
+Compile controlled Case research for one selected parent Problem P into terse foreground Case cards.
 
 Parent set
-The controlled foreground Problem set is fixed.
-Do not add, merge, remove, rename, renumber, or reclassify parent Problems.
-If the controlled case background exposes a parent-set defect, stop that item and return it to R/B and the Problem layer.
+P is fixed.
+Do not add, merge, remove, rename, renumber, or reclassify P.
+If controlled Case research exposes a parent-set defect, stop and return it to R/B and the Problem layer.
 
 Tasks
-1. Select starter Cases.
-For each Problem, select the smallest set of strong Cases needed to represent materially different industrial contexts, Templates, or benchmark conditions.
-Prefer public, reproducible, operationally meaningful Cases.
-Do not select a Case merely because data are available.
+1. Compile the INDUSTRY Case.
+The first Case for P is INDUSTRY.
+Use SOTA, not STATE.
+Compile only the controlled case decision, SOTA, CONTEXT, GAP, ATTEMPTS, QUESTION, TAGS, and COMMENTS.
+The foreground does not include the target landscape.
 
-2. Preserve Problem fit.
-Each Case must instantiate the parent Problem's industrial decision.
-Do not use a nearby benchmark that only shares terminology or formulation.
+2. Compile CANDIDATE Cases.
+Create only controlled prospect-specific Cases.
+Use STATE, not SOTA.
+Use the 3-4 letter lowercase client shorthand in the Case ID.
+Do not name the client in the Case text.
+Do not convert public inference into client fact.
 
-3. Compile benchmark basis.
-For each selected Case, preserve the minimum facts needed to reproduce and interpret it:
-- source;
-- dataset or instance;
-- industrial analogue where useful;
-- scale;
-- objective and principal constraints;
-- baseline method or implementation;
-- defensible reference result where available;
-- reproducibility and material access/license limitations.
+3. Compile CLIENT Cases when authorized.
+Use STATE.
+The client may be named in the Case text.
+Do not import confidential evidence into unrelated Cases.
 
-4. Represent best practice.
-Use the controlled evidence to reflect the strongest established operational, IE, and OR practice relevant to the Case.
-Do not silently replace the parent Template with a case-specific method.
-Record a material case-specific deviation only when supported.
+4. Compile Case IDs.
+Apply only the Case identifier rules in 000_DOMAIN.txt.
+Keep industry suffixes short and client shorthands stable.
+Use a trailing integer only for a real variant.
 
-5. Handle benchmark gaps.
-If no adequate public benchmark exists, state the benchmark gap tersely.
-Do not fabricate a surrogate canonical Case.
+5. Compile proprietary Part 2 when controlled.
+Update the same Case card.
+Append DIAGNOSIS, BREAKPOINT, PRESCRIPTION, BENCHMARK, RESULT, and NEXT.
+Update STAGE, TAGS, and COMMENTS as supported.
+PRESCRIPTION is short-run | long-run.
+Do not fabricate a measured RESULT from a prediction.
+Do not create a second Case merely because proprietary analysis was performed.
 
-6. Apply normative Case schema.
-Use only Case fields, identifiers, and numbering rules defined by 000_DOMAIN.txt.
-If 000_DOMAIN.txt does not define the required Case representation or identifier rule, stop Case compilation and report the normative gap. Do not invent a schema.
+6. Keep foreground terse.
+Do not compile target lists, source history, formal models, probe coordinates, experiment tables, or publication narrative into the Case card.
+Those remain in background or a separate report.
+
+7. Apply the normative Case schema.
+Use only Case fields and identifier rules defined by 000_DOMAIN.txt.
+If the schema is insufficient, stop and report the normative gap rather than inventing a local field.
 
 Finish
-Output the foreground Problem-and-Case set in NNN_D.txt.
+Add or update the controlled Case cards under P in NNN_D.txt.
+Do not require Cases for other Problems.
 Do not modify controlled background.

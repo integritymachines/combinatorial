@@ -1,5 +1,5 @@
 *Industrial Combinatorial Optimization* 
-v0.6 Oct 2026
+v0.7 Oct 2026
 
 - Canonical ontology for industrial combinatorial optimization (ICO) systems.
 - Aims at near-exhaustive, minimally overlapping classification of commercially relevant combinatorial optimization systems.
@@ -17,6 +17,7 @@ v0.6 Oct 2026
 8. Parameters       Operational and execution qualifiers.
 9. Descriptors      Open refinements.
 10. Problem         Stand-alone industrial combinatorial decision.
+11. Case            Commercially oriented instantiation of a controlled Problem.
 
 **Macro Domains & Domains**
 
@@ -360,6 +361,7 @@ Each foreground Domain or Industry Domain file contains:
 3. Problem and populated-Regime count.
 4. Candidates shortlist.
 5. Canonical Problem set.
+6. Controlled Case cards where available.
 
 SCOPE is a short domain-specific introduction.
 It states the decision territory, ownership rule, and material neighboring boundaries.
@@ -458,3 +460,93 @@ HARDNESS High | Industrial instances can require decomposition because topology,
 DEPENDENCIES ∅ → PROC101 → PROC102, PROC103, PROC106.
 TAGS #TRANS #PROC #design #link #select ##network-design ##piping.
 COMMENTS Long-term structural decisions constrain later physical operations. 
+
+
+----
+
+*CASE*
+
+A Case is a commercially oriented instantiation of one controlled Problem.
+
+Case type:
+INDUSTRY   Unnamed benchmark technology holder synthesized from industry research.
+CANDIDATE  Specific prospective client researched from public information; client shorthand appears in the Case ID but the foreground Case does not name the client.
+CLIENT     Named client supported by internal or client-supplied information.
+
+- Case work starts with an INDUSTRY Case.
+- INDUSTRY establishes the strongest defensible industry SOTA that later proprietary work must beat.
+- CANDIDATE and CLIENT Cases record the specific organization's technology STATE relative to the relevant industry Case.
+- A CANDIDATE Case is created only when public evidence supports a useful prospect-specific technology-state hypothesis.
+- CLIENT handling may use additional confidential research or reporting controls.
+- Cases remain subordinate to their parent Problem and do not reclassify it.
+
+Case stage:
+Researched    Industrial or client research supports Part 1.
+Verified      Material premises of Part 1 have been independently or directly confirmed.
+Analyzed      Proprietary analysis supports DIAGNOSIS and BREAKPOINT.
+Structured    An implementable structural PRESCRIPTION is controlled.
+Benchmarked   v10 has been evaluated against the relevant SOTA or controlled baseline and RESULT records measured evidence.
+
+Case IDs:
+- Append a lowercase Case suffix directly to the parent Problem ID.
+- INDUSTRY suffixes normally use 1-2 lowercase letters.
+- CANDIDATE and CLIENT suffixes normally use a 3-4 lowercase client shorthand.
+- Append a trailing integer only when variants require discrimination.
+- Examples: AUTOM142c, AUTOM142aa, AUTOD174por, AUTOD174por3.
+
+CASE CARD
+
+Part 1 — researched Case
+
+<ID> <CASE SHORTHAND>.
+CASE <case-specific statement of the parent industrial decision>.
+STAGE <Researched | Verified | Analyzed | Structured | Benchmarked> | <INDUSTRY | CANDIDATE | CLIENT>.
+SOTA <strongest researched industry technology state>.          [INDUSTRY]
+STATE <prospect or client technology state>.                    [CANDIDATE | CLIENT]
+CONTEXT <operating setting, scale, and defining constraint regime>.
+GAP <material performance, capability, or solution-quality gap>.
+ATTEMPTS <material remedies already used and their outcomes, or —>.
+QUESTION <specific unresolved structural or optimization question>.
+TAGS <useful supported tags>.
+COMMENTS <material qualification or —>.
+
+Part 2 — proprietary Case analysis
+
+DIAGNOSIS <structural mechanism causing the observed or expected limitation>.
+BREAKPOINT <constraint, transition, scale, or structural condition where behavior changes>.
+PRESCRIPTION <short-run action> | <long-run action>.
+BENCHMARK <evaluation basis used to test the prescription>.
+RESULT <measured result, or explicitly identified prediction when validation remains pending>.
+NEXT <material validation or engagement step, or —>.
+TAGS <updated useful supported tags>.
+COMMENTS <updated material qualification or —>.
+
+- Part 1 can stand alone.
+- Part 2 is added only from controlled proprietary analysis.
+- TAGS and COMMENTS are shared fields and may be updated when Part 2 is added.
+- INDUSTRY SOTA is not weakened to make a proprietary uplift appear larger.
+- CANDIDATE inference from public evidence remains qualified in background research and must not be presented as client fact.
+- The foreground Case remains terse. Research evidence, target lists, formal models, structural probes, experiments, and publication narrative belong outside the Case card.
+
+CASE RESEARCH AND REPORTS
+
+For a selected Problem, industry research records the INDUSTRY Case, a first-dozen target landscape, and a top-four shortlist:
+FIRST     best initial approach.
+PEAK      highest-value target if the thesis holds.
+FALLBACK  lower-risk alternative.
+OUTLIER   non-obvious target that tests generalization.
+
+Target categories include enterprises, boutique consultants, software vendors, and funded startups. Representation need not be equal.
+The target landscape stays in background research. Derived CANDIDATE Cases may be added to the foreground when supported.
+
+A proprietary Case report is separate from the foreground:
+report/<NNN>_<CASE_ID>_report.txt
+
+The report starts with:
+1. Parent Problem card.
+2. Current Case card.
+3. STE narrative.
+4. Formal section.
+
+Further structural analysis, benchmark evidence, and publication material may follow.
+Readable Unicode mathematical notation is permitted in the formal section.

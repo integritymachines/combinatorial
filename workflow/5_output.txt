@@ -24,6 +24,7 @@ O may:
 - present the controlled Candidates line in its required location without changing its IDs;
 - normalize Regime section headings;
 - normalize Problem-card field order;
+- normalize Case-card field order and placement under the parent Problem;
 - normalize line breaks, spacing, representation punctuation, and literal separators;
 - normalize TAGS presentation;
 - normalize dependency notation presentation;
@@ -33,10 +34,10 @@ O may:
 - enforce .txt output.
 
 O must not:
-- add, remove, merge, split, or reorder Problems;
-- change Problem IDs, Industry Domain mnemonic, or numbering;
+- add, remove, merge, split, or reorder Problems or Cases;
+- change Problem IDs, Case IDs, Industry Domain mnemonic, or numbering;
 - change Industry, Territory, Domain, Regime, Structure, Parameters, or Descriptors;
-- change DESCRIPTION, TEMPLATE, ratings, dependencies, TAGS content, COMMENTS claims, or other substantive text;
+- change DESCRIPTION, TEMPLATE, ratings, dependencies, Case type or stage, SOTA, STATE, GAP, proprietary Case findings, TAGS content, COMMENTS claims, or other substantive text;
 - infer missing content;
 - repair an ontology or evidence defect.
 
@@ -50,13 +51,15 @@ Rules
 7. Present Problem cards in their existing controlled order.
 8. Insert Regime-band headings only where Problems in that band exist.
 9. Use the exact Problem-field order defined by 000_DOMAIN.txt.
-10. TAGS is a separate required field.
-11. COMMENTS is a separate required field. Use COMMENTS — when no controlled comment exists.
-12. Do not move semantic content between TAGS and COMMENTS.
-13. Do not add empty explanatory prose.
-14. If required semantic content is absent or inconsistent, stop and return the defect to F/C. Do not supply it.
-15. If an ID or ordering defect exists, report it. Do not renumber or reorder.
-16. If controlled technical English or other prose requires substantive rewriting, return it to C. O does not rewrite claims.
+10. For LEVEL=CASE, place each controlled Case under its parent Problem and use the exact Case-field order defined by 000_DOMAIN.txt.
+11. Do not add absent proprietary Part 2 fields to a Part 1-only Case.
+12. TAGS is a separate required field.
+13. COMMENTS is a separate required field. Use COMMENTS — when no controlled comment exists.
+14. Do not move semantic content between TAGS and COMMENTS.
+15. Do not add empty explanatory prose.
+16. If required semantic content is absent or inconsistent, stop and return the defect to F/C. Do not supply it.
+17. If an ID or ordering defect exists, report it. Do not renumber or reorder.
+18. If controlled technical English or other prose requires substantive rewriting, return it to C. O does not rewrite claims.
 
 Finish
 Persist the normalized foreground.
