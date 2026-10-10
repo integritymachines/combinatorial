@@ -486,7 +486,7 @@ The parent Problem is fixed.
 INDUSTRY CASE — SEMIM701c
 
 CASE
-Assign and sequence released wafer-lot operations across an interacting fab under reentry, tool qualification, batching, setup, time-link, maintenance and WIP-flow constraints.
+Coordinate the assignment and sequencing of released wafer-lot operations across interacting fab areas under reentry, tool qualification, batching, setup, time-link, maintenance and WIP-flow constraints.
 
 SOTA
 The strongest defensible current industry state is hierarchical, rolling fab scheduling that combines live MES/factory state with global look-ahead and local toolset optimization, while retaining dispatch or rule logic as an execution/fallback layer.
@@ -639,8 +639,10 @@ OUTLIER — Phantasma Labs
 Funded AI-native APS platform outside semiconductor specialization. It tests whether the v10 decomposition/benchmark method can transfer into another high-complexity scheduling product and then be brought back into semiconductor as a differentiated structural engine [C22].
 
 CANDIDATE CASES
-None promoted in this first SEMIM701 pass.
-The target landscape is retained for later return; this calibration round stops at INDUSTRY.
+Two promoted after target deep dives:
+- SEMIM701dsim | FIRST | Public evidence supports a mature deployed semiconductor scheduling, dispatch and simulation stack; the open gap is explicit fab-wide objective coverage and global/local coordination.
+- SEMIM701infi | PEAK | Public evidence supports expert hierarchical dispatch plus experimental local CP in high-fidelity fab simulation; the open gap is consistent propagation of local gains to fab-wide KPIs.
+D-SIMLAB and Infineon deep dives below retain the evidence, uncertainty and benchmark paths. FALLBACK and OUTLIER remain targets only.
 
 CASE SOURCES
 
