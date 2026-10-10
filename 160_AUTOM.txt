@@ -384,22 +384,22 @@ COMMENTS Car-sequencing and workload-based mixed-model formulations are alternat
 
 AUTOM703c Mixed-Model Assembly Sequencing Benchmark.
 CASE Order committed vehicles on a variant-rich final assembly line under workload, option, paint, material-flow and delivery constraints.
-STAGE Researched | INDUSTRY.
+STAGE Researched INDUSTRY | Current industry SOTA is supported; no public benchmark reproduces the full deployed constraint set.
 SOTA Plant-data-driven multi-objective sequencing and resequencing using constraint-rich exact or constraint models with large-neighborhood, metaheuristic or simulation-optimization search.
 CONTEXT Automotive final assembly | High variant mix; option-ratio and workload constraints, paint or setup objectives, just-in-sequence material conditions, delivery objectives and disruption-driven resequencing.
 GAP Current industrial and published systems show substantial plant-specific KPI gains, but no common public industrial-scale benchmark establishes the residual gap of the strongest deployed methods to the best attainable sequence across the combined industrial constraint set | Proposed uplift direction: test v10 structural operator design across variant-mix, workload-tightness and option-restriction regimes against strong modern sequencing baselines.
 ATTEMPTS Deployed multi-objective resequencing reduced Ford Saarlouis color changeovers 23% and planned-date spread 10%; robust sequencing research reports 72% lower expected overload than industry solutions; dynamic simulation-optimization is reported for a Fiat Powertrain case.
-TAGS #TRANS #PROD ##AUTOMOTIVE #PRODUCTION #operate #sequence #place ##car-sequencing ##model-mix ##benchmark ##resequence.
+TAGS ##multi-objective ##resequence ##benchmark-gap ##plant-data.
 COMMENTS Public benchmark coverage is narrower than the strongest deployed industrial constraint set.
 
 AUTOM703mbz Mixed-Model Assembly Sequencing Candidate.
 CASE Order committed vehicles on a high-variant final assembly line under vehicle-specific station processes and times.
-STAGE Researched | CANDIDATE.
+STAGE Researched CANDIDATE | Public evidence supports a high-maturity sequencing state; the current proprietary implementation remains undisclosed.
 STATE Public evidence supports custom vehicle-sequencing algorithms that account for vehicle-specific station processes and times, within a broader real-time digital production, simulation and optimization ecosystem.
 CONTEXT Global premium-vehicle production | Flexible multi-powertrain assembly, high variant diversity and digitally integrated production planning.
 GAP Public evidence does not disclose the current solver architecture, exact objective weights, reproducible plant instances or residual gap to the best attainable sequence | Proposed uplift direction: benchmark vehicle-specific station-process and processing-time constraints on a purpose-built dataset against strong public SOTA before any private-data comparison to the actual incumbent.
 ATTEMPTS Custom sequencing replaced coarse model-mix criteria; earlier rule-based blocked-vehicle resequencing left an acknowledged gap to theoretical potential; production planning now operates within an expanded digital-twin and data platform.
-TAGS #TRANS #PROD ##AUTOMOTIVE #PRODUCTION #operate #sequence #place ##car-sequencing ##model-mix ##candidate ##benchmark-gap.
+TAGS ##vehicle-specific-process-times ##digital-production ##benchmark-gap ##public-inference.
 COMMENTS STATE is inferred from public evidence; the current proprietary sequencing algorithm and residual performance gap are not public.
 
 
